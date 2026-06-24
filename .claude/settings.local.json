@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"\\(Get-Content cookie.html\\) -replace 'info@calcolapro\\\\.it', 'calcolapro@gmail.com' | Set-Content cookie.html -Encoding UTF8\")",
+      "Bash(powershell -Command \"\\(Get-Content privacy.html\\) -replace 'info@calcolapro\\\\.it', 'calcolapro@gmail.com' | Set-Content privacy.html -Encoding UTF8\")",
+      "Bash(Select-Object Name)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing)",
+      "Bash(start \"\" \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" \"file:///C:/Users/aless/Desktop/app%20Michele/index.html\" --window-size=390,844)",
+      "Bash(start \"\" \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" \"file:///C:/Users/aless/Desktop/app%20Michele/test.html\")",
+      "Bash(start \"\" \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" \"file:///C:/Users/aless/Desktop/app%20Michele/verify.html\")",
+      "Bash(start \"\" \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" \"file:///C:/Users/aless/Desktop/app%20Michele/verify.html#bottom\")",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:github.com)",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File claude-seo\\\\install.ps1 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\aless\\\\Desktop\\\\siti pubblicati\\\\calcolapro\" && mkdir -p .claude && echo '{\"version\":\"0.0.1\",\"configurations\":[{\"name\":\"calcolapro\",\"runtimeExecutable\":\"npx\",\"runtimeArgs\":[\"serve\",\"-p\",\"3000\",\".\"],\"port\":3000}]}' > .claude/launch.json)",
+      "Bash(sort -t: -k2 -rn)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)"
+    ]
+  }
+}

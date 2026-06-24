@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /google6e353ac4d003edf5.html
+
+Sitemap: https://calcolapro.netlify.app/sitemap.xml

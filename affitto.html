@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calcola Affitto Sostenibile 2026 | Quanto Puoi Permetterti con il Tuo Reddito</title>
+  <meta name="description" content="Calcola l'affitto massimo che puoi permetterti in base al reddito netto mensile. Regola del 30%, semaforo sostenibilità e budget rimanente. Gratis." />
+  <meta name="keywords" content="calcolatore affitto sostenibile, quanto posso pagare affitto, affitto massimo reddito, regola 30 affitto italia" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+  <link rel="canonical" href="https://calcolapro.netlify.app/affitto.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calcola Affitto Sostenibile 2026",
+    "description": "Calcola l'affitto massimo che puoi permetterti in base al reddito netto mensile. Regola del 30%, semaforo sostenibilità e budget rimanente. Gratis.",
+    "url": "https://calcolapro.netlify.app/affitto.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.netlify.app"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Quanta parte del reddito dovrei spendere per l'affitto?","acceptedAnswer":{"@type":"Answer","text":"La regola del 30% è il riferimento standard: l'affitto non dovrebbe superare il 30% del reddito netto mensile. Nelle grandi città italiane come Milano e Roma, molti inquilini arrivano al 35-40%, ma oltre questo soglia il rischio di difficoltà finanziarie aumenta significativamente."}},
+    {"@type":"Question","name":"Cosa include il canone di affitto?","acceptedAnswer":{"@type":"Answer","text":"Il canone mensile di affitto di solito non include le spese condominiali, le utenze (luce, gas, internet) e l'eventuale posto auto. Bisogna aggiungere queste voci per calcolare il costo reale mensile dell'abitazione, che può aumentare del 15-25% rispetto al solo canone."}},
+    {"@type":"Question","name":"Cos'è la cedolare secca sull'affitto?","acceptedAnswer":{"@type":"Answer","text":"La cedolare secca è un regime fiscale opzionale per i proprietari che affittano immobili a uso abitativo. Prevede un'imposta fissa del 21% sul canone (10% per i contratti a canone concordato in comuni ad alta tensione abitativa), al posto dell'IRPEF ordinaria. Conviene quasi sempre rispetto alla tassazione ordinaria."}},
+    {"@type":"Question","name":"Quanto anticipo si paga quando si affitta casa?","acceptedAnswer":{"@type":"Answer","text":"All'inizio di un contratto di affitto si paga solitamente 2-3 mensilità come deposito cauzionale (il limite legale è 3 mensilità), più la prima mensilità. Spesso si aggiungono le spese di agenzia pari a 1-2 mensilità. In totale è bene prepararsi ad avere 4-6 mensilità disponibili."}}
+  ]}
+  </script>
+  <meta property="og:title" content="Calcola Affitto Sostenibile 2026 | Quanto Puoi Permetterti">
+  <meta property="og:description" content="Calcola l'affitto massimo che puoi permetterti in base al reddito netto mensile. Regola del 30%, semaforo sostenibilità e budget rimanente. Gratis.">
+  <meta property="og:url" content="https://calcolapro.netlify.app/affitto.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="CalcolaPro">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Calcola Affitto Sostenibile 2026 | Quanto Puoi Permetterti">
+  <meta name="twitter:description" content="Calcola l'affitto massimo che puoi permetterti in base al reddito netto mensile. Regola del 30%, semaforo sostenibilità e budget rimanente. Gratis.">
+  <style>
+    .semaforo{display:inline-block;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:500;margin-bottom:24px;}
+    .verde{background:rgba(74,103,65,0.3);color:#90c882;}
+    .giallo{background:rgba(200,168,75,0.2);color:#e8d08a;}
+    .rosso{background:rgba(181,69,27,0.3);color:#e88a6a;}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Vai al contenuto</a>
+  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span class="logo-accent">Pro</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="freelance.html">💰 Freelance</a></li>
+      <li><a href="lordonetto.html">💵 Lordo/Netto</a></li>
+      <li><a href="mutuo.html">🏦 Mutuo</a></li>
+      <li><a href="affitto.html" aria-current="page">🏠 Affitto</a></li>
+      <li><a href="partitaiva.html">📋 P.IVA</a></li>
+      <li><a href="iva.html">🧾 IVA</a></li>
+      <li><a href="chilometrico.html">🚗 Km ACI</a></li>
+      <li><a href="tfr.html">📦 TFR</a></li>
+      <li><a href="pensione.html">🎂 Pensione</a></li>
+      <li><a href="tdee.html">🥗 TDEE</a></li>
+      <li><a href="bmi.html">⚖️ BMI</a></li>
+    </ul>
+  </nav>
+
+  <div class="ad-slot-top" aria-hidden="true">
+    <div class="ad-slot ad-slot-banner"><!-- AdSense --></div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-badge"><span class="dot"></span>Strumento gratuito 2026</div>
+      <h1>Quanto affitto<br>puoi permetterti?</h1>
+      <p class="page-subtitle">Inserisci il tuo reddito e scopri l'affitto massimo sostenibile, quanto ti rimane per le spese e se stai rischiando uno squilibrio finanziario.</p>
+    </div>
+  </div>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span aria-current="page">Affitto / Canone Sostenibile</span>
+  </nav>
+
+  <main id="main-content" class="page-content">
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">
+          <span class="card-icon">💼</span>
+          Il tuo reddito
+        </div>
+        <div class="field">
+          <label for="reddito">Reddito netto mensile</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="reddito" value="1800" min="0" class="has-prefix" />
+          </div>
+          <p class="hint">Stipendio o guadagno netto dopo le tasse</p>
+        </div>
+        <div class="field">
+          <label for="altriRedditi">Altri redditi mensili (opzionale)</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="altriRedditi" value="0" min="0" class="has-prefix" />
+          </div>
+          <p class="hint">Freelance, affitti, rendite, secondo lavoro…</p>
+        </div>
+        <div class="field">
+          <label for="conviventi">Persone che contribuiscono all'affitto</label>
+          <select id="conviventi">
+            <option value="1">Solo io</option>
+            <option value="2">Io + 1 persona</option>
+            <option value="3">Io + 2 persone</option>
+            <option value="4">Io + 3 persone</option>
+          </select>
+          <p class="hint">Il reddito indicato sopra è il totale familiare o solo il tuo?</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="card-icon">🏠</span>
+          Le tue spese fisse
+        </div>
+        <div class="field">
+          <label for="bollette">Bollette e utenze mensili stimate</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="bollette" value="150" min="0" class="has-prefix" />
+          </div>
+          <p class="hint">Luce, gas, acqua, internet, telefono</p>
+        </div>
+        <div class="field">
+          <label for="speseFisse">Altre spese fisse mensili</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="speseFisse" value="200" min="0" class="has-prefix" />
+          </div>
+          <p class="hint">Abbonamenti, assicurazioni, rata auto…</p>
+        </div>
+        <div class="field">
+          <label for="risparmio">Risparmio mensile desiderato</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="risparmio" value="200" min="0" class="has-prefix" />
+          </div>
+          <p class="hint">Quanto vuoi mettere da parte ogni mese</p>
+        </div>
+      </div>
+
+      <div class="col-full" style="display:flex;justify-content:center">
+        <div class="ad-slot ad-slot-rect" aria-hidden="true"><!-- AdSense --></div>
+      </div>
+
+      <div class="btn-wrap">
+        <button onclick="calcola()">Calcola il mio affitto sostenibile →</button>
+      </div>
+
+      <div id="result" class="col-full animate-fade-up">
+        <div class="result-card">
+          <div class="result-label">Affitto massimo consigliato</div>
+          <div class="result-value" id="priceOut">—</div>
+          <div class="result-unit">euro / mese</div>
+          <div id="semaforoOut"></div>
+          <div class="result-breakdown">
+            <div class="breakdown-item">
+              <div class="breakdown-value" id="regola30Out">—</div>
+              <div class="breakdown-label">regola del 30%</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-value" id="rimanenzaOut">—</div>
+              <div class="breakdown-label">budget rimanente</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-value" id="liberaOut">—</div>
+              <div class="breakdown-label">spesa libera/mese</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOX CONFRONTO AFFITTO — sostituisci href con i tuoi link affiliati reali -->
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <span style="font-size:1.5rem;">🏠</span>
+          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Trova casa, gestisci l'affitto, proteggi il tuo investimento</h3>
+        </div>
+        <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Strumenti utili per chi affitta o cerca casa — annunci, contratti e protezione dal rischio morosità.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+          <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">⭐ Più annunci in Italia</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Immobiliare.it</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Oltre 1M di annunci · Gratuito</div>
+            <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Cerca casa →</div>
+          </a>
+          <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">✅ Protezione morosità</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Assicurazione affitto</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Canoni garantiti fino a 12 mesi</div>
+            <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Scopri i piani →</div>
+          </a>
+          <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📋 Contratto online</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Contratto d'affitto</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Registrazione telematica inclusa</div>
+            <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Crea contratto →</div>
+          </a>
+        </div>
+        <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;margin-bottom:0;">⚠️ Condizioni soggette a variazioni. Verifica sempre il sito ufficiale. Link sponsorizzati.</p>
+      </div>
+
+      <div class="affiliazioni-box" id="affiliazioni" style="display:none;">
+        <h3>🏡 Strumenti utili per la tua casa</h3>
+        <div class="affiliazioni-box-grid">
+          <a href="https://amzn.to/42aS6tl" class="aff-box-item" target="_blank" rel="noopener sponsored">
+            <div class="aff-label">📚 Libro consigliato</div>
+            <div class="aff-title">Affittare Conviene...Forse — Come mettere a reddito un immobile</div>
+          </a>
+          <a href="https://amzn.to/4ncTGED" class="aff-box-item" target="_blank" rel="noopener sponsored">
+            <div class="aff-label">📚 Risparmio</div>
+            <div class="aff-title">Risparmiare Soldi con 1500€/mese — Gestisci le spese mensili</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-section">
+      <h2>Come calcolare l'affitto sostenibile in base al tuo reddito</h2>
+      <p>Scegliere un affitto compatibile con il proprio stipendio è una delle decisioni finanziarie più importanti. Pagare troppo per la casa può compromettere la qualità della vita, impedire di risparmiare e generare stress economico cronico.</p>
+      <h3>La regola del 30%</h3>
+      <p>La regola più diffusa suggerisce di non destinare più del 30% del reddito netto mensile all'affitto. Se guadagni 1.800€ netti al mese, l'affitto ideale non dovrebbe superare i 540€. Questa soglia include le sole spese di locazione, senza bollette o condominio.</p>
+      <h3>Perché il 30% non basta sempre</h3>
+      <p>In città come Milano o Roma, rispettare la regola del 30% è spesso impossibile. In questi casi è fondamentale ridurre altre spese fisse, considerare un coinquilino o valutare quartieri periferici meglio collegati. Il calcolatore qui sopra ti mostra anche il budget realmente disponibile dopo affitto, bollette e risparmio.</p>
+      <h3>Il risparmio prima di tutto</h3>
+      <p>Gli esperti di finanza personale consigliano di trattare il risparmio come una spesa fissa, non come quello che avanza. Inserire una quota di risparmio mensile nel calcolo ti aiuta a scegliere un affitto che non comprometta il tuo futuro finanziario.</p>
+      <h3>Affitto con conviventi</h3>
+      <p>Dividere l'affitto con un coinquilino o un partner può migliorare drasticamente la sostenibilità economica. Con due redditi da 1.500€ ciascuno, il budget combinato permette affitti fino a 900€ mantenendo il rapporto ideale del 30%.</p>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Calcola<span>Pro</span></div>
+        <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3)">I risultati sono indicativi e non sostituiscono la consulenza professionale.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calcolatori</h4>
+        <ul>
+          <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
+          <li><a href="mutuo.html">Rata Mutuo</a></li>
+          <li><a href="calcolatore-prestito-personale.html">Prestito Personale</a></li>
+          <li><a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a></li>
+          <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
+          <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
+          <li><a href="pensione.html">Pensione 2026</a></li>
+          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
+          <li><a href="calcolo-straordinari.html">Straordinari</a></li>
+          <li><a href="partitaiva.html">Partita IVA</a></li>
+          <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guide</h4>
+        <ul>
+          <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
+          <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
+          <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
+          <li><a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso vs Variabile</a></li>
+          <li><a href="guida-stipendio-netto-lordo.html">Stipendio Netto e Lordo</a></li>
+          <li><a href="guida-comprare-affittare-casa.html">Comprare o Affittare?</a></li>
+          <li><a href="guida-pensione-anticipata-2026.html">Pensione Anticipata 2026</a></li>
+          <li><a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informazioni</h4>
+        <ul>
+          <li><a href="come-funziona.html">Come Funziona</a></li>
+          <li><a href="about.html">Chi Siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini di Utilizzo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', open);
+      });
+    }
+    // Footer year
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+  </script>
+  <script>
+    function fmt(n) {
+      return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+    }
+
+    function calcola() {
+      const reddito      = parseFloat(document.getElementById('reddito').value) || 0;
+      const altriRedditi = parseFloat(document.getElementById('altriRedditi').value) || 0;
+      const conviventi   = parseFloat(document.getElementById('conviventi').value) || 1;
+      const bollette     = parseFloat(document.getElementById('bollette').value) || 0;
+      const speseFisse   = parseFloat(document.getElementById('speseFisse').value) || 0;
+      const risparmio    = parseFloat(document.getElementById('risparmio').value) || 0;
+
+      const redditoTotale = (reddito + altriRedditi) * conviventi;
+      const regola30 = redditoTotale * 0.30;
+      const affittoMax = redditoTotale - bollette - speseFisse - risparmio;
+      const affittoConsigliato = Math.max(0, Math.min(regola30, affittoMax));
+      const rimanenza = redditoTotale - affittoConsigliato - bollette - speseFisse - risparmio;
+      let semaforoHTML = '';
+      if (affittoMax <= 0) {
+        semaforoHTML = '<div class="semaforo rosso">🔴 Attenzione — le spese fisse superano già il reddito disponibile</div>';
+      } else if (affittoMax < regola30) {
+        semaforoHTML = '<div class="semaforo giallo">⚠️ Situazione al limite — le spese fisse lasciano poco spazio per l\'affitto</div>';
+      } else {
+        semaforoHTML = '<div class="semaforo verde">✅ Situazione sostenibile</div>';
+      }
+
+      document.getElementById('priceOut').textContent = '€ ' + Math.round(affittoConsigliato);
+      document.getElementById('semaforoOut').innerHTML = semaforoHTML;
+      document.getElementById('regola30Out').textContent = fmt(regola30);
+      document.getElementById('rimanenzaOut').textContent = fmt(rimanenza > 0 ? rimanenza : 0);
+      document.getElementById('liberaOut').textContent = fmt(Math.max(0, rimanenza));
+
+      const res = document.getElementById('result');
+      res.style.display = 'block';
+      document.getElementById('affiliazioni').style.display = 'block';
+      res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+  <script>
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
+      if (!isOpen) {
+        answer.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    }
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const form = e.target;
+      fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
+        .finally(() => { form.style.display = 'none'; document.getElementById('nlSuccess').style.display = 'block'; });
+    }
+  </script>
+
+  <div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
+    <div class="newsletter-box-icon">📬</div>
+    <h3>Ricevi consigli su affitti, tasse e risparmio</h3>
+    <p>Guide pratiche ogni mese su cedolare secca, detrazioni e come risparmiare. Gratis.</p>
+    <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
+      <input type="hidden" name="form-name" value="newsletter"/>
+      <input type="email" name="email" placeholder="la-tua@email.it" required/>
+      <button type="submit">Iscriviti →</button>
+    </form>
+    <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
+    <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
+  </div>
+
+  <!-- Amazon sticky banner -->
+  <div class="amz-sticky" id="amzSticky">
+    <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
+    <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
+    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+  </div>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

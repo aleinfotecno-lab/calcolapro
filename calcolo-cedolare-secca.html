@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calcolo Cedolare Secca 2026 — Conviene vs IRPEF? Simulazione Affitti | CalcolaPro</title>
+  <meta name="description" content="Calcola se conviene la cedolare secca (21% o 10%) rispetto all'IRPEF ordinaria sul tuo affitto. Confronto immediato con esempi pratici 2026."/>
+  <meta name="keywords" content="cedolare secca 2026, calcolo cedolare secca, cedolare secca vs IRPEF, cedolare secca 21% 10%, affitto cedolare secca, contratto concordato cedolare"/>
+  <link rel="canonical" href="https://calcolapro.netlify.app/calcolo-cedolare-secca.html"/>
+  <meta property="og:title" content="Calcolo Cedolare Secca 2026 — Conviene vs IRPEF? Simulazione Affitti"/>
+  <meta property="og:description" content="Calcola se conviene la cedolare secca (21% o 10%) rispetto all'IRPEF ordinaria sul tuo affitto. Confronto immediato con esempi pratici 2026."/>
+  <meta property="og:url" content="https://calcolapro.netlify.app/calcolo-cedolare-secca.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="it_IT"/>
+  <meta property="og:site_name" content="CalcolaPro"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Calcolo Cedolare Secca 2026 — Conviene vs IRPEF?"/>
+  <meta name="twitter:description" content="Calcola se conviene la cedolare secca (21% o 10%) rispetto all'IRPEF ordinaria sul tuo affitto. Gratis e immediato."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>🧮</text></svg>"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calcolo Cedolare Secca 2026",
+        "description": "Calcola se conviene la cedolare secca (21% o 10%) rispetto all'IRPEF ordinaria sul tuo affitto. Confronto immediato 2026.",
+        "url": "https://calcolapro.netlify.app/calcolo-cedolare-secca.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+        "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.netlify.app"}
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"Cos'è la cedolare secca e chi può usarla?","acceptedAnswer":{"@type":"Answer","text":"La cedolare secca è un regime fiscale opzionale per i proprietari di immobili residenziali (categorie catastali da A1 ad A11, esclusa A10) che affittano a uso abitativo. Sostituisce IRPEF, addizionali regionali e comunali, imposta di bollo e imposta di registro sul canone. Non possono usarla le società, i professionisti in regime d'impresa e chi affitta immobili commerciali (A10, C, ecc.)."}},
+          {"@type":"Question","name":"Qual è la differenza tra cedolare al 21% e al 10%?","acceptedAnswer":{"@type":"Answer","text":"L'aliquota del 21% si applica ai contratti a canone libero (4+4 anni) e ai contratti transitori. L'aliquota ridotta del 10% si applica ai contratti a canone concordato (3+2 anni), ai contratti per studenti universitari e ai contratti transitori in comuni ad alta tensione abitativa. Il canone concordato è fissato da accordi tra associazioni di proprietari e inquilini, ed è inferiore al mercato libero."}},
+          {"@type":"Question","name":"La cedolare secca sostituisce anche le addizionali?","acceptedAnswer":{"@type":"Answer","text":"Sì. La cedolare secca sostituisce completamente IRPEF ordinaria, addizionale regionale IRPEF, addizionale comunale IRPEF, imposta di bollo sul contratto e imposta di registro annuale sul canone. Non sostituisce invece l'IMU (che rimane dovuta) né l'imposta di registro per la registrazione iniziale del contratto."}},
+          {"@type":"Question","name":"Come si attiva la cedolare secca?","acceptedAnswer":{"@type":"Answer","text":"La cedolare secca si attiva comunicando l'opzione all'Agenzia delle Entrate al momento della registrazione del contratto (modello RLI) oppure entro il 30 giorni dalla data di decorrenza del contratto. Per i contratti già in essere, l'opzione va esercitata entro il termine ordinario di presentazione della dichiarazione dei redditi dell'anno precedente."}},
+          {"@type":"Question","name":"Cedolare secca e IMU: sono compatibili?","acceptedAnswer":{"@type":"Answer","text":"Sì, sono compatibili ma distinte. Chi sceglie la cedolare secca paga comunque l'IMU sull'immobile affittato (salvo esenzioni specifiche). La cedolare secca riguarda solo la tassazione del canone di affitto percepito, non l'imposta sull'immobile che rimane soggetta a IMU."}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+    .compare-card { border-radius: var(--radius-md); padding: 20px; border: 2px solid var(--border); background: var(--bg-card); position: relative; }
+    .compare-card.winner { border-color: #22c55e; background: #f0fdf4; }
+    .compare-card.loser { border-color: var(--border); opacity: 0.85; }
+    .compare-card .badge-winner { display: inline-block; background: #22c55e; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .compare-card .badge-loser { display: inline-block; background: var(--border); color: var(--text-muted); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .compare-card h3 { font-size: 16px; font-weight: 800; margin: 0 0 12px; color: var(--text); }
+    .compare-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row .val { font-weight: 700; color: var(--text); }
+    .compare-row .val.red { color: #ef4444; }
+    .compare-row .val.green { color: #22c55e; }
+    .compare-netto { font-size: 1.8rem; font-weight: 900; color: var(--blue); margin: 12px 0 4px; }
+    .compare-netto-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .verdict-box { border-radius: var(--radius-md); padding: 20px 24px; margin: 20px 0; font-size: 15px; line-height: 1.7; }
+    .verdict-green { background: #f0fdf4; border: 2px solid #22c55e; color: #166534; }
+    .verdict-blue { background: #eff6ff; border: 2px solid var(--blue); color: #1e40af; }
+    .verdict-box strong { font-size: 17px; display: block; margin-bottom: 6px; }
+    .comp-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; }
+    .comp-table th { background: var(--navy); color: #fff; padding: 9px 12px; text-align: left; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .comp-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .comp-table tr:nth-child(even) td { background: var(--bg); }
+    .comp-table .highlight-row td { font-weight: 700; color: var(--blue); }
+    .alert-box { border-radius: var(--radius-md); padding: 16px 20px; margin: 16px 0; font-size: 14px; line-height: 1.7; }
+    .alert-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+    .alert-warn { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Vai al contenuto</a>
+<nav class="navbar" role="navigation" aria-label="Navigazione principale">
+  <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span class="logo-accent">Pro</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+  </button>
+  <ul class="nav-links" id="navLinks" role="list">
+    <li><a href="freelance.html">💰 Freelance</a></li>
+    <li><a href="lordonetto.html">💵 Lordo/Netto</a></li>
+    <li><a href="mutuo.html">🏦 Mutuo</a></li>
+    <li><a href="affitto.html">🏠 Affitto</a></li>
+    <li><a href="partitaiva.html">📋 P.IVA</a></li>
+    <li><a href="iva.html">🧾 IVA</a></li>
+    <li><a href="chilometrico.html">🚗 Km ACI</a></li>
+    <li><a href="tfr.html">📦 TFR</a></li>
+    <li><a href="pensione.html">🎂 Pensione</a></li>
+    <li><a href="tdee.html">🥗 TDEE</a></li>
+    <li><a href="bmi.html">⚖️ BMI</a></li>
+  </ul>
+</nav>
+
+<div class="ad-slot-top" aria-hidden="true">
+  <div class="ad-slot ad-slot-banner"><!-- AdSense --></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-badge"><span class="dot"></span>Aggiornato 2026</div>
+    <h1>Calcolo <em>Cedolare Secca</em> 2026</h1>
+    <p class="page-subtitle">Scopri se conviene la cedolare secca (21% o 10%) rispetto all'IRPEF ordinaria sul tuo affitto. Confronto immediato con il verdetto personalizzato per la tua situazione.</p>
+  </div>
+</div>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="breadcrumb-sep" aria-hidden="true">›</span>
+  <span aria-current="page">Calcolo Cedolare Secca</span>
+</nav>
+
+<main id="main-content" class="page-content">
+  <div class="calc-grid">
+
+    <div class="card">
+      <div class="card-title"><span class="card-icon">🏠</span> Dati del contratto di affitto</div>
+      <div class="field">
+        <label for="canone">Canone annuo di affitto (€)</label>
+        <div class="input-wrap"><span class="input-prefix">€</span>
+        <input type="number" id="canone" value="9600" min="0" step="100" class="has-prefix"/></div>
+        <p class="hint">Es. affitto 800€/mese → 9.600€/anno</p>
+      </div>
+      <div class="field">
+        <label for="contratto">Tipo di contratto</label>
+        <select id="contratto">
+          <option value="libero">Libero (4+4) — cedolare 21%</option>
+          <option value="concordato">Concordato (3+2) — cedolare 10%</option>
+          <option value="transitorio">Transitorio — cedolare 21%</option>
+          <option value="studenti">Studenti universitari — cedolare 10%</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="reddito">Reddito complessivo annuo del proprietario (€)</label>
+        <div class="input-wrap"><span class="input-prefix">€</span>
+        <input type="number" id="reddito" value="35000" min="0" step="1000" class="has-prefix"/></div>
+        <p class="hint">Reddito lordo annuo (stipendio + altri redditi, escluso il canone di affitto)</p>
+      </div>
+      <div class="field">
+        <label for="detrazioni">Altre detrazioni/deduzioni IRPEF (€) — opzionale</label>
+        <div class="input-wrap"><span class="input-prefix">€</span>
+        <input type="number" id="detrazioni" value="0" min="0" step="100" class="has-prefix"/></div>
+        <p class="hint">Lascia 0 se non hai detrazioni particolari da sottrarre all'IRPEF</p>
+      </div>
+    </div>
+
+    <div class="col-full" style="display:flex;justify-content:center;">
+      <div class="ad-slot ad-slot-rect" aria-hidden="true"><!-- AdSense --></div>
+    </div>
+
+    <div class="col-full btn-wrap">
+      <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Confronta cedolare vs IRPEF →</button>
+    </div>
+
+    <div id="result" class="col-full animate-fade-up" style="display:none;">
+
+      <div id="verdictBox" class="verdict-box verdict-green">
+        <strong id="verdictTitle">—</strong>
+        <span id="verdictText">—</span>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card" id="cardCedolare">
+          <span class="badge-winner" id="badgeCedolare">Consigliato</span>
+          <h3>🏷️ Cedolare Secca</h3>
+          <div class="compare-row"><span>Aliquota</span><span class="val" id="aliquotaCedOut">—</span></div>
+          <div class="compare-row"><span>Imposta</span><span class="val red" id="impostaCedOut">—</span></div>
+          <div class="compare-row"><span>Netto annuo</span><span class="val green" id="nettoAnnoCedOut">—</span></div>
+          <div class="compare-netto" id="nettoMensileUno">—</div>
+          <div class="compare-netto-label">Netto mensile</div>
+        </div>
+        <div class="compare-card" id="cardIrpef">
+          <span class="badge-loser" id="badgeIrpef">Alternativa</span>
+          <h3>📋 IRPEF Ordinaria</h3>
+          <div class="compare-row"><span>Aliquota marginale</span><span class="val" id="aliquotaIrpefOut">—</span></div>
+          <div class="compare-row"><span>Base imponibile</span><span class="val" id="baseImponibileOut">—</span></div>
+          <div class="compare-row"><span>Imposta sul canone</span><span class="val red" id="imposteIrpefOut">—</span></div>
+          <div class="compare-row"><span>Netto annuo</span><span class="val" id="nettoAnnoIrpefOut">—</span></div>
+          <div class="compare-netto" id="nettoMensileDue">—</div>
+          <div class="compare-netto-label">Netto mensile</div>
+        </div>
+      </div>
+
+      <div class="alert-box alert-info" id="risparmioBox">
+        <strong>💰 Risparmio annuo:</strong> <span id="risparmioOut">—</span>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title"><span class="card-icon">📊</span> Tabella comparativa: canone × reddito proprietario</div>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:8px;">Risparmio annuo stimato scegliendo la cedolare secca (21%) rispetto all'IRPEF, per diversi canoni e redditi. Contratto a canone libero.</p>
+        <div style="overflow-x:auto;">
+        <table class="comp-table">
+          <thead><tr><th>Canone annuo</th><th>Reddito 25.000€ (sc. 23%)</th><th>Reddito 35.000€ (sc. 35%)</th><th>Reddito 55.000€ (sc. 43%)</th></tr></thead>
+          <tbody>
+            <tr><td>6.000€/anno (500€/mese)</td><td>+ € 114</td><td class="highlight-row">+ € 836</td><td>+ € 1.254</td></tr>
+            <tr><td>9.600€/anno (800€/mese)</td><td>+ € 182</td><td class="highlight-row">+ € 1.338</td><td>+ € 2.006</td></tr>
+            <tr><td>12.000€/anno (1.000€/mese)</td><td>+ € 228</td><td class="highlight-row">+ € 1.672</td><td>+ € 2.508</td></tr>
+            <tr><td>18.000€/anno (1.500€/mese)</td><td>+ € 342</td><td class="highlight-row">+ € 2.508</td><td>+ € 3.762</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Valori positivi = cedolare secca conviene. Calcolo con deduzione forfettaria IRPEF 5%, senza detrazioni aggiuntive. Dati indicativi.</p>
+      </div>
+
+      <div class="aff-box" style="margin-top:16px;">
+        <h3>📚 Guide sulle tasse per proprietari di casa</h3>
+        <div class="aff-grid">
+          <a href="https://amzn.to/4d9ulqt" class="aff-item" target="_blank" rel="noopener sponsored"><div class="aff-label">📚 Fisco e immobili</div><div class="aff-title">Partita IVA Semplice — Guida pratica per ottimizzare le tasse su affitti e redditi</div></a>
+          <a href="https://amzn.to/4n7fL7D" class="aff-item" target="_blank" rel="noopener sponsored"><div class="aff-label">📚 Finanza personale</div><div class="aff-title">Ti Insegno Come Diventare Ricco — Come far rendere al massimo i tuoi immobili</div></a>
+          <a href="https://amzn.to/48xt2jL" class="aff-item" target="_blank" rel="noopener sponsored"><div class="aff-label">📦 Amazon Prime</div><div class="aff-title">Prova gratis 30 giorni — Spedizioni illimitate e Prime Video</div></a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title"><span class="card-icon">❓</span> Domande frequenti</div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Cos'è la cedolare secca e chi può usarla? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>La <strong>cedolare secca</strong> è un regime fiscale opzionale per i proprietari di immobili residenziali (categorie catastali A1-A11, esclusa A10) che affittano a uso abitativo. Sostituisce IRPEF, addizionali regionali e comunali, imposta di bollo e imposta di registro annuale sul canone. Non possono usarla le società, i professionisti in regime d'impresa e chi affitta immobili commerciali (A10, C ecc.).</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Qual è la differenza tra cedolare al 21% e al 10%? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>L'aliquota del <strong>21%</strong> si applica ai contratti a canone libero (4+4 anni) e ai contratti transitori. L'aliquota ridotta del <strong>10%</strong> si applica ai contratti a canone concordato (3+2 anni) e ai contratti per studenti universitari. Il contratto concordato ha un canone fissato da accordi tra associazioni di proprietari e inquilini, inferiore al mercato libero: la minore entrata può essere ampiamente compensata dall'aliquota più bassa.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              La cedolare secca sostituisce anche le addizionali? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>Sì. La cedolare secca sostituisce completamente: IRPEF ordinaria, <strong>addizionale regionale IRPEF</strong>, <strong>addizionale comunale IRPEF</strong>, imposta di bollo sul contratto e imposta di registro annuale sul canone. Non sostituisce invece l'<strong>IMU</strong> (che rimane dovuta) né l'imposta di registro per la prima registrazione del contratto.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Come si attiva la cedolare secca? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>Si attiva comunicando l'opzione all'Agenzia delle Entrate al momento della <strong>registrazione del contratto</strong> (modello RLI, via software o CAF) oppure entro 30 giorni dalla decorrenza. Per contratti già in essere, l'opzione va esercitata entro il termine di presentazione della dichiarazione dei redditi dell'anno precedente. È rinnovabile ogni anno e può essere revocata.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Cedolare secca e IMU: sono compatibili? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>Sì, sono compatibili ma <strong>indipendenti</strong>. Chi sceglie la cedolare secca paga comunque l'IMU sull'immobile affittato (salvo esenzioni specifiche per prima casa). La cedolare secca riguarda solo la tassazione del canone percepito; l'IMU è un'imposta patrimoniale sull'immobile che rimane sempre dovuta per le abitazioni diverse dalla prima casa.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cross-links">
+        <h3>Strumenti correlati</h3>
+        <div class="cross-links-grid">
+          <a href="affitto.html" class="cross-link-pill">🏠 Affitto Sostenibile</a>
+          <a href="partitaiva.html" class="cross-link-pill">📋 Conviene la P.IVA?</a>
+          <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio Netto</a>
+          <a href="iva.html" class="cross-link-pill">🧾 Calcolo IVA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Cos'è la cedolare secca e quando conviene</h2>
+    <p>La cedolare secca è stata introdotta in Italia con il D.Lgs. 23/2011 come regime fiscale alternativo per i proprietari di immobili residenziali che li danno in affitto. L'idea di fondo è semplice: invece di tassare il canone come normale reddito IRPEF (con aliquote progressive fino al 43%), si applica un'<strong>imposta sostitutiva fissa</strong> — il 21% o il 10% — che copre tutto: IRPEF, addizionali regionali e comunali, imposta di bollo e registro annuale.</p>
+    <p>Il vantaggio è immediato: se il tuo reddito ti colloca negli scaglioni IRPEF superiori (35% o 43%), la cedolare secca al 21% significa pagare quasi la metà delle imposte ordinarie. Se invece hai un reddito basso e ricadi nel primo scaglione al 23%, il risparmio è minore ma comunque presente.</p>
+
+    <h3>Cedolare al 21% e cedolare al 10%: quando si applica ciascuna</h3>
+    <p>L'aliquota del <strong>21%</strong> si applica ai contratti a canone libero (tipicamente 4+4 anni), ai contratti transitori e alle locazioni brevi (meno di 30 giorni). È la cedolare "standard".</p>
+    <p>L'aliquota ridotta del <strong>10%</strong> si applica ai contratti a canone concordato (3+2 anni), ai contratti per studenti universitari fuori sede e ai contratti transitori in comuni ad alta tensione abitativa. Il canone concordato è negoziato tra proprietario e inquilino sulla base di tabelle fissate da accordi locali tra associazioni di categoria: è inferiore al prezzo di mercato, ma l'aliquota dimezzata può rendere il risultato netto molto competitivo.</p>
+
+    <h3>Quando NON si può usare la cedolare secca</h3>
+    <p>La cedolare secca non è disponibile in questi casi:</p>
+    <ul>
+      <li>Immobili commerciali (categoria catastale A10, C1, C2, ecc.) — solo residenziali A1-A11 (esclusa A10)</li>
+      <li>Affitti a società, enti o professionisti per uso ufficio</li>
+      <li>Locazioni stipulate nell'esercizio di arti, professioni o imprese</li>
+      <li>Immobili non accatastati o in categoria diversa da quelle abitative</li>
+      <li>Contratti di comodato (uso gratuito)</li>
+    </ul>
+
+    <h3>Esempio dettagliato: affitto 800€/mese, reddito 35.000€</h3>
+    <p>Vediamo il confronto completo per il caso più comune:</p>
+    <ul>
+      <li><strong>Canone mensile:</strong> 800€ → 9.600€/anno</li>
+      <li><strong>Reddito complessivo proprietario:</strong> 35.000€ → scaglione IRPEF marginale al 35%</li>
+    </ul>
+    <p><strong>Con cedolare secca al 21% (contratto libero):</strong></p>
+    <ul>
+      <li>Imposta: 9.600 × 21% = <strong>2.016€</strong></li>
+      <li>Netto annuo: 9.600 − 2.016 = <strong>7.584€</strong> (632€/mese)</li>
+    </ul>
+    <p><strong>Con IRPEF ordinaria:</strong></p>
+    <ul>
+      <li>Base imponibile: 9.600 × 95% (deduzione forfettaria 5%) = 9.120€</li>
+      <li>Aliquota marginale 35% (reddito totale 35.000 + 9.120 = 44.120€)</li>
+      <li>Imposta sul canone: 9.120 × 35% = <strong>3.192€</strong></li>
+      <li>Netto annuo: 9.600 − 3.192 = <strong>6.408€</strong> (534€/mese)</li>
+    </ul>
+    <p><strong>Risparmio annuo scegliendo la cedolare secca: 1.176€</strong> — quasi due mensilità in più.</p>
+    <p>Con la cedolare al 10% (contratto concordato), il risparmio sarebbe ancora maggiore: imposta 960€, netto 8.640€, risparmio rispetto all'IRPEF di oltre 2.200€/anno.</p>
+  </div>
+</main>
+
+<div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
+  <div class="newsletter-box-icon">📬</div>
+  <h3>Aggiornamenti su cedolare secca e affitti 2026</h3>
+  <p>Novità fiscali per proprietari, guide su tassazione e come massimizzare il reddito da affitto. Gratis.</p>
+  <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
+    <input type="hidden" name="form-name" value="newsletter"/>
+    <input type="email" name="email" placeholder="la-tua@email.it" required/>
+    <button type="submit">Iscriviti →</button>
+  </form>
+  <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
+  <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
+</div>
+
+<!-- BOX CONFRONTO GESTIONE AFFITTI — sostituisci href con i tuoi link affiliati reali -->
+<div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;max-width:720px;margin:0 auto 32px;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+    <span style="font-size:1.5rem;">🏠</span>
+    <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Scelto la cedolare secca — ora gestiscila al meglio</h3>
+  </div>
+  <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Registrazione contratto, dichiarazione e protezione da morosità: gli strumenti giusti per i proprietari.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+    <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+      <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">⭐ Annunci affitto</div>
+      <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Immobiliare.it</div>
+      <div style="color:rgba(255,255,255,0.5);font-size:12px;">Pubblica il tuo annuncio</div>
+      <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Pubblica gratis →</div>
+    </a>
+    <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+      <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">✅ Dichiarazione facile</div>
+      <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">730 precompilato</div>
+      <div style="color:rgba(255,255,255,0.5);font-size:12px;">Guida completa per proprietari</div>
+      <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Scopri come →</div>
+    </a>
+    <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+      <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🛡️ Anti-morosità</div>
+      <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Assicurazione affitto</div>
+      <div style="color:rgba(255,255,255,0.5);font-size:12px;">Canoni garantiti fino a 12 mesi</div>
+      <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Proteggi il canone →</div>
+    </a>
+  </div>
+  <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;margin-bottom:0;">⚠️ Condizioni soggette a variazioni. Verifica sempre il sito ufficiale. Link sponsorizzati.</p>
+</div>
+
+<div class="amz-sticky" id="amzSticky">
+  <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
+  <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
+  <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Calcola<span>Pro</span></div>
+      <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.3)">I risultati sono indicativi e non sostituiscono la consulenza professionale.</p>
+    </div>
+      <div class="footer-col">
+        <h4>Calcolatori</h4>
+        <ul>
+          <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
+          <li><a href="mutuo.html">Rata Mutuo</a></li>
+          <li><a href="calcolatore-prestito-personale.html">Prestito Personale</a></li>
+          <li><a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a></li>
+          <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
+          <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
+          <li><a href="pensione.html">Pensione 2026</a></li>
+          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
+          <li><a href="calcolo-straordinari.html">Straordinari</a></li>
+          <li><a href="partitaiva.html">Partita IVA</a></li>
+          <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guide</h4>
+        <ul>
+          <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
+          <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
+          <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
+          <li><a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso vs Variabile</a></li>
+          <li><a href="guida-stipendio-netto-lordo.html">Stipendio Netto e Lordo</a></li>
+          <li><a href="guida-comprare-affittare-casa.html">Comprare o Affittare?</a></li>
+          <li><a href="guida-pensione-anticipata-2026.html">Pensione Anticipata 2026</a></li>
+          <li><a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a></li>
+        </ul>
+      </div>
+    <div class="footer-col">
+      <h4>Informazioni</h4>
+      <ul>
+        <li><a href="about.html">Chi Siamo</a></li>
+        <li><a href="come-funziona.html">Come Funziona</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="cookie.html">Cookie Policy</a></li>
+        <li><a href="termini.html">Termini di Utilizzo</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
+  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+  function fmtEur(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(n); }
+  function fmtEur2(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n); }
+  function fmtPct(n) { return n.toFixed(0) + '%'; }
+
+  // Calcola aliquota marginale IRPEF 2026 sul reddito totale (reddito base + base imponibile canone)
+  // Scaglioni 2026: 23% fino 28.000, 35% fino 50.000, 43% oltre
+  function aliquotaMarginale(redditoTotale) {
+    if (redditoTotale <= 28000) return 0.23;
+    if (redditoTotale <= 50000) return 0.35;
+    return 0.43;
+  }
+
+  function calcola() {
+    const canone = parseFloat(document.getElementById('canone').value) || 0;
+    const contratto = document.getElementById('contratto').value;
+    const reddito = parseFloat(document.getElementById('reddito').value) || 0;
+    const detrazioni = parseFloat(document.getElementById('detrazioni').value) || 0;
+
+    if (canone <= 0) { alert('Inserisci un canone annuo valido.'); return; }
+    if (reddito < 0) { alert('Inserisci un reddito valido.'); return; }
+
+    // Cedolare secca
+    const aliquotaCed = (contratto === 'concordato' || contratto === 'studenti') ? 0.10 : 0.21;
+    const impostaCed = canone * aliquotaCed;
+    const nettoCed = canone - impostaCed;
+
+    // IRPEF ordinaria
+    const baseImponibile = canone * 0.95; // deduzione forfettaria 5%
+    const redditoTotale = reddito + baseImponibile;
+    const aliqMarg = aliquotaMarginale(redditoTotale);
+    let imposteIrpef = baseImponibile * aliqMarg - detrazioni;
+    if (imposteIrpef < 0) imposteIrpef = 0;
+    const nettoIrpef = canone - imposteIrpef;
+
+    const risparmio = nettoIrpef > nettoCed ? nettoIrpef - nettoCed : nettoCed - nettoIrpef;
+    const cedolareMigliore = nettoCed >= nettoIrpef;
+
+    // Popola i campi cedolare
+    document.getElementById('aliquotaCedOut').textContent = fmtPct(aliquotaCed * 100);
+    document.getElementById('impostaCedOut').textContent = '- ' + fmtEur(impostaCed);
+    document.getElementById('nettoAnnoCedOut').textContent = fmtEur(nettoCed);
+    document.getElementById('nettoMensileUno').textContent = fmtEur2(nettoCed / 12);
+
+    // Popola i campi IRPEF
+    document.getElementById('aliquotaIrpefOut').textContent = fmtPct(aliqMarg * 100);
+    document.getElementById('baseImponibileOut').textContent = fmtEur(baseImponibile);
+    document.getElementById('imposteIrpefOut').textContent = '- ' + fmtEur(imposteIrpef);
+    document.getElementById('nettoAnnoIrpefOut').textContent = fmtEur(nettoIrpef);
+    document.getElementById('nettoMensileDue').textContent = fmtEur2(nettoIrpef / 12);
+
+    // Stile card vincitore / perdente
+    const cardCed = document.getElementById('cardCedolare');
+    const cardIrpef = document.getElementById('cardIrpef');
+    const badgeCed = document.getElementById('badgeCedolare');
+    const badgeIrpef = document.getElementById('badgeIrpef');
+
+    if (cedolareMigliore) {
+      cardCed.className = 'compare-card winner';
+      cardIrpef.className = 'compare-card loser';
+      badgeCed.className = 'badge-winner';
+      badgeCed.textContent = 'Consigliato';
+      badgeIrpef.className = 'badge-loser';
+      badgeIrpef.textContent = 'Meno conveniente';
+    } else {
+      cardCed.className = 'compare-card loser';
+      cardIrpef.className = 'compare-card winner';
+      badgeCed.className = 'badge-loser';
+      badgeCed.textContent = 'Meno conveniente';
+      badgeIrpef.className = 'badge-winner';
+      badgeIrpef.textContent = 'Consigliato';
+    }
+
+    // Verdetto
+    const verdictBox = document.getElementById('verdictBox');
+    const verdictTitle = document.getElementById('verdictTitle');
+    const verdictText = document.getElementById('verdictText');
+
+    if (cedolareMigliore) {
+      verdictBox.className = 'verdict-box verdict-green';
+      verdictTitle.textContent = '✅ Con la tua situazione, conviene la CEDOLARE SECCA — risparmi ' + fmtEur(risparmio) + '/anno';
+      verdictText.textContent = 'La cedolare secca al ' + fmtPct(aliquotaCed * 100) + ' ti permette di incassare ' + fmtEur2(nettoCed / 12) + '/mese netti, rispetto a ' + fmtEur2(nettoIrpef / 12) + '/mese con l\'IRPEF ordinaria (aliquota marginale ' + fmtPct(aliqMarg * 100) + '%).';
+    } else {
+      verdictBox.className = 'verdict-box verdict-blue';
+      verdictTitle.textContent = 'ℹ️ Con la tua situazione, potrebbe convenire l\'IRPEF ordinaria — differenza ' + fmtEur(risparmio) + '/anno';
+      verdictText.textContent = 'Con un reddito basso, l\'aliquota IRPEF marginale (' + fmtPct(aliqMarg * 100) + '%) è vicina alla cedolare (' + fmtPct(aliquotaCed * 100) + '%). Considera anche che la cedolare secca elimina addizionali regionali/comunali (tipicamente 1,5-3,5%): incluse quelle, la cedolare secca conviene quasi sempre.';
+    }
+
+    // Box risparmio
+    document.getElementById('risparmioOut').textContent = fmtEur(risparmio) + '/anno (' + fmtEur2(risparmio / 12) + '/mese) scegliendo ' + (cedolareMigliore ? 'la cedolare secca' : 'l\'IRPEF ordinaria');
+
+    const res = document.getElementById('result');
+    res.style.display = 'block';
+    res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (typeof gtag !== 'undefined') gtag('event', 'calcolo_cedolare_secca', { contratto: contratto, aliquota: aliquotaCed * 100 });
+  }
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const form = e.target;
+    fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
+      .finally(() => { form.style.display = 'none'; document.getElementById('nlSuccess').style.display = 'block'; });
+  }
+</script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

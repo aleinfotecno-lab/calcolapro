@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calcolo ISEE 2026 | Simulatore Online Gratuito</title>
+  <meta name="description" content="Simula il tuo ISEE 2026 online gratis. Calcola l'Indicatore della Situazione Economica Equivalente per accedere a bonus, agevolazioni e borse di studio. Risultato immediato."/>
+  <meta name="keywords" content="calcolo ISEE 2026, simulatore ISEE, ISEE online, come calcolare ISEE, ISEE dichiarazione, ISEE precompilato, ISEE agevolazioni"/>
+  <link rel="canonical" href="https://calcolapro.netlify.app/calcolo-isee.html"/>
+  <meta property="og:title" content="Calcolo ISEE 2026 — Simulatore Online Gratuito"/>
+  <meta property="og:description" content="Simula il tuo ISEE 2026 online gratis. Calcolo immediato per accedere a bonus, agevolazioni e borse di studio."/>
+  <meta property="og:url" content="https://calcolapro.netlify.app/calcolo-isee.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="CalcolaPro"/>
+  <meta name="twitter:card" content="summary"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Simulatore ISEE 2026","description":"Simula il tuo ISEE 2026 online e scopri le agevolazioni a cui hai diritto.","url":"https://calcolapro.netlify.app/calcolo-isee.html","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"CalcolaPro"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Come si calcola l'ISEE?","acceptedAnswer":{"@type":"Answer","text":"L'ISEE si calcola con la formula: (ISE / scala equivalenza). Dove ISE = redditi complessivi del nucleo + 20% del patrimonio mobiliare + 20% del patrimonio immobiliare. La scala di equivalenza dipende dal numero e dalla composizione dei componenti del nucleo familiare."}},
+    {"@type":"Question","name":"Entro quando va presentata la DSU per l'ISEE 2026?","acceptedAnswer":{"@type":"Answer","text":"La DSU (Dichiarazione Sostitutiva Unica) per l'ISEE 2026 può essere presentata in qualsiasi momento dell'anno. L'ISEE calcolato è valido dall'1 gennaio al 31 dicembre 2026 (o fino a quando non cambia la situazione familiare)."}},
+    {"@type":"Question","name":"Cosa si include nel patrimonio immobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio immobiliare ISEE si includono: tutti gli immobili posseduti (prima casa, seconda casa, terreni) al valore IMU. Per la prima casa si applica una franchigia di €52.500, maggiorata di €2.500 per ogni figlio oltre il secondo."}},
+    {"@type":"Question","name":"Cosa si include nel patrimonio mobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio mobiliare ISEE si includono: conti correnti e depositi (saldo medio annuo), BOT, BTP, fondi, azioni, polizze assicurative a risparmio. Si applica una franchigia di €6.000 per nucleo, aumentata di €2.000 per ogni componente oltre il primo (max €52.000 totali)."}},
+    {"@type":"Question","name":"Qual è la soglia ISEE per il Bonus Asilo Nido?","acceptedAnswer":{"@type":"Answer","text":"Il Bonus Asilo Nido 2026 varia in base all'ISEE: fino a €25.001 → €3.000/anno; da €25.001 a €40.000 → €2.500/anno; oltre €40.000 → €1.500/anno. Per il secondo figlio nato dopo il 1° gennaio 2024 è riconosciuto l'importo massimo a prescindere dall'ISEE."}}
+  ]}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Vai al contenuto</a>
+  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span class="logo-accent">Pro</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="freelance.html">💰 Freelance</a></li>
+      <li><a href="lordonetto.html">💵 Lordo/Netto</a></li>
+      <li><a href="mutuo.html">🏦 Mutuo</a></li>
+      <li><a href="affitto.html">🏠 Affitto</a></li>
+      <li><a href="partitaiva.html">📋 P.IVA</a></li>
+      <li><a href="iva.html">🧾 IVA</a></li>
+      <li><a href="chilometrico.html">🚗 Km ACI</a></li>
+      <li><a href="tfr.html">📦 TFR</a></li>
+      <li><a href="pensione.html">🎂 Pensione</a></li>
+      <li><a href="tdee.html">🥗 TDEE</a></li>
+      <li><a href="bmi.html">⚖️ BMI</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-badge"><span class="dot"></span>Aggiornato 2026</div>
+      <h1>Simulatore ISEE 2026</h1>
+      <p class="page-subtitle">Stima il tuo ISEE online in pochi secondi e scopri a quali bonus e agevolazioni hai diritto. Calcolo gratuito e immediato — nessuna registrazione.</p>
+    </div>
+  </div>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span aria-current="page">Calcolo ISEE 2026</span>
+  </nav>
+
+  <main id="main-content" class="page-content">
+    <div class="calc-grid">
+      <!-- FORM -->
+      <div class="calc-form-col">
+        <div class="ad-slot-top" aria-hidden="true"><div class="ad-slot ad-slot-banner"><!-- AdSense --></div></div>
+
+        <div class="card">
+          <h2 class="card-title">Nucleo familiare</h2>
+          <div class="field-group">
+            <label class="field-label" for="componenti">Numero di componenti del nucleo</label>
+            <select class="field-input" id="componenti" onchange="aggiornaScale()">
+              <option value="1">1 persona</option>
+              <option value="2" selected>2 persone</option>
+              <option value="3">3 persone</option>
+              <option value="4">4 persone</option>
+              <option value="5">5 persone</option>
+              <option value="6">6 persone</option>
+              <option value="7">7 o più persone</option>
+            </select>
+            <span class="field-hint" id="scaleHint">Parametro scala equivalenza: <strong id="scaleVal">1.57</strong></span>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="figlioDisabile">Figlio disabile nel nucleo?</label>
+              <select class="field-input" id="figlioDisabile">
+                <option value="0">No</option>
+                <option value="1">Sì (+0.50)</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="genitoreMonogenitoriale">Nucleo monogenitoriale?</label>
+              <select class="field-input" id="genitoreMonogenitoriale">
+                <option value="0">No</option>
+                <option value="1">Sì (+0.35)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Redditi del nucleo (anno 2024)</h2>
+          <div class="field-group">
+            <label class="field-label" for="redditoLavDip">Redditi da lavoro dipendente / pensione (€)</label>
+            <input class="field-input" type="number" id="redditoLavDip" placeholder="es. 28000" min="0"/>
+            <span class="field-hint">Reddito complessivo lordo di tutto il nucleo — somma tutti i componenti</span>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="redditoAltri">Altri redditi (autonomo, affitti, dividendi…) (€)</label>
+            <input class="field-input" type="number" id="redditoAltri" placeholder="es. 5000" min="0"/>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="assegnoUnico">Assegno Unico percepito (€ annui)</label>
+            <input class="field-input" type="number" id="assegnoUnico" placeholder="es. 2400" min="0"/>
+            <span class="field-hint">L'Assegno Unico è escluso dal reddito ISEE, inseriscilo solo se vuoi escluderlo dal totale</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Patrimonio immobiliare</h2>
+          <div class="field-group">
+            <label class="field-label" for="valoreImuPrimaCasa">Valore IMU prima casa (€)</label>
+            <input class="field-input" type="number" id="valoreImuPrimaCasa" placeholder="es. 120000" min="0"/>
+            <span class="field-hint">Rendita catastale × 1.05 × 160. Applica la franchigia di €52.500</span>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="valoreImuAltri">Valore IMU altri immobili (seconde case, terreni) (€)</label>
+            <input class="field-input" type="number" id="valoreImuAltri" placeholder="es. 0" min="0"/>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Patrimonio mobiliare</h2>
+          <div class="field-group">
+            <label class="field-label" for="saldoConti">Saldo medio conti correnti e depositi (€)</label>
+            <input class="field-input" type="number" id="saldoConti" placeholder="es. 15000" min="0"/>
+            <span class="field-hint">Media dei saldi al 31/12/2024 di tutti i conti del nucleo</span>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="titoliFinanziari">Titoli, fondi, azioni, polizze (€)</label>
+            <input class="field-input" type="number" id="titoliFinanziari" placeholder="es. 0" min="0"/>
+          </div>
+        </div>
+
+        <button class="btn-calcola" onclick="calcolaISEE()">Calcola ISEE →</button>
+      </div>
+
+      <!-- RISULTATI -->
+      <div class="calc-result-col">
+        <div class="result-card" id="resultCard" style="display:none;">
+          <h3 class="result-title">Il tuo ISEE stimato 2026</h3>
+          <div class="result-main" id="resultMain"></div>
+          <div class="result-details" id="resultDetails"></div>
+        </div>
+
+        <div class="result-card" id="bonusCard" style="display:none;margin-top:16px;">
+          <h3 class="result-title">Agevolazioni a cui potresti avere diritto</h3>
+          <div id="bonusList"></div>
+        </div>
+
+        <div class="result-card" id="placeholderCard">
+          <h3 class="result-title">Come si calcola l'ISEE</h3>
+          <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:16px;">La formula ufficiale è:</p>
+          <div style="background:rgba(37,99,235,0.08);border-radius:10px;padding:16px;font-family:monospace;font-size:13px;color:var(--text-primary);margin-bottom:16px;">
+            ISEE = ISE ÷ Scala Equivalenza<br><br>
+            ISE = Redditi + 20% Patrimonio Mobiliare + 20% Patrimonio Immobiliare
+          </div>
+          <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;"><strong>Importante:</strong> questo è uno strumento di stima orientativo. L'ISEE ufficiale si ottiene presentando la <strong>DSU</strong> (Dichiarazione Sostitutiva Unica) tramite SPID sul sito INPS, oppure tramite CAF o patronato. Il valore ufficiale può differire dalla stima.</p>
+
+          <div style="margin-top:20px;background:rgba(255,255,255,0.03);border-radius:10px;padding:14px;">
+            <div style="font-weight:700;color:var(--text-primary);margin-bottom:12px;">Scala di equivalenza ISEE</div>
+            <table style="width:100%;font-size:13px;border-collapse:collapse;">
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">1 persona</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">1.00</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">2 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">1.57</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">3 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">2.04</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">4 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">2.46</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">5 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">2.85</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">6 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">3.19</td></tr>
+              <tr><td style="padding:6px 0;color:var(--text-secondary);">7+ persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">3.53+</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="ad-slot-top" aria-hidden="true" style="margin-top:16px;"><div class="ad-slot ad-slot-rect"><!-- AdSense --></div></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <h2>Domande frequenti sull'ISEE</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola l'ISEE?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">L'ISEE si calcola dividendo l'ISE (Indicatore della Situazione Economica) per il parametro della scala di equivalenza. L'ISE è la somma dei redditi complessivi del nucleo, più il 20% del patrimonio mobiliare (conti, titoli) e il 20% del patrimonio immobiliare (immobili al valore IMU), al netto delle relative franchigie.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Entro quando va presentata la DSU per l'ISEE 2026?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">La DSU può essere presentata in qualsiasi momento dell'anno. L'ISEE ottenuto vale fino al 31 dicembre 2026, oppure fino a quando non cambia la situazione reddituale o familiare. È conveniente presentarla all'inizio dell'anno per sfruttare subito tutte le agevolazioni.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa si include nel patrimonio mobiliare ISEE?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Conti correnti e depositi (al saldo medio annuo 2024), BOT, BTP, fondi comuni, azioni, obbligazioni, polizze assicurative a risparmio. Si applica una franchigia base di €6.000, aumentata di €2.000 per ogni componente del nucleo oltre il primo (max franchigia €52.000 per nuclei con 4+ componenti).</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Qual è la soglia ISEE per il Bonus Asilo Nido 2026?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Il Bonus Asilo Nido varia: ISEE fino a €25.001 → €3.000/anno; ISEE da €25.001 a €40.000 → €2.500/anno; ISEE oltre €40.000 → €1.500/anno. Per secondo figlio nato dopo il 1° gennaio 2024 è riconosciuto il massimale indipendentemente dall'ISEE.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">L'ISEE precompilato è diverso da quello ordinario?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">L'ISEE precompilato è già parzialmente compilato dall'INPS con i dati in suo possesso (redditi, immobili, conti). Si accede con SPID sul portale INPS. Se i dati precompilati sono corretti, si può confermare senza modifiche ottenendo così la protezione da controlli formali. L'ISEE ordinario si compila interamente dal contribuente (o tramite CAF).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOX CONFRONTO -->
+    <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin:32px 0;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:1.5rem;">📋</span>
+        <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Servizi utili per la tua DSU</h3>
+      </div>
+      <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Ottieni l'ISEE ufficiale con un CAF o accedi a bonus correlati.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+        <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+          <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📋 CAF Online</div>
+          <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">ISEE con un CAF</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:12px;">Presenta la DSU e ottieni l'ISEE ufficiale</div>
+          <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Prenota →</div>
+        </a>
+        <a href="guida-730-precompilato-2026.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+          <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📄 730</div>
+          <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">730 Precompilato 2026</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:12px;">Guida completa al 730 e al rimborso IRPEF</div>
+          <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Leggi →</div>
+        </a>
+        <a href="lordonetto.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+          <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">💵 Stipendio</div>
+          <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Calcola Lordo/Netto</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:12px;">Verifica il tuo reddito netto effettivo</div>
+          <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Calcola<span>Pro</span></div>
+        <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3)">I risultati sono indicativi e non sostituiscono la consulenza professionale.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calcolatori</h4>
+        <ul>
+          <li><a href="lordonetto.html">Lordo → Netto Stipendio</a></li>
+          <li><a href="mutuo.html">Rata Mutuo</a></li>
+          <li><a href="calcolatore-prestito-personale.html">Prestito Personale</a></li>
+          <li><a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a></li>
+          <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
+          <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
+          <li><a href="pensione.html">Pensione 2026</a></li>
+          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
+          <li><a href="calcolo-straordinari.html">Straordinari</a></li>
+          <li><a href="partitaiva.html">Partita IVA</a></li>
+          <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guide</h4>
+        <ul>
+          <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
+          <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
+          <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
+          <li><a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso vs Variabile</a></li>
+          <li><a href="guida-stipendio-netto-lordo.html">Stipendio Netto e Lordo</a></li>
+          <li><a href="guida-comprare-affittare-casa.html">Comprare o Affittare?</a></li>
+          <li><a href="guida-pensione-anticipata-2026.html">Pensione Anticipata 2026</a></li>
+          <li><a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informazioni</h4>
+        <ul>
+          <li><a href="come-funziona.html">Come Funziona</a></li>
+          <li><a href="about.html">Chi Siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini di Utilizzo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
+    </div>
+  </footer>
+
+  <div class="newsletter-box">
+    <div class="newsletter-box-icon">📬</div>
+    <h3>Bonus e agevolazioni ISEE — aggiornamenti 2026</h3>
+    <p>Ricevi avvisi quando cambiano le soglie ISEE per bonus asilo nido, reddito di cittadinanza e altre agevolazioni. Gratis.</p>
+    <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
+      <input type="hidden" name="form-name" value="newsletter"/>
+      <input type="email" name="email" placeholder="la-tua@email.it" required/>
+      <button type="submit">Iscriviti →</button>
+    </form>
+    <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
+    <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
+  </div>
+
+  <div class="amz-sticky" id="amzSticky">
+    <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
+    <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
+    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+  </div>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+    const scaleTable = { 1: 1.00, 2: 1.57, 3: 2.04, 4: 2.46, 5: 2.85, 6: 3.19, 7: 3.53 };
+
+    function aggiornaScale() {
+      const n = parseInt(document.getElementById('componenti').value);
+      document.getElementById('scaleVal').textContent = scaleTable[n] || 3.53;
+    }
+
+    function fmt(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n); }
+    function fmtN(n) { return new Intl.NumberFormat('it-IT', { maximumFractionDigits: 0 }).format(n); }
+
+    function calcolaISEE() {
+      const n = parseInt(document.getElementById('componenti').value);
+      let scala = scaleTable[n] || 3.53;
+      const disabile = parseFloat(document.getElementById('figlioDisabile').value);
+      const monogen = parseFloat(document.getElementById('genitoreMonogenitoriale').value);
+      scala += disabile * 0.50 + monogen * 0.35;
+
+      const redDip = parseFloat(document.getElementById('redditoLavDip').value) || 0;
+      const redAltri = parseFloat(document.getElementById('redditoAltri').value) || 0;
+      const redditoTotale = redDip + redAltri;
+
+      // Patrimonio immobiliare
+      const imuPrima = parseFloat(document.getElementById('valoreImuPrimaCasa').value) || 0;
+      const imuAltri = parseFloat(document.getElementById('valoreImuAltri').value) || 0;
+      const franchPrima = 52500 + 2500 * Math.max(0, n - 2);
+      const patrimonioImm = Math.max(0, imuPrima - franchPrima) + imuAltri;
+
+      // Patrimonio mobiliare
+      const saldoConti = parseFloat(document.getElementById('saldoConti').value) || 0;
+      const titoli = parseFloat(document.getElementById('titoliFinanziari').value) || 0;
+      const patMob = saldoConti + titoli;
+      const franchMob = Math.min(52000, 6000 + 2000 * (n - 1));
+      const patrimonioMob = Math.max(0, patMob - franchMob);
+
+      const ISE = redditoTotale + 0.20 * patrimonioImm + 0.20 * patrimonioMob;
+      const ISEE = ISE / scala;
+
+      document.getElementById('placeholderCard').style.display = 'none';
+      const rc = document.getElementById('resultCard');
+      rc.style.display = 'block';
+
+      let fascia = '';
+      let fasciaColor = '';
+      if (ISEE < 3000) { fascia = 'Molto basso — accedi alle agevolazioni massime'; fasciaColor = '#16a34a'; }
+      else if (ISEE < 8000) { fascia = 'Basso — molte agevolazioni disponibili'; fasciaColor = '#16a34a'; }
+      else if (ISEE < 15000) { fascia = 'Medio-basso — accedi a diverse agevolazioni'; fasciaColor = '#d97706'; }
+      else if (ISEE < 25000) { fascia = 'Medio — alcune agevolazioni disponibili'; fasciaColor = '#d97706'; }
+      else if (ISEE < 40000) { fascia = 'Medio-alto — agevolazioni ridotte'; fasciaColor = '#dc2626'; }
+      else { fascia = 'Alto — agevolazioni limitate'; fasciaColor = '#dc2626'; }
+
+      document.getElementById('resultMain').innerHTML = `
+        <div style="text-align:center;padding:20px 0;">
+          <div style="font-size:2.8rem;font-weight:900;color:var(--blue);">${fmt(ISEE)}</div>
+          <div style="font-size:14px;color:${fasciaColor};font-weight:700;margin-top:8px;">${fascia}</div>
+        </div>
+      `;
+
+      document.getElementById('resultDetails').innerHTML = `
+        <div style="display:grid;gap:10px;margin-top:8px;">
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-secondary);font-size:14px;">Redditi totali nucleo</span><span style="font-weight:700;font-size:14px;">${fmt(redditoTotale)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-secondary);font-size:14px;">Patrimonio immobiliare (netto franchigia)</span><span style="font-weight:700;font-size:14px;">${fmt(patrimonioImm)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-secondary);font-size:14px;">Patrimonio mobiliare (netto franchigia)</span><span style="font-weight:700;font-size:14px;">${fmt(patrimonioMob)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-secondary);font-size:14px;">ISE (prima della divisione)</span><span style="font-weight:700;font-size:14px;">${fmt(ISE)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;"><span style="color:var(--text-secondary);font-size:14px;">Scala equivalenza applicata</span><span style="font-weight:700;font-size:14px;">${scala.toFixed(2)}</span></div>
+        </div>
+        <div style="background:rgba(217,119,6,0.08);border-left:3px solid #d97706;border-radius:0 8px 8px 0;padding:12px 14px;margin-top:16px;font-size:13px;color:var(--text-secondary);">
+          ⚠️ Stima orientativa. L'ISEE ufficiale può differire — presenta la DSU all'INPS o a un CAF per il valore certificato.
+        </div>
+      `;
+
+      // Bonus card
+      const bc = document.getElementById('bonusCard');
+      bc.style.display = 'block';
+      const bonusList = [];
+
+      if (ISEE <= 40000) bonusList.push({ nome: 'Bonus Asilo Nido', soglia: ISEE <= 25001 ? '€3.000/anno' : ISEE <= 40000 ? '€2.500/anno' : '€1.500/anno', ok: true });
+      if (ISEE <= 15000) bonusList.push({ nome: 'Reddito di Inclusione (ReI)', soglia: 'Verifica requisiti INPS', ok: true });
+      if (ISEE <= 20000) bonusList.push({ nome: 'Bonus Sociale Luce e Gas', soglia: 'Sconto automatico in bolletta', ok: true });
+      if (ISEE <= 26000) bonusList.push({ nome: 'Borse di studio universitarie (DSU)', soglia: 'Contatta il tuo Ateneo/ERDISU', ok: true });
+      if (ISEE <= 30000) bonusList.push({ nome: 'Riduzione rette asili nido comunali', soglia: 'Dipende dal Comune', ok: true });
+      if (ISEE <= 25000) bonusList.push({ nome: 'Esenzione ticket sanitario', soglia: 'Fascia E1 / E2', ok: true });
+      if (ISEE <= 35000) bonusList.push({ nome: 'Agevolazione Iscrizione Sport (figli)', soglia: 'Varia per Ente', ok: true });
+      if (ISEE > 40000) bonusList.push({ nome: 'Poche agevolazioni standard disponibili', soglia: 'ISEE elevato', ok: false });
+
+      document.getElementById('bonusList').innerHTML = bonusList.map(b => `
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);">
+          <span style="font-size:18px;">${b.ok ? '✅' : '⚠️'}</span>
+          <div>
+            <div style="font-weight:700;font-size:14px;color:var(--text-primary);">${b.nome}</div>
+            <div style="font-size:12px;color:var(--text-secondary);">${b.soglia}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
+      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const form = e.target;
+      fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
+        .finally(() => { form.style.display = 'none'; document.getElementById('nlSuccess').style.display = 'block'; });
+    }
+  </script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

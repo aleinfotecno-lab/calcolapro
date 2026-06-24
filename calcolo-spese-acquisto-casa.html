@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calcolo Spese Acquisto Casa 2026 | Notaio, Imposte e Costi Totali</title>
+  <meta name="description" content="Calcola tutte le spese per comprare casa nel 2026: imposta di registro, IVA, notaio, agenzia e costi totali. Prima casa o seconda casa, da privato o costruttore. Gratis."/>
+  <meta name="keywords" content="spese acquisto casa 2026, calcolo imposta registro prima casa, costi notaio acquisto immobile, quanto costa comprare casa italia, spese seconda casa"/>
+  <link rel="canonical" href="https://calcolapro.netlify.app/calcolo-spese-acquisto-casa.html"/>
+  <meta property="og:title" content="Calcolo Spese Acquisto Casa 2026 | Notaio, Imposte e Costi Totali"/>
+  <meta property="og:description" content="Calcola tutte le spese per comprare casa: imposta di registro, notaio, agenzia. Prima o seconda casa, da privato o costruttore. Gratis."/>
+  <meta property="og:url" content="https://calcolapro.netlify.app/calcolo-spese-acquisto-casa.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="CalcolaPro"/>
+  <meta name="twitter:card" content="summary"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Calcolo Spese Acquisto Casa 2026","description":"Calcola tutte le spese per comprare casa: imposte, notaio, agenzia. Prima o seconda casa, da privato o costruttore. Gratis.","url":"https://calcolapro.netlify.app/calcolo-spese-acquisto-casa.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.netlify.app"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Quante tasse si pagano per l'acquisto della prima casa?","acceptedAnswer":{"@type":"Answer","text":"Acquistando la prima casa da un privato si paga l'imposta di registro al 2% sul valore catastale rivalutato (non sul prezzo di acquisto), con un minimo di €1.000, più €50 di imposta ipotecaria e €50 di imposta catastale. Se si acquista da un'impresa costruttrice, si paga invece l'IVA al 4% sul prezzo d'acquisto."}},
+    {"@type":"Question","name":"Quanto costa il notaio per comprare casa?","acceptedAnswer":{"@type":"Answer","text":"Il costo del notaio per un rogito di acquisto varia tipicamente tra €1.500 e €3.500 per immobili di valore medio, ma può arrivare a €5.000-6.000 per immobili di lusso. Il notaio calcola i propri onorari in base al valore dell'immobile con tariffe indicate dal Consiglio Notarile. Richiedi sempre più preventivi."}},
+    {"@type":"Question","name":"Quali sono i requisiti per le agevolazioni prima casa?","acceptedAnswer":{"@type":"Answer","text":"Per usufruire delle agevolazioni prima casa occorre: che l'immobile sia un'abitazione non di lusso (non A/1, A/8, A/9); che sia ubicato nel Comune di residenza o in quello dove si svolge l'attività; che non si possieda già un altro immobile acquistato con le stesse agevolazioni. L'acquirente deve trasferire la residenza entro 18 mesi."}},
+    {"@type":"Question","name":"Si può comprare casa senza agenzia immobiliare?","acceptedAnswer":{"@type":"Answer","text":"Sì, è possibile acquistare direttamente dal proprietario (privato o costruttore) senza intermediari, risparmiando la commissione dell'agenzia (tipicamente 2-4% del prezzo). Tuttavia, l'agenzia offre assistenza nelle verifiche catastali, ipotecarie e nella negoziazione. Valuta caso per caso."}}
+  ]}
+  </script>
+  <style>
+    .spese-table{width:100%;border-collapse:collapse;margin-top:12px;}
+    .spese-table tr{border-bottom:1px solid rgba(255,255,255,0.06);}
+    .spese-table td{padding:8px 4px;font-size:14px;color:var(--text-secondary);}
+    .spese-table td:last-child{text-align:right;font-weight:600;color:var(--text-primary);}
+    .spese-table .total-row td{color:var(--blue);font-weight:800;font-size:16px;border-top:2px solid var(--blue);padding-top:12px;}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Vai al contenuto</a>
+  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span class="logo-accent">Pro</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="freelance.html">💰 Freelance</a></li>
+      <li><a href="lordonetto.html">💵 Lordo/Netto</a></li>
+      <li><a href="mutuo.html">🏦 Mutuo</a></li>
+      <li><a href="affitto.html">🏠 Affitto</a></li>
+      <li><a href="partitaiva.html">📋 P.IVA</a></li>
+      <li><a href="iva.html">🧾 IVA</a></li>
+      <li><a href="chilometrico.html">🚗 Km ACI</a></li>
+      <li><a href="tfr.html">📦 TFR</a></li>
+      <li><a href="pensione.html">🎂 Pensione</a></li>
+      <li><a href="tdee.html">🥗 TDEE</a></li>
+      <li><a href="bmi.html">⚖️ BMI</a></li>
+    </ul>
+  </nav>
+
+  <div class="ad-slot-top" aria-hidden="true">
+    <div class="ad-slot ad-slot-banner"><!-- AdSense --></div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-badge"><span class="dot"></span>Aggiornato 2026</div>
+      <h1>Quanto costa davvero<br>comprare casa?</h1>
+      <p class="page-subtitle">Calcola tutte le spese di acquisto: imposte, notaio, agenzia e costi accessori. Prima casa o seconda casa, da privato o costruttore.</p>
+    </div>
+  </div>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span aria-current="page">Calcolo Spese Acquisto Casa 2026</span>
+  </nav>
+
+  <main id="main-content" class="page-content">
+    <div class="grid">
+      <div class="card">
+        <div class="card-title"><span class="card-icon">🏠</span> L'immobile</div>
+        <div class="field">
+          <label for="prezzo">Prezzo di acquisto</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+          <input type="number" id="prezzo" value="200000" min="0" step="1000" class="has-prefix"/></div>
+          <p class="hint">Il prezzo concordato nell'atto di compravendita</p>
+        </div>
+        <div class="field">
+          <label for="tipoCasa">Tipo di acquisto</label>
+          <select id="tipoCasa" onchange="aggiorna()">
+            <option value="prima">Prima casa (agevolazioni)</option>
+            <option value="seconda">Seconda casa</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="venditore">Venditore</label>
+          <select id="venditore" onchange="aggiorna()">
+            <option value="privato">Privato / rivenditore</option>
+            <option value="costruttore">Impresa costruttrice (soggetto IVA)</option>
+          </select>
+          <p class="hint">Se acquisti da un'impresa che ha costruito l'immobile si paga IVA, non imposta di registro</p>
+        </div>
+        <div class="field">
+          <label for="rendita">Rendita catastale (per imposta di registro)</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+          <input type="number" id="rendita" value="600" min="0" step="10" class="has-prefix"/></div>
+          <p class="hint">Serve solo per acquisto da privato. Trovala nella visura catastale.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="card-icon">💼</span> Costi accessori</div>
+        <div class="field">
+          <label for="agenzia">Commissione agenzia immobiliare (%)</label>
+          <div class="input-wrap"><span class="input-prefix">%</span>
+          <input type="number" id="agenzia" value="3" min="0" max="10" step="0.5" class="has-prefix"/></div>
+          <p class="hint">Tipicamente 2-4% del prezzo per l'acquirente. Inserisci 0 se acquisti senza agenzia.</p>
+        </div>
+        <div class="field">
+          <label for="mutuo">Vuoi calcolare anche le spese del mutuo?</label>
+          <select id="mutuo">
+            <option value="no">No, solo acquisto</option>
+            <option value="si">Sì, includi spese mutuo</option>
+          </select>
+        </div>
+        <div id="fieldMutuo" style="display:none;">
+          <div class="field">
+            <label for="importoMutuo">Importo del mutuo</label>
+            <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" id="importoMutuo" value="150000" min="0" step="1000" class="has-prefix"/></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-full" style="display:flex;justify-content:center">
+        <div class="ad-slot ad-slot-rect" aria-hidden="true"><!-- AdSense --></div>
+      </div>
+      <div class="btn-wrap"><button onclick="calcola()">Calcola tutte le spese →</button></div>
+
+      <div id="result" class="col-full animate-fade-up" style="display:none;">
+        <div class="result-card">
+          <div class="result-label">Spese totali di acquisto</div>
+          <div class="result-value" id="priceOut">—</div>
+          <div class="result-unit">oltre al prezzo dell'immobile</div>
+          <div class="result-breakdown">
+            <div class="breakdown-item"><div class="breakdown-value" id="totaleOut">—</div><div class="breakdown-label">costo totale operazione</div></div>
+            <div class="breakdown-item"><div class="breakdown-value" id="percentualeOut">—</div><div class="breakdown-label">% sul prezzo</div></div>
+            <div class="breakdown-item"><div class="breakdown-value" id="liquiditaOut">—</div><div class="breakdown-label">liquidità necessaria</div></div>
+          </div>
+          <div id="dettaglioBox" style="margin-top:20px;"></div>
+          <div id="alertBox" style="margin-top:16px;"></div>
+        </div>
+      </div>
+
+      <!-- BOX CONFRONTO MUTUI — sostituisci href con i tuoi link affiliati reali -->
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <span style="font-size:1.5rem;">🏆</span>
+          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Stai comprando casa? Confronta i mutui</h3>
+        </div>
+        <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Ora che conosci le spese di acquisto, trova il mutuo con il tasso più basso. Confronto gratuito e senza impegno.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+          <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">⭐ Migliore offerta</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Facile.it Mutui</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Confronta oltre 30 banche · Gratis</div>
+            <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Confronta ora →</div>
+          </a>
+          <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🔍 Simulatore</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Mutui.it</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Simulazione in 2 minuti, risposta immediata</div>
+            <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Scopri i tassi →</div>
+          </a>
+          <a href="mutuo.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🧮 Calcolatore</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Calcola la rata</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Simula la tua rata mensile con ammortamento completo</div>
+            <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+          </a>
+        </div>
+        <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;margin-bottom:0;">⚠️ I costi indicati sono stime. Verifica sempre con il tuo notaio e la tua banca. Link sponsorizzati.</p>
+      </div>
+    </div>
+
+    <div class="seo-section">
+      <h2>Quanto costa comprare casa in Italia nel 2026</h2>
+      <p>Il prezzo dichiarato nell'atto notarile è solo una parte del costo reale di un acquisto immobiliare. Le spese accessorie possono arrivare al 10-15% del valore dell'immobile e includono imposte, onorari notarili, commissioni di agenzia e spese di mutuo.</p>
+      <h3>Prima casa: imposta di registro al 2%</h3>
+      <p>Se acquisti la prima casa da un privato, paghi l'imposta di registro al <strong>2%</strong> calcolata non sul prezzo di acquisto ma sulla <strong>rendita catastale rivalutata</strong> (rendita × 1,05 × 115,5). Con rendita di €600, la base è €72.765 e l'imposta è €1.455. Il minimo è €1.000.</p>
+      <h3>Seconda casa: imposta di registro al 9%</h3>
+      <p>Per la seconda casa l'aliquota sale al <strong>9%</strong>, sempre sulla rendita catastale rivalutata. Oltre all'imposta di registro si pagano €50 di imposta ipotecaria e €50 di imposta catastale.</p>
+      <h3>Acquisto da costruttore: si paga l'IVA</h3>
+      <p>Se acquisti un'abitazione nuova da un'impresa costruttrice, non si applica l'imposta di registro ma l'<strong>IVA al 4%</strong> (prima casa) o al <strong>10%</strong> (seconda casa) sul prezzo di acquisto. Il notaio costa di più perché il rogito è più complesso.</p>
+      <h3>Il costo del notaio</h3>
+      <p>Gli onorari del notaio dipendono dal valore dell'immobile. Per una casa da €200.000 stimano tra €1.800 e €3.000. Richiedi sempre almeno 2-3 preventivi: i notai possono variare i propri onorari.</p>
+      <h3>Domande frequenti</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quante tasse si pagano per la prima casa?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Imposta di registro al 2% sulla rendita catastale rivalutata (minimo €1.000) + €50 ipotecaria + €50 catastale. Se acquisti da un costruttore: IVA al 4% sul prezzo + €200 imposta di registro.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto costa il notaio per comprare casa?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Tra €1.500 e €3.500 per immobili di valore medio (€150.000-€300.000). Il costo include l'onorario, le visure ipotecarie e catastali e le spese di registrazione. Richiedi preventivi da più notai.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quali sono i requisiti per le agevolazioni prima casa?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">L'immobile deve essere non di lusso (non A/1, A/8, A/9), nel Comune di residenza o di lavoro. L'acquirente non deve possedere altri immobili con agevolazioni prima casa. Deve trasferire la residenza entro 18 mesi.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Si può comprare casa senza agenzia?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Sì, acquistare direttamente dal proprietario fa risparmiare il 2-4% di commissione. Tuttavia, l'agenzia gestisce le verifiche catastali e ipotecarie. Se compri senza intermediari, fai fare tutte le verifiche al notaio.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Calcola<span>Pro</span></div>
+        <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3)">I risultati sono indicativi e non sostituiscono la consulenza professionale.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calcolatori</h4>
+        <ul>
+          <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
+          <li><a href="mutuo.html">Rata Mutuo</a></li>
+          <li><a href="calcolatore-prestito-personale.html">Prestito Personale</a></li>
+          <li><a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a></li>
+          <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
+          <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
+          <li><a href="pensione.html">Pensione 2026</a></li>
+          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
+          <li><a href="calcolo-straordinari.html">Straordinari</a></li>
+          <li><a href="partitaiva.html">Partita IVA</a></li>
+          <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guide</h4>
+        <ul>
+          <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
+          <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
+          <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
+          <li><a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso vs Variabile</a></li>
+          <li><a href="guida-stipendio-netto-lordo.html">Stipendio Netto e Lordo</a></li>
+          <li><a href="guida-comprare-affittare-casa.html">Comprare o Affittare?</a></li>
+          <li><a href="guida-pensione-anticipata-2026.html">Pensione Anticipata 2026</a></li>
+          <li><a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informazioni</h4>
+        <ul>
+          <li><a href="come-funziona.html">Come Funziona</a></li>
+          <li><a href="about.html">Chi Siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini di Utilizzo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+    document.getElementById('mutuo').addEventListener('change', function() {
+      document.getElementById('fieldMutuo').style.display = this.value === 'si' ? '' : 'none';
+    });
+
+    function fmt(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);}
+
+    function aggiorna() { /* noop, calcola on button */ }
+
+    function calcola() {
+      const prezzo = parseFloat(document.getElementById('prezzo').value) || 0;
+      const tipoCasa = document.getElementById('tipoCasa').value;
+      const venditore = document.getElementById('venditore').value;
+      const rendita = parseFloat(document.getElementById('rendita').value) || 0;
+      const percAgenzia = parseFloat(document.getElementById('agenzia').value) || 0;
+      const conMutuo = document.getElementById('mutuo').value === 'si';
+      const importoMutuo = parseFloat(document.getElementById('importoMutuo').value) || 0;
+
+      if (prezzo <= 0) { alert('Inserisci il prezzo di acquisto.'); return; }
+
+      let impostaReg = 0, iva = 0, imposteAcc = 100; // ipotecaria 50 + catastale 50
+
+      if (venditore === 'privato') {
+        // Imposta di registro su rendita catastale rivalutata
+        const baseImponibile = rendita > 0 ? rendita * 1.05 * (tipoCasa === 'prima' ? 115.5 : 126) : prezzo;
+        const aliquota = tipoCasa === 'prima' ? 0.02 : 0.09;
+        impostaReg = Math.max(1000, baseImponibile * aliquota);
+      } else {
+        // Acquisto da costruttore: IVA sul prezzo
+        const aliqIva = tipoCasa === 'prima' ? 0.04 : 0.10;
+        iva = prezzo * aliqIva;
+        impostaReg = 200; // imposta fissa registro
+        imposteAcc = 600; // ipotecaria 200 + catastale 200 + bollo + tributi
+      }
+
+      // Notaio: stima proporzionale al valore
+      let notaio = 1800;
+      if (prezzo > 150000) notaio = 2200;
+      if (prezzo > 300000) notaio = 3000;
+      if (prezzo > 500000) notaio = 4000;
+      if (conMutuo) notaio += 800; // atto di mutuo aggiuntivo
+
+      const commissione = prezzo * percAgenzia / 100;
+
+      // Spese mutuo
+      let speseMutuo = 0;
+      if (conMutuo && importoMutuo > 0) {
+        speseMutuo = importoMutuo * 0.002 + 300; // istruttoria + perizia stima
+      }
+
+      const totaleSpese = impostaReg + iva + imposteAcc + notaio + commissione + speseMutuo;
+      const totaleCasa = prezzo + totaleSpese;
+      const percentuale = (totaleSpese / prezzo * 100).toFixed(1);
+      // Liquidità necessaria = spese + acconto (prezzo - mutuo)
+      const acconto = conMutuo && importoMutuo > 0 ? prezzo - importoMutuo : prezzo;
+      const liquidita = totaleSpese + acconto;
+
+      document.getElementById('priceOut').textContent = fmt(totaleSpese);
+      document.getElementById('totaleOut').textContent = fmt(totaleCasa);
+      document.getElementById('percentualeOut').textContent = percentuale + '%';
+      document.getElementById('liquiditaOut').textContent = fmt(liquidita);
+
+      // Dettaglio voci
+      let rows = '';
+      if (venditore === 'privato') {
+        rows += `<tr><td>Imposta di registro (${tipoCasa === 'prima' ? '2%' : '9%'})</td><td>${fmt(impostaReg)}</td></tr>`;
+        rows += `<tr><td>Imposta ipotecaria + catastale</td><td>${fmt(imposteAcc)}</td></tr>`;
+      } else {
+        rows += `<tr><td>IVA (${tipoCasa === 'prima' ? '4%' : '10%'} sul prezzo)</td><td>${fmt(iva)}</td></tr>`;
+        rows += `<tr><td>Imposta di registro fissa</td><td>${fmt(impostaReg)}</td></tr>`;
+        rows += `<tr><td>Imposte ipotecaria e catastale</td><td>${fmt(imposteAcc)}</td></tr>`;
+      }
+      rows += `<tr><td>Onorario notaio (stima)</td><td>${fmt(notaio)}</td></tr>`;
+      if (commissione > 0) rows += `<tr><td>Commissione agenzia (${percAgenzia}%)</td><td>${fmt(commissione)}</td></tr>`;
+      if (speseMutuo > 0) rows += `<tr><td>Spese istruttoria + perizia mutuo</td><td>${fmt(speseMutuo)}</td></tr>`;
+      rows += `<tr class="total-row"><td><strong>Totale spese</strong></td><td><strong>${fmt(totaleSpese)}</strong></td></tr>`;
+
+      document.getElementById('dettaglioBox').innerHTML = `
+        <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:13px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;">DETTAGLIO SPESE</div>
+          <table class="spese-table">${rows}</table>
+        </div>`;
+
+      const alertEl = document.getElementById('alertBox');
+      alertEl.className = 'alert-box alert-info';
+      alertEl.innerHTML = 'ℹ️ <strong>Nota:</strong> i costi del notaio sono stime. Richiedine sempre il preventivo. Le imposte su rendita catastale si applicano solo per acquisto da privato. Per agevolazioni prima casa verifica i requisiti con il notaio.';
+
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
+      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    }
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const form = e.target;
+      fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
+        .finally(() => { form.style.display = 'none'; document.getElementById('nlSuccess').style.display = 'block'; });
+    }
+  </script>
+
+  <div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
+    <div class="newsletter-box-icon">📬</div>
+    <h3>Comprare casa nel 2026: guida completa</h3>
+    <p>Aggiornamenti su imposte, bonus casa, mutui e tutto quello che ti serve sapere prima di firmare il rogito. Gratis.</p>
+    <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
+      <input type="hidden" name="form-name" value="newsletter"/>
+      <input type="email" name="email" placeholder="la-tua@email.it" required/>
+      <button type="submit">Iscriviti →</button>
+    </form>
+    <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
+    <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
+  </div>
+
+  <div class="amz-sticky" id="amzSticky">
+    <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
+    <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
+    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+  </div>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

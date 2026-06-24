@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#1a1209"/>
+  <rect x="2" y="2" width="96" height="96" rx="18" fill="none" stroke="#c8a84b" stroke-width="2"/>
+  <text x="50" y="64" text-anchor="middle" font-family="Georgia, serif" font-weight="900" font-size="62" fill="#c8a84b">C</text>
+  <text x="50" y="82" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="18" fill="#e8d08a" letter-spacing="4">PRO</text>
+</svg>

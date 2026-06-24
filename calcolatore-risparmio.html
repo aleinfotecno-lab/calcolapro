@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calcolatore Risparmio 2026 — Quanto Devo Risparmiare al Mese? | CalcolaPro</title>
+  <meta name="description" content="Calcola quanto devo risparmiare al mese per raggiungere il tuo obiettivo. Interesse composto, inflazione, tempo al traguardo. Gratis e immediato."/>
+  <meta name="keywords" content="calcolatore risparmio, quanto risparmiare al mese, interesse composto risparmio, obiettivo risparmio, fondo emergenza, risparmio mensile 2026"/>
+  <link rel="canonical" href="https://calcolapro.netlify.app/calcolatore-risparmio.html"/>
+  <meta property="og:title" content="Calcolatore Risparmio 2026 — Quanto Devo Risparmiare al Mese?"/>
+  <meta property="og:description" content="Calcola quanto devo risparmiare al mese per raggiungere il tuo obiettivo. Interesse composto, inflazione, tempo al traguardo. Gratis e immediato."/>
+  <meta property="og:url" content="https://calcolapro.netlify.app/calcolatore-risparmio.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="it_IT"/>
+  <meta property="og:site_name" content="CalcolaPro"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Calcolatore Risparmio 2026 — Quanto Devo Risparmiare al Mese?"/>
+  <meta name="twitter:description" content="Calcola quanto devo risparmiare al mese per raggiungere il tuo obiettivo. Interesse composto. Gratis e immediato."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>🧮</text></svg>"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calcolatore Risparmio 2026",
+        "description": "Calcola quanto devo risparmiare al mese per raggiungere il tuo obiettivo con interesse composto. Aggiornato 2026.",
+        "url": "https://calcolapro.netlify.app/calcolatore-risparmio.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+        "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.netlify.app"}
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"Quanto dovrei risparmiare ogni mese?","acceptedAnswer":{"@type":"Answer","text":"La regola 50/30/20 suggerisce di destinare il 20% del reddito netto al risparmio. Con uno stipendio netto di 1.800€, si tratta di 360€/mese. Anche iniziare con il 10% è meglio che non iniziare: la costanza nel tempo conta più dell'importo iniziale."}},
+          {"@type":"Question","name":"Dove mettere i risparmi oltre al conto corrente?","acceptedAnswer":{"@type":"Answer","text":"Oltre al conto corrente, i risparmi possono essere depositati in: conti deposito (rendimento 3-5% lordo nel 2026), BTP o titoli di Stato (rischio molto basso), ETF azionari (per orizzonti di 5+ anni), fondi pensione (con deducibilità fiscale fino a 5.164€/anno). La scelta dipende dall'orizzonte temporale e dalla tolleranza al rischio."}},
+          {"@type":"Question","name":"Cos'è l'interesse composto e perché è potente?","acceptedAnswer":{"@type":"Answer","text":"L'interesse composto genera interessi sugli interessi già maturati. Se depositi 200€/mese per 10 anni al 3% annuo, accumuli 24.000€ di versamenti ma il montante finale è circa 28.000€: gli oltre 4.000€ in più sono solo interessi sugli interessi. Più lungo è l'orizzonte, più l'effetto è potente."}},
+          {"@type":"Question","name":"Conviene investire o tenere i soldi fermi?","acceptedAnswer":{"@type":"Answer","text":"Con un'inflazione attorno al 2-3%, i soldi fermi sul conto corrente perdono potere d'acquisto ogni anno. Anche solo un conto deposito al 3,5% lordo (circa 2,5% netto) permette di preservare il valore reale del capitale. Per orizzonti superiori a 5 anni, diversificare con ETF azionari può offrire rendimenti storicamente superiori all'inflazione."}},
+          {"@type":"Question","name":"Come creare un fondo di emergenza?","acceptedAnswer":{"@type":"Answer","text":"Il fondo di emergenza dovrebbe coprire 3-6 mesi di spese essenziali (affitto, bollette, cibo, trasporti). Per spese mensili di 1.500€ serve un fondo tra 4.500€ e 9.000€. Va tenuto su un conto deposito libero o conto corrente separato, sempre disponibile e non toccato per spese ordinarie. Va ricostituito subito dopo ogni utilizzo."}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    .mode-tabs { display: flex; gap: 0; border: 2px solid var(--border); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 24px; }
+    .mode-tab { flex: 1; padding: 12px 16px; background: var(--bg); border: none; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 600; color: var(--text-muted); transition: background 0.2s, color 0.2s; text-align: center; }
+    .mode-tab.active { background: var(--blue); color: #fff; }
+    .mode-tab:first-child { border-right: 1px solid var(--border); }
+    .result-big { font-size: 3.5rem; font-weight: 900; color: #fbbf24; line-height: 1; margin-bottom: 4px; }
+    .result-big-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .result-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+    .result-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md); padding: 16px; text-align: center; }
+    .result-box-val { font-size: 1.4rem; font-weight: 800; color: #fff; }
+    .result-box-lab { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+    .bar-chart { margin: 20px 0; }
+    .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .bar-label { font-size: 13px; color: var(--text-muted); width: 130px; flex-shrink: 0; }
+    .bar-track { flex: 1; background: var(--border); border-radius: 4px; height: 20px; overflow: hidden; position: relative; }
+    .bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; }
+    .bar-fill-blue { background: var(--blue); }
+    .bar-fill-yellow { background: #fbbf24; }
+    .bar-amount { font-size: 12px; font-weight: 700; color: #fff; white-space: nowrap; }
+    .comp-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; }
+    .comp-table th { background: var(--navy); color: #fff; padding: 9px 12px; text-align: left; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .comp-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .comp-table tr:nth-child(even) td { background: var(--bg); }
+    .alert-box { border-radius: var(--radius-md); padding: 16px 20px; margin: 16px 0; font-size: 14px; line-height: 1.7; }
+    .alert-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+    .alert-green { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Vai al contenuto</a>
+<nav class="navbar" role="navigation" aria-label="Navigazione principale">
+  <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span class="logo-accent">Pro</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+  </button>
+  <ul class="nav-links" id="navLinks" role="list">
+    <li><a href="freelance.html">💰 Freelance</a></li>
+    <li><a href="lordonetto.html">💵 Lordo/Netto</a></li>
+    <li><a href="mutuo.html">🏦 Mutuo</a></li>
+    <li><a href="affitto.html">🏠 Affitto</a></li>
+    <li><a href="partitaiva.html">📋 P.IVA</a></li>
+    <li><a href="iva.html">🧾 IVA</a></li>
+    <li><a href="chilometrico.html">🚗 Km ACI</a></li>
+    <li><a href="tfr.html">📦 TFR</a></li>
+    <li><a href="pensione.html">🎂 Pensione</a></li>
+    <li><a href="tdee.html">🥗 TDEE</a></li>
+    <li><a href="bmi.html">⚖️ BMI</a></li>
+  </ul>
+</nav>
+
+<div class="ad-slot-top" aria-hidden="true">
+  <div class="ad-slot ad-slot-banner"><!-- AdSense --></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-badge"><span class="dot"></span>Aggiornato 2026</div>
+    <h1>Calcolatore <em>Risparmio</em> 2026</h1>
+    <p class="page-subtitle">Scopri quanto devi risparmiare ogni mese per raggiungere il tuo obiettivo, oppure in quanto tempo ci arriverai. Calcolo con interesse composto. Gratuito e immediato.</p>
+  </div>
+</div>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="breadcrumb-sep" aria-hidden="true">›</span>
+  <span aria-current="page">Calcolatore Risparmio</span>
+</nav>
+
+<main id="main-content" class="page-content">
+  <div class="calc-grid">
+
+    <div class="card">
+      <div class="card-title"><span class="card-icon">🎯</span> Il tuo obiettivo di risparmio</div>
+
+      <div class="mode-tabs" role="tablist">
+        <button class="mode-tab active" id="tabA" role="tab" aria-selected="true" aria-controls="panelA" onclick="switchMode('A')">⏱ Quanto tempo ci vuole?</button>
+        <button class="mode-tab" id="tabB" role="tab" aria-selected="false" aria-controls="panelB" onclick="switchMode('B')">💶 Quanto devo risparmiare?</button>
+      </div>
+
+      <div class="field">
+        <label for="obiettivo">Obiettivo di risparmio (€)</label>
+        <div class="input-wrap"><span class="input-prefix">€</span>
+        <input type="number" id="obiettivo" value="50000" min="0" step="1000" class="has-prefix"/></div>
+      </div>
+      <div class="field">
+        <label for="iniziale">Risparmio iniziale già disponibile (€)</label>
+        <div class="input-wrap"><span class="input-prefix">€</span>
+        <input type="number" id="iniziale" value="0" min="0" step="500" class="has-prefix"/></div>
+      </div>
+      <div class="field">
+        <label for="rendimento">Rendimento annuo atteso (%)</label>
+        <div class="input-wrap"><span class="input-prefix">%</span>
+        <input type="number" id="rendimento" value="2" min="0" max="20" step="0.1" class="has-prefix"/></div>
+        <p class="hint">Usa 2-3% per conto deposito/BTP, 5-7% per ETF azionari su lungo periodo</p>
+      </div>
+
+      <div id="panelA" role="tabpanel" aria-labelledby="tabA">
+        <div class="field">
+          <label for="mensileA">Risparmio mensile che metti da parte (€)</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+          <input type="number" id="mensileA" value="300" min="0" step="50" class="has-prefix"/></div>
+        </div>
+      </div>
+
+      <div id="panelB" role="tabpanel" aria-labelledby="tabB" style="display:none;">
+        <div class="field">
+          <label for="anniB">In quanti anni vuoi raggiungere l'obiettivo?</label>
+          <div class="input-wrap"><span class="input-prefix">anni</span>
+          <input type="number" id="anniB" value="10" min="1" max="50" step="1" class="has-prefix"/></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-full" style="display:flex;justify-content:center;">
+      <div class="ad-slot ad-slot-rect" aria-hidden="true"><!-- AdSense --></div>
+    </div>
+
+    <div class="col-full btn-wrap">
+      <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola il mio risparmio →</button>
+    </div>
+
+    <div id="result" class="col-full animate-fade-up" style="display:none;">
+      <div class="result-card">
+        <div class="result-card-inner">
+          <div class="result-label" id="resultLabel">Risultato</div>
+          <div class="result-big" id="resultBig">—</div>
+          <div class="result-big-label" id="resultBigLabel">—</div>
+
+          <div class="result-boxes">
+            <div class="result-box">
+              <div class="result-box-val" id="totaleVersatoOut">—</div>
+              <div class="result-box-lab">Totale versato</div>
+            </div>
+            <div class="result-box">
+              <div class="result-box-val" id="interessiOut">—</div>
+              <div class="result-box-lab">Interessi maturati</div>
+            </div>
+            <div class="result-box">
+              <div class="result-box-val" id="montanteOut">—</div>
+              <div class="result-box-lab">Montante finale</div>
+            </div>
+            <div class="result-box">
+              <div class="result-box-val" id="rendimentoTotOut">—</div>
+              <div class="result-box-lab">Rendimento totale</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title"><span class="card-icon">📊</span> Composizione del montante</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <span class="bar-label">Versamenti tuoi</span>
+            <div class="bar-track">
+              <div class="bar-fill bar-fill-blue" id="barVersamenti" style="width:70%">
+                <span class="bar-amount" id="barVersamentiAmt"></span>
+              </div>
+            </div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Interessi composti</span>
+            <div class="bar-track">
+              <div class="bar-fill bar-fill-yellow" id="barInteressi" style="width:30%">
+                <span class="bar-amount" id="barInteressiAmt"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);">La parte gialla rappresenta il potere dell'interesse composto: denaro che lavora per te senza che tu faccia nulla.</p>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title"><span class="card-icon">📈</span> Tabella scenario: risparmio mensile × anni × rendimento</div>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:8px;">Montante finale con rendimento annuo lordo 3% — per diversi risparmi mensili e anni di accumulo.</p>
+        <div style="overflow-x:auto;">
+        <table class="comp-table">
+          <thead><tr><th>Risparmio/mese</th><th>5 anni</th><th>10 anni</th><th>15 anni</th><th>20 anni</th></tr></thead>
+          <tbody>
+            <tr><td>100€/mese</td><td>€ 6.480</td><td>€ 13.972</td><td>€ 22.754</td><td>€ 32.912</td></tr>
+            <tr><td>200€/mese</td><td>€ 12.959</td><td>€ 27.943</td><td>€ 45.508</td><td>€ 65.823</td></tr>
+            <tr><td>300€/mese</td><td>€ 19.439</td><td>€ 41.915</td><td>€ 68.262</td><td>€ 98.735</td></tr>
+            <tr><td>500€/mese</td><td>€ 32.399</td><td>€ 69.858</td><td>€ 113.770</td><td>€ 164.558</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Calcolo con interesse composto mensile al 3% lordo annuo, senza tassazione. I risultati reali al netto delle imposte saranno inferiori.</p>
+      </div>
+
+      <div class="aff-box" style="margin-top:16px;">
+        <h3>📚 Libri consigliati sul risparmio</h3>
+        <div class="aff-grid">
+          <a href="https://amzn.to/4n7fL7D" class="aff-item" target="_blank" rel="noopener sponsored"><div class="aff-label">📚 Finanza personale</div><div class="aff-title">Ti Insegno Come Diventare Ricco — Il metodo per automatizzare i risparmi e raggiungere i tuoi obiettivi</div></a>
+          <a href="https://amzn.to/4d9ulqt" class="aff-item" target="_blank" rel="noopener sponsored"><div class="aff-label">📚 Tasse e risparmio</div><div class="aff-title">Partita IVA Semplice — Come pagare meno tasse e risparmiare di più ogni anno</div></a>
+          <a href="https://amzn.to/48xt2jL" class="aff-item" target="_blank" rel="noopener sponsored"><div class="aff-label">📦 Amazon Prime</div><div class="aff-title">Prova gratis 30 giorni — Spedizioni illimitate e Prime Video</div></a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title"><span class="card-icon">❓</span> Domande frequenti</div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Quanto dovrei risparmiare ogni mese? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>La <strong>regola 50/30/20</strong> suggerisce di destinare il <strong>20% del reddito netto</strong> al risparmio. Con uno stipendio netto di 1.800€, si tratta di 360€/mese. Anche iniziare con il 5-10% è ottimo: la costanza nel tempo conta più dell'importo iniziale. Automatizzare il bonifico il giorno di stipendio è la strategia più efficace.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Dove mettere i risparmi oltre al conto corrente? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>Le principali alternative al conto corrente sono: <strong>conti deposito</strong> (rendimento 3-5% lordo nel 2026, garantiti FITD), <strong>BTP o titoli di Stato</strong> (rischio molto basso, cedole tassate al 12,5%), <strong>ETF azionari</strong> (per orizzonti 5+ anni, rendimento storico 6-8% annuo), <strong>fondi pensione</strong> (deducibilità fiscale fino a 5.164€/anno). La scelta dipende dall'orizzonte e dalla tolleranza al rischio.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Cos'è l'interesse composto e perché è potente? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>L'<strong>interesse composto</strong> genera interessi sugli interessi già maturati. Esempio: 200€/mese per 10 anni al 3% produce 24.000€ di versamenti, ma il montante finale è circa 28.000€ — oltre 4.000€ extra generati solo dagli interessi sugli interessi. Con orizzonti di 20-30 anni, l'effetto è straordinario: più della metà del montante può venire dagli interessi, non dai tuoi versamenti.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Conviene investire o tenere i soldi fermi? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>Con un'inflazione al 2-3%, i soldi fermi sul conto corrente <strong>perdono potere d'acquisto</strong> ogni anno. Anche solo un conto deposito al 3,5% lordo (circa 2,5% netto) permette di preservare il valore reale. Per orizzonti di 5+ anni, diversificare con ETF azionari globali ha storicamente offerto rendimenti reali positivi. La regola d'oro: tieni 3-6 mesi di spese come liquidità, il resto investilo in modo proporzionale all'orizzonte temporale.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+              Come creare un fondo di emergenza? <span class="faq-arrow" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-answer"><p>Il <strong>fondo di emergenza</strong> deve coprire <strong>3-6 mesi di spese essenziali</strong> (affitto/mutuo, bollette, cibo, trasporti, assicurazioni). Per spese mensili di 1.500€ serve un fondo tra 4.500€ e 9.000€. Va tenuto su un <strong>conto deposito libero</strong> o un conto corrente separato, sempre disponibile, intoccabile per spese ordinarie. Prima costruisci il fondo emergenza, poi investi il resto.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cross-links">
+        <h3>Strumenti correlati</h3>
+        <div class="cross-links-grid">
+          <a href="calcolatore-interessi-conto-deposito.html" class="cross-link-pill">🏦 Interessi Conto Deposito</a>
+          <a href="affitto.html" class="cross-link-pill">🏠 Affitto Sostenibile</a>
+          <a href="mutuo.html" class="cross-link-pill">🏦 Rata Mutuo</a>
+          <a href="pensione.html" class="cross-link-pill">🎂 Calcolatore Pensione</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Come funziona il calcolatore risparmio con interesse composto</h2>
+    <p>Risparmiare in modo efficace non significa solo mettere da parte dei soldi: significa farlo con un metodo, un obiettivo chiaro e la consapevolezza di come il tempo e il rendimento trasformano i tuoi versamenti in un montante molto più grande. Questo calcolatore usa la formula dell'<strong>interesse composto mensile</strong> per darti una stima realistica del tuo percorso verso l'obiettivo.</p>
+
+    <h3>La regola 50/30/20 e l'importanza del risparmio programmato</h3>
+    <p>La regola 50/30/20 è una delle linee guida più diffuse nella finanza personale: il 50% del reddito netto va destinato ai bisogni essenziali (affitto, cibo, bollette, trasporti), il 30% ai desideri (ristoranti, viaggi, intrattenimento) e il <strong>20% al risparmio e agli investimenti</strong>. Non è una regola assoluta, ma un punto di partenza concreto.</p>
+    <p>Il risparmio programmato — impostare un bonifico automatico il giorno in cui arriva lo stipendio — è scientificamente più efficace del risparmio residuale (mettere da parte ciò che avanza). Chi "si paga prima" risparmia mediamente il doppio rispetto a chi aspetta la fine del mese.</p>
+
+    <h3>La formula dell'interesse composto spiegata semplicemente</h3>
+    <p>Il montante finale si calcola con questa formula:</p>
+    <div class="formula-box">Montante = Iniziale × (1+r)^n + Mensile × [((1+r)^n − 1) / r]</div>
+    <p>Dove <strong>r</strong> è il rendimento mensile (rendimento annuo / 12) e <strong>n</strong> è il numero di mesi. La parte sinistra rappresenta la crescita del capitale iniziale, la parte destra rappresenta il contributo dei versamenti mensili con reinvestimento degli interessi.</p>
+
+    <h3>Esempio pratico: 200€/mese per 10 anni al 3%</h3>
+    <p>Ecco un esempio concreto che mostra il potere dell'interesse composto:</p>
+    <ul>
+      <li><strong>Risparmio mensile:</strong> 200€</li>
+      <li><strong>Durata:</strong> 10 anni (120 mesi)</li>
+      <li><strong>Rendimento annuo:</strong> 3% (conto deposito o BTP)</li>
+      <li><strong>Totale versato:</strong> 200 × 120 = <strong>24.000€</strong></li>
+      <li><strong>Interessi maturati:</strong> circa <strong>3.930€</strong></li>
+      <li><strong>Montante finale:</strong> circa <strong>27.930€</strong></li>
+    </ul>
+    <p>Quasi 4.000€ in più senza fare nulla, solo grazie agli interessi sugli interessi. Con un rendimento del 6% (ETF azionari storici), il montante salirebbe a circa 32.800€, con oltre 8.800€ di interessi. Il segreto è iniziare prima possibile: ogni anno di vantaggio vale molto.</p>
+
+    <h3>Il fondo di emergenza: quanto avere e dove tenerlo</h3>
+    <p>Prima di pensare agli obiettivi di risparmio a lungo termine, la priorità assoluta è costruire un <strong>fondo di emergenza</strong>: una riserva di liquidità prontamente disponibile per spese impreviste (perdita del lavoro, guasto auto, spese mediche urgenti).</p>
+    <p>La dimensione ideale del fondo emergenza è <strong>3-6 mesi di spese essenziali</strong>. Per spese mensili di 1.500€ significa tenere da 4.500€ a 9.000€ sempre disponibili. Dove tenerlo? Su un <strong>conto deposito libero</strong> (non vincolato) o su un conto corrente separato, così non rischi di spenderlo per le spese ordinarie e al tempo stesso rende qualcosa.</p>
+    <p>Solo dopo aver costituito il fondo emergenza ha senso pensare a obiettivi di risparmio più ambiziosi come la casa, l'università dei figli o la pensione integrativa.</p>
+  </div>
+</main>
+
+<div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
+  <div class="newsletter-box-icon">📬</div>
+  <h3>Consigli pratici per far crescere i tuoi risparmi</h3>
+  <p>Guide mensili su conti deposito, investimenti e come ottimizzare ogni euro. Gratis.</p>
+  <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
+    <input type="hidden" name="form-name" value="newsletter"/>
+    <input type="email" name="email" placeholder="la-tua@email.it" required/>
+    <button type="submit">Iscriviti →</button>
+  </form>
+  <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
+  <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
+</div>
+
+<!-- BOX CONFRONTO CONTI DEPOSITO — sostituisci href con i tuoi link affiliati reali -->
+<div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;max-width:720px;margin:0 auto 32px;padding-left:16px;padding-right:16px;">
+  <div style="padding:0 0px;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+      <span style="font-size:1.5rem;">💰</span>
+      <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Fai rendere i tuoi risparmi — i migliori conti deposito 2026</h3>
+    </div>
+    <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Hai calcolato quanto risparmiare — ora mettilo al lavoro. I conti deposito offrono fino al 5% senza rischio.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+      <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+        <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">⭐ Miglior tasso</div>
+        <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Banca Illimity</div>
+        <div style="color:rgba(255,255,255,0.5);font-size:12px;">Fino al 5% · Vincolato 12m</div>
+        <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Apri conto →</div>
+      </a>
+      <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+        <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">✅ Libero e flessibile</div>
+        <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Renault Bank Deposito</div>
+        <div style="color:rgba(255,255,255,0.5);font-size:12px;">Prelievo libero · FITD</div>
+        <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Scopri il tasso →</div>
+      </a>
+      <a href="#" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+        <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📊 Investimento guidato</div>
+        <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Moneyfarm</div>
+        <div style="color:rgba(255,255,255,0.5);font-size:12px;">Portafoglio diversificato · ETF</div>
+        <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Simula rendimento →</div>
+      </a>
+    </div>
+    <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;margin-bottom:0;">⚠️ Tassi soggetti a variazioni. Depositi garantiti FITD fino a 100.000€. Link sponsorizzati.</p>
+  </div>
+</div>
+
+<div class="amz-sticky" id="amzSticky">
+  <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
+  <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
+  <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+</div>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Calcola<span>Pro</span></div>
+      <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.3)">I risultati sono indicativi e non sostituiscono la consulenza professionale.</p>
+    </div>
+      <div class="footer-col">
+        <h4>Calcolatori</h4>
+        <ul>
+          <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
+          <li><a href="mutuo.html">Rata Mutuo</a></li>
+          <li><a href="calcolatore-prestito-personale.html">Prestito Personale</a></li>
+          <li><a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a></li>
+          <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
+          <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
+          <li><a href="pensione.html">Pensione 2026</a></li>
+          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
+          <li><a href="calcolo-straordinari.html">Straordinari</a></li>
+          <li><a href="partitaiva.html">Partita IVA</a></li>
+          <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guide</h4>
+        <ul>
+          <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
+          <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
+          <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
+          <li><a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso vs Variabile</a></li>
+          <li><a href="guida-stipendio-netto-lordo.html">Stipendio Netto e Lordo</a></li>
+          <li><a href="guida-comprare-affittare-casa.html">Comprare o Affittare?</a></li>
+          <li><a href="guida-pensione-anticipata-2026.html">Pensione Anticipata 2026</a></li>
+          <li><a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a></li>
+        </ul>
+      </div>
+    <div class="footer-col">
+      <h4>Informazioni</h4>
+      <ul>
+        <li><a href="about.html">Chi Siamo</a></li>
+        <li><a href="come-funziona.html">Come Funziona</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="cookie.html">Cookie Policy</a></li>
+        <li><a href="termini.html">Termini di Utilizzo</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
+  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+  let modoAttuale = 'A';
+
+  function switchMode(modo) {
+    modoAttuale = modo;
+    document.getElementById('panelA').style.display = modo === 'A' ? '' : 'none';
+    document.getElementById('panelB').style.display = modo === 'B' ? '' : 'none';
+    document.getElementById('tabA').classList.toggle('active', modo === 'A');
+    document.getElementById('tabB').classList.toggle('active', modo === 'B');
+    document.getElementById('tabA').setAttribute('aria-selected', modo === 'A');
+    document.getElementById('tabB').setAttribute('aria-selected', modo === 'B');
+    document.getElementById('result').style.display = 'none';
+  }
+
+  function fmtEur(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(n); }
+  function fmtEur2(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n); }
+  function fmtPct(n) { return n.toFixed(1).replace('.', ',') + '%'; }
+
+  // Interesse composto mensile: montante = iniziale*(1+r)^n + mensile*[((1+r)^n - 1)/r]
+  function calcolaMontante(iniziale, mensile, rendimentoAnnuo, mesi) {
+    if (rendimentoAnnuo === 0) {
+      return iniziale + mensile * mesi;
+    }
+    const r = rendimentoAnnuo / 100 / 12;
+    const n = mesi;
+    const fattore = Math.pow(1 + r, n);
+    return iniziale * fattore + mensile * ((fattore - 1) / r);
+  }
+
+  function calcola() {
+    const obiettivo = parseFloat(document.getElementById('obiettivo').value) || 0;
+    const iniziale = parseFloat(document.getElementById('iniziale').value) || 0;
+    const rendimento = parseFloat(document.getElementById('rendimento').value) || 0;
+
+    if (obiettivo <= 0) { alert('Inserisci un obiettivo di risparmio valido.'); return; }
+    if (iniziale >= obiettivo) { alert('Il risparmio iniziale è già pari o superiore all\'obiettivo!'); return; }
+
+    let resultBigVal, resultBigLabelVal, resultLabelVal;
+    let totaleVersato, interessi, montante, anniRisultato, mensileRisultato;
+
+    if (modoAttuale === 'A') {
+      const mensile = parseFloat(document.getElementById('mensileA').value) || 0;
+      if (mensile <= 0) { alert('Inserisci un risparmio mensile valido.'); return; }
+
+      // Trova mesi necessari per raggiungere obiettivo
+      const r = rendimento / 100 / 12;
+      let mesi = 0;
+      let montanteCalc = iniziale;
+      const MAX_MESI = 600; // 50 anni
+      while (montanteCalc < obiettivo && mesi < MAX_MESI) {
+        mesi++;
+        if (rendimento === 0) {
+          montanteCalc = iniziale + mensile * mesi;
+        } else {
+          montanteCalc = calcolaMontante(iniziale, mensile, rendimento, mesi);
+        }
+      }
+      if (mesi >= MAX_MESI) {
+        alert('Con questo risparmio mensile e rendimento non raggiungi l\'obiettivo in 50 anni. Aumenta il risparmio mensile o il rendimento.');
+        return;
+      }
+      montante = montanteCalc;
+      totaleVersato = iniziale + mensile * mesi;
+      interessi = montante - totaleVersato;
+      anniRisultato = mesi / 12;
+      mensileRisultato = mensile;
+
+      const anni = Math.floor(anniRisultato);
+      const mesiRest = Math.round((anniRisultato - anni) * 12);
+      let tempoStr = '';
+      if (anni > 0) tempoStr += anni + ' ann' + (anni === 1 ? 'o' : 'i');
+      if (mesiRest > 0) tempoStr += (tempoStr ? ' e ' : '') + mesiRest + ' mes' + (mesiRest === 1 ? 'e' : 'i');
+
+      resultLabelVal = 'Tempo per raggiungere ' + fmtEur(obiettivo);
+      resultBigVal = tempoStr;
+      resultBigLabelVal = 'Con ' + fmtEur2(mensile) + '/mese al ' + fmtPct(rendimento) + ' annuo';
+    } else {
+      const anni = parseInt(document.getElementById('anniB').value) || 10;
+      const mesi = anni * 12;
+      const r = rendimento / 100 / 12;
+
+      // Calcola mensile necessario: Mensile = (Obiettivo - Iniziale*(1+r)^n) * r / ((1+r)^n - 1)
+      let mensile;
+      if (rendimento === 0) {
+        mensile = (obiettivo - iniziale) / mesi;
+      } else {
+        const fattore = Math.pow(1 + r, mesi);
+        mensile = (obiettivo - iniziale * fattore) * r / (fattore - 1);
+      }
+      if (mensile <= 0) {
+        alert('Il tuo risparmio iniziale con il rendimento indicato supera già l\'obiettivo nel tempo scelto!');
+        return;
+      }
+      montante = calcolaMontante(iniziale, mensile, rendimento, mesi);
+      totaleVersato = iniziale + mensile * mesi;
+      interessi = montante - totaleVersato;
+      anniRisultato = anni;
+      mensileRisultato = mensile;
+
+      resultLabelVal = 'Risparmio mensile necessario';
+      resultBigVal = fmtEur2(mensile);
+      resultBigLabelVal = 'Per raggiungere ' + fmtEur(obiettivo) + ' in ' + anni + ' anni';
+    }
+
+    const rendimentoTot = totaleVersato > 0 ? ((montante - totaleVersato) / totaleVersato * 100) : 0;
+
+    document.getElementById('resultLabel').textContent = resultLabelVal;
+    document.getElementById('resultBig').textContent = resultBigVal;
+    document.getElementById('resultBigLabel').textContent = resultBigLabelVal;
+    document.getElementById('totaleVersatoOut').textContent = fmtEur(totaleVersato);
+    document.getElementById('interessiOut').textContent = fmtEur(interessi);
+    document.getElementById('montanteOut').textContent = fmtEur(montante);
+    document.getElementById('rendimentoTotOut').textContent = '+' + fmtPct(rendimentoTot);
+
+    // Grafico a barre
+    const pctVersamenti = Math.min(100, (totaleVersato / montante) * 100);
+    const pctInteressi = Math.min(100, (interessi / montante) * 100);
+    document.getElementById('barVersamenti').style.width = pctVersamenti.toFixed(1) + '%';
+    document.getElementById('barVersamentiAmt').textContent = fmtEur(totaleVersato);
+    document.getElementById('barInteressi').style.width = Math.max(5, pctInteressi).toFixed(1) + '%';
+    document.getElementById('barInteressiAmt').textContent = fmtEur(interessi);
+
+    const res = document.getElementById('result');
+    res.style.display = 'block';
+    res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (typeof gtag !== 'undefined') gtag('event', 'calcolo_risparmio', { modo: modoAttuale, rendimento: rendimento });
+  }
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const form = e.target;
+    fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
+      .finally(() => { form.style.display = 'none'; document.getElementById('nlSuccess').style.display = 'block'; });
+  }
+</script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>
