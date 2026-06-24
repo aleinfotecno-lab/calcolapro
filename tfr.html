@@ -186,6 +186,16 @@
       </div>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio lordo/netto</a>
+        <a href="pensione.html" class="cross-link-pill">🎂 Calcolatore pensione</a>
+        <a href="partitaiva.html" class="cross-link-pill">📋 Conviene la Partita IVA?</a>
+        <a href="calcolo-ferie-permessi.html" class="cross-link-pill">🌴 Ferie e permessi</a>
+      </div>
+    </div>
+
     <div class="seo-section">
       <h2>Come si calcola il TFR in Italia</h2>
       <p>Il TFR (Trattamento di Fine Rapporto), comunemente chiamato liquidazione, è una somma di denaro che il datore di lavoro accantona ogni anno per il dipendente e che viene erogata alla cessazione del rapporto di lavoro, indipendentemente dal motivo (licenziamento, dimissioni, pensione).</p>
@@ -291,6 +301,7 @@
       const res = document.getElementById('result');
       res.style.display = 'block';
       document.getElementById('affiliazioni').style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       res.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   </script>

@@ -226,6 +226,17 @@
       </div>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="freelance.html" class="cross-link-pill">💰 Prezzo orario freelance</a>
+        <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio lordo/netto</a>
+        <a href="tfr.html" class="cross-link-pill">📦 Calcola il TFR</a>
+        <a href="chilometrico.html" class="cross-link-pill">🚗 Rimborso km ACI</a>
+        <a href="guida-regime-forfettario.html" class="cross-link-pill">📖 Guida regime forfettario</a>
+      </div>
+    </div>
+
     <div class="seo-section">
       <h2>Conviene aprire la partita IVA nel 2026?</h2>
       <p>La scelta tra partita IVA e lavoro dipendente dipende da molti fattori: il fatturato atteso, il settore, le spese deducibili, la stabilità del reddito e le preferenze personali. Il regime forfettario, introdotto nel 2015 e ampliato negli anni successivi, ha reso la partita IVA molto più conveniente per molti lavoratori autonomi.</p>
@@ -337,6 +348,7 @@
       const res = document.getElementById('result');
       res.style.display = 'block';
       document.getElementById('affiliazioni').style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       res.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   </script>

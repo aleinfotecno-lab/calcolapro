@@ -192,6 +192,16 @@
       </div>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="partitaiva.html" class="cross-link-pill">📋 Conviene la Partita IVA?</a>
+        <a href="freelance.html" class="cross-link-pill">💰 Prezzo orario freelance</a>
+        <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio lordo/netto</a>
+        <a href="calcolo-cedolare-secca.html" class="cross-link-pill">🏘️ Cedolare secca</a>
+      </div>
+    </div>
+
     <div class="seo-section">
       <h2>Come si calcola l'IVA in Italia</h2>
       <p>L'IVA (Imposta sul Valore Aggiunto) è un'imposta indiretta che si applica alla cessione di beni e alla prestazione di servizi. In Italia esistono tre aliquote principali: ordinaria al 22% (la più comune), ridotta al 10% (alimentari, ristoranti, edilizia) e super-ridotta al 4% (beni di prima necessità, libri, alcuni alimenti).</p>
@@ -308,6 +318,7 @@
       const res = document.getElementById('result');
       res.style.display = 'block';
       document.getElementById('affiliazioni').style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       res.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   </script>

@@ -210,6 +210,14 @@
       </div>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="bmi.html" class="cross-link-pill">⚖️ Calcola il tuo BMI</a>
+        <a href="guida-deficit-calorico-dimagrire.html" class="cross-link-pill">📖 Guida deficit calorico</a>
+      </div>
+    </div>
+
     <div class="seo-section">
       <h2>Come calcolare il fabbisogno calorico giornaliero (TDEE)</h2>
       <p>Il TDEE (Total Daily Energy Expenditure) è la quantità totale di calorie che il tuo corpo brucia ogni giorno, considerando sia il metabolismo basale che l'attività fisica. Conoscere il proprio TDEE è il punto di partenza per qualsiasi obiettivo di composizione corporea.</p>
@@ -314,6 +322,7 @@
       const res = document.getElementById('result');
       res.style.display = 'block';
       document.getElementById('affiliazioni').style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       res.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   </script>

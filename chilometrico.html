@@ -192,6 +192,16 @@
       </div>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="calcolo-straordinari.html" class="cross-link-pill">⏱️ Calcolo straordinari</a>
+        <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio lordo/netto</a>
+        <a href="tfr.html" class="cross-link-pill">📦 Calcola il TFR</a>
+        <a href="freelance.html" class="cross-link-pill">💰 Prezzo orario freelance</a>
+      </div>
+    </div>
+
     <div class="seo-section">
       <h2>Come funziona il rimborso chilometrico in Italia</h2>
       <p>Il rimborso chilometrico è l'indennità riconosciuta al lavoratore o al professionista che utilizza il proprio veicolo per motivi di lavoro. In Italia le tariffe di riferimento sono stabilite annualmente dall'ACI (Automobile Club d'Italia) e variano in base al tipo di veicolo e alla cilindrata.</p>
@@ -331,6 +341,7 @@
       const res = document.getElementById('result');
       res.style.display = 'block';
       document.getElementById('affiliazioni').style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       res.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   </script>

@@ -190,6 +190,17 @@
       <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;margin-bottom:0;">⚠️ Condizioni soggette a variazioni. Verifica sempre il sito ufficiale. Link sponsorizzati.</p>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="partitaiva.html" class="cross-link-pill">📋 Conviene la Partita IVA?</a>
+        <a href="lordonetto.html" class="cross-link-pill">💵 Confronta col lavoro dipendente</a>
+        <a href="chilometrico.html" class="cross-link-pill">🚗 Rimborso km ACI</a>
+        <a href="tfr.html" class="cross-link-pill">📦 Calcola il TFR</a>
+        <a href="guida-regime-forfettario.html" class="cross-link-pill">📖 Guida regime forfettario</a>
+      </div>
+    </div>
+
     <div class="seo-section">
       <h2>Come calcolare il prezzo orario da freelance in Italia</h2>
       <p>Stabilire la giusta tariffa oraria è una delle decisioni più importanti per un libero professionista. Molti freelance commettono l'errore di fissare prezzi troppo bassi, non considerando tasse, contributi INPS, ferie e periodi senza lavoro.</p>
@@ -347,6 +358,8 @@
 
       const res = document.getElementById('result');
       res.style.display = 'block';
+      const cl = document.getElementById('crossLinks');
+      if (cl) cl.style.display = 'block';
       res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   </script>
