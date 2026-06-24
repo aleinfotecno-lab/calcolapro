@@ -199,6 +199,16 @@
       </div>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="mutuo.html" class="cross-link-pill">🏦 Calcola rata mutuo</a>
+        <a href="calcolatore-interessi-conto-deposito.html" class="cross-link-pill">💰 Conto deposito</a>
+        <a href="calcolatore-risparmio.html" class="cross-link-pill">🎯 Calcolatore risparmio</a>
+        <a href="guida-mutuo-fisso-variabile.html" class="cross-link-pill">📖 Mutuo fisso o variabile?</a>
+      </div>
+    </div>
+
     <div class="seo-section">
       <h2>Come calcolare la rata di un prestito personale in Italia</h2>
       <p>Il prestito personale è uno dei prodotti finanziari più richiesti in Italia. Serve per finanziare spese importanti — auto, ristrutturazioni, spese mediche — senza intaccare i risparmi. Il calcolo corretto della rata è fondamentale per valutare la sostenibilità del debito.</p>
@@ -337,6 +347,7 @@
 
       document.getElementById('result').style.display = 'block';
       document.getElementById('affiliazioni').style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
     }
 

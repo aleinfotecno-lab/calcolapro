@@ -190,6 +190,16 @@
       </div>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="calcolo-spese-acquisto-casa.html" class="cross-link-pill">🏗️ Spese acquisto casa</a>
+        <a href="calcolo-cedolare-secca.html" class="cross-link-pill">🏘️ Cedolare secca</a>
+        <a href="mutuo.html" class="cross-link-pill">🏦 Calcola rata mutuo</a>
+        <a href="guida-comprare-affittare-casa.html" class="cross-link-pill">📖 Comprare o affittare?</a>
+      </div>
+    </div>
+
     <div class="seo-section">
       <h2>Come calcolare l'IMU 2026 in Italia</h2>
       <p>L'IMU (Imposta Municipale Propria) è la principale imposta patrimoniale sugli immobili in Italia. Si paga ogni anno sulla seconda casa, sui terreni agricoli e sugli immobili strumentali. La prima casa è esente, salvo categorie di lusso.</p>
@@ -317,6 +327,7 @@
       }
 
       document.getElementById('result').style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
     }
 

@@ -197,6 +197,16 @@
       </div>
     </div>
 
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio lordo/netto</a>
+        <a href="calcolo-imu.html" class="cross-link-pill">🏛️ Calcolo IMU</a>
+        <a href="calcolo-spese-acquisto-casa.html" class="cross-link-pill">🏗️ Spese acquisto casa</a>
+        <a href="affitto.html" class="cross-link-pill">🏠 Affitto sostenibile</a>
+      </div>
+    </div>
+
     <!-- FAQ -->
     <section class="faq-section">
       <h2>Domande frequenti sull'ISEE</h2>
@@ -407,6 +417,7 @@
       // Bonus card
       const bc = document.getElementById('bonusCard');
       bc.style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       const bonusList = [];
 
       if (ISEE <= 40000) bonusList.push({ nome: 'Bonus Asilo Nido', soglia: ISEE <= 25001 ? '€3.000/anno' : ISEE <= 40000 ? '€2.500/anno' : '€1.500/anno', ok: true });
