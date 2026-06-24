@@ -1,0 +1,16 @@
+{
+  "name": "calcolapro",
+  "version": "1.0.0",
+  "description": "CalcolaPro - Calcolatori online gratuiti",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "screenshots": "node scripts/screenshots.js",
+    "check": "node scripts/pre-deploy-check.js",
+    "serve": "npx serve . -p 3000"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "serve": "^14.2.0"
+  }
+}

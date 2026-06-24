@@ -29,19 +29,30 @@
     "name": "Calcola BMI Online Gratis 2026",
     "description": "Calcola il tuo BMI (Indice di Massa Corporea) gratuitamente. Scopri se sei sottopeso, normopeso o sovrappeso. Con peso ideale, scala visiva e consigli pratici.",
     "url": "https://calcolapro.it/bmi.html",
-    "applicationCategory": "FinanceApplication",
+    "applicationCategory": "HealthApplication",
     "operatingSystem": "Any",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
     "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Come si calcola il BMI?","acceptedAnswer":{"@type":"Answer","text":"Il BMI (Body Mass Index, Indice di Massa Corporea) si calcola dividendo il peso in kg per il quadrato dell'altezza in metri. Formula: BMI = peso (kg) ÷ altezza² (m²). Ad esempio, una persona di 70 kg e 1,75 m ha un BMI di 70 ÷ (1,75 × 1,75) = 22,9, che rientra nella fascia normale."}},
+    {"@type":"Question","name":"Quali sono i valori normali del BMI?","acceptedAnswer":{"@type":"Answer","text":"Secondo l'OMS (Organizzazione Mondiale della Sanità), la classificazione del BMI per gli adulti è: sottopeso (BMI < 18,5), normopeso (18,5-24,9), sovrappeso (25-29,9), obesità di grado I (30-34,9), obesità di grado II (35-39,9), obesità di grado III o grave (≥ 40). Il range ottimale per la salute è 18,5-24,9."}},
+    {"@type":"Question","name":"Il BMI è un indicatore affidabile per tutti?","acceptedAnswer":{"@type":"Answer","text":"Il BMI è uno strumento semplice e utile per valutare il peso a livello di popolazione, ma ha dei limiti. Non distingue tra massa muscolare e massa grassa, quindi può sovrastimare l'obesità negli atleti (molto muscolosi) e sottostimarla negli anziani (che perdono massa muscolare). Non tiene conto della distribuzione del grasso corporeo: il grasso addominale è più pericoloso per la salute rispetto a quello nei fianchi. Per una valutazione più completa, il medico usa anche la misurazione della circonferenza vita."}}
+  ]}
   </script>
   <meta property="og:title" content="Calcola BMI Online Gratis 2026 | Indice di Massa Corporea">
   <meta property="og:description" content="Calcola il tuo BMI (Indice di Massa Corporea) gratuitamente. Scopri se sei sottopeso, normopeso o sovrappeso. Con peso ideale, scala visiva e consigli pratici.">
   <meta property="og:url" content="https://calcolapro.it/bmi.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:image" content="https://calcolapro.it/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:site_name" content="CalcolaPro">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Calcola BMI Online Gratis 2026 | Indice di Massa Corporea">
   <meta name="twitter:description" content="Calcola il tuo BMI (Indice di Massa Corporea) gratuitamente. Scopri se sei sottopeso, normopeso o sovrappeso. Con peso ideale, scala visiva e consigli pratici.">
 </head>
@@ -314,8 +325,19 @@
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
-    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+    <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-  <script src="cookie-consent.js"></script>
+    <script>
+    (function() {
+      var sticky = document.getElementById('amzSticky');
+      var btn = document.getElementById('amzClose');
+      if (!sticky || !btn) return;
+      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
+      btn.onclick = function() {
+        sticky.style.display = 'none';
+        localStorage.setItem('amzClosed', '1');
+      };
+    })();
+  </script><script src="cookie-consent.js"></script>
 </body>
 </html>

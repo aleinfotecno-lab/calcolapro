@@ -27,7 +27,7 @@
   <meta name="twitter:image" content="https://calcolapro.it/og-image.svg" />
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>🧮</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
   <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
@@ -36,6 +36,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
 
   <!-- Schema: WebSite + SearchAction + ItemList -->
   <script type="application/ld+json">
@@ -111,440 +113,34 @@
     ]
   }
   </script>
-
-  <style>
-    :root {
-      --blue: #1e40af;
-      --blue-mid: #2563eb;
-      --blue-light: #dbeafe;
-      --violet: #7c3aed;
-      --amber: #f59e0b;
-      --amber-light: #fef3c7;
-      --green: #059669;
-      --green-light: #d1fae5;
-      --rose: #e11d48;
-      --rose-light: #ffe4e6;
-      --teal: #0891b2;
-      --teal-light: #cffafe;
-      --orange: #ea580c;
-      --orange-light: #ffedd5;
-      --purple: #7c3aed;
-      --purple-light: #ede9fe;
-      --bg: #f8fafc;
-      --white: #ffffff;
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
-      --shadow-lg: 0 10px 40px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.06);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    /* ── NAVBAR ── */
-    .navbar {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(15,23,42,0.97);
-      backdrop-filter: blur(12px);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px; height: 60px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav-logo {
-      font-size: 1.2rem; font-weight: 800;
-      color: #f1f5f9; text-decoration: none; flex-shrink: 0;
-      letter-spacing: -0.02em;
-    }
-    .nav-logo span { color: var(--amber); }
-    .nav-links {
-      list-style: none; display: flex; gap: 2px; margin: 0; padding: 0;
-      overflow-x: auto;
-    }
-    .nav-links a {
-      color: #94a3b8; text-decoration: none; font-size: 13px; font-weight: 500;
-      padding: 6px 10px; border-radius: 6px;
-      transition: background 0.15s, color 0.15s; white-space: nowrap;
-    }
-    .nav-links a:hover { background: rgba(255,255,255,0.08); color: #f1f5f9; }
-    .nav-toggle { display: none; background: none; border: none; color: #f1f5f9; font-size: 22px; cursor: pointer; padding: 4px; }
-    @media (max-width: 860px) {
-      .navbar { flex-wrap: wrap; height: auto; padding: 10px 16px; gap: 4px; }
-      .nav-toggle { display: block; }
-      .nav-links { display: none; flex-direction: column; width: 100%; padding: 4px 0 8px; }
-      .nav-links.open { display: flex; }
-      .nav-links a { font-size: 14px; padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-    }
-
-    /* ── AD TOP ── */
-    .ad-top {
-      background: var(--white); border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      padding: 10px; min-height: 0;
-    }
-    .ad-top:empty { display: none; }
-
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 40%, #4f46e5 70%, #7c3aed 100%);
-      padding: 72px 24px 80px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(251,191,36,0.08) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 100px; padding: 6px 16px; font-size: 13px;
-      color: rgba(255,255,255,0.9); margin-bottom: 24px;
-      backdrop-filter: blur(8px);
-    }
-    .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: blink 2s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-    .hero h1 {
-      font-size: clamp(2rem, 5.5vw, 3.8rem);
-      font-weight: 900; color: #fff;
-      line-height: 1.1; letter-spacing: -0.03em;
-      max-width: 700px; margin: 0 auto 16px;
-    }
-    .hero h1 em { font-style: normal; color: #fbbf24; }
-    .hero-sub {
-      font-size: 1.1rem; color: rgba(255,255,255,0.72);
-      max-width: 520px; margin: 0 auto 36px;
-      line-height: 1.7;
-    }
-    /* Search bar */
-    .search-wrap {
-      max-width: 520px; margin: 0 auto 40px;
-      position: relative;
-    }
-    .search-wrap input {
-      width: 100%; padding: 16px 52px 16px 20px;
-      border-radius: 14px; border: 2px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
-      color: #fff; font-size: 15px; font-family: inherit;
-      transition: border-color 0.2s, background 0.2s;
-      outline: none;
-    }
-    .search-wrap input::placeholder { color: rgba(255,255,255,0.5); }
-    .search-wrap input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
-    .search-wrap .search-icon {
-      position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-      color: rgba(255,255,255,0.5); pointer-events: none; font-size: 20px;
-    }
-    /* Stats */
-    .hero-stats {
-      display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
-    }
-    .stat { color: rgba(255,255,255,0.85); }
-    .stat-num { font-size: 1.8rem; font-weight: 800; color: #fff; display: block; line-height: 1; }
-    .stat-label { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.6; }
-
-    /* ── MAIN ── */
-    main { max-width: 1000px; margin: 0 auto; padding: 56px 20px 80px; }
-
-    /* ── CATEGORY PILLS ── */
-    .category-pills {
-      display: flex; gap: 8px; margin-bottom: 40px;
-      overflow-x: auto; padding-bottom: 4px;
-    }
-    .cat-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 8px 18px; border-radius: 100px;
-      border: 1.5px solid var(--border); background: var(--white);
-      font-size: 13px; font-weight: 600; color: var(--text-muted);
-      cursor: pointer; white-space: nowrap;
-      transition: all 0.2s;
-    }
-    .cat-pill:hover, .cat-pill.active {
-      border-color: var(--blue-mid); background: var(--blue-light);
-      color: var(--blue);
-    }
-
-    /* ── SECTION HEADER ── */
-    .section-header {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 20px; padding-bottom: 14px;
-      border-bottom: 2px solid var(--border);
-    }
-    .section-icon {
-      width: 38px; height: 38px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0;
-    }
-    .section-header h2 {
-      font-size: 1.1rem; font-weight: 700; color: var(--text);
-    }
-    .section-header span { font-size: 13px; color: var(--text-muted); margin-left: auto; }
-
-    /* ── CARDS GRID ── */
-    .tool-section { margin-bottom: 48px; }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 16px;
-    }
-
-    .tool-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      text-decoration: none;
-      color: var(--text);
-      display: block;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .tool-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-    .tool-card:hover { border-color: transparent; }
-    .tool-card:hover .card-icon-wrap { transform: scale(1.08); }
-
-    .card-icon-wrap {
-      width: 52px; height: 52px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; margin-bottom: 16px;
-      transition: transform 0.2s;
-    }
-
-    .card-title {
-      font-size: 1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3;
-    }
-    .card-desc {
-      font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px;
-    }
-    .card-cta {
-      font-size: 13px; font-weight: 600;
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 7px 14px; border-radius: 8px;
-      transition: gap 0.15s;
-    }
-    .tool-card:hover .card-cta { gap: 8px; }
-
-    /* Colori per categoria */
-    .c-blue .card-icon-wrap { background: var(--blue-light); }
-    .c-blue .card-cta { background: var(--blue-light); color: var(--blue); }
-    .c-blue:hover { box-shadow: 0 10px 40px rgba(37,99,235,0.15); }
-
-    .c-green .card-icon-wrap { background: var(--green-light); }
-    .c-green .card-cta { background: var(--green-light); color: var(--green); }
-    .c-green:hover { box-shadow: 0 10px 40px rgba(5,150,105,0.15); }
-
-    .c-amber .card-icon-wrap { background: var(--amber-light); }
-    .c-amber .card-cta { background: var(--amber-light); color: #b45309; }
-    .c-amber:hover { box-shadow: 0 10px 40px rgba(245,158,11,0.15); }
-
-    .c-rose .card-icon-wrap { background: var(--rose-light); }
-    .c-rose .card-cta { background: var(--rose-light); color: var(--rose); }
-    .c-rose:hover { box-shadow: 0 10px 40px rgba(225,29,72,0.12); }
-
-    .c-teal .card-icon-wrap { background: var(--teal-light); }
-    .c-teal .card-cta { background: var(--teal-light); color: var(--teal); }
-    .c-teal:hover { box-shadow: 0 10px 40px rgba(8,145,178,0.15); }
-
-    .c-orange .card-icon-wrap { background: var(--orange-light); }
-    .c-orange .card-cta { background: var(--orange-light); color: var(--orange); }
-    .c-orange:hover { box-shadow: 0 10px 40px rgba(234,88,12,0.15); }
-
-    .c-purple .card-icon-wrap { background: var(--purple-light); }
-    .c-purple .card-cta { background: var(--purple-light); color: var(--purple); }
-    .c-purple:hover { box-shadow: 0 10px 40px rgba(124,58,237,0.15); }
-
-    /* ── NESSUN RISULTATO RICERCA ── */
-    .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); }
-    .no-results.visible { display: block; }
-
-    /* ── AD MIDDLE ── */
-    .ad-mid { display: flex; justify-content: center; margin: 8px 0 48px; }
-
-    /* ── GUIDE SECTION ── */
-    .guides-section { margin-bottom: 56px; }
-    .guides-header { margin-bottom: 24px; }
-    .guides-header h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
-    .guides-header p { color: var(--text-muted); margin-top: 4px; }
-    .guides-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .guide-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      text-decoration: none;
-      color: var(--text);
-      display: block;
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative; overflow: hidden;
-    }
-    .guide-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    }
-    .guide-card.g-blue::before { background: linear-gradient(90deg, var(--blue-mid), var(--violet)); }
-    .guide-card.g-green::before { background: linear-gradient(90deg, var(--green), var(--teal)); }
-    .guide-card.g-amber::before { background: linear-gradient(90deg, var(--amber), var(--orange)); }
-    .guide-card.g-rose::before { background: linear-gradient(90deg, var(--rose), var(--violet)); }
-    .guide-card.g-teal::before { background: linear-gradient(90deg, var(--teal), var(--blue-mid)); }
-    .guide-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .guide-chip {
-      display: inline-block; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.07em; text-transform: uppercase;
-      padding: 3px 10px; border-radius: 100px; margin-bottom: 14px;
-    }
-    .g-blue .guide-chip { background: var(--blue-light); color: var(--blue); }
-    .g-green .guide-chip { background: var(--green-light); color: var(--green); }
-    .g-amber .guide-chip { background: var(--amber-light); color: #b45309; }
-    .g-rose .guide-chip { background: var(--rose-light); color: var(--rose); }
-    .g-teal .guide-chip { background: var(--teal-light); color: var(--teal); }
-    .guide-title {
-      font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; line-height: 1.35;
-    }
-    .guide-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
-    .guide-cta { font-size: 13px; font-weight: 600; color: var(--blue-mid); display: flex; align-items: center; gap: 4px; }
-
-    /* ── LIBRI ── */
-    .books-section {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
-      border-radius: 20px; padding: 32px; margin-bottom: 56px;
-    }
-    .books-header { margin-bottom: 20px; }
-    .books-header h3 { font-size: 1.25rem; font-weight: 800; color: #f1f5f9; }
-    .books-header p { font-size: 13.5px; color: #94a3b8; margin-top: 4px; }
-    .books-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 12px;
-    }
-    .book-card {
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px; padding: 16px;
-      text-decoration: none; color: #f1f5f9; display: block;
-      transition: background 0.2s;
-    }
-    .book-card:hover { background: rgba(255,255,255,0.12); }
-    .book-chip { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
-    .book-title { font-size: 13.5px; font-weight: 600; line-height: 1.4; }
-
-    /* ── FAQ ── */
-    .faq-section { margin-bottom: 56px; }
-    .faq-section h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; }
-    .faq-item {
-      border: 1.5px solid var(--border); border-radius: 12px;
-      margin-bottom: 10px; overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
-    .faq-item:has(details[open]) { box-shadow: var(--shadow-md); }
-    .faq-item summary {
-      padding: 18px 20px; cursor: pointer;
-      font-weight: 600; font-size: 15px;
-      list-style: none;
-      display: flex; justify-content: space-between; align-items: center;
-      user-select: none;
-      background: var(--white);
-    }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after { content: '+'; font-size: 20px; font-weight: 400; color: var(--blue-mid); flex-shrink: 0; margin-left: 12px; transition: transform 0.2s; }
-    .faq-item details[open] summary::after { content: '−'; }
-    .faq-body {
-      padding: 0 20px 20px; font-size: 14.5px; color: var(--text-muted);
-      line-height: 1.75; background: var(--white);
-    }
-
-    /* ── SEO TEXT ── */
-    .seo-text {
-      background: var(--white); border: 1.5px solid var(--border);
-      border-radius: 16px; padding: 36px; margin-bottom: 56px;
-    }
-    .seo-text h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.02em; }
-    .seo-text h3 { font-size: 1.05rem; font-weight: 700; margin: 22px 0 8px; }
-    .seo-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
-
-    /* ── AMAZON STICKY ── */
-    .amz-sticky {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-      background: #0f172a; border-top: 2px solid var(--amber);
-      display: flex; align-items: center; justify-content: center; gap: 16px;
-      padding: 10px 20px;
-      box-shadow: 0 -4px 24px rgba(0,0,0,0.3);
-    }
-    .amz-sticky-text { color: #f1f5f9; font-size: 13px; }
-    .amz-sticky-text strong { color: #fbbf24; }
-    .amz-sticky-btn {
-      background: #ff9900; color: #111; font-weight: 700;
-      font-size: 13px; padding: 9px 20px; border-radius: 8px;
-      text-decoration: none; white-space: nowrap;
-      transition: opacity 0.15s; flex-shrink: 0;
-    }
-    .amz-sticky-btn:hover { opacity: 0.88; }
-    .amz-sticky-close {
-      background: none; border: none; color: #64748b;
-      font-size: 20px; cursor: pointer; flex-shrink: 0; padding: 0 4px;
-    }
-    @media (max-width: 500px) {
-      .amz-sticky { flex-wrap: wrap; gap: 8px; }
-      .amz-sticky-text { font-size: 12px; text-align: center; width: 100%; }
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #0f172a; color: #475569;
-      text-align: center; padding: 28px 24px;
-      font-size: 13px; line-height: 1.8;
-    }
-    footer a { color: #64748b; text-decoration: none; }
-    footer a:hover { color: #94a3b8; }
-    .footer-logo { font-size: 1.1rem; font-weight: 800; color: #f1f5f9; margin-bottom: 8px; }
-    .footer-logo span { color: var(--amber); }
-
-    /* ── HIDDEN IN SEARCH ── */
-    .tool-section.hidden, .tool-card.hidden { display: none; }
-    .section-divider { height: 1px; background: var(--border); margin: 40px 0; }
-  </style>
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Vai al contenuto</a>
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="/" class="nav-logo">Calcola<span>Pro</span></a>
-    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
-    <ul class="nav-links">
+  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span class="logo-accent">Pro</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks" role="list">
       <li><a href="freelance.html">💰 Freelance</a></li>
       <li><a href="lordonetto.html">💵 Lordo/Netto</a></li>
       <li><a href="mutuo.html">🏦 Mutuo</a></li>
       <li><a href="affitto.html">🏠 Affitto</a></li>
       <li><a href="iva.html">🧾 IVA</a></li>
       <li><a href="partitaiva.html">📋 P.IVA</a></li>
-      <li><a href="chilometrico.html">🚗 Km</a></li>
+      <li><a href="chilometrico.html">🚗 Km ACI</a></li>
+      <li><a href="pensione.html">🎂 Pensione</a></li>
       <li><a href="tfr.html">📦 TFR</a></li>
       <li><a href="tdee.html">🥗 TDEE</a></li>
-      <li><a href="bmi.html">💊 BMI</a></li>
+      <li><a href="bmi.html">⚖️ BMI</a></li>
     </ul>
   </nav>
 
   <!-- AD TOP -->
-  <div class="ad-top">
-    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px;max-width:100%" data-ad-client="ca-pub-9013466056664238" data-ad-slot="auto"></ins>
+  <div class="ad-slot-top" aria-hidden="true">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
@@ -585,7 +181,7 @@
   </section>
 
   <!-- MAIN -->
-  <main id="mainContent">
+  <main id="main-content">
 
     <!-- Filtri categoria -->
     <div class="category-pills" role="navigation" aria-label="Filtra per categoria">
@@ -641,7 +237,7 @@
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="pensione.html" class="tool-card c-violet" data-keywords="pensione quando vado in pensione contributi INPS vecchiaia anticipata quota 103 importo">
+        <a href="pensione.html" class="tool-card c-purple" data-keywords="pensione quando vado in pensione contributi INPS vecchiaia anticipata quota 103 importo">
           <div class="card-icon-wrap">🎂</div>
           <div class="card-title">Calcolatore Pensione 2026</div>
           <p class="card-desc">Scopri quando puoi andare in pensione e quanto prenderai al mese. Vecchiaia, anticipata e Quota 103. Aggiornato 2026.</p>
@@ -703,7 +299,7 @@
       <div class="section-header">
         <div class="section-icon" style="background:#ffe4e6">🏡</div>
         <h2>Casa &amp; Mutuo</h2>
-        <span>6 strumenti</span>
+        <span>5 strumenti</span>
       </div>
       <div class="cards-grid">
 
@@ -742,13 +338,6 @@
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-isee.html" class="tool-card c-purple" data-keywords="ISEE simulatore reddito patrimonio agevolazioni bonus nido reddito cittadinanza">
-          <div class="card-icon-wrap">📋</div>
-          <div class="card-title">Simulatore ISEE</div>
-          <p class="card-desc">Stima il tuo ISEE 2026 per accedere a bonus, agevolazioni e sussidi. Calcolo basato su reddito e patrimonio familiare.</p>
-          <div class="card-cta">Stima ora →</div>
-        </a>
-
       </div>
     </div>
 
@@ -757,7 +346,7 @@
       <div class="section-header">
         <div class="section-icon" style="background:#fef3c7">🧾</div>
         <h2>Tasse &amp; IVA</h2>
-        <span>1 strumento</span>
+        <span>2 strumenti</span>
       </div>
       <div class="cards-grid">
 
@@ -766,6 +355,13 @@
           <div class="card-title">Calcolatore IVA</div>
           <p class="card-desc">Aggiungi o scorpora l'IVA al 22%, 10%, 5% o 4% in un secondo. Con gestione sconti e quantità multiple.</p>
           <div class="card-cta">Calcola ora →</div>
+        </a>
+
+        <a href="calcolo-isee.html" class="tool-card c-purple" data-keywords="ISEE simulatore reddito patrimonio agevolazioni bonus nido reddito cittadinanza dichiarazione DSU">
+          <div class="card-icon-wrap">📋</div>
+          <div class="card-title">Simulatore ISEE 2026</div>
+          <p class="card-desc">Stima il tuo ISEE 2026 per accedere a bonus, agevolazioni e sussidi. Calcolo basato su reddito e patrimonio familiare.</p>
+          <div class="card-cta">Stima ora →</div>
         </a>
 
       </div>
@@ -904,48 +500,48 @@
     </div>
 
     <!-- FAQ -->
-    <div class="faq-section">
+    <div class="faq-section-home">
       <h2>Domande frequenti</h2>
 
-      <div class="faq-item">
+      <div class="faq-item-d">
         <details>
           <summary>I calcolatori di CalcolaPro sono gratuiti?</summary>
-          <div class="faq-body">Sì, tutti i calcolatori sono completamente gratuiti e non richiedono registrazione, login o installazione di app. Puoi usarli direttamente dal browser su qualsiasi dispositivo.</div>
+          <div class="faq-body-d">Sì, tutti i calcolatori sono completamente gratuiti e non richiedono registrazione, login o installazione di app. Puoi usarli direttamente dal browser su qualsiasi dispositivo.</div>
         </details>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item-d">
         <details>
           <summary>Come si calcola lo stipendio netto dal lordo in Italia?</summary>
-          <div class="faq-body">Dal lordo annuo si sottraggono i contributi INPS (9,19%), poi si applica l'IRPEF progressiva (con aliquote dal 23% al 43%) e le detrazioni per lavoro dipendente e familiari a carico. Il risultato diviso per 12 (o 13/14 con mensilità aggiuntive) dà la busta paga netta mensile. Il nostro <a href="lordonetto.html">calcolatore lordo/netto</a> esegue tutti questi calcoli automaticamente.</div>
+          <div class="faq-body-d">Dal lordo annuo si sottraggono i contributi INPS (9,19%), poi si applica l'IRPEF progressiva (con aliquote dal 23% al 43%) e le detrazioni per lavoro dipendente e familiari a carico. Il risultato diviso per 12 (o 13/14 con mensilità aggiuntive) dà la busta paga netta mensile. Il nostro <a href="lordonetto.html">calcolatore lordo/netto</a> esegue tutti questi calcoli automaticamente.</div>
         </details>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item-d">
         <details>
           <summary>Come si calcola la rata del mutuo?</summary>
-          <div class="faq-body">La rata si calcola con la formula dell'ammortamento alla francese (il sistema più comune in Italia): rata = Capitale × [tasso/(1-(1+tasso)^-n)]. Il <a href="mutuo.html">calcolatore mutuo</a> mostra rata mensile, totale interessi e piano di ammortamento completo per qualsiasi importo, tasso e durata.</div>
+          <div class="faq-body-d">La rata si calcola con la formula dell'ammortamento alla francese (il sistema più comune in Italia): rata = Capitale × [tasso/(1-(1+tasso)^-n)]. Il <a href="mutuo.html">calcolatore mutuo</a> mostra rata mensile, totale interessi e piano di ammortamento completo per qualsiasi importo, tasso e durata.</div>
         </details>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item-d">
         <details>
           <summary>Qual è il rimborso chilometrico ACI 2026?</summary>
-          <div class="faq-body">Le tabelle ACI 2026 variano in base al tipo di veicolo, cilindrata e carburante. In media, per un'auto benzina 1.600cc il rimborso è circa 0,38–0,42 €/km. Usa il <a href="chilometrico.html">calcolatore chilometrico</a> per ottenere il valore esatto in base al tuo veicolo specifico.</div>
+          <div class="faq-body-d">Le tabelle ACI 2026 variano in base al tipo di veicolo, cilindrata e carburante. In media, per un'auto benzina 1.600cc il rimborso è circa 0,38–0,42 €/km. Usa il <a href="chilometrico.html">calcolatore chilometrico</a> per ottenere il valore esatto in base al tuo veicolo specifico.</div>
         </details>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item-d">
         <details>
           <summary>Come funziona il regime forfettario 2026?</summary>
-          <div class="faq-body">Il regime forfettario prevede un'aliquota agevolata del 15% (5% per i primi 5 anni di nuova attività) applicata sul reddito imponibile, ottenuto moltiplicando il fatturato per il coefficiente di redditività della propria categoria. Il limite di ricavi è 85.000€ annui. Leggi la nostra <a href="guida-regime-forfettario.html">guida completa al regime forfettario</a>.</div>
+          <div class="faq-body-d">Il regime forfettario prevede un'aliquota agevolata del 15% (5% per i primi 5 anni di nuova attività) applicata sul reddito imponibile, ottenuto moltiplicando il fatturato per il coefficiente di redditività della propria categoria. Il limite di ricavi è 85.000€ annui. Leggi la nostra <a href="guida-regime-forfettario.html">guida completa al regime forfettario</a>.</div>
         </details>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item-d">
         <details>
           <summary>Quanto si paga di IVA in Italia?</summary>
-          <div class="faq-body">In Italia esistono quattro aliquote IVA: 22% (aliquota ordinaria), 10% (alimenti lavorati, ristoranti, alcuni servizi), 5% (alcuni prodotti alimentari di base) e 4% (prodotti di prima necessità, libri, giornali). Il <a href="iva.html">calcolatore IVA</a> permette di aggiungere o scorporare l'IVA istantaneamente.</div>
+          <div class="faq-body-d">In Italia esistono quattro aliquote IVA: 22% (aliquota ordinaria), 10% (alimenti lavorati, ristoranti, alcuni servizi), 5% (alcuni prodotti alimentari di base) e 4% (prodotti di prima necessità, libri, giornali). Il <a href="iva.html">calcolatore IVA</a> permette di aggiungere o scorporare l'IVA istantaneamente.</div>
         </details>
       </div>
 
@@ -965,66 +561,59 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer style="background:#0f172a;padding:56px 24px 120px;color:rgba(255,255,255,0.55);font-size:14px;">
-    <div style="max-width:1000px;margin:0 auto;display:grid;gap:40px;grid-template-columns:2fr 1fr 1fr 1fr;">
-      <div>
-        <div style="font-size:1.3rem;font-weight:800;color:#f1f5f9;letter-spacing:-0.03em;margin-bottom:12px;">Calcola<span style="color:#fbbf24">Pro</span></div>
-        <p style="font-size:13px;line-height:1.7;color:rgba(255,255,255,0.45);margin-bottom:16px;">Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.25);">I risultati sono indicativi e non sostituiscono la consulenza professionale.</p>
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Calcola<span>Pro</span></div>
+        <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3)">I risultati sono indicativi e non sostituiscono la consulenza professionale.</p>
       </div>
-      <div>
-        <h4 style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;">Calcolatori</h4>
-                <ul style="list-style:none;">
-          <li style="margin-bottom:9px;"><a href="lordonetto.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Lordo → Netto Stipendio</a></li>
-          <li style="margin-bottom:9px;"><a href="mutuo.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Rata Mutuo</a></li>
-          <li style="margin-bottom:9px;"><a href="calcolatore-prestito-personale.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Prestito Personale</a></li>
-          <li style="margin-bottom:9px;"><a href="calcolo-spese-acquisto-casa.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Spese Acquisto Casa</a></li>
-          <li style="margin-bottom:9px;"><a href="calcolo-imu.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Calcolo IMU</a></li>
-          <li style="margin-bottom:9px;"><a href="calcolo-isee.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Simulatore ISEE</a></li>
-          <li style="margin-bottom:9px;"><a href="pensione.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Pensione 2026</a></li>
-          <li style="margin-bottom:9px;"><a href="tfr.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Simulatore TFR</a></li>
-          <li style="margin-bottom:9px;"><a href="calcolo-ferie-permessi.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Ferie e Permessi</a></li>
-          <li style="margin-bottom:9px;"><a href="calcolo-straordinari.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Straordinari</a></li>
-          <li style="margin-bottom:9px;"><a href="partitaiva.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Partita IVA</a></li>
-          <li style="margin-bottom:9px;"><a href="chilometrico.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Rimborso Km ACI</a></li>
+      <div class="footer-col">
+        <h4>Calcolatori</h4>
+        <ul>
+          <li><a href="lordonetto.html">Lordo → Netto Stipendio</a></li>
+          <li><a href="mutuo.html">Rata Mutuo</a></li>
+          <li><a href="calcolatore-prestito-personale.html">Prestito Personale</a></li>
+          <li><a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a></li>
+          <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
+          <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
+          <li><a href="pensione.html">Pensione 2026</a></li>
+          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
+          <li><a href="calcolo-straordinari.html">Straordinari</a></li>
+          <li><a href="partitaiva.html">Partita IVA</a></li>
+          <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
         </ul>
       </div>
-      <div>
-        <h4 style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;">Guide</h4>
-                <ul style="list-style:none;">
-          <li style="margin-bottom:9px;"><a href="guida-730-precompilato-2026.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">730 Precompilato 2026</a></li>
-          <li style="margin-bottom:9px;"><a href="guida-bonus-casa-2026.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Bonus Casa 2026</a></li>
-          <li style="margin-bottom:9px;"><a href="guida-regime-forfettario.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Regime Forfettario</a></li>
-          <li style="margin-bottom:9px;"><a href="guida-mutuo-fisso-variabile.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Mutuo Fisso vs Variabile</a></li>
-          <li style="margin-bottom:9px;"><a href="guida-stipendio-netto-lordo.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Stipendio Netto e Lordo</a></li>
-          <li style="margin-bottom:9px;"><a href="guida-comprare-affittare-casa.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Comprare o Affittare?</a></li>
-          <li style="margin-bottom:9px;"><a href="guida-pensione-anticipata-2026.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Pensione Anticipata 2026</a></li>
-          <li style="margin-bottom:9px;"><a href="guida-cedolare-secca-affitti.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Cedolare Secca Affitti</a></li>
+      <div class="footer-col">
+        <h4>Guide</h4>
+        <ul>
+          <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
+          <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
+          <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
+          <li><a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso vs Variabile</a></li>
+          <li><a href="guida-stipendio-netto-lordo.html">Stipendio Netto e Lordo</a></li>
+          <li><a href="guida-comprare-affittare-casa.html">Comprare o Affittare?</a></li>
+          <li><a href="guida-pensione-anticipata-2026.html">Pensione Anticipata 2026</a></li>
+          <li><a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a></li>
         </ul>
       </div>
-      <div>
-        <h4 style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;">Informazioni</h4>
-        <ul style="list-style:none;">
-          <li style="margin-bottom:9px;"><a href="about.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Chi Siamo</a></li>
-          <li style="margin-bottom:9px;"><a href="come-funziona.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Come Funziona</a></li>
-          <li style="margin-bottom:9px;"><a href="contatti.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Contatti</a></li>
-          <li style="margin-bottom:9px;"><a href="privacy.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Privacy Policy</a></li>
-          <li style="margin-bottom:9px;"><a href="cookie.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Cookie Policy</a></li>
-          <li style="margin-bottom:9px;"><a href="termini.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Termini di Utilizzo</a></li>
-          <li style="margin-bottom:9px;"><a href="disclaimer.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;">Disclaimer</a></li>
+      <div class="footer-col">
+        <h4>Informazioni</h4>
+        <ul>
+          <li><a href="about.html">Chi Siamo</a></li>
+          <li><a href="come-funziona.html">Come Funziona</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini di Utilizzo</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
         </ul>
       </div>
     </div>
-    <div style="max-width:1000px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,0.3);">
-      <span>© <span id="fyear">2026</span> CalcolaPro — Tutti i diritti riservati</span>
-      <span>
-        <a href="privacy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy</a> ·
-        <a href="cookie.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Cookie</a> ·
-        <a href="termini.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Termini</a> ·
-        <a href="sitemap.xml" style="color:rgba(255,255,255,0.4);text-decoration:none;">Sitemap</a> ·
-        <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings && window.cpOpenCookieSettings()" style="color:rgba(255,255,255,0.4);text-decoration:none;cursor:pointer;">Gestisci cookie</a>
-      </span>
+    <div class="footer-bottom">
+      <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings && window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
     </div>
   </footer>
 
@@ -1037,7 +626,27 @@
 
   <script>
     // Anno footer
-    document.getElementById('fyear').textContent = new Date().getFullYear();
+    var fy = document.querySelector('.footer-year');
+    if (fy) fy.textContent = new Date().getFullYear();
+
+    // Nav toggle
+    (function() {
+      var btn = document.getElementById('navToggle');
+      var menu = document.getElementById('navLinks');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+      });
+      document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Apri menu');
+        }
+      });
+    })();
 
     // Amazon sticky — non riappare dopo chiusura
     (function() {

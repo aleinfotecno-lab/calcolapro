@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" href="https://calcolapro.it/tfr.html">
   <script type="application/ld+json">
   {
@@ -25,13 +25,24 @@
     "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Come si calcola il TFR?","acceptedAnswer":{"@type":"Answer","text":"Il TFR (Trattamento di Fine Rapporto) si accumula accantonando ogni anno una quota pari alla retribuzione annua divisa per 13,5. Questo importo viene rivalutato ogni anno di una percentuale fissa dell'1,5% più il 75% dell'inflazione ISTAT. Al momento della liquidazione, si applica una tassazione separata con aliquota media IRPEF degli ultimi 5 anni, con aliquota minima del 23%."}},
+    {"@type":"Question","name":"È meglio lasciare il TFR in azienda o versarlo in un fondo pensione?","acceptedAnswer":{"@type":"Answer","text":"Nelle aziende con più di 50 dipendenti il TFR viene obbligatoriamente versato all'INPS. Nelle aziende con meno di 50 dipendenti rimane in azienda salvo scelta diversa del lavoratore. Versare il TFR in un fondo pensione è generalmente conveniente fiscalmente: i fondi pensione godono di deducibilità fiscale fino a 5.164,57€ annui e di un'aliquota agevolata alla prestazione (dal 9% al 15%)."}},
+    {"@type":"Question","name":"Quando si riceve il TFR?","acceptedAnswer":{"@type":"Answer","text":"Il TFR viene erogato al termine del rapporto di lavoro, indipendentemente dal motivo: licenziamento, dimissioni, pensionamento o scadenza del contratto. Per i dipendenti pubblici ci sono tempi specifici: fino a 2 anni per chi va in pensione anticipata, fino a 3 mesi per chi raggiunge l'età pensionabile. Nel settore privato, solitamente entro 30-60 giorni dalla cessazione del rapporto."}}
+  ]}
+  </script>
   <meta property="og:title" content="Simulatore TFR 2026 Gratis | Calcola la Tua Liquidazione">
   <meta property="og:description" content="Calcola il TFR (Trattamento di Fine Rapporto) maturato in base a RAL e anni di servizio. Con rivalutazione annua e tassazione separata. Simulatore gratuito.">
   <meta property="og:url" content="https://calcolapro.it/tfr.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:image" content="https://calcolapro.it/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:site_name" content="CalcolaPro">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Simulatore TFR 2026 Gratis | Calcola la Tua Liquidazione">
   <meta name="twitter:description" content="Calcola il TFR (Trattamento di Fine Rapporto) maturato in base a RAL e anni di servizio. Con rivalutazione annua e tassazione separata. Simulatore gratuito.">
 </head>
@@ -346,8 +357,19 @@
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
-    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+    <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-  <script src="cookie-consent.js"></script>
+    <script>
+    (function() {
+      var sticky = document.getElementById('amzSticky');
+      var btn = document.getElementById('amzClose');
+      if (!sticky || !btn) return;
+      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
+      btn.onclick = function() {
+        sticky.style.display = 'none';
+        localStorage.setItem('amzClosed', '1');
+      };
+    })();
+  </script><script src="cookie-consent.js"></script>
 </body>
 </html>

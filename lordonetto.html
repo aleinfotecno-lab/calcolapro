@@ -38,8 +38,12 @@
   <meta property="og:url" content="https://calcolapro.it/lordonetto.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:image" content="https://calcolapro.it/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:site_name" content="CalcolaPro">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Da Lordo a Netto Stipendio 2026 | Calcola la Tua Busta Paga">
   <meta name="twitter:description" content="Converti lo stipendio lordo annuo in netto in pochi secondi. IRPEF 2026, contributi INPS 9,19%, detrazioni per figli e coniuge. Calcolo busta paga gratuito.">
 </head>
@@ -389,8 +393,19 @@
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
-    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+    <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-  <script src="cookie-consent.js"></script>
+    <script>
+    (function() {
+      var sticky = document.getElementById('amzSticky');
+      var btn = document.getElementById('amzClose');
+      if (!sticky || !btn) return;
+      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
+      btn.onclick = function() {
+        sticky.style.display = 'none';
+        localStorage.setItem('amzClosed', '1');
+      };
+    })();
+  </script><script src="cookie-consent.js"></script>
 </body>
 </html>

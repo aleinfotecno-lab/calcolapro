@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" href="https://calcolapro.it/chilometrico.html">
   <script type="application/ld+json">
   {
@@ -25,13 +25,24 @@
     "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Come funziona il rimborso chilometrico ACI 2026?","acceptedAnswer":{"@type":"Answer","text":"Il rimborso chilometrico ACI si basa sulle tabelle pubblicate annualmente dall'Automobile Club d'Italia, che variano in base alla marca, modello, cilindrata e tipo di carburante del veicolo. Il dipendente inserisce i km percorsi con la propria auto e riceve un rimborso forfettario che copre carburante, manutenzione e ammortamento. Il rimborso entro i limiti ACI non concorre a formare il reddito del lavoratore."}},
+    {"@type":"Question","name":"Il rimborso chilometrico è imponibile ai fini IRPEF?","acceptedAnswer":{"@type":"Answer","text":"No, il rimborso chilometrico entro i limiti delle tabelle ACI non è soggetto a IRPEF né a contributi INPS. È un rimborso spese esente da tassazione sia per il dipendente che per l'azienda, che può dedurlo al 100% come costo (o al 70% se il veicolo è a uso promiscuo)."}},
+    {"@type":"Question","name":"Quando vengono aggiornate le tabelle ACI?","acceptedAnswer":{"@type":"Answer","text":"Le tabelle ACI vengono aggiornate ogni anno, generalmente pubblicate in Gazzetta Ufficiale entro dicembre per l'anno successivo. Le tabelle ACI 2026 sono quindi quelle da utilizzare per i rimborsi relativi a spostamenti effettuati nel corso del 2026."}}
+  ]}
+  </script>
   <meta property="og:title" content="Calcola Rimborso Chilometrico 2026 | Tabelle ACI">
   <meta property="og:description" content="Calcola il rimborso chilometrico con le tabelle ACI 2026. Auto, moto e ciclomotore. Inserisci km, cilindrata e periodo per ottenere il rimborso esatto. Gratuito.">
   <meta property="og:url" content="https://calcolapro.it/chilometrico.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:image" content="https://calcolapro.it/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:site_name" content="CalcolaPro">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Calcola Rimborso Chilometrico 2026 | Tabelle ACI">
   <meta name="twitter:description" content="Calcola il rimborso chilometrico con le tabelle ACI 2026. Auto, moto e ciclomotore. Inserisci km, cilindrata e periodo per ottenere il rimborso esatto. Gratuito.">
 </head>
@@ -386,8 +397,19 @@
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
-    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+    <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-  <script src="cookie-consent.js"></script>
+    <script>
+    (function() {
+      var sticky = document.getElementById('amzSticky');
+      var btn = document.getElementById('amzClose');
+      if (!sticky || !btn) return;
+      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
+      btn.onclick = function() {
+        sticky.style.display = 'none';
+        localStorage.setItem('amzClosed', '1');
+      };
+    })();
+  </script><script src="cookie-consent.js"></script>
 </body>
 </html>

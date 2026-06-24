@@ -11,6 +11,10 @@
   <meta property="og:url" content="https://calcolapro.it/privacy.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="it_IT"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:site_name" content="CalcolaPro"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>ðŸ§®</text></svg>"/>
   <link rel="stylesheet" href="style.css"/>
@@ -160,7 +164,7 @@
 <div class="amz-sticky" id="amzSticky">
   <span class="amz-sticky-text">ðŸ“¦ <strong>Amazon Prime</strong> â€” Spedizione gratuita e illimitata su milioni di prodotti</span>
   <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni â†’</a>
-  <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">Ã—</button>
+  <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">Ã—</button>
 </div>
 
 <footer class="footer" role="contentinfo">
@@ -223,6 +227,17 @@
   if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
   document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
 </script>
-  <script src="cookie-consent.js"></script>
+    <script>
+    (function() {
+      var sticky = document.getElementById('amzSticky');
+      var btn = document.getElementById('amzClose');
+      if (!sticky || !btn) return;
+      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
+      btn.onclick = function() {
+        sticky.style.display = 'none';
+        localStorage.setItem('amzClosed', '1');
+      };
+    })();
+  </script><script src="cookie-consent.js"></script>
 </body>
 </html>

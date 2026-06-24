@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" href="https://calcolapro.it/iva.html">
   <script type="application/ld+json">
   {
@@ -25,13 +25,24 @@
     "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Qual è l'aliquota IVA ordinaria in Italia?","acceptedAnswer":{"@type":"Answer","text":"L'aliquota IVA ordinaria in Italia è il 22% e si applica alla maggior parte dei beni e servizi. Esistono anche aliquote ridotte: 10% per alimenti lavorati e ristorazione, 5% per alcuni prodotti alimentari di base, 4% per beni di prima necessità come libri, giornali e prodotti alimentari essenziali."}},
+    {"@type":"Question","name":"Come si scorpora l'IVA da un importo?","acceptedAnswer":{"@type":"Answer","text":"Per scorporare l'IVA da un importo già IVA inclusa, si divide il totale per (1 + aliquota/100). Ad esempio, per scorporare l'IVA al 22% da €122: 122 ÷ 1,22 = €100 (imponibile). L'IVA è quindi €122 - €100 = €22. Il nostro calcolatore esegue questo calcolo automaticamente."}},
+    {"@type":"Question","name":"Quando si applica l'IVA agevolata al 4%?","acceptedAnswer":{"@type":"Answer","text":"L'IVA al 4% si applica ai beni di prima necessità: prodotti alimentari di base come pane, latte, uova, frutta e verdura; libri, giornali e periodici; prodotti farmaceutici; acquisto della prima casa; ausili per disabili. È l'aliquota più bassa prevista dal sistema IVA italiano."}}
+  ]}
+  </script>
   <meta property="og:title" content="Calcolatore IVA Online Gratis 2026 | 22% 10% 4%">
   <meta property="og:description" content="Calcola l'IVA in un secondo. Aggiungi IVA al 22%, 10%, 5% o 4% a un importo o scorporala dal totale. Con sconto e quantità multiple. Strumento gratuito.">
   <meta property="og:url" content="https://calcolapro.it/iva.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:image" content="https://calcolapro.it/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:site_name" content="CalcolaPro">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Calcolatore IVA Online Gratis 2026 | 22% 10% 4%">
   <meta name="twitter:description" content="Calcola l'IVA in un secondo. Aggiungi IVA al 22%, 10%, 5% o 4% a un importo o scorporala dal totale. Con sconto e quantità multiple. Strumento gratuito.">
   <style>
@@ -363,8 +374,19 @@
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
-    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+    <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-  <script src="cookie-consent.js"></script>
+    <script>
+    (function() {
+      var sticky = document.getElementById('amzSticky');
+      var btn = document.getElementById('amzClose');
+      if (!sticky || !btn) return;
+      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
+      btn.onclick = function() {
+        sticky.style.display = 'none';
+        localStorage.setItem('amzClosed', '1');
+      };
+    })();
+  </script><script src="cookie-consent.js"></script>
 </body>
 </html>

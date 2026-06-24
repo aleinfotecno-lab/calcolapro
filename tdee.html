@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" href="https://calcolapro.it/tdee.html">
   <script type="application/ld+json">
   {
@@ -19,19 +19,30 @@
     "name": "Calcolatore TDEE e Calorie Giornaliere 2026",
     "description": "Calcola il tuo TDEE (fabbisogno calorico giornaliero) gratis. Inserisci età, peso, altezza e attività fisica. Scopri quante calorie mangiare per dimagrire o aumentare massa.",
     "url": "https://calcolapro.it/tdee.html",
-    "applicationCategory": "FinanceApplication",
+    "applicationCategory": "HealthApplication",
     "operatingSystem": "Any",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
     "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Cos'è il TDEE e come si calcola?","acceptedAnswer":{"@type":"Answer","text":"Il TDEE (Total Daily Energy Expenditure) è il fabbisogno calorico totale giornaliero, ovvero le calorie che il tuo corpo brucia in un giorno considerando anche l'attività fisica. Si calcola moltiplicando il BMR (metabolismo basale, calcolato con la formula di Mifflin-St Jeor) per il fattore di attività: sedentario (1.2), leggermente attivo (1.375), moderatamente attivo (1.55), molto attivo (1.725) o estremamente attivo (1.9)."}},
+    {"@type":"Question","name":"Qual è la differenza tra BMR e TDEE?","acceptedAnswer":{"@type":"Answer","text":"Il BMR (Basal Metabolic Rate) è il metabolismo basale: le calorie che il tuo corpo consuma a riposo assoluto per mantenere le funzioni vitali (respirazione, circolazione, temperatura corporea). Il TDEE include invece anche le calorie bruciate con l'attività fisica quotidiana. Per dimagrire, perdere peso o mantenere il peso si usa il TDEE come riferimento, non il BMR."}},
+    {"@type":"Question","name":"Di quante calorie devo ridurre per dimagrire?","acceptedAnswer":{"@type":"Answer","text":"Per perdere circa 0,5 kg a settimana (un ritmo sano e sostenibile) è sufficiente un deficit calorico di 500 calorie al giorno rispetto al TDEE. Ad esempio, se il tuo TDEE è 2.200 kcal, dovresti consumare circa 1.700 kcal al giorno. Non scendere mai sotto 1.200 kcal (donne) o 1.500 kcal (uomini) per non compromettere il metabolismo."}}
+  ]}
   </script>
   <meta property="og:title" content="Calcolatore TDEE e Calorie Giornaliere 2026">
   <meta property="og:description" content="Calcola il tuo TDEE (fabbisogno calorico giornaliero) gratis. Inserisci età, peso, altezza e attività fisica. Scopri quante calorie mangiare per dimagrire o aumentare massa.">
   <meta property="og:url" content="https://calcolapro.it/tdee.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:image" content="https://calcolapro.it/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:site_name" content="CalcolaPro">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Calcolatore TDEE e Calorie Giornaliere 2026">
   <meta name="twitter:description" content="Calcola il tuo TDEE (fabbisogno calorico giornaliero) gratis. Inserisci età, peso, altezza e attività fisica. Scopri quante calorie mangiare per dimagrire o aumentare massa.">
   <style>
@@ -320,8 +331,19 @@
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener">Prova gratis 30 giorni →</a>
-    <button class="amz-sticky-close" onclick="document.getElementById('amzSticky').style.display='none'" aria-label="Chiudi">×</button>
+    <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-  <script src="cookie-consent.js"></script>
+    <script>
+    (function() {
+      var sticky = document.getElementById('amzSticky');
+      var btn = document.getElementById('amzClose');
+      if (!sticky || !btn) return;
+      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
+      btn.onclick = function() {
+        sticky.style.display = 'none';
+        localStorage.setItem('amzClosed', '1');
+      };
+    })();
+  </script><script src="cookie-consent.js"></script>
 </body>
 </html>

@@ -19,7 +19,10 @@
       "Bash(git commit *)",
       "Bash(git branch *)",
       "Bash(git remote *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(nslookup calcolapro.it 8.8.8.8)",
+      "Bash(git ls-tree *)",
+      "Bash(git rm *)"
     ]
   }
 }
