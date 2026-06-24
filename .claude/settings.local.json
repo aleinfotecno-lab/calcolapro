@@ -22,7 +22,8 @@
       "Bash(git push *)",
       "Bash(nslookup calcolapro.it 8.8.8.8)",
       "Bash(git ls-tree *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(xargs grep -l \"fetch.*'/'.*newsletter\\\\|handleNewsletter.*fetch\")"
     ]
   }
 }

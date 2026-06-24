@@ -421,7 +421,7 @@
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
     if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
-    function handleNewsletter(e) { e.preventDefault(); const f = e.target; fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()}).finally(()=>{f.style.display='none';document.getElementById('nlSuccess').style.display='block';}); }
+    function handleNewsletter(e) { e.preventDefault(); const em = e.target.querySelector('input[type="email"]'); if (em && em.value.trim()) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] ' + em.value.trim()) + '&body=' + encodeURIComponent('Iscrizione newsletter: ' + em.value.trim()); e.target.style.display='none'; document.getElementById('nlSuccess').style.display='block'; }
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
     <script>
