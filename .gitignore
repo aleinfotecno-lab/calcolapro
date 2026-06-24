@@ -1,3 +1,7 @@
 .claude/
 claude-code-skills/
 claude-seo/
+node_modules/
+package.json
+package-lock.json
+
