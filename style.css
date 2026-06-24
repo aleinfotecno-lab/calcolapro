@@ -728,6 +728,7 @@ tbody tr:nth-child(even):hover { background: var(--blue-xlight); }
   transition: color var(--transition);
 }
 .amz-sticky-close:hover { color: #fff; }
+body:has(#cp-cookie-banner) .amz-sticky { display: none !important; }
 
 /* ═══════════════════════════════════════════════════════════
    NEWSLETTER BOX
