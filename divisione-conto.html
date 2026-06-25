@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Divisione Conto — Calcola la Quota tra Amici e Coinquilini | CalcolaPro</title>
+  <meta name="description" content="Dividi il conto del ristorante o le spese tra coinquilini in modo equo. Inserisci l'importo totale, il numero di persone e la mancia opzionale. Calcolo istantaneo."/>
+  <meta name="keywords" content="divisione conto, dividere conto ristorante, calcolo quota amici, split bill, dividere spese coinquilini, conto alla romana, calcola quanto paga ognuno"/>
+  <link rel="canonical" href="https://calcolapro.it/divisione-conto.html"/>
+  <meta property="og:title" content="Divisione Conto — Calcola la Quota tra Amici"/>
+  <meta property="og:description" content="Dividi il conto del ristorante o le spese tra coinquilini in modo equo. Calcolo istantaneo, gratis."/>
+  <meta property="og:url" content="https://calcolapro.it/divisione-conto.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="CalcolaPro"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.svg"/>
+  <meta property="og:locale" content="it_IT"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.svg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:type" content="image/svg+xml"/>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Divisione Conto tra Amici","description":"Calcola quanto deve pagare ognuno dividendo il conto del ristorante o le spese tra amici e coinquilini. Divisione uguale o personalizzata. Gratis.","url":"https://calcolapro.it/divisione-conto.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Come si divide il conto al ristorante in modo equo?","acceptedAnswer":{"@type":"Answer","text":"Il modo più semplice è la divisione uguale: sommate il totale del conto (inclusa eventuale mancia) e dividete per il numero di persone. Se qualcuno ha ordinato molto di più, è più giusto dividere per consumo individuale. Il nostro calcolatore supporta entrambe le modalità."}},
+    {"@type":"Question","name":"Quanto si lascia di mancia in Italia?","acceptedAnswer":{"@type":"Answer","text":"In Italia la mancia non è obbligatoria come negli USA. Al ristorante è comune lasciare il 5-10% del conto per un ottimo servizio. Al bar si arrotonda spesso a qualche centesimo. In molti ristoranti italiani il servizio è già incluso nel prezzo dei piatti."}},
+    {"@type":"Question","name":"Come dividere le spese tra coinquilini?","acceptedAnswer":{"@type":"Answer","text":"Per le spese fisse (affitto, bollette) la divisione uguale è la più semplice. Per le spese variabili (supermercato, pulizie) potete usare la modalità 'Per persona' del nostro calcolatore, inserendo quanto ha speso ciascuno e calcolando il saldo finale."}},
+    {"@type":"Question","name":"Cosa significa conto alla romana?","acceptedAnswer":{"@type":"Answer","text":"'Conto alla romana' significa dividere il totale del conto in parti uguali tra tutti i commensali, indipendentemente da cosa ha ordinato ciascuno. È il metodo più rapido per saldare il conto al ristorante tra amici."}}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Divisione Conto","item":"https://calcolapro.it/divisione-conto.html"}]}
+  </script>
+  <style>
+    .mode-tabs { display:flex; gap:8px; margin-bottom:0; flex-wrap:wrap; }
+    .mode-tab { padding:10px 20px; border-radius:10px; border:2px solid var(--border); background:var(--white); color:var(--text-muted); font-weight:700; font-size:14px; cursor:pointer; transition:all .2s; }
+    .mode-tab.active { border-color:#2563eb; background:#2563eb; color:#fff; }
+    .mode-tab:hover:not(.active) { border-color:#2563eb; color:#2563eb; }
+    .persona-row { display:grid; grid-template-columns:1fr 140px 36px; gap:10px; align-items:center; margin-bottom:10px; }
+    .persona-row input[type=text] { border:1px solid var(--border); border-radius:8px; padding:10px 12px; font-size:14px; font-family:inherit; }
+    .persona-row input[type=number] { border:1px solid var(--border); border-radius:8px; padding:10px 12px; font-size:14px; font-family:inherit; width:100%; }
+    .persona-row .btn-remove { background:none; border:1px solid #fee2e2; border-radius:8px; color:#ef4444; font-size:18px; cursor:pointer; width:36px; height:36px; display:flex; align-items:center; justify-content:center; padding:0; transition:background .2s; }
+    .persona-row .btn-remove:hover { background:#fef2f2; }
+    .btn-add-persona { background:none; border:2px dashed var(--border); border-radius:10px; padding:12px 20px; color:#2563eb; font-weight:700; font-size:14px; cursor:pointer; width:100%; margin-top:8px; transition:border-color .2s; font-family:inherit; }
+    .btn-add-persona:hover { border-color:#2563eb; }
+    .persona-result-table { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+    .persona-result-table th { text-align:left; padding:8px 10px; color:var(--text-muted); font-weight:600; font-size:12px; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,.1); }
+    .persona-result-table td { padding:10px 10px; border-bottom:1px solid rgba(255,255,255,.08); }
+    .persona-result-table td:last-child { text-align:right; font-weight:700; }
+    .persona-result-table tr:last-child td { border-bottom:none; }
+    .stepper { display:flex; align-items:center; gap:0; border:1px solid var(--border); border-radius:8px; overflow:hidden; width:fit-content; }
+    .stepper-btn { background:var(--bg); border:none; padding:10px 16px; font-size:20px; cursor:pointer; color:#2563eb; font-weight:700; transition:background .15s; }
+    .stepper-btn:hover { background:#eff6ff; }
+    .stepper-val { padding:10px 20px; font-size:16px; font-weight:700; min-width:50px; text-align:center; border-left:1px solid var(--border); border-right:1px solid var(--border); }
+    .mancia-select-wrap { display:flex; gap:10px; flex-wrap:wrap; }
+    .mancia-pill { padding:8px 16px; border-radius:20px; border:2px solid var(--border); background:var(--white); font-size:13px; font-weight:700; cursor:pointer; transition:all .15s; white-space:nowrap; }
+    .mancia-pill.active { border-color:#2563eb; background:#2563eb; color:#fff; }
+    .mancia-pill:hover:not(.active) { border-color:#2563eb; color:#2563eb; }
+    @media(max-width:480px) { .persona-row { grid-template-columns:1fr 100px 36px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Vai al contenuto</a>
+  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span class="logo-accent">Pro</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="freelance.html">💰 Freelance</a></li>
+      <li><a href="lordonetto.html">💵 Lordo/Netto</a></li>
+      <li><a href="mutuo.html">🏦 Mutuo</a></li>
+      <li><a href="affitto.html">🏠 Affitto</a></li>
+      <li><a href="partitaiva.html">📋 P.IVA</a></li>
+      <li><a href="iva.html">🧾 IVA</a></li>
+      <li><a href="chilometrico.html">🚗 Km ACI</a></li>
+      <li><a href="tfr.html">📦 TFR</a></li>
+      <li><a href="pensione.html">🎂 Pensione</a></li>
+      <li><a href="tdee.html">🥗 TDEE</a></li>
+      <li><a href="bmi.html">⚖️ BMI</a></li>
+    </ul>
+  </nav>
+
+  <div class="ad-slot-top" aria-hidden="true">
+    <div class="ad-slot ad-slot-banner"><!-- AdSense --></div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-badge"><span class="dot"></span>GRUPPO · COINQUILINI</div>
+      <h1>Dividi il <em>conto</em><br>tra amici</h1>
+      <p class="page-subtitle">Ristorante, vacanze, affitto, bollette: calcola in un secondo quanto deve pagare ognuno. Divisione uguale o personalizzata.</p>
+    </div>
+  </div>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span aria-current="page">Divisione Conto</span>
+  </nav>
+
+  <main id="main-content" class="page-content">
+    <div class="grid">
+
+      <!-- Selettore modalità -->
+      <div class="col-full">
+        <div class="mode-tabs" role="tablist" aria-label="Modalità di calcolo">
+          <button class="mode-tab active" id="tab-uguale" role="tab" aria-selected="true" aria-controls="panel-uguale" onclick="switchMode('uguale')">🍕 Divisione uguale</button>
+          <button class="mode-tab" id="tab-persona" role="tab" aria-selected="false" aria-controls="panel-persona" onclick="switchMode('persona')">👥 Per persona</button>
+        </div>
+      </div>
+
+      <!-- PANEL 1: Divisione uguale -->
+      <div id="panel-uguale" role="tabpanel" aria-labelledby="tab-uguale" class="col-full" style="display:contents;">
+        <div class="card">
+          <div class="card-title"><span class="card-icon">🧾</span> Il conto</div>
+          <div class="field">
+            <label for="totale">Importo totale del conto</label>
+            <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" id="totale" value="80" min="0.01" step="0.01" class="has-prefix" inputmode="decimal"/></div>
+          </div>
+          <div class="field">
+            <label>Numero di persone</label>
+            <div class="stepper" role="group" aria-label="Numero di persone">
+              <button type="button" class="stepper-btn" onclick="cambiaPersone(-1)" aria-label="Diminuisci">−</button>
+              <div class="stepper-val" id="nPersoneDisplay" aria-live="polite">4</div>
+              <button type="button" class="stepper-btn" onclick="cambiaPersone(1)" aria-label="Aumenta">+</button>
+            </div>
+            <input type="hidden" id="nPersone" value="4"/>
+          </div>
+          <div class="field">
+            <label>Mancia (opzionale)</label>
+            <div class="mancia-select-wrap" role="group" aria-label="Percentuale mancia">
+              <button type="button" class="mancia-pill active" data-val="0" onclick="setMancia(this, 0)">Nessuna</button>
+              <button type="button" class="mancia-pill" data-val="5" onclick="setMancia(this, 5)">5%</button>
+              <button type="button" class="mancia-pill" data-val="10" onclick="setMancia(this, 10)">10%</button>
+              <button type="button" class="mancia-pill" data-val="15" onclick="setMancia(this, 15)">15%</button>
+              <button type="button" class="mancia-pill" data-val="custom" onclick="setMancia(this,'custom')">Altra %</button>
+            </div>
+            <input type="hidden" id="manciaPerc" value="0"/>
+          </div>
+          <div class="field" id="manciaCustomField" style="display:none;">
+            <label for="manciaCustom">Percentuale mancia</label>
+            <div class="input-wrap"><span class="input-prefix">%</span>
+            <input type="number" id="manciaCustom" value="12" min="0" max="100" step="1" class="has-prefix" inputmode="numeric"/></div>
+          </div>
+        </div>
+        <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcolaUguale()">🔍 Calcola la quota →</button></div>
+      </div>
+
+      <!-- PANEL 2: Per persona -->
+      <div id="panel-persona" role="tabpanel" aria-labelledby="tab-persona" class="col-full" style="display:none;">
+        <div class="card">
+          <div class="card-title"><span class="card-icon">👥</span> Chi ha speso quanto</div>
+          <p class="hint" style="margin-bottom:16px;">Inserisci il nome e la spesa di ciascuna persona. Il calcolatore mostra la quota di ognuno.</p>
+          <div style="display:grid;grid-template-columns:1fr 140px 36px;gap:8px;margin-bottom:6px;">
+            <span style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;">Nome</span>
+            <span style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;">Spesa (€)</span>
+            <span></span>
+          </div>
+          <div id="personeList"></div>
+          <button type="button" class="btn-add-persona" onclick="aggiungiPersona()">+ Aggiungi persona</button>
+        </div>
+        <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcolaPersona()">🔍 Calcola le quote →</button></div>
+      </div>
+
+      <div class="col-full" style="display:flex;justify-content:center">
+        <div class="ad-slot ad-slot-rect" aria-hidden="true"><!-- AdSense --></div>
+      </div>
+
+      <!-- RESULT (hidden by default) -->
+      <div id="result" class="col-full animate-fade-up" style="display:none;">
+        <div class="result-card">
+          <div class="result-label" id="resultLabel">Ciascuno paga</div>
+          <div class="result-value" id="quotaOut">—</div>
+          <div class="result-unit" id="resultUnit">euro / persona</div>
+          <div class="result-breakdown" id="resultBreakdown"></div>
+          <div id="personaTable"></div>
+        </div>
+      </div>
+
+      <!-- BOX APP PAGAMENTO TRA AMICI -->
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <span style="font-size:1.5rem;">💸</span>
+          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Paga i tuoi amici in un clic</h3>
+        </div>
+        <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Sai quanto deve ognuno — ora basta un secondo per saldare il debito con questi strumenti gratuiti.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+          <a href="https://www.satispay.com/it-it/" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">⭐ Pagamenti tra amici</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Satispay</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Gratis · Istantaneo · Zero commissioni</div>
+            <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Scarica gratis →</div>
+          </a>
+          <a href="https://www.hype.it/" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">💳 Conto digitale</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Hype</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">IBAN IT · Carta Mastercard · Cashback</div>
+            <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Apri gratis →</div>
+          </a>
+          <a href="https://amzn.to/4n7fL7D" target="_blank" rel="noopener sponsored" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📚 Finanza personale</div>
+            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Ti Insegno Come Diventare Ricco</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Ramit Sethi · Il metodo per ottimizzare risparmi</div>
+            <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Vedi su Amazon →</div>
+          </a>
+        </div>
+        <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;margin-bottom:0;">⚠️ Condizioni soggette a variazioni. Verifica sempre il sito ufficiale. Link sponsorizzati.</p>
+      </div>
+    </div>
+
+    <!-- Amazon card -->
+    <div class="amz-card">
+      <div class="amz-card-logo">📦</div>
+      <div class="amz-card-text">
+        <div class="amz-label">Consigliato da CalcolaPro</div>
+        <div class="amz-title">Amazon Prime — 30 giorni gratis</div>
+        <div class="amz-desc">Spedizioni rapide e gratuite, Prime Video, musica e molto altro. Prova senza impegno.</div>
+      </div>
+      <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
+    </div>
+
+    <div class="cross-links" id="crossLinks" style="display:none;">
+      <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links-grid">
+        <a href="affitto.html" class="cross-link-pill">🏠 Calcolo affitto</a>
+        <a href="mutuo.html" class="cross-link-pill">🏦 Rata mutuo</a>
+        <a href="calcolo-spese-acquisto-casa.html" class="cross-link-pill">🏗️ Spese acquisto casa</a>
+        <a href="iva.html" class="cross-link-pill">🧾 Calcolo IVA</a>
+      </div>
+    </div>
+
+    <div class="seo-section">
+      <h2>Come dividere il conto in modo equo</h2>
+      <p>Dividere il conto al ristorante o le spese tra coinquilini può diventare complicato, specialmente quando il gruppo è numeroso o ognuno ha ordinato cose diverse. Esistono due approcci principali: la divisione uguale (il classico "conto alla romana") e la divisione per consumo individuale.</p>
+      <h3>Il conto alla romana</h3>
+      <p>La divisione uguale — o "conto alla romana" — è il metodo più rapido: si somma il totale del conto, si aggiunge l'eventuale mancia, e si divide per il numero di commensali. Funziona bene quando le spese individuali sono simili e tra buoni amici che si frequentano spesso (i conti si bilanciano nel tempo).</p>
+      <h3>Divisione per consumo individuale</h3>
+      <p>Quando qualcuno ha ordinato molto di più — bistecca e bottiglia di vino vs insalata e acqua — la divisione uguale può sembrare ingiusta. In questo caso usa la modalità "Per persona" del nostro calcolatore: inserisci il nome di ogni persona e quanto ha speso, e il calcolo mostra esattamente la quota di ognuno.</p>
+      <h3>Come dividere le spese tra coinquilini</h3>
+      <p>Per l'affitto e le spese mensili fisse (bollette, internet, condominio), la divisione uguale funziona quasi sempre. Per le spese variabili come la spesa al supermercato, puoi usare app come Satispay per i pagamenti immediati tra coinquilini senza commissioni.</p>
+      <h3>La mancia in Italia</h3>
+      <p>A differenza degli USA (15-20% obbligatoria), in Italia la mancia è facoltativa. Al ristorante si lascia tipicamente il 5-10% per un ottimo servizio, oppure si arrotonda il conto all'euro più vicino. In molti ristoranti italiani il coperto è già incluso nel conto finale.</p>
+      <h3>Domande frequenti</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si divide il conto al ristorante in modo equo?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Il modo più semplice è la divisione uguale (conto alla romana): sommate il totale e dividete per il numero di persone. Se qualcuno ha ordinato molto di più, è più giusto usare la modalità "Per persona" dove ognuno paga solo quello che ha consumato.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto si lascia di mancia in Italia?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">In Italia la mancia non è obbligatoria. Al ristorante si lascia tipicamente il 5-10% per un ottimo servizio. Al bar si arrotonda a qualche centesimo. Alcuni ristoranti includono già il servizio nel conto — controlla prima di lasciare la mancia.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come dividere le spese tra coinquilini?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Per spese fisse (affitto, bollette) usa la divisione uguale. Per spese variabili, usa la modalità "Per persona" del calcolatore: inserisci quanto ha speso ciascuno e vedi le quote. Per i rimborsi usa Satispay o bonifico bancario — evita i contanti perché è difficile tenere traccia.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa significa "conto alla romana"?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">"Conto alla romana" significa dividere il totale del conto in parti uguali tra tutti i commensali, indipendentemente da cosa ha ordinato ciascuno. È il metodo più veloce e informale tra amici — funziona meglio quando le spese individuali sono simili.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Calcola<span>Pro</span></div>
+        <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3)">I risultati sono indicativi e non sostituiscono la consulenza professionale.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calcolatori</h4>
+        <ul>
+          <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
+          <li><a href="mutuo.html">Rata Mutuo</a></li>
+          <li><a href="calcolatore-prestito-personale.html">Prestito Personale</a></li>
+          <li><a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a></li>
+          <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
+          <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
+          <li><a href="pensione.html">Pensione 2026</a></li>
+          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
+          <li><a href="calcolo-straordinari.html">Straordinari</a></li>
+          <li><a href="partitaiva.html">Partita IVA</a></li>
+          <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guide</h4>
+        <ul>
+          <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
+          <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
+          <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
+          <li><a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso vs Variabile</a></li>
+          <li><a href="guida-stipendio-netto-lordo.html">Stipendio Netto e Lordo</a></li>
+          <li><a href="guida-comprare-affittare-casa.html">Comprare o Affittare?</a></li>
+          <li><a href="guida-pensione-anticipata-2026.html">Pensione Anticipata 2026</a></li>
+          <li><a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informazioni</h4>
+        <ul>
+          <li><a href="come-funziona.html">Come Funziona</a></li>
+          <li><a href="about.html">Chi Siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini di Utilizzo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
+    </div>
+  </footer>
+
+  <script>
+    /* --- nav --- */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+    /* --- state --- */
+    let nPersone = 4;
+    let manciaPerc = 0;
+    let modeAttiva = 'uguale';
+
+    /* --- utils --- */
+    function fmt(n) { return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', minimumFractionDigits:2, maximumFractionDigits:2}).format(n); }
+
+    /* --- stepper persone --- */
+    function cambiaPersone(delta) {
+      nPersone = Math.min(20, Math.max(2, nPersone + delta));
+      document.getElementById('nPersoneDisplay').textContent = nPersone;
+      document.getElementById('nPersone').value = nPersone;
+    }
+
+    /* --- mancia pills --- */
+    function setMancia(btn, val) {
+      document.querySelectorAll('.mancia-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const customField = document.getElementById('manciaCustomField');
+      if (val === 'custom') {
+        customField.style.display = 'block';
+        manciaPerc = parseFloat(document.getElementById('manciaCustom').value) || 0;
+      } else {
+        customField.style.display = 'none';
+        manciaPerc = val;
+      }
+      document.getElementById('manciaPerc').value = manciaPerc;
+    }
+
+    /* --- switch mode --- */
+    function switchMode(mode) {
+      modeAttiva = mode;
+      const panelUguale = document.getElementById('panel-uguale');
+      const panelPersona = document.getElementById('panel-persona');
+      const tabUguale = document.getElementById('tab-uguale');
+      const tabPersona = document.getElementById('tab-persona');
+
+      if (mode === 'uguale') {
+        panelUguale.style.display = 'contents';
+        panelPersona.style.display = 'none';
+        tabUguale.classList.add('active'); tabUguale.setAttribute('aria-selected','true');
+        tabPersona.classList.remove('active'); tabPersona.setAttribute('aria-selected','false');
+      } else {
+        panelUguale.style.display = 'none';
+        panelPersona.style.display = 'block';
+        tabPersona.classList.add('active'); tabPersona.setAttribute('aria-selected','true');
+        tabUguale.classList.remove('active'); tabUguale.setAttribute('aria-selected','false');
+        if (document.querySelectorAll('.persona-row').length === 0) initPersoneRows();
+      }
+      document.getElementById('result').style.display = 'none';
+    }
+
+    /* --- Mode 1: Divisione uguale --- */
+    function calcolaUguale() {
+      const totale = parseFloat(document.getElementById('totale').value) || 0;
+      if (totale <= 0) { alert('Inserisci un importo valido.'); return; }
+
+      const manciaAttiva = document.querySelector('.mancia-pill.active');
+      let perc = 0;
+      if (manciaAttiva) {
+        const val = manciaAttiva.dataset.val;
+        perc = val === 'custom' ? (parseFloat(document.getElementById('manciaCustom').value) || 0) : parseFloat(val);
+      }
+
+      const manciaEuro = totale * perc / 100;
+      const totaleConMancia = totale + manciaEuro;
+      const quota = totaleConMancia / nPersone;
+      const manciaPerPersona = manciaEuro / nPersone;
+
+      document.getElementById('resultLabel').textContent = 'Ciascuno paga';
+      document.getElementById('quotaOut').textContent = fmt(quota);
+      document.getElementById('resultUnit').textContent = 'euro / persona';
+
+      let breakdown = '';
+      breakdown += `<div class="breakdown-item"><div class="breakdown-value">${nPersone}</div><div class="breakdown-label">persone</div></div>`;
+      if (perc > 0) {
+        breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(manciaEuro)}</div><div class="breakdown-label">mancia totale (${perc}%)</div></div>`;
+        breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(manciaPerPersona)}</div><div class="breakdown-label">mancia a testa</div></div>`;
+      }
+      breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(totaleConMancia)}</div><div class="breakdown-label">totale${perc > 0 ? ' con mancia' : ''}</div></div>`;
+      document.getElementById('resultBreakdown').innerHTML = breakdown;
+      document.getElementById('personaTable').style.display = 'none';
+      document.getElementById('personaTable').innerHTML = '';
+
+      const resultEl = document.getElementById('result');
+      resultEl.style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
+      resultEl.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+
+    /* --- Mode 2: Per persona --- */
+    let personaCounter = 0;
+    const NOMI_DEFAULT = ['Luca', 'Sara', 'Marco', 'Giulia', 'Andrea', 'Elena', 'Paolo', 'Marta', 'Roberto', 'Chiara'];
+
+    function initPersoneRows() {
+      for (let i = 0; i < 3; i++) aggiungiPersona();
+    }
+
+    function aggiungiPersona() {
+      const list = document.getElementById('personeList');
+      if (list.querySelectorAll('.persona-row').length >= 10) { alert('Massimo 10 persone.'); return; }
+      const id = personaCounter++;
+      const nomeSuggerito = NOMI_DEFAULT[id % NOMI_DEFAULT.length] || ('Persona ' + (id+1));
+      const row = document.createElement('div');
+      row.className = 'persona-row';
+      row.dataset.id = id;
+      row.innerHTML = `
+        <input type="text" class="nome-input" placeholder="${nomeSuggerito}" aria-label="Nome persona ${id+1}"/>
+        <input type="number" class="importo-input" placeholder="0,00" min="0" step="0.01" inputmode="decimal" aria-label="Spesa persona ${id+1}"/>
+        <button type="button" class="btn-remove" onclick="rimuoviPersona(this)" aria-label="Rimuovi persona">×</button>`;
+      list.appendChild(row);
+    }
+
+    function rimuoviPersona(btn) {
+      const list = document.getElementById('personeList');
+      if (list.querySelectorAll('.persona-row').length <= 2) { alert('Ci vogliono almeno 2 persone.'); return; }
+      btn.closest('.persona-row').remove();
+    }
+
+    function calcolaPersona() {
+      const rows = document.querySelectorAll('.persona-row');
+      if (rows.length < 2) { alert('Aggiungi almeno 2 persone.'); return; }
+
+      let totale = 0;
+      const persone = [];
+      let valida = true;
+
+      rows.forEach((row, i) => {
+        const nome = row.querySelector('.nome-input').value.trim() || (NOMI_DEFAULT[i] || ('Persona ' + (i+1)));
+        const importo = parseFloat(row.querySelector('.importo-input').value) || 0;
+        if (importo < 0) { valida = false; }
+        totale += importo;
+        persone.push({nome, importo});
+      });
+
+      if (!valida) { alert('Tutti gli importi devono essere positivi.'); return; }
+      if (totale <= 0) { alert('Inserisci almeno un importo maggiore di zero.'); return; }
+
+      const quotaUguale = totale / persone.length;
+
+      document.getElementById('resultLabel').textContent = 'Totale da dividere';
+      document.getElementById('quotaOut').textContent = fmt(totale);
+      document.getElementById('resultUnit').textContent = 'euro totali';
+      document.getElementById('resultBreakdown').innerHTML = `<div class="breakdown-item"><div class="breakdown-value">${persone.length}</div><div class="breakdown-label">persone</div></div><div class="breakdown-item"><div class="breakdown-value">${fmt(quotaUguale)}</div><div class="breakdown-label">quota uguale</div></div>`;
+
+      let tableHtml = '<table class="persona-result-table"><thead><tr><th>Persona</th><th>Spesa</th><th>% sul totale</th></tr></thead><tbody>';
+      persone.forEach(p => {
+        const perc = totale > 0 ? (p.importo / totale * 100).toFixed(1) : '0.0';
+        tableHtml += `<tr><td>${p.nome}</td><td>${fmt(p.importo)}</td><td>${perc}%</td></tr>`;
+      });
+      tableHtml += '</tbody></table>';
+
+      const personaTableEl = document.getElementById('personaTable');
+      personaTableEl.innerHTML = tableHtml;
+      personaTableEl.style.display = 'block';
+
+      const resultEl = document.getElementById('result');
+      resultEl.style.display = 'block';
+      const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
+      resultEl.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+
+    /* --- FAQ accordion --- */
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
+      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    }
+
+    /* --- Newsletter --- */
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const emailEl = e.target.querySelector('input[type="email"]');
+      const email = emailEl ? emailEl.value.trim() : '';
+      if (email) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] Iscrizione da ' + email) + '&body=' + encodeURIComponent('Nuova iscrizione newsletter: ' + email);
+      e.target.style.display = 'none';
+      document.getElementById('nlSuccess').style.display = 'block';
+    }
+  </script>
+
+  <div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
+    <div class="newsletter-box-icon">📬</div>
+    <h3>Risparmio, conti e finanza quotidiana</h3>
+    <p>Guide pratiche su come risparmiare sulle bollette, dividere le spese di casa e gestire il budget di coppia o di gruppo. Gratis.</p>
+    <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
+      <input type="hidden" name="form-name" value="newsletter"/>
+      <input type="email" name="email" placeholder="la-tua@email.it" required/>
+      <button type="submit">Iscriviti →</button>
+    </form>
+    <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
+    <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
+  </div>
+
+  <div class="amz-sticky" id="amzSticky">
+    <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
+    <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
+    <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
+  </div>
+  <script>
+    (function() {
+      var sticky = document.getElementById('amzSticky');
+      var btn = document.getElementById('amzClose');
+      if (!sticky || !btn) return;
+      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
+      btn.onclick = function() { sticky.style.display = 'none'; localStorage.setItem('amzClosed','1'); };
+    })();
+  </script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>
