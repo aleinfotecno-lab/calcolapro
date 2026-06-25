@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Calcolo Cedolare Secca 2026 — Conviene vs IRPEF? Simulazione Affitti | CalcolaPro</title>
+  <title>Calcolo Cedolare Secca 2026 | Conviene vs IRPEF? | CalcolaPro</title>
   <meta name="description" content="Calcola se conviene la cedolare secca (21% o 10%) rispetto all'IRPEF ordinaria sul tuo affitto. Confronto immediato con esempi pratici 2026."/>
   <meta name="keywords" content="cedolare secca 2026, calcolo cedolare secca, cedolare secca vs IRPEF, cedolare secca 21% 10%, affitto cedolare secca, contratto concordato cedolare"/>
   <link rel="canonical" href="https://calcolapro.it/calcolo-cedolare-secca.html"/>
@@ -319,19 +319,6 @@
   </div>
 </main>
 
-<div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
-  <div class="newsletter-box-icon">📬</div>
-  <h3>Aggiornamenti su cedolare secca e affitti 2026</h3>
-  <p>Novità fiscali per proprietari, guide su tassazione e come massimizzare il reddito da affitto. Gratis.</p>
-  <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
-    <input type="hidden" name="form-name" value="newsletter"/>
-    <input type="email" name="email" placeholder="la-tua@email.it" required/>
-    <button type="submit">Iscriviti →</button>
-  </form>
-  <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
-  <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
-</div>
-
 <!-- BOX CONFRONTO GESTIONE AFFITTI — sostituisci href con i tuoi link affiliati reali -->
 <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;max-width:720px;margin:0 auto 32px;">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
@@ -360,12 +347,6 @@
     </a>
   </div>
   <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;margin-bottom:0;">⚠️ Condizioni soggette a variazioni. Verifica sempre il sito ufficiale. Link sponsorizzati.</p>
-</div>
-
-<div class="amz-sticky" id="amzSticky">
-  <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
-  <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
-  <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
 </div>
 
 <footer class="footer" role="contentinfo">
@@ -424,6 +405,36 @@
     <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
   </div>
 </footer>
+
+<script>
+function handleNewsletter(e) {
+  e.preventDefault();
+  const emailEl = e.target.querySelector('input[type="email"]');
+  const email = emailEl ? emailEl.value.trim() : '';
+  if (email) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] Iscrizione da ' + email) + '&body=' + encodeURIComponent('Nuova iscrizione newsletter: ' + email);
+  e.target.style.display = 'none';
+  document.getElementById('nlSuccess').style.display = 'block';
+}
+</script>
+
+<div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
+  <div class="newsletter-box-icon">📬</div>
+  <h3>Aggiornamenti su cedolare secca e affitti 2026</h3>
+  <p>Novità fiscali per proprietari, guide su tassazione e come massimizzare il reddito da affitto. Gratis.</p>
+  <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
+    <input type="hidden" name="form-name" value="newsletter"/>
+    <input type="email" name="email" placeholder="la-tua@email.it" required/>
+    <button type="submit">Iscriviti →</button>
+  </form>
+  <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
+  <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
+</div>
+
+<div class="amz-sticky" id="amzSticky">
+  <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
+  <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
+  <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
+</div>
 
 <script>
   const navToggle = document.getElementById('navToggle');
@@ -525,12 +536,6 @@
     res.style.display = 'block';
     res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     if (typeof gtag !== 'undefined') gtag('event', 'calcolo_cedolare_secca', { contratto: contratto, aliquota: aliquotaCed * 100 });
-  }
-  function handleNewsletter(e) {
-    e.preventDefault();
-    const form = e.target;
-    fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
-      .finally(() => { form.style.display = 'none'; document.getElementById('nlSuccess').style.display = 'block'; });
   }
 </script>
     <script>

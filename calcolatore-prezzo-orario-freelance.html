@@ -330,25 +330,6 @@
   <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;margin-bottom:0;">⚠️ I risultati sono indicativi. Consulta un commercialista per la tua situazione specifica. Link sponsorizzati.</p>
 </div>
 
-<div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
-  <div class="newsletter-box-icon">📬</div>
-  <h3>Consigli pratici per freelance italiani</h3>
-  <p>Aggiornamenti su tariffe ACI, novità per P.IVA e forfettario 2026, e consigli per gestire al meglio la tua attività. Gratis.</p>
-  <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
-    <input type="hidden" name="form-name" value="newsletter"/>
-    <input type="email" name="email" placeholder="la-tua@email.it" required/>
-    <button type="submit">Iscriviti →</button>
-  </form>
-  <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
-  <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
-</div>
-
-<div class="amz-sticky" id="amzSticky">
-  <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
-  <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
-  <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
-</div>
-
 <footer class="footer" role="contentinfo">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -405,6 +386,36 @@
 </footer>
 
 <script>
+function handleNewsletter(e) {
+  e.preventDefault();
+  const emailEl = e.target.querySelector('input[type="email"]');
+  const email = emailEl ? emailEl.value.trim() : '';
+  if (email) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] Iscrizione da ' + email) + '&body=' + encodeURIComponent('Nuova iscrizione newsletter: ' + email);
+  e.target.style.display = 'none';
+  document.getElementById('nlSuccess').style.display = 'block';
+}
+</script>
+
+<div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
+  <div class="newsletter-box-icon">📬</div>
+  <h3>Consigli pratici per freelance italiani</h3>
+  <p>Aggiornamenti su tariffe ACI, novità per P.IVA e forfettario 2026, e consigli per gestire al meglio la tua attività. Gratis.</p>
+  <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
+    <input type="hidden" name="form-name" value="newsletter"/>
+    <input type="email" name="email" placeholder="la-tua@email.it" required/>
+    <button type="submit">Iscriviti →</button>
+  </form>
+  <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
+  <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
+</div>
+
+<div class="amz-sticky" id="amzSticky">
+  <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
+  <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
+  <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
+</div>
+
+<script>
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
@@ -434,12 +445,6 @@
     if(typeof gtag!=='undefined')gtag('event','calcolo_freelance',{value:orario});
   }
   function toggleFaq(btn){btn.closest('.faq-item').classList.toggle('open');}
-  function handleNewsletter(e) {
-    e.preventDefault();
-    const form = e.target;
-    fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
-      .finally(() => { form.style.display = 'none'; document.getElementById('nlSuccess').style.display = 'block'; });
-  }
 </script>
     <script>
     (function() {
