@@ -749,51 +749,6 @@ tbody tr:nth-child(even):hover { background: var(--blue-xlight); }
 body:has(#cp-cookie-banner) .amz-sticky { display: none !important; }
 
 /* ═══════════════════════════════════════════════════════════
-   NEWSLETTER BOX
-   ═══════════════════════════════════════════════════════════ */
-.newsletter-box {
-  background: linear-gradient(135deg, #1e3a8a 0%, #4f46e5 100%);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  margin: 32px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.newsletter-box::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(251,191,36,0.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-.newsletter-box-icon { font-size: 2.5rem; margin-bottom: 12px; }
-.newsletter-box h3 { color: #fff; font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
-.newsletter-box p { color: rgba(255,255,255,0.65); font-size: 14px; margin-bottom: 20px; line-height: 1.7; }
-.newsletter-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
-.newsletter-form input[type="email"] {
-  flex: 1; padding: 13px 16px;
-  border-radius: 10px; border: 2px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
-  color: #fff; font-size: 14px; font-family: inherit; outline: none;
-  transition: border-color 0.2s;
-}
-.newsletter-form input[type="email"]::placeholder { color: rgba(255,255,255,0.45); }
-.newsletter-form input[type="email"]:focus { border-color: rgba(255,255,255,0.5); }
-.newsletter-form button {
-  padding: 13px 20px; border-radius: 10px; border: none;
-  background: #fbbf24; color: #0f172a; font-weight: 700; font-size: 14px;
-  cursor: pointer; white-space: nowrap; font-family: inherit;
-  transition: opacity 0.15s;
-}
-.newsletter-form button:hover { opacity: 0.88; }
-.newsletter-success { display: none; color: #4ade80; font-weight: 700; font-size: 15px; padding: 12px; }
-.newsletter-privacy { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 10px; }
-@media(max-width:500px) {
-  .newsletter-form { flex-direction: column; }
-  .newsletter-box { padding: 24px 20px; }
-}
-
-/* ═══════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════ */
 .footer {

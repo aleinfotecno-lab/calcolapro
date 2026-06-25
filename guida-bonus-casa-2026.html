@@ -318,28 +318,7 @@
     const navLinks = document.getElementById('navLinks');
     if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
-    function handleNewsletter(e) {
-      e.preventDefault();
-      const emailEl = e.target.querySelector('input[type="email"]');
-      const email = emailEl ? emailEl.value.trim() : '';
-      if (email) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] Iscrizione da ' + email) + '&body=' + encodeURIComponent('Nuova iscrizione newsletter: ' + email);
-      e.target.style.display = 'none';
-      document.getElementById('nlSuccess').style.display = 'block';
-    }
   </script>
-
-  <div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
-    <div class="newsletter-box-icon">📬</div>
-    <h3>Bonus casa e aggiornamenti fiscali 2026</h3>
-    <p>Ricevi aggiornamenti su bonus ristrutturazione, Ecobonus e novità fiscali per i proprietari di immobili. Gratis.</p>
-    <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
-      <input type="hidden" name="form-name" value="newsletter"/>
-      <input type="email" name="email" placeholder="la-tua@email.it" required/>
-      <button type="submit">Iscriviti →</button>
-    </form>
-    <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
-    <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
-  </div>
 
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>

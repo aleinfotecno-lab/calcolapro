@@ -400,55 +400,6 @@
 </footer>
 
 <script>
-function handleNewsletter(e) {
-  e.preventDefault();
-  const emailEl = e.target.querySelector('input[type="email"]');
-  const email = emailEl ? emailEl.value.trim() : '';
-  if (email) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] Iscrizione da ' + email) + '&body=' + encodeURIComponent('Nuova iscrizione newsletter: ' + email);
-  e.target.style.display = 'none';
-  document.getElementById('nlSuccess').style.display = 'block';
-}
-</script>
-
-<div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
-  <div class="newsletter-box-icon">📬</div>
-  <h3>Ricevi le migliori offerte di conti deposito</h3>
-  <p>Ogni mese confrontiamo i tassi di tutte le principali banche italiane. Iscriviti gratis — niente spam, solo offerte concrete.</p>
-  <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
-    <input type="hidden" name="form-name" value="newsletter"/>
-    <input type="email" name="email" placeholder="la-tua@email.it" required/>
-    <button type="submit">Iscriviti →</button>
-  </form>
-  <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
-  <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
-</div>
-
-<div class="amz-sticky" id="amzSticky">
-  <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
-  <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
-  <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
-</div>
-
-<script>
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
-  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
-
-  function fmtEur(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n); }
-  function fmtPct(n) { return n.toFixed(2).replace('.', ',') + '%'; }
-
-  function calcola() {
-    const capitale = parseFloat(document.getElementById('capitale').value) || 0;
-    const tasso = parseFloat(document.getElementById('tasso').value) || 0;
-    const mesi = parseInt(document.getElementById('durata').value) || 12;
-    const tipo = document.getElementById('tipo').value;
-    const liquidazione = document.getElementById('liquidazione').value;
-
-    if (capitale <= 0 || tasso <= 0) {
-      alert('Inserisci un capitale e un tasso validi.');
-      return;
-    }
 
     const frazione = mesi / 12;
 

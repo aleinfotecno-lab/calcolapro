@@ -368,28 +368,7 @@
       document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
       if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
     }
-    function handleNewsletter(e) {
-      e.preventDefault();
-      const emailEl = e.target.querySelector('input[type="email"]');
-      const email = emailEl ? emailEl.value.trim() : '';
-      if (email) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] Iscrizione da ' + email) + '&body=' + encodeURIComponent('Nuova iscrizione newsletter: ' + email);
-      e.target.style.display = 'none';
-      document.getElementById('nlSuccess').style.display = 'block';
-    }
   </script>
-
-  <div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
-    <div class="newsletter-box-icon">📬</div>
-    <h3>Novità su Partita IVA e regime forfettario 2026</h3>
-    <p>Aggiornamenti fiscali, guide pratiche e consigli per freelance ogni mese. Gratis.</p>
-    <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
-      <input type="hidden" name="form-name" value="newsletter"/>
-      <input type="email" name="email" placeholder="la-tua@email.it" required/>
-      <button type="submit">Iscriviti →</button>
-    </form>
-    <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
-    <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
-  </div>
 
   <!-- Amazon sticky banner -->
   <div class="amz-sticky" id="amzSticky">

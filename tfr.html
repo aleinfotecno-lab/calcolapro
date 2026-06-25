@@ -322,28 +322,7 @@
       document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
       if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
     }
-    function handleNewsletter(e) {
-      e.preventDefault();
-      const emailEl = e.target.querySelector('input[type="email"]');
-      const email = emailEl ? emailEl.value.trim() : '';
-      if (email) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] Iscrizione da ' + email) + '&body=' + encodeURIComponent('Nuova iscrizione newsletter: ' + email);
-      e.target.style.display = 'none';
-      document.getElementById('nlSuccess').style.display = 'block';
-    }
   </script>
-
-  <div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
-    <div class="newsletter-box-icon">📬</div>
-    <h3>TFR, pensione e previdenza: resta aggiornato</h3>
-    <p>Guide pratiche su dove investire il TFR, fondi pensione e strategie per il futuro. Gratis.</p>
-    <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
-      <input type="hidden" name="form-name" value="newsletter"/>
-      <input type="email" name="email" placeholder="la-tua@email.it" required/>
-      <button type="submit">Iscriviti →</button>
-    </form>
-    <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
-    <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
-  </div>
 
   <!-- BOX CONFRONTO FONDI PENSIONE TFR — sostituisci href con i tuoi link affiliati reali -->
   <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;max-width:720px;margin:0 auto 32px;">

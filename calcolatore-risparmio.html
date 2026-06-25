@@ -427,63 +427,6 @@
 </footer>
 
 <script>
-function handleNewsletter(e) {
-  e.preventDefault();
-  const emailEl = e.target.querySelector('input[type="email"]');
-  const email = emailEl ? emailEl.value.trim() : '';
-  if (email) window.location.href = 'mailto:calcolapro@gmail.com?subject=' + encodeURIComponent('[Newsletter] Iscrizione da ' + email) + '&body=' + encodeURIComponent('Nuova iscrizione newsletter: ' + email);
-  e.target.style.display = 'none';
-  document.getElementById('nlSuccess').style.display = 'block';
-}
-</script>
-
-<div class="newsletter-box" style="max-width:720px;margin:32px auto;padding:0 16px;">
-  <div class="newsletter-box-icon">📬</div>
-  <h3>Consigli pratici per far crescere i tuoi risparmi</h3>
-  <p>Guide mensili su conti deposito, investimenti e come ottimizzare ogni euro. Gratis.</p>
-  <form class="newsletter-form" name="newsletter" data-netlify="true" onsubmit="handleNewsletter(event)">
-    <input type="hidden" name="form-name" value="newsletter"/>
-    <input type="email" name="email" placeholder="la-tua@email.it" required/>
-    <button type="submit">Iscriviti →</button>
-  </form>
-  <div class="newsletter-success" id="nlSuccess">✅ Iscritto! Controlla la tua casella email.</div>
-  <p class="newsletter-privacy">🔒 Nessuno spam. <a href="privacy.html">Privacy Policy</a></p>
-</div>
-
-<div class="amz-sticky" id="amzSticky">
-  <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
-  <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
-  <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
-</div>
-
-<script>
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
-  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
-
-  let modoAttuale = 'A';
-
-  function switchMode(modo) {
-    modoAttuale = modo;
-    document.getElementById('panelA').style.display = modo === 'A' ? '' : 'none';
-    document.getElementById('panelB').style.display = modo === 'B' ? '' : 'none';
-    document.getElementById('tabA').classList.toggle('active', modo === 'A');
-    document.getElementById('tabB').classList.toggle('active', modo === 'B');
-    document.getElementById('tabA').setAttribute('aria-selected', modo === 'A');
-    document.getElementById('tabB').setAttribute('aria-selected', modo === 'B');
-    document.getElementById('result').style.display = 'none';
-  }
-
-  function fmtEur(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(n); }
-  function fmtEur2(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n); }
-  function fmtPct(n) { return n.toFixed(1).replace('.', ',') + '%'; }
-
-  // Interesse composto mensile: montante = iniziale*(1+r)^n + mensile*[((1+r)^n - 1)/r]
-  function calcolaMontante(iniziale, mensile, rendimentoAnnuo, mesi) {
-    if (rendimentoAnnuo === 0) {
-      return iniziale + mensile * mesi;
-    }
     const r = rendimentoAnnuo / 100 / 12;
     const n = mesi;
     const fattore = Math.pow(1 + r, n);
