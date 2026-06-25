@@ -748,6 +748,14 @@ tbody tr:nth-child(even):hover { background: var(--blue-xlight); }
 .amz-sticky-close:hover { color: #fff; }
 body:has(#cp-cookie-banner) .amz-sticky { display: none !important; }
 
+/* ── AMAZON INLINE BOOK BOX ── */
+.amz-inline { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 24px; margin: 28px 0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.amz-inline-text { flex: 1; min-width: 200px; }
+.amz-inline-text .label { font-size: 11px; color: #ff9900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+.amz-inline-text .title { font-weight: 600; font-size: 15px; }
+.amz-inline-btn { background: #ff9900; color: #000; font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: var(--radius-sm); text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+.amz-inline-btn:hover { background: #e68a00; text-decoration: none; color: #000; }
+
 /* ═══════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════ */

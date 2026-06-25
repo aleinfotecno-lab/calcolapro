@@ -17,6 +17,9 @@
   <meta property="og:site_name" content="CalcolaPro"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>🧮</text></svg>"/>
   <link rel="stylesheet" href="style.css"/>
+  <!-- AdSense + Consent Mode v2 -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <style>
     .legal-content { max-width: 760px; margin: 0 auto; }
     .legal-content h2 { font-size: 1.3rem; font-weight: 700; margin: 36px 0 12px; color: var(--text); }
@@ -111,7 +114,7 @@
     </table>
 
     <h3>2.3 Cookie pubblicitari</h3>
-    <p>CalcolaPro utilizza Google AdSense per mostrare annunci pubblicitari. Google puÃ² utilizzare cookie per personalizzare gli annunci in base ai tuoi interessi e alle tue precedenti navigazioni. Puoi gestire le preferenze pubblicitarie tramite le impostazioni del tuo account Google o visitando <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+    <p>CalcolaPro utilizza Google AdSense per mostrare annunci pubblicitari. Google può utilizzare cookie per personalizzare gli annunci in base ai tuoi interessi e alle tue precedenti navigazioni. Puoi gestire le preferenze pubblicitarie tramite le impostazioni del tuo account Google o visitando <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
     <table class="cookie-table">
       <thead><tr><th>Cookie</th><th>Provider</th><th>Scopo</th><th>Durata</th></tr></thead>
       <tbody>
@@ -139,8 +142,26 @@
     </ul>
     <p>Istruzioni per i principali browser: <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Chrome</a> · <a href="https://support.mozilla.org/it/kb/gestire-i-cookie" target="_blank" rel="noopener">Firefox</a> · <a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a> · <a href="https://support.microsoft.com/it-it/windows/eliminare-e-gestire-i-cookie" target="_blank" rel="noopener">Edge</a></p>
 
-    <h2>5. Opt-out specifici</h2>
-    <p>Per disabilitare il tracciamento di Google Analytics, puoi installare il <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>. Per gli annunci personalizzati, visita <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ad Settings</a>.</p>
+    <h2>5. Opt-out specifici e come disabilitare la pubblicità personalizzata</h2>
+    <p>Per disabilitare il tracciamento di Google Analytics, puoi installare il <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+    <p>Per disabilitare o gestire la pubblicità personalizzata di Google AdSense:</p>
+    <ul>
+      <li>Visita <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ad Settings</a> per gestire le preferenze di personalizzazione degli annunci Google</li>
+      <li>Visita <a href="https://www.youronlinechoices.com/it/" target="_blank" rel="noopener">YourOnlineChoices.com</a> per gestire le preferenze degli annunci comportamentali dei network aderenti</li>
+      <li>Installa il plugin <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener">NAI Opt-out</a> per rinunciare alla pubblicità comportamentale</li>
+      <li>Seleziona "Rifiuta tutto" nel banner cookie di CalcolaPro: nessun cookie pubblicitario verrà impostato</li>
+    </ul>
+    <p>Tieni presente che disabilitare i cookie pubblicitari non eliminerà gli annunci dal sito, ma li renderà non personalizzati (contestuali anziché profilati). Il sito CalcolaPro utilizzerà Google AdSense in modalità non personalizzata per gli utenti che non hanno fornito il consenso.</p>
+
+    <h2>5a. Google Consent Mode v2</h2>
+    <p>CalcolaPro implementa il <strong>Google Consent Mode v2</strong>, lo standard Google per la gestione del consenso agli annunci e all'analisi. Prima che l'utente esprima una scelta nel banner cookie, tutti i parametri di consenso sono impostati su <em>denied</em> (negato):</p>
+    <ul>
+      <li><code>analytics_storage: denied</code> — nessun dato Analytics raccolto</li>
+      <li><code>ad_storage: denied</code> — nessun cookie pubblicitario impostato</li>
+      <li><code>ad_user_data: denied</code> — nessun dato utente condiviso per scopi pubblicitari</li>
+      <li><code>ad_personalization: denied</code> — nessuna personalizzazione degli annunci</li>
+    </ul>
+    <p>Solo dopo l'accettazione esplicita da parte dell'utente i parametri vengono aggiornati a <em>granted</em> e i relativi script (Google Analytics, Google AdSense) vengono attivati. Questo approccio è conforme al GDPR e alle linee guida del Garante Privacy italiano.</p>
 
     <h2>6. Aggiornamenti a questa policy</h2>
     <p>CalcolaPro si riserva il diritto di aggiornare questa Cookie Policy in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con la data di aggiornamento. L'utilizzo continuato del sito dopo le modifiche implica l'accettazione della policy aggiornata.</p>
