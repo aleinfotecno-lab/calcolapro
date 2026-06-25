@@ -104,6 +104,12 @@ a:hover { text-decoration: underline; }
 .nav-links a[aria-current="page"] {
   color: #fbbf24;
 }
+.nav-all {
+  color: var(--blue) !important;
+  border: 1px solid rgba(99,179,237,0.3);
+  margin-left: 4px;
+}
+.nav-all:hover { border-color: var(--blue) !important; }
 .nav-toggle {
   display: none; background: none; border: none;
   color: #f1f5f9; font-size: 22px; cursor: pointer;
