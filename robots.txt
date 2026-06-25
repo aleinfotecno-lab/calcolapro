@@ -1,6 +1,5 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
-Disallow: /google6e353ac4d003edf5.html
-Disallow: /google2b74dfe4e26590a9.html
+Disallow: /404.html
 
 Sitemap: https://calcolapro.it/sitemap.xml

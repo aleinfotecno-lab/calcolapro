@@ -1,46 +1,50 @@
-# CalcolaPro
+# CalcolaPro - Calcolatori Finanziari Italiani Gratuiti
 
-> Strumenti gratuiti e aggiornati per lavoratori e professionisti italiani. Calcolatori finanziari, fiscali e di benessere. Nessuna registrazione richiesta.
+CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 20 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
 
-CalcolaPro offre calcolatori online gratuiti per aiutare gli italiani nelle decisioni finanziarie quotidiane: calcolo dello stipendio netto, rata mutuo, TFR, pensione, IVA, ISEE, IMU e molto altro.
+## Calcolatori
 
-## Calcolatori disponibili
+- https://calcolapro.it/lordonetto.html — Converti stipendio lordo in netto (o viceversa) con IRPEF 2026, detrazioni e contributi INPS
+- https://calcolapro.it/mutuo.html — Calcola la rata mensile del mutuo con piano di ammortamento alla francese
+- https://calcolapro.it/pensione.html — Stima eta' pensionabile e importo assegno INPS in base ai contributi versati
+- https://calcolapro.it/freelance.html — Calcola la tariffa oraria ideale per freelance in regime forfettario o ordinario
+- https://calcolapro.it/calcolatore-prezzo-orario-freelance.html — Calcolatore avanzato del prezzo orario freelance con simulazione tasse e INPS
+- https://calcolapro.it/partitaiva.html — Confronta il netto da dipendente vs partita IVA forfettaria per scegliere la forma migliore
+- https://calcolapro.it/calcolo-imu.html — Calcola IMU 2026 su seconda casa, con acconto e saldo in base alle aliquote comunali
+- https://calcolapro.it/calcolo-isee.html — Simula il valore ISEE e verifica le soglie per agevolazioni ed esoneri
+- https://calcolapro.it/affitto.html — Calcola l'affitto massimo sostenibile in base al reddito (regola del 30%)
+- https://calcolapro.it/iva.html — Aggiungi o scorpora IVA al 4%, 5%, 10% o 22%
+- https://calcolapro.it/chilometrico.html — Calcola il rimborso chilometrico con le tabelle ACI 2026 per auto, moto e ciclomotori
+- https://calcolapro.it/tdee.html — Calcola il fabbisogno calorico giornaliero (TDEE) con formula Harris-Benedict
+- https://calcolapro.it/tfr.html — Stima il Trattamento di Fine Rapporto maturato con rivalutazione ISTAT
+- https://calcolapro.it/bmi.html — Calcola l'Indice di Massa Corporea (BMI) e la classificazione OMS
+- https://calcolapro.it/calcolatore-interessi-conto-deposito.html — Calcola il rendimento netto di un conto deposito con tassazione al 26%
+- https://calcolapro.it/calcolatore-prestito-personale.html — Calcola la rata, gli interessi totali e il piano di ammortamento di un prestito personale
+- https://calcolapro.it/calcolatore-risparmio.html — Proietta il risparmio nel tempo con interesse composto e contributi mensili
+- https://calcolapro.it/calcolo-cedolare-secca.html — Confronta cedolare secca al 21%/10% vs IRPEF ordinaria per proprietari immobiliari
+- https://calcolapro.it/calcolo-ferie-permessi.html — Calcola ferie residue e permessi ROL ancora disponibili nell'anno
+- https://calcolapro.it/calcolo-spese-acquisto-casa.html — Stima tutte le spese accessorie (notaio, imposte, agenzia) per l'acquisto di un immobile
+- https://calcolapro.it/calcolo-straordinari.html — Calcola il compenso lordo e netto delle ore straordinarie in base al CCNL
+- https://calcolapro.it/divisione-conto.html — Dividi il conto al ristorante o le spese condivise tra piu' persone
 
-- [Calcolatore Stipendio Lordo/Netto](https://calcolapro.it/lordonetto.html) — Converti lo stipendio lordo in netto o viceversa
-- [Calcolatore Rata Mutuo](https://calcolapro.it/mutuo.html) — Calcola la rata mensile del mutuo con ammortamento francese
-- [Calcolatore Prestito Personale](https://calcolapro.it/calcolatore-prestito-personale.html) — Rata, interessi totali e piano di ammortamento
-- [Calcolatore Affitto Sostenibile](https://calcolapro.it/affitto.html) — Quanto puoi permetterti di pagare di affitto
-- [Calcolatore Interessi Conto Deposito](https://calcolapro.it/calcolatore-interessi-conto-deposito.html) — Rendimento netto di un conto deposito
-- [Calcolatore Risparmio](https://calcolapro.it/calcolatore-risparmio.html) — Proiezione del risparmio nel tempo con interesse composto
-- [Prezzo Orario Freelance](https://calcolapro.it/freelance.html) — Quanto fatturare all'ora come libero professionista
-- [Conviene la Partita IVA?](https://calcolapro.it/partitaiva.html) — Confronto dipendente vs. partita IVA forfettaria
-- [Calcolatore IVA](https://calcolapro.it/iva.html) — Scorporo e calcolo IVA (aliquote 4%, 10%, 22%)
-- [Calcolo TFR](https://calcolapro.it/tfr.html) — Trattamento di Fine Rapporto: calcolo e proiezione
-- [Calcolo Pensione](https://calcolapro.it/pensione.html) — Stima dell'età pensionabile e dell'assegno INPS
-- [Rimborso Chilometrico ACI](https://calcolapro.it/chilometrico.html) — Calcola il rimborso km secondo le tabelle ACI
-- [Calcolo IMU 2026](https://calcolapro.it/calcolo-imu.html) — IMU su seconda casa, acconto e saldo
-- [Simulatore ISEE](https://calcolapro.it/calcolo-isee.html) — Stima dell'ISEE e agevolazioni disponibili
-- [Cedolare Secca](https://calcolapro.it/calcolo-cedolare-secca.html) — Confronto cedolare secca vs. IRPEF ordinaria
-- [Calcolo Ferie e Permessi](https://calcolapro.it/calcolo-ferie-permessi.html) — Ferie residue e permessi ROL 2026
-- [Calcolo Straordinari](https://calcolapro.it/calcolo-straordinari.html) — Compenso ore straordinarie lordo e netto
-- [Spese Acquisto Casa](https://calcolapro.it/calcolo-spese-acquisto-casa.html) — Totale costi accessori acquisto immobile
-- [Calcolatore TDEE](https://calcolapro.it/tdee.html) — Fabbisogno calorico giornaliero
-- [Calcolatore BMI](https://calcolapro.it/bmi.html) — Indice di Massa Corporea e classificazione OMS
-- [Divisione Conto](https://calcolapro.it/divisione-conto.html) — Dividi il conto tra amici o le spese tra coinquilini (conto alla romana)
+## Guide Finanziarie
 
-## Guide informative
+- https://calcolapro.it/guida-730-precompilato-2026.html — Come accedere, verificare e inviare il 730 precompilato 2026 sul sito Agenzia Entrate
+- https://calcolapro.it/guida-stipendio-netto-lordo.html — Come funziona il calcolo IRPEF 2026: scaglioni, detrazioni da lavoro e cuneo fiscale
+- https://calcolapro.it/guida-regime-forfettario.html — Requisiti, limiti di ricavi, coefficienti e convenienze del regime forfettario 2026
+- https://calcolapro.it/guida-mutuo-fisso-variabile.html — Come scegliere tra mutuo fisso e variabile nel 2026 in base ai tassi BCE
+- https://calcolapro.it/guida-deficit-calorico-dimagrire.html — Come creare un deficit calorico sostenibile per dimagrire senza effetto rimbalzo
+- https://calcolapro.it/guida-comprare-affittare-casa.html — Analisi costi-benefici tra acquisto e affitto immobiliare nel mercato italiano 2026
+- https://calcolapro.it/guida-conto-deposito-2026.html — Migliori conti deposito 2026: rendimenti, tassazione e confronto tra offerte
+- https://calcolapro.it/guida-pensione-anticipata-2026.html — Quota 103, Opzione Donna e Ape Sociale: requisiti e finestre di uscita 2026
+- https://calcolapro.it/guida-cedolare-secca-affitti.html — Quando conviene la cedolare secca, come si dichiara e quali contratti la ammettono
+- https://calcolapro.it/guida-bonus-casa-2026.html — Ecobonus, Sismabonus, bonus ristrutturazione e detrazioni IRPEF per immobili nel 2026
 
-- [Guida Regime Forfettario 2026](https://calcolapro.it/guida-regime-forfettario.html)
-- [Guida Mutuo Fisso o Variabile](https://calcolapro.it/guida-mutuo-fisso-variabile.html)
-- [Guida Stipendio Netto/Lordo](https://calcolapro.it/guida-stipendio-netto-lordo.html)
-- [Guida Comprare o Affittare Casa](https://calcolapro.it/guida-comprare-affittare-casa.html)
-- [Guida Deficit Calorico per Dimagrire](https://calcolapro.it/guida-deficit-calorico-dimagrire.html)
-- [Guida Pensione Anticipata 2026](https://calcolapro.it/guida-pensione-anticipata-2026.html)
-- [Guida Conto Deposito 2026](https://calcolapro.it/guida-conto-deposito-2026.html)
-- [Guida Cedolare Secca Affitti](https://calcolapro.it/guida-cedolare-secca-affitti.html)
-- [Guida 730 Precompilato 2026](https://calcolapro.it/guida-730-precompilato-2026.html)
-- [Guida Bonus Casa 2026](https://calcolapro.it/guida-bonus-casa-2026.html)
+## Chi siamo
 
-## Note legali
+CalcolaPro e' un progetto italiano indipendente con l'obiettivo di rendere accessibili i calcoli fiscali e finanziari a chiunque, senza costi e senza barriere tecniche. Tutti gli strumenti sono sviluppati da zero, aggiornati alle normative vigenti e verificati annualmente.
 
-I risultati forniti da CalcolaPro sono indicativi e non sostituiscono la consulenza professionale di un commercialista, consulente finanziario o fiscale. Tutti i calcolatori sono aggiornati alle normative italiane 2026.
+Contatto: calcolapro@gmail.com
+Sito: https://calcolapro.it/
+Pagina chi siamo: https://calcolapro.it/about.html
+Pagina contatti: https://calcolapro.it/contatti.html
