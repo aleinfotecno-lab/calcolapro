@@ -116,8 +116,7 @@
 
     <div class="form-card">
       <h2>Invia un messaggio</h2>
-      <form id="contactForm" name="contatti" method="POST" data-netlify="true" onsubmit="submitForm(event)" novalidate>
-        <input type="hidden" name="form-name" value="contatti"/>
+      <form id="contactForm" onsubmit="submitForm(event)" novalidate>
         <div class="field">
           <label for="nome">Nome e cognome</label>
           <input type="text" id="nome" name="nome" placeholder="Mario Rossi" required autocomplete="name"/>
@@ -223,17 +222,36 @@
 
   function submitForm(e) {
     e.preventDefault();
-    const form = document.getElementById('contactForm');
     const nome = document.getElementById('nome').value.trim();
     const email = document.getElementById('email').value.trim();
     const oggetto = document.getElementById('oggetto').value;
     const msg = document.getElementById('messaggio').value.trim();
     if (!nome || !email || !msg) return;
-    const subject = encodeURIComponent('[CalcolaPro - ' + oggetto + '] ' + nome);
-    const body = encodeURIComponent('Da: ' + nome + ' <' + email + '>\n\n' + msg);
-    window.location.href = 'mailto:calcolapro@gmail.com?subject=' + subject + '&body=' + body;
-    form.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.disabled = true;
+    btn.textContent = 'Invio in corso…';
+    fetch('https://formsubmit.co/ajax/calcolapro@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        nome: nome,
+        email: email,
+        oggetto: oggetto,
+        messaggio: msg,
+        _subject: '[CalcolaPro - ' + oggetto + '] Messaggio da ' + nome,
+        _captcha: 'false'
+      })
+    })
+    .then(r => r.json())
+    .then(() => {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = 'Invia messaggio →';
+      alert('Errore di invio. Scrivi direttamente a calcolapro@gmail.com');
+    });
   }
 </script>
   <script src="cookie-consent.js"></script>
