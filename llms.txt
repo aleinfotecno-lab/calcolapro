@@ -26,6 +26,7 @@ CalcolaPro offre calcolatori online gratuiti per aiutare gli italiani nelle deci
 - [Spese Acquisto Casa](https://calcolapro.it/calcolo-spese-acquisto-casa.html) — Totale costi accessori acquisto immobile
 - [Calcolatore TDEE](https://calcolapro.it/tdee.html) — Fabbisogno calorico giornaliero
 - [Calcolatore BMI](https://calcolapro.it/bmi.html) — Indice di Massa Corporea e classificazione OMS
+- [Divisione Conto](https://calcolapro.it/divisione-conto.html) — Dividi il conto tra amici o le spese tra coinquilini (conto alla romana)
 
 ## Guide informative
 
