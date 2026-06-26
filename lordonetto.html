@@ -19,13 +19,16 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Da Lordo a Netto Stipendio 2026",
-    "description": "Converti lo stipendio lordo in netto in pochi secondi. Calcolo busta paga con IRPEF 2026, contributi INPS 9,19%, detrazioni per lavoro dipendente, figli e coniuge a carico. Calcolo gratuito.",
+    "name": "Calcolatore Stipendio Netto 2026",
     "url": "https://calcolapro.it/lordonetto.html",
+    "description": "Calcola il netto in busta paga dal lordo con IRPEF e INPS aggiornati 2026.",
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
   <script type="application/ld+json">
@@ -52,7 +55,7 @@
   <meta name="twitter:description" content="Converti lo stipendio lordo in netto in pochi secondi. IRPEF 2026, contributi INPS 9,19%, detrazioni per lavoro dipendente e familiari. Gratis.">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Stipendio Lordo / Netto","item":"https://calcolapro.it/lordonetto.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Stipendio Lordo / Netto","item":"https://calcolapro.it/lordonetto.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -88,10 +91,23 @@
       <p class="page-subtitle">Converti lo stipendio lordo in netto e viceversa. Calcola IRPEF, contributi INPS e detrazioni per lavoratori dipendenti italiani.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">Stipendio / Lordo → Netto</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Stipendio Lordo / Netto</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -153,9 +169,9 @@
         <div class="ad-slot ad-slot-rect" aria-hidden="true"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9013466056664238" data-ad-slot="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
       </div>
       <div class="btn-wrap">
-        <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola il netto →</button>
+        <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola lo stipendio netto in busta paga">🔍 Calcola il netto →</button>
       </div>
-      <div id="result" class="col-full animate-fade-up" style="display:none;">
+      <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo stipendio">
         <div class="result-card">
           <div class="result-label" id="resultLabel">Stipendio netto annuo</div>
           <div class="result-value" id="priceOut">—</div>
@@ -244,6 +260,80 @@
       <h3>Tredicesima e quattordicesima</h3>
       <p>La tredicesima mensilità è obbligatoria per legge per tutti i lavoratori dipendenti e viene erogata a dicembre. La quattordicesima è prevista da alcuni contratti collettivi (CCNL), principalmente nel commercio e turismo, e viene pagata in estate. Entrambe sono soggette alla stessa tassazione delle mensilità ordinarie.</p>
     </div>
+
+  <section class="container content-section">
+    <h2>Stipendio netto mensile per RAL: tabella di pronta lettura 2026</h2>
+    <p>Usa questa tabella per stimare il netto mensile in base alla tua RAL. Valori con aliquote IRPEF 2026, contributi INPS 9,19% e detrazioni standard da lavoro dipendente (senza familiari a carico, 13 mensilità).</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>RAL</th><th>Netto mensile</th><th>Contributi INPS</th><th>IRPEF annua netta</th><th>Aliquota marginale</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>18.000 €</strong></td><td>1.270 €/mese</td><td>1.654 €/anno</td><td>~1.550 €/anno</td><td>23%</td></tr>
+          <tr><td><strong>24.000 €</strong></td><td>1.590 €/mese</td><td>2.206 €/anno</td><td>~2.800 €/anno</td><td>23%</td></tr>
+          <tr><td><strong>30.000 €</strong></td><td>1.836 €/mese</td><td>2.757 €/anno</td><td>~4.500 €/anno</td><td>35%</td></tr>
+          <tr><td><strong>40.000 €</strong></td><td>2.300 €/mese</td><td>3.676 €/anno</td><td>~7.800 €/anno</td><td>35%</td></tr>
+          <tr><td><strong>50.000 €</strong></td><td>2.730 €/mese</td><td>4.595 €/anno</td><td>~11.800 €/anno</td><td>43%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><em>Valori stimati. Le addizionali regionali e comunali variano per comune. Usa il calcolatore sopra per un calcolo personalizzato.</em></p>
+    <h3>Cuneo fiscale 2026: il bonus in busta paga</h3>
+    <p>Nel 2026 è confermato l'esonero contributivo parziale per i redditi fino a 35.000 € lordi: <strong>-7 punti percentuali</strong> per RAL fino a 25.000 € e <strong>-6 punti</strong> tra 25.001 € e 35.000 €. Con una RAL di 28.000 €, questo vale circa 1.680 €/anno in più in busta paga (~129 €/mese). Il calcolatore lo include automaticamente nelle sue stime.</p>
+  </section>
+
+  <section class="container">
+    <div class="faq-section">
+      <h2>Domande frequenti sul calcolo netto da lordo</h2>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola il netto dallo stipendio lordo nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Dal lordo annuo (RAL) si sottraggono: contributi INPS 9,19%, IRPEF con aliquote 23% (fino a 28.000 €), 35% (da 28.001 € a 50.000 €), 43% (oltre 50.000 €), addizionali regionali (~1,73%) e comunali (~0,5%). Si applicano poi le detrazioni per lavoro dipendente che riducono l'imposta finale. Con RAL 30.000 €: netto mensile circa 1.836 € con tredicesima.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto prendo netto con 30.000 € di RAL?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Con una RAL di 30.000 € il netto mensile è circa 1.836 € (con tredicesima, 13 mensilità). IRPEF annua netta circa 4.500 €, contributi INPS 2.757 €. La tredicesima vale circa 2.000 € lordi a dicembre. Senza familiari a carico, in area Nord/Centro Italia senza particolari addizionali comunali.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto si paga di INPS sulla busta paga?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Il dipendente versa il 9,19% del lordo come contributi previdenziali INPS. Il datore di lavoro versa un'ulteriore quota del 23-29% circa, per un totale previdenziale che supera il 33% del lordo. I contributi del dipendente maturano contribuzione utile per la pensione futura.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">La tredicesima è tassata come lo stipendio?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Sì, la tredicesima è soggetta alle stesse aliquote IRPEF e contributi INPS delle mensilità ordinarie. Non ci sono agevolazioni fiscali specifiche. Il calcolatore include la tredicesima nel calcolo annuo e ne mostra l'impatto sul netto.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come funzionano le detrazioni per familiari a carico?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Le detrazioni per coniuge a carico valgono circa 690-800 € di IRPEF in meno all'anno. Per figli adulti a carico ci sono detrazioni IRPEF variabili. Per figli under 21 è previsto l'Assegno Unico INPS (separato dalla busta paga). Seleziona "Sì" per il coniuge o indica i figli nel calcolatore per includere queste detrazioni.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa cambia nel 2026 per la busta paga?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Nel 2026 sono confermate le aliquote IRPEF a 3 scaglioni (23%, 35%, 43%) introdotte dalla riforma fiscale e l'esonero contributivo per redditi fino a 35.000 €. Le soglie delle detrazioni da lavoro dipendente sono state aggiornate per l'inflazione. Il calcolatore di CalcolaPro è aggiornato con le novità fiscali 2026.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Conviene un aumento di stipendio o benefit aziendali?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Un aumento in busta paga è soggetto a IRPEF e contributi: arriva in tasca circa il 50-60% della cifra bruta aggiuntiva. I benefit non monetari come ticket restaurant (esenti fino a 8 €/giorno), auto aziendale, previdenza complementare o welfare aziendale (fino a 1.000 €/anno esenti) sono fiscalmente più efficienti per il lavoratore a parità di costo per l'azienda.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="partitaiva.html" class="related-tool-card">
+        <span class="related-tool-icon">📊</span>
+        <span>Conviene la Partita IVA?</span>
+      </a>
+      <a href="tfr.html" class="related-tool-card">
+        <span class="related-tool-icon">💼</span>
+        <span>Simulatore TFR</span>
+      </a>
+      <a href="calcolo-ferie-permessi.html" class="related-tool-card">
+        <span class="related-tool-icon">🏖️</span>
+        <span>Ferie e Permessi</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">

@@ -19,13 +19,16 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Calcolatore Rata Mutuo 2026 Gratis",
-    "description": "Calcola la rata mensile del tuo mutuo casa. Inserisci importo, tasso e durata. Scopri il totale degli interessi, il LTV e confronta diverse durate. Gratis.",
+    "name": "Calcolatore Rata Mutuo 2026",
     "url": "https://calcolapro.it/mutuo.html",
+    "description": "Calcola la rata mensile del mutuo con piano di ammortamento completo. Gratuito, aggiornato 2026.",
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
   <script type="application/ld+json">
@@ -52,7 +55,7 @@
   <meta name="twitter:description" content="Calcola la rata mensile del mutuo casa: importo, tasso, durata. Piano di ammortamento, LTV e confronto durate. Gratis.">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Calcola Rata Mutuo","item":"https://calcolapro.it/mutuo.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Mutuo e Casa","item":"https://calcolapro.it/#casa"},{"@type":"ListItem","position":3,"name":"Calcolatore Rata Mutuo 2026","item":"https://calcolapro.it/mutuo.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -89,10 +92,23 @@
       <p class="page-subtitle">Inserisci importo, tasso e durata per scoprire la rata mensile, il totale degli interessi e il piano di ammortamento completo.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">Mutuo / Calcola la Rata</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#casa" itemprop="item"><span itemprop="name">Mutuo e Casa</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Calcolatore Rata Mutuo 2026</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -143,8 +159,8 @@
         <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="auto"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
-      <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola la rata mensile →</button></div>
-      <div id="result" class="col-full animate-fade-up" style="display:none;">
+      <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola la rata del mutuo">🔍 Calcola la rata mensile →</button></div>
+      <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo mutuo">
         <div class="result-card">
           <div class="result-label">Rata mensile</div>
           <div class="result-value" id="priceOut">—</div>
@@ -233,6 +249,93 @@
       <h3>Prima casa: agevolazioni fiscali</h3>
       <p>Per i mutui sulla prima casa è possibile detrarre il 19% degli interessi passivi nella dichiarazione dei redditi, su un importo massimo di 4.000 euro annui. Questo significa un risparmio fiscale massimo di 760 euro all'anno, una componente importante da considerare nel calcolo del costo reale del mutuo.</p>
     </div>
+
+  <section class="container content-section">
+    <h2>Tabella rate mutuo 2026: esempi per importo e durata</h2>
+    <p>Confronta le rate mensili in base all'importo, alla durata e al tasso. Calcolo con ammortamento alla francese: tasso fisso <strong>3,20%</strong> (IRS 25 anni indicativo giugno 2026) e tasso variabile <strong>4,10%</strong> (Euribor 3m + spread medio 1,70%).</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Importo</th><th>Durata</th><th>Fisso 3,20%</th><th>Variabile 4,10%</th><th>Interessi totali (fisso)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="4"><strong>100.000 €</strong></td><td>15 anni</td><td>701 €/mese</td><td>745 €/mese</td><td>26.180 €</td></tr>
+          <tr><td>20 anni</td><td>565 €/mese</td><td>611 €/mese</td><td>35.600 €</td></tr>
+          <tr><td>25 anni</td><td>485 €/mese</td><td>534 €/mese</td><td>45.500 €</td></tr>
+          <tr><td>30 anni</td><td>433 €/mese</td><td>483 €/mese</td><td>55.880 €</td></tr>
+          <tr><td rowspan="4"><strong>150.000 €</strong></td><td>15 anni</td><td>1.052 €/mese</td><td>1.117 €/mese</td><td>39.360 €</td></tr>
+          <tr><td>20 anni</td><td>847 €/mese</td><td>916 €/mese</td><td>53.280 €</td></tr>
+          <tr><td>25 anni</td><td>727 €/mese</td><td>800 €/mese</td><td>68.100 €</td></tr>
+          <tr><td>30 anni</td><td>649 €/mese</td><td>724 €/mese</td><td>83.640 €</td></tr>
+          <tr><td rowspan="4"><strong>200.000 €</strong></td><td>15 anni</td><td>1.402 €/mese</td><td>1.490 €/mese</td><td>52.360 €</td></tr>
+          <tr><td>20 anni</td><td>1.129 €/mese</td><td>1.221 €/mese</td><td>71.040 €</td></tr>
+          <tr><td>25 anni</td><td>970 €/mese</td><td>1.067 €/mese</td><td>91.000 €</td></tr>
+          <tr><td>30 anni</td><td>866 €/mese</td><td>965 €/mese</td><td>111.760 €</td></tr>
+          <tr><td rowspan="4"><strong>250.000 €</strong></td><td>15 anni</td><td>1.752 €/mese</td><td>1.862 €/mese</td><td>65.360 €</td></tr>
+          <tr><td>20 anni</td><td>1.412 €/mese</td><td>1.527 €/mese</td><td>88.880 €</td></tr>
+          <tr><td>25 anni</td><td>1.212 €/mese</td><td>1.333 €/mese</td><td>113.600 €</td></tr>
+          <tr><td>30 anni</td><td>1.082 €/mese</td><td>1.207 €/mese</td><td>139.520 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><em>Valori indicativi calcolati con la formula dell'ammortamento alla francese. I tassi reali variano in base alla banca, al profilo del richiedente e al LTV.</em></p>
+  </section>
+
+  <section class="container">
+    <div class="faq-section">
+      <h2>Domande frequenti sul mutuo 2026</h2>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto posso chiedere di mutuo con il mio stipendio?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Le banche italiane applicano la regola del 30-35%: la rata mensile non deve superare il 30-35% del reddito netto mensile. Con un netto di 2.000 €/mese puoi sostenere una rata di circa 600-700 €, corrispondente a un mutuo di 120.000-140.000 € a 20 anni al tasso fisso attuale. Viene valutato anche il rapporto LTV e lo storico creditizio.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Qual è la durata massima di un mutuo nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>La durata massima è generalmente 30 anni, alcune banche arrivano a 40 anni per giovani under 36. La durata dipende anche dall'età: molte banche richiedono che il mutuo si estingua entro il 75°-80° anno di vita del richiedente più anziano.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come funziona l'ammortamento alla francese?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Le rate sono costanti per tutta la durata. All'inizio la rata è composta in prevalenza da interessi e in piccola parte da quota capitale; con il tempo la proporzione si inverte. La prevedibilità della rata facilita la pianificazione finanziaria. È il metodo standard delle banche italiane.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Posso rinegoziare il mutuo con la banca?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Sì. La rinegoziazione è un accordo con la propria banca per modificare le condizioni (tasso, durata, rata) senza cambiare istituto. Non ha costi notarili. Se la banca non accetta le condizioni desiderate, si può valutare la surroga, ovvero il trasferimento del mutuo a un'altra banca senza costi per il mutuatario.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cos'è la surroga del mutuo?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>La surroga (portabilità) consente di trasferire il mutuo a un'altra banca con condizioni migliori. Le spese notarili sono a carico della nuova banca, quindi il costo per il mutuatario è zero. È possibile cambiare il tipo di tasso, ridurre lo spread o modificare la durata residua.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quali spese ci sono oltre alla rata?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Le spese accessorie includono: istruttoria (200-1.000 €), perizia dell'immobile (200-500 €), polizza incendio e scoppio obbligatoria (150-300 €/anno), imposta sostitutiva (0,25% prima casa, 2% seconda casa), spese notarili di rogito (1.500-5.000 €). Vanno considerate nella valutazione del costo totale dell'acquisto.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">I tassi BCE influenzano il mio mutuo?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Sì, ma solo per i mutui a tasso variabile, attraverso l'Euribor. Nel 2024-2026 la BCE ha avviato un ciclo di tagli dei tassi, riducendo le rate dei variabili. I mutui fissi dipendono invece dall'IRS (Interest Rate Swap), che segue le aspettative di mercato a lungo termine e si muove in modo più lento e prevedibile.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa succede se non pago una rata?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Il mancato pagamento di una o due rate comporta la segnalazione alla Centrale Rischi. Dopo 3 rate consecutive non pagate la banca può dichiarare la decadenza dal beneficio del termine e richiedere l'immediato rimborso del debito residuo. In caso di insolvenza prolungata si avvia la procedura esecutiva con possibile asta dell'immobile. Contatta sempre la banca preventivamente se hai difficoltà.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="calcolo-spese-acquisto-casa.html" class="related-tool-card">
+        <span class="related-tool-icon">🏠</span>
+        <span>Spese Acquisto Casa</span>
+      </a>
+      <a href="calcolo-cedolare-secca.html" class="related-tool-card">
+        <span class="related-tool-icon">📋</span>
+        <span>Cedolare Secca</span>
+      </a>
+      <a href="affitto.html" class="related-tool-card">
+        <span class="related-tool-icon">🔑</span>
+        <span>Affitto Sostenibile</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">

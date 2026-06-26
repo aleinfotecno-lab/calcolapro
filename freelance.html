@@ -34,20 +34,23 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Calcolatore Tariffa Oraria Freelance 2026",
-    "description": "Calcola la tua tariffa oraria ideale da freelance in Italia. Inserisci spese, ferie e reddito desiderato per scoprire quanto fatturare tenendo conto di tasse e contributi INPS.",
+    "name": "Calcolatore Prezzo Orario Freelance",
     "url": "https://calcolapro.it/freelance.html",
+    "description": "Calcola il prezzo orario per freelance in regime forfettario o ordinario.",
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Come si calcola il prezzo orario da freelance?","acceptedAnswer":{"@type":"Answer","text":"Il prezzo orario corretto si calcola partendo dal reddito netto desiderato annuo, aggiungendo tasse, contributi INPS della Gestione Separata (circa 26,23%), spese operative e un buffer per imprevisti. Poi si divide per le ore effettivamente fatturabili in un anno (solitamente 1.000-1.400 ore, dopo aver sottratto ferie, malattia, formazione e tempo per trovare nuovi clienti). La formula base è: tariffa = (costi totali annui) ÷ ore fatturabili."}},{"@type":"Question","name":"Quanto dovrebbe guadagnare un freelance in Italia?","acceptedAnswer":{"@type":"Answer","text":"Non esiste un unico riferimento, ma in Italia un freelance esperto in campi tecnici (sviluppo software, ingegneria, design UX) applica tariffe tra 40 e 150€/ora. Consulenti di marketing, copywriter e grafici si attestano tra 25 e 80€/ora. I neolaureati o chi inizia l'attività parte spesso da 20-35€/ora. La cosa fondamentale è calcolare il tuo costo reale prima di stabilire il prezzo."}},{"@type":"Question","name":"Quali tasse paga un freelance con il regime forfettario?","acceptedAnswer":{"@type":"Answer","text":"Un freelance in regime forfettario paga l'imposta sostitutiva del 15% (5% per i primi 5 anni) sul reddito imponibile, calcolato applicando il coefficiente di redditività al fatturato. A questa si aggiungono i contributi INPS della Gestione Separata (circa 26,23% del reddito netto). Non si applica IVA e non si tiene la contabilità ordinaria, semplificando notevolmente gli adempimenti."}},{"@type":"Question","name":"Quando conviene passare a una SRL invece della partita IVA?","acceptedAnswer":{"@type":"Answer","text":"Conviene considerare la SRL quando il fatturato supera costantemente 80.000-100.000€ all'anno, si vuole separare il patrimonio personale dall'attività, si hanno soci o si prevede una crescita significativa. La SRL ha costi fissi più elevati (commercialista, diritti camerali, IRES 24% + IRAP) ma offre maggiore protezione patrimoniale e può essere più efficiente fiscalmente ad alti redditi."}}]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Prezzo Orario Freelance","item":"https://calcolapro.it/freelance.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Prezzo Orario Freelance","item":"https://calcolapro.it/freelance.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -83,10 +86,23 @@
       <p class="page-subtitle">Inserisci le tue spese e il reddito desiderato. Il calcolatore trova il prezzo orario minimo per lavorare in modo sostenibile.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">Freelance / Prezzo Orario</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Prezzo Orario Freelance</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -158,10 +174,10 @@
       </div>
 
       <div class="btn-wrap">
-        <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola il mio prezzo orario →</button>
+        <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola il prezzo orario minimo da freelance">🔍 Calcola il mio prezzo orario →</button>
       </div>
 
-      <div id="result" class="col-full animate-fade-up" style="display:none;">
+      <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo prezzo orario">
         <div class="result-card">
           <div class="result-label">Il tuo prezzo orario minimo</div>
           <div class="result-value" id="priceOut">—</div>
@@ -245,8 +261,31 @@
       <a href="https://www.amazon.it/dp/B0G644WWX1?tag=calcolapro-21" class="amz-inline-btn" target="_blank" rel="noopener sponsored">Vedi su Amazon →</a>
     </div>
 
+  <section class="container content-section">
+    <h2>Tariffe orarie freelance 2026: range per categoria professionale</h2>
+    <p>Usa questa tabella come benchmark per valutare se la tua tariffa è competitiva. I valori si riferiscono al mercato italiano 2026, per professionisti con partita IVA. La tariffa "Senior" include esperienza, portfolio solido e specializzazione verticale.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Categoria</th><th>Junior (€/ora)</th><th>Mid (€/ora)</th><th>Senior (€/ora)</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Sviluppatore web/mobile</strong></td><td>25–35</td><td>40–60</td><td>70–120</td><td>Backend/fullstack in cima al range</td></tr>
+          <tr><td><strong>Designer grafico/UX</strong></td><td>20–30</td><td>35–55</td><td>60–90</td><td>Portfolio forte +20%</td></tr>
+          <tr><td><strong>Copywriter/Content SEO</strong></td><td>15–25</td><td>30–50</td><td>55–80</td><td>SEO specialist +15–20%</td></tr>
+          <tr><td><strong>Consulente marketing</strong></td><td>25–40</td><td>50–80</td><td>90–150</td><td>Performance/growth premium</td></tr>
+          <tr><td><strong>Commercialista/consulente fiscale</strong></td><td>40–60</td><td>70–100</td><td>110–180</td><td>Iscrizione albo richiesta</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><em>Range indicativi per il mercato italiano. Le tariffe variano in base alla specializzazione, al portfolio clienti e alla reputazione. I valori escludono IVA (da aggiungere se in regime ordinario).</em></p>
+
+    <h3>La formula per calcolare la tariffa oraria giusta</h3>
+    <p>La tariffa oraria corretta si calcola così: <strong>(Reddito netto desiderato + Tasse + Contributi INPS + Costi fissi) ÷ Ore fatturabili annue</strong>. Esempio pratico: sviluppatore web che vuole 3.000 €/mese netti → 36.000 € netti annui + IRPEF ~10.800 € + INPS gestione separata ~12.400 € + costi fissi ~2.400 € = 61.600 € lordi ÷ 1.200 ore fatturabili = <strong>51 €/ora minimo</strong>. Con markup del 20% per negoziazioni: 61 €/ora. In <a href="partitaiva.html">regime forfettario</a> con imposta sostitutiva al 15%, il calcolo cambia significativamente riducendo il carico fiscale.</p>
+  </section>
+
     <div class="faq-section">
-      <h2>Domande frequenti</h2>
+      <h2>Domande frequenti sulla tariffa oraria freelance</h2>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
           Come si calcola il prezzo orario da freelance?
@@ -283,10 +322,40 @@
           <p>Conviene considerare la SRL quando il fatturato supera costantemente 80.000-100.000€ all'anno, si vuole separare il patrimonio personale dall'attività, si hanno soci o si prevede una crescita significativa. La SRL ha costi fissi più elevati (commercialista, diritti camerali, IRES 24% + IRAP) ma offre maggiore protezione patrimoniale e può essere più efficiente fiscalmente ad alti redditi.</p>
         </div>
       </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto deve fatturare un freelance per guadagnare 2.000 € netti al mese?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Con 2.000 € netti/mese desiderati (24.000 € annui netti), in regime forfettario (coefficiente 78%, imposta 15%) devi fatturare circa 36.000-38.000 € lordi/anno. In regime ordinario, con IRPEF e contributi INPS gestione separata, il fatturato necessario sale a 45.000-48.000 €. Usa il calcolatore sopra inserendo 2.000 € come reddito netto mensile desiderato per una stima precisa basata sul tuo regime fiscale.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Posso lavorare come freelance senza partita IVA?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Sì, ma solo in modo occasionale: il reddito da lavoro autonomo occasionale è esente da IVA e non richiede la partita IVA fino a 5.000 € annui. Superata questa soglia si è obbligati ad aprire la partita IVA. I redditi occasionali fino a 5.000 € annui sono esenti da contributi INPS ma vanno dichiarati in UNICO/730 e soggetti a IRPEF ordinaria. Oltre i 5.000 € l'apertura è obbligatoria per legge.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come gestisco i mesi senza clienti o con fatturato basso?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>La regola d'oro è accantonare il 30-40% di ogni pagamento ricevuto per tasse, contributi e riserva di emergenza. In regime forfettario i contributi INPS si pagano in acconto e saldo annuali, non mensilmente, quindi è essenziale tenere la liquidità separata. Un fondo di emergenza equivalente a 3-6 mesi di spese personali è il minimo raccomandato per chi lavora in autonomia.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come capisco se la mia tariffa è competitiva con il mercato?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Confronta la tua tariffa con i range della tabella sopra per la tua categoria e livello di seniority. Puoi anche verificare le offerte su piattaforme come Upwork, Freelancer.com e i gruppi LinkedIn/Slack di settore. Se ricevi molte richieste e non riesci a gestire tutti i clienti, probabilmente il tuo prezzo è troppo basso. Se invece fai fatica a chiudere preventivi, potrebbe essere utile rivedere come presenti il valore del tuo lavoro piuttosto che abbassare la tariffa.</p></div>
+      </div>
     </div>
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Come si calcola il prezzo orario da freelance?","acceptedAnswer":{"@type":"Answer","text":"Il prezzo orario corretto si calcola partendo dal reddito netto desiderato annuo, aggiungendo tasse, contributi INPS, spese operative e un buffer per imprevisti. Poi si divide per le ore effettivamente fatturabili in un anno (solitamente 1.000-1.400 ore, dopo aver sottratto ferie, malattia, formazione e tempo per trovare nuovi clienti). La formula base è: tariffa = (costi totali annui) ÷ ore fatturabili."}},{"@type":"Question","name":"Quanto dovrebbe guadagnare un freelance in Italia?","acceptedAnswer":{"@type":"Answer","text":"Non esiste un unico riferimento, ma in Italia un freelance esperto in campi tecnici (sviluppo software, ingegneria, design UX) applica tariffe tra 40 e 150€/ora. Consulenti di marketing, copywriter e grafici si attestano tra 25 e 80€/ora. I neolaureati o chi inizia l'attività parte spesso da 20-35€/ora. La cosa fondamentale è calcolare il tuo costo reale prima di stabilire il prezzo."}},{"@type":"Question","name":"Quali tasse paga un freelance con il regime forfettario?","acceptedAnswer":{"@type":"Answer","text":"Un freelance in regime forfettario paga l'imposta sostitutiva del 15% (5% per i primi 5 anni) sul reddito imponibile, calcolato applicando il coefficiente di redditività al fatturato. A questa si aggiungono i contributi INPS della Gestione Separata (circa 26,23% del reddito netto). Non si applica IVA e non si tiene la contabilità ordinaria, semplificando notevolmente gli adempimenti."}},{"@type":"Question","name":"Quando conviene passare a una SRL invece della partita IVA?","acceptedAnswer":{"@type":"Answer","text":"Conviene considerare la SRL quando il fatturato supera costantemente 80.000-100.000€ all'anno, si vuole separare il patrimonio personale dall'attività, si hanno soci o si prevede una crescita significativa. La SRL ha costi fissi più elevati (commercialista, diritti camerali, IRES 24% + IRAP) ma offre maggiore protezione patrimoniale e può essere più efficiente fiscalmente ad alti redditi."}}]}
-    </script>
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="partitaiva.html" class="related-tool-card">
+        <span class="related-tool-icon">📊</span>
+        <span>Conviene la Partita IVA?</span>
+      </a>
+      <a href="lordonetto.html" class="related-tool-card">
+        <span class="related-tool-icon">💰</span>
+        <span>Stipendio Lordo / Netto</span>
+      </a>
+      <a href="iva.html" class="related-tool-card">
+        <span class="related-tool-icon">🧾</span>
+        <span>Calcolo IVA</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">

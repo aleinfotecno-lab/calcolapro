@@ -31,13 +31,16 @@
     "@graph": [
       {
         "@type": "WebApplication",
-        "name": "Calcolatore Pensione 2026 | CalcolaPro",
-        "description": "Calcola quando puoi andare in pensione e quanto prenderai ogni mese. Pensione di vecchiaia (67 anni), anticipata (42 anni e 10 mesi), Quota 103. Sistema contributivo e misto aggiornato 2026.",
+        "name": "Simulatore Pensione 2026",
         "url": "https://calcolapro.it/pensione.html",
+        "description": "Simula l'età e l'importo della pensione con vecchiaia, anticipata e Quota 103.",
         "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Any",
+        "operatingSystem": "Web",
+        "browserRequirements": "Requires JavaScript",
+        "inLanguage": "it-IT",
+        "isAccessibleForFree": true,
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-        "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+        "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
       },
       {
         "@type": "FAQPage",
@@ -82,7 +85,7 @@
   </style>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Pensione 2026","item":"https://calcolapro.it/pensione.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Pensione e Previdenza","item":"https://calcolapro.it/#pensione"},{"@type":"ListItem","position":3,"name":"Calcolatore Pensione 2026","item":"https://calcolapro.it/pensione.html"}]}
   </script>  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
@@ -122,10 +125,23 @@
     <p class="page-subtitle">Scopri quando puoi andare in pensione e quanto prenderai ogni mese. Pensione di vecchiaia, anticipata e Quota 103. Calcolo gratuito e immediato.</p>
   </div>
 </div>
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="index.html">Home</a>
-  <span class="breadcrumb-sep" aria-hidden="true">›</span>
-  <span aria-current="page">Calcolatore Pensione</span>
+<nav class="container" aria-label="Breadcrumb">
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+      <meta itemprop="position" content="1">
+    </li>
+    <span class="breadcrumb-separator" aria-hidden="true">›</span>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://calcolapro.it/#pensione" itemprop="item"><span itemprop="name">Pensione e Previdenza</span></a>
+      <meta itemprop="position" content="2">
+    </li>
+    <span class="breadcrumb-separator" aria-hidden="true">›</span>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="breadcrumb-current" itemprop="name" aria-current="page">Calcolatore Pensione 2026</span>
+      <meta itemprop="position" content="3">
+    </li>
+  </ol>
 </nav>
 
 <main id="main-content" class="page-content">
@@ -185,10 +201,10 @@
     </div>
 
     <div class="col-full btn-wrap">
-      <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola la mia pensione →</button>
+      <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola quando andrò in pensione e l'importo mensile">🔍 Calcola la mia pensione →</button>
     </div>
 
-    <div id="result" class="col-full animate-fade-up" style="display:none;">
+    <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo pensione">
       <div class="result-card">
         <div class="result-card-inner">
           <div class="result-label">Anni mancanti alla pensione</div>
@@ -356,6 +372,88 @@
     <h3>Perché integrare la pensione pubblica</h3>
     <p>Con il sistema contributivo puro, il tasso di sostituzione (pensione/ultimo stipendio) è mediamente del 60-70%, in calo rispetto alle generazioni precedenti. Strumenti come la previdenza complementare (fondi pensione), il TFR investito o gli investimenti privati diventano sempre più importanti per mantenere il tenore di vita in pensione.</p>
   </div>
+
+  <section class="container content-section">
+    <h2>Stima pensione per stipendio e anni di contributi: tabella 2026</h2>
+    <p>Valori calcolati con il sistema contributivo puro (aliquota contributiva 33%, rivalutazione 2% annua) e coefficiente di trasformazione INPS 2026 a 67 anni (<strong>6,281%</strong>). Le stime sono indicative — usa il calcolatore sopra per una proiezione personalizzata.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>RAL media carriera</th><th>20 anni contributi</th><th>30 anni contributi</th><th>40 anni contributi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>20.000 €/anno</strong></td><td>~520 €/mese</td><td>~780 €/mese</td><td>~1.040 €/mese</td></tr>
+          <tr><td><strong>28.000 €/anno</strong></td><td>~730 €/mese</td><td>~1.095 €/mese</td><td>~1.460 €/mese</td></tr>
+          <tr><td><strong>35.000 €/anno</strong></td><td>~910 €/mese</td><td>~1.365 €/mese</td><td>~1.820 €/mese</td></tr>
+          <tr><td><strong>50.000 €/anno</strong></td><td>~1.300 €/mese</td><td>~1.950 €/mese</td><td>~2.600 €/mese</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><em>Stime basate su contribuzione costante alla RAL indicata. Pensionamento a 67 anni, coefficiente INPS 6,281%. I valori reali dipendono dalla storia contributiva effettiva.</em></p>
+
+    <h3>Pensione anticipata 2026: Quota 41, Opzione Donna, APe Sociale</h3>
+    <p><strong>Pensione anticipata ordinaria</strong>: 42 anni e 10 mesi di contributi per gli uomini, 41 anni e 10 mesi per le donne, indipendentemente dall'età anagrafica. È la via principale per chi ha iniziato a lavorare molto giovane.</p>
+    <p><strong>Quota 103</strong> (prorogata 2026): 62 anni di età + 41 anni di contributi. L'importo mensile erogabile è limitato a 4 volte il trattamento minimo INPS (circa 2.394 €/mese lordi). Ricalcolo interamente contributivo.</p>
+    <p><strong>Quota 41 per lavoratori precoci</strong>: 41 anni di contributi (con almeno 12 mesi versati prima dei 19 anni) per chi si trova in situazioni di difficoltà (disoccupato, caregiver, disabile, addetto a mansioni gravose). Nessun limite di età.</p>
+    <p><strong>Opzione Donna</strong>: 35 anni di contributi + 61 anni di età (60 anni con un figlio, 59 anni con due o più figli). L'importo viene ricalcolato interamente con il sistema contributivo, con una penalizzazione rispetto alla pensione ordinaria. <a href="guida-pensione-anticipata-2026.html">Leggi la guida completa sulla pensione anticipata 2026 →</a></p>
+    <p><strong>APe Sociale</strong>: 63 anni e 5 mesi di età + 30 anni di contributi (36 anni per lavori gravosi) per lavoratori in situazioni di difficoltà (disoccupati, caregiver, disabili). Erogazione fino alla pensione di vecchiaia a 67 anni.</p>
+  </section>
+
+  <section class="container">
+    <div class="faq-section">
+      <h2>Domande frequenti sul calcolo della pensione</h2>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">A che età vado in pensione nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>La pensione di vecchiaia richiede 67 anni di età e almeno 20 anni di contributi. Chi ha 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne) può accedere alla pensione anticipata ordinaria senza limiti di età. Esistono poi opzioni come Quota 103 (62 anni + 41 anni contributi) e APe Sociale (63 anni e 5 mesi) per categorie specifiche.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola il montante contributivo?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Il montante contributivo è la somma di tutti i contributi versati nel corso della carriera, rivalutati annualmente in base alla crescita del PIL nominale (mediamente 1,5-2% annuo). Ogni anno si accumula il 33% della retribuzione lorda (la quota complessiva datore + dipendente). Puoi consultare il tuo estratto conto contributivo su inps.it con SPID.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Posso andare in pensione prima dei 67 anni?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Sì, esistono diverse opzioni: pensione anticipata ordinaria (42 anni e 10 mesi contributi, uomini), Quota 103 (62 anni + 41 anni contributi), APe Sociale (63 anni e 5 mesi in categorie disagiate), Opzione Donna (61 anni + 35 anni contributi, ricalcolo contributivo). Ogni opzione ha requisiti specifici e può comportare un importo ridotto.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Qual è la pensione minima INPS nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Il trattamento minimo INPS nel 2026 è circa 598 €/mese lordi (rivalutato con l'inflazione). Per la pensione di vecchiaia con il contributivo puro, l'assegno non può essere inferiore a 1,5 volte l'assegno sociale (circa 534 €) se si maturano i requisiti ordinari. L'assegno sociale per chi non ha contributi è circa 534 €/mese a 67 anni con redditi bassi.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">I contributi versati da libero professionista valgono per la pensione?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Sì, ma dipende dalla cassa previdenziale. I liberi professionisti iscritti a ordini (avvocati, medici, ingegneri) versano alla propria cassa professionale, non all'INPS. I professionisti senza cassa e i collaboratori versano alla Gestione Separata INPS. I contributi sono cumulabili ai fini pensionistici tra diverse gestioni, anche con il fondo dipendenti (FPLD).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa succede ai contributi se cambio lavoro più volte?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>I contributi versati in diverse gestioni INPS (dipendente, autonomo, Gestione Separata) vengono cumulati automaticamente ai fini del raggiungimento dei requisiti pensionistici. Il calcolo dell'importo avviene pro-quota per ogni gestione. Se hai versato anche a una cassa professionale privata, puoi richiedere la totalizzazione o la ricongiunzione.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Conviene il riscatto della laurea?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Il riscatto della laurea agevolato per under 45 costa circa 5.500-6.000 € per anno accademico. Permette di anticipare il pensionamento di 2-5 anni o aumentare l'importo della pensione. Conviene soprattutto se si è in sistema contributivo puro e si punta alla pensione anticipata. Il costo è detraibile al 50% in 5 anni (o deducibile per i lavoratori autonomi). Calcola il break-even con il <a href="calcolatore-risparmio.html">calcolatore risparmio</a>.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come posso integrare la pensione pubblica?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+        <div class="faq-answer"><p>Le opzioni principali sono: fondo pensione (deducibile fino a 5.164 €/anno), TFR destinato alla previdenza complementare (anziché tenerlo in azienda), investimenti in ETF o conti deposito, polizze vita rivalutabili. Prima di andare in pensione è utile stimare il tasso di sostituzione con il <a href="lordonetto.html">calcolatore netto da lordo</a> e pianificare l'integrazione necessaria.</p></div>
+      </div>
+    </div>
+  </section>
+
+<section class="container related-tools">
+  <h3>Strumenti correlati</h3>
+  <div class="related-tools-grid">
+    <a href="tfr.html" class="related-tool-card">
+      <span class="related-tool-icon">💼</span>
+      <span>Simulatore TFR</span>
+    </a>
+    <a href="lordonetto.html" class="related-tool-card">
+      <span class="related-tool-icon">💰</span>
+      <span>Stipendio Lordo / Netto</span>
+    </a>
+    <a href="partitaiva.html" class="related-tool-card">
+      <span class="related-tool-icon">📊</span>
+      <span>Conviene la Partita IVA?</span>
+    </a>
+  </div>
+</section>
 </main>
 
 <footer class="footer" role="contentinfo">
