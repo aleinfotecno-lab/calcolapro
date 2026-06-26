@@ -23,7 +23,13 @@
       "Bash(nslookup calcolapro.it 8.8.8.8)",
       "Bash(git ls-tree *)",
       "Bash(git rm *)",
-      "Bash(xargs grep -l \"fetch.*'/'.*newsletter\\\\|handleNewsletter.*fetch\")"
+      "Bash(xargs grep -l \"fetch.*'/'.*newsletter\\\\|handleNewsletter.*fetch\")",
+      "WebSearch",
+      "Bash(ls \"C:\\\\Users\\\\aless\\\\Desktop\\\\siti pubblicati\\\\calcolapro\\\\\")",
+      "Bash(python3 -)",
+      "Bash(ls /c/Python*)",
+      "Read(//c/Users/aless/AppData/Local/Programs/**)",
+      "Bash(/c/Users/aless/AppData/Local/Programs/Python/Python312/python -)"
     ]
   }
 }
