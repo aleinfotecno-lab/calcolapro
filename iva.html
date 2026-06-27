@@ -19,13 +19,16 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Calcolatore IVA Online Gratis 2026",
-    "description": "Calcola l'IVA in un secondo. Aggiungi IVA al 22%, 10%, 5% o 4% a un importo o scorporala dal totale. Con sconto e quantità multiple. Strumento gratuito.",
+    "name": "Calcolatore IVA Online",
     "url": "https://calcolapro.it/iva.html",
+    "description": "Calcola IVA al 22%, 10%, 5% e 4%. Scorporo e aggiunta IVA istantanei.",
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
   <script type="application/ld+json">
@@ -56,7 +59,7 @@
   </style>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Calcolo IVA","item":"https://calcolapro.it/iva.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Tasse e Fisco","item":"https://calcolapro.it/#fisco"},{"@type":"ListItem","position":3,"name":"Calcolo IVA","item":"https://calcolapro.it/iva.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -92,10 +95,23 @@
       <p class="page-subtitle">Aggiungi l'IVA a un imponibile o scorporala da un totale. Scegli l'aliquota 22%, 10% o 4% e ottieni il risultato istantaneamente.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">IVA / Calcolo IVA</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#fisco" itemprop="item"><span itemprop="name">Tasse e Fisco</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Calcolo IVA</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -106,8 +122,8 @@
           Importo e aliquota
         </div>
         <div class="field">
-          <label>Aliquota IVA</label>
-          <div class="rate-pills">
+          <label id="aliquota-rate-label">Aliquota IVA</label>
+          <div class="rate-pills" role="group" aria-labelledby="aliquota-rate-label">
             <div class="rate-pill active" onclick="setRate(this, 22)">22%</div>
             <div class="rate-pill" onclick="setRate(this, 10)">10%</div>
             <div class="rate-pill" onclick="setRate(this, 5)">5%</div>
@@ -159,11 +175,11 @@
       </div>
 
       <div class="btn-wrap" style="gap:16px;flex-wrap:wrap;">
-        <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola IVA →</button>
-        <button class="btn btn-secondary" onclick="document.getElementById('operazione').value=document.getElementById('operazione').value==='aggiungi'?'scorporo':'aggiungi';calcola()">Inverti operazione ⇄</button>
+        <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola l'importo IVA">🔍 Calcola IVA →</button>
+        <button class="btn btn-secondary" onclick="document.getElementById('operazione').value=document.getElementById('operazione').value==='aggiungi'?'scorporo':'aggiungi';calcola()" type="button" aria-label="Inverti tra aggiunta e scorporo IVA">Inverti operazione ⇄</button>
       </div>
 
-      <div id="result" class="col-full animate-fade-up" style="display:none;">
+      <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo IVA">
         <div class="result-card">
           <div class="result-label" id="resultLabel">Totale con IVA</div>
           <div class="result-value" id="priceOut">—</div>
@@ -235,6 +251,24 @@
         </div>
       </div>
     </div>
+
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="freelance.html" class="related-tool-card">
+        <span class="related-tool-icon">💻</span>
+        <span>Prezzo Orario Freelance</span>
+      </a>
+      <a href="partitaiva.html" class="related-tool-card">
+        <span class="related-tool-icon">📊</span>
+        <span>Conviene la Partita IVA?</span>
+      </a>
+      <a href="lordonetto.html" class="related-tool-card">
+        <span class="related-tool-icon">💰</span>
+        <span>Stipendio Lordo / Netto</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">
@@ -289,7 +323,7 @@
     </div>
     <div class="footer-bottom">
       <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
-      <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
+      <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="disclaimer.html">Disclaimer</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
     </div>
   </footer>
 
