@@ -78,6 +78,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+<style>
+@media(min-width:1024px){
+  .sticky-affiliate-sidebar{position:fixed;right:16px;top:50%;transform:translateY(-50%);width:200px;z-index:900;display:none;flex-direction:column;gap:12px;}
+  .sticky-affiliate-sidebar.visible{display:flex;}
+  .sidebar-aff-box{background:#fff;border:1px solid #e0e7ef;border-radius:10px;padding:14px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.10);}
+  .sidebar-aff-box .aff-logo{font-size:13px;font-weight:700;color:#1a3c5e;margin-bottom:6px;}
+  .sidebar-aff-box .aff-desc{font-size:11px;color:#555;margin-bottom:8px;line-height:1.4;}
+  .sidebar-aff-box .aff-cta{display:inline-block;background:#e8372a;color:#fff;border-radius:6px;padding:7px 10px;font-size:12px;font-weight:600;text-decoration:none;width:100%;box-sizing:border-box;}
+  .sidebar-aff-box .aff-cta:hover{background:#c0281d;}
+}
+@media(max-width:1023px){.sticky-affiliate-sidebar{display:none!important;}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -445,5 +457,20 @@
       };
     })();
   </script><script src="cookie-consent.js"></script>
+<div class="sticky-affiliate-sidebar" id="affSidebar">
+  <div class="sidebar-aff-box">
+    <div class="aff-logo">Crédit Agricole</div>
+    <div class="aff-desc">Conto deposito fino al 4% annuo. Apri online.</div>
+    <a class="aff-cta" href="https://www.credit-agricole.it/" target="_blank" rel="sponsored noopener" onclick="gtag('event','cta_click',{'event_category':'sidebar_affiliate','event_label':'creditagricole_deposito'})">Scopri il conto →</a>
+  </div>
+</div>
+<script>
+(function(){
+  var sidebar=document.getElementById('affSidebar');
+  if(!sidebar)return;
+  var shown=false;
+  window.addEventListener('scroll',function(){if(!shown&&window.scrollY>300){sidebar.classList.add('visible');shown=true;if(typeof gtag==='function')gtag('event','sidebar_shown',{'event_category':'affiliate_sidebar'});}},{passive:true});
+})();
+</script>
 </body>
 </html>

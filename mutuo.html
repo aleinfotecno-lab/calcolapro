@@ -56,7 +56,44 @@
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Mutuo e Casa","item":"https://calcolapro.it/#casa"},{"@type":"ListItem","position":3,"name":"Calcolatore Rata Mutuo 2026","item":"https://calcolapro.it/mutuo.html"}]}
-  </script></head>
+  </script>
+<style>
+@media(min-width:1024px){
+  .sticky-affiliate-sidebar{position:fixed;right:16px;top:50%;transform:translateY(-50%);width:200px;z-index:900;display:none;flex-direction:column;gap:12px;}
+  .sticky-affiliate-sidebar.visible{display:flex;}
+  .sidebar-aff-box{background:#fff;border:1px solid #e0e7ef;border-radius:10px;padding:14px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.10);}
+  .sidebar-aff-box .aff-logo{font-size:13px;font-weight:700;color:#1a3c5e;margin-bottom:6px;}
+  .sidebar-aff-box .aff-desc{font-size:11px;color:#555;margin-bottom:8px;line-height:1.4;}
+  .sidebar-aff-box .aff-cta{display:inline-block;background:#e8372a;color:#fff;border-radius:6px;padding:7px 10px;font-size:12px;font-weight:600;text-decoration:none;width:100%;box-sizing:border-box;}
+  .sidebar-aff-box .aff-cta:hover{background:#c0281d;}
+}
+@media(max-width:1023px){.sticky-affiliate-sidebar{display:none!important;}}
+.comparison-table-wrapper{margin:24px 0 0;border-radius:12px;overflow:hidden;box-shadow:0 3px 16px rgba(0,0,0,.12);}
+.comparison-table-title{background:#1a3c5e;color:#fff;text-align:center;padding:12px 16px;font-size:15px;font-weight:700;}
+.comparison-table-title span{color:#f0c040;}
+.comparison-table{width:100%;border-collapse:collapse;background:#fff;}
+.comparison-table th{background:#f4f8fd;color:#1a3c5e;font-size:12px;font-weight:600;padding:10px 12px;text-align:left;border-bottom:2px solid #d0dcea;}
+.comparison-table td{padding:12px;font-size:13px;color:#222;border-bottom:1px solid #eef2f7;vertical-align:middle;}
+.comparison-table tr:last-child td{border-bottom:none;}
+.comparison-table tr:hover td{background:#f9fbff;}
+.comp-badge{display:inline-block;background:#e8f5e9;color:#2e7d32;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600;margin-left:4px;}
+.comp-cta{display:inline-block;background:#e8372a;color:#fff;border-radius:6px;padding:8px 14px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;}
+.comp-cta:hover{background:#c0281d;}
+.comparison-disclaimer{font-size:10px;color:#888;text-align:center;padding:8px 12px;background:#f9fbff;border-top:1px solid #e0e7ef;}
+@media(max-width:600px){.comparison-table th:nth-child(2),.comparison-table td:nth-child(2){display:none;}}
+#exitIntentOverlay{display:none;position:fixed;inset:0;background:rgba(10,20,40,.72);z-index:9999;align-items:center;justify-content:center;}
+#exitIntentOverlay.active{display:flex;}
+.exit-intent-box{background:#fff;border-radius:14px;padding:32px 28px;max-width:420px;width:90%;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.22);position:relative;animation:slideUp .3s ease;}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.exit-intent-close{position:absolute;top:12px;right:16px;cursor:pointer;font-size:20px;color:#888;background:none;border:none;line-height:1;}
+.exit-intent-icon{font-size:36px;margin-bottom:10px;}
+.exit-intent-title{font-size:18px;font-weight:700;color:#1a3c5e;margin-bottom:8px;line-height:1.3;}
+.exit-intent-sub{font-size:13px;color:#666;margin-bottom:20px;line-height:1.5;}
+.exit-intent-cta{display:block;background:#e8372a;color:#fff;border-radius:8px;padding:13px 20px;font-size:15px;font-weight:700;text-decoration:none;margin-bottom:10px;}
+.exit-intent-cta:hover{background:#c0281d;}
+.exit-intent-skip{font-size:12px;color:#aaa;cursor:pointer;text-decoration:underline;background:none;border:none;}
+</style>
+</head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
   <nav class="navbar" role="navigation" aria-label="Navigazione principale">
@@ -170,6 +207,30 @@
             <div class="breakdown-item"><div class="breakdown-value" id="interessiOut">—</div><div class="breakdown-label">totale interessi</div></div>
             <div class="breakdown-item"><div class="breakdown-value" id="ltvOut">—</div><div class="breakdown-label">LTV (% finanziato)</div></div>
           </div>
+        </div>
+        <div class="comparison-table-wrapper" id="compTableMutuo">
+          <div class="comparison-table-title">Top 3 Mutui — <span>Giugno 2026</span></div>
+          <table class="comparison-table">
+            <thead><tr><th>Banca</th><th>Tasso indicativo</th><th>Offerta</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>MutuiSupermarket</strong><span class="comp-badge">Consigliato</span></td>
+                <td>Dal 2,80% TAN fisso</td>
+                <td><a class="comp-cta" href="https://www.mutuisupermarket.it/" target="_blank" rel="sponsored noopener" onclick="gtag('event','comparison_table_click',{'event_label':'mutuisupermarket'})">Confronta →</a></td>
+              </tr>
+              <tr>
+                <td><strong>Facile.it Mutui</strong></td>
+                <td>Dal 2,95% TAN fisso</td>
+                <td><a class="comp-cta" href="https://www.facile.it/mutui/" target="_blank" rel="sponsored noopener" onclick="gtag('event','comparison_table_click',{'event_label':'facileit_mutuo'})">Confronta →</a></td>
+              </tr>
+              <tr>
+                <td><strong>Mutui Online</strong></td>
+                <td>Dal 3,10% TAN fisso</td>
+                <td><a class="comp-cta" href="https://www.mutuionline.it/" target="_blank" rel="noopener" onclick="gtag('event','comparison_table_click',{'event_label':'mutuionline'})">Vai al sito →</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="comparison-disclaimer">*Tassi indicativi soggetti a variazione. Aggiornato a Giugno 2026. Link sponsorizzati.</div>
         </div>
       </div>
 
@@ -493,5 +554,31 @@
       };
     })();
   </script><script src="cookie-consent.js"></script>
+<div class="sticky-affiliate-sidebar" id="affSidebar">
+  <div class="sidebar-aff-box">
+    <div class="aff-logo">MutuiSupermarket</div>
+    <div class="aff-desc">Confronta i migliori mutui. Consulenza gratuita.</div>
+    <a class="aff-cta" href="https://www.mutuisupermarket.it/" target="_blank" rel="sponsored noopener" onclick="gtag('event','cta_click',{'event_category':'sidebar_affiliate','event_label':'mutuisupermarket_mutuo'})">Confronta offerte →</a>
+  </div>
+</div>
+<div id="exitIntentOverlay" role="dialog" aria-modal="true" aria-label="Offerta speciale mutui">
+  <div class="exit-intent-box">
+    <button class="exit-intent-close" onclick="closeExitIntent()" aria-label="Chiudi">&#x2715;</button>
+    <div class="exit-intent-icon">&#127968;</div>
+    <div class="exit-intent-title">Hai calcolato la tua rata!</div>
+    <div class="exit-intent-sub">Confronta adesso le offerte reali di mutuo. Il servizio è gratuito e senza impegno.</div>
+    <a class="exit-intent-cta" href="https://www.mutuisupermarket.it/" target="_blank" rel="sponsored noopener" onclick="gtag('event','exit_intent_cta_click',{'event_label':'mutuo_mutuisupermarket'});closeExitIntent();">Confronta le migliori offerte →</a>
+    <button class="exit-intent-skip" onclick="closeExitIntent()">No grazie, continuo a navigare</button>
+  </div>
+</div>
+<script>
+(function(){
+  var sidebar=document.getElementById('affSidebar');
+  if(sidebar){var shown=false;window.addEventListener('scroll',function(){if(!shown&&window.scrollY>300){sidebar.classList.add('visible');shown=true;if(typeof gtag==='function')gtag('event','sidebar_shown',{'event_category':'affiliate_sidebar'});}},{passive:true});}
+  var overlay=document.getElementById('exitIntentOverlay');
+  var dismissed=sessionStorage.getItem('exitShown');
+  if(!dismissed&&overlay){var s2=false;document.documentElement.addEventListener('mouseleave',function(e){if(!s2&&e.clientY<10)showEI();});var ly=0;window.addEventListener('scroll',function(){var cy=window.scrollY;if(!s2&&ly-cy>80&&cy>300)showEI();ly=cy;},{passive:true});function showEI(){s2=true;overlay.classList.add('active');sessionStorage.setItem('exitShown','1');if(typeof gtag==='function')gtag('event','exit_intent_shown');}window.closeExitIntent=function(){overlay.classList.remove('active');};overlay.addEventListener('click',function(e){if(e.target===overlay)closeExitIntent();});}
+})();
+</script>
 </body>
 </html>
