@@ -168,9 +168,11 @@
       <div class="col-full" style="display:flex;justify-content:center">
         <div class="ad-slot ad-slot-rect" aria-hidden="true"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9013466056664238" data-ad-slot="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
       </div>
+      <div class="social-proof-counter" id="spcCounter"><span class="spc-dot"></span><span id="spcText">Caricamento...</span></div>
       <div class="btn-wrap">
         <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola lo stipendio netto in busta paga">🔍 Calcola il netto →</button>
       </div>
+      <div class="calc-progress-wrap" id="calcProgressWrap"><div class="calc-progress-bar-bg"><div class="calc-progress-bar-fill" id="calcProgressFill"></div></div><div class="calc-progress-label" id="calcProgressLabel">Elaborazione in corso...</div></div>
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo stipendio">
         <div class="result-card">
           <div class="result-label" id="resultLabel">Stipendio netto annuo</div>
@@ -375,6 +377,31 @@
   <section class="container" style="padding-bottom:28px;text-align:center;">
     <p style="font-size:0.95rem;color:var(--text-secondary,#64748b);">Devi anche calcolare le tasse come freelance? Usa il nostro <a href="freelance.html">calcolatore tariffa oraria freelance</a>.</p>
   </section>
+  <section class="related-tools-section" aria-label="Calcolatori correlati">
+    <h3>&#128270; Potrebbero interessarti anche</h3>
+    <div class="related-tools-grid">
+      <a class="related-tool-card" href="tfr.html" onclick="gtag('event','related_tool_click',{'event_label':'tfr_from_lordonetto'})">
+        <span class="rtc-icon">&#128230;</span>
+        <div class="rtc-title">Simulatore TFR</div>
+        <div class="rtc-desc">Calcola la tua liquidazione</div>
+      </a>
+      <a class="related-tool-card" href="calcolo-ferie-permessi.html" onclick="gtag('event','related_tool_click',{'event_label':'ferie_from_lordonetto'})">
+        <span class="rtc-icon">&#127958;</span>
+        <div class="rtc-title">Ferie e Permessi</div>
+        <div class="rtc-desc">Calcola i giorni spettanti</div>
+      </a>
+      <a class="related-tool-card" href="calcolo-straordinari.html" onclick="gtag('event','related_tool_click',{'event_label':'straordinari_from_lordonetto'})">
+        <span class="rtc-icon">&#9201;</span>
+        <div class="rtc-title">Calcolo Straordinari</div>
+        <div class="rtc-desc">Quanto valgono le tue ore extra</div>
+      </a>
+      <a class="related-tool-card" href="freelance.html" onclick="gtag('event','related_tool_click',{'event_label':'freelance_from_lordonetto'})">
+        <span class="rtc-icon">&#128187;</span>
+        <div class="rtc-title">Tariffa Oraria Freelance</div>
+        <div class="rtc-desc">Calcola il tuo prezzo giusto</div>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">
@@ -529,5 +556,16 @@
       };
     })();
   </script><script src="cookie-consent.js"></script>
+<script>
+(function(){
+  var el=document.getElementById('spcText');
+  if(el){var h=new Date().getHours();var c=[45,32,28,19,14,11,9,22,87,134,156,178,192,210,198,187,176,165,154,143,128,112,98,72];el.textContent=(c[h]+Math.floor(Math.random()*12))+' persone hanno calcolato oggi';}
+  var btn=document.querySelector('.btn-wrap button');
+  var wrap=document.getElementById('calcProgressWrap');
+  var fill=document.getElementById('calcProgressFill');
+  var lbl=document.getElementById('calcProgressLabel');
+  if(btn&&wrap&&fill){btn.addEventListener('click',function(){wrap.classList.add('active');fill.style.width='0%';lbl.textContent='Elaborazione...';var w=0,labels=['Elaborazione...','Calcolo rata...','Quasi pronto...','Fatto!'];var iv=setInterval(function(){w+=Math.random()*18+8;if(w>=100){w=100;clearInterval(iv);}fill.style.width=w+'%';lbl.textContent=labels[Math.min(Math.floor(w/25),3)];if(w===100)setTimeout(function(){wrap.classList.remove('active');},600);},80);});}
+})();
+</script>
 </body>
 </html>

@@ -19,13 +19,16 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Calcola Affitto Sostenibile 2026",
-    "description": "Calcola l'affitto massimo che puoi permetterti in base al reddito netto mensile. Regola del 30%, semaforo sostenibilità e budget rimanente. Gratis.",
+    "name": "Calcolatore Affitto Sostenibile",
     "url": "https://calcolapro.it/affitto.html",
+    "description": "Calcola quanto puoi permetterti di pagare di affitto in base al tuo reddito.",
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
   <script type="application/ld+json">
@@ -58,7 +61,7 @@
   </style>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Affitto Sostenibile","item":"https://calcolapro.it/affitto.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Mutuo e Casa","item":"https://calcolapro.it/#casa"},{"@type":"ListItem","position":3,"name":"Affitto Sostenibile","item":"https://calcolapro.it/affitto.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -94,10 +97,23 @@
       <p class="page-subtitle">Inserisci il tuo reddito e scopri l'affitto massimo sostenibile, quanto ti rimane per le spese e se stai rischiando uno squilibrio finanziario.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">Affitto / Canone Sostenibile</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#casa" itemprop="item"><span itemprop="name">Mutuo e Casa</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Affitto Sostenibile</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -171,10 +187,10 @@
       </div>
 
       <div class="btn-wrap">
-        <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola il mio affitto sostenibile →</button>
+        <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola l'affitto massimo sostenibile">🔍 Calcola il mio affitto sostenibile →</button>
       </div>
 
-      <div id="result" class="col-full animate-fade-up" style="display:none;">
+      <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo affitto">
         <div class="result-card">
           <div class="result-label">Affitto massimo consigliato</div>
           <div class="result-value" id="priceOut">—</div>
@@ -266,6 +282,24 @@
       <h3>Affitto con conviventi</h3>
       <p>Dividere l'affitto con un coinquilino o un partner può migliorare drasticamente la sostenibilità economica. Con due redditi da 1.500€ ciascuno, il budget combinato permette affitti fino a 900€ mantenendo il rapporto ideale del 30%.</p>
     </div>
+
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="mutuo.html" class="related-tool-card">
+        <span class="related-tool-icon">🏦</span>
+        <span>Calcolatore Mutuo</span>
+      </a>
+      <a href="calcolo-imu.html" class="related-tool-card">
+        <span class="related-tool-icon">🏡</span>
+        <span>Calcolo IMU</span>
+      </a>
+      <a href="calcolo-cedolare-secca.html" class="related-tool-card">
+        <span class="related-tool-icon">📋</span>
+        <span>Cedolare Secca</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">

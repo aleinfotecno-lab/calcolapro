@@ -29,13 +29,16 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Calcola BMI Online Gratis 2026",
-    "description": "Calcola il tuo BMI (Indice di Massa Corporea) gratuitamente. Scopri se sei sottopeso, normopeso o sovrappeso. Con peso ideale, scala visiva e consigli pratici.",
+    "name": "Calcolatore BMI Indice di Massa Corporea",
     "url": "https://calcolapro.it/bmi.html",
+    "description": "Calcola il tuo BMI e scopri se il tuo peso è nella norma secondo i parametri OMS.",
     "applicationCategory": "HealthApplication",
-    "operatingSystem": "Any",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
   <script type="application/ld+json">
@@ -61,7 +64,7 @@
   <meta name="twitter:description" content="Calcola il tuo BMI gratis. Scopri se sei sottopeso, normopeso o sovrappeso con classificazione OMS, peso ideale e scala visiva. Aggiornato 2026.">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Indice BMI","item":"https://calcolapro.it/bmi.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Salute e Benessere","item":"https://calcolapro.it/#salute"},{"@type":"ListItem","position":3,"name":"Calcolo BMI","item":"https://calcolapro.it/bmi.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -97,10 +100,23 @@
       <p class="page-subtitle">Calcola il tuo Indice di Massa Corporea (BMI) e scopri il range di peso ideale in base alla tua altezza. Con scala visiva e interpretazione completa.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">BMI / Indice di Massa Corporea</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#salute" itemprop="item"><span itemprop="name">Salute e Benessere</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Calcolo BMI</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -216,6 +232,16 @@
       <h3>Come raggiungere un BMI sano</h3>
       <p>Per ridurre il BMI è generalmente indicato un deficit calorico moderato (300-500 kcal/giorno) combinato con attività fisica regolare. Per aumentare il BMI in caso di sottopeso, si consiglia un surplus calorico con alimenti nutrienti e un programma di allenamento con i pesi. In entrambi i casi, la consulenza di un medico o nutrizionista è fondamentale.</p>
     </div>
+
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="tdee.html" class="related-tool-card">
+        <span class="related-tool-icon">🥗</span>
+        <span>Calcolo TDEE</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">

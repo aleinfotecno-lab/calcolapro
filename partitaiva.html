@@ -19,13 +19,16 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Conviene Aprire la Partita IVA nel 2026? Calcolatore Confronto Gratuito",
-    "description": "Scopri se conviene aprire la Partita IVA o restare dipendente nel 2026. Confronta netto forfettario vs IRPEF dipendente con il nostro calcolatore gratuito.",
+    "name": "Confronto Dipendente vs Partita IVA 2026",
     "url": "https://calcolapro.it/partitaiva.html",
+    "description": "Confronta costi e vantaggi tra lavoro dipendente e apertura Partita IVA.",
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
   }
   </script>
   <script type="application/ld+json">
@@ -64,7 +67,7 @@
   </style>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Conviene la Partita IVA?","item":"https://calcolapro.it/partitaiva.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Conviene la Partita IVA?","item":"https://calcolapro.it/partitaiva.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -100,10 +103,23 @@
       <p class="page-subtitle">Confronta il netto come lavoratore dipendente e come freelance in regime forfettario. Scopri quale opzione ti conviene davvero.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">Partita IVA / Conviene?</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Conviene la Partita IVA?</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -168,10 +184,10 @@
       </div>
 
       <div class="btn-wrap">
-        <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Confronta le due opzioni →</button>
+        <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Confronta Partita IVA con lavoro dipendente">🔍 Confronta le due opzioni →</button>
       </div>
 
-      <div id="result" class="col-full animate-fade-up" style="display:none;">
+      <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del confronto Partita IVA">
         <div class="confronto">
           <div class="confronto-card piva">
             <div class="confronto-label">Partita IVA Forfettaria</div>
@@ -255,6 +271,24 @@
       <h3>I costi nascosti della partita IVA</h3>
       <p>Oltre all'imposta sostitutiva, il titolare di partita IVA paga i contributi INPS alla Gestione Separata (circa il 26% del reddito imponibile). Vanno inoltre considerate le spese per il commercialista (500-1.500€/anno), software di fatturazione, e l'assenza di tutele tipiche del lavoro dipendente come ferie pagate, malattia e TFR.</p>
     </div>
+
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="lordonetto.html" class="related-tool-card">
+        <span class="related-tool-icon">💰</span>
+        <span>Stipendio Lordo / Netto</span>
+      </a>
+      <a href="freelance.html" class="related-tool-card">
+        <span class="related-tool-icon">💻</span>
+        <span>Prezzo Orario Freelance</span>
+      </a>
+      <a href="tfr.html" class="related-tool-card">
+        <span class="related-tool-icon">💼</span>
+        <span>Simulatore TFR</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">

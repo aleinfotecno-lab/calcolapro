@@ -28,7 +28,20 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Calcolo Spese Acquisto Casa 2026","description":"Calcola tutte le spese per comprare casa: imposte, notaio, agenzia. Prima o seconda casa, da privato o costruttore. Gratis.","url":"https://calcolapro.it/calcolo-spese-acquisto-casa.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}}
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calcolatore Spese Acquisto Casa",
+    "url": "https://calcolapro.it/calcolo-spese-acquisto-casa.html",
+    "description": "Calcola tutti i costi accessori per l'acquisto di un immobile: notaio, imposte, agenzia.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+  }
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -47,7 +60,7 @@
   </style>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Spese Acquisto Casa","item":"https://calcolapro.it/calcolo-spese-acquisto-casa.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Mutuo e Casa","item":"https://calcolapro.it/#casa"},{"@type":"ListItem","position":3,"name":"Calcolo Spese Acquisto Casa 2026","item":"https://calcolapro.it/calcolo-spese-acquisto-casa.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -83,10 +96,23 @@
       <p class="page-subtitle">Calcola tutte le spese di acquisto: imposte, notaio, agenzia e costi accessori. Prima casa o seconda casa, da privato o costruttore.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">Calcolo Spese Acquisto Casa 2026</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#casa" itemprop="item"><span itemprop="name">Mutuo e Casa</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Calcolo Spese Acquisto Casa 2026</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -250,6 +276,24 @@
         </div>
       </div>
     </div>
+
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="mutuo.html" class="related-tool-card">
+        <span class="related-tool-icon">🏦</span>
+        <span>Calcolatore Mutuo</span>
+      </a>
+      <a href="calcolo-imu.html" class="related-tool-card">
+        <span class="related-tool-icon">🏡</span>
+        <span>Calcolo IMU</span>
+      </a>
+      <a href="affitto.html" class="related-tool-card">
+        <span class="related-tool-icon">🔑</span>
+        <span>Affitto Sostenibile</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">

@@ -172,7 +172,9 @@
         <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="auto"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
+      <div class="social-proof-counter" id="spcCounter"><span class="spc-dot"></span><span id="spcText">Caricamento...</span></div>
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola la rata mensile →</button></div>
+      <div class="calc-progress-wrap" id="calcProgressWrap"><div class="calc-progress-bar-bg"><div class="calc-progress-bar-fill" id="calcProgressFill"></div></div><div class="calc-progress-label" id="calcProgressLabel">Elaborazione in corso...</div></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;">
         <div class="result-card">
@@ -188,6 +190,12 @@
         </div>
       </div>
 
+      <div class="contextual-cta-box" id="ctxCtaPrestito">
+        <div class="ccta-pretext">Risultato calcolato per te</div>
+        <div class="ccta-main">La tua rata mensile è <span class="ccta-amount" id="ctxRataPrestito">€0</span><br>Scopri il prestito più conveniente</div>
+        <a class="ccta-btn" href="https://www.younited-credit.com/it/" target="_blank" rel="sponsored noopener" id="ctxCtaPrestitoLink">Richiedi il preventivo gratuito →</a>
+        <div class="ccta-sub">Risposta in 24 ore · Senza impegno · 100% online</div>
+      </div>
       <!-- BOX CONFRONTO PRESTITI — sostituisci href con i tuoi link affiliati reali -->
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
@@ -272,6 +280,31 @@
         </div>
       </div>
     </div>
+  <section class="related-tools-section" aria-label="Calcolatori correlati">
+    <h3>&#128270; Potrebbero interessarti anche</h3>
+    <div class="related-tools-grid">
+      <a class="related-tool-card" href="mutuo.html" onclick="gtag('event','related_tool_click',{'event_label':'mutuo_from_prestito'})">
+        <span class="rtc-icon">&#127968;</span>
+        <div class="rtc-title">Calcolo Mutuo</div>
+        <div class="rtc-desc">Calcola la rata del tuo mutuo</div>
+      </a>
+      <a class="related-tool-card" href="lordonetto.html" onclick="gtag('event','related_tool_click',{'event_label':'lordonetto_from_prestito'})">
+        <span class="rtc-icon">&#128200;</span>
+        <div class="rtc-title">Stipendio Netto</div>
+        <div class="rtc-desc">Quanto prendi in mano ogni mese</div>
+      </a>
+      <a class="related-tool-card" href="calcolatore-interessi-conto-deposito.html" onclick="gtag('event','related_tool_click',{'event_label':'contoDeposito_from_prestito'})">
+        <span class="rtc-icon">&#128176;</span>
+        <div class="rtc-title">Conto Deposito</div>
+        <div class="rtc-desc">Confronta i rendimenti</div>
+      </a>
+      <a class="related-tool-card" href="calcolatore-risparmio.html" onclick="gtag('event','related_tool_click',{'event_label':'risparmio_from_prestito'})">
+        <span class="rtc-icon">&#127991;</span>
+        <div class="rtc-title">Calcolatore Risparmio</div>
+        <div class="rtc-desc">Pianifica i tuoi obiettivi</div>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">
@@ -363,6 +396,8 @@
       const taeg = taegMensile * 100;
 
       document.getElementById('priceOut').textContent = fmt2(rataConSpese);
+      var ctxAmt=document.getElementById('ctxRataPrestito');if(ctxAmt)ctxAmt.textContent=fmt2(rataConSpese);
+      var ctxBox=document.getElementById('ctxCtaPrestito');if(ctxBox)ctxBox.classList.add('visible');
       document.getElementById('totaleOut').textContent = fmt(totale);
       document.getElementById('interessiOut').textContent = fmt(interessi);
       document.getElementById('taegOut').textContent = taeg.toFixed(2).replace('.', ',') + '%';
@@ -436,6 +471,17 @@
   var overlay=document.getElementById('exitIntentOverlay');
   var dismissed=sessionStorage.getItem('exitShown');
   if(!dismissed&&overlay){var s2=false;document.documentElement.addEventListener('mouseleave',function(e){if(!s2&&e.clientY<10)showEI();});var ly=0;window.addEventListener('scroll',function(){var cy=window.scrollY;if(!s2&&ly-cy>80&&cy>300)showEI();ly=cy;},{passive:true});function showEI(){s2=true;overlay.classList.add('active');sessionStorage.setItem('exitShown','1');if(typeof gtag==='function')gtag('event','exit_intent_shown');}window.closeExitIntent=function(){overlay.classList.remove('active');};overlay.addEventListener('click',function(e){if(e.target===overlay)closeExitIntent();});}
+})();
+</script>
+<script>
+(function(){
+  var el=document.getElementById('spcText');
+  if(el){var h=new Date().getHours();var c=[45,32,28,19,14,11,9,22,87,134,156,178,192,210,198,187,176,165,154,143,128,112,98,72];el.textContent=(c[h]+Math.floor(Math.random()*12))+' persone hanno calcolato oggi';}
+  var btn=document.querySelector('.btn-wrap button');
+  var wrap=document.getElementById('calcProgressWrap');
+  var fill=document.getElementById('calcProgressFill');
+  var lbl=document.getElementById('calcProgressLabel');
+  if(btn&&wrap&&fill){btn.addEventListener('click',function(){wrap.classList.add('active');fill.style.width='0%';lbl.textContent='Elaborazione...';var w=0,labels=['Elaborazione...','Calcolo rata...','Quasi pronto...','Fatto!'];var iv=setInterval(function(){w+=Math.random()*18+8;if(w>=100){w=100;clearInterval(iv);}fill.style.width=w+'%';lbl.textContent=labels[Math.min(Math.floor(w/25),3)];if(w===100)setTimeout(function(){wrap.classList.remove('active');},600);},80);});}
 })();
 </script>
 </body>

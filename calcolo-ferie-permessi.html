@@ -28,7 +28,20 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Calcolo Ferie e Permessi Residui 2026","description":"Calcola le ferie residue e i permessi ROL rimasti. Scopri quante ferie hai ancora da godere e il loro valore economico. Gratis.","url":"https://calcolapro.it/calcolo-ferie-permessi.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}}
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calcolatore Ferie e Permessi",
+    "url": "https://calcolapro.it/calcolo-ferie-permessi.html",
+    "description": "Calcola le ferie residue, i permessi ROL e i giorni maturati nel contratto.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "it-IT",
+    "isAccessibleForFree": true,
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+  }
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -40,7 +53,7 @@
   </script>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Ferie e Permessi","item":"https://calcolapro.it/calcolo-ferie-permessi.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Ferie e Permessi","item":"https://calcolapro.it/calcolo-ferie-permessi.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -76,10 +89,23 @@
       <p class="page-subtitle">Calcola quante ferie ti restano da godere, quanti permessi ROL hai disponibili e il loro valore economico in caso di liquidazione.</p>
     </div>
   </div>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep" aria-hidden="true">›</span>
-    <span aria-current="page">Calcolo Ferie e Permessi Residui</span>
+  <nav class="container" aria-label="Breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <span class="breadcrumb-separator" aria-hidden="true">›</span>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name" aria-current="page">Calcolo Ferie e Permessi</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
   </nav>
 
   <main id="main-content" class="page-content">
@@ -230,6 +256,24 @@
         </div>
       </div>
     </div>
+
+  <section class="container related-tools">
+    <h3>Strumenti correlati</h3>
+    <div class="related-tools-grid">
+      <a href="calcolo-straordinari.html" class="related-tool-card">
+        <span class="related-tool-icon">⏰</span>
+        <span>Calcolo Straordinari</span>
+      </a>
+      <a href="lordonetto.html" class="related-tool-card">
+        <span class="related-tool-icon">💰</span>
+        <span>Stipendio Lordo / Netto</span>
+      </a>
+      <a href="tfr.html" class="related-tool-card">
+        <span class="related-tool-icon">💼</span>
+        <span>Simulatore TFR</span>
+      </a>
+    </div>
+  </section>
   </main>
 
   <footer class="footer" role="contentinfo">

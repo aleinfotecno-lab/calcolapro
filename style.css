@@ -212,14 +212,17 @@ a:hover { text-decoration: underline; }
   max-width: 1000px; margin: 0 auto;
   padding: 14px 20px 0;
   font-size: 13px; color: var(--text-muted);
-  flex-wrap: wrap;
+  flex-wrap: wrap; list-style: none;
 }
+.breadcrumb li { display: flex; align-items: center; }
 .breadcrumb a {
   color: var(--blue); text-decoration: none;
   transition: color var(--transition);
 }
 .breadcrumb a:hover { color: var(--blue-dark); text-decoration: underline; }
 .breadcrumb-sep { color: var(--border-dark); }
+.breadcrumb-separator { color: var(--border-dark); }
+.breadcrumb-current { color: var(--text); font-weight: 500; }
 
 /* ═══════════════════════════════════════════════════════════
    LAYOUT
@@ -661,6 +664,43 @@ tbody tr:nth-child(even):hover { background: var(--blue-xlight); }
 }
 
 /* ═══════════════════════════════════════════════════════════
+   STRUMENTI CORRELATI
+   ═══════════════════════════════════════════════════════════ */
+.related-tools {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.related-tools h3 {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--text); margin-bottom: 1rem;
+}
+.related-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.875rem;
+}
+.related-tool-card {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text);
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+  font-size: 0.9rem; font-weight: 500;
+}
+.related-tool-card:hover {
+  background: var(--blue-xlight);
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.related-tool-icon { font-size: 1.35rem; flex-shrink: 0; }
+
+/* ═══════════════════════════════════════════════════════════
    AFFILIATES BOX
    ═══════════════════════════════════════════════════════════ */
 .aff-box {
@@ -825,6 +865,17 @@ body:has(#cp-cookie-banner) .amz-sticky { display: none !important; }
 .text-center { text-align: center; }
 .text-muted   { color: var(--text-muted); }
 .mt-4  { margin-top: 16px; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .mt-8  { margin-top: 32px; }
 .mt-12 { margin-top: 48px; }
 .mb-4  { margin-bottom: 16px; }
@@ -864,3 +915,43 @@ a:focus-visible { border-radius: 4px; }
   .page-header { background: none !important; color: #000 !important; }
   .page-header h1, .page-subtitle { color: #000 !important; }
 }
+
+/* ===== Giorno 6 — UX/CRO ===== */
+/* 6.1 Related Tools Widget */
+.related-tools-section{background:#f4f8fd;border-top:2px solid #d0dcea;padding:32px 16px;margin-top:40px;}
+.related-tools-section h3{font-size:17px;font-weight:700;color:#1a3c5e;margin:0 0 18px;text-align:center;}
+.related-tools-grid{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;max-width:900px;margin:0 auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+.related-tool-card{min-width:180px;flex:0 0 180px;background:#fff;border:1px solid #d0dcea;border-radius:10px;padding:16px 14px;text-decoration:none;color:inherit;scroll-snap-align:start;transition:box-shadow .2s,border-color .2s;}
+.related-tool-card:hover{box-shadow:0 4px 16px rgba(26,60,94,.14);border-color:#1a3c5e;}
+.related-tool-card .rtc-icon{font-size:26px;margin-bottom:8px;display:block;}
+.related-tool-card .rtc-title{font-size:13px;font-weight:700;color:#1a3c5e;margin-bottom:4px;line-height:1.3;}
+.related-tool-card .rtc-desc{font-size:11px;color:#666;line-height:1.4;}
+@media(min-width:640px){.related-tools-grid{flex-wrap:wrap;overflow-x:visible;justify-content:center;}.related-tool-card{min-width:160px;flex:0 0 160px;}}
+/* 6.2 Trust Bar */
+.trust-bar{background:#1a3c5e;padding:14px 16px;}
+.trust-bar-inner{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;max-width:960px;margin:0 auto;}
+.trust-badge{display:flex;align-items:center;gap:8px;color:#fff;padding:6px 14px;border-right:1px solid rgba(255,255,255,.2);}
+.trust-badge:last-child{border-right:none;}
+.tb-icon{font-size:18px;flex-shrink:0;}
+.tb-text{font-size:12px;line-height:1.4;}
+.tb-text strong{font-size:13px;}
+@media(max-width:640px){.trust-badge{border-right:none;border-bottom:1px solid rgba(255,255,255,.15);width:100%;justify-content:center;text-align:center;}.trust-badge:last-child{border-bottom:none;}}
+/* 6.3 Contextual CTA */
+.contextual-cta-box{display:none;background:linear-gradient(135deg,#1a3c5e 0%,#2a5a8e 100%);border-radius:12px;padding:20px 22px;margin:20px 0;color:#fff;text-align:center;}
+.contextual-cta-box.visible{display:block;animation:fadeInCta .4s ease;}
+@keyframes fadeInCta{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ccta-pretext{font-size:12px;opacity:.8;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;}
+.ccta-main{font-size:17px;font-weight:700;margin-bottom:14px;line-height:1.4;}
+.ccta-main .ccta-amount{color:#f0c040;font-size:20px;}
+.ccta-btn{display:inline-block;background:#f0c040;color:#1a3c5e;border-radius:8px;padding:11px 22px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s;}
+.ccta-btn:hover{background:#f5d060;}
+.ccta-sub{font-size:11px;opacity:.7;margin-top:8px;}
+/* 6.4 Progress Bar & Social Proof */
+.calc-progress-wrap{display:none;margin:14px 0;text-align:center;}
+.calc-progress-wrap.active{display:block;}
+.calc-progress-bar-bg{height:6px;background:#e0e7ef;border-radius:3px;overflow:hidden;max-width:360px;margin:0 auto 8px;}
+.calc-progress-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,#1a3c5e,#2a7ae2);border-radius:3px;transition:width .08s linear;}
+.calc-progress-label{font-size:12px;color:#1a3c5e;font-weight:600;letter-spacing:.3px;}
+.social-proof-counter{display:inline-flex;align-items:center;gap:6px;background:#eaf3fb;border:1px solid #c0d8ef;border-radius:20px;padding:5px 12px;font-size:12px;color:#1a3c5e;margin:10px 0 16px;}
+.social-proof-counter .spc-dot{width:7px;height:7px;background:#2ecc71;border-radius:50%;animation:pulseDot 1.5s infinite;}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
