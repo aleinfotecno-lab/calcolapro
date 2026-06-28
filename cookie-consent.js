@@ -147,8 +147,10 @@
   }
 
   // ── Carica Google AdSense ──
+  // Il tag adsbygoogle.js è già incluso nell'<head> di ogni pagina con Consent Mode v2.
+  // Questa funzione evita il doppio caricamento verificando qualsiasi script adsbygoogle esistente.
   function loadAdsense() {
-    if (document.querySelector('script[data-cp-adsense]')) return;
+    if (document.querySelector('script[src*="adsbygoogle"]')) return;
     var s = document.createElement('script');
     s.async = true;
     s.setAttribute('data-cp-adsense', '1');
