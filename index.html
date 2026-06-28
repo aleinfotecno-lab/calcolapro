@@ -207,7 +207,7 @@
       </div>
       <div class="trust-badge">
         <span class="tb-icon">&#128200;</span>
-        <span class="tb-text">Oggi calcolato<br><strong><span id="calcCounterToday">1.847</span> volte</strong></span>
+        <span class="tb-text">Dati elaborati<br><strong>solo nel tuo browser</strong></span>
       </div>
     </div>
   </div>
@@ -773,11 +773,6 @@
   </script>
   <script src="cookie-consent.js"></script>
   <script src="analytics-events.js"></script>
-  <script>
-  (function(){
-    var el=document.getElementById('calcCounterToday');
-    if(el){var base=1720;var h=new Date().getHours();var extra=Math.floor(h*14+Math.random()*30);el.textContent=(base+extra).toLocaleString('it-IT');}
-  })();
-  </script>
+
 </body>
 </html>

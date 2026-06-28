@@ -168,7 +168,7 @@
       <div class="col-full" style="display:flex;justify-content:center">
         <div class="ad-slot ad-slot-rect" aria-hidden="true"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9013466056664238" data-ad-slot="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
       </div>
-      <div class="social-proof-counter" id="spcCounter"><span class="spc-dot"></span><span id="spcText">Caricamento...</span></div>
+      <div class="social-proof-counter" id="spcCounter"><span class="spc-dot"></span><span id="spcText">Calcolo gratuito nel browser</span></div>
       <div class="btn-wrap">
         <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola lo stipendio netto in busta paga">🔍 Calcola il netto →</button>
       </div>
@@ -458,6 +458,30 @@
   </script>
   <script>
     function fmt(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);}
+    function nettoFromLordo(lordo, mensilita, figli, coniuge, sud) {
+      const inps=lordo*0.0919;
+      const imponibile=lordo-inps;
+      let irpefLorda=0;
+      if(imponibile<=28000) irpefLorda=imponibile*0.23;
+      else if(imponibile<=50000) irpefLorda=28000*0.23+(imponibile-28000)*0.35;
+      else irpefLorda=28000*0.23+22000*0.35+(imponibile-50000)*0.43;
+      let detrLavoro=0;
+      if(lordo<=15000) detrLavoro=1955;
+      else if(lordo<=28000) detrLavoro=1955+(28000-lordo)*0.0392;
+      else if(lordo<=50000) detrLavoro=700*(50000-lordo)/22000;
+      let detrFamiglia=0;
+      if(coniuge) detrFamiglia+=800;
+      detrFamiglia+=figli*(950+(figli>=3?200:0));
+      const addReg=imponibile*(sud?0.0123:0.0173);
+      const addCom=imponibile*0.005;
+      const irpefNetta=Math.max(0,irpefLorda-detrLavoro-detrFamiglia)+addReg+addCom;
+      return lordo-inps-irpefNetta;
+    }
+    function lordiFromNetto(nettoTarget, mensilita, figli, coniuge, sud) {
+      let lo=nettoTarget*0.9, hi=nettoTarget*3;
+      for(let i=0;i<60;i++){const mid=(lo+hi)/2;nettoFromLordo(mid,mensilita,figli,coniuge,sud)<nettoTarget?lo=mid:hi=mid;}
+      return (lo+hi)/2;
+    }
     function calcola(){
       let importo=parseFloat(document.getElementById('importo').value)||30000;
       const tipo=document.getElementById('tipo').value;
@@ -470,7 +494,7 @@
       if(tipo==='lordo-mese') lordo=importo*mensilita;
       else if(tipo==='netto'||tipo==='netto-mese'){
         if(tipo==='netto-mese') importo=importo*mensilita;
-        lordo=importo/0.72; // stima inversa
+        lordo=lordiFromNetto(importo, mensilita, figli, coniuge, sud);
       }
       // Contributi INPS dipendente 9.19%
       const inps=lordo*0.0919;
@@ -542,8 +566,6 @@
   <script src="analytics-events.js"></script>
 <script>
 (function(){
-  var el=document.getElementById('spcText');
-  if(el){var h=new Date().getHours();var c=[45,32,28,19,14,11,9,22,87,134,156,178,192,210,198,187,176,165,154,143,128,112,98,72];el.textContent=(c[h]+Math.floor(Math.random()*12))+' persone hanno calcolato oggi';}
   var btn=document.querySelector('.btn-wrap button');
   var wrap=document.getElementById('calcProgressWrap');
   var fill=document.getElementById('calcProgressFill');

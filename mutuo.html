@@ -196,7 +196,7 @@
         <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="auto"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
-      <div class="social-proof-counter" id="spcCounter"><span class="spc-dot"></span><span id="spcText">Caricamento...</span></div>
+      <div class="social-proof-counter" id="spcCounter"><span class="spc-dot"></span><span id="spcText">Calcolo gratuito nel browser</span></div>
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola la rata del mutuo">🔍 Calcola la rata mensile →</button></div>
       <div class="calc-progress-wrap" id="calcProgressWrap"><div class="calc-progress-bar-bg"><div class="calc-progress-bar-fill" id="calcProgressFill"></div></div><div class="calc-progress-label" id="calcProgressLabel">Elaborazione in corso...</div></div>
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo mutuo">
@@ -601,8 +601,6 @@
 </script>
 <script>
 (function(){
-  var el=document.getElementById('spcText');
-  if(el){var h=new Date().getHours();var c=[45,32,28,19,14,11,9,22,87,134,156,178,192,210,198,187,176,165,154,143,128,112,98,72];el.textContent=(c[h]+Math.floor(Math.random()*12))+' persone hanno calcolato oggi';}
   var btn=document.querySelector('.btn-wrap button');
   var wrap=document.getElementById('calcProgressWrap');
   var fill=document.getElementById('calcProgressFill');
