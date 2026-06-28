@@ -442,7 +442,70 @@
   </div>
 </footer>
 
-<script> else {
+<script>
+  function fmtEur(v) { return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v); }
+  function fmtEur2(v) { return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(v); }
+  function fmtPct(v) { return v.toFixed(2).replace('.',',') + '%'; }
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle) navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+  function calcola() {
+    const canone = parseFloat(document.getElementById('canone').value) || 0;
+    const contratto = document.getElementById('contratto').value;
+    const reddito = parseFloat(document.getElementById('reddito').value) || 0;
+    const detrazioni = parseFloat(document.getElementById('detrazioni').value) || 0;
+
+    if (canone <= 0) { alert('Inserisci un canone di affitto valido.'); return; }
+    if (reddito <= 0) { alert('Inserisci il tuo reddito complessivo.'); return; }
+
+    const aliquotaCed = (contratto === 'concordato' || contratto === 'studenti') ? 0.10 : 0.21;
+    const impostaCed = canone * aliquotaCed;
+    const nettoCed = canone - impostaCed;
+
+    const deduzForfit = canone * 0.05;
+    const baseImponibile = canone - deduzForfit;
+    const redditoTotale = reddito + baseImponibile;
+
+    let aliqMarg;
+    if (redditoTotale <= 28000) aliqMarg = 0.23;
+    else if (redditoTotale <= 50000) aliqMarg = 0.35;
+    else aliqMarg = 0.43;
+
+    const imposteIrpef = Math.max(0, baseImponibile * aliqMarg - detrazioni);
+    const nettoIrpef = canone - imposteIrpef;
+
+    const risparmio = Math.abs(nettoCed - nettoIrpef);
+    const cedolareMigliore = nettoCed >= nettoIrpef;
+
+    document.getElementById('aliquotaCedOut').textContent = fmtPct(aliquotaCed * 100);
+    document.getElementById('impostaCedOut').textContent = '- ' + fmtEur(impostaCed);
+    document.getElementById('nettoAnnoCedOut').textContent = fmtEur(nettoCed);
+    document.getElementById('nettoMensileUno').textContent = fmtEur2(nettoCed / 12);
+    document.getElementById('aliquotaIrpefOut').textContent = fmtPct(aliqMarg * 100);
+    document.getElementById('baseImponibileOut').textContent = fmtEur(baseImponibile);
+    document.getElementById('imposteIrpefOut').textContent = '- ' + fmtEur(imposteIrpef);
+    document.getElementById('nettoAnnoIrpefOut').textContent = fmtEur(nettoIrpef);
+    document.getElementById('nettoMensileDue').textContent = fmtEur2(nettoIrpef / 12);
+
+    const cardCed = document.getElementById('cardCedolare');
+    const cardIrpef = document.getElementById('cardIrpef');
+    const badgeCed = document.getElementById('badgeCedolare');
+    const badgeIrpef = document.getElementById('badgeIrpef');
+
+    if (cedolareMigliore) {
+      cardCed.className = 'compare-card winner';
+      cardIrpef.className = 'compare-card loser';
+      badgeCed.className = 'badge-winner';
+      badgeCed.textContent = 'Consigliato';
+      badgeIrpef.className = 'badge-loser';
+      badgeIrpef.textContent = 'Alternativa';
+    } else {
       cardCed.className = 'compare-card loser';
       cardIrpef.className = 'compare-card winner';
       badgeCed.className = 'badge-loser';

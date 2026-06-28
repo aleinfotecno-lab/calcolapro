@@ -396,8 +396,55 @@
   </div>
 </footer>
 
-<script>)();
-  </script><script src="cookie-consent.js"></script>
+<script>
+  function calcola() {
+    const reddito = parseFloat(document.getElementById('reddito').value) || 0;
+    const aliquota = parseFloat(document.getElementById('regime').value) || 0.30;
+    const inps = parseFloat(document.getElementById('inps').value) || 0;
+    const spese = parseFloat(document.getElementById('spese').value) || 0;
+    const ferie = parseFloat(document.getElementById('ferie').value) || 6;
+    const ore = parseFloat(document.getElementById('ore').value) || 6;
+
+    if (reddito <= 0 || ore <= 0) { alert('Inserisci reddito e ore valide.'); return; }
+
+    const redditoAnnuo = reddito * 12;
+    const lordo = redditoAnnuo / (1 - aliquota) + inps * 12 + spese * 12;
+    const settimaneAttive = 52 - ferie;
+    const oreAnnue = settimaneAttive * 5 * ore;
+    const prezzoOrario = lordo / oreAnnue;
+    const giornaliero = prezzoOrario * ore;
+    const settimanale = giornaliero * 5;
+
+    const fmt = v => '€' + v.toFixed(0);
+    const fmt2 = v => '€' + v.toFixed(2).replace('.',',');
+    document.getElementById('priceOut').textContent = '€' + prezzoOrario.toFixed(2).replace('.',',');
+    document.getElementById('giornalieroOut').textContent = fmt2(giornaliero);
+    document.getElementById('settimanalOut').textContent = fmt2(settimanale);
+    document.getElementById('lordoOut').textContent = fmt(lordo / 12);
+    document.getElementById('scenarioBasso').textContent = '€' + prezzoOrario.toFixed(0) + '/h';
+    document.getElementById('scenarioMedio').textContent = '€' + (prezzoOrario * 1.2).toFixed(0) + '/h';
+    document.getElementById('scenarioAlto').textContent = '€' + (prezzoOrario * 1.5).toFixed(0) + '/h';
+
+    const res = document.getElementById('result');
+    res.style.display = 'block';
+    res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (typeof gtag !== 'undefined') gtag('event', 'calcolo_prezzo_orario', { regime: aliquota });
+  }
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle) navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+</script>
+<script src="cookie-consent.js"></script>
   <script src="analytics-events.js"></script>
 </body>
 </html>

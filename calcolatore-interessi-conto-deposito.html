@@ -413,6 +413,25 @@
 </footer>
 
 <script>
+  function fmtEur(v) { return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(v); }
+  function fmtPct(v) { return v.toFixed(2).replace('.',',') + '%'; }
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle) navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+  function calcola() {
+    const capitale = parseFloat(document.getElementById('capitale').value) || 0;
+    const tasso = parseFloat(document.getElementById('tasso').value) || 0;
+    const mesi = parseInt(document.getElementById('durata').value) || 12;
+    const tipo = document.getElementById('tipo').value;
+    const liquidazione = document.getElementById('liquidazione').value;
+
+    if (capitale <= 0 || tasso <= 0) { alert('Inserisci capitale e tasso validi.'); return; }
 
     const frazione = mesi / 12;
 

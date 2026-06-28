@@ -562,6 +562,52 @@
 </footer>
 
 <script>
+  function fmt(v) { return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v); }
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-section .faq-item').forEach(i => {
+      i.classList.remove('open');
+      const q = i.querySelector('.faq-question'); if (q) q.setAttribute('aria-expanded','false');
+    });
+    if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  }
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle) navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+  function calcola() {
+    const ETA_VECCHIAIA = 67;
+    const ETA_QUOTA103 = 62;
+    const CONTRIBUTI_QUOTA103 = 41;
+    const ALIQUOTA_CONTRIBUTIVA = 0.33;
+    const COEFFICIENTI = {62:0.05093,63:0.05306,64:0.05528,65:0.05760,66:0.05900,67:0.06281,68:0.06500,69:0.06700,70:0.07000};
+
+    const annoNascita = parseInt(document.getElementById('annoNascita').value) || 1980;
+    const sesso = document.getElementById('sesso').value;
+    const annoInizio = parseInt(document.getElementById('annoInizio').value) || 2005;
+    const contributiAttuali = parseFloat(document.getElementById('contributiAttuali').value) || 0;
+    const stipendio = parseFloat(document.getElementById('stipendioLordo').value) || 35000;
+    const sistema = document.getElementById('sistema').value;
+    const crescita = parseFloat(document.getElementById('crescitaStipendio').value) || 0.02;
+
+    const annoCorrente = new Date().getFullYear();
+    const etaAttuale = annoCorrente - annoNascita;
+    const contribReqAnticipata = sesso === 'M' ? 42 + 10/12 : 41 + 10/12;
+    const ETÀ_VECCHIAIA = ETA_VECCHIAIA;
+    const ETÀ_QUOTA103 = ETA_QUOTA103;
+    const CONTRIBUTI_QUOTA103_C = CONTRIBUTI_QUOTA103;
+    const scenari = [];
+
+    // Vecchiaia
+    const anniMancVecchiaia = Math.max(0, ETA_VECCHIAIA - etaAttuale);
+    scenari.push({ tipo: 'Pensione di vecchiaia', eta: ETA_VECCHIAIA, anni: anniMancVecchiaia, contributi: contributiAttuali + anniMancVecchiaia });
 
     // Anticipata
     const anniMancAnticipata = Math.max(0, contribReqAnticipata - contributiAttuali);

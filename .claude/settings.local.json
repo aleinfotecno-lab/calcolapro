@@ -29,7 +29,8 @@
       "Bash(python3 -)",
       "Bash(ls /c/Python*)",
       "Read(//c/Users/aless/AppData/Local/Programs/**)",
-      "Bash(/c/Users/aless/AppData/Local/Programs/Python/Python312/python -)"
+      "Bash(/c/Users/aless/AppData/Local/Programs/Python/Python312/python -)",
+      "Bash(git -C \"C:/Users/aless/Desktop/siti pubblicati/calcolapro\" status --short)"
     ]
   }
 }

@@ -429,6 +429,31 @@
 </footer>
 
 <script>
+  let modoAttuale = 'A';
+
+  function switchMode(modo) {
+    modoAttuale = modo;
+    document.getElementById('tabA').classList.toggle('active', modo === 'A');
+    document.getElementById('tabB').classList.toggle('active', modo === 'B');
+    document.getElementById('tabA').setAttribute('aria-selected', modo === 'A');
+    document.getElementById('tabB').setAttribute('aria-selected', modo === 'B');
+    document.getElementById('panelA').style.display = modo === 'A' ? '' : 'none';
+    document.getElementById('panelB').style.display = modo === 'B' ? '' : 'none';
+  }
+
+  function fmtEur(v) { return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v); }
+  function fmtEur2(v) { return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(v); }
+  function fmtPct(v) { return v.toFixed(2).replace('.',',') + '%'; }
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle) navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+
+  function calcolaMontante(iniziale, mensile, rendimentoAnnuo, mesi) {
     const r = rendimentoAnnuo / 100 / 12;
     const n = mesi;
     const fattore = Math.pow(1 + r, n);
