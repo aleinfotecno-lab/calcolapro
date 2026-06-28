@@ -26,6 +26,8 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/calcolo-spese-acquisto-casa.html — Stima tutte le spese accessorie (notaio, imposte, agenzia) per l'acquisto di un immobile
 - https://calcolapro.it/calcolo-straordinari.html — Calcola il compenso lordo e netto delle ore straordinarie in base al CCNL
 - https://calcolapro.it/divisione-conto.html — Dividi il conto al ristorante o le spese condivise tra piu' persone
+- https://calcolapro.it/calcolatore-percentuale.html — Calcola la percentuale di un numero, variazione %, sconti e ricarichi in 4 modalita'
+- https://calcolapro.it/calcolo-eta.html — Calcola l'eta' esatta in anni, mesi e giorni dalla data di nascita con countdown compleanno
 
 ## Guide Finanziarie
 
