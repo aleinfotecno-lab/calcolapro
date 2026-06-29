@@ -33,6 +33,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/calcolo-malattia-inps.html — Calcola l'indennita' di malattia INPS per lavoratori dipendenti: importo giornaliero, carenza e totale periodo
 - https://calcolapro.it/calcolo-maternita-inps.html — Calcola l'indennita' di maternita' INPS 2026: 80% per 5 mesi (madre), 100% per 10 giorni (padre) e congedo parentale facoltativo
 - https://calcolapro.it/calcolo-bollo-auto.html — Calcola il bollo auto 2026 in base ai kW del veicolo con agevolazioni per elettrici, storici e calcolo proporzionale mensile
+- https://calcolapro.it/calcolo-costo-lavoro.html — Calcola il costo totale del lavoro dipendente per l'azienda: contributi INPS datoriali, INAIL, TFR e sgravi contributivi 2026
 - https://calcolapro.it/calcolo-detrazioni-730.html — Calcola le detrazioni IRPEF 2026 su 730: spese sanitarie, mutuo, istruzione, assicurazioni, ristrutturazioni
 
 ## Guide Finanziarie
