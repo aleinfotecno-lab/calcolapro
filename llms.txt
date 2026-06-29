@@ -39,6 +39,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/calcolo-preavviso.html — Calcola i mesi di preavviso e indennità sostitutiva per licenziamento o dimissioni con tabelle CCNL commercio, metalmeccanico, credito
 - https://calcolapro.it/calcolo-fondo-pensione.html — Simula il capitale accumulato nel fondo pensione complementare: contributi, TFR, rendimento per scenario, risparmio IRPEF e rendita mensile
 - https://calcolapro.it/calcolo-plusvalenza-immobiliare.html — Calcola la plusvalenza sulla vendita di un immobile: esenzione 5 anni e abitazione principale, confronto 26% sostitutiva vs IRPEF, spese deducibili
+- https://calcolapro.it/calcolo-locazioni-brevi.html — Calcola le tasse sulle locazioni brevi per host Airbnb e Booking: cedolare secca 21% (primo immobile) e 26% (immobili aggiuntivi), ritenuta piattaforma e saldo in dichiarazione
 - https://calcolapro.it/calcolo-detrazioni-730.html — Calcola le detrazioni IRPEF 2026 su 730: spese sanitarie, mutuo, istruzione, assicurazioni, ristrutturazioni
 
 ## Guide Finanziarie

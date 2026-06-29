@@ -254,6 +254,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Locazioni brevi calcolatore (Airbnb/Booking, alto CPM real estate + tax) -->
+  <url>
+    <loc>https://calcolapro.it/calcolo-locazioni-brevi.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Plusvalenza immobiliare calcolatore (alto CPM real estate) -->
   <url>
     <loc>https://calcolapro.it/calcolo-plusvalenza-immobiliare.html</loc>
