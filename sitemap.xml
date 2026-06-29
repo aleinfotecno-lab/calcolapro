@@ -254,6 +254,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Bollo Auto calcolatore (alta ricerca) -->
+  <url>
+    <loc>https://calcolapro.it/calcolo-bollo-auto.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Malattia INPS calcolatore -->
   <url>
     <loc>https://calcolapro.it/calcolo-malattia-inps.html</loc>
