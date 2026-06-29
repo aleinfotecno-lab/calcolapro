@@ -30,6 +30,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/calcolatore-percentuale.html — Calcola la percentuale di un numero, variazione %, sconti e ricarichi in 4 modalita'
 - https://calcolapro.it/calcolo-eta.html — Calcola l'eta' esatta in anni, mesi e giorni dalla data di nascita con countdown compleanno
 - https://calcolapro.it/calcolo-naspi.html — Calcola l'importo mensile NASpI 2026, durata e totale percepito dopo licenziamento o fine contratto
+- https://calcolapro.it/calcolo-detrazioni-730.html — Calcola le detrazioni IRPEF 2026 su 730: spese sanitarie, mutuo, istruzione, assicurazioni, ristrutturazioni
 
 ## Guide Finanziarie
 
