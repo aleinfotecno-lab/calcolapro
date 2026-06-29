@@ -110,6 +110,11 @@ a:hover { text-decoration: underline; }
   margin-left: 4px;
 }
 .nav-all:hover { border-color: var(--blue) !important; }
+.nav-guide {
+  color: #fbbf24 !important;
+  margin-left: 8px;
+}
+.nav-guide:hover { color: #fff !important; }
 .nav-toggle {
   display: none; background: none; border: none;
   color: #f1f5f9; font-size: 22px; cursor: pointer;
