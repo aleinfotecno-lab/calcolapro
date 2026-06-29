@@ -254,6 +254,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Preavviso licenziamento calcolatore -->
+  <url>
+    <loc>https://calcolapro.it/calcolo-preavviso.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Prestazione Occasionale calcolatore (alta ricerca) -->
   <url>
     <loc>https://calcolapro.it/calcolo-prestazione-occasionale.html</loc>
