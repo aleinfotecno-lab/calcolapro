@@ -467,7 +467,7 @@
       else irpefLorda=28000*0.23+22000*0.35+(imponibile-50000)*0.43;
       let detrLavoro=0;
       if(lordo<=15000) detrLavoro=1955;
-      else if(lordo<=28000) detrLavoro=1955+(28000-lordo)*0.0392;
+      else if(lordo<=28000) detrLavoro=1955-(lordo-15000)*(1255/13000);
       else if(lordo<=50000) detrLavoro=700*(50000-lordo)/22000;
       let detrFamiglia=0;
       if(coniuge) detrFamiglia+=800;
@@ -504,10 +504,10 @@
       if(imponibile<=28000) irpefLorda=imponibile*0.23;
       else if(imponibile<=50000) irpefLorda=28000*0.23+(imponibile-28000)*0.35;
       else irpefLorda=28000*0.23+22000*0.35+(imponibile-50000)*0.43;
-      // Detrazioni lavoro dipendente (semplificate)
+      // Detrazioni lavoro dipendente (TUIR art.13, riforma 2024+)
       let detrLavoro=0;
       if(lordo<=15000) detrLavoro=1955;
-      else if(lordo<=28000) detrLavoro=1955+(28000-lordo)*0.0392;
+      else if(lordo<=28000) detrLavoro=1955-(lordo-15000)*(1255/13000);
       else if(lordo<=50000) detrLavoro=700*(50000-lordo)/22000;
       // Detrazioni familiari
       let detrFamiglia=0;

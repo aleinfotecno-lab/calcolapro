@@ -46,7 +46,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"Chi ha diritto alla NASpI nel 2026?","acceptedAnswer":{"@type":"Answer","text":"Hanno diritto alla NASpI i lavoratori dipendenti che hanno perso involontariamente il lavoro (licenziamento, scadenza contratto a termine, risoluzione consensuale in sede protetta) con almeno 13 settimane di contributi negli ultimi 4 anni e 30 giorni lavorativi nello stesso periodo. Non spetta a chi si dimette volontariamente, salvo dimissioni per giusta causa o durante il periodo di maternità."}},
-    {"@type":"Question","name":"Come si calcola l'importo della NASpI 2026?","acceptedAnswer":{"@type":"Answer","text":"L'importo NASpI è pari al 75% della retribuzione media mensile degli ultimi 4 anni, se questa non supera la soglia INPS (circa €1.470/mese per il 2026). Per retribuzioni superiori alla soglia: NASpI = 75% × soglia + 25% × (retribuzione - soglia). L'importo massimo mensile è di circa €1.552 per il 2026. Le soglie vengono aggiornate ogni anno dall'INPS."}},
+    {"@type":"Question","name":"Come si calcola l'importo della NASpI 2026?","acceptedAnswer":{"@type":"Answer","text":"L'importo NASpI è pari al 75% della retribuzione media mensile degli ultimi 4 anni, se questa non supera la soglia INPS (€1.352,19/mese per il 2026, Circ. INPS 20/2025). Per retribuzioni superiori alla soglia: NASpI = 75% × soglia + 25% × (retribuzione - soglia). L'importo massimo mensile è €1.550,42 per il 2026. Le soglie vengono aggiornate ogni anno dall'INPS."}},
     {"@type":"Question","name":"Quanto dura la NASpI?","acceptedAnswer":{"@type":"Answer","text":"La durata è pari alla metà delle settimane di contributi versati negli ultimi 4 anni prima della disoccupazione, con un massimo di 24 mesi (104 settimane). Esempio: se hai lavorato 4 anni continuativi (208 settimane), la NASpI dura 104 settimane = circa 24 mesi."}},
     {"@type":"Question","name":"La NASpI si riduce nel tempo?","acceptedAnswer":{"@type":"Answer","text":"Sì. A partire dal primo giorno del quinto mese, l'importo NASpI si riduce del 3% ogni mese. Quindi: mesi 1-4 importo pieno, mese 5 = 97%, mese 6 = 94%, mese 7 = 91%, e così via. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dall'età pensionabile con i requisiti contributivi minimi."}},
     {"@type":"Question","name":"Si può lavorare mentre si percepisce la NASpI?","acceptedAnswer":{"@type":"Answer","text":"Sì, ma con limitazioni. Per lavoro subordinato con reddito annuo ≤ €8.000: si può comunicare all'INPS e la NASpI si sospende. Per reddito > €8.000: la NASpI decade. Per lavoro autonomo con reddito ≤ €5.500 annui: si può continuare a percepirla comunicando il reddito presunto entro 30 giorni. Per reddito > €5.500: la NASpI decade."}},
@@ -193,7 +193,7 @@
 
         <div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:16px 20px;margin-top:16px;">
           <div style="font-weight:700;font-size:13.5px;color:#166534;margin-bottom:6px;">ℹ️ Nota importante</div>
-          <div style="font-size:13px;color:#166534;line-height:1.7;">La NASpI è soggetta a IRPEF. L'importo è tassato come reddito ordinario. Le soglie INPS utilizzate (€1.470,54 e massimale €1.552) sono stime aggiornate per il 2026. Presenta sempre domanda all'INPS entro <strong>68 giorni</strong> dalla cessazione del rapporto di lavoro.</div>
+          <div style="font-size:13px;color:#166534;line-height:1.7;">La NASpI è soggetta a IRPEF. L'importo è tassato come reddito ordinario. Soglia INPS 2026: €1.352,19 — massimale mensile: €1.550,42 (Circ. INPS 20/2025). Presenta sempre domanda all'INPS entro <strong>68 giorni</strong> dalla cessazione del rapporto di lavoro.</div>
         </div>
       </div>
 
@@ -254,9 +254,9 @@
       <h3>Come si calcola l'importo NASpI 2026</h3>
       <p>Il calcolo si basa sulla <strong>retribuzione media mensile degli ultimi 4 anni</strong> imponibile ai fini previdenziali. Il meccanismo è a due scaglioni:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2;color:var(--text-muted);font-size:15px;">
-        <li>Se la retribuzione è uguale o inferiore alla soglia INPS (circa <strong>€ 1.470,54</strong> nel 2026): NASpI = retribuzione × 75%</li>
+        <li>Se la retribuzione è uguale o inferiore alla soglia INPS (<strong>€ 1.352,19</strong> nel 2026): NASpI = retribuzione × 75%</li>
         <li>Se la retribuzione supera la soglia: NASpI = 75% × soglia + 25% × (retribuzione − soglia)</li>
-        <li>In ogni caso l'importo non può superare il <strong>massimale mensile</strong> (circa € 1.552 nel 2026)</li>
+        <li>In ogni caso l'importo non può superare il <strong>massimale mensile</strong> (€ 1.550,42 nel 2026)</li>
       </ul>
       <p>Le soglie vengono aggiornate ogni anno dall'INPS con il coefficiente di rivalutazione ISTAT.</p>
 
@@ -372,9 +372,9 @@
     if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
 
-    // INPS 2026 thresholds (updated estimate)
-    const SOGLIA = 1470.54;
-    const CAP = 1552.00;
+    // INPS 2026 thresholds (Circ. INPS 20/2025)
+    const SOGLIA = 1352.19;
+    const CAP = 1550.42;
 
     function fmt(n) { return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', maximumFractionDigits:0}).format(n); }
     function fmtDec(n) { return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', minimumFractionDigits:2, maximumFractionDigits:2}).format(n); }

@@ -4,4 +4,9 @@ claude-seo/
 node_modules/
 package.json
 package-lock.json
-
+playwright-report/
+.playwright/
+test-results/
+*.log
+.env
+scratchpad/

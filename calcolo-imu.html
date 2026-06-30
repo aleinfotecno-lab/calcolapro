@@ -46,7 +46,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"La prima casa paga l'IMU nel 2026?","acceptedAnswer":{"@type":"Answer","text":"No. L'abitazione principale (prima casa) è esente dall'IMU dal 2013, a meno che non sia classificata nelle categorie catastali di lusso A/1, A/8 o A/9 (ville, castelli, palazzi di pregio). Anche le pertinenze della prima casa (garage, cantina) sono esenti, una per categoria (C/2, C/6, C/7)."}},
-    {"@type":"Question","name":"Come si calcola l'IMU sulla seconda casa?","acceptedAnswer":{"@type":"Answer","text":"La formula è: IMU = Rendita catastale × 1,05 × Coefficiente catastale × Aliquota IMU comunale. Per i fabbricati residenziali (categorie A, escluso A/10) il coefficiente è 160. L'aliquota base è 0,76% ma ogni Comune può variare tra 0,46% e 1,06%."}},
+    {"@type":"Question","name":"Come si calcola l'IMU sulla seconda casa?","acceptedAnswer":{"@type":"Answer","text":"La formula è: IMU = Rendita catastale × 1,05 × Coefficiente catastale × Aliquota IMU comunale. Per i fabbricati residenziali (categorie A, escluso A/10) il coefficiente è 160. L'aliquota base è 0,86% ma ogni Comune può variare tra 0% e 1,06% (L.160/2019 art.1 c.748)."}},
     {"@type":"Question","name":"Quando si paga l'IMU nel 2026?","acceptedAnswer":{"@type":"Answer","text":"L'IMU si paga in due rate: l'acconto entro il 16 giugno (50% dell'imposta calcolata con le aliquote dell'anno precedente) e il saldo entro il 16 dicembre (importo a conguaglio con le aliquote definitive del 2026). Il pagamento avviene tramite modello F24."}},
     {"@type":"Question","name":"Cos'è la rendita catastale e dove si trova?","acceptedAnswer":{"@type":"Answer","text":"La rendita catastale è il valore attribuito dall'Agenzia delle Entrate a ogni immobile registrato al catasto. Si trova nella visura catastale, disponibile gratuitamente sul sito dell'Agenzia delle Entrate con le credenziali SPID, CIE o CNS."}}
   ]}
@@ -154,8 +154,8 @@
         <div class="field">
           <label for="aliquota">Aliquota IMU comunale (%)</label>
           <div class="input-wrap"><span class="input-prefix">%</span>
-          <input type="number" id="aliquota" value="0.76" min="0.46" max="1.06" step="0.01" class="has-prefix"/></div>
-          <p class="hint">L'aliquota standard è 0,76%. Ogni Comune può variarla tra 0,46% e 1,06%. Controlla il sito del tuo Comune.</p>
+          <input type="number" id="aliquota" value="0.86" min="0" max="1.06" step="0.01" class="has-prefix"/></div>
+          <p class="hint">L'aliquota base è 0,86%. Ogni Comune può variare tra 0% e 1,06%. Controlla il sito del tuo Comune.</p>
         </div>
         <div class="field">
           <label for="quota">Quota di possesso (%)</label>
@@ -250,7 +250,7 @@
       <p>L'IMU (Imposta Municipale Propria) è la principale imposta patrimoniale sugli immobili in Italia. Si paga ogni anno sulla seconda casa, sui terreni agricoli e sugli immobili strumentali. La prima casa è esente, salvo categorie di lusso.</p>
       <h3>La formula per il calcolo IMU</h3>
       <p>IMU = Rendita catastale × 1,05 × Coefficiente catastale × Aliquota comunale × (Quota %) × (Mesi / 12)</p>
-      <p>Per un'abitazione residenziale (cat. A): il coefficiente è 160. Se la rendita catastale è €600, la base imponibile è 600 × 1,05 × 160 = €100.800. Con aliquota allo 0,76%, l'IMU annua è €766.</p>
+      <p>Per un'abitazione residenziale (cat. A): il coefficiente è 160. Se la rendita catastale è €600, la base imponibile è 600 × 1,05 × 160 = €100.800. Con aliquota base 0,86%, l'IMU annua è €867.</p>
       <h3>Prima casa: quando è esente?</h3>
       <p>L'abitazione principale non paga IMU se non è classificata nelle categorie catastali A/1 (abitazioni di tipo signorile), A/8 (ville) o A/9 (castelli, palazzi). Anche le pertinenze della prima casa sono esenti: un box (C/6), una cantina (C/2) e un solaio (C/7).</p>
       <h3>Le scadenze IMU 2026</h3>
@@ -263,7 +263,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola l'IMU sulla seconda casa?<span class="faq-arrow">▾</span></button>
-          <div class="faq-answer">Formula: Rendita catastale × 1,05 × Coefficiente (160 per abitazioni) × Aliquota IMU comunale. L'aliquota base è 0,76% ma ogni Comune può variare tra 0,46% e 1,06%.</div>
+          <div class="faq-answer">Formula: Rendita catastale × 1,05 × Coefficiente (160 per abitazioni) × Aliquota IMU comunale. L'aliquota base è 0,86% (L.160/2019 art.1 c.748) ma ogni Comune può variare tra 0% e 1,06%.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quando si paga l'IMU nel 2026?<span class="faq-arrow">▾</span></button>
