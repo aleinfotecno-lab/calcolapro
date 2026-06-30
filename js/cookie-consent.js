@@ -53,6 +53,17 @@
   transition: opacity .2s;
 }
 #cp-btn-all:hover { opacity: .85; }
+#cp-btn-none {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+  border: 1px solid rgba(255,255,255,.25);
+  background: transparent; color: rgba(255,255,255,.85);
+  white-space: nowrap;
+  transition: opacity .2s;
+}
+#cp-btn-none:hover { opacity: .75; }
 #cp-btn-custom {
   background: none; border: none;
   color: rgba(255,255,255,.5);
@@ -249,6 +260,7 @@
       '<p>🍪 Usiamo cookie tecnici e, con il tuo consenso, di analisi e pubblicità. ' +
       '<a href="/cookie.html">Dettagli</a></p>' +
       '<div class="cp-cb-btns">' +
+        '<button id="cp-btn-none" type="button">Rifiuta</button>' +
         '<button id="cp-btn-custom" type="button">Personalizza</button>' +
         '<button id="cp-btn-all" type="button">Accetta</button>' +
       '</div>';
@@ -259,6 +271,14 @@
       localStorage.setItem(CONSENT_KEY, 'all');
       localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
       applyPrefs(prefs);
+      banner.remove();
+    });
+
+    document.getElementById('cp-btn-none').addEventListener('click', function () {
+      var prefs = { analytics: false, marketing: false };
+      localStorage.setItem(CONSENT_KEY, 'essential');
+      localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
+      loadFonts();
       banner.remove();
     });
 

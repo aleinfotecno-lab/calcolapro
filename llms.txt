@@ -1,6 +1,6 @@
 # CalcolaPro - Calcolatori Finanziari Italiani Gratuiti
 
-CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 20 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
+CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 36 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
 
 ## Calcolatori
 
@@ -8,7 +8,6 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/mutuo.html — Calcola la rata mensile del mutuo con piano di ammortamento alla francese
 - https://calcolapro.it/pensione.html — Stima eta' pensionabile e importo assegno INPS in base ai contributi versati
 - https://calcolapro.it/freelance.html — Calcola la tariffa oraria ideale per freelance in regime forfettario o ordinario
-- https://calcolapro.it/calcolatore-prezzo-orario-freelance.html — Calcolatore avanzato del prezzo orario freelance con simulazione tasse e INPS
 - https://calcolapro.it/partitaiva.html — Confronta il netto da dipendente vs partita IVA forfettaria per scegliere la forma migliore
 - https://calcolapro.it/calcolo-imu.html — Calcola IMU 2026 su seconda casa, con acconto e saldo in base alle aliquote comunali
 - https://calcolapro.it/calcolo-isee.html — Simula il valore ISEE e verifica le soglie per agevolazioni ed esoneri
@@ -44,6 +43,8 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 
 ## Guide Finanziarie
 
+- https://calcolapro.it/guida-investire-10000-euro.html — Come investire 10.000 euro nel 2026: confronto tra ETF, conti deposito, BTP e fondi
+- https://calcolapro.it/glossario-finanziario.html — Glossario con oltre 100 termini fiscali e finanziari per lavoratori italiani
 - https://calcolapro.it/guida-730-precompilato-2026.html — Come accedere, verificare e inviare il 730 precompilato 2026 sul sito Agenzia Entrate
 - https://calcolapro.it/guida-stipendio-netto-lordo.html — Come funziona il calcolo IRPEF 2026: scaglioni, detrazioni da lavoro e cuneo fiscale
 - https://calcolapro.it/guida-regime-forfettario.html — Requisiti, limiti di ricavi, coefficienti e convenienze del regime forfettario 2026
