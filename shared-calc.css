@@ -1,0 +1,277 @@
+/* ═══════════════════════════════════════════════════════════
+   CalcolaPro — Shared Calculator CSS
+   Importato dopo style.css da tutti i calcolatori.
+   Definisce le classi standard e le utility per eliminare
+   gli stili inline ripetuti nei 36 calcolatori.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── CALC-HEADER ───────────────────────────────────────────
+   Header scuro del calcolatore. Alias semantico di .page-header
+   per i file che adottano il naming canonico.
+   ──────────────────────────────────────────────────────────── */
+.calc-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e3a8a 100%);
+  padding: 52px 24px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.calc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(26,86,219,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(251,191,36,0.07) 0%, transparent 50%);
+  pointer-events: none;
+}
+.calc-header h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800; color: #fff;
+  line-height: 1.15; letter-spacing: -0.03em;
+  max-width: 700px; margin: 0 auto 14px;
+  position: relative; z-index: 1;
+}
+.calc-header p {
+  font-size: 1.05rem; color: rgba(255,255,255,0.68);
+  max-width: 540px; margin: 0 auto;
+  line-height: 1.7; position: relative; z-index: 1;
+}
+
+/* ─── CALC-FORM ─────────────────────────────────────────────
+   Contenitore principale del form di calcolo.
+   ──────────────────────────────────────────────────────────── */
+.calc-form {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── CALC-SECTION ──────────────────────────────────────────
+   Sezione di input con separatore inferiore.
+   Usare .last per l'ultima sezione (nessun separatore).
+   ──────────────────────────────────────────────────────────── */
+.calc-section {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.calc-section:last-child,
+.calc-section.last {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.calc-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ─── RESULT-CARD ───────────────────────────────────────────
+   Card principale per il risultato. Definita in style.css.
+   Qui aggiungiamo solo la variante light.
+   ──────────────────────────────────────────────────────────── */
+.result-card-light {
+  background: var(--blue-xlight);
+  border: 1px solid var(--blue-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-top: 20px;
+}
+.result-card-light .result-label {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 10px;
+}
+.result-card-light .result-value {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800; color: var(--blue);
+  line-height: 1; letter-spacing: -0.03em; margin-bottom: 6px;
+}
+
+/* ─── RESULT-GRID ───────────────────────────────────────────
+   Griglia di valori secondari. Alias di .result-breakdown
+   con naming canonico. Può essere usata dentro .result-card
+   (variante dark) o standalone (variante light).
+   ──────────────────────────────────────────────────────────── */
+.result-grid {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  margin-top: 20px;
+}
+.result-grid-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  padding: 14px 12px;
+  text-align: center;
+}
+.result-grid-item .rg-value {
+  font-size: 1.2rem; font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  display: block;
+}
+.result-grid-item .rg-label {
+  font-size: 11px; color: rgba(255,255,255,0.45);
+  margin-top: 4px; display: block;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.result-grid.light .result-grid-item {
+  background: var(--bg);
+  border-color: var(--border);
+}
+.result-grid.light .result-grid-item .rg-value { color: var(--text); }
+.result-grid.light .result-grid-item .rg-label  { color: var(--text-muted); }
+
+/* ─── DISCLAIMER ────────────────────────────────────────────
+   Testo disclaimer standard sotto i risultati.
+   ──────────────────────────────────────────────────────────── */
+.disclaimer {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-dark);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.disclaimer strong,
+.disclaimer b { color: var(--text); }
+
+/* ─── CROSS-LINKS ───────────────────────────────────────────
+   Sezione link correlati. Già definita in style.css.
+   Questa regola garantisce il naming semantico per i nuovi file.
+   ──────────────────────────────────────────────────────────── */
+/* .cross-links definita in style.css — nessuna duplicazione */
+
+/* ═══════════════════════════════════════════════════════════
+   ALERT / NOTICE BOXES
+   Eliminano i pattern di colori inline ripetuti nei calcolatori.
+   ═══════════════════════════════════════════════════════════ */
+.alert {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+.alert + .alert { margin-top: 10px; }
+
+.alert-warning {
+  background: #fef9c3;
+  border: 1.5px solid #fde68a;
+}
+.alert-warning strong,
+.alert-warning b { color: #92400e; }
+.alert-warning .alert-title { color: #92400e; font-weight: 700; font-size: 13.5px; }
+.alert-warning,
+.alert-warning span:not(.alert-title) { color: #78350f; }
+
+.alert-info {
+  background: var(--blue-xlight);
+  border: 1.5px solid var(--blue-light);
+}
+.alert-info strong,
+.alert-info b { color: var(--blue-dark); }
+.alert-info .alert-title { color: var(--blue-dark); font-weight: 700; font-size: 12.5px; }
+.alert-info,
+.alert-info span:not(.alert-title) { color: #1e3a8a; }
+
+.alert-success {
+  background: #d1fae5;
+  border: 1.5px solid #a7f3d0;
+}
+.alert-success strong,
+.alert-success b { color: #065f46; }
+.alert-success .alert-title { color: #065f46; font-weight: 700; }
+.alert-success,
+.alert-success span:not(.alert-title) { color: #047857; }
+
+/* ═══════════════════════════════════════════════════════════
+   CALC-SUBSECTION
+   Box di input con sfondo grigio per raggruppare campi correlati
+   (es: "Immobile 1", "Immobile 2", sezioni parametri avanzati).
+   ═══════════════════════════════════════════════════════════ */
+.calc-subsection {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.calc-subsection:last-of-type { margin-bottom: 0; }
+
+.calc-subsection-title {
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.calc-subsection-title.red { color: var(--red); }
+.calc-subsection-title.green { color: var(--green); }
+
+/* ═══════════════════════════════════════════════════════════
+   TOOL-CLUSTER
+   Box scuro con gradiente per mostrare strumenti correlati.
+   Versione dark di .related-tools per i nuovi calcolatori.
+   ═══════════════════════════════════════════════════════════ */
+.tool-cluster {
+  background: linear-gradient(135deg, var(--navy) 0%, #1e3a8a 100%);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-top: 16px;
+}
+.tool-cluster-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 6px;
+}
+.tool-cluster-header span { font-size: 1.5rem; }
+.tool-cluster h3 {
+  color: #fff; font-size: 1.15rem; font-weight: 800; margin: 0;
+}
+.tool-cluster-sub {
+  color: rgba(255,255,255,0.6); font-size: 13px;
+  margin: 0 0 20px;
+}
+.tool-cluster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.tool-cluster-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  transition: background var(--transition);
+}
+.tool-cluster-card:hover {
+  background: rgba(255,255,255,0.13);
+  text-decoration: none;
+}
+.tool-cluster-card-tag {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.tool-cluster-card-title {
+  color: #fff; font-weight: 700; font-size: 15px; margin-bottom: 4px;
+}
+.tool-cluster-card-desc {
+  color: rgba(255,255,255,0.5); font-size: 12px;
+}
+.tool-cluster-card-cta {
+  margin-top: 10px;
+  font-weight: 700; font-size: 12px;
+  padding: 6px 12px; border-radius: 6px;
+  text-align: center; display: block;
+  color: var(--navy);
+}

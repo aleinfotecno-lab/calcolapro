@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" href="https://calcolapro.it/lordonetto.html">
   <script type="application/ld+json">
@@ -273,7 +274,7 @@
         <li><strong>Netto mensile (busta paga):</strong> 21.877 ÷ 13 = <strong>1.683 €/mese</strong> + tredicesima di ~1.683 € a dicembre</li>
         <li><strong>Media mensile inclusa tredicesima:</strong> 21.877 ÷ 12 = <strong>1.823 €/mese</strong></li>
       </ol>
-      <p>Con l'<strong>esonero contributivo 2026</strong> (cuneo fiscale, −5% per RAL 25.001–35.000 €), i contributi INPS a carico del dipendente scendono al 4,19%, portando il netto mensile medio a circa <strong>1.836 €/mese</strong>, ovvero circa 150 € in più rispetto al calcolo base.</p>
+      <p>Il calcolo sopra (INPS 9,19%) è quello corretto per il <strong>2026</strong>. Dal 2026 il cuneo fiscale non opera più come riduzione contributiva ma come <strong>bonus IRPEF</strong> mensile in busta paga (fino a ~€1.200/anno per RAL ≤ 20.000 €), applicato direttamente dal sostituto d'imposta e non incluso in questo simulatore.</p>
     </div>
 
   <section class="container content-section">
@@ -295,8 +296,8 @@
     </div>
     <p><em>Valori stimati. Le addizionali regionali e comunali variano per comune. Usa il calcolatore sopra per un calcolo personalizzato.</em></p>
     <h2>Cuneo fiscale 2026: cosa cambia per i lavoratori dipendenti</h2>
-    <p>Nel 2026 è confermato l'<strong>esonero contributivo parziale</strong> a favore dei lavoratori dipendenti con redditi fino a 35.000 € lordi. L'esonero riduce la quota di contributi INPS normalmente a carico del dipendente (9,19%) di: <strong>−6 punti percentuali</strong> per RAL fino a 25.000 € e <strong>−5 punti percentuali</strong> per RAL tra 25.001 € e 35.000 €. Oltre 35.000 € lordi il beneficio è azzerato.</p>
-    <p>In busta paga questo si traduce in un vantaggio concreto ogni mese: con una RAL di 28.000 €, l'esonero del 5% vale circa <strong>1.400 €/anno in più in busta paga</strong>, ovvero circa <strong>116 €/mese aggiuntivi</strong>. Con RAL di 22.000 €, l'esonero del 6% porta circa 1.320 €/anno in più (~110 €/mese). Se stai valutando se ti conviene restare dipendente o aprire una partita IVA, confronta i due scenari con il nostro calcolatore <a href="partitaiva.html">regime forfettario vs dipendente</a>. Il calcolatore CalcolaPro include automaticamente l'esonero nelle sue stime.</p>
+    <p>Nel 2024–2025 era in vigore un <strong>esonero contributivo</strong> che riduceva la quota INPS a carico del dipendente (fino a −7% per RAL ≤ 25.000 €, −6% per RAL ≤ 35.000 €). Dal 2026, tale meccanismo è stato <strong>sostituito da un bonus IRPEF</strong> (cuneo fiscale "fiscalizzato"): i contributi INPS rimangono al <strong>9,19% standard</strong> per tutti, mentre i lavoratori con redditi più bassi ricevono un <strong>credito d'imposta mensile in busta paga</strong> (fino a circa €1.200/anno per RAL ≤ 20.000 €, ridotto proporzionalmente fino a ~32.000 €). Il vantaggio in termini di liquidità è analogo al vecchio esonero, ma la forma è diversa.</p>
+    <p>Il calcolatore usa INPS al <strong>9,19%</strong>, che è il metodo corretto per il 2026. Il bonus cuneo viene applicato direttamente dal sostituto d'imposta (datore di lavoro) in fase di calcolo della busta paga: per l'importo esatto, verifica con il tuo datore di lavoro o CAF. Se stai valutando se ti conviene restare dipendente o aprire una partita IVA, confronta i due scenari con il nostro calcolatore <a href="partitaiva.html">regime forfettario vs dipendente</a>.</p>
   </section>
 
   <section class="container">
@@ -324,7 +325,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa cambia nel 2026 per la busta paga?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>Nel 2026 sono confermate le aliquote IRPEF a 3 scaglioni (23%, 35%, 43%) introdotte dalla riforma fiscale e l'esonero contributivo per redditi fino a 35.000 €. Le soglie delle detrazioni da lavoro dipendente sono state aggiornate per l'inflazione. Il calcolatore di CalcolaPro è aggiornato con le novità fiscali 2026.</p></div>
+        <div class="faq-answer"><p>Nel 2026 sono confermate le aliquote IRPEF a 3 scaglioni (23%, 35%, 43%) introdotte dalla riforma fiscale. Il vecchio esonero contributivo INPS è stato sostituito da un <strong>bonus IRPEF</strong> mensile in busta paga: fino a ~€1.200/anno per RAL ≤ 20.000 €, ridotto proporzionalmente fino a ~32.000 €. I contributi INPS rimangono al 9,19% per tutti. Il calcolatore di CalcolaPro è aggiornato con le aliquote fiscali 2026.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Conviene un aumento di stipendio o benefit aziendali?<span class="faq-chevron" aria-hidden="true">▾</span></button>
@@ -344,7 +345,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa si intende per cuneo fiscale?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>Il cuneo fiscale è la differenza tra il costo totale del lavoro sostenuto dall'azienda e il netto che riceve il dipendente, espressa in percentuale del costo del lavoro. In Italia supera il 45% per i redditi medi: l'azienda paga contributi patronali (23–29%), il dipendente paga INPS (9,19%) e IRPEF. Nel 2026 l'esonero contributivo riduce il cuneo per i redditi fino a 35.000 €. Per valutare l'alternativa della partita IVA leggi il nostro confronto <a href="partitaiva.html">regime forfettario vs dipendente</a>.</p></div>
+        <div class="faq-answer"><p>Il cuneo fiscale è la differenza tra il costo totale del lavoro sostenuto dall'azienda e il netto che riceve il dipendente, espressa in percentuale del costo del lavoro. In Italia supera il 45% per i redditi medi: l'azienda paga contributi patronali (23–29%), il dipendente paga INPS (9,19%) e IRPEF. Nel 2026 il cuneo si riduce per i redditi bassi tramite un bonus IRPEF mensile in busta paga (fino a ~€1.200/anno per RAL ≤ 20.000 €). Per valutare l'alternativa della partita IVA leggi il nostro confronto <a href="partitaiva.html">regime forfettario vs dipendente</a>.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come funziona la quattordicesima mensilità?<span class="faq-chevron" aria-hidden="true">▾</span></button>
@@ -352,7 +353,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Perché il mio cedolino mostra un netto diverso dal calcolatore?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>Il calcolatore CalcolaPro fornisce una stima basata su aliquote IRPEF 2026 standard, INPS 9,19% e detrazioni medie. Differenze rispetto al cedolino reale possono dipendere da: addizionali regionali e comunali specifiche del tuo Comune di residenza, detrazioni aggiuntive (spese mediche, interessi mutuo, ecc.), contributi a fondi pensione integrativi, indennità o voci particolari del tuo CCNL, oppure dall'esonero contributivo applicato in misura diversa. Il cedolino del tuo datore di lavoro è sempre il documento fiscale ufficiale.</p></div>
+        <div class="faq-answer"><p>Il calcolatore CalcolaPro fornisce una stima basata su aliquote IRPEF 2026 standard, INPS 9,19% e detrazioni medie. Differenze rispetto al cedolino reale possono dipendere da: addizionali regionali e comunali specifiche del tuo Comune di residenza, detrazioni aggiuntive (spese mediche, interessi mutuo, ecc.), contributi a fondi pensione integrativi, indennità o voci particolari del tuo CCNL, oppure dal bonus cuneo fiscale 2026 applicato in misura diversa dal sostituto d'imposta. Il cedolino del tuo datore di lavoro è sempre il documento fiscale ufficiale.</p></div>
       </div>
     </div>
   </section>

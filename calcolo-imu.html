@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script type="application/ld+json">
   {
@@ -364,7 +365,7 @@
     function calcola() {
       const coefficiente = parseFloat(document.getElementById('tipo').value) || 160;
       const rendita = parseFloat(document.getElementById('rendita').value) || 0;
-      const aliquota = parseFloat(document.getElementById('aliquota').value) || 0.76;
+      const aliquota = parseFloat(document.getElementById('aliquota').value) || 0.86;
       const mesi = parseInt(document.getElementById('mesi').value) || 12;
       const quota = parseFloat(document.getElementById('quota').value) || 100;
       const riduzione = parseFloat(document.getElementById('riduzioni').value) || 1;
