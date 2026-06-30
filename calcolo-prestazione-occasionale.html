@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script type="application/ld+json">
   {
@@ -207,7 +208,7 @@
         <div id="confrontoPIVA" style="margin-top:20px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:14px;padding:20px 22px;"></div>
 
         <!-- Info box -->
-        <div style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:12px;padding:16px 20px;margin-top:16px;">
+        <div class="alert alert-info">
           <div style="font-weight:700;font-size:13.5px;color:#1e40af;margin-bottom:8px;">📌 Cosa devo fare concretamente</div>
           <div style="font-size:13px;color:#1e3a8a;line-height:1.8;">
             1. <strong>Consegna la ricevuta</strong> al committente (originale con marca da bollo se > €77,47)<br>
@@ -221,29 +222,29 @@
       </div>
 
       <!-- Promo P.IVA -->
-      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+      <div class="tool-cluster">
+        <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">📋</span>
           <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Lavori molto in proprio? Valuta la P.IVA</h3>
         </div>
-        <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Se superi spesso i €5.000 o hai più clienti continuativi, la Partita IVA forfettaria può convenire.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
-          <a href="partitaiva.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+        <p class="tool-cluster-sub">Se superi spesso i €5.000 o hai più clienti continuativi, la Partita IVA forfettaria può convenire.</p>
+        <div class="tool-cluster-grid">
+          <a href="partitaiva.html" class="tool-cluster-card">
             <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📋 Confronto</div>
-            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Dipendente vs P.IVA</div>
-            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Calcola quando conviene aprire la partita IVA forfettaria</div>
+            <div class="tool-cluster-card-title">Dipendente vs P.IVA</div>
+            <div class="tool-cluster-card-desc">Calcola quando conviene aprire la partita IVA forfettaria</div>
             <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Confronta →</div>
           </a>
-          <a href="freelance.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+          <a href="freelance.html" class="tool-cluster-card">
             <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">💰 Tariffa</div>
-            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Calcola tariffa freelance</div>
-            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Prezzo orario minimo per vivere del lavoro autonomo</div>
+            <div class="tool-cluster-card-title">Calcola tariffa freelance</div>
+            <div class="tool-cluster-card-desc">Prezzo orario minimo per vivere del lavoro autonomo</div>
             <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
-          <a href="calcolo-interessi-mora.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+          <a href="calcolo-interessi-mora.html" class="tool-cluster-card">
             <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">⚖️ Crediti</div>
-            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Interessi di Mora</div>
-            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Il committente non ti ha pagato? Calcola la mora</div>
+            <div class="tool-cluster-card-title">Interessi di Mora</div>
+            <div class="tool-cluster-card-desc">Il committente non ti ha pagato? Calcola la mora</div>
             <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
         </div>
