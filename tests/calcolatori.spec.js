@@ -8,9 +8,17 @@ const allPages = [
   '/calcolo-ferie-permessi.html', '/calcolo-straordinari.html',
   '/calcolatore-prestito-personale.html', '/calcolatore-risparmio.html',
   '/calcolatore-interessi-conto-deposito.html',
-  '/calcolatore-prezzo-orario-freelance.html',
   '/calcolo-spese-acquisto-casa.html', '/chilometrico.html',
   '/partitaiva.html', '/freelance.html',
+  // Calcolatori aggiunti nelle sessioni successive
+  '/calcolo-naspi.html', '/calcolo-malattia-inps.html', '/calcolo-maternita-inps.html',
+  '/calcolo-bollo-auto.html', '/calcolo-costo-lavoro.html', '/calcolo-interessi-mora.html',
+  '/calcolo-prestazione-occasionale.html', '/calcolo-preavviso.html',
+  '/calcolo-fondo-pensione.html', '/calcolo-plusvalenza-immobiliare.html',
+  '/calcolo-locazioni-brevi.html', '/calcolo-detrazioni-730.html',
+  '/divisione-conto.html', '/calcolatore-percentuale.html',
+  '/calcolo-eta.html', '/calcolo-tfr-liquidazione.html',
+  '/calcolo-buoni-fruttiferi-postali.html',
 ];
 
 for (const path of allPages) {
@@ -32,6 +40,20 @@ test('Calcolatore mutuo - calcolo rata', async ({ page }) => {
   await btn.click();
   const result = page.locator('#risultato, .risultato, [id*="result"], [class*="result"]').first();
   await expect(result).toBeVisible({ timeout: 3000 });
+});
+
+// Test funzionale BFP
+test('Calcolatore BFP - calcolo rendimento netto', async ({ page }) => {
+  await page.goto('/calcolo-buoni-fruttiferi-postali.html');
+  await page.fill('#capitale', '10000');
+  await page.fill('#tasso', '3');
+  await page.fill('#anni', '3');
+  await page.click('button:has-text("Calcola")');
+  const result = page.locator('#result');
+  await expect(result).toBeVisible({ timeout: 3000 });
+  const netti = await page.locator('#interessiNettiOut').textContent();
+  expect(netti).toContain('€');
+  expect(netti).not.toContain('—');
 });
 
 // Test cookie banner
