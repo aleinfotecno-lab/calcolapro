@@ -18,6 +18,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/tfr.html — Stima il Trattamento di Fine Rapporto maturato con rivalutazione ISTAT
 - https://calcolapro.it/bmi.html — Calcola l'Indice di Massa Corporea (BMI) e la classificazione OMS
 - https://calcolapro.it/calcolatore-interessi-conto-deposito.html — Calcola il rendimento netto di un conto deposito con tassazione al 26%
+- https://calcolapro.it/calcolo-buoni-fruttiferi-postali.html — Calcola il rendimento netto dei Buoni Fruttiferi Postali con tassazione agevolata 12,5% e confronto con conto deposito
 - https://calcolapro.it/calcolatore-prestito-personale.html — Calcola la rata, gli interessi totali e il piano di ammortamento di un prestito personale
 - https://calcolapro.it/calcolatore-risparmio.html — Proietta il risparmio nel tempo con interesse composto e contributi mensili
 - https://calcolapro.it/calcolo-cedolare-secca.html — Confronta cedolare secca al 21%/10% vs IRPEF ordinaria per proprietari immobiliari
