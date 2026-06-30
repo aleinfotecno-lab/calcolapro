@@ -215,11 +215,12 @@ a:hover { text-decoration: underline; }
 
 /* ── BREADCRUMB ── */
 .breadcrumb {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 4px;
   max-width: 1000px; margin: 0 auto;
   padding: 14px 20px 0;
   font-size: 13px; color: var(--text-muted);
   flex-wrap: wrap; list-style: none;
+  margin-bottom: 16px;
 }
 .breadcrumb li { display: flex; align-items: center; }
 .breadcrumb a {
@@ -817,7 +818,7 @@ body:has(#cp-cookie-banner) .amz-sticky { display: none !important; }
 .footer-grid {
   max-width: 1000px; margin: 0 auto;
   display: grid; gap: 40px;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
 }
 .footer-brand .footer-logo {
   font-size: 1.3rem; font-weight: 800;
@@ -843,6 +844,15 @@ body:has(#cp-cookie-banner) .amz-sticky { display: none !important; }
   transition: color var(--transition);
 }
 .footer-col a:hover { color: #f1f5f9; text-decoration: none; }
+.footer-all-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12px; font-weight: 600;
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer-all-link:hover { color: #f1f5f9; text-decoration: none; }
 .footer-bottom {
   max-width: 1000px; margin: 40px auto 0;
   padding-top: 24px;

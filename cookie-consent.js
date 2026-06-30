@@ -25,39 +25,47 @@
   bottom: 0; left: 0; right: 0;
   background: #0f172a;
   color: rgba(255,255,255,.88);
-  padding: 18px 24px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 12px;
   z-index: 99998;
   box-shadow: 0 -4px 24px rgba(0,0,0,.35);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.4;
   box-sizing: border-box;
 }
-#cp-cookie-banner p { margin: 0; flex: 1; min-width: 220px; }
+#cp-cookie-banner p { margin: 0; flex: 1; min-width: 0; }
 #cp-cookie-banner a { color: #60a5fa; }
 #cp-cookie-banner .cp-cb-btns {
-  display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap;
+  display: flex; gap: 12px; align-items: center; flex-shrink: 0;
 }
-#cp-cookie-banner button {
-  padding: 8px 16px;
+#cp-btn-all {
+  padding: 8px 18px;
   border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: inherit;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
   border: none;
-  transition: opacity .2s;
+  background: #2563eb; color: #fff;
   white-space: nowrap;
+  transition: opacity .2s;
 }
-#cp-cookie-banner button:hover { opacity: .85; }
-#cp-btn-all    { background: #2563eb; color: #fff; }
-#cp-btn-ess    { background: transparent; color: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.3) !important; }
-#cp-btn-custom { background: transparent; color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.15) !important; }
+#cp-btn-all:hover { opacity: .85; }
+#cp-btn-custom {
+  background: none; border: none;
+  color: rgba(255,255,255,.5);
+  font-size: 12px; cursor: pointer;
+  font-family: inherit;
+  text-decoration: underline;
+  white-space: nowrap; padding: 0;
+}
+#cp-btn-custom:hover { color: rgba(255,255,255,.8); }
+@media (max-width: 600px) {
+  #cp-cookie-banner { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 16px; }
+  #cp-cookie-banner .cp-cb-btns { width: 100%; justify-content: flex-end; }
+}
 
 /* Pannello preferenze */
 #cp-prefs-overlay {
@@ -238,12 +246,11 @@
     var banner = document.createElement('div');
     banner.id = 'cp-cookie-banner';
     banner.innerHTML =
-      '<p>🍪 Utilizziamo <strong>cookie tecnici</strong> necessari al funzionamento del sito e, con il tuo consenso, cookie di terze parti per <strong>analisi del traffico</strong> (Google Analytics 4) e <strong>annunci pubblicitari</strong> (Google AdSense). ' +
-      '<a href="/cookie.html">Cookie Policy</a> &middot; <a href="/privacy.html">Privacy Policy</a></p>' +
+      '<p>🍪 Usiamo cookie tecnici e, con il tuo consenso, di analisi e pubblicità. ' +
+      '<a href="/cookie.html">Dettagli</a></p>' +
       '<div class="cp-cb-btns">' +
-        '<button id="cp-btn-custom">Personalizza</button>' +
-        '<button id="cp-btn-ess">Solo essenziali</button>' +
-        '<button id="cp-btn-all">Accetta tutti</button>' +
+        '<button id="cp-btn-custom" type="button">Personalizza</button>' +
+        '<button id="cp-btn-all" type="button">Accetta</button>' +
       '</div>';
     document.body.appendChild(banner);
 
@@ -252,14 +259,6 @@
       localStorage.setItem(CONSENT_KEY, 'all');
       localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
       applyPrefs(prefs);
-      banner.remove();
-    });
-
-    document.getElementById('cp-btn-ess').addEventListener('click', function () {
-      var prefs = { analytics: false, marketing: false };
-      localStorage.setItem(CONSENT_KEY, 'essential');
-      localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
-      loadFonts();
       banner.remove();
     });
 
