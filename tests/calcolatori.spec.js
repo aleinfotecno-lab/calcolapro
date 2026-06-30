@@ -19,6 +19,7 @@ const allPages = [
   '/divisione-conto.html', '/calcolatore-percentuale.html',
   '/calcolo-eta.html', '/calcolo-tfr-liquidazione.html',
   '/calcolo-buoni-fruttiferi-postali.html',
+  '/categoria-freelance.html',
 ];
 
 for (const path of allPages) {
