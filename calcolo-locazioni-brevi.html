@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script type="application/ld+json">
   {
@@ -109,7 +110,7 @@
     <div class="grid">
 
       <!-- Alert riforma 2024 -->
-      <div class="col-full" style="background:#fef9c3;border:1.5px solid #fde68a;border-radius:12px;padding:14px 18px;">
+      <div class="col-full alert alert-warning">
         <span style="font-weight:700;color:#92400e;font-size:13.5px;">⚠️ Novità 2024 ancora in vigore nel 2026:</span>
         <span style="font-size:13px;color:#78350f;"> la Legge di Bilancio 2024 ha introdotto la cedolare al <strong>26% per gli immobili aggiuntivi</strong> (prima era sempre 21%). Il primo immobile rimane al 21%. Le piattaforme trattengono sempre il 21% come acconto.</span>
       </div>
@@ -118,7 +119,7 @@
         <div class="card-title"><span class="card-icon">🏠</span> I tuoi immobili</div>
 
         <div style="margin-bottom:18px;">
-          <div style="font-size:13px;font-weight:700;color:var(--text-muted);margin-bottom:10px;">Quanti immobili affitti tramite locazioni brevi in totale nel 2026?</div>
+          <div class="calc-section-title">Quanti immobili affitti tramite locazioni brevi in totale nel 2026?</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;" role="radiogroup">
             <label id="lbl-n1" style="border:2px solid var(--blue);background:#eff6ff;border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;color:#1d4ed8;" onclick="setNImm(1,this)">1</label>
             <label id="lbl-n2" style="border:2px solid var(--border);border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;" onclick="setNImm(2,this)">2</label>
@@ -129,8 +130,8 @@
         </div>
 
         <!-- Immobile 1 -->
-        <div style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;padding:16px;margin-bottom:12px;">
-          <div style="font-weight:800;font-size:13px;color:#1d4ed8;margin-bottom:12px;">🏠 Immobile 1 — Cedolare 21%</div>
+        <div class="calc-subsection">
+          <div class="calc-subsection-title">🏠 Immobile 1 — Cedolare 21%</div>
           <div class="field" style="margin-bottom:10px;">
             <label for="lordo1">Canone lordo incassato (o da incassare) nell'anno</label>
             <div class="input-wrap"><span class="input-prefix">€</span>
@@ -145,8 +146,8 @@
         </div>
 
         <!-- Immobile 2 -->
-        <div id="imm2" style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;padding:16px;margin-bottom:12px;display:none;">
-          <div style="font-weight:800;font-size:13px;color:#dc2626;margin-bottom:12px;">🏠 Immobile 2 — Cedolare 26%</div>
+        <div id="imm2" class="calc-subsection" style="display:none;">
+          <div class="calc-subsection-title red">🏠 Immobile 2 — Cedolare 26%</div>
           <div class="field" style="margin-bottom:10px;">
             <label for="lordo2">Canone lordo incassato nell'anno</label>
             <div class="input-wrap"><span class="input-prefix">€</span>
@@ -161,8 +162,8 @@
         </div>
 
         <!-- Immobili 3+ -->
-        <div id="imm3plus" style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;padding:16px;margin-bottom:12px;display:none;">
-          <div style="font-weight:800;font-size:13px;color:#dc2626;margin-bottom:12px;">🏠 Immobili 3+ — Cedolare 26%</div>
+        <div id="imm3plus" class="calc-subsection" style="display:none;">
+          <div class="calc-subsection-title red">🏠 Immobili 3+ — Cedolare 26%</div>
           <div class="field" style="margin-bottom:10px;">
             <label for="lordo3plus">Canone lordo totale per immobili aggiuntivi (3°, 4°, ...)</label>
             <div class="input-wrap"><span class="input-prefix">€</span>
@@ -197,7 +198,7 @@
         </div>
 
         <!-- Info piattaforma -->
-        <div style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:10px;padding:14px;margin-top:8px;">
+        <div class="alert alert-info">
           <div style="font-weight:700;font-size:12.5px;color:#1e40af;margin-bottom:8px;">📌 Come funziona la ritenuta della piattaforma</div>
           <div style="font-size:12.5px;color:#1e3a8a;line-height:1.8;">
             <strong>Airbnb</strong>: trattiene il 21% sul canone prima di versarti il netto dal gennaio 2025<br>
@@ -277,29 +278,29 @@
       </div>
 
       <!-- Cluster casa -->
-      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+      <div class="tool-cluster">
+        <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">🏡</span>
           <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri strumenti per i proprietari di casa</h3>
         </div>
-        <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">IMU, cedolare secca, plusvalenza: calcola tutte le tasse immobiliari.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
-          <a href="calcolo-cedolare-secca.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+        <p class="tool-cluster-sub">IMU, cedolare secca, plusvalenza: calcola tutte le tasse immobiliari.</p>
+        <div class="tool-cluster-grid">
+          <a href="calcolo-cedolare-secca.html" class="tool-cluster-card">
             <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🏘️ Affitti lunghi</div>
-            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Cedolare Secca vs IRPEF</div>
-            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Per contratti ≥30 giorni: confronta 21%/10% vs IRPEF</div>
+            <div class="tool-cluster-card-title">Cedolare Secca vs IRPEF</div>
+            <div class="tool-cluster-card-desc">Per contratti ≥30 giorni: confronta 21%/10% vs IRPEF</div>
             <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Confronta →</div>
           </a>
-          <a href="calcolo-imu.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+          <a href="calcolo-imu.html" class="tool-cluster-card">
             <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🏛️ Tributi</div>
-            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Calcolo IMU 2026</div>
-            <div style="color:rgba(255,255,255,0.5);font-size:12px;">IMU acconto/saldo su seconda casa e immobili</div>
+            <div class="tool-cluster-card-title">Calcolo IMU 2026</div>
+            <div class="tool-cluster-card-desc">IMU acconto/saldo su seconda casa e immobili</div>
             <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
-          <a href="calcolo-plusvalenza-immobiliare.html" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-decoration:none;display:block;" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+          <a href="calcolo-plusvalenza-immobiliare.html" class="tool-cluster-card">
             <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📈 Vendita</div>
-            <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px;">Plusvalenza Immobiliare</div>
-            <div style="color:rgba(255,255,255,0.5);font-size:12px;">Tassa sulla vendita casa: 26% o IRPEF?</div>
+            <div class="tool-cluster-card-title">Plusvalenza Immobiliare</div>
+            <div class="tool-cluster-card-desc">Tassa sulla vendita casa: 26% o IRPEF?</div>
             <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
         </div>
