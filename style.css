@@ -933,6 +933,69 @@ a:focus-visible { border-radius: 4px; }
   .page-header h1, .page-subtitle { color: #000 !important; }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE FIXES — 375px
+   ═══════════════════════════════════════════════════════════ */
+
+/* .grid alias per calc-grid (tutti i calcolatori usano class="grid") */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* Tabelle risultato: wrapper con scroll orizzontale */
+.result-table,
+.piano-table,
+.comparison-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Input/select: minimo 16px per prevenire zoom automatico iOS */
+@media (max-width: 480px) {
+  input[type="number"],
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Bottoni calcola: touch target minimo 48px + 16px font */
+@media (max-width: 480px) {
+  .btn {
+    min-height: 48px;
+    font-size: 16px;
+  }
+}
+
+/* Result breakdown: 2 colonne su mobile invece di 3 */
+@media (max-width: 480px) {
+  .result-breakdown {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Hero section: padding ridotto su mobile */
+@media (max-width: 480px) {
+  .page-header {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+/* Card e page-content: padding ridotto su mobile */
+@media (max-width: 480px) {
+  .card { padding: 20px 16px; }
+  .page-content { padding: 24px 16px 60px; }
+  .content-section { padding: 24px 16px; }
+}
+
 /* ===== Giorno 6 — UX/CRO ===== */
 /* 6.1 Related Tools Widget */
 .related-tools-section{background:#f4f8fd;border-top:2px solid #d0dcea;padding:32px 16px;margin-top:40px;}
