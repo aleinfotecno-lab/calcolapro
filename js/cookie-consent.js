@@ -252,6 +252,38 @@
     });
   }
 
+  // ── Riserva spazio in fondo alla pagina pari all'altezza di qualsiasi barra fissa
+  // ── visibile in basso (banner cookie e/o sticky Amazon), così nessun contenuto
+  // ── interattivo (es. pulsanti "Calcola") resta nascosto/intercettato da essa.
+  // ── scroll-padding-bottom è la parte che conta di più: dice al browser di tenerne conto
+  // ── anche quando porta automaticamente in vista un elemento (scrollIntoView, focus su un
+  // ── campo, ecc.), altrimenti un elemento può finire col bordo esatto sul bordo della barra
+  // ── ed essere coperto pur restando visibile all'occhio. ──
+  function isVisible(el) {
+    return !!el && getComputedStyle(el).display !== 'none';
+  }
+  // Margine di sicurezza extra: lo scroll automatico del browser (scrollIntoView, focus su
+  // un campo, screen reader) non allinea sempre in modo preciso al valore di scroll-padding,
+  // quindi si riserva qualche pixel in più oltre alla sola altezza misurata della barra.
+  var BOTTOM_BAR_SAFETY_MARGIN = 48;
+  function syncBottomBarSpace() {
+    var h = 0;
+    var banner = document.getElementById('cp-cookie-banner');
+    if (isVisible(banner)) h = Math.max(h, banner.offsetHeight);
+    var sticky = document.getElementById('amzSticky');
+    if (isVisible(sticky)) h = Math.max(h, sticky.offsetHeight);
+    var px = h > 0 ? (h + BOTTOM_BAR_SAFETY_MARGIN) + 'px' : '';
+    document.body.style.paddingBottom = px;
+    document.documentElement.style.scrollPaddingBottom = px;
+  }
+  // Osserva #amzSticky (mostrata/nascosta con tempistiche diverse a seconda della pagina) e
+  // ricalcola lo spazio riservato ogni volta che cambia visibilità.
+  function watchAmzSticky() {
+    var sticky = document.getElementById('amzSticky');
+    if (!sticky || !window.MutationObserver) return;
+    new MutationObserver(syncBottomBarSpace).observe(sticky, { attributes: true, attributeFilter: ['style', 'class'] });
+  }
+
   // ── Banner principale ──
   function showBanner() {
     var banner = document.createElement('div');
@@ -265,6 +297,7 @@
         '<button id="cp-btn-all" type="button">Accetta</button>' +
       '</div>';
     document.body.appendChild(banner);
+    syncBottomBarSpace();
 
     document.getElementById('cp-btn-all').addEventListener('click', function () {
       var prefs = { analytics: true, marketing: true };
@@ -272,6 +305,7 @@
       localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
       applyPrefs(prefs);
       banner.remove();
+      syncBottomBarSpace();
     });
 
     document.getElementById('cp-btn-none').addEventListener('click', function () {
@@ -280,10 +314,12 @@
       localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
       loadFonts();
       banner.remove();
+      syncBottomBarSpace();
     });
 
     document.getElementById('cp-btn-custom').addEventListener('click', function () {
       banner.remove();
+      syncBottomBarSpace();
       showPrefsPanel(function (prefs) {
         applyPrefs(prefs);
       });
@@ -295,7 +331,7 @@
     var existingOverlay = document.getElementById('cp-prefs-overlay');
     if (existingOverlay) { existingOverlay.remove(); return; }
     var existingBanner = document.getElementById('cp-cookie-banner');
-    if (existingBanner) existingBanner.remove();
+    if (existingBanner) { existingBanner.remove(); syncBottomBarSpace(); }
     showPrefsPanel(function (prefs) {
       applyPrefs(prefs);
     });
@@ -314,6 +350,8 @@
     } else {
       showBanner();
     }
+    watchAmzSticky();
+    syncBottomBarSpace();
   }
 
   if (document.readyState === 'loading') {
