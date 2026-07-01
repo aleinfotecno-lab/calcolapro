@@ -1,6 +1,6 @@
 # CalcolaPro - Calcolatori Finanziari Italiani Gratuiti
 
-CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 36 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
+CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 37 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
 
 ## Calcolatori
 

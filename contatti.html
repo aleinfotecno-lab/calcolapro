@@ -11,10 +11,10 @@
   <meta property="og:url" content="https://calcolapro.it/contatti.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.svg" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:site_name" content="CalcolaPro"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>🧮</text></svg>"/>
   <link rel="stylesheet" href="style.css"/>
@@ -143,6 +143,12 @@
           <label for="messaggio">Messaggio</label>
           <textarea id="messaggio" name="messaggio" placeholder="Descrivi la tua richiesta in modo dettagliato..." rows="5" required></textarea>
         </div>
+        <div class="field" style="display:flex;gap:10px;align-items:flex-start;margin-bottom:16px">
+          <input type="checkbox" id="privacyConsent" name="privacyConsent" required style="margin-top:3px;flex-shrink:0;width:16px;height:16px;cursor:pointer"/>
+          <label for="privacyConsent" style="font-size:13px;color:var(--text-muted);line-height:1.5">
+            Ho letto l'<a href="privacy.html">informativa sulla privacy</a> e acconsento al trattamento dei miei dati (nome, email, messaggio) per rispondere alla mia richiesta. Il messaggio viene inviato tramite <a href="https://formsubmit.co" rel="nofollow noopener" target="_blank">FormSubmit</a>. <strong>Campo obbligatorio.</strong>
+          </label>
+        </div>
         <button type="submit" class="btn btn-primary btn-full btn-lg">Invia messaggio →</button>
       </form>
       <div class="form-success" id="formSuccess">
@@ -177,7 +183,7 @@
         <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
         <li><a href="calcolo-detrazioni-730.html">Detrazioni 730</a></li>
       </ul>
-      <a href="index.html" class="footer-all-link">→ Tutti i 36 strumenti</a>
+      <a href="index.html" class="footer-all-link">→ Tutti i 37 strumenti</a>
     </div>
     <div class="footer-col">
       <h4>Guide</h4>
@@ -222,7 +228,11 @@
     const email = document.getElementById('email').value.trim();
     const oggetto = document.getElementById('oggetto').value;
     const msg = document.getElementById('messaggio').value.trim();
-    if (!nome || !email || !msg) return;
+    const privacyConsent = document.getElementById('privacyConsent').checked;
+    if (!nome || !email || !msg || !privacyConsent) {
+      if (!privacyConsent) document.getElementById('privacyConsent').focus();
+      return;
+    }
     const btn = e.target.querySelector('button[type=submit]');
     btn.disabled = true;
     btn.textContent = 'Invio in corso…';
