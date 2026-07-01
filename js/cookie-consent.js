@@ -187,7 +187,6 @@
       ad_personalization: prefs.marketing ? 'granted' : 'denied'
     });
     loadFonts();
-    if (prefs.analytics) loadAnalytics();
     if (prefs.marketing) loadAdsense();
   }
 
@@ -303,6 +302,7 @@
 
   // ── Init ──
   function init() {
+    loadAnalytics(); // Advanced Consent Mode: GA carica sempre, cookieless se negato
     var consent = localStorage.getItem(CONSENT_KEY);
     if (consent === 'all') {
       applyPrefs({ analytics: true, marketing: true });

@@ -947,6 +947,24 @@ a:focus-visible { border-radius: 4px; }
   .grid { grid-template-columns: 1fr; }
 }
 
+/* Impedisce che il contenuto interno espanda le colonne oltre l'1fr assegnato.
+   Senza questo, elementi con larghezza fissa (es. ad-slot 728px) rompono
+   il layout a 2 colonne su tablet e mobile. */
+.calc-grid > *,
+.grid > * {
+  min-width: 0;
+}
+
+/* Tabelle responsive: scroll orizzontale su mobile e tablet.
+   Copre tutte le tabelle inline (cookie, guide, categorie, pensione) senza wrapping HTML. */
+@media (max-width: 768px) {
+  main table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* Tabelle risultato: wrapper con scroll orizzontale */
 .result-table,
 .piano-table,
@@ -1006,7 +1024,7 @@ a:focus-visible { border-radius: 4px; }
 .related-tool-card .rtc-icon{font-size:26px;margin-bottom:8px;display:block;}
 .related-tool-card .rtc-title{font-size:13px;font-weight:700;color:#1a3c5e;margin-bottom:4px;line-height:1.3;}
 .related-tool-card .rtc-desc{font-size:11px;color:#666;line-height:1.4;}
-@media(min-width:640px){.related-tools-grid{flex-wrap:wrap;overflow-x:visible;justify-content:center;}.related-tool-card{min-width:160px;flex:0 0 160px;}}
+@media(min-width:640px){.related-tools-grid{flex-wrap:wrap;overflow-x:hidden;justify-content:center;}.related-tool-card{min-width:160px;flex:0 0 160px;}}
 /* 6.2 Trust Bar */
 .trust-bar{background:#1a3c5e;padding:14px 16px;}
 .trust-bar-inner{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;max-width:960px;margin:0 auto;}

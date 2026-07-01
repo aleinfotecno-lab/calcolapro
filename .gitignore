@@ -10,3 +10,7 @@ test-results/
 *.log
 .env
 scratchpad/
+screenshots/
+audit_queue.json
+audit_report.json
+scripts/diag-*.mjs

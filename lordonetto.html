@@ -571,7 +571,7 @@
   var wrap=document.getElementById('calcProgressWrap');
   var fill=document.getElementById('calcProgressFill');
   var lbl=document.getElementById('calcProgressLabel');
-  if(btn&&wrap&&fill){btn.addEventListener('click',function(){wrap.classList.add('active');fill.style.width='0%';lbl.textContent='Elaborazione...';var w=0,labels=['Elaborazione...','Calcolo rata...','Quasi pronto...','Fatto!'];var iv=setInterval(function(){w+=Math.random()*18+8;if(w>=100){w=100;clearInterval(iv);}fill.style.width=w+'%';lbl.textContent=labels[Math.min(Math.floor(w/25),3)];if(w===100)setTimeout(function(){wrap.classList.remove('active');},600);},80);});}
+  if(btn&&wrap&&fill){btn.addEventListener('click',function(){wrap.classList.add('active');fill.style.width='0%';lbl.textContent='Elaborazione...';var w=0,labels=['Elaborazione...','Calcolo IRPEF...','Quasi pronto...','Fatto!'];var iv=setInterval(function(){w+=Math.random()*18+8;if(w>=100){w=100;clearInterval(iv);}fill.style.width=w+'%';lbl.textContent=labels[Math.min(Math.floor(w/25),3)];if(w===100)setTimeout(function(){wrap.classList.remove('active');},600);},80);});}
 })();
 </script>
 </body>
