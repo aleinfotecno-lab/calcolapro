@@ -150,6 +150,7 @@ a:hover { text-decoration: underline; }
   color: var(--text-light); font-size: 12px;
   letter-spacing: 0.08em; text-transform: uppercase;
   padding: 8px;
+  overflow: hidden; /* impedisce a un iframe AdSense più alto del previsto di coprire il contenuto sottostante */
 }
 .ad-slot-top {
   width: 100%; min-height: 90px;
