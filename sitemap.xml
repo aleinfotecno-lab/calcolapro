@@ -85,12 +85,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calcolapro.it/tfr.html</loc>
-    <lastmod>2026-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://calcolapro.it/bmi.html</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -270,7 +264,7 @@
   <url>
     <loc>https://calcolapro.it/calcolo-locazioni-brevi.html</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -278,7 +272,7 @@
   <url>
     <loc>https://calcolapro.it/calcolo-plusvalenza-immobiliare.html</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -286,7 +280,7 @@
   <url>
     <loc>https://calcolapro.it/calcolo-fondo-pensione.html</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -294,7 +288,7 @@
   <url>
     <loc>https://calcolapro.it/calcolo-preavviso.html</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -302,7 +296,7 @@
   <url>
     <loc>https://calcolapro.it/calcolo-prestazione-occasionale.html</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -310,7 +304,7 @@
   <url>
     <loc>https://calcolapro.it/calcolo-interessi-mora.html</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -318,7 +312,7 @@
   <url>
     <loc>https://calcolapro.it/calcolo-costo-lavoro.html</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -326,7 +320,7 @@
   <url>
     <loc>https://calcolapro.it/calcolo-bollo-auto.html</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -368,20 +362,12 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- TFR Simulatore (pagina storica, alta ricerca) -->
-  <url>
-    <loc>https://calcolapro.it/tfr.html</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
   <!-- Calcolatori SEO (Giorno 4) -->
   <url>
     <loc>https://calcolapro.it/calcolo-tfr-liquidazione.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://calcolapro.it/guida-investire-10000-euro.html</loc>

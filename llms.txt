@@ -15,7 +15,6 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/iva.html — Aggiungi o scorpora IVA al 4%, 5%, 10% o 22%
 - https://calcolapro.it/chilometrico.html — Calcola il rimborso chilometrico con le tabelle ACI 2026 per auto, moto e ciclomotori
 - https://calcolapro.it/tdee.html — Calcola il fabbisogno calorico giornaliero (TDEE) con formula Harris-Benedict
-- https://calcolapro.it/tfr.html — Stima il Trattamento di Fine Rapporto maturato con rivalutazione ISTAT
 - https://calcolapro.it/bmi.html — Calcola l'Indice di Massa Corporea (BMI) e la classificazione OMS
 - https://calcolapro.it/calcolatore-interessi-conto-deposito.html — Calcola il rendimento netto di un conto deposito con tassazione al 26%
 - https://calcolapro.it/calcolo-buoni-fruttiferi-postali.html — Calcola il rendimento netto dei Buoni Fruttiferi Postali con tassazione agevolata 12,5% e confronto con conto deposito
