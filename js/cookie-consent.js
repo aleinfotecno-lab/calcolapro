@@ -58,12 +58,12 @@
   border-radius: 8px;
   font-size: 13px; font-weight: 700;
   cursor: pointer; font-family: inherit;
-  border: 1px solid rgba(255,255,255,.25);
-  background: transparent; color: rgba(255,255,255,.85);
+  border: none;
+  background: #fff; color: #0f172a;
   white-space: nowrap;
   transition: opacity .2s;
 }
-#cp-btn-none:hover { opacity: .75; }
+#cp-btn-none:hover { opacity: .85; }
 #cp-btn-custom {
   background: none; border: none;
   color: rgba(255,255,255,.5);
