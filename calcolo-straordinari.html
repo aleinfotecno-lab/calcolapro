@@ -368,7 +368,7 @@
       // Stima netto: aliquota marginale IRPEF approssimativa + INPS 9.19%
       const redditoAnnuo = stipendioAnnuo + totLordo * 12; // proiezione annua
       let aliquotaMarg = 0.23;
-      if (redditoAnnuo > 28000) aliquotaMarg = 0.35;
+      if (redditoAnnuo > 28000) aliquotaMarg = 0.33;
       if (redditoAnnuo > 50000) aliquotaMarg = 0.43;
       const totNetto = totLordo * (1 - aliquotaMarg - 0.0919);
 

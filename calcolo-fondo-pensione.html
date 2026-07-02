@@ -46,8 +46,8 @@
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Conviene aderire a un fondo pensione complementare?","acceptedAnswer":{"@type":"Answer","text":"In molti casi sì, specialmente per i lavoratori dipendenti. I vantaggi principali sono: 1) Deducibilità fiscale dei contributi fino a €5.164,57/anno (risparmio IRPEF immediato); 2) Possibilità di ricevere anche il contributo del datore di lavoro se si aderisce al fondo negoziale; 3) Tassazione agevolata al momento della prestazione (15%, riducibile al 9% con 35 anni di iscrizione). Lo svantaggio principale è l'illiquidità: il capitale è bloccato fino alla pensione, salvo anticipazioni parziali per specifici motivi."}},
-    {"@type":"Question","name":"Quanto posso dedurre dal reddito per il fondo pensione?","acceptedAnswer":{"@type":"Answer","text":"Puoi dedurre dall'imponibile IRPEF i contributi versati al fondo pensione fino a un massimo di €5.164,57 all'anno. Questo limite include i tuoi contributi volontari, ma NON il TFR conferito (che non è deducibile). Il contributo del datore di lavoro, se previsto dal contratto, non rientra nel tetto e non è deducibile da te. La deducibilità riduce l'IRPEF dovuta: a un'aliquota marginale del 35%, dedurre €5.164 significa risparmiare circa €1.807 di tasse."}},
+    {"@type":"Question","name":"Conviene aderire a un fondo pensione complementare?","acceptedAnswer":{"@type":"Answer","text":"In molti casi sì, specialmente per i lavoratori dipendenti. I vantaggi principali sono: 1) Deducibilità fiscale dei contributi fino a €5.300/anno (risparmio IRPEF immediato); 2) Possibilità di ricevere anche il contributo del datore di lavoro se si aderisce al fondo negoziale; 3) Tassazione agevolata al momento della prestazione (15%, riducibile al 9% con 35 anni di iscrizione). Lo svantaggio principale è l'illiquidità: il capitale è bloccato fino alla pensione, salvo anticipazioni parziali per specifici motivi."}},
+    {"@type":"Question","name":"Quanto posso dedurre dal reddito per il fondo pensione?","acceptedAnswer":{"@type":"Answer","text":"Puoi dedurre dall'imponibile IRPEF i contributi versati al fondo pensione fino a un massimo di €5.300 all'anno (limite elevato da €5.164,57 dalla Legge di Bilancio 2026). Questo limite include i tuoi contributi volontari, ma NON il TFR conferito (che non è deducibile). Il contributo del datore di lavoro, se previsto dal contratto, non rientra nel tetto e non è deducibile da te. La deducibilità riduce l'IRPEF dovuta: a un'aliquota marginale del 33%, dedurre €5.300 significa risparmiare circa €1.749 di tasse."}},
     {"@type":"Question","name":"Come viene tassato il fondo pensione alla scadenza?","acceptedAnswer":{"@type":"Answer","text":"Al momento della prestazione (pensione), il montante accumulato è soggetto a una tassazione agevolata: aliquota del 15%, che si riduce dello 0,30% per ogni anno di partecipazione oltre il quindicesimo, fino a un minimo del 9% (raggiunto dopo 35 anni di iscrizione). Solo la parte che corrisponde a contributi già dedotti fiscalmente (non le plusvalenze che hanno già scontato una ritenuta del 20%) è soggetta a questa tassazione."}},
     {"@type":"Question","name":"Cosa succede al TFR se lo destino al fondo pensione?","acceptedAnswer":{"@type":"Answer","text":"Se destini il TFR al fondo pensione, invece di lasciarlo accantonare in azienda (o al Fondo di Tesoreria INPS per aziende > 50 dipendenti), la quota mensile di TFR (6,91% della retribuzione) viene versata nel fondo e capitalizzata con i rendimenti del comparto scelto. Storicamente i fondi negoziali hanno reso mediamente più della rivalutazione ISTAT del TFR (1,5% + 75% FOI) sul lungo periodo, ma con volatilità maggiore per i comparti azionari."}},
     {"@type":"Question","name":"Posso riscattare il fondo pensione prima della pensione?","acceptedAnswer":{"@type":"Answer","text":"Il riscatto totale è possibile solo in caso di perdita del lavoro prolungata (> 48 mesi) e in caso di invalidità permanente che riduce la capacità lavorativa a meno di un terzo. È possibile invece ottenere anticipazioni parziali: fino al 75% del montante per spese sanitarie gravi; fino al 75% dopo 8 anni per acquisto/ristrutturazione prima casa; fino al 30% dopo 8 anni per qualsiasi motivo (cosiddetta anticipazione generica)."}},
@@ -129,7 +129,7 @@
           <label for="aliqIRPEF">Aliquota IRPEF marginale</label>
           <select id="aliqIRPEF">
             <option value="23">23% (reddito fino a €28.000)</option>
-            <option value="35" selected>35% (reddito €28.001–€50.000)</option>
+            <option value="33" selected>33% (reddito €28.001–€50.000)</option>
             <option value="43">43% (reddito oltre €50.000)</option>
           </select>
         </div>
@@ -141,7 +141,7 @@
           <label for="contributoVolontario">Contributo volontario mensile (tuo)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="contributoVolontario" value="150" min="0" step="10" class="has-prefix"/></div>
-          <p class="hint">Il contributo che versi personalmente ogni mese. Deducibile fino a €5.164,57/anno.</p>
+          <p class="hint">Il contributo che versi personalmente ogni mese. Deducibile fino a €5.300/anno.</p>
         </div>
         <div class="field">
           <label for="contributoDatore">Contributo del datore di lavoro mensile</label>
@@ -252,7 +252,7 @@
             • I rendimenti sono calcolati in termini <strong>nominali</strong> (non reali). L'inflazione riduce il potere d'acquisto.<br>
             • La <strong>tassazione sui rendimenti</strong> del 20% è già considerata nei rendimenti netti indicati.<br>
             • La <strong>rendita mensile</strong> è stimata con un coefficiente semplificato: varia con l'età di pensionamento e il fondo scelto.<br>
-            • Il <strong>limite di deducibilità</strong> è €5.164,57/anno (contributi tuoi + eventuale datore, escluso TFR).<br>
+            • Il <strong>limite di deducibilità</strong> è €5.300/anno (contributi tuoi + eventuale datore, escluso TFR).<br>
             • Per una pianificazione pensionistica precisa, consulta il tuo <strong>fondo pensione</strong> o un consulente finanziario indipendente.
           </div>
         </div>
@@ -326,7 +326,7 @@
       <h3>Come funziona il calcolo del fondo pensione</h3>
       <p>Il capitale accumulato in un fondo pensione cresce grazie a tre componenti:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
-        <li><strong>Contributi tuoi</strong>: i versamenti volontari mensili (deducibili fino a €5.164,57/anno)</li>
+        <li><strong>Contributi tuoi</strong>: i versamenti volontari mensili (deducibili fino a €5.300/anno)</li>
         <li><strong>Contributo del datore</strong>: il contributo aggiuntivo previsto dai fondi negoziali (gratuito per te, è soldi in più)</li>
         <li><strong>TFR conferito</strong>: il 6,91% della RAL che va al fondo invece che in azienda</li>
         <li><strong>Rendimenti</strong>: capitalizzazione annuale dei versamenti al tasso del comparto scelto</li>
@@ -334,9 +334,9 @@
       <p>Formula base: <code>FV = PMT × [(1+r)^n - 1] / r</code> dove PMT = versamento mensile, r = tasso mensile, n = numero di mesi.</p>
 
       <h3>Il vantaggio fiscale della deducibilità</h3>
-      <p>I contributi versati al fondo pensione (tuoi + datore, escludendo il TFR) sono <strong>deducibili dal reddito imponibile IRPEF</strong> fino a €5.164,57 all'anno. In pratica:</p>
+      <p>I contributi versati al fondo pensione (tuoi + datore, escludendo il TFR) sono <strong>deducibili dal reddito imponibile IRPEF</strong> fino a €5.300 all'anno (limite elevato da €5.164,57 dalla Legge di Bilancio 2026). In pratica:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
-        <li>Se versi €2.400/anno (€200/mese) con aliquota IRPEF al 35%: risparmio IRPEF = €840/anno</li>
+        <li>Se versi €2.400/anno (€200/mese) con aliquota IRPEF al 33%: risparmio IRPEF = €792/anno</li>
         <li>Se versi €5.164/anno (il massimo) con aliquota IRPEF al 43%: risparmio IRPEF = €2.220/anno</li>
       </ul>
       <p>Questo risparmio fiscale immediato è uno dei principali vantaggi della previdenza complementare rispetto ad altri strumenti di risparmio.</p>
@@ -470,7 +470,7 @@
       const eta = parseInt(document.getElementById('etaAttuale').value) || 35;
       const etaPens = parseInt(document.getElementById('etaPensione').value) || 67;
       const ral = parseFloat(document.getElementById('stipendioLordo').value) || 30000;
-      const aliqIRPEF = parseInt(document.getElementById('aliqIRPEF').value) || 35;
+      const aliqIRPEF = parseInt(document.getElementById('aliqIRPEF').value) || 33;
       const contribVol = parseFloat(document.getElementById('contributoVolontario').value) || 0;
       const contribDatore = parseFloat(document.getElementById('contributoDatore').value) || 0;
       const destinaTFR = document.getElementById('destinaTFR').checked;
@@ -496,7 +496,7 @@
       const capitaleTFRAzienda = destinaTFR ? 0 : fvAnnuity(ral/12*0.0691, tfrAziendaRend/12, mesi);
 
       // Risparmio fiscale
-      const contribDeducibili = Math.min((contribVol + contribDatore) * 12, 5164.57);
+      const contribDeducibili = Math.min((contribVol + contribDatore) * 12, 5300);
       const rispAnnuo = contribDeducibili * (aliqIRPEF / 100);
       const rispTotale = rispAnnuo * anni;
 
@@ -538,7 +538,7 @@
 
       // Risparmio fiscale box
       document.getElementById('fiscalContent').innerHTML =
-        `Contributi deducibili per anno: <strong>${fmt2(contribDeducibili)}</strong> (limite €5.164,57/anno)<br>
+        `Contributi deducibili per anno: <strong>${fmt2(contribDeducibili)}</strong> (limite €5.300/anno)<br>
          Risparmio IRPEF annuo: <strong>${fmt2(rispAnnuo)}</strong> (aliquota ${aliqIRPEF}%)<br>
          Risparmio IRPEF totale in ${anni} anni: <strong>${fmt(rispTotale)}</strong><br>
          Equivale a versare solo <strong>${fmt2(pmtTotale - rispAnnuo/12)}</strong>/mese invece di ${fmt2(pmtTotale)}/mese.`;
