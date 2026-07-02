@@ -112,10 +112,10 @@
           <select id="tipo" onchange="aggiornaCoefficiente()">
             <option value="160">Abitazione (cat. A, escluso A/10) — coeff. 160</option>
             <option value="80">Ufficio / Studio (cat. A/10) — coeff. 80</option>
-            <option value="140">Negozi (cat. C/1) — coeff. 140 (ridotto da 55)</option>
-            <option value="80">Laboratori (cat. C/3) — coeff. 80</option>
+            <option value="55">Negozi (cat. C/1) — coeff. 55</option>
+            <option value="140">Laboratori (cat. C/3) — coeff. 140</option>
             <option value="65">Capannoni (cat. D) — coeff. 65</option>
-            <option value="120">Terreni agricoli — coeff. 120</option>
+            <option value="135">Terreni agricoli — coeff. 135</option>
           </select>
           <p class="hint">Il coefficiente catastale dipende dalla categoria dell'immobile</p>
         </div>
@@ -360,9 +360,9 @@
     function calcola() {
       const coefficiente = parseFloat(document.getElementById('tipo').value) || 160;
       const rendita = parseFloat(document.getElementById('rendita').value) || 0;
-      const aliquota = parseFloat(document.getElementById('aliquota').value) || 0.86;
+      const aliquota = Math.max(0, parseFloat(document.getElementById('aliquota').value) || 0.86);
       const mesi = parseInt(document.getElementById('mesi').value) || 12;
-      const quota = parseFloat(document.getElementById('quota').value) || 100;
+      const quota = Math.min(100, Math.max(0, parseFloat(document.getElementById('quota').value) || 100));
       const riduzione = parseFloat(document.getElementById('riduzioni').value) || 1;
 
       if (rendita <= 0) { alert('Inserisci una rendita catastale valida.'); return; }
