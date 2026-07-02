@@ -59,7 +59,7 @@
   <style>
     .mode-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
     .mode-tab{padding:9px 16px;border:2px solid var(--border);border-radius:20px;cursor:pointer;font-size:14px;font-weight:600;background:var(--surface);transition:all 0.15s;color:var(--text);}
-    .mode-tab.active{border-color:var(--accent);background:rgba(var(--accent-rgb),0.1);color:var(--accent);}
+    .mode-tab.active{border-color:var(--accent);background:var(--blue-xlight);color:var(--accent);}
     .panel{display:none;}.panel.active{display:block;}
     .result-formula{font-size:13px;color:var(--text-muted);margin-top:8px;font-family:monospace;background:var(--surface);padding:10px 14px;border-radius:8px;border:1px solid var(--border);}
   </style>
@@ -367,7 +367,7 @@
         breakdown = '<div class="breakdown-item"><div class="breakdown-value">' + fmtN(num) + '</div><div class="breakdown-label">numero di partenza</div></div>'
                   + '<div class="breakdown-item"><div class="breakdown-value">' + perc.toLocaleString('it-IT') + '%</div><div class="breakdown-label">percentuale</div></div>'
                   + '<div class="breakdown-item"><div class="breakdown-value">' + fmtN(ris) + '</div><div class="breakdown-label">risultato</div></div>';
-        formula = fmtN(num) + ' × ' + perc.toLocaleString('it-IT') + '% = ' + fmtN(num) + ' × 0,' + String(perc * 10).padStart(2,'0') + ' = ' + fmtN(ris);
+        formula = fmtN(num) + ' × ' + perc.toLocaleString('it-IT') + '% = ' + fmtN(num) + ' × ' + (perc / 100).toFixed(2).replace('.', ',') + ' = ' + fmtN(ris);
       } else if (modoAttuale === 2) {
         const da = parseFloat(document.getElementById('p2_da').value);
         const a = parseFloat(document.getElementById('p2_a').value);
