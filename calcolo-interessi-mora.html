@@ -48,11 +48,11 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"Come si calcolano gli interessi di mora su una fattura non pagata?","acceptedAnswer":{"@type":"Answer","text":"Per le transazioni commerciali (B2B), si applica il D.Lgs. 231/2002: gli interessi di mora decorrono automaticamente dal giorno successivo alla scadenza pattuita (o ai 30 giorni dalla data fattura se non concordato). Il tasso è: tasso di riferimento BCE semestralmente vigente + 8 punti percentuali. Formula: Interessi = Capitale × (Tasso mora / 365) × Giorni di ritardo."}},
     {"@type":"Question","name":"Qual è il tasso di mora per le transazioni commerciali nel 2025?","acceptedAnswer":{"@type":"Answer","text":"Il tasso BCE di riferimento per il secondo semestre 2024 era il 3,65%. Per il 2025, la BCE ha effettuato ulteriori riduzioni. Il tasso di mora commerciale (D.Lgs. 231/2002) è sempre: tasso BCE vigente + 8 punti percentuali. Consulta il sito della Banca d'Italia per il valore aggiornato del tasso BCE in vigore per il semestre di interesse."}},
-    {"@type":"Question","name":"Cos'è l'indennità forfettaria di recupero del credito?","acceptedAnswer":{"@type":"Answer","text":"Il D.Lgs. 231/2002 prevede, per ogni transazione commerciale in ritardo, un'indennità forfettaria per i costi di recupero del credito: €40 per crediti sotto €1.000, €70 per crediti tra €1.000 e €9.999, e €100 per crediti pari o superiori a €10.000. Questa indennità si aggiunge agli interessi di mora ed è dovuta automaticamente, senza bisogno di messa in mora."}},
+    {"@type":"Question","name":"Cos'è l'indennità forfettaria di recupero del credito?","acceptedAnswer":{"@type":"Answer","text":"Il D.Lgs. 231/2002 (art. 6) prevede, per ogni transazione commerciale in ritardo, un'indennità forfettaria fissa di €40 per i costi di recupero del credito, indipendentemente dall'importo del credito. Questa indennità si aggiunge agli interessi di mora ed è dovuta automaticamente, senza bisogno di messa in mora. Resta salvo il diritto al risarcimento del maggior danno se documentato."}},
     {"@type":"Question","name":"Quando decorrono gli interessi di mora senza accordo contrattuale?","acceptedAnswer":{"@type":"Answer","text":"Nelle transazioni commerciali (D.Lgs. 231/2002): se non è indicata una scadenza nel contratto/fattura, gli interessi decorrono automaticamente dopo 30 giorni dalla ricezione della fattura (o della merce/servizio). Se la scadenza è pattuita, gli interessi decorrono dal giorno successivo alla scadenza. Non occorre alcuna messa in mora formale."}},
     {"@type":"Question","name":"Gli interessi di mora tra privati (non commerciali) si calcolano diversamente?","acceptedAnswer":{"@type":"Answer","text":"Sì. Per i crediti civili tra privati (non transazioni commerciali tra imprese), si applica il tasso legale, stabilito annualmente dal MEF con decreto ministeriale. Il tasso legale 2024 era il 2,50%; per il 2025 il MEF l'ha fissato al 2,00% (verifica sempre sul sito del MEF o Gazzetta Ufficiale). Gli interessi moratori tra privati di solito richiedono anche una messa in mora formale (raccomandata/PEC)."}},
     {"@type":"Question","name":"Posso richiedere anche le spese legali oltre agli interessi di mora?","acceptedAnswer":{"@type":"Answer","text":"Sì. Oltre agli interessi di mora e all'indennità forfettaria, puoi richiedere il risarcimento integrale dei costi di recupero del credito (spese legali, spese di sollecito, costi di consulenza) se dimostri che sono superiori all'indennità forfettaria. In caso di ricorso a decreto ingiuntivo, le spese legali sono generalmente condannate a carico del debitore inadempiente."}},
-    {"@type":"Question","name":"L'indennità forfettaria si somma agli interessi?","acceptedAnswer":{"@type":"Answer","text":"Sì. L'indennità forfettaria di recupero crediti (€40/€70/€100 in base all'importo del credito) si somma separatamente agli interessi di mora. Non è soggetta a IVA. Nella richiesta di pagamento, presentala come voce separata rispetto agli interessi di mora calcolati sulla base del tasso BCE + 8%."}}
+    {"@type":"Question","name":"L'indennità forfettaria si somma agli interessi?","acceptedAnswer":{"@type":"Answer","text":"Sì. L'indennità forfettaria di recupero crediti (€40 fissi, indipendentemente dall'importo del credito) si somma separatamente agli interessi di mora. Non è soggetta a IVA. Nella richiesta di pagamento, presentala come voce separata rispetto agli interessi di mora calcolati sulla base del tasso BCE + 8%."}}
   ]}
   </script>
   <script type="application/ld+json">
@@ -154,8 +154,8 @@
         <div id="sezione-commerciale">
           <div class="field">
             <label for="taskBCE">Tasso BCE semestrale vigente</label>
-            <div class="input-wrap"><input type="number" id="tassoBCE" value="2.65" min="0" max="20" step="0.05" style="text-align:right;"/><span class="input-suffix">%</span></div>
-            <p class="hint">Il tasso BCE cambia ogni semestre. Verifica il valore vigente su <strong>bancaditalia.it</strong>. Secondo semestre 2024: 3,65%. Aggiorna il campo con il tasso del semestre in cui matura il ritardo.</p>
+            <div class="input-wrap"><input type="number" id="tassoBCE" value="2.15" min="0" max="20" step="0.05" style="text-align:right;"/><span class="input-suffix">%</span></div>
+            <p class="hint">Il tasso BCE cambia ogni semestre. Verifica il valore vigente su <strong>bancaditalia.it</strong>. Primo semestre 2026: 2,15% (comunicato MEF, G.U. n.15/2026). Aggiorna il campo con il tasso del semestre in cui matura il ritardo.</p>
           </div>
           <div style="background:#eff6ff;border-radius:10px;padding:14px;font-size:13.5px;margin-bottom:4px;">
             <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
@@ -171,8 +171,8 @@
         <div id="sezione-civile" style="display:none;">
           <div class="field">
             <label for="tassoLegale">Tasso legale MEF vigente</label>
-            <div class="input-wrap"><input type="number" id="tassoLegale" value="2.00" min="0" max="15" step="0.05" style="text-align:right;"/><span class="input-suffix">%</span></div>
-            <p class="hint">Il tasso legale è fissato ogni anno dal MEF con decreto. Anno 2024: 2,50%. Verifica il tasso dell'anno corrente in Gazzetta Ufficiale o sul sito del MEF.</p>
+            <div class="input-wrap"><input type="number" id="tassoLegale" value="1.60" min="0" max="15" step="0.05" style="text-align:right;"/><span class="input-suffix">%</span></div>
+            <p class="hint">Il tasso legale è fissato ogni anno dal MEF con decreto. Dal 1° gennaio 2026: 1,60% (Decreto MEF 10/12/2025, G.U. n.289/2025). Verifica il tasso dell'anno corrente in Gazzetta Ufficiale o sul sito del MEF.</p>
           </div>
         </div>
         <div class="field" style="margin-bottom:0;">
@@ -230,7 +230,8 @@
               <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 16px;">1° sem 2024</td><td style="text-align:right;padding:10px 16px;color:var(--text-muted);">4,50%</td><td style="text-align:right;padding:10px 16px;font-weight:700;color:var(--blue);">12,50%</td></tr>
               <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 16px;">2° sem 2024</td><td style="text-align:right;padding:10px 16px;color:var(--text-muted);">3,65%</td><td style="text-align:right;padding:10px 16px;font-weight:700;color:var(--blue);">11,65%</td></tr>
               <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 16px;">1° sem 2025</td><td style="text-align:right;padding:10px 16px;color:var(--text-muted);">2,65%</td><td style="text-align:right;padding:10px 16px;font-weight:700;color:var(--blue);">10,65%</td></tr>
-              <tr><td style="padding:10px 16px;color:var(--text-muted);font-style:italic;">2° sem 2025 / 2026</td><td style="text-align:right;padding:10px 16px;color:var(--text-muted);">Verifica BCE</td><td style="text-align:right;padding:10px 16px;color:var(--text-muted);">BCE + 8%</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 16px;">1° sem 2026</td><td style="text-align:right;padding:10px 16px;color:var(--text-muted);">2,15%</td><td style="text-align:right;padding:10px 16px;font-weight:700;color:var(--blue);">10,15%</td></tr>
+              <tr><td style="padding:10px 16px;color:var(--text-muted);font-style:italic;">2° sem 2026</td><td style="text-align:right;padding:10px 16px;color:var(--text-muted);">Verifica BCE</td><td style="text-align:right;padding:10px 16px;color:var(--text-muted);">BCE + 8%</td></tr>
             </tbody>
           </table>
           <div style="padding:10px 16px;font-size:12px;color:var(--text-muted);">Fonte: Banca d'Italia. Il tasso varia il 1° gennaio e il 1° luglio di ogni anno. Verifica sempre il tasso semestrale vigente sul sito <strong>bancaditalia.it</strong>.</div>
@@ -304,7 +305,7 @@
         <li>Gli interessi di mora <strong>decorrono automaticamente</strong> dalla scadenza, senza bisogno di sollecito formale</li>
         <li>Il tasso applicabile è <strong>BCE + 8 punti percentuali</strong></li>
         <li>I termini ordinari di pagamento sono 30 giorni (PA) o 30-60 giorni (privati)</li>
-        <li>Oltre agli interessi, è dovuta una <strong>indennità forfettaria</strong> di €40/70/100 per le spese di recupero</li>
+        <li>Oltre agli interessi, è dovuta una <strong>indennità forfettaria fissa di €40</strong> per le spese di recupero, indipendentemente dall'importo del credito</li>
         <li>Clausole contrattuali che limitano il diritto agli interessi sono nulle o inefficaci se "gravemente inique"</li>
       </ul>
 
@@ -318,13 +319,7 @@
       <p>Formula: <code>Interessi = Capitale × (Tasso mora / 365) × Giorni ritardo</code></p>
 
       <h3>L'indennità forfettaria per le spese di recupero</h3>
-      <p>Il D.Lgs. 231/2002 prevede, in aggiunta agli interessi, un'<strong>indennità forfettaria</strong> automatica per le spese di recupero del credito:</p>
-      <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
-        <li><strong>€40</strong> per crediti fino a €999,99</li>
-        <li><strong>€70</strong> per crediti da €1.000 a €9.999,99</li>
-        <li><strong>€100</strong> per crediti pari o superiori a €10.000</li>
-      </ul>
-      <p>Questa indennità è <strong>dovuta per ogni singola transazione</strong> commerciale in ritardo, non è soggetta a IVA e si aggiunge agli interessi di mora. Se le spese effettive di recupero (avvocato, solleciti, ecc.) superano l'indennità, puoi richiedere il rimborso delle spese aggiuntive documentate.</p>
+      <p>Il D.Lgs. 231/2002 (art. 6) prevede, in aggiunta agli interessi, un'<strong>indennità forfettaria automatica di €40</strong> per le spese di recupero del credito, dovuta per ogni singola transazione commerciale in ritardo, indipendentemente dall'importo del credito. Non è soggetta a IVA e si aggiunge agli interessi di mora. Se le spese effettive di recupero (avvocato, solleciti, ecc.) superano l'indennità, puoi richiedere il rimborso delle spese aggiuntive documentate.</p>
 
       <h3>Domande frequenti</h3>
       <div class="faq-list">
@@ -500,18 +495,16 @@
         tasso = (bce + 8) / 100;
         tassoLabel = `${(bce).toFixed(2)}% BCE + 8% spread = ${((bce+8)).toFixed(2)}%`;
       } else {
-        tasso = (parseFloat(document.getElementById('tassoLegale').value) || 2) / 100;
+        tasso = (parseFloat(document.getElementById('tassoLegale').value) || 1.6) / 100;
         tassoLabel = `${(tasso*100).toFixed(2)}% (tasso legale MEF)`;
       }
 
       const interessi = capitale * tasso * (giorni / 365);
 
-      // Indennità forfettaria (solo commerciale)
+      // Indennità forfettaria (solo commerciale): importo fisso di 40€ per fattura, art. 6 D.Lgs. 231/2002
       let indennita = 0;
       if (includiInd && tipo === 'commerciale') {
-        if (capitale < 1000) indennita = 40;
-        else if (capitale < 10000) indennita = 70;
-        else indennita = 100;
+        indennita = 40;
       }
 
       const totale = capitale + interessi + indennita;
