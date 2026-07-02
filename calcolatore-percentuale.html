@@ -424,6 +424,8 @@
       document.getElementById('priceOut').textContent = big;
       document.getElementById('resultUnit').textContent = unit;
       document.getElementById('resultBreakdown').innerHTML = breakdown;
+      const formulaEl = document.getElementById('formula' + modoAttuale);
+      if (formulaEl) formulaEl.textContent = formula;
       const res = document.getElementById('result');
       res.style.display = 'block';
       document.getElementById('crossLinks').style.display = 'block';
