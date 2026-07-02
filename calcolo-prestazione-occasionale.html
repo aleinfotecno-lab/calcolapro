@@ -49,7 +49,7 @@
     {"@type":"Question","name":"Cos'è la prestazione occasionale e chi può farla?","acceptedAnswer":{"@type":"Answer","text":"La prestazione occasionale è un'attività di lavoro autonomo svolta in modo non continuativo, non coordinato e non abituale. Può essere svolta da chiunque (anche lavoratori dipendenti) senza aprire la Partita IVA, purché non vi sia un rapporto di lavoro subordinato e l'attività non sia sistematica e organizzata. Non ci sono limiti di importo per legge per la singola prestazione, ma superare i €5.000 di reddito totale annuo da occasionale comporta l'obbligo di iscrizione INPS (Gestione Separata)."}},
     {"@type":"Question","name":"Qual è la ritenuta d'acconto sulla prestazione occasionale?","acceptedAnswer":{"@type":"Answer","text":"Il committente (chi ti paga) è obbligato a trattenere e versare all'Agenzia delle Entrate una ritenuta d'acconto del 20% sul compenso lordo. Quindi se il compenso concordato è €1.000, il committente ti paga €800 e versa €200 all'erario. Questa ritenuta è un acconto IRPEF: in dichiarazione dei redditi (730 o Redditi PF) la inserisci come ritenuta subita e potresti avere un rimborso se hai redditi bassi o altre detrazioni."}},
     {"@type":"Question","name":"Quando scatta l'obbligo di aprire la Partita IVA?","acceptedAnswer":{"@type":"Answer","text":"L'obbligo di Partita IVA scatta quando l'attività è svolta in modo abituale, continuativo e organizzato. Non c'è una soglia di importo definita dalla legge, ma l'Agenzia delle Entrate considera l'apertura P.IVA necessaria quando: hai più clienti continuativi, svolgi la stessa attività ripetutamente nel corso dell'anno, organizzi autonomamente strumenti e mezzi. Superare i €5.000 da un singolo committente può essere un segnale di abitualità. In caso di dubbio, apri P.IVA."}},
-    {"@type":"Question","name":"Sopra €5.000 devo pagare i contributi INPS?","acceptedAnswer":{"@type":"Answer","text":"Sì. Se il reddito complessivo da prestazioni occasionali (da tutti i committenti) supera €5.000 nell'anno, scatta l'obbligo di iscrizione alla Gestione Separata INPS. I contributi si calcolano sulla parte eccedente i €5.000: l'aliquota è circa il 26.07% (2025), di cui 2/3 a carico tuo e 1/3 a carico del committente. Il committente è tenuto a trattenere la quota lavoratore e a versare il totale all'INPS."}},
+    {"@type":"Question","name":"Sopra €5.000 devo pagare i contributi INPS?","acceptedAnswer":{"@type":"Answer","text":"Sì. Se il reddito complessivo da prestazioni occasionali (da tutti i committenti) supera €5.000 nell'anno, scatta l'obbligo di iscrizione alla Gestione Separata INPS. I contributi si calcolano sulla parte eccedente i €5.000: l'aliquota è circa il 26,07% (2026), di cui 1/3 a carico tuo e 2/3 a carico del committente. Il committente è tenuto a trattenere la quota lavoratore e a versare il totale all'INPS."}},
     {"@type":"Question","name":"La prestazione occasionale va dichiarata nel 730?","acceptedAnswer":{"@type":"Answer","text":"Sì, i compensi da prestazione occasionale vanno dichiarati come 'redditi diversi' (art. 67 TUIR, quadro D del modello Redditi PF o quadro D del 730). La ritenuta del 20% già subita viene portata in detrazione dall'IRPEF dovuta. Se la tua aliquota marginale IRPEF è inferiore al 20% (redditi totali sotto circa €28.000), potresti ricevere un rimborso in sede di dichiarazione."}},
     {"@type":"Question","name":"Posso emettere ricevuta o devo fare fattura?","acceptedAnswer":{"@type":"Answer","text":"Per le prestazioni occasionali non si emette fattura (che richiede P.IVA), ma una semplice ricevuta di compenso. Sulla ricevuta indica: dati tuoi e del committente, natura della prestazione, importo lordo, ritenuta d'acconto 20%, netto percepito. Se l'importo supera €77,47, applica una marca da bollo da €2,00 sull'originale (o equivalente marca virtuale). Il committente si tiene l'originale con marca da bollo; tu tieni copia."}},
     {"@type":"Question","name":"Qual è la differenza tra prestazione occasionale e collaborazione coordinata continuativa (Co.Co.Co.)?","acceptedAnswer":{"@type":"Answer","text":"La co.co.co. (art. 409 c.p.c.) è un rapporto parasubordinato con carattere di continuità, coordinamento e prevalente prestazione personale — e va obbligatoriamente inquadrato come collaborazione con iscrizione INPS Gestione Separata dall'inizio. La prestazione occasionale invece è per definizione non continuativa e non coordinata. La ritenuta è 20% in entrambi i casi, ma con co.co.co. i contributi INPS Gestione Separata partono dal primo euro."}}
@@ -288,8 +288,8 @@
       <p>Molti pensano erroneamente che la soglia di €5.000 sia un limite legale per fare prestazioni occasionali. Non è così: non c'è nessun limite di importo nelle norme fiscali. La soglia dei €5.000 riguarda esclusivamente i <strong>contributi INPS</strong>:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li>Sotto €5.000 di reddito annuo complessivo da prestazioni occasionali (da tutti i committenti): <strong>nessun contributo INPS</strong></li>
-        <li>Sopra €5.000: obbligo di iscrizione alla <strong>Gestione Separata INPS</strong> con aliquota ~25.07% sulla parte eccedente</li>
-        <li>I contributi si dividono: 1/3 a carico del committente, 2/3 a carico tuo (e vengono versati dal committente)</li>
+        <li>Sopra €5.000: obbligo di iscrizione alla <strong>Gestione Separata INPS</strong> con aliquota ~26,07% sulla parte eccedente</li>
+        <li>I contributi si dividono: 2/3 a carico del committente, 1/3 a carico tuo (e vengono versati dal committente)</li>
       </ul>
       <p>Attenzione: il limite dei €5.000 è <em>cumulativo</em> tra tutti i committenti nell'anno, non per singolo committente.</p>
 
@@ -446,7 +446,7 @@
       let inpsTotale = 0;
       let inpsLavoratore = 0;
       let inpsCommittente = 0;
-      let aliqINPS = regimeINPS === 'iscritto-altra' ? 0.24 : 0.2507;
+      let aliqINPS = regimeINPS === 'iscritto-altra' ? 0.24 : 0.2607;
       const sopraSoglia = totaleOccasionale > soglia;
       let baseINPS = 0;
 
@@ -461,8 +461,8 @@
           baseINPS = Math.min(compenso, totaleOccasionale - soglia);
         }
         inpsTotale = baseINPS * aliqINPS;
-        inpsLavoratore = inpsTotale * (2/3);
-        inpsCommittente = inpsTotale * (1/3);
+        inpsLavoratore = inpsTotale * (1/3);
+        inpsCommittente = inpsTotale * (2/3);
       }
 
       const nettoRealeFinal = nettoFinal - inpsLavoratore;
@@ -496,7 +496,7 @@
         { v: 'Netto incassato subito', val: fmt(nettoImm), bold: true },
         { v: `IRPEF effettiva stimata (aliquota ${aliqIRPEF}%)`, val: '- ' + fmt(irpefEff) },
         { v: diffIRPEF > 0 ? 'Addizionale IRPEF da versare in 730 (debito)' : 'Rimborso IRPEF in dichiarazione (730)', val: fmtDiff(-diffIRPEF), color: diffIRPEF > 0 ? '#ef4444' : '#16a34a' },
-        ...(sopraSoglia ? [{ v: `Contributi INPS a tuo carico 2/3 × ${(aliqINPS*100).toFixed(2)}% (base €${baseINPS.toFixed(0)})`, val: '- ' + fmt(inpsLavoratore) }] : []),
+        ...(sopraSoglia ? [{ v: `Contributi INPS a tuo carico 1/3 × ${(aliqINPS*100).toFixed(2)}% (base €${baseINPS.toFixed(0)})`, val: '- ' + fmt(inpsLavoratore) }] : []),
         { v: 'NETTO REALE (dopo 730 e INPS)', val: fmt(nettoRealeFinal), bold: true },
       ];
       document.getElementById('dettaglioBody').innerHTML = rows.map(r => `<tr style="border-bottom:1px solid var(--border)${r.bold ? ';background:#f8fafc;' : ''}">
@@ -511,9 +511,9 @@
           `Aliquota applicata: <strong>${(aliqINPS*100).toFixed(2)}%</strong> (${regimeINPS === 'iscritto-altra' ? 'iscritto ad altra previdenza obbligatoria' : 'non iscritto ad altra cassa'})<br>
            Base imponibile INPS: <strong>${fmt(baseINPS)}</strong> (eccedente €5.000)<br>
            Contributi totali: <strong>${fmt(inpsTotale)}</strong><br>
-           A tuo carico (2/3): <strong>${fmt(inpsLavoratore)}</strong> (il committente li trattiene dal tuo compenso)<br>
-           A carico del committente (1/3): <strong>${fmt(inpsCommittente)}</strong> (paga lui direttamente)<br>
-           Il committente versa il totale (<strong>${fmt(inpsTotale)}</strong>) all'INPS e ti trattiene i 2/3 a tuo carico.`;
+           A tuo carico (1/3): <strong>${fmt(inpsLavoratore)}</strong> (il committente li trattiene dal tuo compenso)<br>
+           A carico del committente (2/3): <strong>${fmt(inpsCommittente)}</strong> (paga lui direttamente)<br>
+           Il committente versa il totale (<strong>${fmt(inpsTotale)}</strong>) all'INPS e ti trattiene 1/3 a tuo carico.`;
       } else {
         document.getElementById('inpsDettaglio').style.display = 'none';
       }
