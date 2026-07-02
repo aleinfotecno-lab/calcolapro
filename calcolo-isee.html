@@ -49,7 +49,7 @@
     {"@type":"Question","name":"Come si calcola l'ISEE?","acceptedAnswer":{"@type":"Answer","text":"L'ISEE si calcola con la formula: (ISE / scala equivalenza). Dove ISE = redditi complessivi del nucleo + 20% del patrimonio mobiliare + 20% del patrimonio immobiliare. La scala di equivalenza dipende dal numero e dalla composizione dei componenti del nucleo familiare."}},
     {"@type":"Question","name":"Entro quando va presentata la DSU per l'ISEE 2026?","acceptedAnswer":{"@type":"Answer","text":"La DSU (Dichiarazione Sostitutiva Unica) per l'ISEE 2026 può essere presentata in qualsiasi momento dell'anno. L'ISEE calcolato è valido dall'1 gennaio al 31 dicembre 2026 (o fino a quando non cambia la situazione familiare)."}},
     {"@type":"Question","name":"Cosa si include nel patrimonio immobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio immobiliare ISEE si includono: tutti gli immobili posseduti (prima casa, seconda casa, terreni) al valore IMU. Per la prima casa si applica una franchigia di €52.500, maggiorata di €2.500 per ogni figlio oltre il secondo."}},
-    {"@type":"Question","name":"Cosa si include nel patrimonio mobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio mobiliare ISEE si includono: conti correnti e depositi (saldo medio annuo), BOT, BTP, fondi, azioni, polizze assicurative a risparmio. Si applica una franchigia di €6.000 per nucleo, aumentata di €2.000 per ogni componente oltre il primo (max €52.000 totali)."}},
+    {"@type":"Question","name":"Cosa si include nel patrimonio mobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio mobiliare ISEE si includono: conti correnti e depositi (saldo medio annuo), BOT, BTP, fondi, azioni, polizze assicurative a risparmio. Si applica una franchigia di €6.000 per nucleo, aumentata di €2.000 per ogni componente oltre il primo (max €10.000 totali)."}},
     {"@type":"Question","name":"Qual è la soglia ISEE per il Bonus Asilo Nido?","acceptedAnswer":{"@type":"Answer","text":"Il Bonus Asilo Nido 2026 varia in base all'ISEE: fino a €25.001 → €3.000/anno; da €25.001 a €40.000 → €2.500/anno; oltre €40.000 → €1.500/anno. Per il secondo figlio nato dopo il 1° gennaio 2024 è riconosciuto l'importo massimo a prescindere dall'ISEE."}}
   ]}
   </script>
@@ -162,7 +162,7 @@
           <div class="field-group">
             <label class="field-label" for="valoreImuPrimaCasa">Valore IMU prima casa (€)</label>
             <input class="field-input" type="number" id="valoreImuPrimaCasa" placeholder="es. 120000" min="0"/>
-            <span class="field-hint">Rendita catastale × 1.05 × 160. Applica la franchigia di €52.500</span>
+            <span class="field-hint">Rendita catastale × 1.05 × 160. Applica la franchigia di €52.500 (valida per l'ISEE ordinario). Dal 2026 esiste una franchigia più alta — €91.500, €120.000 nei comuni capoluogo di città metropolitana — ma solo per il calcolo ISEE usato per Assegno di Inclusione, Supporto Formazione e Lavoro, Assegno Unico, bonus asilo nido e bonus nuovi nati: per questi usi il valore qui sopra potrebbe risultare più favorevole di quanto mostrato.</span>
           </div>
           <div class="field-group">
             <label class="field-label" for="valoreImuAltri">Valore IMU altri immobili (seconde case, terreni) (€)</label>
@@ -271,7 +271,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa si include nel patrimonio mobiliare ISEE?<span class="faq-arrow">▾</span></button>
-          <div class="faq-answer">Conti correnti e depositi (al saldo medio annuo 2024), BOT, BTP, fondi comuni, azioni, obbligazioni, polizze assicurative a risparmio. Si applica una franchigia base di €6.000, aumentata di €2.000 per ogni componente del nucleo oltre il primo (max franchigia €52.000 per nuclei con 4+ componenti).</div>
+          <div class="faq-answer">Conti correnti e depositi (al saldo medio annuo 2024), BOT, BTP, fondi comuni, azioni, obbligazioni, polizze assicurative a risparmio. Si applica una franchigia base di €6.000, aumentata di €2.000 per ogni componente del nucleo oltre il primo (max franchigia €10.000).</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Qual è la soglia ISEE per il Bonus Asilo Nido 2026?<span class="faq-arrow">▾</span></button>
@@ -431,7 +431,7 @@
       const saldoConti = parseFloat(document.getElementById('saldoConti').value) || 0;
       const titoli = parseFloat(document.getElementById('titoliFinanziari').value) || 0;
       const patMob = saldoConti + titoli;
-      const franchMob = Math.min(52000, 6000 + 2000 * (n - 1));
+      const franchMob = Math.min(10000, 6000 + 2000 * (n - 1));
       const patrimonioMob = Math.max(0, patMob - franchMob);
 
       const ISE = redditoTotale + 0.20 * patrimonioImm + 0.20 * patrimonioMob;
