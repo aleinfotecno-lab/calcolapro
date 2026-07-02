@@ -22,7 +22,7 @@
     .bmi-indicator{position:absolute;top:-4px;width:20px;height:20px;background:white;border-radius:50%;border:3px solid var(--accent);transform:translateX(-50%);transition:left 0.5s;}
     .radio-group{display:flex;gap:12px;}
     .radio-group label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:15px;padding:10px 16px;border:1px solid var(--border);border-radius:6px;background:var(--surface);transition:border-color 0.2s;}
-    .radio-group label:has(input:checked){border-color:var(--accent);background:rgba(99,102,241,0.05);}
+    .radio-group label:has(input:checked){border-color:var(--accent);background:var(--blue-xlight);}
     .radio-group input[type="radio"]{accent-color:var(--accent);}
   </style>
   <link rel="canonical" href="https://calcolapro.it/bmi.html">
@@ -144,16 +144,16 @@
       <div class="card">
         <div class="card-title"><span class="card-icon">📊</span> Scala BMI di riferimento</div>
         <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#e8f5e9;border-radius:6px;font-size:14px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--blue-light);border-radius:6px;font-size:14px;">
             <span>🔵 Sottopeso</span><span style="font-weight:600;">&lt; 18.5</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#e8f5e9;border-radius:6px;font-size:14px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--green-light);border-radius:6px;font-size:14px;">
             <span>🟢 Normopeso</span><span style="font-weight:600;">18.5 – 24.9</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#fff8e1;border-radius:6px;font-size:14px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--amber-light);border-radius:6px;font-size:14px;">
             <span>🟡 Sovrappeso</span><span style="font-weight:600;">25.0 – 29.9</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#fce4ec;border-radius:6px;font-size:14px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--red-light);border-radius:6px;font-size:14px;">
             <span>🔴 Obesità</span><span style="font-weight:600;">&gt; 30.0</span>
           </div>
         </div>
@@ -369,7 +369,7 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 </body>
 </html>

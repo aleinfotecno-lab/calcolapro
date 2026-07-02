@@ -401,13 +401,13 @@
       const alertEl = document.getElementById('alertBox');
       const rapportoInteressi = (interessi / importo) * 100;
       if (rapportoInteressi > 40) {
-        alertEl.className = 'alert-box alert-warn';
+        alertEl.className = 'alert alert-warning';
         alertEl.innerHTML = '⚠️ <strong>Attenzione:</strong> pagherai ' + fmt(interessi) + ' di interessi, il ' + rapportoInteressi.toFixed(0) + '% dell\'importo richiesto. Valuta di accorciare la durata o cercare un tasso migliore.';
       } else if (rapportoInteressi < 15) {
-        alertEl.className = 'alert-box alert-green';
+        alertEl.className = 'alert alert-success';
         alertEl.innerHTML = '✅ <strong>Ottimo rapporto:</strong> gli interessi totali sono contenuti (' + rapportoInteressi.toFixed(0) + '% dell\'importo). Questo è un prestito sostenibile.';
       } else {
-        alertEl.className = 'alert-box alert-info';
+        alertEl.className = 'alert alert-info';
         alertEl.innerHTML = 'ℹ️ Gli interessi totali sono ' + fmt(interessi) + ' (' + rapportoInteressi.toFixed(0) + '% dell\'importo). Prima di firmare, confronta almeno 2-3 offerte.';
       }
 
@@ -442,8 +442,8 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 <div class="sticky-affiliate-sidebar" id="affSidebar">
   <div class="sidebar-aff-box">
     <div class="aff-logo">Younited Credit</div>

@@ -202,23 +202,23 @@
 
         <div class="result-card" id="placeholderCard">
           <h3 class="result-title">Come si calcola l'ISEE</h3>
-          <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:16px;">La formula ufficiale è:</p>
-          <div style="background:rgba(37,99,235,0.08);border-radius:10px;padding:16px;font-family:monospace;font-size:13px;color:var(--text-primary);margin-bottom:16px;">
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:16px;">La formula ufficiale è:</p>
+          <div style="background:rgba(37,99,235,0.08);border-radius:10px;padding:16px;font-family:monospace;font-size:13px;color:var(--text);margin-bottom:16px;">
             ISEE = ISE ÷ Scala Equivalenza<br><br>
             ISE = Redditi + 20% Patrimonio Mobiliare + 20% Patrimonio Immobiliare
           </div>
-          <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;"><strong>Importante:</strong> questo è uno strumento di stima orientativo. L'ISEE ufficiale si ottiene presentando la <strong>DSU</strong> (Dichiarazione Sostitutiva Unica) tramite SPID sul sito INPS, oppure tramite CAF o patronato. Il valore ufficiale può differire dalla stima.</p>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.7;"><strong>Importante:</strong> questo è uno strumento di stima orientativo. L'ISEE ufficiale si ottiene presentando la <strong>DSU</strong> (Dichiarazione Sostitutiva Unica) tramite SPID sul sito INPS, oppure tramite CAF o patronato. Il valore ufficiale può differire dalla stima.</p>
 
           <div style="margin-top:20px;background:rgba(255,255,255,0.03);border-radius:10px;padding:14px;">
-            <div style="font-weight:700;color:var(--text-primary);margin-bottom:12px;">Scala di equivalenza ISEE</div>
+            <div style="font-weight:700;color:var(--text);margin-bottom:12px;">Scala di equivalenza ISEE</div>
             <table style="width:100%;font-size:13px;border-collapse:collapse;">
-              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">1 persona</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">1.00</td></tr>
-              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">2 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">1.57</td></tr>
-              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">3 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">2.04</td></tr>
-              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">4 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">2.46</td></tr>
-              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">5 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">2.85</td></tr>
-              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-secondary);">6 persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">3.19</td></tr>
-              <tr><td style="padding:6px 0;color:var(--text-secondary);">7+ persone</td><td style="text-align:right;font-weight:600;color:var(--text-primary);">3.53+</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-muted);">1 persona</td><td style="text-align:right;font-weight:600;color:var(--text);">1.00</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-muted);">2 persone</td><td style="text-align:right;font-weight:600;color:var(--text);">1.57</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-muted);">3 persone</td><td style="text-align:right;font-weight:600;color:var(--text);">2.04</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-muted);">4 persone</td><td style="text-align:right;font-weight:600;color:var(--text);">2.46</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-muted);">5 persone</td><td style="text-align:right;font-weight:600;color:var(--text);">2.85</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0;color:var(--text-muted);">6 persone</td><td style="text-align:right;font-weight:600;color:var(--text);">3.19</td></tr>
+              <tr><td style="padding:6px 0;color:var(--text-muted);">7+ persone</td><td style="text-align:right;font-weight:600;color:var(--text);">3.53+</td></tr>
             </table>
           </div>
         </div>
@@ -459,13 +459,13 @@
 
       document.getElementById('resultDetails').innerHTML = `
         <div style="display:grid;gap:10px;margin-top:8px;">
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-secondary);font-size:14px;">Redditi totali nucleo</span><span style="font-weight:700;font-size:14px;">${fmt(redditoTotale)}</span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-secondary);font-size:14px;">Patrimonio immobiliare (netto franchigia)</span><span style="font-weight:700;font-size:14px;">${fmt(patrimonioImm)}</span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-secondary);font-size:14px;">Patrimonio mobiliare (netto franchigia)</span><span style="font-weight:700;font-size:14px;">${fmt(patrimonioMob)}</span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-secondary);font-size:14px;">ISE (prima della divisione)</span><span style="font-weight:700;font-size:14px;">${fmt(ISE)}</span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;"><span style="color:var(--text-secondary);font-size:14px;">Scala equivalenza applicata</span><span style="font-weight:700;font-size:14px;">${scala.toFixed(2)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-muted);font-size:14px;">Redditi totali nucleo</span><span style="font-weight:700;font-size:14px;">${fmt(redditoTotale)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-muted);font-size:14px;">Patrimonio immobiliare (netto franchigia)</span><span style="font-weight:700;font-size:14px;">${fmt(patrimonioImm)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-muted);font-size:14px;">Patrimonio mobiliare (netto franchigia)</span><span style="font-weight:700;font-size:14px;">${fmt(patrimonioMob)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><span style="color:var(--text-muted);font-size:14px;">ISE (prima della divisione)</span><span style="font-weight:700;font-size:14px;">${fmt(ISE)}</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;"><span style="color:var(--text-muted);font-size:14px;">Scala equivalenza applicata</span><span style="font-weight:700;font-size:14px;">${scala.toFixed(2)}</span></div>
         </div>
-        <div style="background:rgba(217,119,6,0.08);border-left:3px solid #d97706;border-radius:0 8px 8px 0;padding:12px 14px;margin-top:16px;font-size:13px;color:var(--text-secondary);">
+        <div style="background:rgba(217,119,6,0.08);border-left:3px solid #d97706;border-radius:0 8px 8px 0;padding:12px 14px;margin-top:16px;font-size:13px;color:var(--text-muted);">
           ⚠️ Stima orientativa. L'ISEE ufficiale può differire — presenta la DSU all'INPS o a un CAF per il valore certificato.
         </div>
       `;
@@ -489,8 +489,8 @@
         <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);">
           <span style="font-size:18px;">${b.ok ? '✅' : '⚠️'}</span>
           <div>
-            <div style="font-weight:700;font-size:14px;color:var(--text-primary);">${b.nome}</div>
-            <div style="font-size:12px;color:var(--text-secondary);">${b.soglia}</div>
+            <div style="font-weight:700;font-size:14px;color:var(--text);">${b.nome}</div>
+            <div style="font-size:12px;color:var(--text-muted);">${b.soglia}</div>
           </div>
         </div>
       `).join('');
@@ -515,7 +515,7 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 </body>
 </html>

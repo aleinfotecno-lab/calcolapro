@@ -365,16 +365,16 @@
       const monthsLeft = 12 - today.getMonth();
 
       if (ferieTotali > 20 && monthsLeft < 4) {
-        alertEl.className = 'alert-box alert-warn';
+        alertEl.className = 'alert alert-warning';
         alertEl.innerHTML = '⚠️ <strong>Attenzione:</strong> hai ancora <strong>' + ferieTotali + ' giorni</strong> di ferie da godere e mancano pochi mesi alla fine dell\'anno. Rischi di perdere le ferie che eccedono il limite contrattuale.';
       } else if (ferieTotali > 30) {
-        alertEl.className = 'alert-box alert-warn';
+        alertEl.className = 'alert alert-warning';
         alertEl.innerHTML = '⚠️ Hai accumulato molte ferie arretrate. Verifica con il tuo datore di lavoro entro quando devono essere godute per non perderle.';
       } else if (ferieTotali > 0) {
-        alertEl.className = 'alert-box alert-green';
+        alertEl.className = 'alert alert-success';
         alertEl.innerHTML = '✅ Hai <strong>' + ferieTotali + ' giorni</strong> di ferie residue' + (permessiResidui > 0 ? ' e <strong>' + permessiResidui.toFixed(0) + ' ore</strong> di permessi' : '') + '. Pianifica in anticipo per goderne prima della scadenza.';
       } else {
-        alertEl.className = 'alert-box alert-info';
+        alertEl.className = 'alert alert-info';
         alertEl.innerHTML = 'ℹ️ Hai esaurito le ferie spettanti per quest\'anno. Le ferie dell\'anno prossimo inizieranno a maturare dal 1° gennaio.';
       }
 
@@ -408,7 +408,7 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 </body>
 </html>

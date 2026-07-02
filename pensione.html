@@ -664,13 +664,13 @@
     // Alert
     const alertEl = document.getElementById('alertBox');
     if (tassoSostituzione < 60) {
-      alertEl.className = 'alert-box alert-warn';
+      alertEl.className = 'alert alert-warning';
       alertEl.innerHTML = '⚠️ <strong>Attenzione:</strong> il tasso di sostituzione stimato è ' + tassoSostituzione + '%, significa che la tua pensione sarà circa ' + tassoSostituzione + '% del tuo ultimo stipendio. Valuta di integrare con un fondo pensione o investimenti privati per mantenere il tenore di vita.';
     } else if (tassoSostituzione >= 75) {
-      alertEl.className = 'alert-box alert-green';
+      alertEl.className = 'alert alert-success';
       alertEl.innerHTML = '✅ <strong>Buone notizie:</strong> il tuo tasso di sostituzione stimato è ' + tassoSostituzione + '%. La tua pensione coprirà bene il tuo stile di vita attuale.';
     } else {
-      alertEl.className = 'alert-box alert-info';
+      alertEl.className = 'alert alert-info';
       alertEl.innerHTML = 'ℹ️ Il tuo tasso di sostituzione stimato è ' + tassoSostituzione + '%. Una piccola integrazione con previdenza complementare potrebbe aiutarti a raggiungere una pensione più serena.';
     }
 
@@ -706,7 +706,7 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 </body>
 </html>

@@ -26,6 +26,7 @@
   --red-light:   #fee2e2;
   /* Alias per compatibilità */
   --accent:      #1a56db;
+  --accent-rgb:  26, 86, 219;
   --accent2:     #0891b2;
   --surface:     #ffffff;
   --shadow-xs:   0 1px 2px rgba(0,0,0,0.06);

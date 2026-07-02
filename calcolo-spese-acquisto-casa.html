@@ -55,8 +55,8 @@
   <style>
     .spese-table{width:100%;border-collapse:collapse;margin-top:12px;}
     .spese-table tr{border-bottom:1px solid rgba(255,255,255,0.06);}
-    .spese-table td{padding:8px 4px;font-size:14px;color:var(--text-secondary);}
-    .spese-table td:last-child{text-align:right;font-weight:600;color:var(--text-primary);}
+    .spese-table td{padding:8px 4px;font-size:14px;color:var(--text-muted);}
+    .spese-table td:last-child{text-align:right;font-weight:600;color:var(--text);}
     .spese-table .total-row td{color:var(--blue);font-weight:800;font-size:16px;border-top:2px solid var(--blue);padding-top:12px;}
   </style>
 
@@ -432,12 +432,12 @@
 
       document.getElementById('dettaglioBox').innerHTML = `
         <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.08);">
-          <div style="font-size:13px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;">DETTAGLIO SPESE</div>
+          <div style="font-size:13px;font-weight:700;color:var(--text-muted);margin-bottom:8px;">DETTAGLIO SPESE</div>
           <table class="spese-table">${rows}</table>
         </div>`;
 
       const alertEl = document.getElementById('alertBox');
-      alertEl.className = 'alert-box alert-info';
+      alertEl.className = 'alert alert-info';
       alertEl.innerHTML = 'ℹ️ <strong>Nota:</strong> i costi del notaio sono stime. Richiedine sempre il preventivo. Le imposte su rendita catastale si applicano solo per acquisto da privato. Per agevolazioni prima casa verifica i requisiti con il notaio.';
 
       document.getElementById('result').style.display = 'block';
@@ -470,7 +470,7 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 </body>
 </html>

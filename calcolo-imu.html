@@ -379,10 +379,10 @@
 
       const alertEl = document.getElementById('alertBox');
       if (imuAnnua < 12) {
-        alertEl.className = 'alert-box alert-info';
+        alertEl.className = 'alert alert-info';
         alertEl.innerHTML = 'ℹ️ <strong>Nota:</strong> L\'IMU non è dovuta se l\'importo annuo è inferiore a €12. Non dovrai effettuare alcun versamento.';
       } else {
-        alertEl.className = 'alert-box alert-info';
+        alertEl.className = 'alert alert-info';
         alertEl.innerHTML = 'ℹ️ Paga l\'acconto di <strong>' + fmt(acconto) + '</strong> entro il <strong>16 giugno 2026</strong> e il saldo di <strong>' + fmt(saldo) + '</strong> entro il <strong>16 dicembre 2026</strong> tramite modello F24.';
       }
 
@@ -416,7 +416,7 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 </body>
 </html>
