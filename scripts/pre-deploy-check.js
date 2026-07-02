@@ -4,11 +4,12 @@
  */
 import { chromium } from '@playwright/test';
 import { readdirSync } from 'fs';
-import { join } from 'path';
+import { fileURLToPath } from 'url';
 
 const BASE = 'http://localhost:3000';
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
-const pages = readdirSync(new URL('..', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1'))
+const pages = readdirSync(ROOT)
   .filter(f => f.endsWith('.html'))
   .map(f => `/${f}`);
 

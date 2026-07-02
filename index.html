@@ -39,7 +39,121 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
-  <style>.hero { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 40%, #4f46e5 70%, #7c3aed 100%); padding: 72px 24px 80px; text-align: center; position: relative; overflow: hidden; } .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(251,191,36,0.08) 0%, transparent 50%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='1.5' fill='white' fill-opacity='.05'/%3E%3C/svg%3E"); pointer-events: none; } .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 100px; padding: 6px 16px; font-size: 13px; color: rgba(255,255,255,0.9); margin-bottom: 24px; backdrop-filter: blur(8px); } .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: blink 2s infinite; } @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} } .hero h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.04em; max-width: 700px; margin: 0 auto 16px; } .hero h1 em { font-style: normal; color: #fbbf24; } .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.72); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; } .search-wrap { max-width: 520px; margin: 0 auto 40px; position: relative; } .search-wrap input { width: 100%; padding: 16px 52px 16px 20px; border-radius: 14px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); backdrop-filter: blur(8px); color: #fff; font-size: 15px; font-family: inherit; transition: border-color 0.2s, background 0.2s; outline: none; } .search-wrap input::placeholder { color: rgba(255,255,255,0.5); } .search-wrap input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); } .search-wrap .search-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.5); pointer-events: none; font-size: 20px; } .hero-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; } .stat { color: rgba(255,255,255,0.85); } .stat-num { font-size: 1.8rem; font-weight: 800; color: #fff; display: block; line-height: 1; } .stat-label { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.6; } #mainContent { max-width: 1000px; margin: 0 auto; padding: 56px 20px 80px; } .category-pills { display: flex; gap: 8px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 4px; } .cat-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 6px; border: 1.5px solid var(--border); background: var(--white); font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: inherit; } .cat-pill:hover, .cat-pill.active { border-color: var(--blue); background: var(--blue-light); color: var(--blue); } .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--border); } .section-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; } .section-header h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); } .section-header span { font-size: 13px; color: var(--text-muted); margin-left: auto; } .tool-section { margin-bottom: 48px; } .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; } .tool-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 24px; text-decoration: none; color: var(--text); display: block; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; position: relative; overflow: hidden; } .tool-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: transparent; text-decoration: none; } .tool-card:hover .card-icon-wrap { transform: scale(1.08); } .card-icon-wrap { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; transition: transform 0.2s; } .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; } .card-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; } .card-cta { font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 8px; transition: gap 0.15s; } .tool-card:hover .card-cta { gap: 8px; } .c-blue .card-icon-wrap { background: #dbeafe; } .c-blue .card-cta { background: #dbeafe; color: #1d4ed8; } .c-blue:hover { box-shadow: 0 10px 40px rgba(26,86,219,0.15); } .c-green .card-icon-wrap { background: #d1fae5; } .c-green .card-cta { background: #d1fae5; color: #059669; } .c-green:hover { box-shadow: 0 10px 40px rgba(5,150,105,0.15); } .c-amber .card-icon-wrap { background: #fef3c7; } .c-amber .card-cta { background: #fef3c7; color: #b45309; } .c-amber:hover { box-shadow: 0 10px 40px rgba(245,158,11,0.15); } .c-rose .card-icon-wrap { background: #ffe4e6; } .c-rose .card-cta { background: #ffe4e6; color: #e11d48; } .c-rose:hover { box-shadow: 0 10px 40px rgba(225,29,72,0.12); } .c-teal .card-icon-wrap { background: #cffafe; } .c-teal .card-cta { background: #cffafe; color: #0891b2; } .c-teal:hover { box-shadow: 0 10px 40px rgba(8,145,178,0.15); } .c-orange .card-icon-wrap { background: #ffedd5; } .c-orange .card-cta { background: #ffedd5; color: #ea580c; } .c-orange:hover { box-shadow: 0 10px 40px rgba(234,88,12,0.15); } .c-purple .card-icon-wrap { background: #ede9fe; } .c-purple .card-cta { background: #ede9fe; color: #7c3aed; } .c-purple:hover { box-shadow: 0 10px 40px rgba(124,58,237,0.15); } .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); } .no-results.visible { display: block; } .ad-mid { display: flex; justify-content: center; margin: 8px 0 48px; } .guides-section { margin-bottom: 56px; } .guides-header { margin-bottom: 24px; } .guides-header h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; } .guides-header p { color: var(--text-muted); margin-top: 4px; } .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; } .guide-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 24px; text-decoration: none; color: var(--text); display: block; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; } .guide-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; } .guide-card.g-blue::before { background: linear-gradient(90deg, #1a56db, #7c3aed); } .guide-card.g-green::before { background: linear-gradient(90deg, #059669, #0891b2); } .guide-card.g-amber::before { background: linear-gradient(90deg, #d97706, #ea580c); } .guide-card.g-rose::before { background: linear-gradient(90deg, #e11d48, #7c3aed); } .guide-card.g-teal::before { background: linear-gradient(90deg, #0891b2, #1a56db); } .guide-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); } .guide-chip { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-bottom: 14px; } .g-blue .guide-chip { background: #dbeafe; color: #1d4ed8; } .g-green .guide-chip { background: #d1fae5; color: #059669; } .g-amber .guide-chip { background: #fef3c7; color: #b45309; } .g-rose .guide-chip { background: #ffe4e6; color: #e11d48; } .g-teal .guide-chip { background: #cffafe; color: #0891b2; } .guide-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; line-height: 1.35; } .guide-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; } .guide-cta { font-size: 13px; font-weight: 600; color: var(--blue); display: flex; align-items: center; gap: 4px; } .books-section { background: linear-gradient(135deg, #0f172a, #1e3a8a); border-radius: 20px; padding: 32px; margin-bottom: 56px; } .books-header { margin-bottom: 20px; } .books-header h3 { font-size: 1.25rem; font-weight: 800; color: #f1f5f9; } .books-header p { font-size: 13.5px; color: #94a3b8; margin-top: 4px; } .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 12px; } .book-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; text-decoration: none; color: #f1f5f9; display: block; transition: background 0.2s; } .book-card:hover { background: rgba(255,255,255,0.12); text-decoration: none; color: #f1f5f9; } .book-chip { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #fbbf24; margin-bottom: 8px; } .book-title { font-size: 13.5px; font-weight: 600; line-height: 1.4; } .faq-section-home { margin-bottom: 56px; } .faq-section-home h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; } .faq-item-d { border: 1.5px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; transition: box-shadow 0.2s; } .faq-item-d:has(details[open]) { box-shadow: var(--shadow-md); } .faq-item-d summary { padding: 18px 20px; cursor: pointer; font-weight: 600; font-size: 15px; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--white); } .faq-item-d summary::-webkit-details-marker { display: none; } .faq-item-d summary::after { content: '+'; font-size: 20px; font-weight: 400; color: var(--blue); flex-shrink: 0; margin-left: 12px; transition: transform 0.2s; } .faq-item-d details[open] summary::after { content: '−'; } .faq-body-d { padding: 0 20px 20px; font-size: 14.5px; color: var(--text-muted); line-height: 1.75; background: var(--white); } .seo-text { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 36px; margin-bottom: 56px; } .seo-text h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.02em; } .seo-text h3 { font-size: 1.05rem; font-weight: 700; margin: 22px 0 8px; } .seo-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; } .section-divider { height: 1px; background: var(--border); margin: 40px 0; } .tool-section.hidden, .tool-card.hidden { display: none; }</style>
+  <style>
+  /* HERO */
+  .hero { position: relative; overflow: hidden; padding: 88px 24px 64px; text-align: center; background: linear-gradient(180deg, #fbfcfe 0%, var(--bg) 100%); }
+  .hero-aurora { position: absolute; inset: -20%; z-index: 0; pointer-events: none; filter: blur(60px); }
+  .hero-aurora span { position: absolute; border-radius: 50%; opacity: 0.35; animation: aurora-float 22s ease-in-out infinite; }
+  .hero-aurora span:nth-child(1) { width: 420px; height: 420px; top: -120px; left: 8%; background: radial-gradient(circle, #93c5fd, transparent 70%); animation-delay: 0s; }
+  .hero-aurora span:nth-child(2) { width: 380px; height: 380px; top: 40px; right: 6%; background: radial-gradient(circle, #c4b5fd, transparent 70%); animation-delay: -7s; }
+  .hero-aurora span:nth-child(3) { width: 320px; height: 320px; bottom: -140px; left: 38%; background: radial-gradient(circle, #a7f3d0, transparent 70%); animation-delay: -14s; }
+  @keyframes aurora-float { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(24px,18px) scale(1.08); } 66% { transform: translate(-18px,10px) scale(0.96); } }
+  @media (prefers-reduced-motion: reduce) { .hero-aurora span { animation: none; } }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 6px 16px; font-size: 13px; color: var(--text-muted); margin-bottom: 28px; box-shadow: var(--shadow-xs); }
+  .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+  @media (prefers-reduced-motion: reduce) { .hero-badge .dot { animation: none; } }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; color: var(--text); line-height: 1.1; letter-spacing: -0.04em; max-width: 760px; margin: 0 auto 18px; }
+  .hero h1 em { font-style: normal; color: var(--blue); }
+  .hero-sub { font-size: 1.1rem; color: var(--text-muted); max-width: 540px; margin: 0 auto 36px; line-height: 1.7; }
+  .search-wrap { max-width: 540px; margin: 0 auto; position: relative; }
+  .search-wrap input { width: 100%; padding: 16px 52px 16px 20px; border-radius: 14px; border: 1.5px solid var(--border); background: var(--white); color: var(--text); font-size: 15px; font-family: inherit; box-shadow: var(--shadow-sm); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+  .search-wrap input::placeholder { color: var(--text-light); }
+  .search-wrap input:focus { border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-xlight); }
+  .search-wrap .search-icon { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--text-light); pointer-events: none; font-size: 18px; }
+
+  /* TRUST BAR (override tema scuro condiviso con look chiaro) */
+  .trust-bar { background: transparent; padding: 28px 16px 0; }
+  .trust-bar-inner { max-width: 760px; }
+  .trust-badge { color: var(--text-muted); border-right: 1px solid var(--border); }
+  .trust-badge:last-child { border-right: none; }
+  .tb-text { color: var(--text-muted); }
+  .tb-text strong { color: var(--text); }
+  @media (max-width: 640px) { .trust-badge { border-right: none; border-bottom: 1px solid var(--border); } .trust-badge:last-child { border-bottom: none; } }
+
+  #mainContent { max-width: 1080px; margin: 0 auto; padding: 48px 20px 80px; }
+
+  /* TOP STRUMENTI */
+  .top-section { margin-bottom: 56px; }
+  .top-section h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .top-section .top-sub { color: var(--text-muted); margin-bottom: 22px; font-size: 14.5px; }
+  .top-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .top-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 22px; text-decoration: none; color: var(--text); display: block; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .top-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--border-dark); text-decoration: none; }
+  .top-card .card-icon-wrap { width: 44px; height: 44px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
+  .top-card .card-title { font-size: 0.98rem; font-weight: 700; margin-bottom: 6px; }
+  .top-card .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px; }
+  .top-card .card-cta { font-size: 12.5px; font-weight: 600; color: var(--blue); }
+
+  /* PILLS CATEGORIA */
+  .category-pills { display: flex; gap: 8px; margin-bottom: 36px; overflow-x: auto; padding-bottom: 4px; }
+  .cat-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 100px; border: 1.5px solid var(--border); background: var(--white); font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: inherit; }
+  .cat-pill:hover { border-color: var(--border-dark); color: var(--text); }
+  .cat-pill.active { border-color: var(--text); background: var(--text); color: #fff; }
+
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .section-icon { width: 30px; height: 30px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .section-header h2 { font-size: 1.02rem; font-weight: 700; color: var(--text); }
+  .section-header span { font-size: 12.5px; color: var(--text-light); margin-left: auto; }
+  .tool-section { margin-bottom: 40px; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+
+  .tool-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-decoration: none; color: var(--text); display: block; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+  .tool-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-dark); text-decoration: none; }
+  .tool-card .card-icon-wrap { width: 38px; height: 38px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 17px; margin-bottom: 12px; }
+  .tool-card .card-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+  .tool-card .card-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px; }
+  .tool-card .card-cta { font-size: 12px; font-weight: 600; color: var(--blue); }
+
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); }
+  .no-results.visible { display: block; }
+  .ad-mid { display: flex; justify-content: center; margin: 8px 0 48px; }
+
+  /* GUIDE */
+  .guides-section { margin-bottom: 56px; }
+  .guides-header { margin-bottom: 22px; }
+  .guides-header h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; }
+  .guides-header p { color: var(--text-muted); margin-top: 4px; font-size: 14.5px; }
+  .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+  .guide-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-decoration: none; color: var(--text); display: block; transition: transform 0.15s, box-shadow 0.15s; }
+  .guide-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .guide-chip { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-bottom: 12px; background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+  .guide-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.35; }
+  .guide-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px; }
+  .guide-cta { font-size: 12.5px; font-weight: 600; color: var(--blue); display: flex; align-items: center; gap: 4px; }
+
+  /* LIBRI */
+  .books-section { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 28px; margin-bottom: 56px; }
+  .books-header { margin-bottom: 18px; }
+  .books-header h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+  .books-header p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+  .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 12px; }
+  .book-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-decoration: none; color: var(--text); display: block; transition: border-color 0.2s; }
+  .book-card:hover { border-color: var(--border-dark); text-decoration: none; color: var(--text); }
+  .book-chip { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; font-weight: 700; }
+  .book-title { font-size: 13px; font-weight: 600; line-height: 1.4; }
+
+  /* FAQ */
+  .faq-section-home { margin-bottom: 56px; }
+  .faq-section-home h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .faq-item-d { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+  .faq-item-d:has(details[open]) { box-shadow: var(--shadow-sm); }
+  .faq-item-d summary { padding: 16px 18px; cursor: pointer; font-weight: 600; font-size: 14.5px; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; background: var(--white); }
+  .faq-item-d summary::-webkit-details-marker { display: none; }
+  .faq-item-d summary::after { content: '+'; font-size: 18px; font-weight: 400; color: var(--blue); flex-shrink: 0; margin-left: 12px; }
+  .faq-item-d details[open] summary::after { content: '−'; }
+  .faq-body-d { padding: 0 18px 18px; font-size: 14px; color: var(--text-muted); line-height: 1.7; background: var(--white); }
+
+  /* SEO TEXT */
+  .seo-text { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 56px; }
+  .seo-text h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.02em; }
+  .seo-text h3 { font-size: 1rem; font-weight: 700; margin: 20px 0 8px; }
+  .seo-text p { font-size: 14.5px; color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; }
+
+  .section-divider { height: 1px; background: var(--border); margin: 36px 0; }
+  .tool-section.hidden, .tool-card.hidden, .top-section.hidden { display: none; }
+  </style>
 
   <!-- Schema: WebSite + SearchAction + ItemList -->
   <script type="application/ld+json">
@@ -148,24 +262,18 @@
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
   <!-- NAVBAR -->
   <nav class="navbar" role="navigation" aria-label="Navigazione principale">
-    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span class="logo-accent">Pro</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
-    </button>
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">CalcolaPro</a>
     <ul class="nav-links" id="navLinks" role="list">
-      <li><a href="freelance.html">💰 Freelance</a></li>
-      <li><a href="lordonetto.html">💵 Lordo/Netto</a></li>
-      <li><a href="mutuo.html">🏦 Mutuo</a></li>
-      <li><a href="affitto.html">🏠 Affitto</a></li>
-      <li><a href="partitaiva.html">📋 P.IVA</a></li>
-      <li><a href="iva.html">🧾 IVA</a></li>
-      <li><a href="chilometrico.html">🚗 Km ACI</a></li>
-      <li><a href="calcolo-tfr-liquidazione.html">📦 TFR</a></li>
-      <li><a href="pensione.html">🎂 Pensione</a></li>
-      <li><a href="tdee.html">🥗 TDEE</a></li>
-      <li><a href="bmi.html">⚖️ BMI</a></li>
-      <li><a href="index.html" class="nav-all" aria-current="page">Tutti →</a></li>
+      <li><a href="lordonetto.html">Stipendio</a></li>
+      <li><a href="mutuo.html">Mutuo</a></li>
+      <li><a href="freelance.html">Freelance</a></li>
+      <li><a href="partitaiva.html">P.IVA</a></li>
+      <li><a href="pensione.html">Pensione</a></li>
+      <li><a href="index.html" class="nav-all" aria-current="page">Tutti gli strumenti</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+    </button>
   </nav>
 
   <!-- AD TOP -->
@@ -176,6 +284,7 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="hero-badge">
       <span class="dot"></span>
       37 strumenti gratuiti · Aggiornati 2026
@@ -187,22 +296,6 @@
     <div class="search-wrap">
       <input type="text" id="searchInput" placeholder="Cerca un calcolatore… (es. mutuo, IVA, stipendio)" autocomplete="off" />
       <span class="search-icon">🔍</span>
-    </div>
-
-    <!-- Stats -->
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">37</span>
-        <span class="stat-label">Strumenti gratuiti</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num" style="font-size:1.15rem">Giugno 2026</span>
-        <span class="stat-label">Aggiornato a</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">0</span>
-        <span class="stat-label">Registrazioni</span>
-      </div>
     </div>
   </section>
   <div class="trust-bar" role="complementary" aria-label="Garanzie del servizio">
@@ -217,17 +310,76 @@
       </div>
       <div class="trust-badge">
         <span class="tb-icon">&#127941;</span>
-        <span class="tb-text">Gratuito al 100%<br><strong>Nessun abbonamento</strong></span>
-      </div>
-      <div class="trust-badge">
-        <span class="tb-icon">&#128200;</span>
-        <span class="tb-text">Dati elaborati<br><strong>solo nel tuo browser</strong></span>
+        <span class="tb-text">100% gratuito<br><strong>Nessun abbonamento</strong></span>
       </div>
     </div>
   </div>
 
   <!-- MAIN -->
   <main id="main-content">
+
+    <!-- TOP STRUMENTI -->
+    <div class="top-section" id="topSection">
+      <h2>I più usati</h2>
+      <p class="top-sub">Gli 8 strumenti più cercati. Il resto è organizzato per categoria qui sotto.</p>
+      <div class="top-grid">
+        <a href="lordonetto.html" class="top-card">
+          <div class="card-icon-wrap">💵</div>
+          <div class="card-title">Lordo → Netto Stipendio</div>
+          <p class="card-desc">Busta paga netta dal lordo annuo con IRPEF e INPS.</p>
+          <div class="card-cta">Calcola ora →</div>
+        </a>
+
+        <a href="mutuo.html" class="top-card">
+          <div class="card-icon-wrap">🏦</div>
+          <div class="card-title">Rata Mutuo</div>
+          <p class="card-desc">Rata mensile, interessi totali e piano di ammortamento.</p>
+          <div class="card-cta">Calcola ora →</div>
+        </a>
+
+        <a href="freelance.html" class="top-card">
+          <div class="card-icon-wrap">💰</div>
+          <div class="card-title">Prezzo Orario Freelance</div>
+          <p class="card-desc">Tariffa oraria ideale tra tasse, INPS e margine.</p>
+          <div class="card-cta">Calcola ora →</div>
+        </a>
+
+        <a href="partitaiva.html" class="top-card">
+          <div class="card-icon-wrap">📋</div>
+          <div class="card-title">Conviene la Partita IVA?</div>
+          <p class="card-desc">Confronto netto freelance forfettario vs dipendente.</p>
+          <div class="card-cta">Confronta ora →</div>
+        </a>
+
+        <a href="pensione.html" class="top-card">
+          <div class="card-icon-wrap">🎂</div>
+          <div class="card-title">Pensione 2026</div>
+          <p class="card-desc">Quando andare in pensione e importo assegno INPS.</p>
+          <div class="card-cta">Calcola ora →</div>
+        </a>
+
+        <a href="iva.html" class="top-card">
+          <div class="card-icon-wrap">🧾</div>
+          <div class="card-title">Calcolatore IVA</div>
+          <p class="card-desc">Aggiungi o scorpora IVA al 22%, 10%, 5% o 4%.</p>
+          <div class="card-cta">Calcola ora →</div>
+        </a>
+
+        <a href="calcolo-tfr-liquidazione.html" class="top-card">
+          <div class="card-icon-wrap">📦</div>
+          <div class="card-title">TFR Liquidazione</div>
+          <p class="card-desc">Tassazione separata e confronto con fondo pensione.</p>
+          <div class="card-cta">Calcola ora →</div>
+        </a>
+
+        <a href="calcolo-isee.html" class="top-card">
+          <div class="card-icon-wrap">📄</div>
+          <div class="card-title">Simulatore ISEE 2026</div>
+          <p class="card-desc">Stima ISEE per bonus e agevolazioni disponibili.</p>
+          <div class="card-cta">Stima ora →</div>
+        </a>
+      </div>
+    </div>
 
     <!-- Filtri categoria -->
     <div class="category-pills" role="navigation" aria-label="Filtra per categoria">
@@ -249,112 +401,112 @@
       </div>
       <div class="cards-grid">
 
-        <a href="freelance.html" class="tool-card c-blue" data-keywords="freelance prezzo orario tariffa tasse INPS regime forfettario">
+        <a href="freelance.html" class="tool-card" data-keywords="freelance prezzo orario tariffa tasse INPS regime forfettario">
           <div class="card-icon-wrap">💰</div>
           <div class="card-title">Prezzo Orario Freelance</div>
           <p class="card-desc">Scopri quanto fatturare all'ora. Calcola tasse, INPS, ferie e margine in regime forfettario o ordinario.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="lordonetto.html" class="tool-card c-green" data-keywords="lordo netto stipendio busta paga IRPEF INPS 2026 dipendente">
+        <a href="lordonetto.html" class="tool-card" data-keywords="lordo netto stipendio busta paga IRPEF INPS 2026 dipendente">
           <div class="card-icon-wrap">💵</div>
           <div class="card-title">Lordo → Netto Stipendio</div>
           <p class="card-desc">Calcola lo stipendio netto dal lordo annuo. IRPEF, contributi INPS, detrazioni figli e coniuge. Busta paga 2026.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="partitaiva.html" class="tool-card c-purple" data-keywords="partita IVA conviene forfettario dipendente confronto netto">
+        <a href="partitaiva.html" class="tool-card" data-keywords="partita IVA conviene forfettario dipendente confronto netto">
           <div class="card-icon-wrap">📋</div>
           <div class="card-title">Conviene la Partita IVA?</div>
           <p class="card-desc">Confronta il netto come freelance forfettario vs lavoratore dipendente. Scopri cosa ti conviene davvero.</p>
           <div class="card-cta">Confronta ora →</div>
         </a>
 
-        <a href="tfr.html" class="tool-card c-teal" data-keywords="TFR trattamento fine rapporto liquidazione anni lavoro retribuzione">
+        <a href="tfr.html" class="tool-card" data-keywords="TFR trattamento fine rapporto liquidazione anni lavoro retribuzione">
           <div class="card-icon-wrap">📦</div>
           <div class="card-title">Simulatore TFR</div>
           <p class="card-desc">Stima il tuo Trattamento di Fine Rapporto in base agli anni di lavoro e alla retribuzione lorda annuale.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-tfr-liquidazione.html" class="tool-card c-teal" data-keywords="calcolo TFR liquidazione tassazione separata fondo pensione tabella">
+        <a href="calcolo-tfr-liquidazione.html" class="tool-card" data-keywords="calcolo TFR liquidazione tassazione separata fondo pensione tabella">
           <div class="card-icon-wrap">💼</div>
           <div class="card-title">Calcolo TFR Liquidazione 2026</div>
           <p class="card-desc">Guida completa al calcolo della liquidazione: tabella TFR per RAL/anni, tassazione separata e confronto fondo pensione.</p>
           <div class="card-cta">Scopri di più →</div>
         </a>
 
-        <a href="chilometrico.html" class="tool-card c-orange" data-keywords="rimborso chilometrico ACI 2026 auto km benzina diesel">
+        <a href="chilometrico.html" class="tool-card" data-keywords="rimborso chilometrico ACI 2026 auto km benzina diesel">
           <div class="card-icon-wrap">🚗</div>
           <div class="card-title">Rimborso Chilometrico ACI</div>
           <p class="card-desc">Calcola il rimborso spettante con le tariffe ACI 2026. Scegli veicolo, cilindrata e inserisci i km percorsi.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="pensione.html" class="tool-card c-purple" data-keywords="pensione quando vado in pensione contributi INPS vecchiaia anticipata quota 103 importo">
+        <a href="pensione.html" class="tool-card" data-keywords="pensione quando vado in pensione contributi INPS vecchiaia anticipata quota 103 importo">
           <div class="card-icon-wrap">🎂</div>
           <div class="card-title">Calcolatore Pensione 2026</div>
           <p class="card-desc">Scopri quando puoi andare in pensione e quanto prenderai al mese. Vecchiaia, anticipata e Quota 103. Aggiornato 2026.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-ferie-permessi.html" class="tool-card c-teal" data-keywords="ferie permessi ferie maturate residue ore giorni contratto lavoro">
+        <a href="calcolo-ferie-permessi.html" class="tool-card" data-keywords="ferie permessi ferie maturate residue ore giorni contratto lavoro">
           <div class="card-icon-wrap">🌴</div>
           <div class="card-title">Ferie e Permessi</div>
           <p class="card-desc">Calcola le ferie maturate, i permessi residui e verifica quante ore hai accumulato in base al tuo contratto.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-straordinari.html" class="tool-card c-orange" data-keywords="straordinari ore extra lavoro weekend festivi maggiorazione retribuzione">
+        <a href="calcolo-straordinari.html" class="tool-card" data-keywords="straordinari ore extra lavoro weekend festivi maggiorazione retribuzione">
           <div class="card-icon-wrap">⏱️</div>
           <div class="card-title">Calcolo Straordinari</div>
           <p class="card-desc">Calcola la retribuzione per ore straordinarie con le maggiorazioni contrattuali: notturno, festivo, domenicale.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-naspi.html" class="tool-card c-rose" data-keywords="naspi disoccupazione indennità calcolo naspi 2026 importo durata licenziamento fine contratto">
+        <a href="calcolo-naspi.html" class="tool-card" data-keywords="naspi disoccupazione indennità calcolo naspi 2026 importo durata licenziamento fine contratto">
           <div class="card-icon-wrap">🛡️</div>
           <div class="card-title">Calcolo NASpI 2026</div>
           <p class="card-desc">Calcola l'importo mensile della NASpI, la durata e il totale percepito dopo licenziamento o fine contratto. Aggiornato INPS 2026.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-malattia-inps.html" class="tool-card c-amber" data-keywords="malattia inps indennità malattia dipendente carenza giorni malattia quanto prendo malato 2026">
+        <a href="calcolo-malattia-inps.html" class="tool-card" data-keywords="malattia inps indennità malattia dipendente carenza giorni malattia quanto prendo malato 2026">
           <div class="card-icon-wrap">💊</div>
           <div class="card-title">Indennità Malattia INPS</div>
           <p class="card-desc">Calcola quanto percepisce il dipendente in malattia: indennità INPS giornaliera, giorni di carenza e integrazione datoriale. Aggiornato 2026.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-maternita-inps.html" class="tool-card c-rose" data-keywords="maternità inps indennità maternità congedo paternità obbligatoria congedo parentale quanto prendo maternità 2026">
+        <a href="calcolo-maternita-inps.html" class="tool-card" data-keywords="maternità inps indennità maternità congedo paternità obbligatoria congedo parentale quanto prendo maternità 2026">
           <div class="card-icon-wrap">👶</div>
           <div class="card-title">Indennità Maternità INPS</div>
           <p class="card-desc">Calcola l'indennità di maternità: 80% × 5 mesi per la madre, 100% × 10 giorni per il padre e congedo parentale facoltativo. Aggiornato 2026.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-costo-lavoro.html" class="tool-card c-blue" data-keywords="costo del lavoro dipendente 2026 quanto costa assumere contributi inps datore lavoro inail tfr costo azienda">
+        <a href="calcolo-costo-lavoro.html" class="tool-card" data-keywords="costo del lavoro dipendente 2026 quanto costa assumere contributi inps datore lavoro inail tfr costo azienda">
           <div class="card-icon-wrap">🏢</div>
           <div class="card-title">Costo del Lavoro 2026</div>
           <p class="card-desc">Calcola il costo reale di un dipendente per l'azienda: contributi INPS datoriali, INAIL e TFR. Con simulazione sgravi contributivi 2026.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-interessi-mora.html" class="tool-card c-teal" data-keywords="interessi mora pagamenti ritardo tasso bce calcolo mora fattura d.lgs 231 2002 indennità forfettaria recupero crediti">
+        <a href="calcolo-interessi-mora.html" class="tool-card" data-keywords="interessi mora pagamenti ritardo tasso bce calcolo mora fattura d.lgs 231 2002 indennità forfettaria recupero crediti">
           <div class="card-icon-wrap">⚖️</div>
           <div class="card-title">Interessi di Mora</div>
           <p class="card-desc">Calcola gli interessi su fatture non pagate: tasso BCE + 8% per B2B (D.Lgs. 231/2002) o tasso legale per crediti civili. Include indennità recupero e testo diffida.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-prestazione-occasionale.html" class="tool-card c-green" data-keywords="prestazione occasionale calcolo 2026 ritenuta acconto 20% lavoro autonomo occasionale limite 5000 euro inps gestione separata netto lordo">
+        <a href="calcolo-prestazione-occasionale.html" class="tool-card" data-keywords="prestazione occasionale calcolo 2026 ritenuta acconto 20% lavoro autonomo occasionale limite 5000 euro inps gestione separata netto lordo">
           <div class="card-icon-wrap">🧾</div>
           <div class="card-title">Prestazione Occasionale</div>
           <p class="card-desc">Calcola il netto dopo ritenuta 20%, soglia INPS €5.000 e contributi Gestione Separata. Include bozza ricevuta da stampare e confronto con P.IVA forfettaria.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-preavviso.html" class="tool-card c-purple" data-keywords="calcolo preavviso licenziamento dimissioni 2026 indennità sostitutiva preavviso mesi CCNL commercio metalmeccanico fine rapporto">
+        <a href="calcolo-preavviso.html" class="tool-card" data-keywords="calcolo preavviso licenziamento dimissioni 2026 indennità sostitutiva preavviso mesi CCNL commercio metalmeccanico fine rapporto">
           <div class="card-icon-wrap">📋</div>
           <div class="card-title">Calcolo Preavviso</div>
           <p class="card-desc">Calcola i mesi di preavviso e l'indennità sostitutiva per licenziamento o dimissioni. Tabelle CCNL per commercio, industria, credito. Include TFR e NASpI dopo la fine.</p>
@@ -373,35 +525,35 @@
       </div>
       <div class="cards-grid">
 
-        <a href="calcolatore-interessi-conto-deposito.html" class="tool-card c-green" data-keywords="conto deposito interessi netti tassazione 26% imposta bollo rendimento vincolato libero">
+        <a href="calcolatore-interessi-conto-deposito.html" class="tool-card" data-keywords="conto deposito interessi netti tassazione 26% imposta bollo rendimento vincolato libero">
           <div class="card-icon-wrap">🏦</div>
           <div class="card-title">Interessi Conto Deposito</div>
           <p class="card-desc">Calcola il rendimento netto del tuo conto deposito dopo tassazione 26% e imposta di bollo. Confronta libero vs vincolato.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-buoni-fruttiferi-postali.html" class="tool-card c-amber" data-keywords="buoni fruttiferi postali bfp calcolo rendimento netto tassazione 12.5% poste italiane risparmio garantito stato">
+        <a href="calcolo-buoni-fruttiferi-postali.html" class="tool-card" data-keywords="buoni fruttiferi postali bfp calcolo rendimento netto tassazione 12.5% poste italiane risparmio garantito stato">
           <div class="card-icon-wrap">📮</div>
           <div class="card-title">Buoni Fruttiferi Postali</div>
           <p class="card-desc">Calcola il rendimento netto dei BFP con tassazione agevolata 12,5%. Confronta con conto deposito e scopri il vantaggio fiscale.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolatore-risparmio.html" class="tool-card c-teal" data-keywords="risparmio mensile obiettivo interesse composto fondo emergenza quanto risparmiare">
+        <a href="calcolatore-risparmio.html" class="tool-card" data-keywords="risparmio mensile obiettivo interesse composto fondo emergenza quanto risparmiare">
           <div class="card-icon-wrap">🎯</div>
           <div class="card-title">Calcolatore Risparmio</div>
           <p class="card-desc">Scopri quanto devi risparmiare ogni mese per raggiungere il tuo obiettivo. Calcola con l'interesse composto.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolatore-prestito-personale.html" class="tool-card c-amber" data-keywords="prestito personale rata mensile TAN TAEG finanziamento interessi durata">
+        <a href="calcolatore-prestito-personale.html" class="tool-card" data-keywords="prestito personale rata mensile TAN TAEG finanziamento interessi durata">
           <div class="card-icon-wrap">💳</div>
           <div class="card-title">Prestito Personale</div>
           <p class="card-desc">Calcola rata mensile, totale interessi e TAEG stimato del tuo prestito personale. Include spese di istruttoria e gestione.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-fondo-pensione.html" class="tool-card c-blue" data-keywords="fondo pensione complementare calcolo 2026 simulatore pensione integrativa TFR fondo risparmio deducibilità IRPEF rendita mensile">
+        <a href="calcolo-fondo-pensione.html" class="tool-card" data-keywords="fondo pensione complementare calcolo 2026 simulatore pensione integrativa TFR fondo risparmio deducibilità IRPEF rendita mensile">
           <div class="card-icon-wrap">🏛️</div>
           <div class="card-title">Fondo Pensione</div>
           <p class="card-desc">Simula il capitale che accumulerai con la pensione complementare: contributi, TFR, rendimento e risparmio IRPEF. Confronto TFR in azienda vs fondo.</p>
@@ -420,49 +572,49 @@
       </div>
       <div class="cards-grid">
 
-        <a href="mutuo.html" class="tool-card c-blue" data-keywords="mutuo rata mensile calcolo ammortamento tasso fisso variabile LTV">
+        <a href="mutuo.html" class="tool-card" data-keywords="mutuo rata mensile calcolo ammortamento tasso fisso variabile LTV">
           <div class="card-icon-wrap">🏦</div>
           <div class="card-title">Calcolatore Rata Mutuo</div>
           <p class="card-desc">Calcola la rata mensile, il totale degli interessi e il piano di ammortamento completo. Confronta durate e tassi.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="affitto.html" class="tool-card c-rose" data-keywords="affitto sostenibile massimo reddito spese mensili risparmio">
+        <a href="affitto.html" class="tool-card" data-keywords="affitto sostenibile massimo reddito spese mensili risparmio">
           <div class="card-icon-wrap">🏠</div>
           <div class="card-title">Affitto Sostenibile</div>
           <p class="card-desc">Calcola l'affitto massimo che puoi permetterti in base al reddito, spese fisse e obiettivo di risparmio mensile.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-cedolare-secca.html" class="tool-card c-amber" data-keywords="cedolare secca affitto 21% 10% IRPEF canone concordato proprietario immobile">
+        <a href="calcolo-cedolare-secca.html" class="tool-card" data-keywords="cedolare secca affitto 21% 10% IRPEF canone concordato proprietario immobile">
           <div class="card-icon-wrap">🏘️</div>
           <div class="card-title">Cedolare Secca vs IRPEF</div>
           <p class="card-desc">Scopri se conviene la cedolare secca (21% o 10%) o l'IRPEF ordinaria sul tuo affitto. Confronto immediato 2026.</p>
           <div class="card-cta">Confronta ora →</div>
         </a>
 
-        <a href="calcolo-spese-acquisto-casa.html" class="tool-card c-blue" data-keywords="spese acquisto casa rogito notaio imposte registro catastale ipotecaria prima casa">
+        <a href="calcolo-spese-acquisto-casa.html" class="tool-card" data-keywords="spese acquisto casa rogito notaio imposte registro catastale ipotecaria prima casa">
           <div class="card-icon-wrap">🏗️</div>
           <div class="card-title">Spese Acquisto Casa</div>
           <p class="card-desc">Calcola tutte le spese accessorie all'acquisto: notaio, imposte di registro, catastale e ipotecaria. Prima e seconda casa.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-imu.html" class="tool-card c-rose" data-keywords="IMU imposta municipale immobile rendita catastale aliquota prima seconda casa 2026">
+        <a href="calcolo-imu.html" class="tool-card" data-keywords="IMU imposta municipale immobile rendita catastale aliquota prima seconda casa 2026">
           <div class="card-icon-wrap">🏛️</div>
           <div class="card-title">Calcolo IMU 2026</div>
           <p class="card-desc">Calcola l'IMU da pagare sulla tua proprietà. Inserisci rendita catastale e aliquota comunale per il risultato esatto.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-plusvalenza-immobiliare.html" class="tool-card c-teal" data-keywords="plusvalenza immobiliare calcolo 2026 vendita casa tassa 26% imposta sostitutiva esenzione 5 anni abitazione principale">
+        <a href="calcolo-plusvalenza-immobiliare.html" class="tool-card" data-keywords="plusvalenza immobiliare calcolo 2026 vendita casa tassa 26% imposta sostitutiva esenzione 5 anni abitazione principale">
           <div class="card-icon-wrap">📈</div>
           <div class="card-title">Plusvalenza Immobiliare</div>
           <p class="card-desc">Vendi casa entro 5 anni dall'acquisto? Calcola la plusvalenza tassabile, la scelta tra 26% e IRPEF e le spese deducibili. Include verifica esenzione.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-locazioni-brevi.html" class="tool-card c-orange" data-keywords="locazioni brevi tasse 2026 airbnb booking cedolare secca 21% 26% affitti brevi host dichiarazione redditi ritenuta piattaforma">
+        <a href="calcolo-locazioni-brevi.html" class="tool-card" data-keywords="locazioni brevi tasse 2026 airbnb booking cedolare secca 21% 26% affitti brevi host dichiarazione redditi ritenuta piattaforma">
           <div class="card-icon-wrap">🏡</div>
           <div class="card-title">Locazioni Brevi (Airbnb)</div>
           <p class="card-desc">Host Airbnb o Booking? Calcola le tasse sulle locazioni brevi 2026: cedolare 21% (primo immobile) o 26% (immobili extra), ritenuta già trattenuta dalla piattaforma e saldo da dichiarare.</p>
@@ -481,28 +633,28 @@
       </div>
       <div class="cards-grid">
 
-        <a href="iva.html" class="tool-card c-amber" data-keywords="IVA calcolatore 22 10 5 4 scorporo aggiunta fattura">
+        <a href="iva.html" class="tool-card" data-keywords="IVA calcolatore 22 10 5 4 scorporo aggiunta fattura">
           <div class="card-icon-wrap">🧾</div>
           <div class="card-title">Calcolatore IVA</div>
           <p class="card-desc">Aggiungi o scorpora l'IVA al 22%, 10%, 5% o 4% in un secondo. Con gestione sconti e quantità multiple.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-isee.html" class="tool-card c-purple" data-keywords="ISEE simulatore reddito patrimonio agevolazioni bonus nido reddito cittadinanza dichiarazione DSU">
+        <a href="calcolo-isee.html" class="tool-card" data-keywords="ISEE simulatore reddito patrimonio agevolazioni bonus nido reddito cittadinanza dichiarazione DSU">
           <div class="card-icon-wrap">📋</div>
           <div class="card-title">Simulatore ISEE 2026</div>
           <p class="card-desc">Stima il tuo ISEE 2026 per accedere a bonus, agevolazioni e sussidi. Calcolo basato su reddito e patrimonio familiare.</p>
           <div class="card-cta">Stima ora →</div>
         </a>
 
-        <a href="calcolo-detrazioni-730.html" class="tool-card c-blue" data-keywords="detrazioni 730 2026 spese detraibili IRPEF spese sanitarie mutuo istruzione assicurazioni ristrutturazioni">
+        <a href="calcolo-detrazioni-730.html" class="tool-card" data-keywords="detrazioni 730 2026 spese detraibili IRPEF spese sanitarie mutuo istruzione assicurazioni ristrutturazioni">
           <div class="card-icon-wrap">📄</div>
           <div class="card-title">Detrazioni 730 2026</div>
           <p class="card-desc">Calcola le tue detrazioni IRPEF: spese sanitarie, interessi mutuo, istruzione, assicurazioni e ristrutturazioni.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-bollo-auto.html" class="tool-card c-orange" data-keywords="bollo auto 2026 calcola bollo auto kw tassa automobilistica quanto pago bollo veicolo elettrico storico">
+        <a href="calcolo-bollo-auto.html" class="tool-card" data-keywords="bollo auto 2026 calcola bollo auto kw tassa automobilistica quanto pago bollo veicolo elettrico storico">
           <div class="card-icon-wrap">🚗</div>
           <div class="card-title">Bollo Auto 2026</div>
           <p class="card-desc">Calcola il bollo auto in base ai kW del tuo veicolo. Tariffe aggiornate 2026 con agevolazioni per elettrici e storici.</p>
@@ -521,14 +673,14 @@
       </div>
       <div class="cards-grid">
 
-        <a href="tdee.html" class="tool-card c-green" data-keywords="TDEE fabbisogno calorico calorie giornaliere BMR attività fisica dieta">
+        <a href="tdee.html" class="tool-card" data-keywords="TDEE fabbisogno calorico calorie giornaliere BMR attività fisica dieta">
           <div class="card-icon-wrap">🥗</div>
           <div class="card-title">Calcolatore TDEE</div>
           <p class="card-desc">Calcola il tuo fabbisogno calorico giornaliero in base a età, peso, altezza e livello di attività fisica.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="bmi.html" class="tool-card c-rose" data-keywords="BMI indice massa corporea peso ideale altezza sovrappeso obesità">
+        <a href="bmi.html" class="tool-card" data-keywords="BMI indice massa corporea peso ideale altezza sovrappeso obesità">
           <div class="card-icon-wrap">💊</div>
           <div class="card-title">Calcola il tuo BMI</div>
           <p class="card-desc">Calcola il tuo Indice di Massa Corporea e scopri il range di peso ideale con scala visiva e interpretazione completa.</p>
@@ -547,21 +699,21 @@
       </div>
       <div class="cards-grid">
 
-        <a href="calcolatore-percentuale.html" class="tool-card c-blue" data-keywords="percentuale calcola percentuale sconto ricarico variazione percentuale calcolo % di un numero">
+        <a href="calcolatore-percentuale.html" class="tool-card" data-keywords="percentuale calcola percentuale sconto ricarico variazione percentuale calcolo % di un numero">
           <div class="card-icon-wrap">📊</div>
           <div class="card-title">Calcolatore Percentuale</div>
           <p class="card-desc">Calcola la percentuale di un numero, la variazione tra due valori, lo sconto o il ricarico. 4 modalità in un unico strumento.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="calcolo-eta.html" class="tool-card c-green" data-keywords="calcola età quanti anni ho età esatta anni mesi giorni data nascita compleanno segno zodiacale">
+        <a href="calcolo-eta.html" class="tool-card" data-keywords="calcola età quanti anni ho età esatta anni mesi giorni data nascita compleanno segno zodiacale">
           <div class="card-icon-wrap">🎂</div>
           <div class="card-title">Calcola la tua Età</div>
           <p class="card-desc">Scopri quanti anni, mesi e giorni hai esattamente. Countdown al prossimo compleanno e segno zodiacale inclusi.</p>
           <div class="card-cta">Calcola ora →</div>
         </a>
 
-        <a href="divisione-conto.html" class="tool-card c-amber" data-keywords="divisione conto ristorante amici coinquilini conto alla romana quota mancia split bill spese gruppo">
+        <a href="divisione-conto.html" class="tool-card" data-keywords="divisione conto ristorante amici coinquilini conto alla romana quota mancia split bill spese gruppo">
           <div class="card-icon-wrap">🍕</div>
           <div class="card-title">Divisione Conto</div>
           <p class="card-desc">Dividi il conto del ristorante o le spese tra coinquilini in modo equo. Divisione uguale o per persona, con mancia opzionale.</p>
@@ -592,77 +744,77 @@
       </div>
       <div class="guides-grid">
 
-        <a href="categoria-freelance.html" class="guide-card g-blue">
+        <a href="categoria-freelance.html" class="guide-card">
           <span class="guide-chip">Lavoro autonomo</span>
           <div class="guide-title">Calcolatori per Freelance: Guida alla Scelta</div>
           <p class="guide-desc">5 strumenti in un'unica pagina: tariffa oraria, P.IVA vs dipendente, prestazioni occasionali. Trova quello che fa per te.</p>
           <div class="guide-cta">Esplora gli strumenti →</div>
         </a>
 
-        <a href="guida-regime-forfettario.html" class="guide-card g-blue">
+        <a href="guida-regime-forfettario.html" class="guide-card">
           <span class="guide-chip">Lavoro autonomo</span>
           <div class="guide-title">Regime Forfettario 2026: Guida Completa</div>
           <p class="guide-desc">Requisiti, aliquote 5% e 15%, contributi INPS e confronto con il regime ordinario.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-stipendio-netto-lordo.html" class="guide-card g-green">
+        <a href="guida-stipendio-netto-lordo.html" class="guide-card">
           <span class="guide-chip">Stipendio</span>
           <div class="guide-title">Come si Calcola lo Stipendio Netto</div>
           <p class="guide-desc">IRPEF, INPS, detrazioni: tutte le voci della busta paga spiegate semplicemente.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-mutuo-fisso-variabile.html" class="guide-card g-teal">
+        <a href="guida-mutuo-fisso-variabile.html" class="guide-card">
           <span class="guide-chip">Casa</span>
           <div class="guide-title">Mutuo Fisso o Variabile? La Guida</div>
           <p class="guide-desc">Differenze, vantaggi e svantaggi di ciascuno. Come scegliere in base alla tua situazione.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-comprare-affittare-casa.html" class="guide-card g-amber">
+        <a href="guida-comprare-affittare-casa.html" class="guide-card">
           <span class="guide-chip">Casa</span>
           <div class="guide-title">Comprare o Affittare Casa? Analisi 2026</div>
           <p class="guide-desc">Costi, vantaggi e svantaggi di entrambe le soluzioni. Con esempi pratici per il mercato italiano.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-deficit-calorico-dimagrire.html" class="guide-card g-rose">
+        <a href="guida-deficit-calorico-dimagrire.html" class="guide-card">
           <span class="guide-chip">Salute</span>
           <div class="guide-title">Deficit Calorico: Come Dimagrire</div>
           <p class="guide-desc">Come calcolare il deficit giusto, quante calorie mangiare e come preservare la massa muscolare.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-pensione-anticipata-2026.html" class="guide-card g-blue">
+        <a href="guida-pensione-anticipata-2026.html" class="guide-card">
           <span class="guide-chip">Pensione</span>
           <div class="guide-title">Pensione Anticipata 2026: Tutte le Strade</div>
           <p class="guide-desc">Quota 103, Opzione Donna, APe Sociale e pensione anticipata ordinaria. Requisiti aggiornati 2026.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-conto-deposito-2026.html" class="guide-card g-green">
+        <a href="guida-conto-deposito-2026.html" class="guide-card">
           <span class="guide-chip">Risparmio</span>
           <div class="guide-title">Conti Deposito 2026: Come Scegliere</div>
           <p class="guide-desc">Tassi, tassazione 26%, libero vs vincolato e confronto con BTP. Guida completa aggiornata.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-cedolare-secca-affitti.html" class="guide-card g-amber">
+        <a href="guida-cedolare-secca-affitti.html" class="guide-card">
           <span class="guide-chip">Affitti</span>
           <div class="guide-title">Cedolare Secca 2026: Quando Conviene</div>
           <p class="guide-desc">21% o 10%? Come confrontarla con l'IRPEF ordinaria e quando scegliere il canone concordato.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-investire-10000-euro.html" class="guide-card g-teal">
+        <a href="guida-investire-10000-euro.html" class="guide-card">
           <span class="guide-chip">Investimenti</span>
           <div class="guide-title">Come Investire 10.000 Euro nel 2026</div>
           <p class="guide-desc">Confronto tra 6 strumenti, 3 portafogli modello (conservativo, bilanciato, crescita) e guida alla tassazione.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="glossario-finanziario.html" class="guide-card g-rose">
+        <a href="glossario-finanziario.html" class="guide-card">
           <span class="guide-chip">Dizionario</span>
           <div class="guide-title">Glossario Finanziario 2026</div>
           <p class="guide-desc">40 termini spiegati in italiano: TAEG, TAN, RAL, TFR, ETF, LTV, ISEE, PAC e molto altro con esempi pratici.</p>
@@ -855,8 +1007,10 @@
     const allSections = document.querySelectorAll('.tool-section');
     const noResults = document.getElementById('noResults');
 
+    const topSection = document.getElementById('topSection');
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.toLowerCase().trim();
+      if (topSection) topSection.classList.toggle('hidden', !!q);
       if (!q) {
         // Mostra tutto
         allCards.forEach(c => c.classList.remove('hidden'));
