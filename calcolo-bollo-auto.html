@@ -136,6 +136,17 @@
             <option value="ciclomotore">Ciclomotore (50cc, ≤4kW)</option>
           </select>
         </div>
+        <div class="field" id="euroField">
+          <label for="classeEuro">Classe ambientale (campo V.9 del libretto)</label>
+          <select id="classeEuro">
+            <option value="456">Euro 4 / Euro 5 / Euro 6</option>
+            <option value="3">Euro 3</option>
+            <option value="2">Euro 2</option>
+            <option value="1">Euro 1</option>
+            <option value="0">Euro 0</option>
+          </select>
+          <p class="hint">Le tariffe base nazionali sono più alte per i veicoli più vecchi/inquinanti. Trovi la classe Euro sulla carta di circolazione.</p>
+        </div>
         <div class="field" id="regioneField">
           <label for="regione">Regione di residenza</label>
           <select id="regione">
@@ -465,7 +476,13 @@
     function calcola() {
       const kw = parseFloat(document.getElementById('kw').value) || 0;
       const tipo = document.getElementById('tipoVeicolo').value;
+      const classeEuro = document.getElementById('classeEuro').value;
       const regione = document.getElementById('regione').value;
+      // Tariffe €/kW nazionali base per classe Euro (soglia 100kW per auto): fino a Euro3 tariffe piu' alte, unificate da Euro4 in su
+      const TARIFFE_AUTO = { '0': [3.00, 4.50], '1': [2.90, 4.35], '2': [2.80, 4.20], '3': [2.70, 4.05], '456': [2.58, 3.87] };
+      // Moto: quota fissa fino a 11kW + tariffa aggiuntiva per ogni kW oltre gli 11kW
+      const TARIFFE_MOTO = { '0': [26.00, 1.70], '1': [23.00, 1.30], '2': [21.00, 1.00], '3': [19.11, 0.88], '456': [19.11, 0.88] };
+      const [tariffaAutoBase, tariffaAutoOltre] = TARIFFE_AUTO[classeEuro] || TARIFFE_AUTO['456'];
       const isElettr = document.getElementById('elettrico').checked;
       const isStor = document.getElementById('storico').checked;
       const annoImmat = parseInt(document.getElementById('annoImmat').value) || 2023;
@@ -516,11 +533,13 @@
       // Normal calculation (if not exempt/reduced by above)
       if (status === 'normale') {
         if (tipo === 'auto') {
-          bolloBase = kw <= 100 ? kw * 2.58 : (100 * 2.58 + (kw - 100) * 3.87);
+          bolloBase = kw <= 100 ? kw * tariffaAutoBase : (100 * tariffaAutoBase + (kw - 100) * tariffaAutoOltre);
+          nota = 'Tariffa nazionale base: numerose Regioni/Province autonome (Abruzzo, Campania, Emilia-Romagna, Lazio, Liguria, Calabria, Veneto, Toscana, Bolzano, Trento) applicano tariffe proprie leggermente diverse. Verifica sul portale ACI (online.aci.it/acinet/calcolobollo) per il valore esatto della tua regione.';
         } else if (tipo === 'moto') {
-          // Moto: €0.79/kW up to 11kW, then tariffe diverse — simplified: same as auto base
-          bolloBase = kw <= 53 ? kw * 1.27 : (53 * 1.27 + (kw - 53) * 1.27);
-          nota = 'Nota: per i motocicli la tariffa può variare. Verificare sul portale ACI.';
+          // Moto: quota fissa fino a 11kW + tariffa aggiuntiva per ogni kW oltre gli 11kW (tariffe nazionali base per classe Euro)
+          const [quotaFissa, tariffaOltre11] = TARIFFE_MOTO[classeEuro] || TARIFFE_MOTO['456'];
+          bolloBase = kw <= 11 ? quotaFissa : quotaFissa + (kw - 11) * tariffaOltre11;
+          nota = 'Tariffa nazionale base: numerose Regioni/Province autonome (Abruzzo, Campania, Emilia-Romagna, Lazio, Liguria, Calabria, Veneto, Toscana, Bolzano, Trento) applicano tariffe proprie leggermente diverse. Verifica sul portale ACI (online.aci.it/acinet/calcolobollo) per il valore esatto della tua regione.';
         }
       }
 
@@ -541,10 +560,10 @@
       // Breakdown
       let breakdown = '';
       if (status !== 'esente' && tipo === 'auto' && status !== 'ridotto') {
-        const p1 = Math.min(kw, 100) * 2.58;
-        const p2 = Math.max(0, kw - 100) * 3.87;
-        breakdown = `<div class="breakdown-item"><div class="breakdown-value">${fmt(p1)}</div><div class="breakdown-label">${Math.min(kw,100)} kW × €2,58</div></div>`;
-        if (p2 > 0) breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(p2)}</div><div class="breakdown-label">${kw-100} kW × €3,87 (>100kW)</div></div>`;
+        const p1 = Math.min(kw, 100) * tariffaAutoBase;
+        const p2 = Math.max(0, kw - 100) * tariffaAutoOltre;
+        breakdown = `<div class="breakdown-item"><div class="breakdown-value">${fmt(p1)}</div><div class="breakdown-label">${Math.min(kw,100)} kW × €${tariffaAutoBase.toFixed(2).replace('.',',')}</div></div>`;
+        if (p2 > 0) breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(p2)}</div><div class="breakdown-label">${kw-100} kW × €${tariffaAutoOltre.toFixed(2).replace('.',',')} (>100kW)</div></div>`;
         if (addizionale > 0) breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(addizionale)}</div><div class="breakdown-label">Addizionale regionale (+5%)</div></div>`;
       }
       document.getElementById('breakdownOut').innerHTML = breakdown;
@@ -566,12 +585,12 @@
         const p2kw = Math.max(0, kw - 100);
         let rows = `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Potenza 0-${p1kw} kW</td>
-          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p1kw} kW × €2,58</td>
-          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p1kw * 2.58)}</td></tr>`;
+          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p1kw} kW × €${tariffaAutoBase.toFixed(2).replace('.',',')}</td>
+          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p1kw * tariffaAutoBase)}</td></tr>`;
         if (p2kw > 0) rows += `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Potenza extra >100 kW</td>
-          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p2kw} kW × €3,87</td>
-          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p2kw * 3.87)}</td></tr>`;
+          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p2kw} kW × €${tariffaAutoOltre.toFixed(2).replace('.',',')}</td>
+          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p2kw * tariffaAutoOltre)}</td></tr>`;
         if (addizionale > 0) rows += `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Addizionale regionale</td>
           <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">+5%</td>
