@@ -73,15 +73,18 @@
   .tb-text strong { color: var(--text); font-size: 13px; }
   @media (max-width: 640px) { .trust-badge { border-right: none; border-bottom: 1px solid var(--border); width: 100%; justify-content: center; text-align: center; } .trust-badge:last-child { border-bottom: none; } }
 
-  /* ═══ HERO 3D — vero cubo che ruota (CSS transforms, proporzioni da cubo reale) ═══ */
+  /* ═══ HERO 3D — scena: calcolatrice che ruota + monete 3D + badge in vetro ═══ */
   .hero-3d-wrap { position: relative; z-index: 0; display: flex; align-items: center; justify-content: center; margin: 20px 0 8px; }
+  .hero-3d-scene { position: relative; width: 300px; height: 310px; }
   .hero-3d-glow { position: absolute; inset: -12px; z-index: 0; pointer-events: none; overflow: hidden; }
   .hero-3d-glow span { position: absolute; border-radius: 50%; filter: blur(42px); opacity: 0.65; }
-  .hero-3d-glow span:nth-child(1) { width: 210px; height: 210px; top: 6%; left: 4%; background: #93c5fd; }
-  .hero-3d-glow span:nth-child(2) { width: 170px; height: 170px; bottom: 6%; right: 4%; background: #c4b5fd; }
-  .hero-3d-shadow { position: absolute; bottom: -10px; left: 50%; width: 180px; height: 28px; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(15,23,42,0.3) 0%, transparent 72%); z-index: 0; }
+  .hero-3d-glow span:nth-child(1) { width: 210px; height: 210px; top: 4%; left: 2%; background: #93c5fd; }
+  .hero-3d-glow span:nth-child(2) { width: 170px; height: 170px; bottom: 4%; right: 2%; background: #c4b5fd; }
+  .hero-3d-glow span:nth-child(3) { width: 130px; height: 130px; bottom: 16%; left: 8%; background: #a7f3d0; opacity: 0.5; }
+  .hero-3d-orbit { position: absolute; left: 50%; top: 51%; width: 345px; height: 135px; transform: translate(-50%,-50%) rotate(-11deg); border: 1.5px dashed rgba(148,163,184,0.45); border-radius: 50%; z-index: 1; pointer-events: none; }
+  .hero-3d-shadow { position: absolute; bottom: -2px; left: 50%; width: 180px; height: 28px; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(15,23,42,0.3) 0%, transparent 72%); z-index: 0; }
 
-  .hero-3d-perspective { position: relative; z-index: 1; width: 240px; height: 240px; perspective: 750px; }
+  .hero-3d-perspective { position: absolute; left: 30px; top: 35px; z-index: 2; width: 240px; height: 240px; perspective: 750px; }
   .hero-3d-float { width: 100%; height: 100%; animation: hg3dBob 6s ease-in-out infinite; }
   .hero-3d-tilt { width: 100%; height: 100%; transform-style: preserve-3d; transform: rotateX(-16deg); }
   .hero-3d-cube { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; animation: hg3dSpin 15s linear infinite; }
@@ -197,13 +200,59 @@
   .hg-key-eq { background: linear-gradient(135deg, #1a56db, #4f46e5); color: #fff; animation: hgKeyPulse 3.2s ease-in-out infinite; }
   @keyframes hgKeyPulse { 0%, 100% { box-shadow: 0 1px 2px rgba(15,23,42,0.08); } 50% { box-shadow: 0 0 0 6px rgba(26,86,219,0.18); } }
 
+  /* ═══ MONETE € 3D — girano su se stesse (facce + spessore a strati) ═══ */
+  .hg-coin { position: absolute; pointer-events: none; }
+  .hg-coin-a { width: 72px; height: 72px; top: 2px; right: -4px; z-index: 3; perspective: 500px; animation: hgCoinBob 5.4s ease-in-out infinite; }
+  .hg-coin-b { width: 46px; height: 46px; left: -6px; bottom: 58px; z-index: 1; perspective: 400px; animation: hgCoinBob 6.6s ease-in-out infinite; animation-delay: -2.8s; }
+  .hg-coin-spin { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; animation: hgCoinSpin 4.6s linear infinite; }
+  .hg-coin-b .hg-coin-spin { animation-duration: 6s; animation-delay: -1.5s; }
+  .hg-coin-face { position: absolute; inset: 0; border-radius: 50%; backface-visibility: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-weight: 800; color: #7c4a03;
+    background: radial-gradient(circle at 32% 28%, #fde68a 0%, #fbbf24 45%, #f59e0b 72%, #b45309 100%);
+    box-shadow: inset 0 0 0 4px rgba(180,83,9,0.35), inset 0 2px 6px rgba(255,255,255,0.55); }
+  .hg-coin-a .hg-coin-face { font-size: 30px; }
+  .hg-coin-b .hg-coin-face { font-size: 19px; }
+  .hg-coin-front { transform: translateZ(4px); }
+  .hg-coin-back  { transform: rotateY(180deg) translateZ(4px); }
+  .hg-coin-mid   { position: absolute; inset: 0; border-radius: 50%; background: #b45309; }
+  .hg-coin-mid.m1 { transform: translateZ(-3px); } .hg-coin-mid.m2 { transform: translateZ(-1.5px); }
+  .hg-coin-mid.m3 { transform: translateZ(0); }    .hg-coin-mid.m4 { transform: translateZ(1.5px); }
+  .hg-coin-mid.m5 { transform: translateZ(3px); }
+  @keyframes hgCoinSpin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+  @keyframes hgCoinBob  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+  /* ═══ BADGE IN VETRO fluttuanti ═══ */
+  .hg-badge3d { position: absolute; z-index: 4; display: flex; align-items: center; gap: 5px;
+    padding: 9px 13px; border-radius: 13px; font-size: 13px; font-weight: 800; white-space: nowrap;
+    background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.85); box-shadow: 0 12px 28px rgba(15,23,42,0.16); }
+  .hg-badge3d-green { right: -14px; bottom: 62px; color: #047857; animation: hgBadgeFloatA 5.2s ease-in-out infinite; }
+  .hg-badge3d-green .hg-badge3d-arrow { font-size: 9px; }
+  .hg-badge3d-blue { left: -16px; top: 148px; color: var(--text-muted); font-weight: 700; font-size: 11px; letter-spacing: 0.4px; animation: hgBadgeFloatB 6.4s ease-in-out infinite; animation-delay: -2s; }
+  .hg-badge3d-blue b { color: #1a56db; font-size: 14px; letter-spacing: 0; }
+  @keyframes hgBadgeFloatA { 0%,100% { transform: rotate(5deg) translateY(0); } 50% { transform: rotate(3deg) translateY(-10px); } }
+  @keyframes hgBadgeFloatB { 0%,100% { transform: rotate(-7deg) translateY(0); } 50% { transform: rotate(-5deg) translateY(-8px); } }
+
+  /* Scintillii */
+  .hg-spark { position: absolute; width: 11px; height: 11px; z-index: 4; pointer-events: none;
+    clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+    animation: hgSparkTwinkle 3.4s ease-in-out infinite; }
+  .hg-spark.s1 { top: 16px; left: 26px; background: #93c5fd; }
+  .hg-spark.s2 { bottom: 30px; right: 34px; background: #c4b5fd; animation-delay: -1.2s; }
+  .hg-spark.s3 { top: 118px; right: 6px; background: #fbbf24; animation-delay: -2.3s; width: 8px; height: 8px; }
+  @keyframes hgSparkTwinkle { 0%,100% { opacity: 0; transform: scale(0.4) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+
   @media (prefers-reduced-motion: reduce) {
-    .hero-3d-float, .hero-3d-cube, .hg-screen-cursor, .hg-key-eq { animation: none; }
+    .hero-3d-float, .hero-3d-cube, .hg-screen-cursor, .hg-key-eq,
+    .hg-coin, .hg-coin-spin, .hg-badge3d, .hg-spark { animation: none; }
     .hero-3d-cube { transform: rotateY(-30deg); }
+    .hg-coin-spin { transform: rotateY(28deg); }
+    .hg-spark { opacity: 0.7; }
   }
   @media (max-width: 959px) {
-    .hero-3d-perspective { transform: scale(0.6); }
-    .hero-3d-wrap { margin: 16px 0 -50px; }
+    .hero-3d-scene { transform: scale(0.62); }
+    .hero-3d-wrap { margin: 6px 0 -52px; }
   }
 
   @media (min-width: 960px) {
@@ -560,7 +609,9 @@
       <!-- Isometric hero graphic — decorativo, nascosto sotto i 960px -->
       <div class="hero-right" aria-hidden="true">
         <div class="hero-3d-wrap">
-          <div class="hero-3d-glow"><span></span><span></span></div>
+          <div class="hero-3d-scene">
+          <div class="hero-3d-glow"><span></span><span></span><span></span></div>
+          <div class="hero-3d-orbit"></div>
           <div class="hero-3d-shadow"></div>
           <div class="hero-3d-perspective">
             <div class="hero-3d-float">
@@ -606,6 +657,32 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- Monete € 3D che girano -->
+          <div class="hg-coin hg-coin-a">
+            <div class="hg-coin-spin">
+              <div class="hg-coin-mid m1"></div><div class="hg-coin-mid m2"></div><div class="hg-coin-mid m3"></div><div class="hg-coin-mid m4"></div><div class="hg-coin-mid m5"></div>
+              <div class="hg-coin-face hg-coin-front">&euro;</div>
+              <div class="hg-coin-face hg-coin-back">&euro;</div>
+            </div>
+          </div>
+          <div class="hg-coin hg-coin-b">
+            <div class="hg-coin-spin">
+              <div class="hg-coin-mid m1"></div><div class="hg-coin-mid m2"></div><div class="hg-coin-mid m3"></div><div class="hg-coin-mid m4"></div><div class="hg-coin-mid m5"></div>
+              <div class="hg-coin-face hg-coin-front">&euro;</div>
+              <div class="hg-coin-face hg-coin-back">&euro;</div>
+            </div>
+          </div>
+
+          <!-- Badge in vetro fluttuanti -->
+          <div class="hg-badge3d hg-badge3d-green"><span class="hg-badge3d-arrow">&#9650;</span> +12,4%</div>
+          <div class="hg-badge3d hg-badge3d-blue">TAEG <b>3,2%</b></div>
+
+          <!-- Scintillii -->
+          <span class="hg-spark s1"></span>
+          <span class="hg-spark s2"></span>
+          <span class="hg-spark s3"></span>
           </div>
         </div>
       </div>
