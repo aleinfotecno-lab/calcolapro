@@ -100,3 +100,5 @@ Ogni pagina calcolatore segue lo stesso schema, riusabile come base per nuovi st
 - `<body>`: navbar standard → page-header → form input → risultato (`.result-card` con `.result-disclaimer` obbligatorio) → contenuto SEO/FAQ → footer standard.
 - Disclaimer "risultato indicativo" **sempre presente** dentro il box risultato di ogni calcolatore: è la principale tutela legale del sito.
 - Dopo aver aggiunto una pagina: aggiornarla in `sitemap.xml`, `llms.txt`, e collegarla da almeno 2 punti del sito (home + un calcolatore correlato).
+
+<!-- deploy-retry-marker: 2026-07-03T07:09:10Z -->
