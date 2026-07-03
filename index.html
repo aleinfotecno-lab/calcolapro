@@ -89,29 +89,101 @@
   @keyframes hg3dBob  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-13px); } }
   @keyframes hg3dSpin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
-  .hg-face { position: absolute; border-radius: 20px; backface-visibility: hidden; box-sizing: border-box; }
+  .hg-face { position: absolute; border-radius: 14px; backface-visibility: hidden; box-sizing: border-box; }
+  /* Ogni faccia va centrata nel contenitore 240x240 PRIMA della trasformazione:
+     la rotazione avviene attorno al centro dell'elemento, che deve coincidere
+     col centro del cubo, altrimenti le facce si staccano dal solido. */
+  .hg-face-front, .hg-face-back { top: 0; left: 0; }
+  .hg-face-left, .hg-face-right { top: 0; left: 65px; }
+  .hg-face-top, .hg-face-bottom { top: 65px; left: 0; }
   .hg-face-front {
     width: 240px; height: 240px; transform: translateZ(55px);
     background: linear-gradient(160deg, #ffffff 0%, #e3e9f5 100%);
     border: 1px solid #ffffff; box-shadow: 0 30px 60px rgba(15,23,42,0.32), 0 0 0 1px rgba(255,255,255,0.4) inset;
-    padding: 16px; display: flex; flex-direction: column; gap: 8px;
+    padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 7px;
   }
   .hg-face-front::before {
-    content: ''; position: absolute; inset: 0; border-radius: 20px; pointer-events: none;
+    content: ''; position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
     background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 42%);
   }
+
+  /* Retro: scocca scura con vano batteria, viti ed etichetta prodotto */
   .hg-face-back {
     width: 240px; height: 240px; transform: rotateY(180deg) translateZ(55px);
-    background: linear-gradient(160deg, #1e293b 0%, #0b1220 100%);
-    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #2b3a52 0%, #1e293b 45%, #0f172a 100%);
   }
-  .hg-face-left   { width: 110px; height: 240px; transform: rotateY(-90deg) translateZ(120px); background: linear-gradient(100deg, #e2e8f0, #b9c4d6); }
-  .hg-face-right  { width: 110px; height: 240px; transform: rotateY(90deg)  translateZ(120px); background: linear-gradient(100deg, #aab6c9, #7c8aa0); }
-  .hg-face-top    { width: 240px; height: 110px; transform: rotateX(90deg)  translateZ(120px); background: linear-gradient(#ffffff, #eef2f9); }
-  .hg-face-bottom { width: 240px; height: 110px; transform: rotateX(-90deg) translateZ(120px); background: linear-gradient(#8b97ab, #667289); }
 
-  .hg-logo-back { font-size: 17px; font-weight: 800; color: rgba(255,255,255,0.9); letter-spacing: -0.02em; }
-  .hg-logo-back span { color: #60a5fa; }
+  /* Lati/sopra/sotto: scocca a due gusci — corpo scuro + cornice frontale chiara,
+     con linea di giunzione (seam) sul bordo adiacente al fronte */
+  .hg-face-left   { width: 110px; height: 240px; transform: rotateY(-90deg) translateZ(120px);
+    background: linear-gradient(90deg,  #16202f 0%, #22304a 62%, #2c3c58 74%, #8fa0b8 76%, #e5eaf2 78%, #f8fafc 100%); }
+  .hg-face-right  { width: 110px; height: 240px; transform: rotateY(90deg)  translateZ(120px);
+    background: linear-gradient(270deg, #0b1220 0%, #182338 62%, #21304a 74%, #74839b 76%, #d5dde8 78%, #eef2f7 100%); }
+  .hg-face-top    { width: 240px; height: 110px; transform: rotateX(90deg)  translateZ(120px);
+    background: linear-gradient(180deg, #2e3d57 0%, #354663 62%, #3d5070 74%, #a4b2c6 76%, #eef2f8 80%, #ffffff 100%); }
+  .hg-face-bottom { width: 240px; height: 110px; transform: rotateX(-90deg) translateZ(120px);
+    background: linear-gradient(0deg,   #0b1220 0%, #131c2c 62%, #1a2536 74%, #62718a 76%, #c3ccd9 80%, #dfe5ee 100%); }
+
+  /* Fronte: riga brand + cella solare (dettaglio iconico da calcolatrice) */
+  .hg-front-topline { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .hg-front-brand { font-size: 10px; font-weight: 800; letter-spacing: -0.01em; color: #334155; }
+  .hg-front-brand span { color: #1a56db; }
+  .hg-solar { width: 62px; height: 13px; border-radius: 3px; overflow: hidden; display: flex;
+    background: linear-gradient(180deg, #2e3440, #191d26); border: 1px solid #454f61;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5); }
+  .hg-solar i { flex: 1; border-right: 1px solid rgba(160,180,210,0.28); }
+  .hg-solar i:last-child { border-right: none; }
+
+  /* Viti agli angoli del retro */
+  .hg-screw { position: absolute; width: 9px; height: 9px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #aab6c9, #475569 75%);
+    box-shadow: inset 0 -1px 2px rgba(0,0,0,0.45); }
+  .hg-screw::before { content: ''; position: absolute; left: 2px; right: 2px; top: 50%;
+    height: 1.5px; transform: translateY(-50%) rotate(45deg); background: #111a29; border-radius: 1px; }
+  .hg-screw-tl { top: 12px; left: 12px; } .hg-screw-tr { top: 12px; right: 12px; }
+  .hg-screw-bl { bottom: 12px; left: 12px; } .hg-screw-br { bottom: 12px; right: 12px; }
+
+  /* Vano batteria con zigrinatura */
+  .hg-battery { position: absolute; top: 34px; left: 50%; transform: translateX(-50%);
+    width: 132px; height: 62px; border-radius: 10px;
+    background: linear-gradient(180deg, #253248 0%, #1a2537 100%);
+    border: 1px solid rgba(148,163,184,0.3);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.4); }
+  .hg-battery-grip { position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+    width: 46px; height: 11px; border-radius: 2px;
+    background: repeating-linear-gradient(90deg, rgba(148,163,184,0.55) 0 2px, transparent 2px 6px); }
+  .hg-battery-txt { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center;
+    font-size: 7px; letter-spacing: 2.5px; color: rgba(148,163,184,0.7); font-weight: 700; }
+
+  /* Etichetta prodotto con codice a barre */
+  .hg-back-label { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    width: 156px; padding: 9px 12px 8px; border-radius: 8px; text-align: center;
+    background: linear-gradient(#f1f5f9, #dde5ee); box-shadow: 0 1px 3px rgba(0,0,0,0.35); }
+  .hg-logo-back { font-size: 14px; font-weight: 800; color: #0f172a; letter-spacing: -0.02em; }
+  .hg-logo-back span { color: #1a56db; }
+  .hg-back-model { margin-top: 1px; font-size: 6.5px; letter-spacing: 1.2px; color: #64748b; font-weight: 700; }
+  .hg-back-barcode { margin: 5px auto 0; width: 96px; height: 13px; opacity: 0.85;
+    background: repeating-linear-gradient(90deg, #0f172a 0 1.5px, transparent 1.5px 3px, #0f172a 3px 5.5px, transparent 5.5px 7.5px); }
+
+  /* Zigrinatura grip sui lati */
+  .hg-side-grip { position: absolute; top: 50%; transform: translateY(-50%);
+    width: 30px; height: 92px; opacity: 0.85;
+    background: repeating-linear-gradient(180deg, rgba(255,255,255,0.13) 0 3px, transparent 3px 13px); }
+  .hg-face-left .hg-side-grip { left: 20px; }
+  .hg-face-right .hg-side-grip { right: 20px; }
+
+  /* Logo inciso sul bordo superiore */
+  .hg-top-brand { position: absolute; top: 26px; left: 50%; transform: translateX(-50%);
+    font-size: 8px; font-weight: 800; letter-spacing: 3px; color: rgba(255,255,255,0.28);
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4); white-space: nowrap; }
+
+  /* Fondo: piedini in gomma + seriale */
+  .hg-foot { position: absolute; width: 34px; height: 12px; border-radius: 6px;
+    background: linear-gradient(#111a29, #0a111d); box-shadow: inset 0 1px 1px rgba(255,255,255,0.08); }
+  .hg-foot-1 { top: 16px; left: 20px; } .hg-foot-2 { top: 16px; right: 20px; }
+  .hg-foot-3 { bottom: 14px; left: 20px; } .hg-foot-4 { bottom: 14px; right: 20px; }
+  .hg-serial { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-size: 6.5px; letter-spacing: 1.5px; color: rgba(148,163,184,0.55); font-weight: 700; white-space: nowrap; }
 
   .hg-screen { position: relative; z-index: 1; background: linear-gradient(160deg, #0b1220, #16324f); border-radius: 13px; padding: 10px 14px; }
   .hg-screen-label { font-size: 8.5px; letter-spacing: 1.4px; color: rgba(255,255,255,0.4); font-weight: 700; }
@@ -495,6 +567,10 @@
               <div class="hero-3d-tilt">
                 <div class="hero-3d-cube">
                   <div class="hg-face hg-face-front">
+                    <div class="hg-front-topline">
+                      <div class="hg-front-brand">Calcola<span>Pro</span></div>
+                      <div class="hg-solar"><i></i><i></i><i></i><i></i></div>
+                    </div>
                     <div class="hg-screen">
                       <div class="hg-screen-label">RISPARMIO STIMATO</div>
                       <div class="hg-screen-num">&#8364; 1.847<span class="hg-screen-cursor"></span></div>
@@ -506,11 +582,27 @@
                       <div class="hg-key">C</div><div class="hg-key">0</div><div class="hg-key">.</div><div class="hg-key hg-key-eq">=</div>
                     </div>
                   </div>
-                  <div class="hg-face hg-face-back"><div class="hg-logo-back">Calcola<span>Pro</span></div></div>
-                  <div class="hg-face hg-face-left"></div>
-                  <div class="hg-face hg-face-right"></div>
-                  <div class="hg-face hg-face-top"></div>
-                  <div class="hg-face hg-face-bottom"></div>
+                  <div class="hg-face hg-face-back">
+                    <span class="hg-screw hg-screw-tl"></span><span class="hg-screw hg-screw-tr"></span>
+                    <span class="hg-screw hg-screw-bl"></span><span class="hg-screw hg-screw-br"></span>
+                    <div class="hg-battery">
+                      <span class="hg-battery-grip"></span>
+                      <span class="hg-battery-txt">BATTERIA</span>
+                    </div>
+                    <div class="hg-back-label">
+                      <div class="hg-logo-back">Calcola<span>Pro</span></div>
+                      <div class="hg-back-model">MOD. CP-37 &middot; SOLAR + LR44</div>
+                      <div class="hg-back-barcode"></div>
+                    </div>
+                  </div>
+                  <div class="hg-face hg-face-left"><span class="hg-side-grip"></span></div>
+                  <div class="hg-face hg-face-right"><span class="hg-side-grip"></span></div>
+                  <div class="hg-face hg-face-top"><span class="hg-top-brand">CALCOLAPRO</span></div>
+                  <div class="hg-face hg-face-bottom">
+                    <span class="hg-foot hg-foot-1"></span><span class="hg-foot hg-foot-2"></span>
+                    <span class="hg-foot hg-foot-3"></span><span class="hg-foot hg-foot-4"></span>
+                    <span class="hg-serial">S/N 2026-IT-0037</span>
+                  </div>
                 </div>
               </div>
             </div>
