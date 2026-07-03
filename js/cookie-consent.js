@@ -162,6 +162,7 @@
     s.setAttribute('data-cp-ga', '1');
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
+    gtag('js', new Date());
     gtag('config', GA_ID);
   }
 
