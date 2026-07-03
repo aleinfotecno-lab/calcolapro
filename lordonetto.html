@@ -34,7 +34,7 @@
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Come si calcola lo stipendio netto dal lordo in Italia?","acceptedAnswer":{"@type":"Answer","text":"Dal lordo annuo (RAL) si sottraggono i contributi INPS a carico del dipendente (9,19%) e l'IRPEF calcolata con aliquote progressive: 23% fino a 28.000€, 35% da 28.001€ a 50.000€, 43% oltre 50.000€. Si aggiungono poi le detrazioni per lavoro dipendente e per familiari a carico."}},
+    {"@type":"Question","name":"Come si calcola lo stipendio netto dal lordo in Italia?","acceptedAnswer":{"@type":"Answer","text":"Dal lordo annuo (RAL) si sottraggono i contributi INPS a carico del dipendente (9,19%) e l'IRPEF calcolata con aliquote progressive: 23% fino a 28.000€, 33% da 28.001€ a 50.000€, 43% oltre 50.000€. Si aggiungono poi le detrazioni per lavoro dipendente e per familiari a carico."}},
     {"@type":"Question","name":"Quanto prendo netto con 30.000€ di RAL?","acceptedAnswer":{"@type":"Answer","text":"Con una RAL di 30.000€ il netto mensile è circa 1.900-2.000€, dipendentemente dalle detrazioni per familiari a carico e dalle addizionali regionali e comunali del proprio comune di residenza."}},
     {"@type":"Question","name":"Cosa si intende per RAL?","acceptedAnswer":{"@type":"Answer","text":"La RAL (Retribuzione Annua Lorda) è il totale dello stipendio lordo annuo concordato nel contratto di lavoro, inclusa la tredicesima e la quattordicesima se prevista dal CCNL, prima di qualsiasi trattenuta fiscale o previdenziale."}},
     {"@type":"Question","name":"Quanto si paga di INPS sulla busta paga?","acceptedAnswer":{"@type":"Answer","text":"Il dipendente versa all'INPS il 9,19% della retribuzione lorda come contributi previdenziali. Il datore di lavoro versa una quota aggiuntiva di circa il 23-28%, per un contributo totale che supera il 33% del lordo."}}
@@ -60,22 +60,94 @@
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
-  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
-    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">CalcolaPro</a>
-    <ul class="nav-links" id="navLinks" role="list">
-      <li><a href="lordonetto.html" aria-current="page">Stipendio</a></li>
-      <li><a href="mutuo.html">Mutuo</a></li>
-      <li><a href="freelance.html">Freelance</a></li>
-      <li><a href="partitaiva.html">P.IVA</a></li>
-      <li><a href="pensione.html">Pensione</a></li>
-      <li><a href="index.html" class="nav-all">Tutti gli strumenti</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
-    </button>
+    <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span>Pro</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-quicklink">Home</a>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-expanded="false" aria-controls="navMenuPanel" aria-haspopup="true">
+        Calcolatori
+        <svg class="nav-menu-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg>
+      </button>
+    </div>
   </nav>
-
-  <div class="ad-slot-top" aria-hidden="true">
+  <div class="nav-menu-panel" id="navMenuPanel">
+    <div class="nav-menu-inner">
+      <div class="nav-menu-search">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+      </div>
+      <div class="nav-menu-grid">
+        <div class="nav-menu-col">
+          <h4>💼 Lavoro &amp; Freelance</h4>
+          <a href="lordonetto.html">Stipendio Netto</a>
+          <a href="freelance.html">Tariffa Oraria Freelance</a>
+          <a href="partitaiva.html">Partita IVA vs Dipendente</a>
+          <a href="calcolo-tfr-liquidazione.html">TFR Liquidazione</a>
+          <a href="chilometrico.html">Rimborso Chilometrico</a>
+          <a href="pensione.html">Pensione</a>
+          <a href="calcolo-ferie-permessi.html">Ferie e Permessi</a>
+          <a href="calcolo-straordinari.html">Straordinari</a>
+          <a href="calcolo-naspi.html">NASpI</a>
+          <a href="calcolo-malattia-inps.html">Malattia INPS</a>
+          <a href="calcolo-maternita-inps.html">Maternità INPS</a>
+          <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
+          <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
+          <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
+          <a href="calcolo-preavviso.html">Preavviso</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>💰 Risparmio &amp; Investimenti</h4>
+          <a href="calcolatore-interessi-conto-deposito.html">Conto Deposito</a>
+          <a href="calcolo-buoni-fruttiferi-postali.html">Buoni Fruttiferi Postali</a>
+          <a href="calcolatore-risparmio.html">Obiettivo di Risparmio</a>
+          <a href="calcolatore-prestito-personale.html">Prestito Personale</a>
+          <a href="calcolo-fondo-pensione.html">Fondo Pensione</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏠 Casa &amp; Mutuo</h4>
+          <a href="mutuo.html">Rata Mutuo</a>
+          <a href="affitto.html">Affitto Sostenibile</a>
+          <a href="calcolo-cedolare-secca.html">Cedolare Secca</a>
+          <a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a>
+          <a href="calcolo-imu.html">IMU</a>
+          <a href="calcolo-plusvalenza-immobiliare.html">Plusvalenza Immobiliare</a>
+          <a href="calcolo-locazioni-brevi.html">Locazioni Brevi</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🧾 Tasse &amp; IVA</h4>
+          <a href="iva.html">Calcolatore IVA</a>
+          <a href="calcolo-isee.html">ISEE</a>
+          <a href="calcolo-detrazioni-730.html">Detrazioni 730</a>
+          <a href="calcolo-bollo-auto.html">Bollo Auto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏃 Salute &amp; Utilità</h4>
+          <a href="tdee.html">TDEE</a>
+          <a href="bmi.html">BMI</a>
+          <a href="calcolatore-percentuale.html">Percentuale</a>
+          <a href="calcolo-eta.html">Età</a>
+          <a href="divisione-conto.html">Divisione Conto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>📚 Guide</h4>
+          <a href="categoria-freelance.html">Calcolatori per Freelance</a>
+          <a href="guida-regime-forfettario.html">Regime Forfettario</a>
+          <a href="guida-stipendio-netto-lordo.html">Stipendio Netto dal Lordo</a>
+          <a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso o Variabile</a>
+          <a href="guida-comprare-affittare-casa.html">Comprare o Affittare</a>
+          <a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a>
+          <a href="guida-pensione-anticipata-2026.html">Pensione Anticipata</a>
+          <a href="guida-conto-deposito-2026.html">Conti Deposito</a>
+          <a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a>
+          <a href="guida-investire-10000-euro.html">Investire 10.000€</a>
+          <a href="guida-730-precompilato-2026.html">730 Precompilato</a>
+          <a href="guida-deficit-calorico-dimagrire.html">Deficit Calorico</a>
+          <a href="glossario-finanziario.html">Glossario Finanziario</a>
+        </div>
+      </div>
+      <p class="nav-menu-empty" id="navMenuEmpty">Nessun risultato. Prova un altro termine di ricerca.</p>
+    </div>
+  </div>
+<div class="ad-slot-top" aria-hidden="true">
     <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="5537958207" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
   </div>
 
@@ -244,7 +316,7 @@
           <a href="calcolo-naspi.html" class="cross-link-pill">🛡️ Calcolo NASpI 2026</a>
           <a href="calcolo-detrazioni-730.html" class="cross-link-pill">📄 Detrazioni 730 2026</a>
           <a href="partitaiva.html" class="cross-link-pill">📋 Conviene la Partita IVA?</a>
-          <a href="tfr.html" class="cross-link-pill">📦 Calcola il tuo TFR</a>
+          <a href="calcolo-tfr-liquidazione.html" class="cross-link-pill">📦 Calcola il tuo TFR</a>
         </div>
       </div>
     </div>
@@ -252,7 +324,7 @@
       <h2>Come si calcola lo stipendio netto dal lordo in Italia</h2>
       <p>Il calcolo dello stipendio netto partendo dal lordo (RAL) richiede di sottrarre due voci principali: i contributi previdenziali INPS a carico del dipendente (9,19% della retribuzione lorda) e l'IRPEF, l'imposta sul reddito delle persone fisiche, calcolata con aliquote progressive.</p>
       <h3>Le aliquote IRPEF 2026</h3>
-      <p>L'IRPEF 2026 si applica con aliquote progressive: 23% fino a 28.000€, 35% da 28.001€ a 50.000€, 43% oltre 50.000€. A queste si aggiungono le addizionali regionali (mediamente 1,73%) e comunali (mediamente 0,5%), che variano in base al comune di residenza.</p>
+      <p>L'IRPEF 2026 si applica con aliquote progressive: 23% fino a 28.000€, 33% da 28.001€ a 50.000€, 43% oltre 50.000€. A queste si aggiungono le addizionali regionali (mediamente 1,73%) e comunali (mediamente 0,5%), che variano in base al comune di residenza.</p>
       <h3>Le detrazioni per lavoro dipendente</h3>
       <p>I lavoratori dipendenti hanno diritto a detrazioni IRPEF che riducono l'imposta da pagare. Le detrazioni per lavoro dipendente diminuiscono al crescere del reddito. Esistono inoltre detrazioni aggiuntive per coniuge e figli a carico, che possono ridurre significativamente il carico fiscale per chi ha una famiglia numerosa.</p>
       <h3>Tredicesima e quattordicesima</h3>
@@ -281,11 +353,11 @@
           <tr><th>RAL</th><th>Netto mensile</th><th>Media mensile con 13ª</th><th>Contributi INPS</th><th>IRPEF annua netta</th><th>Aliquota marginale</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>18.000 €</strong></td><td>1.270 €/mese</td><td>1.387 €/mese</td><td>1.654 €/anno</td><td>~1.550 €/anno</td><td>23%</td></tr>
-          <tr><td><strong>24.000 €</strong></td><td>1.590 €/mese</td><td>1.733 €/mese</td><td>2.206 €/anno</td><td>~2.800 €/anno</td><td>23%</td></tr>
-          <tr><td><strong>30.000 €</strong></td><td>1.836 €/mese</td><td>2.000 €/mese</td><td>2.757 €/anno</td><td>~4.500 €/anno</td><td>35%</td></tr>
-          <tr><td><strong>40.000 €</strong></td><td>2.300 €/mese</td><td>2.508 €/mese</td><td>3.676 €/anno</td><td>~7.800 €/anno</td><td>35%</td></tr>
-          <tr><td><strong>50.000 €</strong></td><td>2.730 €/mese</td><td>2.978 €/mese</td><td>4.595 €/anno</td><td>~11.800 €/anno</td><td>43%</td></tr>
+          <tr><td><strong>18.000 €</strong></td><td>1.157 €/mese</td><td>1.254 €/mese</td><td>1.654 €/anno</td><td>~1.300 €/anno</td><td>23%</td></tr>
+          <tr><td><strong>24.000 €</strong></td><td>1.429 €/mese</td><td>1.548 €/mese</td><td>2.206 €/anno</td><td>~3.220 €/anno</td><td>23%</td></tr>
+          <tr><td><strong>30.000 €</strong></td><td>1.700 €/mese</td><td>1.842 €/mese</td><td>2.757 €/anno</td><td>~5.140 €/anno</td><td>23%</td></tr>
+          <tr><td><strong>40.000 €</strong></td><td>2.092 €/mese</td><td>2.266 €/mese</td><td>3.676 €/anno</td><td>~9.130 €/anno</td><td>33%</td></tr>
+          <tr><td><strong>50.000 €</strong></td><td>2.478 €/mese</td><td>2.684 €/mese</td><td>4.595 €/anno</td><td>~13.200 €/anno</td><td>33%</td></tr>
         </tbody>
       </table>
     </div>
@@ -300,11 +372,11 @@
       <h2>Domande frequenti sul calcolo netto da lordo</h2>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola il netto dallo stipendio lordo nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>Dal lordo annuo (RAL) si sottraggono: contributi INPS 9,19%, IRPEF con aliquote 23% (fino a 28.000 €), 35% (da 28.001 € a 50.000 €), 43% (oltre 50.000 €), addizionali regionali (~1,73%) e comunali (~0,5%). Si applicano poi le detrazioni per lavoro dipendente che riducono l'imposta finale. Con RAL 30.000 €: netto mensile circa 1.836 € con tredicesima.</p></div>
+        <div class="faq-answer"><p>Dal lordo annuo (RAL) si sottraggono: contributi INPS 9,19%, IRPEF con aliquote 23% (fino a 28.000 €), 33% (da 28.001 € a 50.000 €), 43% (oltre 50.000 €), addizionali regionali (~1,73%) e comunali (~0,5%). Si applicano poi le detrazioni per lavoro dipendente che riducono l'imposta finale. Con RAL 30.000 €: netto mensile circa 1.700 € con tredicesima.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto prendo netto con 30.000 € di RAL?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>Con una RAL di 30.000 € il netto mensile è circa 1.836 € (con tredicesima, 13 mensilità). IRPEF annua netta circa 4.500 €, contributi INPS 2.757 €. La tredicesima vale circa 2.000 € lordi a dicembre. Senza familiari a carico, in area Nord/Centro Italia senza particolari addizionali comunali.</p></div>
+        <div class="faq-answer"><p>Con una RAL di 30.000 € il netto mensile è circa 1.700 € (con tredicesima, 13 mensilità). IRPEF annua netta circa 5.140 €, contributi INPS 2.757 €. La tredicesima vale circa 1.842 € lordi a dicembre. Senza familiari a carico, in area Nord/Centro Italia senza particolari addizionali comunali.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto si paga di INPS sulla busta paga?<span class="faq-chevron" aria-hidden="true">▾</span></button>
@@ -320,7 +392,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa cambia nel 2026 per la busta paga?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>Nel 2026 sono confermate le aliquote IRPEF a 3 scaglioni (23%, 35%, 43%) introdotte dalla riforma fiscale. Il vecchio esonero contributivo INPS è stato sostituito da un <strong>bonus IRPEF</strong> mensile in busta paga: fino a ~€1.200/anno per RAL ≤ 20.000 €, ridotto proporzionalmente fino a ~32.000 €. I contributi INPS rimangono al 9,19% per tutti. Il calcolatore di CalcolaPro è aggiornato con le aliquote fiscali 2026.</p></div>
+        <div class="faq-answer"><p>Nel 2026 le aliquote IRPEF sono a 3 scaglioni (23%, 33%, 43%): la Legge di Bilancio 2026 ha ridotto l'aliquota del secondo scaglione dal 35% al 33% per i redditi tra 28.001€ e 50.000€. Il vecchio esonero contributivo INPS è stato sostituito da un <strong>bonus IRPEF</strong> mensile in busta paga: fino a ~€1.200/anno per RAL ≤ 20.000 €, ridotto proporzionalmente fino a ~32.000 €. I contributi INPS rimangono al 9,19% per tutti. Il calcolatore di CalcolaPro è aggiornato con le aliquote fiscali 2026.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Conviene un aumento di stipendio o benefit aziendali?<span class="faq-chevron" aria-hidden="true">▾</span></button>
@@ -328,7 +400,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Qual è la differenza tra RAL e stipendio netto?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>La RAL (Retribuzione Annua Lorda) è il totale dello stipendio concordato nel contratto di lavoro, prima di qualsiasi trattenuta, e include tredicesima e quattordicesima se previste dal CCNL. Lo stipendio netto è ciò che ricevi effettivamente in busta paga dopo la detrazione dei contributi INPS (9,19%) e dell'IRPEF con aliquote progressive (23%, 35%, 43%). La differenza tra lordo e netto per un dipendente italiano è mediamente del 25–35% del lordo.</p></div>
+        <div class="faq-answer"><p>La RAL (Retribuzione Annua Lorda) è il totale dello stipendio concordato nel contratto di lavoro, prima di qualsiasi trattenuta, e include tredicesima e quattordicesima se previste dal CCNL. Lo stipendio netto è ciò che ricevi effettivamente in busta paga dopo la detrazione dei contributi INPS (9,19%) e dell'IRPEF con aliquote progressive (23%, 33%, 43%). La differenza tra lordo e netto per un dipendente italiano è mediamente del 25–35% del lordo.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Il bonus 100 € (ex bonus Renzi) è ancora in vigore nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
@@ -359,7 +431,7 @@
   <section class="related-tools-section" aria-label="Calcolatori correlati">
     <h3>&#128270; Potrebbero interessarti anche</h3>
     <div class="related-tools-grid">
-      <a class="related-tool-card" href="tfr.html" onclick="gtag('event','related_tool_click',{'event_label':'tfr_from_lordonetto'})">
+      <a class="related-tool-card" href="calcolo-tfr-liquidazione.html" onclick="gtag('event','related_tool_click',{'event_label':'tfr_from_lordonetto'})">
         <span class="rtc-icon">&#128230;</span>
         <div class="rtc-title">Simulatore TFR</div>
         <div class="rtc-desc">Calcola la tua liquidazione</div>
@@ -388,7 +460,7 @@
       <div class="footer-brand">
         <div class="footer-logo">Calcola<span>Pro</span></div>
         <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:500;">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
+        <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
         <h4>Calcolatori</h4>
@@ -400,7 +472,7 @@
           <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
           <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
           <li><a href="pensione.html">Pensione 2026</a></li>
-          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-tfr-liquidazione.html">Simulatore TFR</a></li>
           <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
           <li><a href="calcolo-straordinari.html">Straordinari</a></li>
           <li><a href="partitaiva.html">Partita IVA</a></li>
@@ -459,12 +531,12 @@
       const imponibile=lordo-inps;
       let irpefLorda=0;
       if(imponibile<=28000) irpefLorda=imponibile*0.23;
-      else if(imponibile<=50000) irpefLorda=28000*0.23+(imponibile-28000)*0.35;
-      else irpefLorda=28000*0.23+22000*0.35+(imponibile-50000)*0.43;
+      else if(imponibile<=50000) irpefLorda=28000*0.23+(imponibile-28000)*0.33;
+      else irpefLorda=28000*0.23+22000*0.33+(imponibile-50000)*0.43;
       let detrLavoro=0;
       if(lordo<=15000) detrLavoro=1955;
-      else if(lordo<=28000) detrLavoro=1955-(lordo-15000)*(1255/13000);
-      else if(lordo<=50000) detrLavoro=700*(50000-lordo)/22000;
+      else if(lordo<=28000) detrLavoro=1910+1190*((28000-lordo)/13000);
+      else if(lordo<=50000) detrLavoro=1910*((50000-lordo)/22000);
       let detrFamiglia=0;
       if(coniuge) detrFamiglia+=800;
       detrFamiglia+=figli*(950+(figli>=3?200:0));
@@ -498,13 +570,13 @@
       // IRPEF 2026
       let irpefLorda=0;
       if(imponibile<=28000) irpefLorda=imponibile*0.23;
-      else if(imponibile<=50000) irpefLorda=28000*0.23+(imponibile-28000)*0.35;
-      else irpefLorda=28000*0.23+22000*0.35+(imponibile-50000)*0.43;
-      // Detrazioni lavoro dipendente (TUIR art.13, riforma 2024+)
+      else if(imponibile<=50000) irpefLorda=28000*0.23+(imponibile-28000)*0.33;
+      else irpefLorda=28000*0.23+22000*0.33+(imponibile-50000)*0.43;
+      // Detrazioni lavoro dipendente (TUIR art.13, formula 2024+: Circolare AdE 4/E del 16/5/2025)
       let detrLavoro=0;
       if(lordo<=15000) detrLavoro=1955;
-      else if(lordo<=28000) detrLavoro=1955-(lordo-15000)*(1255/13000);
-      else if(lordo<=50000) detrLavoro=700*(50000-lordo)/22000;
+      else if(lordo<=28000) detrLavoro=1910+1190*((28000-lordo)/13000);
+      else if(lordo<=50000) detrLavoro=1910*((50000-lordo)/22000);
       // Detrazioni familiari
       let detrFamiglia=0;
       if(coniuge) detrFamiglia+=800;
@@ -558,8 +630,8 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 <script>
 (function(){
   var btn=document.querySelector('.btn-wrap button');
@@ -569,5 +641,6 @@
   if(btn&&wrap&&fill){btn.addEventListener('click',function(){wrap.classList.add('active');fill.style.width='0%';lbl.textContent='Elaborazione...';var w=0,labels=['Elaborazione...','Calcolo IRPEF...','Quasi pronto...','Fatto!'];var iv=setInterval(function(){w+=Math.random()*18+8;if(w>=100){w=100;clearInterval(iv);}fill.style.width=w+'%';lbl.textContent=labels[Math.min(Math.floor(w/25),3)];if(w===100)setTimeout(function(){wrap.classList.remove('active');},600);},80);});}
 })();
 </script>
+  <script src="js/navbar.js" defer></script>
 </body>
 </html>

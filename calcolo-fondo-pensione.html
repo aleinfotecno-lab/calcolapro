@@ -46,8 +46,8 @@
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Conviene aderire a un fondo pensione complementare?","acceptedAnswer":{"@type":"Answer","text":"In molti casi sì, specialmente per i lavoratori dipendenti. I vantaggi principali sono: 1) Deducibilità fiscale dei contributi fino a €5.164,57/anno (risparmio IRPEF immediato); 2) Possibilità di ricevere anche il contributo del datore di lavoro se si aderisce al fondo negoziale; 3) Tassazione agevolata al momento della prestazione (15%, riducibile al 9% con 35 anni di iscrizione). Lo svantaggio principale è l'illiquidità: il capitale è bloccato fino alla pensione, salvo anticipazioni parziali per specifici motivi."}},
-    {"@type":"Question","name":"Quanto posso dedurre dal reddito per il fondo pensione?","acceptedAnswer":{"@type":"Answer","text":"Puoi dedurre dall'imponibile IRPEF i contributi versati al fondo pensione fino a un massimo di €5.164,57 all'anno. Questo limite include i tuoi contributi volontari, ma NON il TFR conferito (che non è deducibile). Il contributo del datore di lavoro, se previsto dal contratto, non rientra nel tetto e non è deducibile da te. La deducibilità riduce l'IRPEF dovuta: a un'aliquota marginale del 35%, dedurre €5.164 significa risparmiare circa €1.807 di tasse."}},
+    {"@type":"Question","name":"Conviene aderire a un fondo pensione complementare?","acceptedAnswer":{"@type":"Answer","text":"In molti casi sì, specialmente per i lavoratori dipendenti. I vantaggi principali sono: 1) Deducibilità fiscale dei contributi fino a €5.300/anno (risparmio IRPEF immediato); 2) Possibilità di ricevere anche il contributo del datore di lavoro se si aderisce al fondo negoziale; 3) Tassazione agevolata al momento della prestazione (15%, riducibile al 9% con 35 anni di iscrizione). Lo svantaggio principale è l'illiquidità: il capitale è bloccato fino alla pensione, salvo anticipazioni parziali per specifici motivi."}},
+    {"@type":"Question","name":"Quanto posso dedurre dal reddito per il fondo pensione?","acceptedAnswer":{"@type":"Answer","text":"Puoi dedurre dall'imponibile IRPEF i contributi versati al fondo pensione fino a un massimo di €5.300 all'anno (limite elevato da €5.164,57 dalla Legge di Bilancio 2026). Questo limite include i tuoi contributi volontari, ma NON il TFR conferito (che non è deducibile). Il contributo del datore di lavoro, se previsto dal contratto, non rientra nel tetto e non è deducibile da te. La deducibilità riduce l'IRPEF dovuta: a un'aliquota marginale del 33%, dedurre €5.300 significa risparmiare circa €1.749 di tasse."}},
     {"@type":"Question","name":"Come viene tassato il fondo pensione alla scadenza?","acceptedAnswer":{"@type":"Answer","text":"Al momento della prestazione (pensione), il montante accumulato è soggetto a una tassazione agevolata: aliquota del 15%, che si riduce dello 0,30% per ogni anno di partecipazione oltre il quindicesimo, fino a un minimo del 9% (raggiunto dopo 35 anni di iscrizione). Solo la parte che corrisponde a contributi già dedotti fiscalmente (non le plusvalenze che hanno già scontato una ritenuta del 20%) è soggetta a questa tassazione."}},
     {"@type":"Question","name":"Cosa succede al TFR se lo destino al fondo pensione?","acceptedAnswer":{"@type":"Answer","text":"Se destini il TFR al fondo pensione, invece di lasciarlo accantonare in azienda (o al Fondo di Tesoreria INPS per aziende > 50 dipendenti), la quota mensile di TFR (6,91% della retribuzione) viene versata nel fondo e capitalizzata con i rendimenti del comparto scelto. Storicamente i fondi negoziali hanno reso mediamente più della rivalutazione ISTAT del TFR (1,5% + 75% FOI) sul lungo periodo, ma con volatilità maggiore per i comparti azionari."}},
     {"@type":"Question","name":"Posso riscattare il fondo pensione prima della pensione?","acceptedAnswer":{"@type":"Answer","text":"Il riscatto totale è possibile solo in caso di perdita del lavoro prolungata (> 48 mesi) e in caso di invalidità permanente che riduce la capacità lavorativa a meno di un terzo. È possibile invece ottenere anticipazioni parziali: fino al 75% del montante per spese sanitarie gravi; fino al 75% dopo 8 anni per acquisto/ristrutturazione prima casa; fino al 30% dopo 8 anni per qualsiasi motivo (cosiddetta anticipazione generica)."}},
@@ -60,22 +60,94 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
-  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
-    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">CalcolaPro</a>
-    <ul class="nav-links" id="navLinks" role="list">
-      <li><a href="lordonetto.html">Stipendio</a></li>
-      <li><a href="mutuo.html">Mutuo</a></li>
-      <li><a href="freelance.html">Freelance</a></li>
-      <li><a href="partitaiva.html">P.IVA</a></li>
-      <li><a href="pensione.html">Pensione</a></li>
-      <li><a href="index.html" class="nav-all">Tutti gli strumenti</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
-    </button>
+    <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span>Pro</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-quicklink">Home</a>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-expanded="false" aria-controls="navMenuPanel" aria-haspopup="true">
+        Calcolatori
+        <svg class="nav-menu-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg>
+      </button>
+    </div>
   </nav>
-
-  <div class="ad-slot-top" aria-hidden="true">
+  <div class="nav-menu-panel" id="navMenuPanel">
+    <div class="nav-menu-inner">
+      <div class="nav-menu-search">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+      </div>
+      <div class="nav-menu-grid">
+        <div class="nav-menu-col">
+          <h4>💼 Lavoro &amp; Freelance</h4>
+          <a href="lordonetto.html">Stipendio Netto</a>
+          <a href="freelance.html">Tariffa Oraria Freelance</a>
+          <a href="partitaiva.html">Partita IVA vs Dipendente</a>
+          <a href="calcolo-tfr-liquidazione.html">TFR Liquidazione</a>
+          <a href="chilometrico.html">Rimborso Chilometrico</a>
+          <a href="pensione.html">Pensione</a>
+          <a href="calcolo-ferie-permessi.html">Ferie e Permessi</a>
+          <a href="calcolo-straordinari.html">Straordinari</a>
+          <a href="calcolo-naspi.html">NASpI</a>
+          <a href="calcolo-malattia-inps.html">Malattia INPS</a>
+          <a href="calcolo-maternita-inps.html">Maternità INPS</a>
+          <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
+          <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
+          <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
+          <a href="calcolo-preavviso.html">Preavviso</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>💰 Risparmio &amp; Investimenti</h4>
+          <a href="calcolatore-interessi-conto-deposito.html">Conto Deposito</a>
+          <a href="calcolo-buoni-fruttiferi-postali.html">Buoni Fruttiferi Postali</a>
+          <a href="calcolatore-risparmio.html">Obiettivo di Risparmio</a>
+          <a href="calcolatore-prestito-personale.html">Prestito Personale</a>
+          <a href="calcolo-fondo-pensione.html">Fondo Pensione</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏠 Casa &amp; Mutuo</h4>
+          <a href="mutuo.html">Rata Mutuo</a>
+          <a href="affitto.html">Affitto Sostenibile</a>
+          <a href="calcolo-cedolare-secca.html">Cedolare Secca</a>
+          <a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a>
+          <a href="calcolo-imu.html">IMU</a>
+          <a href="calcolo-plusvalenza-immobiliare.html">Plusvalenza Immobiliare</a>
+          <a href="calcolo-locazioni-brevi.html">Locazioni Brevi</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🧾 Tasse &amp; IVA</h4>
+          <a href="iva.html">Calcolatore IVA</a>
+          <a href="calcolo-isee.html">ISEE</a>
+          <a href="calcolo-detrazioni-730.html">Detrazioni 730</a>
+          <a href="calcolo-bollo-auto.html">Bollo Auto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏃 Salute &amp; Utilità</h4>
+          <a href="tdee.html">TDEE</a>
+          <a href="bmi.html">BMI</a>
+          <a href="calcolatore-percentuale.html">Percentuale</a>
+          <a href="calcolo-eta.html">Età</a>
+          <a href="divisione-conto.html">Divisione Conto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>📚 Guide</h4>
+          <a href="categoria-freelance.html">Calcolatori per Freelance</a>
+          <a href="guida-regime-forfettario.html">Regime Forfettario</a>
+          <a href="guida-stipendio-netto-lordo.html">Stipendio Netto dal Lordo</a>
+          <a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso o Variabile</a>
+          <a href="guida-comprare-affittare-casa.html">Comprare o Affittare</a>
+          <a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a>
+          <a href="guida-pensione-anticipata-2026.html">Pensione Anticipata</a>
+          <a href="guida-conto-deposito-2026.html">Conti Deposito</a>
+          <a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a>
+          <a href="guida-investire-10000-euro.html">Investire 10.000€</a>
+          <a href="guida-730-precompilato-2026.html">730 Precompilato</a>
+          <a href="guida-deficit-calorico-dimagrire.html">Deficit Calorico</a>
+          <a href="glossario-finanziario.html">Glossario Finanziario</a>
+        </div>
+      </div>
+      <p class="nav-menu-empty" id="navMenuEmpty">Nessun risultato. Prova un altro termine di ricerca.</p>
+    </div>
+  </div>
+<div class="ad-slot-top" aria-hidden="true">
     <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="5537958207" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
   </div>
 
@@ -129,7 +201,7 @@
           <label for="aliqIRPEF">Aliquota IRPEF marginale</label>
           <select id="aliqIRPEF">
             <option value="23">23% (reddito fino a €28.000)</option>
-            <option value="35" selected>35% (reddito €28.001–€50.000)</option>
+            <option value="33" selected>33% (reddito €28.001–€50.000)</option>
             <option value="43">43% (reddito oltre €50.000)</option>
           </select>
         </div>
@@ -141,7 +213,7 @@
           <label for="contributoVolontario">Contributo volontario mensile (tuo)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="contributoVolontario" value="150" min="0" step="10" class="has-prefix"/></div>
-          <p class="hint">Il contributo che versi personalmente ogni mese. Deducibile fino a €5.164,57/anno.</p>
+          <p class="hint">Il contributo che versi personalmente ogni mese. Deducibile fino a €5.300/anno.</p>
         </div>
         <div class="field">
           <label for="contributoDatore">Contributo del datore di lavoro mensile</label>
@@ -252,7 +324,7 @@
             • I rendimenti sono calcolati in termini <strong>nominali</strong> (non reali). L'inflazione riduce il potere d'acquisto.<br>
             • La <strong>tassazione sui rendimenti</strong> del 20% è già considerata nei rendimenti netti indicati.<br>
             • La <strong>rendita mensile</strong> è stimata con un coefficiente semplificato: varia con l'età di pensionamento e il fondo scelto.<br>
-            • Il <strong>limite di deducibilità</strong> è €5.164,57/anno (contributi tuoi + eventuale datore, escluso TFR).<br>
+            • Il <strong>limite di deducibilità</strong> è €5.300/anno (contributi tuoi + eventuale datore, escluso TFR).<br>
             • Per una pianificazione pensionistica precisa, consulta il tuo <strong>fondo pensione</strong> o un consulente finanziario indipendente.
           </div>
         </div>
@@ -272,7 +344,7 @@
             <div class="tool-cluster-card-desc">Stima pensione pubblica: età e importo</div>
             <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Simula →</div>
           </a>
-          <a href="tfr.html" class="tool-cluster-card">
+          <a href="calcolo-tfr-liquidazione.html" class="tool-cluster-card">
             <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📦 Liquidazione</div>
             <div class="tool-cluster-card-title">Simulatore TFR</div>
             <div class="tool-cluster-card-desc">Quanto TFR stai maturando ogni anno</div>
@@ -311,7 +383,7 @@
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="pensione.html" class="cross-link-pill">🎂 Calcolatore pensione INPS</a>
-        <a href="tfr.html" class="cross-link-pill">📦 Simulatore TFR</a>
+        <a href="calcolo-tfr-liquidazione.html" class="cross-link-pill">📦 Simulatore TFR</a>
         <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio lordo/netto</a>
         <a href="calcolatore-risparmio.html" class="cross-link-pill">💹 Calcolo risparmio</a>
         <a href="calcolo-buoni-fruttiferi-postali.html" class="cross-link-pill">📮 Buoni Fruttiferi Postali</a>
@@ -326,7 +398,7 @@
       <h3>Come funziona il calcolo del fondo pensione</h3>
       <p>Il capitale accumulato in un fondo pensione cresce grazie a tre componenti:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
-        <li><strong>Contributi tuoi</strong>: i versamenti volontari mensili (deducibili fino a €5.164,57/anno)</li>
+        <li><strong>Contributi tuoi</strong>: i versamenti volontari mensili (deducibili fino a €5.300/anno)</li>
         <li><strong>Contributo del datore</strong>: il contributo aggiuntivo previsto dai fondi negoziali (gratuito per te, è soldi in più)</li>
         <li><strong>TFR conferito</strong>: il 6,91% della RAL che va al fondo invece che in azienda</li>
         <li><strong>Rendimenti</strong>: capitalizzazione annuale dei versamenti al tasso del comparto scelto</li>
@@ -334,9 +406,9 @@
       <p>Formula base: <code>FV = PMT × [(1+r)^n - 1] / r</code> dove PMT = versamento mensile, r = tasso mensile, n = numero di mesi.</p>
 
       <h3>Il vantaggio fiscale della deducibilità</h3>
-      <p>I contributi versati al fondo pensione (tuoi + datore, escludendo il TFR) sono <strong>deducibili dal reddito imponibile IRPEF</strong> fino a €5.164,57 all'anno. In pratica:</p>
+      <p>I contributi versati al fondo pensione (tuoi + datore, escludendo il TFR) sono <strong>deducibili dal reddito imponibile IRPEF</strong> fino a €5.300 all'anno (limite elevato da €5.164,57 dalla Legge di Bilancio 2026). In pratica:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
-        <li>Se versi €2.400/anno (€200/mese) con aliquota IRPEF al 35%: risparmio IRPEF = €840/anno</li>
+        <li>Se versi €2.400/anno (€200/mese) con aliquota IRPEF al 33%: risparmio IRPEF = €792/anno</li>
         <li>Se versi €5.164/anno (il massimo) con aliquota IRPEF al 43%: risparmio IRPEF = €2.220/anno</li>
       </ul>
       <p>Questo risparmio fiscale immediato è uno dei principali vantaggi della previdenza complementare rispetto ad altri strumenti di risparmio.</p>
@@ -365,7 +437,7 @@
           <span class="related-tool-icon">🎂</span>
           <span>Pensione INPS 2026</span>
         </a>
-        <a href="tfr.html" class="related-tool-card">
+        <a href="calcolo-tfr-liquidazione.html" class="related-tool-card">
           <span class="related-tool-icon">📦</span>
           <span>Simulatore TFR</span>
         </a>
@@ -382,14 +454,14 @@
       <div class="footer-brand">
         <div class="footer-logo">Calcola<span>Pro</span></div>
         <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:500;">⚠️ I risultati sono stime. Non costituiscono consulenza finanziaria. Consulta un CFP o il tuo fondo pensione.</p>
+        <p class="footer-disclaimer">⚠️ I risultati sono stime. Non costituiscono consulenza finanziaria. Consulta un CFP o il tuo fondo pensione.</p>
       </div>
       <div class="footer-col">
         <h4>Previdenza e risparmio</h4>
         <ul>
           <li><a href="calcolo-fondo-pensione.html">Fondo Pensione</a></li>
           <li><a href="pensione.html">Pensione INPS 2026</a></li>
-          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-tfr-liquidazione.html">Simulatore TFR</a></li>
           <li><a href="calcolo-tfr-liquidazione.html">TFR Liquidazione Netto</a></li>
           <li><a href="calcolatore-risparmio.html">Calcolo Risparmio</a></li>
           <li><a href="calcolatore-interessi-conto-deposito.html">Conto Deposito</a></li>
@@ -470,7 +542,7 @@
       const eta = parseInt(document.getElementById('etaAttuale').value) || 35;
       const etaPens = parseInt(document.getElementById('etaPensione').value) || 67;
       const ral = parseFloat(document.getElementById('stipendioLordo').value) || 30000;
-      const aliqIRPEF = parseInt(document.getElementById('aliqIRPEF').value) || 35;
+      const aliqIRPEF = parseInt(document.getElementById('aliqIRPEF').value) || 33;
       const contribVol = parseFloat(document.getElementById('contributoVolontario').value) || 0;
       const contribDatore = parseFloat(document.getElementById('contributoDatore').value) || 0;
       const destinaTFR = document.getElementById('destinaTFR').checked;
@@ -496,7 +568,7 @@
       const capitaleTFRAzienda = destinaTFR ? 0 : fvAnnuity(ral/12*0.0691, tfrAziendaRend/12, mesi);
 
       // Risparmio fiscale
-      const contribDeducibili = Math.min((contribVol + contribDatore) * 12, 5164.57);
+      const contribDeducibili = Math.min((contribVol + contribDatore) * 12, 5300);
       const rispAnnuo = contribDeducibili * (aliqIRPEF / 100);
       const rispTotale = rispAnnuo * anni;
 
@@ -538,7 +610,7 @@
 
       // Risparmio fiscale box
       document.getElementById('fiscalContent').innerHTML =
-        `Contributi deducibili per anno: <strong>${fmt2(contribDeducibili)}</strong> (limite €5.164,57/anno)<br>
+        `Contributi deducibili per anno: <strong>${fmt2(contribDeducibili)}</strong> (limite €5.300/anno)<br>
          Risparmio IRPEF annuo: <strong>${fmt2(rispAnnuo)}</strong> (aliquota ${aliqIRPEF}%)<br>
          Risparmio IRPEF totale in ${anni} anni: <strong>${fmt(rispTotale)}</strong><br>
          Equivale a versare solo <strong>${fmt2(pmtTotale - rispAnnuo/12)}</strong>/mese invece di ${fmt2(pmtTotale)}/mese.`;
@@ -605,5 +677,6 @@
   </script>
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
+  <script src="js/navbar.js" defer></script>
 </body>
 </html>

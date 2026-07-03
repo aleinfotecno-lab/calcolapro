@@ -96,21 +96,93 @@
 </head>
 <body>
 <a class="skip-link" href="#main-content">Vai al contenuto</a>
-<nav class="navbar" role="navigation" aria-label="Navigazione principale">
-    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">CalcolaPro</a>
-    <ul class="nav-links" id="navLinks" role="list">
-      <li><a href="lordonetto.html">Stipendio</a></li>
-      <li><a href="mutuo.html">Mutuo</a></li>
-      <li><a href="freelance.html">Freelance</a></li>
-      <li><a href="partitaiva.html">P.IVA</a></li>
-      <li><a href="pensione.html">Pensione</a></li>
-      <li><a href="index.html" class="nav-all">Tutti gli strumenti</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
-    </button>
+  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span>Pro</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-quicklink">Home</a>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-expanded="false" aria-controls="navMenuPanel" aria-haspopup="true">
+        Calcolatori
+        <svg class="nav-menu-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg>
+      </button>
+    </div>
   </nav>
-
+  <div class="nav-menu-panel" id="navMenuPanel">
+    <div class="nav-menu-inner">
+      <div class="nav-menu-search">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+      </div>
+      <div class="nav-menu-grid">
+        <div class="nav-menu-col">
+          <h4>💼 Lavoro &amp; Freelance</h4>
+          <a href="lordonetto.html">Stipendio Netto</a>
+          <a href="freelance.html">Tariffa Oraria Freelance</a>
+          <a href="partitaiva.html">Partita IVA vs Dipendente</a>
+          <a href="calcolo-tfr-liquidazione.html">TFR Liquidazione</a>
+          <a href="chilometrico.html">Rimborso Chilometrico</a>
+          <a href="pensione.html">Pensione</a>
+          <a href="calcolo-ferie-permessi.html">Ferie e Permessi</a>
+          <a href="calcolo-straordinari.html">Straordinari</a>
+          <a href="calcolo-naspi.html">NASpI</a>
+          <a href="calcolo-malattia-inps.html">Malattia INPS</a>
+          <a href="calcolo-maternita-inps.html">Maternità INPS</a>
+          <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
+          <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
+          <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
+          <a href="calcolo-preavviso.html">Preavviso</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>💰 Risparmio &amp; Investimenti</h4>
+          <a href="calcolatore-interessi-conto-deposito.html">Conto Deposito</a>
+          <a href="calcolo-buoni-fruttiferi-postali.html">Buoni Fruttiferi Postali</a>
+          <a href="calcolatore-risparmio.html">Obiettivo di Risparmio</a>
+          <a href="calcolatore-prestito-personale.html">Prestito Personale</a>
+          <a href="calcolo-fondo-pensione.html">Fondo Pensione</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏠 Casa &amp; Mutuo</h4>
+          <a href="mutuo.html">Rata Mutuo</a>
+          <a href="affitto.html">Affitto Sostenibile</a>
+          <a href="calcolo-cedolare-secca.html">Cedolare Secca</a>
+          <a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a>
+          <a href="calcolo-imu.html">IMU</a>
+          <a href="calcolo-plusvalenza-immobiliare.html">Plusvalenza Immobiliare</a>
+          <a href="calcolo-locazioni-brevi.html">Locazioni Brevi</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🧾 Tasse &amp; IVA</h4>
+          <a href="iva.html">Calcolatore IVA</a>
+          <a href="calcolo-isee.html">ISEE</a>
+          <a href="calcolo-detrazioni-730.html">Detrazioni 730</a>
+          <a href="calcolo-bollo-auto.html">Bollo Auto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏃 Salute &amp; Utilità</h4>
+          <a href="tdee.html">TDEE</a>
+          <a href="bmi.html">BMI</a>
+          <a href="calcolatore-percentuale.html">Percentuale</a>
+          <a href="calcolo-eta.html">Età</a>
+          <a href="divisione-conto.html">Divisione Conto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>📚 Guide</h4>
+          <a href="categoria-freelance.html">Calcolatori per Freelance</a>
+          <a href="guida-regime-forfettario.html">Regime Forfettario</a>
+          <a href="guida-stipendio-netto-lordo.html">Stipendio Netto dal Lordo</a>
+          <a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso o Variabile</a>
+          <a href="guida-comprare-affittare-casa.html">Comprare o Affittare</a>
+          <a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a>
+          <a href="guida-pensione-anticipata-2026.html">Pensione Anticipata</a>
+          <a href="guida-conto-deposito-2026.html">Conti Deposito</a>
+          <a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a>
+          <a href="guida-investire-10000-euro.html">Investire 10.000€</a>
+          <a href="guida-730-precompilato-2026.html">730 Precompilato</a>
+          <a href="guida-deficit-calorico-dimagrire.html">Deficit Calorico</a>
+          <a href="glossario-finanziario.html">Glossario Finanziario</a>
+        </div>
+      </div>
+      <p class="nav-menu-empty" id="navMenuEmpty">Nessun risultato. Prova un altro termine di ricerca.</p>
+    </div>
+  </div>
 <div class="ad-slot-top" aria-hidden="true">
   <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="5537958207" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 </div>
@@ -216,17 +288,19 @@
         <strong>💰 Risparmio annuo:</strong> <span id="risparmioOut">—</span>
       </div>
 
+      <p class="result-disclaimer">ℹ️ Calcolo indicativo — non sostituisce la consulenza di un professionista qualificato.</p>
+
       <div class="card" style="margin-top:16px;">
         <div class="card-title"><span class="card-icon">📊</span> Tabella comparativa: canone × reddito proprietario</div>
         <p style="font-size:14px;color:var(--text-muted);margin-bottom:8px;">Risparmio annuo stimato scegliendo la cedolare secca (21%) rispetto all'IRPEF, per diversi canoni e redditi. Contratto a canone libero.</p>
         <div style="overflow-x:auto;">
         <table class="comp-table">
-          <thead><tr><th>Canone annuo</th><th>Reddito 25.000€ (sc. 23%)</th><th>Reddito 35.000€ (sc. 35%)</th><th>Reddito 55.000€ (sc. 43%)</th></tr></thead>
+          <thead><tr><th>Canone annuo</th><th>Reddito 25.000€ (sc. 23%)</th><th>Reddito 35.000€ (sc. 33%)</th><th>Reddito 55.000€ (sc. 43%)</th></tr></thead>
           <tbody>
-            <tr><td>6.000€/anno (500€/mese)</td><td>+ € 114</td><td class="highlight-row">+ € 836</td><td>+ € 1.254</td></tr>
-            <tr><td>9.600€/anno (800€/mese)</td><td>+ € 182</td><td class="highlight-row">+ € 1.338</td><td>+ € 2.006</td></tr>
-            <tr><td>12.000€/anno (1.000€/mese)</td><td>+ € 228</td><td class="highlight-row">+ € 1.672</td><td>+ € 2.508</td></tr>
-            <tr><td>18.000€/anno (1.500€/mese)</td><td>+ € 342</td><td class="highlight-row">+ € 2.508</td><td>+ € 3.762</td></tr>
+            <tr><td>6.000€/anno (500€/mese)</td><td>+ € 114</td><td class="highlight-row">+ € 621</td><td>+ € 1.254</td></tr>
+            <tr><td>9.600€/anno (800€/mese)</td><td>+ € 182</td><td class="highlight-row">+ € 994</td><td>+ € 2.006</td></tr>
+            <tr><td>12.000€/anno (1.000€/mese)</td><td>+ € 228</td><td class="highlight-row">+ € 1.242</td><td>+ € 2.508</td></tr>
+            <tr><td>18.000€/anno (1.500€/mese)</td><td>+ € 342</td><td class="highlight-row">+ € 1.863</td><td>+ € 3.762</td></tr>
           </tbody>
         </table>
         </div>
@@ -294,7 +368,7 @@
   <div class="content-section">
     <h2>Cos'è la cedolare secca e quando conviene</h2>
     <p>La cedolare secca è stata introdotta in Italia con il D.Lgs. 23/2011 come regime fiscale alternativo per i proprietari di immobili residenziali che li danno in affitto. L'idea di fondo è semplice: invece di tassare il canone come normale reddito IRPEF (con aliquote progressive fino al 43%), si applica un'<strong>imposta sostitutiva fissa</strong> — il 21% o il 10% — che copre tutto: IRPEF, addizionali regionali e comunali, imposta di bollo e registro annuale.</p>
-    <p>Il vantaggio è immediato: se il tuo reddito ti colloca negli scaglioni IRPEF superiori (35% o 43%), la cedolare secca al 21% significa pagare quasi la metà delle imposte ordinarie. Se invece hai un reddito basso e ricadi nel primo scaglione al 23%, il risparmio è minore ma comunque presente.</p>
+    <p>Il vantaggio è immediato: se il tuo reddito ti colloca negli scaglioni IRPEF superiori (33% o 43%), la cedolare secca al 21% significa pagare quasi la metà delle imposte ordinarie. Se invece hai un reddito basso e ricadi nel primo scaglione al 23%, il risparmio è minore ma comunque presente.</p>
 
     <h3>Cedolare al 21% e cedolare al 10%: quando si applica ciascuna</h3>
     <p>L'aliquota del <strong>21%</strong> si applica ai contratti a canone libero (tipicamente 4+4 anni), ai contratti transitori e alle locazioni brevi (meno di 30 giorni). È la cedolare "standard".</p>
@@ -314,7 +388,7 @@
     <p>Vediamo il confronto completo per il caso più comune:</p>
     <ul>
       <li><strong>Canone mensile:</strong> 800€ → 9.600€/anno</li>
-      <li><strong>Reddito complessivo proprietario:</strong> 35.000€ → scaglione IRPEF marginale al 35%</li>
+      <li><strong>Reddito complessivo proprietario:</strong> 35.000€ → scaglione IRPEF marginale al 33%</li>
     </ul>
     <p><strong>Con cedolare secca al 21% (contratto libero):</strong></p>
     <ul>
@@ -324,12 +398,12 @@
     <p><strong>Con IRPEF ordinaria:</strong></p>
     <ul>
       <li>Base imponibile: 9.600 × 95% (deduzione forfettaria 5%) = 9.120€</li>
-      <li>Aliquota marginale 35% (reddito totale 35.000 + 9.120 = 44.120€)</li>
-      <li>Imposta sul canone: 9.120 × 35% = <strong>3.192€</strong></li>
-      <li>Netto annuo: 9.600 − 3.192 = <strong>6.408€</strong> (534€/mese)</li>
+      <li>Aliquota marginale 33% (reddito totale 35.000 + 9.120 = 44.120€)</li>
+      <li>Imposta sul canone: 9.120 × 33% = <strong>3.010€</strong></li>
+      <li>Netto annuo: 9.600 − 3.010 = <strong>6.590€</strong> (549€/mese)</li>
     </ul>
-    <p><strong>Risparmio annuo scegliendo la cedolare secca: 1.176€</strong> — quasi due mensilità in più.</p>
-    <p>Con la cedolare al 10% (contratto concordato), il risparmio sarebbe ancora maggiore: imposta 960€, netto 8.640€, risparmio rispetto all'IRPEF di oltre 2.200€/anno.</p>
+    <p><strong>Risparmio annuo scegliendo la cedolare secca: 994€</strong> — più di una mensilità in più.</p>
+    <p>Con la cedolare al 10% (contratto concordato), il risparmio sarebbe ancora maggiore: imposta 960€, netto 8.640€, risparmio rispetto all'IRPEF di oltre 2.000€/anno.</p>
   </div>
 
 <section class="container related-tools">
@@ -386,7 +460,7 @@
     <div class="footer-brand">
       <div class="footer-logo">Calcola<span>Pro</span></div>
       <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
-      <p style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:500;">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
+      <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
     </div>
       <div class="footer-col">
         <h4>Calcolatori</h4>
@@ -398,7 +472,7 @@
           <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
           <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
           <li><a href="pensione.html">Pensione 2026</a></li>
-          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-tfr-liquidazione.html">Simulatore TFR</a></li>
           <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
           <li><a href="calcolo-straordinari.html">Straordinari</a></li>
           <li><a href="partitaiva.html">Partita IVA</a></li>
@@ -470,7 +544,7 @@
 
     let aliqMarg;
     if (redditoTotale <= 28000) aliqMarg = 0.23;
-    else if (redditoTotale <= 50000) aliqMarg = 0.35;
+    else if (redditoTotale <= 50000) aliqMarg = 0.33;
     else aliqMarg = 0.43;
 
     const imposteIrpef = Math.max(0, baseImponibile * aliqMarg - detrazioni);
@@ -545,7 +619,8 @@
         localStorage.setItem('amzClosed', '1');
       };
     })();
-  </script><script src="js/cookie-consent.js"></script>
-  <script src="js/analytics-events.js"></script>
+  </script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
+  <script src="js/navbar.js" defer></script>
 </body>
 </html>

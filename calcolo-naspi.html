@@ -47,9 +47,9 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"Chi ha diritto alla NASpI nel 2026?","acceptedAnswer":{"@type":"Answer","text":"Hanno diritto alla NASpI i lavoratori dipendenti che hanno perso involontariamente il lavoro (licenziamento, scadenza contratto a termine, risoluzione consensuale in sede protetta) con almeno 13 settimane di contributi negli ultimi 4 anni e 30 giorni lavorativi nello stesso periodo. Non spetta a chi si dimette volontariamente, salvo dimissioni per giusta causa o durante il periodo di maternità."}},
-    {"@type":"Question","name":"Come si calcola l'importo della NASpI 2026?","acceptedAnswer":{"@type":"Answer","text":"L'importo NASpI è pari al 75% della retribuzione media mensile degli ultimi 4 anni, se questa non supera la soglia INPS (€1.352,19/mese per il 2026, Circ. INPS 20/2025). Per retribuzioni superiori alla soglia: NASpI = 75% × soglia + 25% × (retribuzione - soglia). L'importo massimo mensile è €1.550,42 per il 2026. Le soglie vengono aggiornate ogni anno dall'INPS."}},
+    {"@type":"Question","name":"Come si calcola l'importo della NASpI 2026?","acceptedAnswer":{"@type":"Answer","text":"L'importo NASpI è pari al 75% della retribuzione media mensile degli ultimi 4 anni, se questa non supera la soglia INPS (€1.456,72/mese per il 2026, Circ. INPS 4/2026). Per retribuzioni superiori alla soglia: NASpI = 75% × soglia + 25% × (retribuzione - soglia). L'importo massimo mensile è €1.584,70 per il 2026. Le soglie vengono aggiornate ogni anno dall'INPS."}},
     {"@type":"Question","name":"Quanto dura la NASpI?","acceptedAnswer":{"@type":"Answer","text":"La durata è pari alla metà delle settimane di contributi versati negli ultimi 4 anni prima della disoccupazione, con un massimo di 24 mesi (104 settimane). Esempio: se hai lavorato 4 anni continuativi (208 settimane), la NASpI dura 104 settimane = circa 24 mesi."}},
-    {"@type":"Question","name":"La NASpI si riduce nel tempo?","acceptedAnswer":{"@type":"Answer","text":"Sì. A partire dal primo giorno del quinto mese, l'importo NASpI si riduce del 3% ogni mese. Quindi: mesi 1-4 importo pieno, mese 5 = 97%, mese 6 = 94%, mese 7 = 91%, e così via. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dall'età pensionabile con i requisiti contributivi minimi."}},
+    {"@type":"Question","name":"La NASpI si riduce nel tempo?","acceptedAnswer":{"@type":"Answer","text":"Sì. A partire dal primo giorno del sesto mese, l'importo NASpI si riduce del 3% ogni mese (dal 2026 questa regola vale per tutti i beneficiari, senza più l'eccezione che per gli over 55 posticipava la riduzione all'ottavo mese). Quindi: mesi 1-5 importo pieno, mese 6 = 97%, mese 7 = 94%, mese 8 = 91%, e così via. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dall'età pensionabile con i requisiti contributivi minimi."}},
     {"@type":"Question","name":"Si può lavorare mentre si percepisce la NASpI?","acceptedAnswer":{"@type":"Answer","text":"Sì, ma con limitazioni. Per lavoro subordinato con reddito annuo ≤ €8.000: si può comunicare all'INPS e la NASpI si sospende. Per reddito > €8.000: la NASpI decade. Per lavoro autonomo con reddito ≤ €5.500 annui: si può continuare a percepirla comunicando il reddito presunto entro 30 giorni. Per reddito > €5.500: la NASpI decade."}},
     {"@type":"Question","name":"Quando scade la domanda NASpI?","acceptedAnswer":{"@type":"Answer","text":"La domanda va presentata all'INPS entro 68 giorni dalla cessazione del rapporto di lavoro. Se si presenta dopo i primi 8 giorni, la decorrenza si sposta al giorno successivo alla domanda."}}
   ]}
@@ -60,22 +60,94 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
-  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
-    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">CalcolaPro</a>
-    <ul class="nav-links" id="navLinks" role="list">
-      <li><a href="lordonetto.html">Stipendio</a></li>
-      <li><a href="mutuo.html">Mutuo</a></li>
-      <li><a href="freelance.html">Freelance</a></li>
-      <li><a href="partitaiva.html">P.IVA</a></li>
-      <li><a href="pensione.html">Pensione</a></li>
-      <li><a href="index.html" class="nav-all">Tutti gli strumenti</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
-    </button>
+    <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span>Pro</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-quicklink">Home</a>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-expanded="false" aria-controls="navMenuPanel" aria-haspopup="true">
+        Calcolatori
+        <svg class="nav-menu-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg>
+      </button>
+    </div>
   </nav>
-
-  <div class="ad-slot-top" aria-hidden="true">
+  <div class="nav-menu-panel" id="navMenuPanel">
+    <div class="nav-menu-inner">
+      <div class="nav-menu-search">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+      </div>
+      <div class="nav-menu-grid">
+        <div class="nav-menu-col">
+          <h4>💼 Lavoro &amp; Freelance</h4>
+          <a href="lordonetto.html">Stipendio Netto</a>
+          <a href="freelance.html">Tariffa Oraria Freelance</a>
+          <a href="partitaiva.html">Partita IVA vs Dipendente</a>
+          <a href="calcolo-tfr-liquidazione.html">TFR Liquidazione</a>
+          <a href="chilometrico.html">Rimborso Chilometrico</a>
+          <a href="pensione.html">Pensione</a>
+          <a href="calcolo-ferie-permessi.html">Ferie e Permessi</a>
+          <a href="calcolo-straordinari.html">Straordinari</a>
+          <a href="calcolo-naspi.html">NASpI</a>
+          <a href="calcolo-malattia-inps.html">Malattia INPS</a>
+          <a href="calcolo-maternita-inps.html">Maternità INPS</a>
+          <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
+          <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
+          <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
+          <a href="calcolo-preavviso.html">Preavviso</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>💰 Risparmio &amp; Investimenti</h4>
+          <a href="calcolatore-interessi-conto-deposito.html">Conto Deposito</a>
+          <a href="calcolo-buoni-fruttiferi-postali.html">Buoni Fruttiferi Postali</a>
+          <a href="calcolatore-risparmio.html">Obiettivo di Risparmio</a>
+          <a href="calcolatore-prestito-personale.html">Prestito Personale</a>
+          <a href="calcolo-fondo-pensione.html">Fondo Pensione</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏠 Casa &amp; Mutuo</h4>
+          <a href="mutuo.html">Rata Mutuo</a>
+          <a href="affitto.html">Affitto Sostenibile</a>
+          <a href="calcolo-cedolare-secca.html">Cedolare Secca</a>
+          <a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a>
+          <a href="calcolo-imu.html">IMU</a>
+          <a href="calcolo-plusvalenza-immobiliare.html">Plusvalenza Immobiliare</a>
+          <a href="calcolo-locazioni-brevi.html">Locazioni Brevi</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🧾 Tasse &amp; IVA</h4>
+          <a href="iva.html">Calcolatore IVA</a>
+          <a href="calcolo-isee.html">ISEE</a>
+          <a href="calcolo-detrazioni-730.html">Detrazioni 730</a>
+          <a href="calcolo-bollo-auto.html">Bollo Auto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏃 Salute &amp; Utilità</h4>
+          <a href="tdee.html">TDEE</a>
+          <a href="bmi.html">BMI</a>
+          <a href="calcolatore-percentuale.html">Percentuale</a>
+          <a href="calcolo-eta.html">Età</a>
+          <a href="divisione-conto.html">Divisione Conto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>📚 Guide</h4>
+          <a href="categoria-freelance.html">Calcolatori per Freelance</a>
+          <a href="guida-regime-forfettario.html">Regime Forfettario</a>
+          <a href="guida-stipendio-netto-lordo.html">Stipendio Netto dal Lordo</a>
+          <a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso o Variabile</a>
+          <a href="guida-comprare-affittare-casa.html">Comprare o Affittare</a>
+          <a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a>
+          <a href="guida-pensione-anticipata-2026.html">Pensione Anticipata</a>
+          <a href="guida-conto-deposito-2026.html">Conti Deposito</a>
+          <a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a>
+          <a href="guida-investire-10000-euro.html">Investire 10.000€</a>
+          <a href="guida-730-precompilato-2026.html">730 Precompilato</a>
+          <a href="guida-deficit-calorico-dimagrire.html">Deficit Calorico</a>
+          <a href="glossario-finanziario.html">Glossario Finanziario</a>
+        </div>
+      </div>
+      <p class="nav-menu-empty" id="navMenuEmpty">Nessun risultato. Prova un altro termine di ricerca.</p>
+    </div>
+  </div>
+<div class="ad-slot-top" aria-hidden="true">
     <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="5537958207" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
   </div>
 
@@ -163,11 +235,12 @@
             <div class="breakdown-item"><div class="breakdown-value" id="ultMeseOut">—</div><div class="breakdown-label">importo ultimo mese</div></div>
           </div>
           <div id="alertBox" style="margin-top:16px;"></div>
-        </div>
+                  <p class="result-disclaimer">ℹ️ Calcolo indicativo — non sostituisce la consulenza di un professionista qualificato.</p>
+</div>
 
         <div id="chartBox" style="margin-top:24px;background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:24px;">
           <div style="font-weight:700;font-size:1rem;margin-bottom:4px;color:var(--text);">Andamento mensile NASpI</div>
-          <div style="font-size:13px;color:var(--text-muted);margin-bottom:20px;">Il 3% di riduzione scatta dal 5° mese in poi</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-bottom:20px;">Il 3% di riduzione scatta dal 6° mese in poi</div>
           <div id="chart" style="display:flex;align-items:flex-end;gap:5px;height:120px;padding-bottom:4px;overflow-x:auto;"></div>
           <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:6px;padding:0 2px;">
             <span>Mese 1</span>
@@ -176,7 +249,7 @@
           </div>
           <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap;">
             <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
-              <div style="width:12px;height:12px;border-radius:3px;background:#2563eb;flex-shrink:0;"></div>
+              <div style="width:12px;height:12px;border-radius:3px;background:var(--blue);flex-shrink:0;"></div>
               Importo pieno (mesi 1-4)
             </div>
             <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
@@ -188,7 +261,7 @@
 
         <div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:16px 20px;margin-top:16px;">
           <div style="font-weight:700;font-size:13.5px;color:#166534;margin-bottom:6px;">ℹ️ Nota importante</div>
-          <div style="font-size:13px;color:#166534;line-height:1.7;">La NASpI è soggetta a IRPEF. L'importo è tassato come reddito ordinario. Soglia INPS 2026: €1.352,19 — massimale mensile: €1.550,42 (Circ. INPS 20/2025). Presenta sempre domanda all'INPS entro <strong>68 giorni</strong> dalla cessazione del rapporto di lavoro.</div>
+          <div style="font-size:13px;color:#166534;line-height:1.7;">La NASpI è soggetta a IRPEF. L'importo è tassato come reddito ordinario. Soglia INPS 2026: €1.456,72 — massimale mensile: €1.584,70 (Circ. INPS 4/2026). Presenta sempre domanda all'INPS entro <strong>68 giorni</strong> dalla cessazione del rapporto di lavoro.</div>
         </div>
       </div>
 
@@ -249,9 +322,9 @@
       <h3>Come si calcola l'importo NASpI 2026</h3>
       <p>Il calcolo si basa sulla <strong>retribuzione media mensile degli ultimi 4 anni</strong> imponibile ai fini previdenziali. Il meccanismo è a due scaglioni:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2;color:var(--text-muted);font-size:15px;">
-        <li>Se la retribuzione è uguale o inferiore alla soglia INPS (<strong>€ 1.352,19</strong> nel 2026): NASpI = retribuzione × 75%</li>
+        <li>Se la retribuzione è uguale o inferiore alla soglia INPS (<strong>€ 1.456,72</strong> nel 2026): NASpI = retribuzione × 75%</li>
         <li>Se la retribuzione supera la soglia: NASpI = 75% × soglia + 25% × (retribuzione − soglia)</li>
-        <li>In ogni caso l'importo non può superare il <strong>massimale mensile</strong> (€ 1.550,42 nel 2026)</li>
+        <li>In ogni caso l'importo non può superare il <strong>massimale mensile</strong> (€ 1.584,70 nel 2026)</li>
       </ul>
       <p>Le soglie vengono aggiornate ogni anno dall'INPS con il coefficiente di rivalutazione ISTAT.</p>
 
@@ -259,7 +332,7 @@
       <p>La durata è pari alla <strong>metà delle settimane di contribuzione</strong> versate negli ultimi 4 anni. Con 4 anni interi di lavoro (208 settimane) si ottiene il massimo: 104 settimane, pari a circa <strong>24 mesi</strong>. Chi ha contributi più brevi riceve un'indennità proporzionalmente più corta.</p>
 
       <h3>La riduzione del 3% mensile</h3>
-      <p>A partire dal <strong>primo giorno del quinto mese</strong> di fruizione, l'importo NASpI si riduce del 3% ogni mese. Questo significa che più a lungo si percepisce l'indennità, più l'importo mensile diminuisce. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dal raggiungimento dei requisiti pensionistici.</p>
+      <p>A partire dal <strong>primo giorno del sesto mese</strong> di fruizione, l'importo NASpI si riduce del 3% ogni mese. Questo significa che più a lungo si percepisce l'indennità, più l'importo mensile diminuisce. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dal raggiungimento dei requisiti pensionistici.</p>
 
       <h3>Domande frequenti sulla NASpI</h3>
       <div class="faq-list">
@@ -310,7 +383,7 @@
       <div class="footer-brand">
         <div class="footer-logo">Calcola<span>Pro</span></div>
         <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:500;">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
+        <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
         <h4>Calcolatori</h4>
@@ -322,7 +395,7 @@
           <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
           <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
           <li><a href="pensione.html">Pensione 2026</a></li>
-          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-tfr-liquidazione.html">Simulatore TFR</a></li>
           <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
           <li><a href="calcolo-straordinari.html">Straordinari</a></li>
           <li><a href="calcolo-naspi.html">NASpI 2026</a></li>
@@ -368,8 +441,8 @@
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
 
     // INPS 2026 thresholds (Circ. INPS 20/2025)
-    const SOGLIA = 1352.19;
-    const CAP = 1550.42;
+    const SOGLIA = 1456.72;
+    const CAP = 1584.70;
 
     function fmt(n) { return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', maximumFractionDigits:0}).format(n); }
     function fmtDec(n) { return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', minimumFractionDigits:2, maximumFractionDigits:2}).format(n); }
@@ -428,10 +501,10 @@
         let importo;
         if (prossimoPensione) {
           importo = naspiBase;
-        } else if (m <= 4) {
+        } else if (m <= 5) {
           importo = naspiBase;
         } else {
-          const riduzionePct = Math.min(3 * (m - 4), 100);
+          const riduzionePct = Math.min(3 * (m - 5), 100);
           importo = Math.max(0, naspiBase * (1 - riduzionePct / 100));
         }
         mesiData.push(importo);
@@ -477,7 +550,7 @@
         const m = i + 1;
         const pct = maxVal > 0 ? (val / maxVal) * 100 : 0;
         const isRidotto = !nessuna && m > 4;
-        const col = isRidotto ? '#f59e0b' : '#2563eb';
+        const col = isRidotto ? '#f59e0b' : 'var(--blue)';
         const wrapper = document.createElement('div');
         wrapper.style.cssText = 'flex:1;min-width:10px;display:flex;flex-direction:column;align-items:center;gap:2px;';
         const bar = document.createElement('div');
@@ -494,5 +567,6 @@
   </script>
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
+  <script src="js/navbar.js" defer></script>
 </body>
 </html>

@@ -61,22 +61,94 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
-  <nav class="navbar" role="navigation" aria-label="Navigazione principale">
-    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">CalcolaPro</a>
-    <ul class="nav-links" id="navLinks" role="list">
-      <li><a href="lordonetto.html">Stipendio</a></li>
-      <li><a href="mutuo.html">Mutuo</a></li>
-      <li><a href="freelance.html">Freelance</a></li>
-      <li><a href="partitaiva.html">P.IVA</a></li>
-      <li><a href="pensione.html">Pensione</a></li>
-      <li><a href="index.html" class="nav-all">Tutti gli strumenti</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
-    </button>
+    <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span>Pro</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-quicklink">Home</a>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-expanded="false" aria-controls="navMenuPanel" aria-haspopup="true">
+        Calcolatori
+        <svg class="nav-menu-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg>
+      </button>
+    </div>
   </nav>
-
-  <div class="ad-slot-top" aria-hidden="true">
+  <div class="nav-menu-panel" id="navMenuPanel">
+    <div class="nav-menu-inner">
+      <div class="nav-menu-search">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+      </div>
+      <div class="nav-menu-grid">
+        <div class="nav-menu-col">
+          <h4>💼 Lavoro &amp; Freelance</h4>
+          <a href="lordonetto.html">Stipendio Netto</a>
+          <a href="freelance.html">Tariffa Oraria Freelance</a>
+          <a href="partitaiva.html">Partita IVA vs Dipendente</a>
+          <a href="calcolo-tfr-liquidazione.html">TFR Liquidazione</a>
+          <a href="chilometrico.html">Rimborso Chilometrico</a>
+          <a href="pensione.html">Pensione</a>
+          <a href="calcolo-ferie-permessi.html">Ferie e Permessi</a>
+          <a href="calcolo-straordinari.html">Straordinari</a>
+          <a href="calcolo-naspi.html">NASpI</a>
+          <a href="calcolo-malattia-inps.html">Malattia INPS</a>
+          <a href="calcolo-maternita-inps.html">Maternità INPS</a>
+          <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
+          <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
+          <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
+          <a href="calcolo-preavviso.html">Preavviso</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>💰 Risparmio &amp; Investimenti</h4>
+          <a href="calcolatore-interessi-conto-deposito.html">Conto Deposito</a>
+          <a href="calcolo-buoni-fruttiferi-postali.html">Buoni Fruttiferi Postali</a>
+          <a href="calcolatore-risparmio.html">Obiettivo di Risparmio</a>
+          <a href="calcolatore-prestito-personale.html">Prestito Personale</a>
+          <a href="calcolo-fondo-pensione.html">Fondo Pensione</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏠 Casa &amp; Mutuo</h4>
+          <a href="mutuo.html">Rata Mutuo</a>
+          <a href="affitto.html">Affitto Sostenibile</a>
+          <a href="calcolo-cedolare-secca.html">Cedolare Secca</a>
+          <a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a>
+          <a href="calcolo-imu.html">IMU</a>
+          <a href="calcolo-plusvalenza-immobiliare.html">Plusvalenza Immobiliare</a>
+          <a href="calcolo-locazioni-brevi.html">Locazioni Brevi</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🧾 Tasse &amp; IVA</h4>
+          <a href="iva.html">Calcolatore IVA</a>
+          <a href="calcolo-isee.html">ISEE</a>
+          <a href="calcolo-detrazioni-730.html">Detrazioni 730</a>
+          <a href="calcolo-bollo-auto.html">Bollo Auto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>🏃 Salute &amp; Utilità</h4>
+          <a href="tdee.html">TDEE</a>
+          <a href="bmi.html">BMI</a>
+          <a href="calcolatore-percentuale.html">Percentuale</a>
+          <a href="calcolo-eta.html">Età</a>
+          <a href="divisione-conto.html">Divisione Conto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4>📚 Guide</h4>
+          <a href="categoria-freelance.html">Calcolatori per Freelance</a>
+          <a href="guida-regime-forfettario.html">Regime Forfettario</a>
+          <a href="guida-stipendio-netto-lordo.html">Stipendio Netto dal Lordo</a>
+          <a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso o Variabile</a>
+          <a href="guida-comprare-affittare-casa.html">Comprare o Affittare</a>
+          <a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a>
+          <a href="guida-pensione-anticipata-2026.html">Pensione Anticipata</a>
+          <a href="guida-conto-deposito-2026.html">Conti Deposito</a>
+          <a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a>
+          <a href="guida-investire-10000-euro.html">Investire 10.000€</a>
+          <a href="guida-730-precompilato-2026.html">730 Precompilato</a>
+          <a href="guida-deficit-calorico-dimagrire.html">Deficit Calorico</a>
+          <a href="glossario-finanziario.html">Glossario Finanziario</a>
+        </div>
+      </div>
+      <p class="nav-menu-empty" id="navMenuEmpty">Nessun risultato. Prova un altro termine di ricerca.</p>
+    </div>
+  </div>
+<div class="ad-slot-top" aria-hidden="true">
     <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="5537958207" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
   </div>
 
@@ -135,6 +207,17 @@
             <option value="moto">Motociclo / Scooter</option>
             <option value="ciclomotore">Ciclomotore (50cc, ≤4kW)</option>
           </select>
+        </div>
+        <div class="field" id="euroField">
+          <label for="classeEuro">Classe ambientale (campo V.9 del libretto)</label>
+          <select id="classeEuro">
+            <option value="456">Euro 4 / Euro 5 / Euro 6</option>
+            <option value="3">Euro 3</option>
+            <option value="2">Euro 2</option>
+            <option value="1">Euro 1</option>
+            <option value="0">Euro 0</option>
+          </select>
+          <p class="hint">Le tariffe base nazionali sono più alte per i veicoli più vecchi/inquinanti. Trovi la classe Euro sulla carta di circolazione.</p>
         </div>
         <div class="field" id="regioneField">
           <label for="regione">Regione di residenza</label>
@@ -213,7 +296,8 @@
           <div class="result-unit" id="resultUnit">importo da pagare</div>
           <div class="result-breakdown" id="breakdownOut"></div>
           <div id="alertBox" style="margin-top:16px;"></div>
-        </div>
+                  <p class="result-disclaimer">ℹ️ Calcolo indicativo — non sostituisce la consulenza di un professionista qualificato.</p>
+</div>
 
         <!-- Tabella dettaglio -->
         <div id="tabellaBox" style="margin-top:24px;background:var(--white);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;display:none;">
@@ -370,7 +454,7 @@
       <div class="footer-brand">
         <div class="footer-logo">Calcola<span>Pro</span></div>
         <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:500;">⚠️ I risultati sono indicativi. Verifica sempre l'importo ufficiale su aci.it o portale della tua Regione.</p>
+        <p class="footer-disclaimer">⚠️ I risultati sono indicativi. Verifica sempre l'importo ufficiale su aci.it o portale della tua Regione.</p>
       </div>
       <div class="footer-col">
         <h4>Calcolatori</h4>
@@ -384,7 +468,7 @@
           <li><a href="calcolo-malattia-inps.html">Malattia INPS</a></li>
           <li><a href="calcolo-detrazioni-730.html">Detrazioni 730</a></li>
           <li><a href="pensione.html">Pensione 2026</a></li>
-          <li><a href="tfr.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-tfr-liquidazione.html">Simulatore TFR</a></li>
           <li><a href="partitaiva.html">Partita IVA</a></li>
           <li><a href="divisione-conto.html">Divisione Conto</a></li>
         </ul>
@@ -464,7 +548,13 @@
     function calcola() {
       const kw = parseFloat(document.getElementById('kw').value) || 0;
       const tipo = document.getElementById('tipoVeicolo').value;
+      const classeEuro = document.getElementById('classeEuro').value;
       const regione = document.getElementById('regione').value;
+      // Tariffe €/kW nazionali base per classe Euro (soglia 100kW per auto): fino a Euro3 tariffe piu' alte, unificate da Euro4 in su
+      const TARIFFE_AUTO = { '0': [3.00, 4.50], '1': [2.90, 4.35], '2': [2.80, 4.20], '3': [2.70, 4.05], '456': [2.58, 3.87] };
+      // Moto: quota fissa fino a 11kW + tariffa aggiuntiva per ogni kW oltre gli 11kW
+      const TARIFFE_MOTO = { '0': [26.00, 1.70], '1': [23.00, 1.30], '2': [21.00, 1.00], '3': [19.11, 0.88], '456': [19.11, 0.88] };
+      const [tariffaAutoBase, tariffaAutoOltre] = TARIFFE_AUTO[classeEuro] || TARIFFE_AUTO['456'];
       const isElettr = document.getElementById('elettrico').checked;
       const isStor = document.getElementById('storico').checked;
       const annoImmat = parseInt(document.getElementById('annoImmat').value) || 2023;
@@ -515,11 +605,13 @@
       // Normal calculation (if not exempt/reduced by above)
       if (status === 'normale') {
         if (tipo === 'auto') {
-          bolloBase = kw <= 100 ? kw * 2.58 : (100 * 2.58 + (kw - 100) * 3.87);
+          bolloBase = kw <= 100 ? kw * tariffaAutoBase : (100 * tariffaAutoBase + (kw - 100) * tariffaAutoOltre);
+          nota = 'Tariffa nazionale base: numerose Regioni/Province autonome (Abruzzo, Campania, Emilia-Romagna, Lazio, Liguria, Calabria, Veneto, Toscana, Bolzano, Trento) applicano tariffe proprie leggermente diverse. Verifica sul portale ACI (online.aci.it/acinet/calcolobollo) per il valore esatto della tua regione.';
         } else if (tipo === 'moto') {
-          // Moto: €0.79/kW up to 11kW, then tariffe diverse — simplified: same as auto base
-          bolloBase = kw <= 53 ? kw * 1.27 : (53 * 1.27 + (kw - 53) * 1.27);
-          nota = 'Nota: per i motocicli la tariffa può variare. Verificare sul portale ACI.';
+          // Moto: quota fissa fino a 11kW + tariffa aggiuntiva per ogni kW oltre gli 11kW (tariffe nazionali base per classe Euro)
+          const [quotaFissa, tariffaOltre11] = TARIFFE_MOTO[classeEuro] || TARIFFE_MOTO['456'];
+          bolloBase = kw <= 11 ? quotaFissa : quotaFissa + (kw - 11) * tariffaOltre11;
+          nota = 'Tariffa nazionale base: numerose Regioni/Province autonome (Abruzzo, Campania, Emilia-Romagna, Lazio, Liguria, Calabria, Veneto, Toscana, Bolzano, Trento) applicano tariffe proprie leggermente diverse. Verifica sul portale ACI (online.aci.it/acinet/calcolobollo) per il valore esatto della tua regione.';
         }
       }
 
@@ -540,10 +632,10 @@
       // Breakdown
       let breakdown = '';
       if (status !== 'esente' && tipo === 'auto' && status !== 'ridotto') {
-        const p1 = Math.min(kw, 100) * 2.58;
-        const p2 = Math.max(0, kw - 100) * 3.87;
-        breakdown = `<div class="breakdown-item"><div class="breakdown-value">${fmt(p1)}</div><div class="breakdown-label">${Math.min(kw,100)} kW × €2,58</div></div>`;
-        if (p2 > 0) breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(p2)}</div><div class="breakdown-label">${kw-100} kW × €3,87 (>100kW)</div></div>`;
+        const p1 = Math.min(kw, 100) * tariffaAutoBase;
+        const p2 = Math.max(0, kw - 100) * tariffaAutoOltre;
+        breakdown = `<div class="breakdown-item"><div class="breakdown-value">${fmt(p1)}</div><div class="breakdown-label">${Math.min(kw,100)} kW × €${tariffaAutoBase.toFixed(2).replace('.',',')}</div></div>`;
+        if (p2 > 0) breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(p2)}</div><div class="breakdown-label">${kw-100} kW × €${tariffaAutoOltre.toFixed(2).replace('.',',')} (>100kW)</div></div>`;
         if (addizionale > 0) breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(addizionale)}</div><div class="breakdown-label">Addizionale regionale (+5%)</div></div>`;
       }
       document.getElementById('breakdownOut').innerHTML = breakdown;
@@ -565,12 +657,12 @@
         const p2kw = Math.max(0, kw - 100);
         let rows = `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Potenza 0-${p1kw} kW</td>
-          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p1kw} kW × €2,58</td>
-          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p1kw * 2.58)}</td></tr>`;
+          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p1kw} kW × €${tariffaAutoBase.toFixed(2).replace('.',',')}</td>
+          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p1kw * tariffaAutoBase)}</td></tr>`;
         if (p2kw > 0) rows += `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Potenza extra >100 kW</td>
-          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p2kw} kW × €3,87</td>
-          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p2kw * 3.87)}</td></tr>`;
+          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p2kw} kW × €${tariffaAutoOltre.toFixed(2).replace('.',',')}</td>
+          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p2kw * tariffaAutoOltre)}</td></tr>`;
         if (addizionale > 0) rows += `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Addizionale regionale</td>
           <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">+5%</td>
@@ -595,5 +687,6 @@
   </script>
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
+  <script src="js/navbar.js" defer></script>
 </body>
 </html>
