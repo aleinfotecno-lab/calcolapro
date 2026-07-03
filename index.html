@@ -73,17 +73,40 @@
   .tb-text strong { color: var(--text); font-size: 13px; }
   @media (max-width: 640px) { .trust-badge { border-right: none; border-bottom: 1px solid var(--border); width: 100%; justify-content: center; text-align: center; } .trust-badge:last-child { border-bottom: none; } }
 
-  /* ═══ HERO ISOMETRIC GRAPHIC (desktop only) ═══ */
-  @keyframes heroFloat1 { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-14px) rotate(-2deg); } }
-  @keyframes heroFloat2 { 0%,100% { transform: translateY(0) rotate(6deg); } 50% { transform: translateY(-10px) rotate(6deg); } }
-  @keyframes heroFloat3 { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-16px) rotate(-8deg); } }
-  @keyframes heroFloat4 { 0%,100% { transform: translateY(0) rotate(4deg); } 50% { transform: translateY(-8px) rotate(4deg); } }
+  /* ═══ HERO GRAPHIC — dashboard card fluttuante, stile SaaS premium ═══ */
   .hero-graphic { width: 100%; height: auto; overflow: visible; }
-  .hg-float-1 { animation: heroFloat1 6s ease-in-out infinite; transform-origin: center; }
-  .hg-float-2 { animation: heroFloat2 7s ease-in-out infinite; animation-delay: -1.5s; transform-origin: center; }
-  .hg-float-3 { animation: heroFloat3 5.5s ease-in-out infinite; animation-delay: -3s; transform-origin: center; }
-  .hg-float-4 { animation: heroFloat4 6.5s ease-in-out infinite; animation-delay: -2s; transform-origin: center; }
-  @media (prefers-reduced-motion: reduce) { .hg-float-1, .hg-float-2, .hg-float-3, .hg-float-4 { animation: none; } }
+  .hero-graphic .hg-anim { transform-box: fill-box; transform-origin: 50% 50%; }
+
+  @keyframes hgCardFloat { 0%,100% { transform: translateY(0) rotate(-0.6deg); } 50% { transform: translateY(-12px) rotate(0.6deg); } }
+  @keyframes hgChipFloatA { 0%,100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-10px) rotate(-1deg); } }
+  @keyframes hgChipFloatB { 0%,100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-14px) rotate(4deg); } }
+  @keyframes hgChipFloatC { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-9px) rotate(-6deg); } }
+  @keyframes hgChipFloatD { 0%,100% { transform: translateY(0) rotate(3deg); } 50% { transform: translateY(-11px) rotate(1deg); } }
+  @keyframes hgGlowPulse { 0% { opacity: 0.55; transform: scale(0.94); } 100% { opacity: 0.9; transform: scale(1.06); } }
+  @keyframes hgSparkle { 0%, 100% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; transform: scale(1); } }
+  @keyframes hgPulseRing { 0% { opacity: 0.55; transform: scale(0.7); } 100% { opacity: 0; transform: scale(2.1); } }
+  @keyframes hgShimmer { 0% { transform: translateX(-120px) rotate(18deg); } 12%, 100% { transform: translateX(420px) rotate(18deg); } }
+  @keyframes hgOrbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .hg-card       { animation: hgCardFloat 8s ease-in-out infinite; }
+  .hg-chip-taeg  { animation: hgChipFloatA 6.2s ease-in-out infinite; animation-delay: -0.8s; }
+  .hg-chip-coin  { animation: hgChipFloatB 7s ease-in-out infinite; animation-delay: -2.4s; }
+  .hg-chip-bars  { animation: hgChipFloatC 6.6s ease-in-out infinite; animation-delay: -3.6s; }
+  .hg-chip-pct   { animation: hgChipFloatD 5.6s ease-in-out infinite; animation-delay: -1.6s; }
+  .hg-glow-a     { animation: hgGlowPulse 9s ease-in-out infinite alternate; }
+  .hg-glow-b     { animation: hgGlowPulse 11s ease-in-out infinite alternate; animation-delay: -4s; }
+  .hg-glow-c     { animation: hgGlowPulse 10s ease-in-out infinite alternate; animation-delay: -6.5s; }
+  .hg-sparkle    { animation: hgSparkle 3.4s ease-in-out infinite; }
+  .hg-sparkle:nth-child(2) { animation-delay: -0.9s; }
+  .hg-sparkle:nth-child(3) { animation-delay: -1.8s; }
+  .hg-sparkle:nth-child(4) { animation-delay: -2.5s; }
+  .hg-pulse-ring { animation: hgPulseRing 2.6s ease-out infinite; }
+  .hg-shimmer    { animation: hgShimmer 5.5s ease-in-out infinite; }
+  .hg-orbit      { animation: hgOrbitSpin 50s linear infinite; transform-box: fill-box; transform-origin: 50% 50%; }
+  @media (prefers-reduced-motion: reduce) {
+    .hg-card, .hg-chip-taeg, .hg-chip-coin, .hg-chip-bars, .hg-chip-pct,
+    .hg-glow-a, .hg-glow-b, .hg-glow-c, .hg-sparkle, .hg-pulse-ring, .hg-shimmer, .hg-orbit { animation: none; }
+  }
 
   @media (min-width: 960px) {
     .hero { text-align: left; padding: 96px 40px 56px; }
@@ -438,80 +461,145 @@
 
       <!-- Isometric hero graphic — decorativo, nascosto sotto i 960px -->
       <div class="hero-right" aria-hidden="true">
-        <svg class="hero-graphic" viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg">
+        <svg class="hero-graphic" viewBox="0 0 560 480" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="hgTop" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
-              <stop offset="100%" stop-color="#eff6ff" stop-opacity="0.85"/>
+            <linearGradient id="hgCardFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#eef4ff"/>
             </linearGradient>
-            <linearGradient id="hgLeft" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#bfdbfe" stop-opacity="0.65"/>
-              <stop offset="100%" stop-color="#93c5fd" stop-opacity="0.55"/>
+            <linearGradient id="hgNumGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0f172a"/>
+              <stop offset="100%" stop-color="#1a56db"/>
             </linearGradient>
-            <linearGradient id="hgRight" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.55"/>
-              <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.45"/>
+            <linearGradient id="hgSparkStroke" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#1a56db"/>
+              <stop offset="100%" stop-color="#22c55e"/>
             </linearGradient>
-            <radialGradient id="hgGlow1" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.5"/>
+            <linearGradient id="hgSparkFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="hgCoinGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fde68a"/>
+              <stop offset="100%" stop-color="#f59e0b"/>
+            </linearGradient>
+            <linearGradient id="hgShimmerGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#ffffff" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+            <radialGradient id="hgGlowBlue" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.55"/>
               <stop offset="100%" stop-color="#93c5fd" stop-opacity="0"/>
             </radialGradient>
-            <radialGradient id="hgGlow2" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.45"/>
+            <radialGradient id="hgGlowViolet" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.5"/>
               <stop offset="100%" stop-color="#c4b5fd" stop-opacity="0"/>
             </radialGradient>
+            <radialGradient id="hgGlowGreen" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#86efac" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#86efac" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="hgCardShadow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#0f172a" stop-opacity="0.16"/>
+              <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+            </radialGradient>
+            <pattern id="hgDots" width="26" height="26" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.6" fill="#94a3b8"/>
+            </pattern>
+            <radialGradient id="hgDotMask" cx="50%" cy="46%" r="55%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#000000"/>
+            </radialGradient>
+            <mask id="hgDotMaskEl">
+              <rect x="0" y="0" width="560" height="480" fill="url(#hgDotMask)"/>
+            </mask>
+            <clipPath id="hgCardClip">
+              <rect x="110" y="130" width="340" height="210" rx="26"/>
+            </clipPath>
           </defs>
 
-          <circle cx="120" cy="380" r="140" fill="url(#hgGlow1)"/>
-          <circle cx="420" cy="90" r="130" fill="url(#hgGlow2)"/>
+          <!-- glow ambientali -->
+          <circle class="hg-anim hg-glow-a" cx="90" cy="390" r="175" fill="url(#hgGlowBlue)"/>
+          <circle class="hg-anim hg-glow-b" cx="480" cy="70" r="160" fill="url(#hgGlowViolet)"/>
+          <circle class="hg-anim hg-glow-c" cx="490" cy="410" r="120" fill="url(#hgGlowGreen)"/>
 
-          <ellipse cx="260" cy="368" rx="120" ry="18" fill="#0f172a" opacity="0.08"/>
+          <!-- texture puntinata -->
+          <rect x="0" y="0" width="560" height="480" fill="url(#hgDots)" opacity="0.4" mask="url(#hgDotMaskEl)"/>
 
-          <!-- cubo isometrico: pannello di calcolo -->
-          <g>
-            <polygon points="170,305 260,350 260,240 170,195" fill="url(#hgLeft)" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.5"/>
-            <polygon points="260,350 350,305 350,195 260,240" fill="url(#hgRight)" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.5"/>
-            <polygon points="260,150 350,195 260,240 170,195" fill="url(#hgTop)" stroke="#ffffff" stroke-opacity="0.8" stroke-width="1.5"/>
-            <circle cx="260" cy="195" r="26" fill="#1a56db"/>
-            <text x="260" y="203" font-family="Inter, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">€</text>
-            <rect x="185" y="225" width="55" height="6" rx="3" fill="#ffffff" opacity="0.55"/>
-            <rect x="185" y="240" width="40" height="6" rx="3" fill="#ffffff" opacity="0.4"/>
-            <rect x="185" y="255" width="48" height="6" rx="3" fill="#ffffff" opacity="0.4"/>
+          <!-- orbita decorativa -->
+          <ellipse class="hg-orbit" cx="280" cy="235" rx="252" ry="188" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 8" opacity="0.35"/>
+
+          <!-- ombra del pannello principale -->
+          <ellipse cx="280" cy="356" rx="150" ry="26" fill="url(#hgCardShadow)"/>
+
+          <!-- ═══ PANNELLO PRINCIPALE — mini dashboard ═══ -->
+          <g class="hg-anim hg-card">
+            <rect x="110" y="130" width="340" height="210" rx="26" fill="url(#hgCardFill)" stroke="#ffffff" stroke-width="1.5"/>
+            <rect x="110.75" y="130.75" width="338.5" height="208.5" rx="25.25" fill="none" stroke="#c7d9f7" stroke-width="1"/>
+
+            <!-- toolbar -->
+            <circle cx="140" cy="160" r="3" fill="#cbd5e1"/>
+            <circle cx="152" cy="160" r="3" fill="#cbd5e1"/>
+            <circle cx="164" cy="160" r="3" fill="#cbd5e1"/>
+            <circle cx="424" cy="160" r="16" fill="#1a56db"/>
+            <text x="424" y="165.5" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">€</text>
+
+            <!-- contenuto -->
+            <text x="140" y="197" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#94a3b8">RISPARMIO STIMATO</text>
+            <text x="139" y="240" font-family="Inter, sans-serif" font-size="40" font-weight="800" fill="url(#hgNumGrad)">&#8364;1.847</text>
+            <rect x="140" y="250" width="80" height="24" rx="12" fill="#dcfce7"/>
+            <path d="M152 262 l4 -5 l4 5" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="163" y="266.5" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#059669">+12,4%</text>
+
+            <!-- sparkline -->
+            <path d="M140,300 C165,300 165,282 190,282 C215,282 215,296 240,296 C265,296 265,268 290,268 C315,268 315,286 340,286 C365,286 365,258 390,258 L390,318 L140,318 Z" fill="url(#hgSparkFill)"/>
+            <path d="M140,300 C165,300 165,282 190,282 C215,282 215,296 240,296 C265,296 265,268 290,268 C315,268 315,286 340,286 C365,286 365,258 390,258" fill="none" stroke="url(#hgSparkStroke)" stroke-width="3" stroke-linecap="round"/>
+            <circle class="hg-anim hg-pulse-ring" cx="390" cy="258" r="9" fill="none" stroke="#22c55e" stroke-width="2"/>
+            <circle cx="390" cy="258" r="5" fill="#ffffff" stroke="#22c55e" stroke-width="3"/>
+
+            <!-- shimmer di vetro -->
+            <g clip-path="url(#hgCardClip)">
+              <rect class="hg-shimmer" x="0" y="120" width="50" height="230" fill="url(#hgShimmerGrad)"/>
+            </g>
           </g>
 
-          <!-- scontrino -->
-          <g class="hg-float-1">
-            <rect x="46" y="70" width="84" height="104" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
-            <rect x="60" y="88" width="56" height="6" rx="3" fill="#cbd5e1"/>
-            <rect x="60" y="102" width="40" height="6" rx="3" fill="#e2e8f0"/>
-            <rect x="60" y="116" width="56" height="6" rx="3" fill="#e2e8f0"/>
-            <rect x="60" y="130" width="30" height="6" rx="3" fill="#e2e8f0"/>
-            <rect x="60" y="150" width="56" height="8" rx="4" fill="#1a56db" opacity="0.85"/>
-            <path d="M46 174 l10.5 -8 l10.5 8 l10.5 -8 l10.5 8 l10.5 -8 l10.5 8 l10.5 -8 l10.5 8" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- chip TAEG -->
+          <g class="hg-anim hg-chip-taeg">
+            <rect x="22" y="52" width="122" height="68" rx="18" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+            <text x="42" y="80" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2" fill="#94a3b8">TAEG</text>
+            <text x="41" y="103" font-family="Inter, sans-serif" font-size="21" font-weight="800" fill="#1a56db">3,2%</text>
           </g>
 
           <!-- moneta -->
-          <g class="hg-float-2">
-            <circle cx="430" cy="120" r="34" fill="#fbbf24"/>
-            <circle cx="430" cy="120" r="34" fill="none" stroke="#f59e0b" stroke-width="2"/>
-            <text x="430" y="129" font-family="Inter, sans-serif" font-size="26" font-weight="800" fill="#78350f" text-anchor="middle">€</text>
+          <g class="hg-anim hg-chip-coin">
+            <circle cx="498" cy="88" r="36" fill="url(#hgCoinGrad)"/>
+            <circle cx="498" cy="88" r="36" fill="none" stroke="#d97706" stroke-opacity="0.4" stroke-width="1.5"/>
+            <path d="M482 74 a 22 22 0 0 1 18 -10" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="498" y="97" font-family="Inter, sans-serif" font-size="27" font-weight="800" fill="#78350f" text-anchor="middle">&#8364;</text>
           </g>
 
           <!-- grafico a barre -->
-          <g class="hg-float-3">
-            <rect x="60" y="290" width="96" height="86" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
-            <rect x="76" y="340" width="12" height="22" rx="3" fill="#a7f3d0"/>
-            <rect x="94" y="326" width="12" height="36" rx="3" fill="#6ee7b7"/>
-            <rect x="112" y="312" width="12" height="50" rx="3" fill="#059669"/>
-            <path d="M76 344 L94 330 L112 316" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <g class="hg-anim hg-chip-bars">
+            <rect x="450" y="320" width="102" height="88" rx="18" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+            <rect x="466" y="368" width="13" height="24" rx="3.5" fill="#a7f3d0"/>
+            <rect x="486" y="352" width="13" height="40" rx="3.5" fill="#4ade80"/>
+            <rect x="506" y="336" width="13" height="56" rx="3.5" fill="#059669"/>
+            <path d="M466 372 L486 356 L506 340" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </g>
 
           <!-- percentuale -->
-          <g class="hg-float-4">
-            <circle cx="410" cy="330" r="26" fill="#ede9fe"/>
-            <circle cx="410" cy="330" r="26" fill="none" stroke="#c4b5fd" stroke-width="2"/>
-            <text x="410" y="337" font-family="Inter, sans-serif" font-size="17" font-weight="800" fill="#5b21b6" text-anchor="middle">%</text>
+          <g class="hg-anim hg-chip-pct">
+            <circle cx="56" cy="368" r="30" fill="#ede9fe"/>
+            <circle cx="56" cy="368" r="30" fill="none" stroke="#c4b5fd" stroke-width="2"/>
+            <text x="56" y="376" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#5b21b6" text-anchor="middle">%</text>
           </g>
+
+          <!-- sparkle -->
+          <path class="hg-sparkle" transform="translate(66,116) scale(0.9)" d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" fill="#93c5fd"/>
+          <path class="hg-sparkle" transform="translate(512,232) scale(0.75)" d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" fill="#c4b5fd"/>
+          <path class="hg-sparkle" transform="translate(346,36) scale(0.65)" d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" fill="#fbbf24"/>
+          <path class="hg-sparkle" transform="translate(150,452) scale(0.8)" d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" fill="#86efac"/>
         </svg>
       </div>
     </div>
