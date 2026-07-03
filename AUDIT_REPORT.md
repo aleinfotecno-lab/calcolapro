@@ -1,7 +1,11 @@
 # Audit completo CalcolaPro.it
 
-Branch: `audit/full-site-review` — Data: 2026-07-02
+Branch: `audit/full-site-review` — Data: 2026-07-02, aggiornato 2026-07-03
 Squadra: 12 agenti specializzati (6 Calcoli/normativa, 2 Design, 1 Legale/accessibilità, 2 SEO, 1 Sicurezza), eseguiti in due run per recuperare 2 gruppi falliti per rate-limit. Verifica incrociata: molti bug (es. IRPEF 35→33%, link tfr.html, disclaimer mancante) sono stati confermati indipendentemente da più agenti/run diversi.
+
+## Addendum 2026-07-03 — Correzioni fiscali verificate + finalizzazione sito
+
+Dopo il primo audit, tutti i valori normativi elencati come "da verificare" sono stati controllati con una ricerca dedicata su fonti ufficiali (Agenzia Entrate, INPS, MEF, Gazzetta Ufficiale) e corretti nel codice dove la fonte era sufficientemente solida. Riepilogo separato più sotto ("Correzioni fiscali applicate dopo verifica"). Inoltre: rimossi tutti i riferimenti a Netlify, aggiunto README.md, ridisegnata la navbar (menu unico a pannello con ricerca, uguale su desktop/mobile) su tutte le 59 pagine, alleggerita la home page con una vista d'insieme per categoria.
 
 ## Legenda gravità
 🔴 Critico · 🟠 Alto · 🟡 Medio · 🟢 Basso
