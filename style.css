@@ -1135,11 +1135,6 @@ a:focus-visible { border-radius: 4px; }
 .ccta-btn:hover{background:#f5d060;}
 .ccta-sub{font-size:11px;opacity:.7;margin-top:8px;}
 /* 6.4 Progress Bar & Social Proof */
-.calc-progress-wrap{display:none;margin:14px 0;text-align:center;}
-.calc-progress-wrap.active{display:block;}
-.calc-progress-bar-bg{height:6px;background:#e0e7ef;border-radius:3px;overflow:hidden;max-width:360px;margin:0 auto 8px;}
-.calc-progress-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,#1a3c5e,#2a7ae2);border-radius:3px;transition:width .08s linear;}
-.calc-progress-label{font-size:12px;color:#1a3c5e;font-weight:600;letter-spacing:.3px;}
 .social-proof-counter{display:inline-flex;align-items:center;gap:6px;background:#eaf3fb;border:1px solid #c0d8ef;border-radius:20px;padding:5px 12px;font-size:12px;color:#1a3c5e;margin:10px 0 16px;}
 .social-proof-counter .spc-dot{width:7px;height:7px;background:#2ecc71;border-radius:50%;animation:pulseDot 1.5s infinite;}
 @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
@@ -1153,3 +1148,12 @@ a:focus-visible { border-radius: 4px; }
 #sec-tasse .tool-card     { border-left: 3px solid #dc2626; }
 #sec-salute .tool-card    { border-left: 3px solid #7c3aed; }
 #sec-utilita .tool-card   { border-left: 3px solid #0891b2; }
+
+/* ===== Sources box (E-E-A-T, fonti ufficiali) ===== */
+.sources-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 22px;margin:28px 0 8px;}
+.sources-box h3{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin:0 0 10px;}
+.sources-box ul{list-style:none;margin:0;padding:0;}
+.sources-box li{padding:4px 0;font-size:14px;line-height:1.6;}
+.sources-box a{color:var(--blue);text-decoration:none;}
+.sources-box a:hover{text-decoration:underline;}
+.sources-box .src-note{font-size:12px;color:var(--text-muted);margin-top:8px;display:block;}

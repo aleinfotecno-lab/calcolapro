@@ -1,0 +1,34 @@
+name: IndexNow ping
+
+# Notifica Bing/Yandex/Seznam/Naver (e quindi ChatGPT Search) delle pagine
+# modificate a ogni push. Google NON aderisce a IndexNow: per Google fa fede
+# la sitemap + Search Console.
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Ping IndexNow con le pagine modificate
+        env:
+          KEY: 9f3c72e51a844b0d8e6f2c17d5a9b3e4
+        run: |
+          set -e
+          CHANGED=$(git diff --name-only HEAD^ HEAD -- '*.html' 2>/dev/null | grep -vE '^(google[0-9a-f]+\.html|404\.html|tfr\.html|calcolatore-prezzo-orario-freelance\.html)$' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "Nessuna pagina HTML modificata in questo push."
+            exit 0
+          fi
+          URLS=$(echo "$CHANGED" | awk '{ if ($0=="index.html") print "https://calcolapro.it/"; else print "https://calcolapro.it/" $0 }' | jq -R . | jq -s .)
+          BODY=$(jq -n --arg key "$KEY" --argjson urls "$URLS" \
+            '{host:"calcolapro.it", key:$key, keyLocation:("https://calcolapro.it/"+$key+".txt"), urlList:$urls}')
+          echo "$BODY"
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$BODY" -w "\nHTTP %{http_code}\n"

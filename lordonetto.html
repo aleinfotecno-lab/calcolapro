@@ -251,7 +251,6 @@
       <div class="btn-wrap">
         <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola lo stipendio netto in busta paga">🔍 Calcola il netto →</button>
       </div>
-      <div class="calc-progress-wrap" id="calcProgressWrap"><div class="calc-progress-bar-bg"><div class="calc-progress-bar-fill" id="calcProgressFill"></div></div><div class="calc-progress-label" id="calcProgressLabel">Elaborazione in corso...</div></div>
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo stipendio">
         <div class="result-card">
           <div class="result-label" id="resultLabel">Stipendio netto annuo</div>
@@ -644,15 +643,6 @@
     })();
   </script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
-<script>
-(function(){
-  var btn=document.querySelector('.btn-wrap button');
-  var wrap=document.getElementById('calcProgressWrap');
-  var fill=document.getElementById('calcProgressFill');
-  var lbl=document.getElementById('calcProgressLabel');
-  if(btn&&wrap&&fill){btn.addEventListener('click',function(){wrap.classList.add('active');fill.style.width='0%';lbl.textContent='Elaborazione...';var w=0,labels=['Elaborazione...','Calcolo IRPEF...','Quasi pronto...','Fatto!'];var iv=setInterval(function(){w+=Math.random()*18+8;if(w>=100){w=100;clearInterval(iv);}fill.style.width=w+'%';lbl.textContent=labels[Math.min(Math.floor(w/25),3)];if(w===100)setTimeout(function(){wrap.classList.remove('active');},600);},80);});}
-})();
-</script>
   <script src="js/navbar.js" defer></script>
 </body>
 </html>
