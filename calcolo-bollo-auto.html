@@ -52,7 +52,11 @@
     {"@type":"Question","name":"I veicoli storici pagano il bollo?","acceptedAnswer":{"@type":"Answer","text":"I veicoli di interesse storico e collezionistico con più di 30 anni di anzianità sono esenti dal bollo auto. I veicoli tra i 20 e 29 anni di anzianità (riconosciuti storici con apposita iscrizione ai registri ASI, Storico Lancia, FIAT, ecc.) pagano un bollo ridotto: forfettario di €25,82 per le moto e tariffe agevolate per le auto."}},
     {"@type":"Question","name":"Quando si paga il bollo auto?","acceptedAnswer":{"@type":"Answer","text":"Il bollo auto si paga entro il mese successivo al mese in cui è scaduto il precedente bollo. La scadenza dipende dal mese di prima immatricolazione (o dal mese dell'ultimo bollo pagato). Il pagamento si effettua tramite ACI, tabaccherie, banche, uffici postali, home banking o app come IO. Dal 2026, il pagamento pagoPA tramite app IO è il canale raccomandato."}},
     {"@type":"Question","name":"Cosa succede se non si paga il bollo auto in tempo?","acceptedAnswer":{"@type":"Answer","text":"Se non paghi il bollo auto entro la scadenza, vengono applicate sanzioni: 30% dell'importo dovuto. È possibile regolarizzare con il ravvedimento operoso: entro 14 giorni dalla scadenza la sanzione è dello 0,1% al giorno; tra 15 e 30 giorni, il 3%; tra 31 e 90 giorni, il 3,33%. Dopo 3 anni dalla scadenza, il bollo non pagato si prescrive e la Regione non può più richiederlo."}},
-    {"@type":"Question","name":"Come convertire i CV in kW?","acceptedAnswer":{"@type":"Answer","text":"Per convertire i Cavalli Vapore (CV) o Horse Power (HP) in kilowatt (kW) si usa la formula: kW = CV ÷ 1.36. Esempio: 100 CV = 73,5 kW. Ricorda che sul libretto di circolazione è già indicata la potenza in kW al campo P.2, quindi non hai bisogno di convertire."}}
+    {"@type":"Question","name":"Come convertire i CV in kW?","acceptedAnswer":{"@type":"Answer","text":"Per convertire i Cavalli Vapore (CV) o Horse Power (HP) in kilowatt (kW) si usa la formula: kW = CV ÷ 1.36. Esempio: 100 CV = 73,5 kW. Ricorda che sul libretto di circolazione è già indicata la potenza in kW al campo P.2, quindi non hai bisogno di convertire."}},
+    {"@type":"Question","name":"Il bollo auto si prescrive?","acceptedAnswer":{"@type":"Answer","text":"Sì. La tassa automobilistica si prescrive in 3 anni dalla scadenza originale del pagamento. Dopo questo termine, la Regione non può più richiederne il pagamento e le eventuali cartelle diventano illegittime. La prescrizione si interrompe con una notifica di cartella esattoriale o con un atto interruttivo."}},
+    {"@type":"Question","name":"Auto ibrida: come si calcola il bollo?","acceptedAnswer":{"@type":"Answer","text":"Per i veicoli ibridi, il bollo si calcola sulla potenza del motore termico in kW, non sulla potenza combinata del sistema ibrido. Alcuni PHEV hanno una potenza termica dichiarata nel libretto: si usa quel valore. I mild hybrid pagano il bollo sul motore endotermico come un veicolo normale. Non esiste una riduzione nazionale per i veicoli ibridi, anche se alcune regioni possono prevedere agevolazioni locali."}},
+    {"@type":"Question","name":"Vendita dell'auto: chi paga il bollo?","acceptedAnswer":{"@type":"Answer","text":"Dopo la vendita, il bollo è a carico del nuovo proprietario per i periodi successivi al passaggio di proprietà. Se il venditore ha già pagato il bollo per un periodo che ricade dopo la vendita, ha diritto al rimborso della quota proporzionale ai mesi residui, da richiedere alla Regione competente. Il passaggio di proprietà va comunicato alla motorizzazione entro 60 giorni."}},
+    {"@type":"Question","name":"Come si calcola il bollo per un'auto appena acquistata?","acceptedAnswer":{"@type":"Answer","text":"Per un veicolo di nuova immatricolazione o appena acquistato, il bollo si paga per i mesi rimanenti fino alla scadenza naturale, che coincide con il mese di immatricolazione originale del veicolo. Il calcolo è proporzionale: (importo annuale / 12) moltiplicato per i mesi da pagare."}}
   ]}
   </script>
   <script type="application/ld+json">
@@ -424,6 +428,34 @@
       <h3>Domande frequenti</h3>
       <div class="faq-list">
         <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola il bollo auto 2026?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Il bollo auto si calcola moltiplicando la potenza del motore (in kW, indicata sul libretto di circolazione al punto P.2) per la tariffa nazionale: €2,58/kW per i primi 100 kW e €3,87/kW per la potenza oltre i 100 kW. Il risultato è l'importo annuale della tassa automobilistica. Alcune regioni possono applicare una piccola addizionale regionale.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Dove trovo i kW della mia auto?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">I kW della tua auto si trovano sul libretto di circolazione (carta di circolazione), alla voce P.2 "Potenza massima in kW". In alternativa, puoi trovare questa informazione nel sito del Ministero dei Trasporti oppure sul sito dell'ACI inserendo la targa. I cavalli (CV o HP) si convertono in kW dividendo per 1,36.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Le auto elettriche pagano il bollo?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">I veicoli elettrici puri (100% elettrici) sono esenti dal bollo auto per i primi 5 anni dalla prima immatricolazione nella maggior parte delle regioni italiane. Dopo i 5 anni, alcune regioni concedono uno sconto del 75% sull'importo ordinario. I veicoli ibridi invece pagano il bollo normale in base alla potenza totale del sistema.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">I veicoli storici pagano il bollo?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">I veicoli di interesse storico e collezionistico con più di 30 anni di anzianità sono esenti dal bollo auto. I veicoli tra i 20 e 29 anni di anzianità (riconosciuti storici con apposita iscrizione ai registri ASI, Storico Lancia, FIAT, ecc.) pagano un bollo ridotto: forfettario di €25,82 per le moto e tariffe agevolate per le auto.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quando si paga il bollo auto?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Il bollo auto si paga entro il mese successivo al mese in cui è scaduto il precedente bollo. La scadenza dipende dal mese di prima immatricolazione (o dal mese dell'ultimo bollo pagato). Il pagamento si effettua tramite ACI, tabaccherie, banche, uffici postali, home banking o app come IO. Dal 2026, il pagamento pagoPA tramite app IO è il canale raccomandato.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa succede se non si paga il bollo auto in tempo?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Se non paghi il bollo auto entro la scadenza, vengono applicate sanzioni: 30% dell'importo dovuto. È possibile regolarizzare con il ravvedimento operoso: entro 14 giorni dalla scadenza la sanzione è dello 0,1% al giorno; tra 15 e 30 giorni, il 3%; tra 31 e 90 giorni, il 3,33%. Dopo 3 anni dalla scadenza, il bollo non pagato si prescrive e la Regione non può più richiederlo.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come convertire i CV in kW?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Per convertire i Cavalli Vapore (CV) o Horse Power (HP) in kilowatt (kW) si usa la formula: kW = CV ÷ 1,36. Esempio: 100 CV = 73,5 kW. Ricorda che sul libretto di circolazione è già indicata la potenza in kW al campo P.2, quindi non hai bisogno di convertire.</div>
+        </div>
+        <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Il bollo auto si prescrive?<span class="faq-arrow">▾</span></button>
           <div class="faq-answer">Sì. La tassa automobilistica si prescrive in <strong>3 anni</strong> dalla scadenza originale del pagamento. Dopo questo termine, la Regione non può più richiederne il pagamento e le eventuali cartelle diventano illegittime. Attenzione: la prescrizione si interrompe con una notifica di cartella esattoriale o con un atto interruttivo.</div>
         </div>
@@ -440,6 +472,16 @@
           <div class="faq-answer">Per un veicolo di nuova immatricolazione o appena acquistato, il bollo si paga per i mesi rimanenti fino alla scadenza naturale (che coincide con il mese di immatricolazione originale del veicolo). Il calcolo è proporzionale: (importo annuale / 12) × mesi da pagare. Usa il nostro selettore "mesi di possesso" per calcolare l'importo esatto.</div>
         </div>
       </div>
+    </div>
+
+    <div class="sources-box">
+      <h3>Fonti ufficiali</h3>
+      <ul>
+        <li><a href="https://aci.gov.it/servizi/bollo-auto/" target="_blank" rel="noopener">ACI Gov — Bollo auto: servizi digitali, calcolo e pagamento</a></li>
+        <li><a href="https://online.aci.it/acinet/calcolobollo/" target="_blank" rel="noopener">ACI — Calcolo del bollo auto e del superbollo</a></li>
+        <li><a href="https://www.agenziaentrate.gov.it/portale/schede/pagamenti/bollo-auto/calcolo-del-bollo-con-la-formula-completa" target="_blank" rel="noopener">Agenzia delle Entrate — Calcolo del bollo auto sul sito ACI</a></li>
+      </ul>
+      <span class="src-note">Fonti consultate a luglio 2026.</span>
     </div>
 
     <section class="container related-tools">

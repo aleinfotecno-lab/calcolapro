@@ -51,7 +51,10 @@
     {"@type":"Question","name":"Come si calcola il costo del lavoro?","acceptedAnswer":{"@type":"Answer","text":"Il costo del lavoro = stipendio lordo × (1 + aliquota contributi datoriali + aliquota INAIL) + accantonamento TFR mensile. Esempio: lordo €2.000/mese, contributi datoriali 30%, INAIL 0.8%, TFR 6.91%/12: costo = 2.000 × (1 + 0.30 + 0.008) + 2.000 × 0.0576 = 2.000 × 1.308 + 115 = 2.616 + 115 = €2.731/mese."}},
     {"@type":"Question","name":"Il TFR rientra nel costo del lavoro?","acceptedAnswer":{"@type":"Answer","text":"Sì. Il TFR (Trattamento di Fine Rapporto) è un costo che l'azienda sostiene ogni anno per ogni dipendente: la quota annua è il 6.91% della retribuzione annua lorda (compresi ratei di 13ª e 14ª). Questo importo va accantonato (se < 50 dipendenti) o versato al fondo pensione/INPS (se ≥ 50 dipendenti). Rientra nel costo del lavoro anche se è un costo differito."}},
     {"@type":"Question","name":"Esistono sgravi contributivi per le nuove assunzioni nel 2026?","acceptedAnswer":{"@type":"Answer","text":"Sì. Nel 2026 sono previsti diversi incentivi per le nuove assunzioni: esonero contributivo triennale per assunzione di giovani under 36 (confermato anche 2026), decontribuzione per assunzioni a tempo indeterminato in aree del Mezzogiorno (Transizione 5.0 Sud), incentivi per assunzione di percettori NASpI, benefici per categorie svantaggiate. Gli importi e le condizioni variano: verificare sempre sul portale INPS o con un consulente del lavoro."}},
-    {"@type":"Question","name":"Qual è il rapporto tra stipendio netto e costo per l'azienda?","acceptedAnswer":{"@type":"Answer","text":"In media, per ogni €100 di costo per l'azienda, il dipendente riceve circa €50-55 netti. Il resto va in contributi previdenziali (datoriali ~30% e del lavoratore ~9%), IRPEF e INAIL. Questo significa che il costo aziendale è tipicamente 1,8-2 volte il netto percepito dal lavoratore. Questa proporzione varia in base al settore, al CCNL e al livello salariale."}}
+    {"@type":"Question","name":"Qual è il rapporto tra stipendio netto e costo per l'azienda?","acceptedAnswer":{"@type":"Answer","text":"In media, per ogni €100 di costo per l'azienda, il dipendente riceve circa €50-55 netti. Il resto va in contributi previdenziali (datoriali ~30% e del lavoratore ~9%), IRPEF e INAIL. Questo significa che il costo aziendale è tipicamente 1,8-2 volte il netto percepito dal lavoratore. Questa proporzione varia in base al settore, al CCNL e al livello salariale."}},
+    {"@type":"Question","name":"Conviene assumere con contratto di apprendistato?","acceptedAnswer":{"@type":"Answer","text":"L'apprendistato professionalizzante offre contributi datoriali notevolmente ridotti (10% per aziende fino a 9 dipendenti, 11.5% per le aziende più grandi). Può durare da 3 a 5 anni. Il rischio è che il contratto sia meno flessibile e richieda obblighi formativi. Per professioni tecniche con formazione on-the-job è spesso la scelta migliore per startup e PMI."}},
+    {"@type":"Question","name":"Quali costi non sono inclusi nel calcolo?","acceptedAnswer":{"@type":"Answer","text":"Il calcolatore stima i costi contributivi e retributivi. Non include: buoni pasto, rimborso spese viaggio, telefono aziendale, computer e attrezzatura, assicurazione RC professionale, formazione obbligatoria, costi di reclutamento, visita medica obbligatoria, costo dello spazio fisico di lavoro e il tempo di gestione HR. In totale questi costi extra possono aggiungere il 10-20% al costo tabellare."}},
+    {"@type":"Question","name":"È più conveniente un dipendente o un collaboratore P.IVA?","acceptedAnswer":{"@type":"Answer","text":"Dipende dalla situazione. Un collaboratore P.IVA forfettario ha un costo lordo inferiore (nessun contributo datoriale, no TFR), ma va trattato come collaboratore autonomo reale, senza vincolo di orario o subordinazione. Se la collaborazione assomiglia a un rapporto di lavoro dipendente, c'è rischio di riqualificazione con oneri retroattivi. Conviene confrontare sempre i due scenari con un calcolatore dedicato."}}
   ]}
   </script>
   <script type="application/ld+json">
@@ -406,6 +409,30 @@
       <h3>Domande frequenti</h3>
       <div class="faq-list">
         <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto costa all'azienda un dipendente con stipendio di 1.500€ netti?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Un dipendente con 1.500€ netti al mese corrisponde a circa 2.100-2.200€ lordi. Il costo totale per l'azienda è circa 2.850-3.050€ al mese, aggiungendo i contributi INPS a carico datore (~30%), INAIL (~0.5-1%) e l'accantonamento TFR (~6.91%). Il costo annuale totale (con 13ª mensilità) è circa 37.000-40.000€.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quali sono i contributi INPS a carico del datore di lavoro nel 2026?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">I contributi INPS a carico del datore di lavoro variano per settore: industria ~32.6%, commercio/terziario ~29.5%, agricoltura ~29.8%. Includono IVS (invalidità, vecchiaia, superstiti), NASpI, maternità, CIG. Non includono i contributi a carico del lavoratore (~9.19% per redditi fino a €55.008), che vengono trattenuti in busta paga.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola il costo del lavoro?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Il costo del lavoro = stipendio lordo × (1 + aliquota contributi datoriali + aliquota INAIL) + accantonamento TFR mensile. Esempio: lordo €2.000/mese, contributi datoriali 30%, INAIL 0.8%, TFR 6.91%/12: costo = 2.000 × (1 + 0.30 + 0.008) + 2.000 × 0.0576 = 2.000 × 1.308 + 115 = 2.616 + 115 = €2.731/mese.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Il TFR rientra nel costo del lavoro?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Sì. Il TFR (Trattamento di Fine Rapporto) è un costo che l'azienda sostiene ogni anno per ogni dipendente: la quota annua è il 6.91% della retribuzione annua lorda (compresi ratei di 13ª e 14ª). Questo importo va accantonato (se sotto la soglia dei 50 dipendenti) o versato al Fondo di Tesoreria INPS/fondo pensione (se sopra soglia). Rientra nel costo del lavoro anche se è un costo differito.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Esistono sgravi contributivi per le nuove assunzioni nel 2026?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Sì. Nel 2026 sono previsti diversi incentivi per le nuove assunzioni: esonero contributivo per assunzione di giovani under 35 (fino al 100% dei contributi datoriali, esclusi INAIL, per un periodo massimo di 24 mesi, con beneficio fino a 500€/mese elevabile a 650€ nelle regioni ZES Mezzogiorno), decontribuzione per assunzioni a tempo indeterminato in aree del Mezzogiorno, incentivi per assunzione di percettori NASpI, benefici per categorie svantaggiate. Gli importi e le condizioni variano ogni anno: verifica sempre sul portale INPS (Portale delle Agevolazioni) o con un consulente del lavoro.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Qual è il rapporto tra stipendio netto e costo per l'azienda?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">In media, per ogni €100 di costo per l'azienda, il dipendente riceve circa €50-55 netti. Il resto va in contributi previdenziali (datoriali ~30% e del lavoratore ~9%), IRPEF e INAIL. Questo significa che il costo aziendale è tipicamente 1,8-2 volte il netto percepito dal lavoratore. Questa proporzione varia in base al settore, al CCNL e al livello salariale.</div>
+        </div>
+        <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Conviene assumere con contratto di apprendistato?<span class="faq-arrow">▾</span></button>
           <div class="faq-answer">L'apprendistato professionalizzante offre contributi datoriali notevolmente ridotti (10% per aziende fino a 9 dipendenti, 11.5% per le aziende più grandi). Può durare da 3 a 5 anni. Il rischio è che il contratto sia meno flessibile e richieda obblighi formativi. Per professioni tecniche con formazione on-the-job è spesso la scelta migliore per startup e PMI.</div>
         </div>
@@ -418,6 +445,16 @@
           <div class="faq-answer">Dipende dalla situazione. Un collaboratore P.IVA forfettario (regime al 5-15%) ha un costo lordo inferiore (nessun contributo datoriale, no TFR), ma va trattato come collaboratore autonomo reale (no vincolo di orario, no subordinazione). Se la collaborazione assomiglia a un rapporto di lavoro dipendente, c'è rischio di riqualificazione con oneri retroattivi. Usa il nostro calcolatore "Dipendente vs P.IVA" per un confronto diretto.</div>
         </div>
       </div>
+    </div>
+
+    <div class="sources-box">
+      <h3>Fonti ufficiali</h3>
+      <ul>
+        <li><a href="https://www.inps.it/it/it/lavoro/tfs-tfr.html" target="_blank" rel="noopener">INPS — TFS/TFR: normativa e gestione del Trattamento di Fine Rapporto</a></li>
+        <li><a href="https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2026.03.bonus-giovani-2026-guida-agli-incentivi.html" target="_blank" rel="noopener">INPS — Bonus giovani 2026: guida agli incentivi e sgravi contributivi</a></li>
+        <li><a href="https://www.inail.it/portale/assicurazione/it/Datore-di-Lavoro/Impresa-con-dipendenti-industria-artigianato-terziario-altre-attivita/tariffe-premi-impresa-con-dipendenti/classificazione-delle-lavorazioni-impresa-con-dipendenti.html" target="_blank" rel="noopener">INAIL — Classificazione delle lavorazioni e tariffe dei premi per impresa con dipendenti</a></li>
+      </ul>
+      <span class="src-note">Fonti consultate a luglio 2026.</span>
     </div>
 
     <section class="container related-tools">
