@@ -51,7 +51,9 @@
     {"@type":"Question","name":"Quanto dura la NASpI?","acceptedAnswer":{"@type":"Answer","text":"La durata è pari alla metà delle settimane di contributi versati negli ultimi 4 anni prima della disoccupazione, con un massimo di 24 mesi (104 settimane). Esempio: se hai lavorato 4 anni continuativi (208 settimane), la NASpI dura 104 settimane = circa 24 mesi."}},
     {"@type":"Question","name":"La NASpI si riduce nel tempo?","acceptedAnswer":{"@type":"Answer","text":"Sì. A partire dal primo giorno del sesto mese, l'importo NASpI si riduce del 3% ogni mese (dal 2026 questa regola vale per tutti i beneficiari, senza più l'eccezione che per gli over 55 posticipava la riduzione all'ottavo mese). Quindi: mesi 1-5 importo pieno, mese 6 = 97%, mese 7 = 94%, mese 8 = 91%, e così via. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dall'età pensionabile con i requisiti contributivi minimi."}},
     {"@type":"Question","name":"Si può lavorare mentre si percepisce la NASpI?","acceptedAnswer":{"@type":"Answer","text":"Sì, ma con limitazioni. Per lavoro subordinato con reddito annuo ≤ €8.000: si può comunicare all'INPS e la NASpI si sospende. Per reddito > €8.000: la NASpI decade. Per lavoro autonomo con reddito ≤ €5.500 annui: si può continuare a percepirla comunicando il reddito presunto entro 30 giorni. Per reddito > €5.500: la NASpI decade."}},
-    {"@type":"Question","name":"Quando scade la domanda NASpI?","acceptedAnswer":{"@type":"Answer","text":"La domanda va presentata all'INPS entro 68 giorni dalla cessazione del rapporto di lavoro. Se si presenta dopo i primi 8 giorni, la decorrenza si sposta al giorno successivo alla domanda."}}
+    {"@type":"Question","name":"Quando scade la domanda NASpI?","acceptedAnswer":{"@type":"Answer","text":"La domanda va presentata all'INPS entro 68 giorni dalla cessazione del rapporto di lavoro. Se si presenta dopo i primi 8 giorni, la decorrenza si sposta al giorno successivo alla domanda."}},
+    {"@type":"Question","name":"La NASpI è compatibile con la pensione?","acceptedAnswer":{"@type":"Answer","text":"No. La NASpI è incompatibile con il trattamento pensionistico. Se durante la percezione della NASpI matura il diritto alla pensione, l'indennità decade dalla data di decorrenza della pensione stessa. Fa eccezione l'Ape Sociale, che ha regole specifiche di coordinamento."}},
+    {"@type":"Question","name":"La NASpI è tassata?","acceptedAnswer":{"@type":"Answer","text":"Sì. La NASpI è soggetta a IRPEF come reddito ordinario. L'INPS effettua la ritenuta alla fonte in modo sostitutivo. L'importo percepito va dichiarato nel 730 o modello Redditi. Le trattenute (addizionali regionali e comunali) vengono calcolate in base al reddito complessivo."}}
   ]}
   </script>
   <script type="application/ld+json">
@@ -353,8 +355,20 @@
           <div class="faq-answer">Hanno diritto alla NASpI i lavoratori dipendenti (non quelli in somministrazione con causale di abbandono volontario) con almeno <strong>13 settimane di contributi</strong> negli ultimi 4 anni e <strong>30 giorni di lavoro</strong> nello stesso periodo che abbiano perso il lavoro in modo involontario: licenziamento per qualsiasi causa, scadenza del contratto a termine, risoluzione consensuale in sede protetta (sindacato o ITL), dimissioni per giusta causa o durante il periodo di maternità/paternità.</div>
         </div>
         <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola l'importo della NASpI 2026?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">L'importo NASpI è pari al <strong>75% della retribuzione media mensile</strong> degli ultimi 4 anni, se questa non supera la soglia INPS (€1.456,72/mese per il 2026, Circ. INPS 4/2026). Per retribuzioni superiori alla soglia: NASpI = 75% × soglia + 25% × (retribuzione − soglia). L'importo massimo mensile è <strong>€1.584,70</strong> per il 2026. Le soglie vengono aggiornate ogni anno dall'INPS.</div>
+        </div>
+        <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Entro quando presentare la domanda NASpI?<span class="faq-arrow">▾</span></button>
           <div class="faq-answer">La domanda va presentata all'INPS (online su MyINPS o tramite CAF/patronato) entro <strong>68 giorni</strong> dalla data di cessazione. Se si presenta nei primi 8 giorni, la NASpI decorre dall'ottavo giorno dalla cessazione. Dopo l'ottavo giorno, la decorrenza slitta al giorno successivo alla presentazione della domanda.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto dura la NASpI?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">La durata è pari alla <strong>metà delle settimane di contributi</strong> versate negli ultimi 4 anni prima della disoccupazione, con un massimo di 24 mesi (104 settimane). Esempio: se hai lavorato 4 anni continuativi (208 settimane), la NASpI dura 104 settimane, cioè circa 24 mesi.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">La NASpI si riduce nel tempo?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Sì. A partire dal primo giorno del sesto mese, l'importo NASpI si riduce del <strong>3% ogni mese</strong> (dal 2026 questa regola vale per tutti i beneficiari, senza più l'eccezione che per gli over 55 posticipava la riduzione all'ottavo mese). Quindi: mesi 1-5 importo pieno, mese 6 = 97%, mese 7 = 94%, mese 8 = 91%, e così via. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dall'età pensionabile con i requisiti contributivi minimi.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">La NASpI si può percepire lavorando?<span class="faq-arrow">▾</span></button>
@@ -369,6 +383,15 @@
           <div class="faq-answer">Sì. La NASpI è soggetta a <strong>IRPEF</strong> come reddito ordinario. L'INPS effettua la ritenuta alla fonte in modo sostitutivo. L'importo percepito va dichiarato nel 730 o modello Redditi. Le trattenute INPS (addizionali regionali e comunali) vengono calcolate in base al reddito complessivo.</div>
         </div>
       </div>
+    </div>
+
+    <div class="sources-box">
+      <h3>Fonti ufficiali</h3>
+      <ul>
+        <li><a href="https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html" target="_blank" rel="noopener">INPS — NASpI: indennità mensile di disoccupazione</a></li>
+        <li><a href="https://www.inps.it/it/it/inps-comunica/dossier/la-naspi/faq---domande-frequenti-sulla-naspi.html" target="_blank" rel="noopener">INPS — FAQ, domande frequenti sulla NASpI</a></li>
+      </ul>
+      <span class="src-note">Fonti consultate a luglio 2026.</span>
     </div>
 
   <section class="container related-tools">

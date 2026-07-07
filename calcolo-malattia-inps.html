@@ -52,7 +52,11 @@
     {"@type":"Question","name":"Come si calcola la retribuzione giornaliera per la malattia?","acceptedAnswer":{"@type":"Answer","text":"La retribuzione media giornaliera si ottiene dividendo la retribuzione lorda annua (compresa la tredicesima) per 365. Esempio: RAL €25.000 con tredicesima (stipendio mensile × 13) = retribuzione annua €27.083 ÷ 365 = €74,20 al giorno. L'INPS applica poi le percentuali del 50% o 66,67% su questo importo."}},
     {"@type":"Question","name":"La malattia fa perdere i contributi pensionistici?","acceptedAnswer":{"@type":"Answer","text":"No. Durante il periodo di malattia indennizzata dall'INPS, i contributi previdenziali continuano ad essere accreditati sulla posizione del lavoratore come se avesse lavorato normalmente. Questo vale per la quota contributiva figurativa corrispondente all'indennità percepita."}},
     {"@type":"Question","name":"Cosa succede se si supera il periodo di comporto?","acceptedAnswer":{"@type":"Answer","text":"Il periodo di comporto è il periodo massimo di malattia entro cui il lavoratore ha diritto alla conservazione del posto (stabilito dal CCNL, tipicamente 6-18 mesi). Se la malattia supera il comporto, il datore di lavoro può procedere al licenziamento per superamento del periodo di comporto, senza preavviso ma con liquidazione TFR e tutte le competenze maturate."}
-    }
+    },
+    {"@type":"Question","name":"Cosa fare quando si è malati?","acceptedAnswer":{"@type":"Answer","text":"Appena possibile (entro il primo giorno di malattia): 1) consultare il medico di base che rilascia il certificato di malattia online (telematico all'INPS); 2) il certificato viene inviato automaticamente al datore di lavoro — non serve portarlo di persona; 3) comunicare l'assenza al datore di lavoro nel modo previsto dall'azienda (chiamata, email, ecc.). In caso di ricovero, il medico ospedaliero emette il certificato."}},
+    {"@type":"Question","name":"Posso essere licenziato durante la malattia?","acceptedAnswer":{"@type":"Answer","text":"No, durante la malattia e fino al superamento del periodo di comporto (stabilito dal CCNL, tipicamente 6-18 mesi per singolo o ultimo anno) il lavoratore è protetto dal licenziamento. Il datore di lavoro può però procedere al licenziamento per superamento del comporto solo dopo aver esaurito il periodo massimo previsto dal contratto. Il licenziamento per malattia è illegittimo e impugnabile."}},
+    {"@type":"Question","name":"Cosa succede se mi ammalo mentre sono in ferie?","acceptedAnswer":{"@type":"Answer","text":"Se la malattia insorge durante le ferie e viene certificata dal medico, il periodo di malattia \"interrompe\" le ferie: i giorni di malattia certificata non vengono scalati dal monte ferie. Le ferie si sospendono e riprenderanno (o saranno riprogrammate) al termine della malattia. È necessario inviare il certificato medico al datore di lavoro appena possibile."}},
+    {"@type":"Question","name":"La malattia viene conteggiata per la pensione?","acceptedAnswer":{"@type":"Answer","text":"Sì. I contributi previdenziali continuano ad essere accreditati durante il periodo di malattia indennizzata dall'INPS. Questo perché l'INPS accredita contributi \"figurativi\" calcolati sull'indennità corrisposta. I periodi di malattia non si perdono ai fini pensionistici."}}
   ]}
   </script>
   <script type="application/ld+json">
@@ -361,6 +365,30 @@
       <h3>Domande frequenti</h3>
       <div class="faq-list">
         <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto paga l'INPS in caso di malattia?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">L'INPS eroga l'indennità di malattia dal 4° giorno di assenza (i primi 3 giorni sono il periodo di carenza, solitamente a carico del datore di lavoro secondo il CCNL). L'importo è pari al 50% della retribuzione media giornaliera per i giorni dal 4° al 20°, e al 66,67% dal 21° al 180° giorno. La retribuzione media giornaliera si calcola dividendo la retribuzione annua lorda per 365.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa sono i 3 giorni di carenza malattia?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">I primi 3 giorni di ogni episodio di malattia si chiamano "periodo di carenza". Durante questo periodo l'INPS non eroga alcuna indennità. Il CCNL applicato stabilisce se il datore di lavoro integra o meno questi giorni: molti contratti (commercio, metalmeccanico, terziario) prevedono l'integrazione al 100% per i giorni di carenza. In caso di ricovero ospedaliero, la carenza è generalmente coperta.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto dura la malattia pagata dall'INPS?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">L'indennità INPS per malattia ordinaria dura al massimo 180 giorni per anno solare. Superato questo limite, il lavoratore non percepisce più l'indennità INPS. Il CCNL può tuttavia garantire un periodo di comporto (il periodo massimo di conservazione del posto) più lungo, tipicamente da 6 a 18 mesi.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola la retribuzione giornaliera per la malattia?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">La retribuzione media giornaliera si ottiene dividendo la retribuzione lorda annua (compresa la tredicesima) per 365. Esempio: RAL €25.000 con tredicesima (stipendio mensile × 13) = retribuzione annua €27.083 ÷ 365 = €74,20 al giorno. L'INPS applica poi le percentuali del 50% o 66,67% su questo importo.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">La malattia fa perdere i contributi pensionistici?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">No. Durante il periodo di malattia indennizzata dall'INPS, i contributi previdenziali continuano ad essere accreditati sulla posizione del lavoratore come se avesse lavorato normalmente. Questo vale per la quota contributiva figurativa corrispondente all'indennità percepita.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa succede se si supera il periodo di comporto?<span class="faq-arrow">▾</span></button>
+          <div class="faq-answer">Il periodo di comporto è il periodo massimo di malattia entro cui il lavoratore ha diritto alla conservazione del posto (stabilito dal CCNL, tipicamente 6-18 mesi). Se la malattia supera il comporto, il datore di lavoro può procedere al licenziamento per superamento del periodo di comporto, senza preavviso ma con liquidazione TFR e tutte le competenze maturate.</div>
+        </div>
+        <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa fare quando si è malati?<span class="faq-arrow">▾</span></button>
           <div class="faq-answer">Appena possibile (entro il primo giorno di malattia): 1) consultare il medico di base che rilascia il certificato di malattia online (telematico all'INPS); 2) il certificato viene inviato automaticamente al datore di lavoro — non serve portarlo di persona; 3) comunicare l'assenza al datore di lavoro nel modo previsto dall'azienda (chiamata, email, ecc.). In caso di ricovero, il medico ospedaliero emette il certificato.</div>
         </div>
@@ -377,6 +405,15 @@
           <div class="faq-answer">Sì. I contributi previdenziali continuano ad essere accreditati durante il periodo di malattia indennizzata dall'INPS. Questo perché l'INPS accredita contributi "figurativi" calcolati sull'indennità corrisposta. I periodi di malattia non si perdono ai fini pensionistici.</div>
         </div>
       </div>
+    </div>
+
+    <div class="sources-box">
+      <h3>Fonti ufficiali</h3>
+      <ul>
+        <li><a href="https://www.inps.it/it/it/sostegni-sussidi-indennita/per-malattia.html" target="_blank" rel="noopener">INPS — Per malattia</a></li>
+        <li><a href="https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.indennit--di-malattia-e-visite-mediche-di-controllo.html" target="_blank" rel="noopener">INPS — Indennità di malattia/degenza ospedaliera e visite mediche di controllo</a></li>
+      </ul>
+      <span class="src-note">Fonti consultate a luglio 2026.</span>
     </div>
 
   <section class="container related-tools">
