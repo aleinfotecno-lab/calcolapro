@@ -14,3 +14,6 @@ screenshots/
 audit_queue.json
 audit_report.json
 scripts/diag-*.mjs
+CLAUDE.md
+PIANO-CRESCITA.md
+AUDIT_REPORT.md
