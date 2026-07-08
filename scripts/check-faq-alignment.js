@@ -49,11 +49,18 @@ function checkFile(file) {
     }
   }
 
-  // Il sito usa 3 varianti di markup FAQ: .faq-question (bottoni toggle),
-  // .faq-q (statico, pagine hub), .faq-item-d (details/summary, homepage)
-  const visible = (html.match(/class="faq-question"/g) || []).length
-    + (html.match(/class="faq-q"/g) || []).length
-    + (html.match(/class="faq-item-d"/g) || []).length;
+  // Il sito usa 4 varianti di markup FAQ, mai combinate nella stessa pagina:
+  // .faq-question (bottoni toggle), .faq-q (statico, pagine hub),
+  // .faq-item-d (details/summary, homepage), .faq-item semplice con
+  // <details><summary> senza classe dedicata (es. come-funziona.html).
+  // Si prende il MAX (non la somma) perché .faq-item-d e il 4° pattern
+  // wrappano entrambi <summary>: sommarli conterebbe le stesse FAQ due volte.
+  const visible = Math.max(
+    (html.match(/class="faq-question"/g) || []).length,
+    (html.match(/class="faq-q"/g) || []).length,
+    (html.match(/class="faq-item-d"/g) || []).length,
+    (html.match(/<summary>/g) || []).length
+  );
 
   if (faqSchemaCount !== null || visible > 0) {
     if (faqSchemaCount === null && visible > 0) {
