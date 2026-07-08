@@ -33,7 +33,12 @@ function checkFile(file) {
   for (const b of blocks) {
     try {
       const j = JSON.parse(b[1]);
-      const nodes = Array.isArray(j) ? j : [j];
+      const top = Array.isArray(j) ? j : [j];
+      const nodes = [];
+      for (const t of top) {
+        nodes.push(t);
+        if (Array.isArray(t['@graph'])) nodes.push(...t['@graph']);
+      }
       for (const node of nodes) {
         if (node['@type'] === 'FAQPage') {
           faqSchemaCount = (node.mainEntity || []).length;
@@ -44,7 +49,11 @@ function checkFile(file) {
     }
   }
 
-  const visible = (html.match(/class="faq-question"/g) || []).length;
+  // Il sito usa 3 varianti di markup FAQ: .faq-question (bottoni toggle),
+  // .faq-q (statico, pagine hub), .faq-item-d (details/summary, homepage)
+  const visible = (html.match(/class="faq-question"/g) || []).length
+    + (html.match(/class="faq-q"/g) || []).length
+    + (html.match(/class="faq-item-d"/g) || []).length;
 
   if (faqSchemaCount !== null || visible > 0) {
     if (faqSchemaCount === null && visible > 0) {
@@ -62,36 +71,40 @@ function listAllHtml() {
     .map(f => path.join(ROOT, f));
 }
 
-if (process.argv[2] === '--hook') {
-  let input = '';
-  process.stdin.on('data', d => (input += d));
-  process.stdin.on('end', () => {
-    let file;
-    try {
-      const evt = JSON.parse(input);
-      file = evt.tool_input && evt.tool_input.file_path;
-    } catch { process.exit(0); }
-    if (!file || !file.toLowerCase().endsWith('.html')) process.exit(0);
-    if (path.resolve(path.dirname(file)) !== ROOT) process.exit(0); // solo pagine in root del sito
-    const problems = checkFile(file);
-    if (problems.length) {
-      console.error('[check-faq-alignment] ' + problems.join(' | ') +
-        ' — riallinea FAQPage JSON-LD e FAQ visibili prima di committare.');
-      process.exit(2);
-    }
-    process.exit(0);
-  });
-} else {
-  const files = process.argv.slice(2).length
-    ? process.argv.slice(2).map(f => path.resolve(ROOT, f))
-    : listAllHtml();
-  let all = [];
-  for (const f of files) all = all.concat(checkFile(f));
-  if (all.length) {
-    console.log(all.join('\n'));
-    console.log(`\n${all.length} problema/i su ${files.length} file controllati.`);
-    process.exit(1);
+module.exports = { checkFile, listAllHtml, SKIP };
+
+if (require.main === module) {
+  if (process.argv[2] === '--hook') {
+    let input = '';
+    process.stdin.on('data', d => (input += d));
+    process.stdin.on('end', () => {
+      let file;
+      try {
+        const evt = JSON.parse(input);
+        file = evt.tool_input && evt.tool_input.file_path;
+      } catch { process.exit(0); }
+      if (!file || !file.toLowerCase().endsWith('.html')) process.exit(0);
+      if (path.resolve(path.dirname(file)) !== ROOT) process.exit(0); // solo pagine in root del sito
+      const problems = checkFile(file);
+      if (problems.length) {
+        console.error('[check-faq-alignment] ' + problems.join(' | ') +
+          ' — riallinea FAQPage JSON-LD e FAQ visibili prima di committare.');
+        process.exit(2);
+      }
+      process.exit(0);
+    });
   } else {
-    console.log(`OK — ${files.length} file controllati, FAQ/schema allineati e JSON-LD validi.`);
+    const files = process.argv.slice(2).length
+      ? process.argv.slice(2).map(f => path.resolve(ROOT, f))
+      : listAllHtml();
+    let all = [];
+    for (const f of files) all = all.concat(checkFile(f));
+    if (all.length) {
+      console.log(all.join('\n'));
+      console.log(`\n${all.length} problema/i su ${files.length} file controllati.`);
+      process.exit(1);
+    } else {
+      console.log(`OK — ${files.length} file controllati, FAQ/schema allineati e JSON-LD validi.`);
+    }
   }
 }
