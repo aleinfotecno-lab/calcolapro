@@ -17,3 +17,5 @@ scripts/diag-*.mjs
 CLAUDE.md
 PIANO-CRESCITA.md
 AUDIT_REPORT.md
+scripts/*.bak-*
+RUNBOOK-SETTIMANALE.md
