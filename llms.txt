@@ -44,6 +44,11 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 ## Pagine categoria
 
 - https://calcolapro.it/categoria-freelance.html — Hub con tutti gli strumenti per freelance italiani: tariffa oraria, P.IVA vs dipendente, prestazioni occasionali, costo del lavoro e confronto forme contrattuali
+- https://calcolapro.it/categoria-lavoro-dipendente.html — Hub con 11 calcolatori per lavoratori dipendenti: stipendio netto, TFR, ferie, straordinari, NASpI, malattia, maternità, preavviso, pensione, costo del lavoro, rimborso chilometrico
+- https://calcolapro.it/categoria-casa-mutuo.html — Hub con 7 calcolatori per la casa: rata mutuo, affitto sostenibile, spese acquisto, IMU, cedolare secca, plusvalenza immobiliare, locazioni brevi
+- https://calcolapro.it/categoria-risparmio-investimenti.html — Hub con 5 calcolatori per il risparmio: conto deposito, buoni fruttiferi postali, piano di risparmio, prestito personale, fondo pensione
+- https://calcolapro.it/categoria-tasse-fisco.html — Hub con 6 calcolatori fiscali: IVA, ISEE, detrazioni 730, bollo auto, interessi di mora, prestazione occasionale
+- https://calcolapro.it/categoria-utilita-quotidiane.html — Hub con 5 strumenti quotidiani: percentuale, età, divisione conto, TDEE, BMI
 
 ## Guide Finanziarie
 

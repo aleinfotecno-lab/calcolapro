@@ -287,17 +287,10 @@
   .cat-overview-count { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
   .tool-list-heading { font-size: 1.05rem; font-weight: 700; color: var(--text-muted); margin: 0 0 14px; width: 100%; flex-basis: 100%; }
 
-  /* PILLS CATEGORIA */
-  .category-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; overflow-x: auto; padding-bottom: 4px; }
-  .cat-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 100px; border: 1.5px solid var(--border); background: var(--white); font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all 0.2s; font-family: inherit; }
-  .cat-pill:hover { border-color: var(--border-dark); color: var(--text); }
-  .cat-pill.active { border-color: var(--text); background: var(--text); color: #fff; }
-
   .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
   .section-icon { width: 30px; height: 30px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
   .section-header h2 { font-size: 1.02rem; font-weight: 700; color: var(--text); }
   .section-header span { font-size: 12.5px; color: var(--text-light); margin-left: auto; }
-  .tool-section { margin-bottom: 40px; }
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
 
   .tool-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-decoration: none; color: var(--text); display: flex; flex-direction: column; height: 100%; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
@@ -352,7 +345,7 @@
   .seo-text p { font-size: 14.5px; color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; }
 
   .section-divider { height: 1px; background: var(--border); margin: 36px 0; }
-  .tool-section.hidden, .tool-card.hidden, .top-section.hidden { display: none; }
+  .tool-card.hidden, .top-section.hidden { display: none; }
   </style>
 
   <!-- Schema: WebSite + SearchAction + ItemList -->
@@ -380,47 +373,24 @@
       },
       {
         "@type": "ItemList",
-        "name": "Calcolatori Gratuiti CalcolaPro",
-        "description": "Lista completa dei calcolatori gratuiti per professionisti italiani",
-        "numberOfItems": 37,
+        "name": "Calcolatori e Categorie CalcolaPro",
+        "description": "Gli 8 calcolatori più usati e le 6 categorie di strumenti di CalcolaPro",
+        "numberOfItems": 14,
         "itemListElement": [
-          {"@type":"ListItem","position":1,"name":"Calcolatore Prezzo Orario Freelance","url":"https://calcolapro.it/freelance.html","description":"Calcola la tariffa oraria ideale tenendo conto di tasse, INPS e spese"},
+          {"@type":"ListItem","position":1,"name":"Lordo Netto Stipendio 2026","url":"https://calcolapro.it/lordonetto.html","description":"Calcola lo stipendio netto dal lordo con IRPEF e contributi INPS"},
           {"@type":"ListItem","position":2,"name":"Calcolatore Rata Mutuo","url":"https://calcolapro.it/mutuo.html","description":"Simula la rata mensile del mutuo con piano di ammortamento"},
-          {"@type":"ListItem","position":3,"name":"Lordo Netto Stipendio 2026","url":"https://calcolapro.it/lordonetto.html","description":"Calcola lo stipendio netto dal lordo con IRPEF e contributi INPS"},
-          {"@type":"ListItem","position":4,"name":"Affitto Sostenibile","url":"https://calcolapro.it/affitto.html","description":"Calcola l'affitto massimo che puoi permetterti"},
-          {"@type":"ListItem","position":5,"name":"Calcolatore IVA","url":"https://calcolapro.it/iva.html","description":"Aggiungi o scorpora IVA al 22%, 10%, 5% o 4%"},
-          {"@type":"ListItem","position":6,"name":"Conviene la Partita IVA?","url":"https://calcolapro.it/partitaiva.html","description":"Confronta netto freelance vs dipendente"},
-          {"@type":"ListItem","position":7,"name":"Rimborso Chilometrico ACI 2026","url":"https://calcolapro.it/chilometrico.html","description":"Calcola il rimborso con le tabelle ACI 2026"},
-          {"@type":"ListItem","position":8,"name":"Calcolatore TDEE","url":"https://calcolapro.it/tdee.html","description":"Calcola il fabbisogno calorico giornaliero"},
-          {"@type":"ListItem","position":9,"name":"Calcolo TFR e Liquidazione","url":"https://calcolapro.it/calcolo-tfr-liquidazione.html","description":"Stima il Trattamento di Fine Rapporto"},
-          {"@type":"ListItem","position":10,"name":"Calcolatore BMI","url":"https://calcolapro.it/bmi.html","description":"Calcola l'Indice di Massa Corporea"},
-          {"@type":"ListItem","position":11,"name":"Calcolo Pensione 2026","url":"https://calcolapro.it/pensione.html","description":"Stima età pensionabile e importo assegno INPS"},
-          {"@type":"ListItem","position":12,"name":"Interessi Conto Deposito","url":"https://calcolapro.it/calcolatore-interessi-conto-deposito.html","description":"Calcola il rendimento netto del conto deposito"},
-          {"@type":"ListItem","position":13,"name":"Calcolatore Risparmio","url":"https://calcolapro.it/calcolatore-risparmio.html","description":"Proiezione del risparmio con interesse composto"},
-          {"@type":"ListItem","position":14,"name":"Prestito Personale","url":"https://calcolapro.it/calcolatore-prestito-personale.html","description":"Rata, interessi totali e piano di ammortamento"},
-          {"@type":"ListItem","position":15,"name":"Cedolare Secca","url":"https://calcolapro.it/calcolo-cedolare-secca.html","description":"Confronta cedolare secca vs IRPEF ordinaria"},
-          {"@type":"ListItem","position":16,"name":"Ferie e Permessi","url":"https://calcolapro.it/calcolo-ferie-permessi.html","description":"Calcola ferie residue e permessi ROL 2026"},
-          {"@type":"ListItem","position":17,"name":"Calcolo IMU 2026","url":"https://calcolapro.it/calcolo-imu.html","description":"IMU su seconda casa, acconto e saldo"},
-          {"@type":"ListItem","position":18,"name":"Simulatore ISEE","url":"https://calcolapro.it/calcolo-isee.html","description":"Stima ISEE e agevolazioni disponibili"},
-          {"@type":"ListItem","position":19,"name":"Spese Acquisto Casa","url":"https://calcolapro.it/calcolo-spese-acquisto-casa.html","description":"Calcola i costi accessori dell'acquisto immobiliare"},
-          {"@type":"ListItem","position":20,"name":"Calcolo Straordinari","url":"https://calcolapro.it/calcolo-straordinari.html","description":"Compenso ore straordinarie lordo e netto"},
-          {"@type":"ListItem","position":21,"name":"Divisione Conto","url":"https://calcolapro.it/divisione-conto.html","description":"Dividi il conto al ristorante o le spese tra più persone"},
-          {"@type":"ListItem","position":22,"name":"Calcolo TFR Liquidazione","url":"https://calcolapro.it/calcolo-tfr-liquidazione.html","description":"TFR con tassazione separata e confronto fondo pensione"},
-          {"@type":"ListItem","position":23,"name":"Calcolatore Percentuale","url":"https://calcolapro.it/calcolatore-percentuale.html","description":"Calcola percentuali, sconti, variazioni e ricarichi in 4 modalità"},
-          {"@type":"ListItem","position":24,"name":"Calcolo Età","url":"https://calcolapro.it/calcolo-eta.html","description":"Età esatta in anni, mesi e giorni con countdown compleanno"},
-          {"@type":"ListItem","position":25,"name":"Calcolo NASpI 2026","url":"https://calcolapro.it/calcolo-naspi.html","description":"Importo mensile NASpI, durata e totale percepito dopo licenziamento o fine contratto"},
-          {"@type":"ListItem","position":26,"name":"Detrazioni 730 2026","url":"https://calcolapro.it/calcolo-detrazioni-730.html","description":"Calcola detrazioni IRPEF: spese sanitarie, mutuo, istruzione, assicurazioni, ristrutturazioni"},
-          {"@type":"ListItem","position":27,"name":"Indennità Malattia INPS 2026","url":"https://calcolapro.it/calcolo-malattia-inps.html","description":"Calcola l'indennità INPS per malattia: importo giornaliero, carenza, integrazione datoriale e totale periodo"},
-          {"@type":"ListItem","position":28,"name":"Bollo Auto 2026","url":"https://calcolapro.it/calcolo-bollo-auto.html","description":"Calcola il bollo auto annuale in base ai kW del veicolo con agevolazioni per elettrici e storici"},
-          {"@type":"ListItem","position":29,"name":"Indennità Maternità INPS 2026","url":"https://calcolapro.it/calcolo-maternita-inps.html","description":"Calcola l'indennità di maternità: 80% × 5 mesi per la madre, 100% × 10 giorni paternità obbligatoria"},
-          {"@type":"ListItem","position":30,"name":"Costo del Lavoro Dipendente 2026","url":"https://calcolapro.it/calcolo-costo-lavoro.html","description":"Calcola il costo totale di un dipendente per l'azienda: contributi INPS datoriali, INAIL, TFR e sgravi contributivi"},
-          {"@type":"ListItem","position":31,"name":"Calcolo Interessi di Mora","url":"https://calcolapro.it/calcolo-interessi-mora.html","description":"Calcola interessi di mora su fatture non pagate: tasso BCE + 8% D.Lgs. 231/2002 per B2B, tasso legale per crediti civili"},
-          {"@type":"ListItem","position":32,"name":"Calcolo Prestazione Occasionale 2026","url":"https://calcolapro.it/calcolo-prestazione-occasionale.html","description":"Calcola netto prestazione occasionale: ritenuta 20%, soglia INPS €5.000, contributi Gestione Separata e bozza ricevuta"},
-          {"@type":"ListItem","position":33,"name":"Calcolo Preavviso Licenziamento e Dimissioni","url":"https://calcolapro.it/calcolo-preavviso.html","description":"Calcola mesi di preavviso e indennità sostitutiva per licenziamento o dimissioni con tabelle CCNL per commercio, industria e credito"},
-          {"@type":"ListItem","position":34,"name":"Simulatore Fondo Pensione Complementare 2026","url":"https://calcolapro.it/calcolo-fondo-pensione.html","description":"Simula capitale fondo pensione integrativa, risparmio IRPEF sui contributi deducibili, rendita mensile e confronto TFR in azienda vs fondo"},
-          {"@type":"ListItem","position":35,"name":"Calcolo Plusvalenza Immobiliare 2026","url":"https://calcolapro.it/calcolo-plusvalenza-immobiliare.html","description":"Calcola la plusvalenza tassabile sulla vendita di immobili: esenzione 5 anni, abitazione principale, 26% sostitutiva vs IRPEF ordinaria e spese deducibili"},
-          {"@type":"ListItem","position":36,"name":"Calcolo Tasse Locazioni Brevi 2026","url":"https://calcolapro.it/calcolo-locazioni-brevi.html","description":"Calcola le tasse sulle locazioni brevi per host Airbnb e Booking: cedolare 21% primo immobile, 26% aggiuntivi, ritenuta piattaforma e saldo dichiarazione"},
-          {"@type":"ListItem","position":37,"name":"Calcolatore Buoni Fruttiferi Postali 2026","url":"https://calcolapro.it/calcolo-buoni-fruttiferi-postali.html","description":"Calcola il rendimento netto dei BFP con tassazione agevolata 12,5% e confronto con conto deposito bancario"}
+          {"@type":"ListItem","position":3,"name":"Calcolatore Prezzo Orario Freelance","url":"https://calcolapro.it/freelance.html","description":"Calcola la tariffa oraria ideale tenendo conto di tasse, INPS e spese"},
+          {"@type":"ListItem","position":4,"name":"Conviene la Partita IVA?","url":"https://calcolapro.it/partitaiva.html","description":"Confronta netto freelance vs dipendente"},
+          {"@type":"ListItem","position":5,"name":"Calcolo Pensione 2026","url":"https://calcolapro.it/pensione.html","description":"Stima età pensionabile e importo assegno INPS"},
+          {"@type":"ListItem","position":6,"name":"Calcolatore IVA","url":"https://calcolapro.it/iva.html","description":"Aggiungi o scorpora IVA al 22%, 10%, 5% o 4%"},
+          {"@type":"ListItem","position":7,"name":"Calcolo TFR e Liquidazione","url":"https://calcolapro.it/calcolo-tfr-liquidazione.html","description":"Stima il Trattamento di Fine Rapporto con tassazione separata"},
+          {"@type":"ListItem","position":8,"name":"Simulatore ISEE 2026","url":"https://calcolapro.it/calcolo-isee.html","description":"Stima ISEE e agevolazioni disponibili"},
+          {"@type":"ListItem","position":9,"name":"Calcolatori per Lavoratori Dipendenti","url":"https://calcolapro.it/categoria-lavoro-dipendente.html","description":"11 strumenti: busta paga, costo del lavoro, TFR, ferie, straordinari, NASpI, malattia, maternità, preavviso, pensione"},
+          {"@type":"ListItem","position":10,"name":"Calcolatori per Freelance e Partita IVA","url":"https://calcolapro.it/categoria-freelance.html","description":"5 strumenti per lavoratori autonomi: tariffa oraria, forfettario, prestazione occasionale"},
+          {"@type":"ListItem","position":11,"name":"Calcolatori Casa e Mutuo","url":"https://calcolapro.it/categoria-casa-mutuo.html","description":"7 strumenti: rata mutuo, spese acquisto, IMU, cedolare secca, plusvalenza, locazioni brevi"},
+          {"@type":"ListItem","position":12,"name":"Calcolatori Risparmio e Investimenti","url":"https://calcolapro.it/categoria-risparmio-investimenti.html","description":"5 strumenti: conto deposito, buoni fruttiferi, piano di risparmio, prestito, fondo pensione"},
+          {"@type":"ListItem","position":13,"name":"Calcolatori Tasse e Fisco","url":"https://calcolapro.it/categoria-tasse-fisco.html","description":"6 strumenti: IVA, ISEE, detrazioni 730, bollo auto, interessi di mora, prestazione occasionale"},
+          {"@type":"ListItem","position":14,"name":"Calcolatori di Utilità Quotidiana","url":"https://calcolapro.it/categoria-utilita-quotidiane.html","description":"5 strumenti: percentuale, età, divisione conto, TDEE, BMI"}
         ]
       },
       {
@@ -450,6 +420,11 @@
             "@type": "Question",
             "name": "Come funziona il regime forfettario 2026?",
             "acceptedAnswer": {"@type":"Answer","text":"Il regime forfettario prevede un'aliquota agevolata del 15% (5% per i primi 5 anni di attività), applicata sul reddito imponibile ottenuto applicando il coefficiente di redditività al fatturato. Il limite di ricavi è 85.000€ annui."}
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto si paga di IVA in Italia?",
+            "acceptedAnswer": {"@type":"Answer","text":"In Italia esistono quattro aliquote IVA: 22% (ordinaria), 10% (alimenti lavorati, ristoranti, alcuni servizi), 5% (alcuni prodotti alimentari di base) e 4% (beni di prima necessità, libri, giornali). Il calcolatore IVA di CalcolaPro permette di aggiungere o scorporare l'IVA istantaneamente."}
           }
         ]
       }
@@ -758,383 +733,43 @@
     <!-- ESPLORA PER CATEGORIA (vista d'insieme compatta) -->
     <div class="cat-overview-section">
       <h2>Esplora per categoria</h2>
-      <p class="top-sub">Tutti i 37 strumenti organizzati in 6 aree. Tocca una categoria per andare direttamente alla lista dettagliata.</p>
+      <p class="top-sub">Tutti gli strumenti organizzati in 6 categorie, ognuna con guida alla scelta, tabelle di confronto e FAQ.</p>
       <div class="cat-overview-grid">
-        <a href="#sec-lavoro" class="cat-overview-card">
+        <a href="categoria-lavoro-dipendente.html" class="cat-overview-card">
           <div class="section-icon" style="background:#dbeafe">💼</div>
-          <div class="cat-overview-title">Lavoro &amp; Freelance</div>
-          <div class="cat-overview-count">16 strumenti</div>
+          <div class="cat-overview-title">Lavoro Dipendente</div>
+          <div class="cat-overview-count">11 strumenti</div>
         </a>
-        <a href="#sec-risparmio" class="cat-overview-card">
-          <div class="section-icon" style="background:#d1fae5">💰</div>
-          <div class="cat-overview-title">Risparmio &amp; Investimenti</div>
+        <a href="categoria-freelance.html" class="cat-overview-card">
+          <div class="section-icon" style="background:#e0e7ff">💻</div>
+          <div class="cat-overview-title">Freelance &amp; P.IVA</div>
           <div class="cat-overview-count">5 strumenti</div>
         </a>
-        <a href="#sec-casa" class="cat-overview-card">
+        <a href="categoria-casa-mutuo.html" class="cat-overview-card">
           <div class="section-icon" style="background:#ffe4e6">🏡</div>
           <div class="cat-overview-title">Casa &amp; Mutuo</div>
           <div class="cat-overview-count">7 strumenti</div>
         </a>
-        <a href="#sec-tasse" class="cat-overview-card">
+        <a href="categoria-risparmio-investimenti.html" class="cat-overview-card">
+          <div class="section-icon" style="background:#d1fae5">💰</div>
+          <div class="cat-overview-title">Risparmio &amp; Investimenti</div>
+          <div class="cat-overview-count">5 strumenti</div>
+        </a>
+        <a href="categoria-tasse-fisco.html" class="cat-overview-card">
           <div class="section-icon" style="background:#fef3c7">🧾</div>
-          <div class="cat-overview-title">Tasse &amp; IVA</div>
-          <div class="cat-overview-count">4 strumenti</div>
+          <div class="cat-overview-title">Tasse &amp; Fisco</div>
+          <div class="cat-overview-count">6 strumenti</div>
         </a>
-        <a href="#sec-salute" class="cat-overview-card">
-          <div class="section-icon" style="background:#ffe4e6">💪</div>
-          <div class="cat-overview-title">Salute &amp; Benessere</div>
-          <div class="cat-overview-count">2 strumenti</div>
-        </a>
-        <a href="#sec-utilita" class="cat-overview-card">
+        <a href="categoria-utilita-quotidiane.html" class="cat-overview-card">
           <div class="section-icon" style="background:#ede9fe">🔧</div>
-          <div class="cat-overview-title">Utilità &amp; Altro</div>
-          <div class="cat-overview-count">3 strumenti</div>
+          <div class="cat-overview-title">Utilità Quotidiane</div>
+          <div class="cat-overview-count">5 strumenti</div>
         </a>
       </div>
     </div>
 
-    <!-- Filtri categoria -->
-    <div class="category-pills" role="navigation" aria-label="Filtra per categoria">
-      <h2 class="tool-list-heading">Tutti gli strumenti, per categoria</h2>
-      <button class="cat-pill active" onclick="filterCat('all', event)">Tutti</button>
-      <button class="cat-pill" onclick="filterCat('lavoro', event)">Lavoro &amp; Freelance</button>
-      <button class="cat-pill" onclick="filterCat('risparmio', event)">Risparmio</button>
-      <button class="cat-pill" onclick="filterCat('casa', event)">Casa &amp; Mutuo</button>
-      <button class="cat-pill" onclick="filterCat('tasse', event)">Tasse &amp; IVA</button>
-      <button class="cat-pill" onclick="filterCat('salute', event)">Salute</button>
-      <button class="cat-pill" onclick="filterCat('utilita', event)">Utilità</button>
-    </div>
-
-    <!-- SEZIONE: LAVORO & FREELANCE -->
-    <div class="tool-section" data-cat="lavoro" id="sec-lavoro">
-      <div class="section-header">
-        <div class="section-icon" style="background:#dbeafe">💼</div>
-        <h2>Lavoro &amp; Freelance</h2>
-        <span>16 strumenti</span>
-      </div>
-      <div class="cards-grid">
-
-        <a href="freelance.html" class="tool-card" data-keywords="freelance prezzo orario tariffa tasse INPS regime forfettario">
-          <div class="card-icon-wrap">💰</div>
-          <div class="card-title">Prezzo Orario Freelance</div>
-          <p class="card-desc">Scopri quanto fatturare all'ora. Calcola tasse, INPS, ferie e margine in regime forfettario o ordinario.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="lordonetto.html" class="tool-card" data-keywords="lordo netto stipendio busta paga IRPEF INPS 2026 dipendente">
-          <div class="card-icon-wrap">💵</div>
-          <div class="card-title">Lordo → Netto Stipendio</div>
-          <p class="card-desc">Calcola lo stipendio netto dal lordo annuo. IRPEF, contributi INPS, detrazioni figli e coniuge. Busta paga 2026.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="partitaiva.html" class="tool-card" data-keywords="partita IVA conviene forfettario dipendente confronto netto">
-          <div class="card-icon-wrap">📋</div>
-          <div class="card-title">Conviene la Partita IVA?</div>
-          <p class="card-desc">Confronta il netto come freelance forfettario vs lavoratore dipendente. Scopri cosa ti conviene davvero.</p>
-          <div class="card-cta">Confronta ora →</div>
-        </a>
-
-        <a href="calcolo-tfr-liquidazione.html" class="tool-card" data-keywords="TFR trattamento fine rapporto liquidazione anni lavoro retribuzione">
-          <div class="card-icon-wrap">📦</div>
-          <div class="card-title">Simulatore TFR</div>
-          <p class="card-desc">Stima il tuo Trattamento di Fine Rapporto in base agli anni di lavoro e alla retribuzione lorda annuale.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-tfr-liquidazione.html" class="tool-card" data-keywords="calcolo TFR liquidazione tassazione separata fondo pensione tabella">
-          <div class="card-icon-wrap">💼</div>
-          <div class="card-title">Calcolo TFR Liquidazione 2026</div>
-          <p class="card-desc">Guida completa al calcolo della liquidazione: tabella TFR per RAL/anni, tassazione separata e confronto fondo pensione.</p>
-          <div class="card-cta">Scopri di più →</div>
-        </a>
-
-        <a href="chilometrico.html" class="tool-card" data-keywords="rimborso chilometrico ACI 2026 auto km benzina diesel">
-          <div class="card-icon-wrap">🚗</div>
-          <div class="card-title">Rimborso Chilometrico ACI</div>
-          <p class="card-desc">Calcola il rimborso spettante con le tariffe ACI 2026. Scegli veicolo, cilindrata e inserisci i km percorsi.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="pensione.html" class="tool-card" data-keywords="pensione quando vado in pensione contributi INPS vecchiaia anticipata quota 103 importo">
-          <div class="card-icon-wrap">🎂</div>
-          <div class="card-title">Calcolatore Pensione 2026</div>
-          <p class="card-desc">Scopri quando puoi andare in pensione e quanto prenderai al mese. Vecchiaia, anticipata e Quota 103. Aggiornato 2026.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-ferie-permessi.html" class="tool-card" data-keywords="ferie permessi ferie maturate residue ore giorni contratto lavoro">
-          <div class="card-icon-wrap">🌴</div>
-          <div class="card-title">Ferie e Permessi</div>
-          <p class="card-desc">Calcola le ferie maturate, i permessi residui e verifica quante ore hai accumulato in base al tuo contratto.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-straordinari.html" class="tool-card" data-keywords="straordinari ore extra lavoro weekend festivi maggiorazione retribuzione">
-          <div class="card-icon-wrap">⏱️</div>
-          <div class="card-title">Calcolo Straordinari</div>
-          <p class="card-desc">Calcola la retribuzione per ore straordinarie con le maggiorazioni contrattuali: notturno, festivo, domenicale.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-naspi.html" class="tool-card" data-keywords="naspi disoccupazione indennità calcolo naspi 2026 importo durata licenziamento fine contratto">
-          <div class="card-icon-wrap">🛡️</div>
-          <div class="card-title">Calcolo NASpI 2026</div>
-          <p class="card-desc">Calcola l'importo mensile della NASpI, la durata e il totale percepito dopo licenziamento o fine contratto. Aggiornato INPS 2026.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-malattia-inps.html" class="tool-card" data-keywords="malattia inps indennità malattia dipendente carenza giorni malattia quanto prendo malato 2026">
-          <div class="card-icon-wrap">💊</div>
-          <div class="card-title">Indennità Malattia INPS</div>
-          <p class="card-desc">Calcola quanto percepisce il dipendente in malattia: indennità INPS giornaliera, giorni di carenza e integrazione datoriale. Aggiornato 2026.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-maternita-inps.html" class="tool-card" data-keywords="maternità inps indennità maternità congedo paternità obbligatoria congedo parentale quanto prendo maternità 2026">
-          <div class="card-icon-wrap">👶</div>
-          <div class="card-title">Indennità Maternità INPS</div>
-          <p class="card-desc">Calcola l'indennità di maternità: 80% × 5 mesi per la madre, 100% × 10 giorni per il padre e congedo parentale facoltativo. Aggiornato 2026.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-costo-lavoro.html" class="tool-card" data-keywords="costo del lavoro dipendente 2026 quanto costa assumere contributi inps datore lavoro inail tfr costo azienda">
-          <div class="card-icon-wrap">🏢</div>
-          <div class="card-title">Costo del Lavoro 2026</div>
-          <p class="card-desc">Calcola il costo reale di un dipendente per l'azienda: contributi INPS datoriali, INAIL e TFR. Con simulazione sgravi contributivi 2026.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-interessi-mora.html" class="tool-card" data-keywords="interessi mora pagamenti ritardo tasso bce calcolo mora fattura d.lgs 231 2002 indennità forfettaria recupero crediti">
-          <div class="card-icon-wrap">⚖️</div>
-          <div class="card-title">Interessi di Mora</div>
-          <p class="card-desc">Calcola gli interessi su fatture non pagate: tasso BCE + 8% per B2B (D.Lgs. 231/2002) o tasso legale per crediti civili. Include indennità recupero e testo diffida.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-prestazione-occasionale.html" class="tool-card" data-keywords="prestazione occasionale calcolo 2026 ritenuta acconto 20% lavoro autonomo occasionale limite 5000 euro inps gestione separata netto lordo">
-          <div class="card-icon-wrap">🧾</div>
-          <div class="card-title">Prestazione Occasionale</div>
-          <p class="card-desc">Calcola il netto dopo ritenuta 20%, soglia INPS €5.000 e contributi Gestione Separata. Include bozza ricevuta da stampare e confronto con P.IVA forfettaria.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-preavviso.html" class="tool-card" data-keywords="calcolo preavviso licenziamento dimissioni 2026 indennità sostitutiva preavviso mesi CCNL commercio metalmeccanico fine rapporto">
-          <div class="card-icon-wrap">📋</div>
-          <div class="card-title">Calcolo Preavviso</div>
-          <p class="card-desc">Calcola i mesi di preavviso e l'indennità sostitutiva per licenziamento o dimissioni. Tabelle CCNL per commercio, industria, credito. Include TFR e NASpI dopo la fine.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- SEZIONE: RISPARMIO & INVESTIMENTI -->
-    <div class="tool-section" data-cat="risparmio" id="sec-risparmio">
-      <div class="section-header">
-        <div class="section-icon" style="background:#d1fae5">💰</div>
-        <h2>Risparmio &amp; Investimenti</h2>
-        <span>5 strumenti</span>
-      </div>
-      <div class="cards-grid">
-
-        <a href="calcolatore-interessi-conto-deposito.html" class="tool-card" data-keywords="conto deposito interessi netti tassazione 26% imposta bollo rendimento vincolato libero">
-          <div class="card-icon-wrap">🏦</div>
-          <div class="card-title">Interessi Conto Deposito</div>
-          <p class="card-desc">Calcola il rendimento netto del tuo conto deposito dopo tassazione 26% e imposta di bollo. Confronta libero vs vincolato.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-buoni-fruttiferi-postali.html" class="tool-card" data-keywords="buoni fruttiferi postali bfp calcolo rendimento netto tassazione 12.5% poste italiane risparmio garantito stato">
-          <div class="card-icon-wrap">📮</div>
-          <div class="card-title">Buoni Fruttiferi Postali</div>
-          <p class="card-desc">Calcola il rendimento netto dei BFP con tassazione agevolata 12,5%. Confronta con conto deposito e scopri il vantaggio fiscale.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolatore-risparmio.html" class="tool-card" data-keywords="risparmio mensile obiettivo interesse composto fondo emergenza quanto risparmiare">
-          <div class="card-icon-wrap">🎯</div>
-          <div class="card-title">Calcolatore Risparmio</div>
-          <p class="card-desc">Scopri quanto devi risparmiare ogni mese per raggiungere il tuo obiettivo. Calcola con l'interesse composto.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolatore-prestito-personale.html" class="tool-card" data-keywords="prestito personale rata mensile TAN TAEG finanziamento interessi durata">
-          <div class="card-icon-wrap">💳</div>
-          <div class="card-title">Prestito Personale</div>
-          <p class="card-desc">Calcola rata mensile, totale interessi e TAEG stimato del tuo prestito personale. Include spese di istruttoria e gestione.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-fondo-pensione.html" class="tool-card" data-keywords="fondo pensione complementare calcolo 2026 simulatore pensione integrativa TFR fondo risparmio deducibilità IRPEF rendita mensile">
-          <div class="card-icon-wrap">🏛️</div>
-          <div class="card-title">Fondo Pensione</div>
-          <p class="card-desc">Simula il capitale che accumulerai con la pensione complementare: contributi, TFR, rendimento e risparmio IRPEF. Confronto TFR in azienda vs fondo.</p>
-          <div class="card-cta">Simula ora →</div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- SEZIONE: CASA & MUTUO -->
-    <div class="tool-section" data-cat="casa" id="sec-casa">
-      <div class="section-header">
-        <div class="section-icon" style="background:#ffe4e6">🏡</div>
-        <h2>Casa &amp; Mutuo</h2>
-        <span>7 strumenti</span>
-      </div>
-      <div class="cards-grid">
-
-        <a href="mutuo.html" class="tool-card" data-keywords="mutuo rata mensile calcolo ammortamento tasso fisso variabile LTV">
-          <div class="card-icon-wrap">🏦</div>
-          <div class="card-title">Calcolatore Rata Mutuo</div>
-          <p class="card-desc">Calcola la rata mensile, il totale degli interessi e il piano di ammortamento completo. Confronta durate e tassi.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="affitto.html" class="tool-card" data-keywords="affitto sostenibile massimo reddito spese mensili risparmio">
-          <div class="card-icon-wrap">🏠</div>
-          <div class="card-title">Affitto Sostenibile</div>
-          <p class="card-desc">Calcola l'affitto massimo che puoi permetterti in base al reddito, spese fisse e obiettivo di risparmio mensile.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-cedolare-secca.html" class="tool-card" data-keywords="cedolare secca affitto 21% 10% IRPEF canone concordato proprietario immobile">
-          <div class="card-icon-wrap">🏘️</div>
-          <div class="card-title">Cedolare Secca vs IRPEF</div>
-          <p class="card-desc">Scopri se conviene la cedolare secca (21% o 10%) o l'IRPEF ordinaria sul tuo affitto. Confronto immediato 2026.</p>
-          <div class="card-cta">Confronta ora →</div>
-        </a>
-
-        <a href="calcolo-spese-acquisto-casa.html" class="tool-card" data-keywords="spese acquisto casa rogito notaio imposte registro catastale ipotecaria prima casa">
-          <div class="card-icon-wrap">🏗️</div>
-          <div class="card-title">Spese Acquisto Casa</div>
-          <p class="card-desc">Calcola tutte le spese accessorie all'acquisto: notaio, imposte di registro, catastale e ipotecaria. Prima e seconda casa.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-imu.html" class="tool-card" data-keywords="IMU imposta municipale immobile rendita catastale aliquota prima seconda casa 2026">
-          <div class="card-icon-wrap">🏛️</div>
-          <div class="card-title">Calcolo IMU 2026</div>
-          <p class="card-desc">Calcola l'IMU da pagare sulla tua proprietà. Inserisci rendita catastale e aliquota comunale per il risultato esatto.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-plusvalenza-immobiliare.html" class="tool-card" data-keywords="plusvalenza immobiliare calcolo 2026 vendita casa tassa 26% imposta sostitutiva esenzione 5 anni abitazione principale">
-          <div class="card-icon-wrap">📈</div>
-          <div class="card-title">Plusvalenza Immobiliare</div>
-          <p class="card-desc">Vendi casa entro 5 anni dall'acquisto? Calcola la plusvalenza tassabile, la scelta tra 26% e IRPEF e le spese deducibili. Include verifica esenzione.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-locazioni-brevi.html" class="tool-card" data-keywords="locazioni brevi tasse 2026 airbnb booking cedolare secca 21% 26% affitti brevi host dichiarazione redditi ritenuta piattaforma">
-          <div class="card-icon-wrap">🏡</div>
-          <div class="card-title">Locazioni Brevi (Airbnb)</div>
-          <p class="card-desc">Host Airbnb o Booking? Calcola le tasse sulle locazioni brevi 2026: cedolare 21% (primo immobile) o 26% (immobili extra), ritenuta già trattenuta dalla piattaforma e saldo da dichiarare.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- SEZIONE: TASSE & IVA -->
-    <div class="tool-section" data-cat="tasse" id="sec-tasse">
-      <div class="section-header">
-        <div class="section-icon" style="background:#fef3c7">🧾</div>
-        <h2>Tasse &amp; IVA</h2>
-        <span>4 strumenti</span>
-      </div>
-      <div class="cards-grid">
-
-        <a href="iva.html" class="tool-card" data-keywords="IVA calcolatore 22 10 5 4 scorporo aggiunta fattura">
-          <div class="card-icon-wrap">🧾</div>
-          <div class="card-title">Calcolatore IVA</div>
-          <p class="card-desc">Aggiungi o scorpora l'IVA al 22%, 10%, 5% o 4% in un secondo. Con gestione sconti e quantità multiple.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-isee.html" class="tool-card" data-keywords="ISEE simulatore reddito patrimonio agevolazioni bonus nido reddito cittadinanza dichiarazione DSU">
-          <div class="card-icon-wrap">📋</div>
-          <div class="card-title">Simulatore ISEE 2026</div>
-          <p class="card-desc">Stima il tuo ISEE 2026 per accedere a bonus, agevolazioni e sussidi. Calcolo basato su reddito e patrimonio familiare.</p>
-          <div class="card-cta">Stima ora →</div>
-        </a>
-
-        <a href="calcolo-detrazioni-730.html" class="tool-card" data-keywords="detrazioni 730 2026 spese detraibili IRPEF spese sanitarie mutuo istruzione assicurazioni ristrutturazioni">
-          <div class="card-icon-wrap">📄</div>
-          <div class="card-title">Detrazioni 730 2026</div>
-          <p class="card-desc">Calcola le tue detrazioni IRPEF: spese sanitarie, interessi mutuo, istruzione, assicurazioni e ristrutturazioni.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-bollo-auto.html" class="tool-card" data-keywords="bollo auto 2026 calcola bollo auto kw tassa automobilistica quanto pago bollo veicolo elettrico storico">
-          <div class="card-icon-wrap">🚗</div>
-          <div class="card-title">Bollo Auto 2026</div>
-          <p class="card-desc">Calcola il bollo auto in base ai kW del tuo veicolo. Tariffe aggiornate 2026 con agevolazioni per elettrici e storici.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- SEZIONE: SALUTE -->
-    <div class="tool-section" data-cat="salute" id="sec-salute">
-      <div class="section-header">
-        <div class="section-icon" style="background:#ffe4e6">💪</div>
-        <h2>Salute &amp; Benessere</h2>
-        <span>2 strumenti</span>
-      </div>
-      <div class="cards-grid">
-
-        <a href="tdee.html" class="tool-card" data-keywords="TDEE fabbisogno calorico calorie giornaliere BMR attività fisica dieta">
-          <div class="card-icon-wrap">🥗</div>
-          <div class="card-title">Calcolatore TDEE</div>
-          <p class="card-desc">Calcola il tuo fabbisogno calorico giornaliero in base a età, peso, altezza e livello di attività fisica.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="bmi.html" class="tool-card" data-keywords="BMI indice massa corporea peso ideale altezza sovrappeso obesità">
-          <div class="card-icon-wrap">💊</div>
-          <div class="card-title">Calcola il tuo BMI</div>
-          <p class="card-desc">Calcola il tuo Indice di Massa Corporea e scopri il range di peso ideale con scala visiva e interpretazione completa.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- SEZIONE: UTILITÀ & ALTRO -->
-    <div class="tool-section" data-cat="utilita" id="sec-utilita">
-      <div class="section-header">
-        <div class="section-icon" style="background:#ede9fe">🔧</div>
-        <h2>Utilità &amp; Altro</h2>
-        <span>3 strumenti</span>
-      </div>
-      <div class="cards-grid">
-
-        <a href="calcolatore-percentuale.html" class="tool-card" data-keywords="percentuale calcola percentuale sconto ricarico variazione percentuale calcolo % di un numero">
-          <div class="card-icon-wrap">📊</div>
-          <div class="card-title">Calcolatore Percentuale</div>
-          <p class="card-desc">Calcola la percentuale di un numero, la variazione tra due valori, lo sconto o il ricarico. 4 modalità in un unico strumento.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="calcolo-eta.html" class="tool-card" data-keywords="calcola età quanti anni ho età esatta anni mesi giorni data nascita compleanno segno zodiacale">
-          <div class="card-icon-wrap">🎂</div>
-          <div class="card-title">Calcola la tua Età</div>
-          <p class="card-desc">Scopri quanti anni, mesi e giorni hai esattamente. Countdown al prossimo compleanno e segno zodiacale inclusi.</p>
-          <div class="card-cta">Calcola ora →</div>
-        </a>
-
-        <a href="divisione-conto.html" class="tool-card" data-keywords="divisione conto ristorante amici coinquilini conto alla romana quota mancia split bill spese gruppo">
-          <div class="card-icon-wrap">🍕</div>
-          <div class="card-title">Divisione Conto</div>
-          <p class="card-desc">Dividi il conto del ristorante o le spese tra coinquilini in modo equo. Divisione uguale o per persona, con mancia opzionale.</p>
-          <div class="card-cta">Dividi ora →</div>
-        </a>
-
-      </div>
-    </div>
+    <!-- Risultati ricerca (popolati via JS dall'indice statico) -->
+    <div class="cards-grid" id="searchResults" style="display:none;margin-bottom:40px"></div>
 
     <!-- Nessun risultato -->
     <div class="no-results" id="noResults">
@@ -1149,6 +784,32 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
+    <!-- PERCORSI RAPIDI -->
+    <div class="top-section">
+      <h2>Percorsi rapidi</h2>
+      <p class="top-sub">Tre situazioni tipiche, gli strumenti giusti in ordine.</p>
+      <div class="guides-grid">
+        <a href="lordonetto.html" class="guide-card">
+          <span class="cat-badge cat-badge-lavoro">Nuovo lavoro</span>
+          <div class="guide-title">Sto per firmare un contratto</div>
+          <p class="guide-desc">Parti dallo stipendio netto reale, poi stima TFR, ferie e permessi maturati.</p>
+          <div class="guide-cta">Calcola il netto →</div>
+        </a>
+        <a href="categoria-casa-mutuo.html" class="guide-card">
+          <span class="cat-badge cat-badge-casa">Acquisto casa</span>
+          <div class="guide-title">Sto comprando casa</div>
+          <p class="guide-desc">Rata sostenibile, spese accessorie di acquisto e IMU: tutto il percorso in un'unica pagina.</p>
+          <div class="guide-cta">Inizia dal mutuo →</div>
+        </a>
+        <a href="categoria-freelance.html" class="guide-card">
+          <span class="cat-badge cat-badge-lavoro">Partita IVA</span>
+          <div class="guide-title">Apro la Partita IVA</div>
+          <p class="guide-desc">Conviene rispetto al lavoro dipendente? Quanto fatturare all'ora? Il confronto guidato.</p>
+          <div class="guide-cta">Fai il confronto →</div>
+        </a>
+      </div>
+    </div>
+
     <!-- GUIDE -->
     <div class="guides-section">
       <div class="guides-header">
@@ -1156,13 +817,6 @@
         <p>Contenuti originali, aggiornati al 2026, scritti in italiano semplice.</p>
       </div>
       <div class="guides-grid">
-
-        <a href="categoria-freelance.html" class="guide-card">
-          <span class="cat-badge cat-badge-lavoro">Lavoro autonomo</span>
-          <div class="guide-title">Calcolatori per Freelance: Guida alla Scelta</div>
-          <p class="guide-desc">5 strumenti in un'unica pagina: tariffa oraria, P.IVA vs dipendente, prestazioni occasionali. Trova quello che fa per te.</p>
-          <div class="guide-cta">Esplora gli strumenti →</div>
-        </a>
 
         <a href="guida-regime-forfettario.html" class="guide-card">
           <span class="cat-badge cat-badge-lavoro">Lavoro autonomo</span>
@@ -1185,38 +839,10 @@
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
-        <a href="guida-comprare-affittare-casa.html" class="guide-card">
-          <span class="cat-badge cat-badge-casa">Casa</span>
-          <div class="guide-title">Comprare o Affittare Casa? Analisi 2026</div>
-          <p class="guide-desc">Costi, vantaggi e svantaggi di entrambe le soluzioni. Con esempi pratici per il mercato italiano.</p>
-          <div class="guide-cta">Leggi la guida →</div>
-        </a>
-
-        <a href="guida-deficit-calorico-dimagrire.html" class="guide-card">
-          <span class="cat-badge cat-badge-salute">Salute</span>
-          <div class="guide-title">Deficit Calorico: Come Dimagrire</div>
-          <p class="guide-desc">Come calcolare il deficit giusto, quante calorie mangiare e come preservare la massa muscolare.</p>
-          <div class="guide-cta">Leggi la guida →</div>
-        </a>
-
         <a href="guida-pensione-anticipata-2026.html" class="guide-card">
           <span class="cat-badge cat-badge-lavoro">Pensione</span>
           <div class="guide-title">Pensione Anticipata 2026: Tutte le Strade</div>
           <p class="guide-desc">Quota 103, Opzione Donna, APe Sociale e pensione anticipata ordinaria. Requisiti aggiornati 2026.</p>
-          <div class="guide-cta">Leggi la guida →</div>
-        </a>
-
-        <a href="guida-conto-deposito-2026.html" class="guide-card">
-          <span class="cat-badge cat-badge-risparmio">Risparmio</span>
-          <div class="guide-title">Conti Deposito 2026: Come Scegliere</div>
-          <p class="guide-desc">Tassi, tassazione 26%, libero vs vincolato e confronto con BTP. Guida completa aggiornata.</p>
-          <div class="guide-cta">Leggi la guida →</div>
-        </a>
-
-        <a href="guida-cedolare-secca-affitti.html" class="guide-card">
-          <span class="cat-badge cat-badge-casa">Affitti</span>
-          <div class="guide-title">Cedolare Secca 2026: Quando Conviene</div>
-          <p class="guide-desc">21% o 10%? Come confrontarla con l'IRPEF ordinaria e quando scegliere il canone concordato.</p>
           <div class="guide-cta">Leggi la guida →</div>
         </a>
 
@@ -1314,13 +940,8 @@
     <!-- SEO TEXT -->
     <div class="seo-text">
       <h2>Calcolatori gratuiti per professionisti e lavoratori italiani</h2>
-      <p>CalcolaPro raccoglie strumenti di calcolo gratuiti e precisi pensati per chi lavora in Italia, sia come dipendente che come libero professionista. Ogni calcolatore è aggiornato con le normative fiscali e previdenziali italiane vigenti nel 2026.</p>
-      <h3>Perché usare un calcolatore online</h3>
-      <p>Gestire le proprie finanze personali e professionali richiede calcoli spesso complessi: aliquote fiscali, contributi INPS, tariffe ACI, soglie di sostenibilità economica. I nostri strumenti semplificano questi calcoli in pochi secondi, senza registrazione o installazione di alcuna app.</p>
-      <h3>Strumenti pensati per il mercato italiano</h3>
-      <p>A differenza di calcolatori generici in inglese, CalcolaPro utilizza le normative italiane: regime forfettario con coefficienti per categoria, tabelle ACI 2026, contributi INPS Gestione Separata, IRPEF progressiva con le aliquote aggiornate. I risultati sono pertinenti alla realtà fiscale e lavorativa italiana.</p>
-      <h3>Sicurezza e privacy</h3>
-      <p>Tutti i calcoli avvengono direttamente nel tuo browser: non inviamo nessun dato ai nostri server. I tuoi dati rimangono sempre sul tuo dispositivo. Consulta la nostra <a href="privacy.html">Privacy Policy</a> per maggiori dettagli.</p>
+      <p>CalcolaPro raccoglie 37 strumenti di calcolo gratuiti pensati per chi lavora in Italia. A differenza dei calcolatori generici in inglese, ogni strumento usa le normative italiane vigenti nel 2026 — IRPEF progressiva, contributi INPS, regime forfettario con i coefficienti per categoria, tabelle ACI, cedolare secca — e cita le fonti ufficiali in ogni pagina.</p>
+      <p>Tutti i calcoli avvengono direttamente nel tuo browser: nessun dato viene inviato ai nostri server e non serve alcuna registrazione. Consulta la <a href="privacy.html">Privacy Policy</a> per i dettagli.</p>
     </div>
 
   </main>
@@ -1414,58 +1035,66 @@
       };
     })();
 
-    // ── RICERCA ──
-    const searchInput = document.getElementById('searchInput');
-    const allCards = document.querySelectorAll('.tool-card');
-    const allSections = document.querySelectorAll('.tool-section');
-    const noResults = document.getElementById('noResults');
-
-    const topSection = document.getElementById('topSection');
-    searchInput.addEventListener('input', () => {
-      const q = searchInput.value.toLowerCase().trim();
+    // ── RICERCA (indice statico: le card per categoria vivono nelle pagine hub) ──
+    var TOOLS = [
+      {n:'Lordo → Netto Stipendio',u:'lordonetto.html',i:'💵',d:'Busta paga netta dal lordo annuo con IRPEF e INPS.',k:'lordo netto stipendio busta paga irpef inps dipendente 2026'},
+      {n:'Calcolatore Rata Mutuo',u:'mutuo.html',i:'🏦',d:'Rata mensile, interessi totali e piano di ammortamento.',k:'mutuo rata ammortamento tasso fisso variabile casa'},
+      {n:'Prezzo Orario Freelance',u:'freelance.html',i:'💰',d:'Tariffa oraria ideale tra tasse, INPS e margine.',k:'freelance prezzo orario tariffa tasse inps forfettario'},
+      {n:'Conviene la Partita IVA?',u:'partitaiva.html',i:'📋',d:'Confronto netto freelance forfettario vs dipendente.',k:'partita iva conviene forfettario dipendente confronto'},
+      {n:'Calcolatore Pensione 2026',u:'pensione.html',i:'🎂',d:'Quando andare in pensione e importo assegno INPS.',k:'pensione contributi inps vecchiaia anticipata quota 103'},
+      {n:'Calcolatore IVA',u:'iva.html',i:'🧾',d:'Aggiungi o scorpora IVA al 22%, 10%, 5% o 4%.',k:'iva scorporo aggiunta 22 10 5 4 fattura'},
+      {n:'TFR e Liquidazione',u:'calcolo-tfr-liquidazione.html',i:'📦',d:'Tassazione separata e confronto con fondo pensione.',k:'tfr trattamento fine rapporto liquidazione tassazione'},
+      {n:'Simulatore ISEE 2026',u:'calcolo-isee.html',i:'📄',d:'Stima ISEE per bonus e agevolazioni disponibili.',k:'isee dsu reddito patrimonio bonus agevolazioni'},
+      {n:'Ferie e Permessi',u:'calcolo-ferie-permessi.html',i:'🌴',d:'Ferie maturate, permessi ROL e ore residue.',k:'ferie permessi rol maturate residue contratto'},
+      {n:'Calcolo Straordinari',u:'calcolo-straordinari.html',i:'⏱️',d:'Retribuzione ore straordinarie con maggiorazioni CCNL.',k:'straordinari ore extra maggiorazione notturno festivo'},
+      {n:'Calcolo NASpI 2026',u:'calcolo-naspi.html',i:'🛡️',d:'Importo mensile, durata e totale NASpI.',k:'naspi disoccupazione indennità licenziamento fine contratto'},
+      {n:'Indennità Malattia INPS',u:'calcolo-malattia-inps.html',i:'💊',d:'Indennità giornaliera, carenza e integrazione datoriale.',k:'malattia inps indennità carenza dipendente'},
+      {n:'Indennità Maternità INPS',u:'calcolo-maternita-inps.html',i:'👶',d:'Maternità 80%, paternità obbligatoria e congedo parentale.',k:'maternità inps congedo paternità parentale'},
+      {n:'Costo del Lavoro 2026',u:'calcolo-costo-lavoro.html',i:'🏢',d:'Costo azienda: contributi datoriali, INAIL e TFR.',k:'costo lavoro dipendente assumere contributi datore inail'},
+      {n:'Interessi di Mora',u:'calcolo-interessi-mora.html',i:'⚖️',d:'Interessi su fatture non pagate, BCE + 8% B2B.',k:'interessi mora fattura ritardo pagamento bce 231'},
+      {n:'Prestazione Occasionale',u:'calcolo-prestazione-occasionale.html',i:'🧾',d:'Netto dopo ritenuta 20% e soglia INPS 5.000€.',k:'prestazione occasionale ritenuta acconto 5000 gestione separata'},
+      {n:'Calcolo Preavviso',u:'calcolo-preavviso.html',i:'📋',d:'Mesi di preavviso e indennità sostitutiva per CCNL.',k:'preavviso licenziamento dimissioni indennità ccnl'},
+      {n:'Rimborso Chilometrico ACI',u:'chilometrico.html',i:'🚗',d:'Rimborso km con tariffe ACI 2026 per veicolo.',k:'rimborso chilometrico aci auto km benzina diesel trasferta'},
+      {n:'Interessi Conto Deposito',u:'calcolatore-interessi-conto-deposito.html',i:'🏦',d:'Rendimento netto dopo tassazione 26% e bollo.',k:'conto deposito interessi netto vincolato tassazione bollo'},
+      {n:'Buoni Fruttiferi Postali',u:'calcolo-buoni-fruttiferi-postali.html',i:'📮',d:'Rendimento netto BFP con tassazione 12,5%.',k:'bfp buoni fruttiferi postali poste rendimento'},
+      {n:'Calcolatore Risparmio',u:'calcolatore-risparmio.html',i:'🎯',d:'Quanto risparmiare al mese con interesse composto.',k:'risparmio mensile obiettivo interesse composto'},
+      {n:'Prestito Personale',u:'calcolatore-prestito-personale.html',i:'💳',d:'Rata mensile, interessi totali e TAEG stimato.',k:'prestito personale rata tan taeg finanziamento'},
+      {n:'Fondo Pensione',u:'calcolo-fondo-pensione.html',i:'🏛️',d:'Capitale, rendita e risparmio IRPEF della previdenza integrativa.',k:'fondo pensione complementare integrativa tfr deducibile rendita'},
+      {n:'Affitto Sostenibile',u:'affitto.html',i:'🏠',d:'Affitto massimo sostenibile in base al reddito.',k:'affitto sostenibile canone massimo reddito'},
+      {n:'Cedolare Secca vs IRPEF',u:'calcolo-cedolare-secca.html',i:'🏘️',d:'Conviene la cedolare 21%/10% o l\'IRPEF ordinaria?',k:'cedolare secca 21 10 irpef canone concordato affitto'},
+      {n:'Spese Acquisto Casa',u:'calcolo-spese-acquisto-casa.html',i:'🏗️',d:'Notaio, imposte di registro, catastale e ipotecaria.',k:'spese acquisto casa notaio imposte registro rogito prima casa'},
+      {n:'Calcolo IMU 2026',u:'calcolo-imu.html',i:'🏛️',d:'IMU da rendita catastale e aliquota comunale.',k:'imu rendita catastale aliquota seconda casa acconto saldo'},
+      {n:'Plusvalenza Immobiliare',u:'calcolo-plusvalenza-immobiliare.html',i:'📈',d:'Plusvalenza tassabile sulla vendita entro 5 anni.',k:'plusvalenza immobiliare vendita casa 26 esenzione'},
+      {n:'Locazioni Brevi (Airbnb)',u:'calcolo-locazioni-brevi.html',i:'🏡',d:'Tasse host: cedolare 21%/26% e ritenuta piattaforma.',k:'locazioni brevi airbnb booking host cedolare ritenuta'},
+      {n:'Detrazioni 730 2026',u:'calcolo-detrazioni-730.html',i:'📄',d:'Detrazioni IRPEF: sanità, mutuo, istruzione, ristrutturazioni.',k:'detrazioni 730 irpef spese sanitarie mutuo istruzione'},
+      {n:'Bollo Auto 2026',u:'calcolo-bollo-auto.html',i:'🚗',d:'Bollo in base ai kW, con elettriche e storiche.',k:'bollo auto kw tassa automobilistica elettrica storica'},
+      {n:'Calcolatore TDEE',u:'tdee.html',i:'🥗',d:'Fabbisogno calorico giornaliero per età e attività.',k:'tdee fabbisogno calorico calorie bmr dieta metabolismo'},
+      {n:'Calcolatore BMI',u:'bmi.html',i:'💪',d:'Indice di massa corporea e range di peso ideale.',k:'bmi indice massa corporea peso ideale sovrappeso'},
+      {n:'Calcolatore Percentuale',u:'calcolatore-percentuale.html',i:'📊',d:'Percentuali, sconti, variazioni e ricarichi in 4 modalità.',k:'percentuale sconto ricarico variazione scorporo'},
+      {n:'Calcola la tua Età',u:'calcolo-eta.html',i:'🎂',d:'Età esatta in anni, mesi e giorni.',k:'età anni mesi giorni data nascita compleanno'},
+      {n:'Divisione Conto',u:'divisione-conto.html',i:'🍕',d:'Dividi il conto o le spese di gruppo in modo equo.',k:'divisione conto ristorante romana mancia gruppo'}
+    ];
+    var searchInput = document.getElementById('searchInput');
+    var noResults = document.getElementById('noResults');
+    var topSection = document.getElementById('topSection');
+    var resultsGrid = document.getElementById('searchResults');
+    function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    searchInput.addEventListener('input', function() {
+      var q = searchInput.value.toLowerCase().trim();
       if (topSection) topSection.classList.toggle('hidden', !!q);
       if (!q) {
-        // Mostra tutto
-        allCards.forEach(c => c.classList.remove('hidden'));
-        allSections.forEach(s => s.classList.remove('hidden'));
+        resultsGrid.style.display = 'none';
+        resultsGrid.innerHTML = '';
         noResults.classList.remove('visible');
         return;
       }
-      let anyVisible = false;
-      allCards.forEach(card => {
-        const text = (card.dataset.keywords + ' ' + card.textContent).toLowerCase();
-        if (text.includes(q)) {
-          card.classList.remove('hidden');
-          anyVisible = true;
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-      // Nascondi sezioni vuote
-      allSections.forEach(section => {
-        const visibleInSection = section.querySelectorAll('.tool-card:not(.hidden)').length;
-        section.classList.toggle('hidden', visibleInSection === 0);
-      });
-      noResults.classList.toggle('visible', !anyVisible);
+      var hits = TOOLS.filter(function(t){ return (t.n + ' ' + t.k + ' ' + t.d).toLowerCase().indexOf(q) !== -1; });
+      resultsGrid.innerHTML = hits.map(function(t){
+        return '<a href="' + t.u + '" class="tool-card"><div class="card-icon-wrap">' + t.i + '</div><div class="card-title">' + esc(t.n) + '</div><p class="card-desc">' + esc(t.d) + '</p><div class="card-cta">Apri →</div></a>';
+      }).join('');
+      resultsGrid.style.display = hits.length ? 'grid' : 'none';
+      noResults.classList.toggle('visible', !hits.length);
     });
-
-    // ── FILTRO CATEGORIA ──
-    function filterCat(cat, event) {
-      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-      if (event && event.currentTarget) event.currentTarget.classList.add('active');
-      searchInput.value = '';
-      if (cat === 'all') {
-        allSections.forEach(s => s.classList.remove('hidden'));
-        allCards.forEach(c => c.classList.remove('hidden'));
-        noResults.classList.remove('visible');
-        return;
-      }
-      allSections.forEach(s => {
-        s.classList.toggle('hidden', s.dataset.cat !== cat);
-      });
-      allCards.forEach(c => c.classList.remove('hidden'));
-      noResults.classList.remove('visible');
-    }
   </script>
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
