@@ -241,11 +241,11 @@
       <div class="field">
         <label for="tipoBfp">Tipo di BFP</label>
         <select id="tipoBfp" onchange="onTipoChange()">
-          <option value="3anni">BFP 3 Anni (il più diffuso)</option>
+          <option value="3anni">Buono Ordinario (20 anni, il più diffuso)</option>
           <option value="flessibili">BFP Flessibili 18 mesi</option>
           <option value="risparmio">BFP Risparmio Semplice 5 anni</option>
-          <option value="4x4">BFP 4x4 (fino a 16 anni)</option>
-          <option value="minori">BFP Dedicati Minori (fino a 18 anni)</option>
+          <option value="4x4">Buono 3x4 (12 anni, rate crescenti + premio fedeltà)</option>
+          <option value="minori">BFP Dedicati Minori (tasso variabile in base all'età, fino a 18 anni)</option>
           <option value="custom">Personalizzato (inserisci tasso e durata)</option>
         </select>
         <span class="hint">Seleziona il tipo: il calcolatore preimposta tasso indicativo e durata</span>
@@ -439,12 +439,14 @@
     <h3>Tipi di Buoni Fruttiferi Postali nel 2026</h3>
     <p>Poste Italiane offre diverse tipologie, con tassi <strong>aggiornati ogni mese</strong> sul sito poste.it:</p>
     <ul>
-      <li><strong>BFP 3 Anni:</strong> il più diffuso. Durata fissa 36 mesi, capitalizzazione composta. Rimborso anticipato possibile dopo 12 mesi.</li>
+      <li><strong>Buono Ordinario:</strong> il più diffuso. Durata 20 anni, tasso fisso crescente, capitalizzazione composta. Rimborso anticipato possibile dopo 12 mesi.</li>
       <li><strong>BFP Flessibili 18 mesi:</strong> durata breve, ottima liquidità. Per obiettivi a breve termine.</li>
       <li><strong>BFP Risparmio Semplice 5 anni:</strong> durata di 5 anni con accredito interessi progressivo.</li>
-      <li><strong>BFP 4x4:</strong> durata fino a 16 anni con rendimenti crescenti ogni quadriennio. Per orizzonti molto lunghi.</li>
-      <li><strong>BFP Dedicati Minori:</strong> intestati a minori di 18 anni, tasso bloccato alla sottoscrizione. Ideale per i figli.</li>
+      <li><strong>Buono 3x4 (Rinnova 3x4):</strong> durata 12 anni con tassi crescenti a ogni triennio, più un premio fedeltà del 6% a scadenza. Per orizzonti medio-lunghi.</li>
+      <li><strong>BFP Dedicati Minori:</strong> intestati a minori di 18 anni, tasso variabile in base all'età del minore alla sottoscrizione (più alto quanto prima si sottoscrive). Esente da imposta di successione, come tutti i BFP.</li>
+      <li><strong>Buono Indicizzato Inflazione:</strong> durata 10 anni, tasso fisso crescente più una componente variabile legata all'inflazione italiana.</li>
     </ul>
+    <p style="font-size:13px;color:var(--text-muted);">Tutti i BFP sono <strong>esenti da imposta di successione</strong> e i tassi indicati sono indicativi: variano con nuove serie emesse ogni 1-3 mesi da Cassa Depositi e Prestiti. Verifica sempre il Foglio Informativo aggiornato su poste.it o cdp.it prima di sottoscrivere.</p>
 
     <h3>BFP vs conto deposito: quando conviene ciascuno?</h3>
     <ul>
@@ -537,10 +539,10 @@
 document.querySelectorAll('.footer-year').forEach(function(el){el.textContent=new Date().getFullYear();});
 
 var BFP_CONFIG = {
-  '3anni':    { rate: 2.25, years: 3 },
+  '3anni':    { rate: 2.50, years: 20 },
   'flessibili':{ rate: 1.50, years: 1.5 },
   'risparmio': { rate: 2.75, years: 5 },
-  '4x4':       { rate: 3.00, years: 16 },
+  '4x4':       { rate: 2.87, years: 12 },
   'minori':    { rate: 2.50, years: 18 },
   'custom':    { rate: null, years: null }
 };

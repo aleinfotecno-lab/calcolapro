@@ -329,7 +329,7 @@
       <h2>Quanto costa comprare casa in Italia nel 2026</h2>
       <p>Il prezzo dichiarato nell'atto notarile è solo una parte del costo reale di un acquisto immobiliare. Le spese accessorie possono arrivare al 10-15% del valore dell'immobile e includono imposte, onorari notarili, commissioni di agenzia e spese di mutuo.</p>
       <h3>Prima casa: imposta di registro al 2%</h3>
-      <p>Se acquisti la prima casa da un privato, paghi l'imposta di registro al <strong>2%</strong> calcolata non sul prezzo di acquisto ma sulla <strong>rendita catastale rivalutata</strong> (rendita × 1,05 × 115,5). Con rendita di €600, la base è €72.765 e l'imposta è €1.455. Il minimo è €1.000.</p>
+      <p>Se acquisti la prima casa da un privato, paghi l'imposta di registro al <strong>2%</strong> calcolata non sul prezzo di acquisto ma sulla <strong>rendita catastale rivalutata</strong> (rendita × 115,5, coefficiente che include già la rivalutazione del 5%). Con rendita di €600, la base è €69.300 e l'imposta è €1.386. Il minimo è €1.000.</p>
       <h3>Seconda casa: imposta di registro al 9%</h3>
       <p>Per la seconda casa l'aliquota sale al <strong>9%</strong>, sempre sulla rendita catastale rivalutata. Oltre all'imposta di registro si pagano €50 di imposta ipotecaria e €50 di imposta catastale.</p>
       <h3>Acquisto da costruttore: si paga l'IVA</h3>
@@ -461,7 +461,7 @@
 
       if (venditore === 'privato') {
         // Imposta di registro su rendita catastale rivalutata
-        const baseImponibile = rendita > 0 ? rendita * 1.05 * (tipoCasa === 'prima' ? 115.5 : 126) : prezzo;
+        const baseImponibile = rendita > 0 ? rendita * (tipoCasa === 'prima' ? 115.5 : 126) : prezzo;
         const aliquota = tipoCasa === 'prima' ? 0.02 : 0.09;
         impostaReg = Math.max(1000, baseImponibile * aliquota);
       } else {

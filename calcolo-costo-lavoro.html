@@ -595,9 +595,12 @@
       if (imponibileIRPEF <= 28000) irpef = imponibileIRPEF * 0.23;
       else if (imponibileIRPEF <= 50000) irpef = 28000*0.23 + (imponibileIRPEF-28000)*0.33;
       else irpef = 28000*0.23 + 22000*0.33 + (imponibileIRPEF-50000)*0.43;
-      // Detrazione da lavoro dipendente (semplificata)
-      const detrazione = imponibileIRPEF <= 28000 ? 1955 - ((imponibileIRPEF - 8500) / 19500) : 700;
-      const irpefNetta = Math.max(0, irpef - Math.min(detrazione, 1955));
+      // Detrazione da lavoro dipendente (TUIR art.13, formula 2024+)
+      let detrazione = 0;
+      if (ralAnnua <= 15000) detrazione = 1955;
+      else if (ralAnnua <= 28000) detrazione = 1910 + 1190 * ((28000 - ralAnnua) / 13000);
+      else if (ralAnnua <= 50000) detrazione = 1910 * ((50000 - ralAnnua) / 22000);
+      const irpefNetta = Math.max(0, irpef - detrazione);
       const nettoAnnuo = imponibileIRPEF - irpefNetta;
       const nettoMensile = nettoAnnuo / 12;
 

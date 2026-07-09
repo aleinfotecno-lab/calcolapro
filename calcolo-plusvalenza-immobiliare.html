@@ -47,7 +47,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"La plusvalenza si calcola sul prezzo dichiarato o sul valore catastale?","acceptedAnswer":{"@type":"Answer","text":"Si calcola sempre sul prezzo effettivo dichiarato nell'atto notarile. A differenza dell'imposta di registro (dove il contribuente può scegliere la base catastale per gli immobili a uso abitativo), la plusvalenza fiscale si basa sui prezzi reali di compravendita. L'Agenzia delle Entrate può comunque verificare che il prezzo dichiarato sia congruente con i valori di mercato della zona."}},
-    {"@type":"Question","name":"Se ho ricevuto la casa in donazione, come si calcola il periodo dei 5 anni?","acceptedAnswer":{"@type":"Answer","text":"Dal 2024 (Legge di Bilancio 2024), il periodo di 5 anni per gli immobili ricevuti in donazione si computa dalla data di acquisto originale del donante, non dalla data della donazione. Questo significa che se il tuo donante aveva la casa da oltre 5 anni al momento della donazione, potresti già essere esente anche se tu hai ricevuto la donazione da poco tempo. Prima di questa riforma, la donazione azzerava il computo dei 5 anni."}},
+    {"@type":"Question","name":"Se ho ricevuto la casa in donazione, come si calcola il periodo dei 5 anni?","acceptedAnswer":{"@type":"Answer","text":"Il periodo di 5 anni per gli immobili ricevuti in donazione si computa dalla data di acquisto originale del donante, non dalla data della donazione (regola introdotta dal D.L. 223/2006, non recente). Questo significa che se il tuo donante aveva la casa da oltre 5 anni al momento della donazione, potresti già essere esente anche se tu hai ricevuto la donazione da poco tempo. Nota distinta: la Legge di Bilancio 2024 ha introdotto una regola specifica per gli immobili donati con Superbonus 110% (il quinquennio si calcola da fine lavori)."}},
     {"@type":"Question","name":"Posso dedurre le spese del mutuo dalla plusvalenza?","acceptedAnswer":{"@type":"Answer","text":"No. Gli interessi passivi del mutuo e le rate pagate non sono deducibili dalla plusvalenza immobiliare. Puoi dedurre solo: il prezzo di acquisto, le spese notarili e le imposte al momento dell'acquisto, le spese per ristrutturazioni straordinarie documentate con fatture e le spese di intermediazione immobiliare al momento dell'acquisto. Alcune di queste spese possono essere detratte in dichiarazione dei redditi (730), ma non riducono la base imponibile della plusvalenza."}},
     {"@type":"Question","name":"Quando devo pagare la tassa sulla plusvalenza?","acceptedAnswer":{"@type":"Answer","text":"Se scegli l'imposta sostitutiva del 26%, la paghi direttamente al notaio il giorno del rogito: il notaio funge da sostituto d'imposta e versa il tributo all'Erario. Se invece scegli la tassazione ordinaria IRPEF, la plusvalenza va dichiarata nel 730 o nel Modello Redditi dell'anno successivo alla vendita, e la tassa è inclusa nel saldo/acconto IRPEF del rigo D5."}}
   ]}
@@ -409,7 +409,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Se ho ricevuto la casa in donazione, come si calcola il periodo dei 5 anni?<span class="faq-arrow">▾</span></button>
-          <div class="faq-answer">Dal 2024 (Legge di Bilancio 2024), il periodo di 5 anni per gli immobili ricevuti in donazione si computa dalla data di acquisto originale del donante, non dalla data della donazione. Questo significa che se il tuo donante aveva la casa da oltre 5 anni al momento della donazione, potresti già essere esente anche se tu hai ricevuto la donazione da poco tempo. Prima di questa riforma, la donazione azzerava il computo dei 5 anni.</div>
+          <div class="faq-answer">Il periodo di 5 anni per gli immobili ricevuti in donazione si computa dalla data di acquisto originale del donante, non dalla data della donazione (regola introdotta dal D.L. 223/2006, non recente). Questo significa che se il tuo donante aveva la casa da oltre 5 anni al momento della donazione, potresti già essere esente anche se tu hai ricevuto la donazione da poco tempo. Nota distinta: la Legge di Bilancio 2024 ha introdotto una regola specifica per gli immobili donati con Superbonus 110% (il quinquennio si calcola da fine lavori).</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Posso dedurre le spese del mutuo dalla plusvalenza?<span class="faq-arrow">▾</span></button>
@@ -521,7 +521,7 @@
       if (prov === 'eredita') {
         hintData.textContent = 'Data di apertura della successione (decesso del de cuius).';
       } else if (prov === 'donazione') {
-        hintData.textContent = 'Data di acquisto del donante (dopo riforma 2024, è quella che conta per i 5 anni).';
+        hintData.textContent = 'Data di acquisto del donante (regola D.L. 223/2006): è quella che conta per i 5 anni.';
       } else if (prov === 'costruzione') {
         hintData.textContent = 'Data di fine lavori / certificato di abitabilità.';
       } else {

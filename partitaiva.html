@@ -34,7 +34,7 @@
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Conviene aprire la Partita IVA nel 2026?","acceptedAnswer":{"@type":"Answer","text":"Conviene aprire la Partita IVA con regime forfettario se si prevede un fatturato inferiore a 85.000€ annui e si è sotto i limiti di reddito da lavoro dipendente (30.000€). L'imposta sostitutiva al 15% (5% per i primi 5 anni) è spesso più vantaggiosa dell'IRPEF progressiva per redditi medio-alti."}},
+    {"@type":"Question","name":"Conviene aprire la Partita IVA nel 2026?","acceptedAnswer":{"@type":"Answer","text":"Conviene aprire la Partita IVA con regime forfettario se si prevede un fatturato inferiore a 85.000€ annui e si è sotto i limiti di reddito da lavoro dipendente (35.000€). L'imposta sostitutiva al 15% (5% per i primi 5 anni) è spesso più vantaggiosa dell'IRPEF progressiva per redditi medio-alti."}},
     {"@type":"Question","name":"Quanto si paga di tasse con il regime forfettario?","acceptedAnswer":{"@type":"Answer","text":"Con il regime forfettario si paga un'imposta sostitutiva del 15% (5% per le nuove attività nei primi 5 anni) sul reddito imponibile. Il reddito imponibile si calcola applicando il coefficiente di redditività al fatturato (78% per i professionisti, 40% per il commercio, coefficienti diversi per altre attività)."}},
     {"@type":"Question","name":"Qual è il limite di fatturato per il regime forfettario?","acceptedAnswer":{"@type":"Answer","text":"Dal 2023 il limite di fatturato per il regime forfettario è 85.000€ annui. Se il fatturato supera i 100.000€ in corso d'anno si esce immediatamente dal regime; se supera 85.000€ ma resta sotto 100.000€ si esce dall'anno successivo."}},
     {"@type":"Question","name":"Si paga l'IVA con la Partita IVA forfettaria?","acceptedAnswer":{"@type":"Answer","text":"No. Con il regime forfettario non si applica l'IVA sulle fatture emesse e non si recupera l'IVA sugli acquisti. Questo semplifica enormemente la contabilità e può essere vantaggioso se i clienti sono privati o enti non soggetti a IVA."}}
@@ -222,7 +222,7 @@
             <option value="0.78">Professionisti (coeff. 78%) — es. consulenti, IT</option>
             <option value="0.40">Commercio (coeff. 40%)</option>
             <option value="0.86">Artigiani/Manifattura (coeff. 86%)</option>
-            <option value="0.54">Intermediari (coeff. 54%)</option>
+            <option value="0.62">Intermediari (coeff. 62%)</option>
           </select>
           <p class="hint">Il coefficiente di redditività del tuo settore</p>
         </div>
@@ -349,8 +349,35 @@
       <h3>Quando conviene la partita IVA</h3>
       <p>La partita IVA forfettaria conviene generalmente quando il fatturato supera i 20.000-25.000 euro annui, quando si hanno poche spese deducibili (che nel forfettario non sono detraibili), e quando si lavora per più clienti. Al di sotto di queste soglie, il lavoro dipendente o la collaborazione occasionale potrebbero essere più vantaggiosi.</p>
       <h3>I costi nascosti della partita IVA</h3>
-      <p>Oltre all'imposta sostitutiva, il titolare di partita IVA paga i contributi INPS alla Gestione Separata (circa il 26% del reddito imponibile). Vanno inoltre considerate le spese per il commercialista (500-1.500€/anno), software di fatturazione, e l'assenza di tutele tipiche del lavoro dipendente come ferie pagate, malattia e TFR.</p>
+      <p>Oltre all'imposta sostitutiva, il titolare di partita IVA paga i contributi INPS alla Gestione Separata (circa il 26,07% del reddito imponibile). Vanno inoltre considerate le spese per il commercialista (500-1.500€/anno), software di fatturazione, e l'assenza di tutele tipiche del lavoro dipendente come ferie pagate, malattia e TFR.</p>
+      <div class="sources-box">
+        <strong>Fonti ufficiali:</strong>
+        <a href="https://www.agenziaentrate.gov.it/portale/web/guest/aliquota-e-regime-forfetario" target="_blank" rel="noopener">Agenzia delle Entrate — Regime forfettario</a> ·
+        <a href="https://www.inps.it" target="_blank" rel="noopener">INPS — Gestione Separata</a>
+      </div>
     </div>
+
+    <section class="container">
+      <div class="faq-section">
+        <h2>Domande frequenti sulla Partita IVA e il regime forfettario</h2>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Conviene aprire la Partita IVA nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+          <div class="faq-answer"><p>Conviene aprire la Partita IVA con regime forfettario se si prevede un fatturato inferiore a 85.000€ annui e si è sotto i limiti di reddito da lavoro dipendente (35.000€). L'imposta sostitutiva al 15% (5% per i primi 5 anni) è spesso più vantaggiosa dell'IRPEF progressiva per redditi medio-alti.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto si paga di tasse con il regime forfettario?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+          <div class="faq-answer"><p>Con il regime forfettario si paga un'imposta sostitutiva del 15% (5% per le nuove attività nei primi 5 anni) sul reddito imponibile. Il reddito imponibile si calcola applicando il coefficiente di redditività al fatturato (78% per i professionisti, 40% per il commercio, coefficienti diversi per altre attività).</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Qual è il limite di fatturato per il regime forfettario?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+          <div class="faq-answer"><p>Dal 2023 il limite di fatturato per il regime forfettario è 85.000€ annui. Se il fatturato supera i 100.000€ in corso d'anno si esce immediatamente dal regime; se supera 85.000€ ma resta sotto 100.000€ si esce dall'anno successivo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Si paga l'IVA con la Partita IVA forfettaria?<span class="faq-chevron" aria-hidden="true">▾</span></button>
+          <div class="faq-answer"><p>No. Con il regime forfettario non si applica l'IVA sulle fatture emesse e non si recupera l'IVA sugli acquisti. Questo semplifica enormemente la contabilità e può essere vantaggioso se i clienti sono privati o enti non soggetti a IVA.</p></div>
+        </div>
+      </div>
+    </section>
 
   <section class="container related-tools">
     <h3>Strumenti correlati</h3>
@@ -451,7 +478,7 @@
       // P.IVA forfettario
       const imponibile   = fatturato * coeff;
       const imposta      = imponibile * aliquota;
-      const inps         = imponibile * 0.26;
+      const inps         = imponibile * 0.2607;
       const nettoIva     = fatturato - imposta - inps - spese;
       // Dipendente (stima con IRPEF media 27% e contributi 9.19%)
       const contributiDip  = ral * 0.0919;

@@ -355,11 +355,13 @@
         <li><strong>Contributi INPS a carico dipendente (9,19%):</strong> 30.000 × 9,19% = <strong>2.757 €/anno</strong></li>
         <li><strong>Imponibile IRPEF:</strong> 30.000 − 2.757 = <strong>27.243 €</strong></li>
         <li><strong>IRPEF lorda:</strong> 23% × 27.243 = <strong>6.266 €</strong> (tutto il reddito cade nel primo scaglione)</li>
-        <li><strong>Detrazione da lavoro dipendente:</strong> circa <strong>900 €</strong> (decresce al crescere del reddito, include la componente aggiuntiva per redditi bassi)</li>
-        <li><strong>IRPEF netta:</strong> 6.266 − 900 = <strong>5.366 €/anno</strong> (senza addizionali regionali/comunali)</li>
-        <li><strong>Netto annuo:</strong> 30.000 − 2.757 − 5.366 = <strong>21.877 €</strong></li>
-        <li><strong>Netto mensile (busta paga):</strong> 21.877 ÷ 13 = <strong>1.683 €/mese</strong> + tredicesima di ~1.683 € a dicembre</li>
-        <li><strong>Media mensile inclusa tredicesima:</strong> 21.877 ÷ 12 = <strong>1.823 €/mese</strong></li>
+        <li><strong>Detrazione da lavoro dipendente:</strong> circa <strong>1.736 €</strong> (decresce linearmente tra 15.000 € e 50.000 € di RAL)</li>
+        <li><strong>IRPEF netta (prima delle addizionali):</strong> 6.266 − 1.736 = <strong>4.530 €/anno</strong></li>
+        <li><strong>Addizionali regionale (~1,73%) e comunale (~0,5%)</strong> su imponibile 27.243 €: +471 € + 136 € = <strong>607 €/anno</strong> (stima, varia per comune)</li>
+        <li><strong>IRPEF netta totale:</strong> 4.530 + 607 = <strong>5.137 €/anno</strong></li>
+        <li><strong>Netto annuo:</strong> 30.000 − 2.757 − 5.137 = <strong>22.106 €</strong></li>
+        <li><strong>Netto mensile (busta paga):</strong> 22.106 ÷ 13 = <strong>1.700 €/mese</strong> + tredicesima di ~1.700 € a dicembre</li>
+        <li><strong>Media mensile inclusa tredicesima:</strong> 22.106 ÷ 12 = <strong>1.842 €/mese</strong></li>
       </ol>
       <p>Il calcolo sopra (INPS 9,19%) è quello corretto per il <strong>2026</strong>. Dal 2026 il cuneo fiscale non opera più come riduzione contributiva ma come <strong>bonus IRPEF</strong> mensile in busta paga (fino a ~€1.200/anno per RAL ≤ 20.000 €), applicato direttamente dal sostituto d'imposta e non incluso in questo simulatore.</p>
     </div>
@@ -424,7 +426,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Il bonus 100 € (ex bonus Renzi) è ancora in vigore nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>Il trattamento integrativo (ex bonus Renzi, poi bonus 100 €) è stato rimodulato nel 2026. Per redditi fino a 15.000 € è previsto un trattamento integrativo che riduce l'IRPEF dovuta; per redditi tra 15.001 € e 28.000 € esistono detrazioni aggiuntive per lavoro dipendente. Il calcolatore CalcolaPro include queste voci nelle detrazioni da lavoro dipendente, garantendo stime aggiornate alla normativa vigente.</p></div>
+        <div class="faq-answer"><p>Il trattamento integrativo (ex bonus Renzi, poi bonus 100 €) dal 2026 non è più una riduzione contributiva ma un <strong>bonus IRPEF</strong> erogato direttamente in busta paga dal datore di lavoro (fino a circa 1.200 €/anno per RAL fino a 20.000 €, decrescente fino a circa 32.000 €). Il calcolatore CalcolaPro <strong>non include</strong> questo bonus nella stima del netto: per l'importo esatto verifica la tua busta paga con il datore di lavoro o un CAF.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola il netto in caso di part-time al 50%?<span class="faq-chevron" aria-hidden="true">▾</span></button>

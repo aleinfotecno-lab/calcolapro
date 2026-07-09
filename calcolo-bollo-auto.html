@@ -49,7 +49,7 @@
     {"@type":"Question","name":"Come si calcola il bollo auto 2026?","acceptedAnswer":{"@type":"Answer","text":"Il bollo auto si calcola moltiplicando la potenza del motore (in kW, indicata sul libretto di circolazione al punto P.2) per la tariffa nazionale: €2,58/kW per i primi 100 kW e €3,87/kW per la potenza oltre i 100 kW. Il risultato è l'importo annuale della tassa automobilistica. Alcune regioni possono applicare una piccola addizionale regionale."}},
     {"@type":"Question","name":"Dove trovo i kW della mia auto?","acceptedAnswer":{"@type":"Answer","text":"I kW della tua auto si trovano sul libretto di circolazione (carta di circolazione), alla voce P.2 'Potenza massima in kW'. In alternativa, puoi trovare questa informazione nel sito del Ministero dei Trasporti oppure sul sito dell'ACI inserendo la targa. I cavalli (CV o HP) si convertono in kW dividendo per 1.36."}},
     {"@type":"Question","name":"Le auto elettriche pagano il bollo?","acceptedAnswer":{"@type":"Answer","text":"I veicoli elettrici puri (100% elettrici) sono esenti dal bollo auto per i primi 5 anni dalla prima immatricolazione nella maggior parte delle regioni italiane. Dopo i 5 anni, alcune regioni concedono uno sconto del 75% sull'importo ordinario. I veicoli ibridi invece pagano il bollo normale in base alla potenza totale del sistema."}},
-    {"@type":"Question","name":"I veicoli storici pagano il bollo?","acceptedAnswer":{"@type":"Answer","text":"I veicoli di interesse storico e collezionistico con più di 30 anni di anzianità sono esenti dal bollo auto. I veicoli tra i 20 e 29 anni di anzianità (riconosciuti storici con apposita iscrizione ai registri ASI, Storico Lancia, FIAT, ecc.) pagano un bollo ridotto: forfettario di €25,82 per le moto e tariffe agevolate per le auto."}},
+    {"@type":"Question","name":"I veicoli storici pagano il bollo?","acceptedAnswer":{"@type":"Answer","text":"I veicoli di interesse storico e collezionistico con più di 30 anni di anzianità sono esenti dal bollo auto se non circolano su strada pubblica (altrimenti è dovuta una tassa forfettaria fissa, variabile per regione). I veicoli tra i 20 e 29 anni di anzianità (riconosciuti storici con apposita iscrizione ai registri ASI, Storico Lancia, FIAT, ecc.) pagano il bollo con una riduzione del 50% sulla tariffa ordinaria calcolata sui kW."}},
     {"@type":"Question","name":"Quando si paga il bollo auto?","acceptedAnswer":{"@type":"Answer","text":"Il bollo auto si paga entro il mese successivo al mese in cui è scaduto il precedente bollo. La scadenza dipende dal mese di prima immatricolazione (o dal mese dell'ultimo bollo pagato). Il pagamento si effettua tramite ACI, tabaccherie, banche, uffici postali, home banking o app come IO. Dal 2026, il pagamento pagoPA tramite app IO è il canale raccomandato."}},
     {"@type":"Question","name":"Cosa succede se non si paga il bollo auto in tempo?","acceptedAnswer":{"@type":"Answer","text":"Se non paghi il bollo auto entro la scadenza, vengono applicate sanzioni: 30% dell'importo dovuto. È possibile regolarizzare con il ravvedimento operoso: entro 14 giorni dalla scadenza la sanzione è dello 0,1% al giorno; tra 15 e 30 giorni, il 3%; tra 31 e 90 giorni, il 3,33%. Dopo 3 anni dalla scadenza, il bollo non pagato si prescrive e la Regione non può più richiederlo."}},
     {"@type":"Question","name":"Come convertire i CV in kW?","acceptedAnswer":{"@type":"Answer","text":"Per convertire i Cavalli Vapore (CV) o Horse Power (HP) in kilowatt (kW) si usa la formula: kW = CV ÷ 1.36. Esempio: 100 CV = 73,5 kW. Ricorda che sul libretto di circolazione è già indicata la potenza in kW al campo P.2, quindi non hai bisogno di convertire."}},
@@ -441,7 +441,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">I veicoli storici pagano il bollo?<span class="faq-arrow">▾</span></button>
-          <div class="faq-answer">I veicoli di interesse storico e collezionistico con più di 30 anni di anzianità sono esenti dal bollo auto. I veicoli tra i 20 e 29 anni di anzianità (riconosciuti storici con apposita iscrizione ai registri ASI, Storico Lancia, FIAT, ecc.) pagano un bollo ridotto: forfettario di €25,82 per le moto e tariffe agevolate per le auto.</div>
+          <div class="faq-answer">I veicoli di interesse storico e collezionistico con più di 30 anni di anzianità sono esenti dal bollo auto se non circolano su strada pubblica (altrimenti è dovuta una tassa forfettaria fissa, variabile per regione). I veicoli tra i 20 e 29 anni di anzianità (riconosciuti storici con apposita iscrizione ai registri ASI, Storico Lancia, FIAT, ecc.) pagano il bollo con una riduzione del 50% sulla tariffa ordinaria calcolata sui kW.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quando si paga il bollo auto?<span class="faq-arrow">▾</span></button>
@@ -647,9 +647,16 @@
           nota = `Veicolo del ${annoStor} (${anniAuto} anni): esente dalla tassa automobilistica come veicolo storico.`;
           status = 'esente';
         } else if (anniAuto >= 20) {
-          // Riduzione per veicoli storici 20-29 anni: tariffa simbolica
-          bolloBase = tipo === 'moto' ? 25.82 : 29.24;
-          nota = `Veicolo del ${annoStor} (${anniAuto} anni): tariffa ridotta per veicolo di interesse storico. Verificare iscrizione ai registri ASI/FIVA.`;
+          // Riduzione 50% per veicoli storici 20-29 anni (non un forfettario fisso: quello si applica solo agli ultratrentennali circolanti)
+          let bolloOrdinario = 0;
+          if (tipo === 'moto') {
+            const [quotaFissa, tariffaOltre11] = TARIFFE_MOTO[classeEuro] || TARIFFE_MOTO['456'];
+            bolloOrdinario = kw <= 11 ? quotaFissa : quotaFissa + (kw - 11) * tariffaOltre11;
+          } else {
+            bolloOrdinario = kw <= 100 ? kw * tariffaAutoBase : (100 * tariffaAutoBase + (kw - 100) * tariffaAutoOltre);
+          }
+          bolloBase = bolloOrdinario * 0.5;
+          nota = `Veicolo del ${annoStor} (${anniAuto} anni): riduzione del 50% sulla tariffa ordinaria per veicolo di interesse storico. Verificare iscrizione ai registri ASI/FIVA.`;
           status = 'ridotto';
         } else {
           nota = `Il veicolo del ${annoStor} ha ${anniAuto} anni: ancora troppo giovane per le agevolazioni storiche (servono almeno 20 anni).`;

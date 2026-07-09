@@ -226,13 +226,17 @@
           <label for="interessiMutuo">Interessi passivi mutuo prima casa pagati nel 2025</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="interessiMutuo" value="0" min="0" step="50" class="has-prefix"/></div>
-          <p class="hint">19% degli interessi fino a €4.000/anno. Risultato massimo: €760. Solo mutuo per acquisto, costruzione o ristrutturazione dell'abitazione principale.</p>
+          <p class="hint">19% degli interessi fino a €4.000/anno. Risultato massimo: €760. Solo mutuo per acquisto, costruzione o ristrutturazione dell'abitazione principale. Attenzione: per redditi oltre €75.000 vige un tetto complessivo sulle detrazioni (vedi sotto), non applicato da questo calcolatore.</p>
         </div>
         <div class="field">
-          <label for="ristrutturazioni">Spese ristrutturazione (Bonus Casa 50%)</label>
+          <label for="ristrutturazioni">Spese ristrutturazione (Bonus Casa)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="ristrutturazioni" value="0" min="0" step="100" class="has-prefix"/></div>
-          <p class="hint">Detrazione 50% in 10 rate annuali. Limite spesa: €96.000. Inserisci la spesa totale: la detrazione annua è il 10% del 50%.</p>
+          <select id="ristrutturazioniTipo" style="margin-top:8px;">
+            <option value="0.50">Abitazione principale (50%)</option>
+            <option value="0.36">Altro immobile (36%)</option>
+          </select>
+          <p class="hint">50% sull'abitazione principale, 36% sugli altri immobili. Limite spesa: €96.000, in 10 rate annuali. Inserisci la spesa totale: la detrazione annua è 1/10 dell'aliquota applicata.</p>
         </div>
         <div class="field">
           <label for="affittoGiovani">Canone d'affitto 2025 (under 31, prima casa)</label>
@@ -388,8 +392,9 @@
       <h3>Interessi del mutuo: fino a €760 all'anno</h3>
       <p>Chi ha stipulato un mutuo per l'acquisto, costruzione o ristrutturazione della <strong>prima casa</strong> può detrarre il 19% degli interessi passivi pagati, fino a un massimo di €4.000 annui. La detrazione massima quindi è €760 per anno. L'agevolazione si applica solo sull'abitazione principale e solo per l'intestatario del mutuo.</p>
 
-      <h3>Ristrutturazioni: il Bonus Casa al 50%</h3>
-      <p>Le spese di ristrutturazione ordinaria e straordinaria su immobili residenziali danno diritto a una detrazione del <strong>50%</strong> delle spese sostenute, con un limite di €96.000 per unità immobiliare. La detrazione viene suddivisa in <strong>10 rate annuali</strong> di pari importo. Il calcolo mostra la quota annuale detraibile.</p>
+      <h3>Ristrutturazioni: il Bonus Casa al 50% o 36%</h3>
+      <p>Le spese di ristrutturazione ordinaria e straordinaria danno diritto a una detrazione del <strong>50%</strong> se l'immobile è l'<strong>abitazione principale</strong>, o del <strong>36%</strong> per gli altri immobili (seconde case, affittati, in comodato), con un limite di €96.000 per unità immobiliare. La detrazione viene suddivisa in <strong>10 rate annuali</strong> di pari importo. Il calcolo mostra la quota annuale detraibile in base all'aliquota selezionata.</p>
+      <p style="font-size:13px;color:var(--text-muted);"><strong>Attenzione al tetto detrazioni 2026:</strong> per redditi complessivi superiori a €75.000, dal 2025 è in vigore un plafond massimo di detrazioni IRPEF (fino a €14.000 per redditi 75-100k, €8.000 per 100-120k, moltiplicato per un coefficiente in base al numero di figli a carico). Sono escluse dal tetto le spese sanitarie e gli interessi su mutui prima casa stipulati entro il 31/12/2024. Questo calcolatore non applica il tetto: se il tuo reddito supera €75.000, il totale reale potrebbe essere inferiore a quello mostrato.</p>
 
       <h3>Previdenza complementare: deduci fino a €5.164,57</h3>
       <p>I contributi versati a fondi pensione o a forme di previdenza complementare individuale non sono detrazioni ma <strong>deduzioni</strong>: riducono direttamente il reddito imponibile fino a €5.164,57 all'anno. Questo può abbassare significativamente l'IRPEF dovuta, soprattutto per chi si trova in scaglioni di reddito elevati.</p>
@@ -533,6 +538,7 @@
       const sv   = parseFloat(document.getElementById('speseVeterinarie').value) || 0;
       const im   = parseFloat(document.getElementById('interessiMutuo').value) || 0;
       const rs   = parseFloat(document.getElementById('ristrutturazioni').value) || 0;
+      const rsAliq = parseFloat(document.getElementById('ristrutturazioniTipo').value) || 0.50;
       const ag   = parseFloat(document.getElementById('affittoGiovani').value) || 0;
       const si   = parseFloat(document.getElementById('speseIstruzione').value) || 0;
       const su   = parseFloat(document.getElementById('speseUniversita').value) || 0;
@@ -555,9 +561,9 @@
       const baseIM = Math.min(im, 4000);
       const detIM = baseIM * ALIQ;
 
-      // Ristrutturazioni: 50% in 10 rate → quota annua = spesa × 50% / 10
+      // Ristrutturazioni: 50% (abitazione principale) o 36% (altri immobili) in 10 rate → quota annua = spesa × aliquota / 10
       const baseRS = Math.min(rs, 96000);
-      const detRS = (baseRS * 0.50) / 10;
+      const detRS = (baseRS * rsAliq) / 10;
 
       // Affitto giovani: 20% fino a €2.000 detrazione (max canone €10.000)
       const detAG = Math.min(ag * 0.20, 2000);

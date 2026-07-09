@@ -50,7 +50,7 @@
     {"@type":"Question","name":"Entro quando va presentata la DSU per l'ISEE 2026?","acceptedAnswer":{"@type":"Answer","text":"La DSU (Dichiarazione Sostitutiva Unica) per l'ISEE 2026 può essere presentata in qualsiasi momento dell'anno. L'ISEE calcolato è valido dall'1 gennaio al 31 dicembre 2026 (o fino a quando non cambia la situazione familiare)."}},
     {"@type":"Question","name":"Cosa si include nel patrimonio immobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio immobiliare ISEE si includono: tutti gli immobili posseduti (prima casa, seconda casa, terreni) al valore IMU. Per la prima casa si applica una franchigia di €52.500, maggiorata di €2.500 per ogni figlio oltre il secondo."}},
     {"@type":"Question","name":"Cosa si include nel patrimonio mobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio mobiliare ISEE si includono: conti correnti e depositi (saldo medio annuo), BOT, BTP, fondi, azioni, polizze assicurative a risparmio. Si applica una franchigia di €6.000 per nucleo, aumentata di €2.000 per ogni componente oltre il primo (max €10.000 totali)."}},
-    {"@type":"Question","name":"Qual è la soglia ISEE per il Bonus Asilo Nido?","acceptedAnswer":{"@type":"Answer","text":"Il Bonus Asilo Nido 2026 varia in base all'ISEE: fino a €25.001 → €3.000/anno; da €25.001 a €40.000 → €2.500/anno; oltre €40.000 → €1.500/anno. Per il secondo figlio nato dopo il 1° gennaio 2024 è riconosciuto l'importo massimo a prescindere dall'ISEE."}}
+    {"@type":"Question","name":"Qual è la soglia ISEE per il Bonus Asilo Nido?","acceptedAnswer":{"@type":"Answer","text":"Il Bonus Asilo Nido 2026 varia in base all'ISEE: fino a €25.001 → €3.000/anno; da €25.001 a €40.000 → €2.500/anno; oltre €40.000 → €1.500/anno. Per il secondo figlio nato dopo il 1° gennaio 2024, se nel nucleo è presente anche un altro figlio under 10, l'importo sale a €3.600/anno con ISEE fino a €40.000 (oltre questa soglia si applica il valore ordinario di €1.500)."}}
   ]}
   </script>
 
@@ -217,7 +217,7 @@
               <label class="field-label" for="genitoreMonogenitoriale">Nucleo monogenitoriale?</label>
               <select class="field-input" id="genitoreMonogenitoriale">
                 <option value="0">No</option>
-                <option value="1">Sì (+0.35)</option>
+                <option value="1">Sì (+0.2)</option>
               </select>
             </div>
           </div>
@@ -359,7 +359,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Qual è la soglia ISEE per il Bonus Asilo Nido 2026?<span class="faq-arrow">▾</span></button>
-          <div class="faq-answer">Il Bonus Asilo Nido varia: ISEE fino a €25.001 → €3.000/anno; ISEE da €25.001 a €40.000 → €2.500/anno; ISEE oltre €40.000 → €1.500/anno. Per secondo figlio nato dopo il 1° gennaio 2024 è riconosciuto il massimale indipendentemente dall'ISEE.</div>
+          <div class="faq-answer">Il Bonus Asilo Nido varia: ISEE fino a €25.001 → €3.000/anno; ISEE da €25.001 a €40.000 → €2.500/anno; ISEE oltre €40.000 → €1.500/anno. Per il secondo figlio nato dopo il 1° gennaio 2024, se c'è un altro figlio under 10 nel nucleo, l'importo sale a €3.600/anno con ISEE fino a €40.000 (oltre questa soglia si applica il valore ordinario di €1.500).</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">L'ISEE precompilato è diverso da quello ordinario?<span class="faq-arrow">▾</span></button>
@@ -499,7 +499,7 @@
       let scala = scaleTable[n] || 3.53;
       const disabile = parseFloat(document.getElementById('figlioDisabile').value);
       const monogen = parseFloat(document.getElementById('genitoreMonogenitoriale').value);
-      scala += disabile * 0.50 + monogen * 0.35;
+      scala += disabile * 0.50 + monogen * 0.2;
 
       const redDip = parseFloat(document.getElementById('redditoLavDip').value) || 0;
       const redAltri = parseFloat(document.getElementById('redditoAltri').value) || 0;
