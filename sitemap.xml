@@ -92,7 +92,7 @@
   <!-- Altri calcolatori (priority 0.8) -->
   <url>
     <loc>https://calcolapro.it/affitto.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -104,7 +104,7 @@
   </url>
   <url>
     <loc>https://calcolapro.it/chilometrico.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
