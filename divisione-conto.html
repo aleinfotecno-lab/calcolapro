@@ -427,6 +427,7 @@
 
     /* --- utils --- */
     function fmt(n) { return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', minimumFractionDigits:2, maximumFractionDigits:2}).format(n); }
+    function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
     /* --- stepper persone --- */
     function cambiaPersone(delta) {
@@ -569,7 +570,7 @@
       let tableHtml = '<table class="persona-result-table"><thead><tr><th>Persona</th><th>Spesa</th><th>% sul totale</th></tr></thead><tbody>';
       persone.forEach(p => {
         const perc = totale > 0 ? (p.importo / totale * 100).toFixed(1) : '0.0';
-        tableHtml += `<tr><td>${p.nome}</td><td>${fmt(p.importo)}</td><td>${perc}%</td></tr>`;
+        tableHtml += `<tr><td>${esc(p.nome)}</td><td>${fmt(p.importo)}</td><td>${perc}%</td></tr>`;
       });
       tableHtml += '</tbody></table>';
 
