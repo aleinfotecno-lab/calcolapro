@@ -1,9 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-// Tutte le pagine devono caricarsi senza errori
+// Smoke test: ogni pagina indicizzabile deve caricarsi senza errori JS/console.
+// tfr.html e calcolatore-prezzo-orario-freelance.html sono redirect noindex:
+// esclusi da questa lista e coperti dal test dedicato "Redirect legacy …" in fondo.
 const allPages = [
   '/', '/index.html', '/mutuo.html', '/lordonetto.html', '/pensione.html',
-  '/iva.html', '/tfr.html', '/bmi.html', '/tdee.html', '/affitto.html',
+  '/iva.html', '/bmi.html', '/tdee.html', '/affitto.html',
   '/calcolo-imu.html', '/calcolo-isee.html', '/calcolo-cedolare-secca.html',
   '/calcolo-ferie-permessi.html', '/calcolo-straordinari.html',
   '/calcolatore-prestito-personale.html', '/calcolatore-risparmio.html',
@@ -19,7 +21,21 @@ const allPages = [
   '/divisione-conto.html', '/calcolatore-percentuale.html',
   '/calcolo-eta.html', '/calcolo-tfr-liquidazione.html',
   '/calcolo-buoni-fruttiferi-postali.html',
-  '/categoria-freelance.html',
+  '/calcolo-quattordicesima-netta.html',
+  // Hub categoria
+  '/categoria-casa-mutuo.html', '/categoria-freelance.html',
+  '/categoria-lavoro-dipendente.html', '/categoria-risparmio-investimenti.html',
+  '/categoria-tasse-fisco.html', '/categoria-utilita-quotidiane.html',
+  // Guide
+  '/guida-730-precompilato-2026.html', '/guida-bonus-casa-2026.html',
+  '/guida-cedolare-secca-affitti.html', '/guida-comprare-affittare-casa.html',
+  '/guida-conto-deposito-2026.html', '/guida-deficit-calorico-dimagrire.html',
+  '/guida-investire-10000-euro.html', '/guida-mutuo-fisso-variabile.html',
+  '/guida-pensione-anticipata-2026.html', '/guida-regime-forfettario.html',
+  '/guida-stipendio-netto-lordo.html',
+  // Pagine informative / utility
+  '/about.html', '/come-funziona.html', '/contatti.html',
+  '/disclaimer.html', '/glossario-finanziario.html',
 ];
 
 for (const path of allPages) {
@@ -75,3 +91,20 @@ test('Pagine legali raggiungibili', async ({ page }) => {
     expect(res?.status()).toBe(200);
   }
 });
+
+// Redirect noindex (meta refresh) → gli slug legacy portano alla pagina canonica.
+// Esclusi dallo smoke test generico perché il refresh cambia URL dopo il load.
+// `.html` è opzionale: `npx serve` (locale) usa clean URL e serve /freelance,
+// mentre GitHub Pages mantiene /freelance.html.
+const legacyRedirects = [
+  { from: '/tfr.html', to: /\/calcolo-tfr-liquidazione(\.html)?$/ },
+  { from: '/calcolatore-prezzo-orario-freelance.html', to: /\/freelance(\.html)?$/ },
+];
+
+for (const { from, to } of legacyRedirects) {
+  test(`Redirect legacy ${from}`, async ({ page }) => {
+    await page.goto(from);
+    await page.waitForURL(to, { timeout: 5000 });
+    await expect(page).toHaveTitle(/.+/);
+  });
+}

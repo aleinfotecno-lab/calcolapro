@@ -1,0 +1,43 @@
+name: Test
+
+# CI leggera: a ogni push su main esegue i controlli GIÀ esistenti del repo
+# (server statico locale + scripts/pre-deploy-check.js via `npm run check`).
+# NON introduce build system e NON blocca il deploy di GitHub Pages: serve
+# solo a segnalare i fallimenti (link rotti, JS error, FAQ/schema, sitemap).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Evita run sovrapposte sullo stesso branch (push ravvicinati).
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright (Chromium)
+        run: npx playwright install --with-deps chromium
+
+      - name: Serve locale + pre-deploy check
+        run: |
+          npm run serve &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000 > /dev/null && break
+            sleep 1
+          done
+          npm run check
