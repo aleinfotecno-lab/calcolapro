@@ -684,7 +684,8 @@
     const contributiAttuali = parseFloat(document.getElementById('contributiAttuali').value) || 0;
     const stipendio = parseFloat(document.getElementById('stipendioLordo').value) || 35000;
     const sistema = document.getElementById('sistema').value;
-    const crescita = parseFloat(document.getElementById('crescitaStipendio').value) || 0.02;
+    const crescitaRaw = parseFloat(document.getElementById('crescitaStipendio').value);
+    const crescita = Number.isNaN(crescitaRaw) ? 0.02 : crescitaRaw;
 
     const annoCorrente = new Date().getFullYear();
     const etaAttuale = annoCorrente - annoNascita;

@@ -448,7 +448,8 @@
     function calcola() {
       const coefficiente = parseFloat(document.getElementById('tipo').value) || 160;
       const rendita = parseFloat(document.getElementById('rendita').value) || 0;
-      const aliquota = Math.max(0, parseFloat(document.getElementById('aliquota').value) || 0.86);
+      const aliquotaRaw = parseFloat(document.getElementById('aliquota').value);
+      const aliquota = Math.max(0, Number.isNaN(aliquotaRaw) ? 0.86 : aliquotaRaw);
       const mesi = parseInt(document.getElementById('mesi').value) || 12;
       const quota = Math.min(100, Math.max(0, parseFloat(document.getElementById('quota').value) || 100));
       const riduzione = parseFloat(document.getElementById('riduzioni').value) || 1;

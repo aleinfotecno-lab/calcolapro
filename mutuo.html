@@ -619,12 +619,13 @@
     function fmt(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);}
     function calcola(){
       const importo=parseFloat(document.getElementById('importo').value)||150000;
-      const tassoAnnuo=parseFloat(document.getElementById('tasso').value)||3.5;
+      const tassoAnnuoRaw=parseFloat(document.getElementById('tasso').value);
+      const tassoAnnuo=Number.isNaN(tassoAnnuoRaw)?3.5:tassoAnnuoRaw;
       const durata=parseFloat(document.getElementById('durata').value)||20;
       const valoreCasa=parseFloat(document.getElementById('valoreCasa').value)||200000;
       const r=tassoAnnuo/100/12;
       const n=durata*12;
-      const rata=importo*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+      const rata=r===0?importo/n:importo*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
       const totale=rata*n;
       const interessi=totale-importo;
       const ltv=Math.round((importo/valoreCasa)*100);

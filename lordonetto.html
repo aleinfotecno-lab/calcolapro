@@ -573,7 +573,8 @@
       return (lo+hi)/2;
     }
     function calcola(){
-      let importo=parseFloat(document.getElementById('importo').value)||30000;
+      const importoRaw=parseFloat(document.getElementById('importo').value);
+      let importo=Number.isNaN(importoRaw)?30000:importoRaw;
       const tipo=document.getElementById('tipo').value;
       const mensilita=parseFloat(document.getElementById('mensilita').value)||13;
       const figli=parseInt(document.getElementById('figli').value)||0;

@@ -533,10 +533,14 @@
   <script>
     function fmt(n) { return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', maximumFractionDigits:0}).format(n); }
     function calcola() {
-      const ral        = parseFloat(document.getElementById('ral').value) || 30000;
-      const anni       = parseFloat(document.getElementById('anni').value) || 10;
-      const inflazione = parseFloat(document.getElementById('inflazione').value) || 2.0;
-      const tassazione = parseFloat(document.getElementById('tassazione').value) || 23;
+      const ralRaw        = parseFloat(document.getElementById('ral').value);
+      const ral        = Number.isNaN(ralRaw) ? 30000 : ralRaw;
+      const anniRaw       = parseFloat(document.getElementById('anni').value);
+      const anni       = Number.isNaN(anniRaw) ? 10 : anniRaw;
+      const inflazioneRaw = parseFloat(document.getElementById('inflazione').value);
+      const inflazione = Number.isNaN(inflazioneRaw) ? 2.0 : inflazioneRaw;
+      const tassazioneRaw = parseFloat(document.getElementById('tassazione').value);
+      const tassazione = Number.isNaN(tassazioneRaw) ? 23 : tassazioneRaw;
       const accantonoAnnuo = ral / 13.5;
       const rivalutazione = (1.5 + 0.75 * inflazione) / 100;
       let tfrLordo = 0;
