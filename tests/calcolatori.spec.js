@@ -35,11 +35,12 @@ for (const path of allPages) {
 
 // Test funzionali calcolatore mutuo
 test('Calcolatore mutuo - calcolo rata', async ({ page }) => {
+  // Evita che l'overlay exit-intent (mouseleave/scroll-up) intercetti il click sul bottone
+  await page.addInitScript(() => sessionStorage.setItem('exitShown', '1'));
   await page.goto('/mutuo.html');
-  await page.fill('#importo, [name="importo"], input[type="number"]:first-of-type', '200000');
-  const btn = page.locator('button[type="submit"], button:has-text("Calcola"), input[type="submit"]').first();
-  await btn.click();
-  const result = page.locator('#risultato, .risultato, [id*="result"], [class*="result"]').first();
+  await page.fill('#importo', '200000');
+  await page.click('button[onclick="calcola()"]');
+  const result = page.locator('#result');
   await expect(result).toBeVisible({ timeout: 3000 });
 });
 
@@ -49,7 +50,7 @@ test('Calcolatore BFP - calcolo rendimento netto', async ({ page }) => {
   await page.fill('#capitale', '10000');
   await page.fill('#tasso', '3');
   await page.fill('#anni', '3');
-  await page.click('button:has-text("Calcola")');
+  await page.click('button[onclick="calcola()"]');
   const result = page.locator('#result');
   await expect(result).toBeVisible({ timeout: 3000 });
   const netti = await page.locator('#interessiNettiOut').textContent();
