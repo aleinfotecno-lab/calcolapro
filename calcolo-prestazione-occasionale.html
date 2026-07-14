@@ -670,13 +670,13 @@ Firma prestatore: ______________________`;
     function stampaRicevuta() {
       const content = document.getElementById('ricevutaContent').textContent;
       const w = window.open('', '_blank');
-      w.document.write(`<html><head><title>Ricevuta Prestazione Occasionale</title><style>body{font-family:monospace;font-size:14px;padding:40px;white-space:pre-wrap;}</style></head><body>${content}  <script src="js/navbar.js" defer></script>
-</body></html>`);
+      w.document.write(`<html><head><title>Ricevuta Prestazione Occasionale</title><style>body{font-family:monospace;font-size:14px;padding:40px;white-space:pre-wrap;}</style></head><body>${content}</body></html>`);
       w.document.close();
       w.print();
     }
   </script>
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
+  <script src="js/navbar.js" defer></script>
 </body>
 </html>

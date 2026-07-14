@@ -606,12 +606,6 @@ function calcola() {
   }
 }
 
-document.getElementById('navToggle').addEventListener('click', function() {
-  var links = document.getElementById('navLinks');
-  var open = links.classList.toggle('open');
-  this.setAttribute('aria-expanded', open);
-});
-
 (function() {
   var sidebar = document.getElementById('affSidebar');
   if (!sidebar) return;
