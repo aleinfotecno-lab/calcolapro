@@ -560,7 +560,7 @@
       const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
       const bonusList = [];
 
-      if (ISEE <= 40000) bonusList.push({ nome: 'Bonus Asilo Nido', soglia: ISEE <= 25001 ? '€3.000/anno' : ISEE <= 40000 ? '€2.500/anno' : '€1.500/anno', ok: true });
+      bonusList.push({ nome: 'Bonus Asilo Nido', soglia: ISEE <= 25001 ? '€3.000/anno' : ISEE <= 40000 ? '€2.500/anno' : '€1.500/anno', ok: true });
       if (ISEE <= 15000) bonusList.push({ nome: 'Reddito di Inclusione (ReI)', soglia: 'Verifica requisiti INPS', ok: true });
       if (ISEE <= 20000) bonusList.push({ nome: 'Bonus Sociale Luce e Gas', soglia: 'Sconto automatico in bolletta', ok: true });
       if (ISEE <= 26000) bonusList.push({ nome: 'Borse di studio universitarie (DSU)', soglia: 'Contatta il tuo Ateneo/ERDISU', ok: true });

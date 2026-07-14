@@ -597,11 +597,11 @@
       const aliq1 = regime === 'cedolare' ? 0.21 : aliqIRPEF / 100;
       const aliq26 = regime === 'cedolare' ? 0.26 : aliqIRPEF / 100;
 
-      const imp1 = lordo1 * aliq1;
+      const imp1 = regime === 'cedolare' ? lordo1 * aliq1 : lordo1 * 0.95 * aliq1;
       const rit1 = piatt1 ? lordo1 * 0.21 : 0;
       const saldo1 = imp1 - rit1;
 
-      const imp2 = lordo2 * aliq26;
+      const imp2 = regime === 'cedolare' ? lordo2 * aliq26 : lordo2 * 0.95 * aliq26;
       const rit2 = piatt2 ? lordo2 * 0.21 : 0;
       const saldo2 = imp2 - rit2;
 

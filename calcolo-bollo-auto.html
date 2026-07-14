@@ -617,13 +617,15 @@
 
       if (kw <= 0) return;
 
-      const anniAuto = 2026 - annoStor;
-      const anniElettr = 2026 - annoImmat;
+      const annoCorrente = new Date().getFullYear();
+      const anniAuto = annoCorrente - annoStor;
+      const anniElettr = annoCorrente - annoImmat;
 
       // Base calculation
       let bolloBase = 0;
       let nota = '';
       let status = 'normale';
+      let riduzioneFattore = 1;
 
       if (tipo === 'ciclomotore') {
         bolloBase = 0;
@@ -637,7 +639,8 @@
         } else {
           // After 5 years, most regions apply 75% discount — but varies
           const bolloFull = kw <= 100 ? kw * 2.58 : (100 * 2.58 + (kw - 100) * 3.87);
-          bolloBase = bolloFull * 0.25; // 75% discount
+          riduzioneFattore = 0.25; // 75% discount
+          bolloBase = bolloFull * riduzioneFattore;
           nota = `I 5 anni di esenzione per veicoli elettrici sono scaduti nel ${annoImmat + 5}. Si applica la riduzione del 75% nella maggior parte delle regioni.`;
           status = 'ridotto';
         }
@@ -655,7 +658,8 @@
           } else {
             bolloOrdinario = kw <= 100 ? kw * tariffaAutoBase : (100 * tariffaAutoBase + (kw - 100) * tariffaAutoOltre);
           }
-          bolloBase = bolloOrdinario * 0.5;
+          riduzioneFattore = 0.5;
+          bolloBase = bolloOrdinario * riduzioneFattore;
           nota = `Veicolo del ${annoStor} (${anniAuto} anni): riduzione del 50% sulla tariffa ordinaria per veicolo di interesse storico. Verificare iscrizione ai registri ASI/FIVA.`;
           status = 'ridotto';
         } else {
@@ -716,14 +720,15 @@
         document.getElementById('tabellaBox').style.display = 'block';
         const p1kw = Math.min(kw, 100);
         const p2kw = Math.max(0, kw - 100);
+        const suffissoRiduzione = riduzioneFattore < 1 ? ` × ${(riduzioneFattore * 100).toFixed(0)}%` : '';
         let rows = `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Potenza 0-${p1kw} kW</td>
-          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p1kw} kW × €${tariffaAutoBase.toFixed(2).replace('.',',')}</td>
-          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p1kw * tariffaAutoBase)}</td></tr>`;
+          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p1kw} kW × €${tariffaAutoBase.toFixed(2).replace('.',',')}${suffissoRiduzione}</td>
+          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p1kw * tariffaAutoBase * riduzioneFattore)}</td></tr>`;
         if (p2kw > 0) rows += `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Potenza extra >100 kW</td>
-          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p2kw} kW × €${tariffaAutoOltre.toFixed(2).replace('.',',')}</td>
-          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p2kw * tariffaAutoOltre)}</td></tr>`;
+          <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${p2kw} kW × €${tariffaAutoOltre.toFixed(2).replace('.',',')}${suffissoRiduzione}</td>
+          <td style="padding:12px 18px;text-align:right;font-weight:700;color:var(--blue);">${fmt(p2kw * tariffaAutoOltre * riduzioneFattore)}</td></tr>`;
         if (addizionale > 0) rows += `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">Addizionale regionale</td>
           <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">+5%</td>
