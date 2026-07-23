@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -60,7 +60,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Strumenti Fiscali","item":"https://calcolapro.it/#tasse"},{"@type":"ListItem","position":3,"name":"Calcolo Interessi di Mora","item":"https://calcolapro.it/calcolo-interessi-mora.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Strumenti Fiscali","item":"https://calcolapro.it/categoria-tasse-fisco.html"},{"@type":"ListItem","position":3,"name":"Calcolo Interessi di Mora","item":"https://calcolapro.it/calcolo-interessi-mora.html"}]}
   </script>
 </head>
 <body>
@@ -78,7 +78,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -96,12 +96,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -184,7 +187,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#tasse" itemprop="item"><span itemprop="name">Strumenti Fiscali</span></a>
+        <a href="https://calcolapro.it/categoria-tasse-fisco.html" itemprop="item"><span itemprop="name">Strumenti Fiscali</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -242,8 +245,8 @@
         <div id="sezione-commerciale">
           <div class="field">
             <label for="taskBCE">Tasso BCE semestrale vigente</label>
-            <div class="input-wrap"><input type="number" id="tassoBCE" value="2.40" min="0" max="20" step="0.05" style="text-align:right;"/><span class="input-suffix">%</span></div>
-            <p class="hint">Il tasso BCE cambia ogni semestre. Verifica il valore vigente su <strong>bancaditalia.it</strong>. Primo semestre 2026: 2,15% (comunicato MEF, G.U. n.15/2026). La BCE ha rialzato il tasso di riferimento al 2,40% dall'11/6/2026: il valore per il 2° semestre 2026 è impostato di default a 2,40%, in attesa della conferma ufficiale nella Gazzetta Ufficiale. Aggiorna il campo con il tasso del semestre in cui matura il ritardo.</p>
+            <div class="input-wrap"><input type="number" id="tassoBCE" value="2.40" min="0" max="20" step="0.05" style="text-align:right;" aria-describedby="tassoBCE-help"/><span class="input-suffix">%</span></div>
+            <p class="hint" id="tassoBCE-help">Il tasso BCE cambia ogni semestre. Verifica il valore vigente su <strong>bancaditalia.it</strong>. Primo semestre 2026: 2,15% (comunicato MEF, G.U. n.15/2026). La BCE ha rialzato il tasso di riferimento al 2,40% dall'11/6/2026: il valore per il 2° semestre 2026 è impostato di default a 2,40%, in attesa della conferma ufficiale nella Gazzetta Ufficiale. Aggiorna il campo con il tasso del semestre in cui matura il ritardo.</p>
           </div>
           <div style="background:#eff6ff;border-radius:10px;padding:14px;font-size:13.5px;margin-bottom:4px;">
             <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
@@ -259,16 +262,16 @@
         <div id="sezione-civile" style="display:none;">
           <div class="field">
             <label for="tassoLegale">Tasso legale MEF vigente</label>
-            <div class="input-wrap"><input type="number" id="tassoLegale" value="1.60" min="0" max="15" step="0.05" style="text-align:right;"/><span class="input-suffix">%</span></div>
-            <p class="hint">Il tasso legale è fissato ogni anno dal MEF con decreto. Dal 1° gennaio 2026: 1,60% (Decreto MEF 10/12/2025, G.U. n.289/2025). Verifica il tasso dell'anno corrente in Gazzetta Ufficiale o sul sito del MEF.</p>
+            <div class="input-wrap"><input type="number" id="tassoLegale" value="1.60" min="0" max="15" step="0.05" style="text-align:right;" aria-describedby="tassoLegale-help"/><span class="input-suffix">%</span></div>
+            <p class="hint" id="tassoLegale-help">Il tasso legale è fissato ogni anno dal MEF con decreto. Dal 1° gennaio 2026: 1,60% (Decreto MEF 10/12/2025, G.U. n.289/2025). Verifica il tasso dell'anno corrente in Gazzetta Ufficiale o sul sito del MEF.</p>
           </div>
         </div>
         <div class="field" style="margin-bottom:0;">
           <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
-            <input type="checkbox" id="includiIndennita" checked style="width:16px;height:16px;cursor:pointer;">
+            <input type="checkbox" id="includiIndennita" checked style="width:16px;height:16px;cursor:pointer;" aria-describedby="includiIndennita-help">
             <span>Includi indennità forfettaria di recupero (D.Lgs. 231/2002)</span>
           </label>
-          <p class="hint" style="margin-top:6px;margin-bottom:0;">€40 (crediti &lt;€1.000) · €70 (€1.000–€9.999) · €100 (≥€10.000). Applicabile solo a transazioni commerciali.</p>
+          <p class="hint" id="includiIndennita-help" style="margin-top:6px;margin-bottom:0;">€40 (crediti &lt;€1.000) · €70 (€1.000–€9.999) · €100 (≥€10.000). Applicabile solo a transazioni commerciali.</p>
         </div>
       </div>
 
@@ -336,7 +339,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">💼</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Strumenti per freelance e aziende</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Strumenti per freelance e aziende</h2>
         </div>
         <p class="tool-cluster-sub">Calcola tariffe, tasse e costi del personale.</p>
         <div class="tool-cluster-grid">
@@ -372,7 +375,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="freelance.html" class="cross-link-pill">💰 Calcola tariffa freelance</a>
@@ -385,7 +388,7 @@
 
     <div class="seo-section">
       <h2>Interessi di mora: guida pratica per freelance e PMI</h2>
-      <p>Se hai una fattura non pagata entro i termini concordati, hai il diritto di richiedere gli <strong>interessi di mora</strong> senza bisogno di messa in mora formale — almeno nelle transazioni commerciali. Ecco tutto quello che devi sapere.</p>
+      <p>Se hai una fattura non pagata entro i termini concordati, hai il diritto di richiedere gli <strong>interessi di mora</strong> senza bisogno di messa in mora formale — almeno nelle transazioni commerciali. Ecco tutto quello che devi sapere, un tema che riguarda da vicino anche chi opera in <a href="guida-regime-forfettario.html">regime forfettario</a>.</p>
 
       <h3>Il D.Lgs. 231/2002: la norma di riferimento per i pagamenti B2B</h3>
       <p>Il Decreto Legislativo 231/2002 recepisce la Direttiva europea 2011/7/UE sui ritardi nei pagamenti nelle transazioni commerciali. Si applica a tutte le transazioni tra imprese (B2B) e tra imprese e PA, e stabilisce che:</p>
@@ -403,11 +406,11 @@
         <li><strong>Tasso BCE</strong> (MRO — Main Refinancing Operations): pubblicato dalla Banca d'Italia ogni semestre (1° gennaio e 1° luglio), si riferisce all'ultimo tasso BCE in vigore al 31 dicembre e al 30 giugno</li>
         <li><strong>Spread fisso: +8%</strong> (stabilito dalla norma, invariabile)</li>
       </ul>
-      <p>Esempio pratico: se il ritardo matura nel 2° semestre 2024 con BCE al 3,65%, il tasso di mora è: <strong>3,65% + 8% = 11,65% annuo</strong>.</p>
+      <p>Esempio pratico: se il ritardo matura nel 2° semestre 2024 con BCE al 3,65%, il tasso di mora è: <strong>3,65% + 8% = 11,65% annuo</strong>. Lo stesso tasso di riferimento BCE incide anche sui rendimenti dei <a href="calcolatore-interessi-conto-deposito.html">conti deposito</a>.</p>
       <p>Formula: <code>Interessi = Capitale × (Tasso mora / 365) × Giorni ritardo</code></p>
 
       <h3>L'indennità forfettaria per le spese di recupero</h3>
-      <p>Il D.Lgs. 231/2002 (art. 6) prevede, in aggiunta agli interessi, un'<strong>indennità forfettaria automatica di €40</strong> per le spese di recupero del credito, dovuta per ogni singola transazione commerciale in ritardo, indipendentemente dall'importo del credito. Non è soggetta a IVA e si aggiunge agli interessi di mora. Se le spese effettive di recupero (avvocato, solleciti, ecc.) superano l'indennità, puoi richiedere il rimborso delle spese aggiuntive documentate.</p>
+      <p>Il D.Lgs. 231/2002 (art. 6) prevede, in aggiunta agli interessi, un'<strong>indennità forfettaria automatica di €40</strong> per le spese di recupero del credito, dovuta per ogni singola transazione commerciale in ritardo, indipendentemente dall'importo del credito. Non è soggetta a IVA e si aggiunge agli interessi di mora. Se le spese effettive di recupero (avvocato, solleciti, ecc.) superano l'indennità, puoi richiedere il rimborso delle spese aggiuntive documentate. Se il mancato incasso crea intanto problemi di liquidità, può valere la pena valutare anche un <a href="calcolatore-prestito-personale.html">prestito personale</a> ponte.</p>
 
       <h3>Domande frequenti</h3>
       <div class="faq-list">
@@ -495,7 +498,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi. Per importi rilevanti, consulta sempre un professionista.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="freelance.html">Tariffa Oraria Freelance</a></li>
           <li><a href="calcolo-interessi-mora.html">Interessi di Mora</a></li>
@@ -512,7 +515,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
@@ -524,7 +527,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -603,7 +606,34 @@
       btn.querySelector('.faq-arrow').textContent = exp ? '▾' : '▴';
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
+      pulisciErroreCampo('dataPagamento');
       const tipo = document.querySelector('input[name="tipoCredito"]:checked').value;
       const capitale = parseFloat(document.getElementById('capitale').value) || 0;
       const dataS = new Date(document.getElementById('dataScadenza').value);
@@ -611,7 +641,7 @@
       const includiInd = document.getElementById('includiIndennita').checked;
 
       if (capitale <= 0 || isNaN(dataS) || isNaN(dataP)) return;
-      if (dataP <= dataS) { alert('La data di calcolo deve essere successiva alla data di scadenza.'); return; }
+      if (dataP <= dataS) { mostraErroreCampo('dataPagamento', 'La data di calcolo deve essere successiva alla data di scadenza.'); return; }
 
       const giorni = Math.round((dataP - dataS) / 86400000);
 

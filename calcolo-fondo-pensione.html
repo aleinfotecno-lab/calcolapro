@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -58,7 +58,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Risparmio e Investimenti","item":"https://calcolapro.it/#risparmio"},{"@type":"ListItem","position":3,"name":"Calcolo Fondo Pensione","item":"https://calcolapro.it/calcolo-fondo-pensione.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Risparmio e Investimenti","item":"https://calcolapro.it/categoria-risparmio-investimenti.html"},{"@type":"ListItem","position":3,"name":"Calcolo Fondo Pensione","item":"https://calcolapro.it/calcolo-fondo-pensione.html"}]}
   </script>
 </head>
 <body>
@@ -76,7 +76,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -94,12 +94,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -186,7 +189,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#risparmio" itemprop="item"><span itemprop="name">Risparmio e Investimenti</span></a>
+        <a href="https://calcolapro.it/categoria-risparmio-investimenti.html" itemprop="item"><span itemprop="name">Risparmio e Investimenti</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -213,8 +216,8 @@
         <div class="field">
           <label for="stipendioLordo">Stipendio lordo annuo (RAL)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="stipendioLordo" value="30000" min="5000" step="1000" class="has-prefix"/></div>
-          <p class="hint">Serve per calcolare la quota TFR e la deducibilità fiscale.</p>
+          <input type="number" id="stipendioLordo" value="30000" min="5000" step="1000" class="has-prefix" aria-describedby="stipendioLordo-help"/></div>
+          <p class="hint" id="stipendioLordo-help">Serve per calcolare la quota TFR e la deducibilità fiscale.</p>
         </div>
         <div class="field">
           <label for="aliqIRPEF">Aliquota IRPEF marginale</label>
@@ -231,26 +234,26 @@
         <div class="field">
           <label for="contributoVolontario">Contributo volontario mensile (tuo)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="contributoVolontario" value="150" min="0" step="10" class="has-prefix"/></div>
-          <p class="hint">Il contributo che versi personalmente ogni mese. Deducibile fino a €5.300/anno.</p>
+          <input type="number" id="contributoVolontario" value="150" min="0" step="10" class="has-prefix" aria-describedby="contributoVolontario-help"/></div>
+          <p class="hint" id="contributoVolontario-help">Il contributo che versi personalmente ogni mese. Deducibile fino a €5.300/anno.</p>
         </div>
         <div class="field">
           <label for="contributoDatore">Contributo del datore di lavoro mensile</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="contributoDatore" value="50" min="0" step="10" class="has-prefix"/></div>
-          <p class="hint">Il contributo aggiuntivo del datore se previsto dal CCNL (fondi negoziali). Se non lo hai, inserisci 0.</p>
+          <input type="number" id="contributoDatore" value="50" min="0" step="10" class="has-prefix" aria-describedby="contributoDatore-help"/></div>
+          <p class="hint" id="contributoDatore-help">Il contributo aggiuntivo del datore se previsto dal CCNL (fondi negoziali). Se non lo hai, inserisci 0.</p>
         </div>
         <div class="field">
           <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;">
-            <input type="checkbox" id="destinaTFR" checked style="width:16px;height:16px;cursor:pointer;">
+            <input type="checkbox" id="destinaTFR" checked style="width:16px;height:16px;cursor:pointer;" aria-describedby="destinaTFR-help">
             Destina il TFR al fondo pensione
           </label>
-          <p class="hint">Il TFR (6,91% della RAL) viene versato al fondo invece di restare in azienda. Per i lavoratori assunti dal 2007, il silenzio-assenso equivale a destinarlo al fondo.</p>
+          <p class="hint" id="destinaTFR-help">Il TFR (6,91% della RAL) viene versato al fondo invece di restare in azienda. Per i lavoratori assunti dal 2007, il silenzio-assenso equivale a destinarlo al fondo.</p>
         </div>
         <div class="field">
           <label for="anniIscrizione">Anni già iscritto al fondo</label>
-          <div class="input-wrap"><input type="number" id="anniIscrizione" value="0" min="0" max="40" step="1" style="text-align:right;"/><span class="input-suffix">anni</span></div>
-          <p class="hint">Serve per calcolare l'aliquota di tassazione finale (riduzione 0,3%/anno oltre il 15°).</p>
+          <div class="input-wrap"><input type="number" id="anniIscrizione" value="0" min="0" max="40" step="1" style="text-align:right;" aria-describedby="anniIscrizione-help"/><span class="input-suffix">anni</span></div>
+          <p class="hint" id="anniIscrizione-help">Serve per calcolare l'aliquota di tassazione finale (riduzione 0,3%/anno oltre il 15°).</p>
         </div>
       </div>
 
@@ -284,8 +287,8 @@
         </div>
         <div id="customRateBox" style="display:none;margin-top:14px;">
           <label for="rendimentoCustom">Rendimento annuo netto stimato</label>
-          <div class="input-wrap"><input type="number" id="rendimentoCustom" value="3.5" min="0" max="15" step="0.5" style="text-align:right;" oninput="document.getElementById('customPctLabel').textContent=this.value+'%'"/><span class="input-suffix">%</span></div>
-          <p class="hint">Inserisci il rendimento annuo netto (già al netto della tassazione del 20% sui rendimenti) che ti aspetti dal tuo comparto.</p>
+          <div class="input-wrap"><input type="number" id="rendimentoCustom" value="3.5" min="0" max="15" step="0.5" style="text-align:right;" oninput="document.getElementById('customPctLabel').textContent=this.value+'%'" aria-describedby="rendimentoCustom-help"/><span class="input-suffix">%</span></div>
+          <p class="hint" id="rendimentoCustom-help">Inserisci il rendimento annuo netto (già al netto della tassazione del 20% sui rendimenti) che ti aspetti dal tuo comparto.</p>
         </div>
         <p style="font-size:12.5px;color:var(--text-muted);margin-top:12px;margin-bottom:0;">⚠️ I rendimenti sono stime. I rendimenti passati non garantiscono quelli futuri. La tassazione del 20% sui rendimenti del fondo si applica annualmente.</p>
       </div>
@@ -353,7 +356,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">🎂</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Pianifica la tua pensione completa</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Pianifica la tua pensione completa</h2>
         </div>
         <p class="tool-cluster-sub">INPS + fondo complementare + TFR: calcola tutto.</p>
         <div class="tool-cluster-grid">
@@ -398,7 +401,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="pensione.html" class="cross-link-pill">🎂 Calcolatore pensione INPS</a>
@@ -412,7 +415,7 @@
 
     <div class="seo-section">
       <h2>Fondo pensione complementare: guida per decidere</h2>
-      <p>La pensione INPS per i lavoratori che andranno in pensione nei prossimi decenni sarà sensibilmente più bassa rispetto alle generazioni precedenti. La <strong>previdenza complementare</strong> è lo strumento principale per integrare la pensione pubblica e mantenere un tenore di vita adeguato.</p>
+      <p>La pensione INPS per i lavoratori che andranno in pensione nei prossimi decenni sarà sensibilmente più bassa rispetto alle generazioni precedenti. La <strong>previdenza complementare</strong> è lo strumento principale per integrare la pensione pubblica e mantenere un tenore di vita adeguato, e può rendere più sostenibile anche l'opzione della <a href="guida-pensione-anticipata-2026.html">pensione anticipata</a>.</p>
 
       <h3>Come funziona il calcolo del fondo pensione</h3>
       <p>Il capitale accumulato in un fondo pensione cresce grazie a tre componenti:</p>
@@ -425,12 +428,12 @@
       <p>Formula base: <code>FV = PMT × [(1+r)^n - 1] / r</code> dove PMT = versamento mensile, r = tasso mensile, n = numero di mesi.</p>
 
       <h3>Il vantaggio fiscale della deducibilità</h3>
-      <p>I contributi versati al fondo pensione (tuoi + datore, escludendo il TFR) sono <strong>deducibili dal reddito imponibile IRPEF</strong> fino a €5.300 all'anno (limite elevato da €5.164,57 dalla Legge di Bilancio 2026). In pratica:</p>
+      <p>I contributi versati al fondo pensione (tuoi + datore, escludendo il TFR) sono <strong>deducibili dal <a href="guida-stipendio-netto-lordo.html">reddito imponibile IRPEF</a></strong> fino a €5.300 all'anno (limite elevato da €5.164,57 dalla Legge di Bilancio 2026). In pratica:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li>Se versi €2.400/anno (€200/mese) con aliquota IRPEF al 33%: risparmio IRPEF = €792/anno</li>
         <li>Se versi €5.164/anno (il massimo) con aliquota IRPEF al 43%: risparmio IRPEF = €2.220/anno</li>
       </ul>
-      <p>Questo risparmio fiscale immediato è uno dei principali vantaggi della previdenza complementare rispetto ad altri strumenti di risparmio.</p>
+      <p>Questo risparmio fiscale immediato è uno dei principali vantaggi della previdenza complementare rispetto ad <a href="guida-investire-10000-euro.html">altri strumenti di risparmio</a>.</p>
 
       <h3>Domande frequenti</h3>
       <div class="faq-list">
@@ -535,7 +538,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="about.html">Chi Siamo</a></li>
           <li><a href="contatti.html">Contatti</a></li>
@@ -591,7 +594,34 @@
       return pmt * ((Math.pow(1 + r, n) - 1) / r);
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
+      pulisciErroreCampo('etaPensione');
       const eta = parseInt(document.getElementById('etaAttuale').value) || 35;
       const etaPens = parseInt(document.getElementById('etaPensione').value) || 67;
       const ral = parseFloat(document.getElementById('stipendioLordo').value) || 30000;
@@ -602,7 +632,7 @@
       const anniGia = parseInt(document.getElementById('anniIscrizione').value) || 0;
       const rend = getRend() / 100;
 
-      if (eta >= etaPens) { alert('L\'età di pensionamento deve essere superiore all\'età attuale.'); return; }
+      if (eta >= etaPens) { mostraErroreCampo('etaPensione', 'L\'età di pensionamento deve essere superiore all\'età attuale.'); return; }
 
       const anni = etaPens - eta;
       const mesi = anni * 12;
@@ -683,10 +713,10 @@
             ${destinaTFR ? '<div style="margin-top:8px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;display:inline-block;">✓ Opzione selezionata</div>' : ''}
           </div>
           <div style="background:${!destinaTFR ? '#eff6ff' : '#f8fafc'};border:2px solid ${!destinaTFR ? 'var(--blue)' : 'var(--border)'};border-radius:12px;padding:16px;">
-            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">TFR in Azienda</div>
-            <div style="font-size:1.3rem;font-weight:800;color:var(--text);">${fmt(tfrAzienda)}</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">TFR maturato (${(tfrAziendaRend*100).toFixed(1)}%/anno)</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">+ ${fmt(fondoSenzaTFR)} fondo</div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">TFR in Azienda + Fondo</div>
+            <div style="font-size:1.3rem;font-weight:800;color:var(--text);">${fmt(tfrAzienda + fondoSenzaTFR)}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">TFR maturato: ${fmt(tfrAzienda)} (${(tfrAziendaRend*100).toFixed(1)}%/anno)</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">+ Fondo pensione: ${fmt(fondoSenzaTFR)}</div>
             ${!destinaTFR ? '<div style="margin-top:8px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;display:inline-block;">✓ Opzione selezionata</div>' : ''}
           </div>
         </div>

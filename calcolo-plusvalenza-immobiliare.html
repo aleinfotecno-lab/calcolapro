@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -53,7 +53,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Casa e Immobili","item":"https://calcolapro.it/#casa"},{"@type":"ListItem","position":3,"name":"Plusvalenza Immobiliare","item":"https://calcolapro.it/calcolo-plusvalenza-immobiliare.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Casa e Immobili","item":"https://calcolapro.it/categoria-casa-mutuo.html"},{"@type":"ListItem","position":3,"name":"Plusvalenza Immobiliare","item":"https://calcolapro.it/calcolo-plusvalenza-immobiliare.html"}]}
   </script>
 </head>
 <body>
@@ -71,7 +71,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -89,12 +89,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -177,7 +180,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#casa" itemprop="item"><span itemprop="name">Casa e Immobili</span></a>
+        <a href="https://calcolapro.it/categoria-casa-mutuo.html" itemprop="item"><span itemprop="name">Casa e Immobili</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -220,22 +223,22 @@
         </div>
         <div class="field" id="sezioneDataAcquisto">
           <label for="dataAcquisto">Data di acquisto (o apertura successione)</label>
-          <input type="date" id="dataAcquisto" style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;"/>
+          <input type="date" id="dataAcquisto" style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;" aria-describedby="hintData"/>
           <p class="hint" id="hintData">Inserisci la data dell'atto notarile di acquisto.</p>
         </div>
         <div class="field">
           <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;">
-            <input type="checkbox" id="abitazionePrincipale" style="width:16px;height:16px;cursor:pointer;" onchange="aggiornaUI()">
+            <input type="checkbox" id="abitazionePrincipale" style="width:16px;height:16px;cursor:pointer;" onchange="aggiornaUI()" aria-describedby="abitazionePrincipale-help">
             Hai usato l'immobile come abitazione principale
           </label>
-          <p class="hint">Se hai abitato l'immobile come residenza principale per la maggior parte del periodo di possesso, la plusvalenza è <strong>esente</strong> da tasse (Art. 67 c. 1 lett. b TUIR).</p>
+          <p class="hint" id="abitazionePrincipale-help">Se hai abitato l'immobile come residenza principale per la maggior parte del periodo di possesso, la plusvalenza è <strong>esente</strong> da tasse (Art. 67 c. 1 lett. b TUIR).</p>
         </div>
         <div class="field">
           <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;">
-            <input type="checkbox" id="superbonus" style="width:16px;height:16px;cursor:pointer;" onchange="aggiornaUI()">
+            <input type="checkbox" id="superbonus" style="width:16px;height:16px;cursor:pointer;" onchange="aggiornaUI()" aria-describedby="superbonus-help">
             Sono stati eseguiti lavori con Superbonus 110%
           </label>
-          <p class="hint">Regola Legge di Bilancio 2024: se vendi entro 10 anni dalla fine dei lavori Superbonus, la plusvalenza è tassabile anche se possiedi l'immobile da oltre 5 anni.</p>
+          <p class="hint" id="superbonus-help">Regola Legge di Bilancio 2024: se vendi entro 10 anni dalla fine dei lavori Superbonus, la plusvalenza è tassabile anche se possiedi l'immobile da oltre 5 anni.</p>
         </div>
 
         <div id="banneresenzione" style="display:none;border-radius:12px;padding:14px 16px;margin-top:4px;"></div>
@@ -251,26 +254,26 @@
         <div class="field">
           <label for="prezzoAcquisto">Prezzo di acquisto originale</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="prezzoAcquisto" value="200000" min="0" step="1000" class="has-prefix"/></div>
-          <p class="hint">Il prezzo che risulta nell'atto notarile di acquisto.</p>
+          <input type="number" id="prezzoAcquisto" value="200000" min="0" step="1000" class="has-prefix" aria-describedby="prezzoAcquisto-help"/></div>
+          <p class="hint" id="prezzoAcquisto-help">Il prezzo che risulta nell'atto notarile di acquisto.</p>
         </div>
         <div class="field">
           <label for="speseAcquisto">Spese al momento dell'acquisto</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="speseAcquisto" value="5000" min="0" step="500" class="has-prefix"/></div>
-          <p class="hint">Notaio, agenzia, imposta di registro/IVA, imposte ipocatastali, ecc. pagate all'acquisto.</p>
+          <input type="number" id="speseAcquisto" value="5000" min="0" step="500" class="has-prefix" aria-describedby="speseAcquisto-help"/></div>
+          <p class="hint" id="speseAcquisto-help">Notaio, agenzia, imposta di registro/IVA, imposte ipocatastali, ecc. pagate all'acquisto.</p>
         </div>
         <div class="field">
           <label for="speseMigliorie">Spese per ristrutturazioni e migliorie documentate</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="speseMigliorie" value="0" min="0" step="500" class="has-prefix"/></div>
-          <p class="hint">Solo ristrutturazioni straordinarie con fatture (bagno, cucina, impianti). Non manutenzione ordinaria né spese condominiali.</p>
+          <input type="number" id="speseMigliorie" value="0" min="0" step="500" class="has-prefix" aria-describedby="speseMigliorie-help"/></div>
+          <p class="hint" id="speseMigliorie-help">Solo ristrutturazioni straordinarie con fatture (bagno, cucina, impianti). Non manutenzione ordinaria né spese condominiali.</p>
         </div>
         <div class="field">
           <label for="speseVendita">Spese per la vendita (agenzia, notaio)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="speseVendita" value="0" min="0" step="500" class="has-prefix"/></div>
-          <p class="hint">Le spese sostenute per vendere l'immobile (provvigione agenzia, spese notarili di vendita).</p>
+          <input type="number" id="speseVendita" value="0" min="0" step="500" class="has-prefix" aria-describedby="speseVendita-help"/></div>
+          <p class="hint" id="speseVendita-help">Le spese sostenute per vendere l'immobile (provvigione agenzia, spese notarili di vendita).</p>
         </div>
         <div class="field">
           <label for="aliqIRPEF">Aliquota IRPEF marginale (per confronto)</label>
@@ -334,7 +337,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">🏠</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Tutti i calcoli per acquisto e vendita casa</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Tutti i calcoli per acquisto e vendita casa</h2>
         </div>
         <p class="tool-cluster-sub">Mutuo, IMU, cedolare, spese notarili: calcola tutto prima di firmare.</p>
         <div class="tool-cluster-grid">
@@ -370,7 +373,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-spese-acquisto-casa.html" class="cross-link-pill">🔑 Spese acquisto casa</a>
@@ -383,7 +386,7 @@
 
     <div class="seo-section">
       <h2>Plusvalenza immobiliare 2026: guida completa</h2>
-      <p>Quando vendi un immobile a un prezzo superiore a quello a cui lo hai acquistato, realizzi una <strong>plusvalenza immobiliare</strong>. Questa plusvalenza può essere tassata (o essere esente), a seconda delle circostanze specifiche della cessione.</p>
+      <p>Quando vendi un immobile a un prezzo superiore a quello a cui lo hai acquistato, realizzi una <strong><a href="glossario-finanziario.html">plusvalenza immobiliare</a></strong>. Questa plusvalenza può essere tassata (o essere esente), a seconda delle circostanze specifiche della cessione.</p>
 
       <h3>Le regole di esenzione (quando non si paga nulla)</h3>
       <p>La plusvalenza è <strong>esente</strong> nei seguenti casi:</p>
@@ -392,12 +395,12 @@
         <li><strong>Abitazione principale</strong>: se l'immobile era la tua residenza principale per la maggior parte del periodo di possesso, è sempre esente</li>
         <li><strong>Eredità</strong>: gli immobili ricevuti per successione sono sempre esenti, indipendentemente dal tempo trascorso</li>
       </ul>
-      <p>Attenzione: dal 2024, per gli immobili con <strong>Superbonus 110%</strong>, la vendita entro 10 anni dalla fine dei lavori genera plusvalenza tassabile anche se il possesso supera i 5 anni.</p>
+      <p>Attenzione: dal 2024, per gli immobili con <strong><a href="guida-bonus-casa-2026.html">Superbonus 110%</a></strong>, la vendita entro 10 anni dalla fine dei lavori genera plusvalenza tassabile anche se il possesso supera i 5 anni.</p>
 
       <h3>Come scegliere tra 26% e IRPEF ordinaria</h3>
       <p>Se la plusvalenza è tassabile, puoi scegliere tra due regimi:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
-        <li><strong>Imposta sostitutiva del 26%</strong>: si paga direttamente al notaio durante il rogito (è la scelta più comune). Conveniente se la tua aliquota IRPEF marginale è 33% o 43%</li>
+        <li><strong>Imposta sostitutiva del 26%</strong>: si paga direttamente al notaio durante il rogito (è la scelta più comune). Conveniente se la tua <a href="guida-stipendio-netto-lordo.html">aliquota IRPEF marginale</a> è 33% o 43%</li>
         <li><strong>Tassazione IRPEF ordinaria</strong>: la plusvalenza si aggiunge agli altri redditi dell'anno nella dichiarazione. Può convenire se hai un reddito basso (aliquota 23%)</li>
       </ul>
 
@@ -470,7 +473,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="about.html">Chi Siamo</a></li>
           <li><a href="contatti.html">Contatti</a></li>

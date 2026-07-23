@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -60,7 +60,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Indennità Malattia INPS","item":"https://calcolapro.it/calcolo-malattia-inps.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo Indennità Malattia INPS","item":"https://calcolapro.it/calcolo-malattia-inps.html"}]}
   </script>
 </head>
 <body>
@@ -78,7 +78,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -96,12 +96,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -187,7 +190,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -206,8 +209,8 @@
         <div class="field">
           <label for="stipendio">Stipendio lordo mensile</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="stipendio" value="1800" min="500" step="50" class="has-prefix"/></div>
-          <p class="hint">Inserisci la retribuzione lorda mensile (RAL ÷ 12). La trovi sulla busta paga alla voce "retribuzione lorda".</p>
+          <input type="number" id="stipendio" value="1800" min="500" step="50" class="has-prefix" aria-describedby="stipendio-help"/></div>
+          <p class="hint" id="stipendio-help">Inserisci la retribuzione lorda mensile (RAL ÷ 12). La trovi sulla busta paga alla voce "retribuzione lorda".</p>
         </div>
         <div class="field">
           <label for="mensilita">Mensilità nel contratto</label>
@@ -219,13 +222,13 @@
         </div>
         <div class="field">
           <label for="ccnl">Integrazione datoriale (CCNL)</label>
-          <select id="ccnl">
+          <select id="ccnl" aria-describedby="ccnl-help">
             <option value="100">100% — integrazione completa (es. Metalmeccanico, Chimico)</option>
             <option value="75">75% — integrazione parziale (es. Commercio, Terziario)</option>
             <option value="50" selected>50% — integrazione media (generico)</option>
             <option value="0">0% — nessuna integrazione (solo INPS)</option>
           </select>
-          <p class="hint">Il CCNL stabilisce se e quanto il datore integra i giorni di carenza e porta la malattia al 100%. Controlla il tuo contratto collettivo.</p>
+          <p class="hint" id="ccnl-help">Il CCNL stabilisce se e quanto il datore integra i giorni di carenza e porta la malattia al 100%. Controlla il tuo contratto collettivo.</p>
         </div>
       </div>
 
@@ -233,20 +236,20 @@
         <div class="card-title"><span class="card-icon">📅</span> Periodo di malattia</div>
         <div class="field">
           <label for="giorni">Giorni totali di malattia</label>
-          <input type="number" id="giorni" value="10" min="1" max="180"/>
-          <p class="hint">Inserisci il numero di giorni di calendario dell'episodio di malattia (inclusi sabato e domenica).</p>
+          <input type="number" id="giorni" value="10" min="1" max="180" aria-describedby="giorni-help"/>
+          <p class="hint" id="giorni-help">Inserisci il numero di giorni di calendario dell'episodio di malattia (inclusi sabato e domenica).</p>
         </div>
         <div class="field" style="background:#fef3c7;border-radius:10px;padding:14px;border:1.5px solid #fde68a;">
           <label style="font-weight:700;color:#92400e;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
-            <input type="checkbox" id="ricovero" style="width:16px;height:16px;cursor:pointer;">
+            <input type="checkbox" id="ricovero" style="width:16px;height:16px;cursor:pointer;" aria-describedby="ricovero-help">
             Ricovero ospedaliero (la carenza è azzerata)
           </label>
-          <p class="hint" style="margin-top:6px;margin-bottom:0;color:#92400e;">In caso di ricovero ospedaliero, l'INPS eroga l'indennità dal 1° giorno (nessun periodo di carenza).</p>
+          <p class="hint" id="ricovero-help" style="margin-top:6px;margin-bottom:0;color:#92400e;">In caso di ricovero ospedaliero, l'INPS eroga l'indennità dal 1° giorno (nessun periodo di carenza).</p>
         </div>
         <div class="field">
           <label for="episodiAnno">Episodi di malattia nell'anno corrente (incluso questo)</label>
-          <input type="number" id="episodiAnno" value="1" min="1" max="20"/>
-          <p class="hint">Serve per stimare il totale dei giorni annui e verificare il limite di 180 giorni INPS.</p>
+          <input type="number" id="episodiAnno" value="1" min="1" max="20" aria-describedby="episodiAnno-help"/>
+          <p class="hint" id="episodiAnno-help">Serve per stimare il totale dei giorni annui e verificare il limite di 180 giorni INPS.</p>
         </div>
       </div>
 
@@ -300,7 +303,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">💼</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Strumenti utili per i lavoratori dipendenti</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Strumenti utili per i lavoratori dipendenti</h2>
         </div>
         <p class="tool-cluster-sub">Gestisci al meglio busta paga, contributi e tutele previdenziali.</p>
         <div class="tool-cluster-grid">
@@ -336,7 +339,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-maternita-inps.html" class="cross-link-pill">👶 Indennità Maternità INPS</a>
@@ -355,16 +358,16 @@
       <p>I primi 3 giorni di ogni episodio di malattia costituiscono il <strong>periodo di carenza</strong>: l'INPS non eroga nulla. Questi giorni sono a carico del datore di lavoro solo se il CCNL applicato lo prevede. Molti contratti collettivi (metalmeccanico, chimico, alcuni del commercio) prevedono l'integrazione al 100% per i giorni di carenza. In caso di <strong>ricovero ospedaliero</strong>, il periodo di carenza non si applica: l'INPS paga dal primo giorno.</p>
 
       <h3>Come si calcola l'indennità INPS</h3>
-      <p>L'importo dell'indennità si calcola a partire dalla <strong>retribuzione media giornaliera</strong>, ottenuta dividendo la retribuzione annua lorda (comprensiva di tredicesima e quattordicesima) per 365. Su questa base si applicano le percentuali INPS:</p>
+      <p>L'importo dell'indennità si calcola a partire dalla <strong>retribuzione media giornaliera</strong>, ottenuta dividendo la retribuzione annua lorda (comprensiva di tredicesima e <a href="calcolo-quattordicesima-netta.html">quattordicesima</a>) per 365. Su questa base si applicano le percentuali INPS:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li>Giorni <strong>4° - 20°</strong>: indennità = retribuzione giornaliera × <strong>50%</strong></li>
         <li>Giorni <strong>21° - 180°</strong>: indennità = retribuzione giornaliera × <strong>66,67%</strong></li>
         <li>Oltre il 180° giorno: nessuna indennità INPS per malattia ordinaria</li>
       </ul>
-      <p>Il datore di lavoro anticipa l'indennità in busta paga e poi ottiene rimborso dall'INPS. L'importo è soggetto a IRPEF.</p>
+      <p>Il datore di lavoro anticipa l'indennità in busta paga e poi ottiene rimborso dall'INPS. L'importo è soggetto a <a href="calcolo-detrazioni-730.html">IRPEF</a>.</p>
 
       <h3>L'integrazione del datore di lavoro</h3>
-      <p>Molti CCNL prevedono che il datore di lavoro <strong>integri</strong> l'indennità INPS per portare il totale percepito a una percentuale più alta dello stipendio normale. Ad esempio, il CCNL Metalmeccanico prevede l'integrazione al 100% per i primi 3 mesi di malattia. Il CCNL Commercio prevede integrazioni parziali. Senza integrazione, un lavoratore con 30 giorni di malattia può percepire solo il 50-67% dello stipendio.</p>
+      <p>Molti CCNL prevedono che <a href="calcolo-costo-lavoro.html">il datore di lavoro</a> <strong>integri</strong> l'indennità INPS per portare il totale percepito a una percentuale più alta dello stipendio normale. Ad esempio, il CCNL Metalmeccanico prevede l'integrazione al 100% per i primi 3 mesi di malattia. Il CCNL Commercio prevede integrazioni parziali. Senza integrazione, un lavoratore con 30 giorni di malattia può percepire solo il 50-67% dello stipendio.</p>
 
       <h3>Domande frequenti</h3>
       <div class="faq-list">
@@ -447,7 +450,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -464,7 +467,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -477,7 +480,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>

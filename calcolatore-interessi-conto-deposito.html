@@ -12,13 +12,13 @@
   <meta property="og:url" content="https://calcolapro.it/calcolatore-interessi-conto-deposito.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Conto Deposito 2026: Calcola Interessi Netti | CalcolaPro"/>
   <meta name="twitter:description" content="Calcola gli interessi netti del conto deposito 2026. Tassazione 26%, imposta di bollo 0,20%, confronto rendimenti lordi e netti. Gratis e immediato."/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>🧮</text></svg>"/>
@@ -38,7 +38,7 @@
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-        "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+        "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
       },
       {
         "@type": "FAQPage",
@@ -107,7 +107,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -125,12 +125,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -314,7 +317,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">🏆</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Trova il conto deposito con il tasso più alto</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Trova il conto deposito con il tasso più alto</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Hai calcolato il tuo rendimento ideale — ora confronta le offerte reali delle migliori banche italiane.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -443,7 +446,7 @@
       <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
     </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -461,7 +464,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -474,7 +477,7 @@
         </ul>
       </div>
     <div class="footer-col">
-      <h4>Informazioni</h4>
+      <h3>Informazioni</h3>
       <ul>
         <li><a href="about.html">Chi Siamo</a></li>
         <li><a href="come-funziona.html">Come Funziona</a></li>
@@ -504,14 +507,46 @@
   });
   document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
 
+  function mostraErroreCampo(id, messaggio) {
+    const input = document.getElementById(id);
+    const field = input.closest('.field');
+    let msg = document.getElementById(id + '-error');
+    if (!msg) {
+      msg = document.createElement('span');
+      msg.className = 'error-msg';
+      msg.id = id + '-error';
+      field.appendChild(msg);
+    }
+    msg.textContent = messaggio;
+    field.classList.add('error');
+    input.setAttribute('aria-invalid', 'true');
+    const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+    described.push(msg.id);
+    input.setAttribute('aria-describedby', described.join(' '));
+  }
+  function pulisciErroreCampo(id) {
+    const input = document.getElementById(id);
+    if (!input) return;
+    const field = input.closest('.field');
+    if (field) field.classList.remove('error');
+    input.removeAttribute('aria-invalid');
+  }
+
   function calcola() {
+    pulisciErroreCampo('capitale');
+    pulisciErroreCampo('tasso');
     const capitale = parseFloat(document.getElementById('capitale').value) || 0;
     const tasso = parseFloat(document.getElementById('tasso').value) || 0;
     const mesi = parseInt(document.getElementById('durata').value) || 12;
     const tipo = document.getElementById('tipo').value;
     const liquidazione = document.getElementById('liquidazione').value;
 
-    if (capitale <= 0 || tasso <= 0) { alert('Inserisci capitale e tasso validi.'); return; }
+    if (capitale <= 0 || tasso <= 0) {
+      if (capitale <= 0) mostraErroreCampo('capitale', 'Inserisci capitale e tasso validi.');
+      if (tasso <= 0) mostraErroreCampo('tasso', 'Inserisci capitale e tasso validi.');
+      document.getElementById(capitale <= 0 ? 'capitale' : 'tasso').focus();
+      return;
+    }
 
     const frazione = mesi / 12;
 
@@ -544,18 +579,7 @@
     if (typeof gtag !== 'undefined') gtag('event', 'calcolo_conto_deposito', { tasso: tasso, mesi: mesi });
   }
 </script>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
 <div class="sticky-affiliate-sidebar" id="affSidebar">
   <div class="sidebar-aff-box">

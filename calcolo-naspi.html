@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -57,7 +57,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo NASpI 2026","item":"https://calcolapro.it/calcolo-naspi.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo NASpI 2026","item":"https://calcolapro.it/calcolo-naspi.html"}]}
   </script>
 </head>
 <body>
@@ -75,7 +75,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -93,12 +93,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -180,7 +183,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -198,17 +201,17 @@
         <div class="field">
           <label for="stipendio">Retribuzione media mensile lorda (ultimi 4 anni)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="stipendio" value="1800" min="100" step="50" class="has-prefix"/></div>
-          <p class="hint">Inserisci lo stipendio lordo mensile medio. Puoi trovarlo sulla tua busta paga o CUD.</p>
+          <input type="number" id="stipendio" value="1800" min="100" step="50" class="has-prefix" aria-describedby="stipendio-help"/></div>
+          <p class="hint" id="stipendio-help">Inserisci lo stipendio lordo mensile medio. Puoi trovarlo sulla tua busta paga o CUD.</p>
         </div>
         <div class="field">
           <label for="mensilita">Tredicesima / quattordicesima</label>
-          <select id="mensilita">
+          <select id="mensilita" aria-describedby="mensilita-help">
             <option value="12">12 mensilità</option>
             <option value="13" selected>13 mensilità (+ tredicesima)</option>
             <option value="14">14 mensilità (+ tredicesima e quattordicesima)</option>
           </select>
-          <p class="hint">Includi le mensilità aggiuntive per calcolare la retribuzione mensile media reale.</p>
+          <p class="hint" id="mensilita-help">Includi le mensilità aggiuntive per calcolare la retribuzione mensile media reale.</p>
         </div>
       </div>
 
@@ -216,20 +219,15 @@
         <div class="card-title"><span class="card-icon">📅</span> Contributi versati</div>
         <div class="field">
           <label for="settimane">Settimane di contributi negli ultimi 4 anni</label>
-          <input type="number" id="settimane" value="156" min="13" max="208"/>
-          <p class="hint">Verifica sul tuo Estratto Conto Previdenziale INPS (MyINPS). Il massimo è 208 settimane (4 anni).</p>
-        </div>
-        <div class="field">
-          <label for="eta">Età al momento della cessazione</label>
-          <input type="number" id="eta" value="35" min="18" max="70"/>
-          <p class="hint">Se sei entro 3 anni dall'età pensionabile con contributi minimi, la riduzione del 3% non si applica.</p>
+          <input type="number" id="settimane" value="156" min="13" max="208" aria-describedby="settimane-help"/>
+          <p class="hint" id="settimane-help">Verifica sul tuo Estratto Conto Previdenziale INPS (MyINPS). Il massimo è 208 settimane (4 anni).</p>
         </div>
         <div class="field" style="background:var(--blue-light);border-radius:10px;padding:14px;border:1.5px solid var(--blue);margin-top:4px;">
           <label style="font-weight:700;color:var(--blue);font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
-            <input type="checkbox" id="prossimoPensione" style="width:16px;height:16px;cursor:pointer;" onchange="aggiornaEta()">
+            <input type="checkbox" id="prossimoPensione" style="width:16px;height:16px;cursor:pointer;" onchange="aggiornaEta()" aria-describedby="prossimoPensione-help">
             Sono entro 3 anni dalla pensione (niente riduzione)
           </label>
-          <p class="hint" style="margin-top:6px;margin-bottom:0;">Per chi matura il diritto alla pensione entro 36 mesi, l'importo NASpI rimane fisso per tutta la durata.</p>
+          <p class="hint" id="prossimoPensione-help" style="margin-top:6px;margin-bottom:0;">Per chi matura il diritto alla pensione entro 36 mesi, l'importo NASpI rimane fisso per tutta la durata.</p>
         </div>
       </div>
 
@@ -282,7 +280,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">💼</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri strumenti per chi perde il lavoro</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri strumenti per chi perde il lavoro</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Pianifica il tuo futuro con questi calcolatori utili nei momenti di transizione lavorativa.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -318,9 +316,10 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
+        <a href="calcolo-cassa-integrazione.html" class="cross-link-pill">🏭 Cassa Integrazione</a>
         <a href="calcolo-malattia-inps.html" class="cross-link-pill">💊 Indennità Malattia INPS</a>
         <a href="calcolo-tfr-liquidazione.html" class="cross-link-pill">📦 Calcolo TFR Liquidazione</a>
         <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio lordo/netto</a>
@@ -331,10 +330,10 @@
 
     <div class="seo-section">
       <h2>Come funziona la NASpI 2026: guida al calcolo</h2>
-      <p>La <strong>NASpI</strong> (Nuova Assicurazione Sociale per l'Impiego) è l'indennità di disoccupazione riconosciuta dall'INPS ai lavoratori dipendenti che perdono involontariamente il lavoro. Sostituisce dal 2015 la vecchia indennità ASpI e mini-ASpI, con regole più chiare e un importo collegato alla retribuzione reale.</p>
+      <p>La <strong>NASpI</strong> (Nuova Assicurazione Sociale per l'Impiego) è l'indennità di disoccupazione riconosciuta dall'INPS ai lavoratori dipendenti che <a href="calcolo-preavviso.html">perdono involontariamente il lavoro</a>. Sostituisce dal 2015 la vecchia indennità ASpI e mini-ASpI, con regole più chiare e un importo collegato alla retribuzione reale.</p>
 
       <h3>Come si calcola l'importo NASpI 2026</h3>
-      <p>Il calcolo si basa sulla <strong>retribuzione media mensile degli ultimi 4 anni</strong> imponibile ai fini previdenziali. Il meccanismo è a due scaglioni:</p>
+      <p>Il calcolo si basa sulla <strong><a href="calcolo-quattordicesima-netta.html">retribuzione media mensile</a> degli ultimi 4 anni</strong> imponibile ai fini previdenziali. Il meccanismo è a due scaglioni:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2;color:var(--text-muted);font-size:15px;">
         <li>Se la retribuzione è uguale o inferiore alla soglia INPS (<strong>€ 1.456,72</strong> nel 2026): NASpI = retribuzione × 75%</li>
         <li>Se la retribuzione supera la soglia: NASpI = 75% × soglia + 25% × (retribuzione − soglia)</li>
@@ -346,7 +345,7 @@
       <p>La durata è pari alla <strong>metà delle settimane di contribuzione</strong> versate negli ultimi 4 anni. Con 4 anni interi di lavoro (208 settimane) si ottiene il massimo: 104 settimane, pari a circa <strong>24 mesi</strong>. Chi ha contributi più brevi riceve un'indennità proporzionalmente più corta.</p>
 
       <h3>La riduzione del 3% mensile</h3>
-      <p>A partire dal <strong>primo giorno del sesto mese</strong> di fruizione, l'importo NASpI si riduce del 3% ogni mese. Questo significa che più a lungo si percepisce l'indennità, più l'importo mensile diminuisce. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dal raggiungimento dei requisiti pensionistici.</p>
+      <p>A partire dal <strong>primo giorno del sesto mese</strong> di fruizione, l'importo NASpI si riduce del 3% ogni mese. Questo significa che più a lungo si percepisce l'indennità, più l'importo mensile diminuisce. La riduzione non si applica ai lavoratori che si trovano entro 3 anni dal raggiungimento dei <a href="guida-pensione-anticipata-2026.html">requisiti pensionistici</a>.</p>
 
       <h3>Domande frequenti sulla NASpI</h3>
       <div class="faq-list">
@@ -421,7 +420,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -439,7 +438,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -452,7 +451,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -498,7 +497,6 @@
       const stipendioBase = parseFloat(document.getElementById('stipendio').value) || 0;
       const mensilita = parseInt(document.getElementById('mensilita').value) || 13;
       const settimane = Math.min(parseInt(document.getElementById('settimane').value) || 0, 208);
-      const eta = parseInt(document.getElementById('eta').value) || 35;
       const prossimoPensione = document.getElementById('prossimoPensione').checked;
 
       if (stipendioBase <= 0 || settimane < 13) {

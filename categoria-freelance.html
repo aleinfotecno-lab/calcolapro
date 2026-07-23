@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta name="twitter:title" content="Calcolatori per Freelance 2026 | CalcolaPro"/>
   <meta name="twitter:description" content="Tutti gli strumenti di calcolo per freelance italiani: tariffa oraria, tasse, P.IVA, prestazioni occasionali."/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/categoria.css">
   <link rel="icon" type="image/png" href="favicon.svg">
 
   <script type="application/ld+json">
@@ -38,7 +39,7 @@
     "url": "https://calcolapro.it/categoria-freelance.html",
     "description": "Raccolta di calcolatori gratuiti per freelance italiani: tariffa oraria, confronto P.IVA vs dipendente, calcolo netto stipendio, prestazioni occasionali.",
     "inLanguage": "it-IT",
-    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"},
+    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}},
     "hasPart": [
       {"@type": "WebApplication", "name": "Calcolatore Tariffa Oraria Freelance", "url": "https://calcolapro.it/freelance.html"},
       {"@type": "WebApplication", "name": "Confronto Dipendente vs Partita IVA", "url": "https://calcolapro.it/partitaiva.html"},
@@ -67,35 +68,6 @@
   </script>
 
   <style>
-    .cat-hero{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 100%);color:#fff;padding:60px 24px 52px;text-align:center;}
-    .cat-hero-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:12px;}
-    .cat-hero h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:900;letter-spacing:-.03em;margin-bottom:14px;line-height:1.15;}
-    .cat-hero p{font-size:1.05rem;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto 28px;line-height:1.7;}
-    .cat-hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
-    .cat-stat{text-align:center;}
-    .cat-stat-num{font-size:1.8rem;font-weight:900;color:#fff;}
-    .cat-stat-lbl{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;}
-    .cat-tools{max-width:900px;margin:0 auto;padding:48px 20px 0;}
-    .cat-tools h2{font-size:1.4rem;font-weight:800;margin-bottom:6px;letter-spacing:-.02em;}
-    .cat-tools > p{font-size:15px;color:var(--text-muted);margin-bottom:28px;}
-    .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-bottom:48px;}
-    .tool-entry{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s,border-color .18s;text-decoration:none;color:inherit;}
-    .tool-entry:hover{box-shadow:0 4px 24px rgba(30,58,138,.1);border-color:var(--blue-light);text-decoration:none;}
-    .tool-entry-icon{font-size:1.8rem;line-height:1;}
-    .tool-entry-title{font-size:1rem;font-weight:800;color:var(--text);}
-    .tool-entry-desc{font-size:13.5px;color:var(--text-muted);line-height:1.65;flex:1;}
-    .tool-entry-when{font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-xlight);border-radius:6px;padding:5px 10px;align-self:flex-start;}
-    .tool-entry-cta{background:var(--blue);color:#fff;font-size:13.5px;font-weight:700;padding:10px 18px;border-radius:var(--radius-sm);text-decoration:none;text-align:center;transition:background .18s;}
-    .tool-entry-cta:hover{background:var(--blue-dark);color:#fff;text-decoration:none;}
-    .decision-box{background:var(--blue-xlight);border:1.5px solid var(--blue-light);border-radius:var(--radius-lg);padding:28px 32px;margin:0 auto 40px;max-width:900px;}
-    @media(max-width:600px){.decision-box{padding:20px 18px;margin:0 16px 32px;}}
-    .decision-box h2{font-size:1.2rem;font-weight:800;margin-bottom:18px;color:var(--navy);}
-    .decision-table{width:100%;border-collapse:collapse;font-size:14px;}
-    .decision-table th{text-align:left;padding:8px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-dark);border-bottom:2px solid var(--blue-light);}
-    .decision-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text-muted);vertical-align:top;}
-    .decision-table td:first-child{font-weight:700;color:var(--text);white-space:nowrap;}
-    .decision-table td a{color:var(--blue);font-weight:600;}
-    .decision-table tr:last-child td{border-bottom:none;}
     .compare-section{max-width:900px;margin:0 auto;padding:0 20px 48px;}
     .compare-section h2{font-size:1.3rem;font-weight:800;margin-bottom:6px;letter-spacing:-.02em;}
     .compare-section > p{font-size:15px;color:var(--text-muted);margin-bottom:24px;}
@@ -115,27 +87,9 @@
     .compare-card ul{padding-left:16px;margin:0;}
     .compare-card li{font-size:13px;color:var(--text-muted);margin-bottom:5px;line-height:1.5;}
     .compare-card li strong{color:var(--text);}
-    .content-section{max-width:760px;margin:0 auto;padding:0 20px 48px;}
-    .content-section h2{font-size:1.3rem;font-weight:800;margin-bottom:14px;letter-spacing:-.02em;}
-    .content-section h3{font-size:1.05rem;font-weight:700;margin:28px 0 10px;}
-    .content-section p{font-size:15px;line-height:1.85;color:var(--text-muted);margin-bottom:14px;}
-    .content-section ul{padding-left:20px;margin-bottom:14px;}
-    .content-section li{font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:6px;}
-    .content-section strong{color:var(--text);font-weight:700;}
-    .content-section a:not(.cta-btn){color:var(--blue);}
-    .highlight-box{background:var(--blue-xlight);border-left:3px solid var(--blue);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:24px 0;}
-    .highlight-box p{margin:0;font-size:14px;color:var(--navy);}
-    .faq-section{max-width:760px;margin:0 auto;padding:0 20px 48px;}
-    .faq-section h2{font-size:1.3rem;font-weight:800;margin-bottom:24px;letter-spacing:-.02em;}
-    .faq-item{border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;}
     .faq-q{font-size:15px;font-weight:700;color:var(--text);padding:16px 20px;margin:0;}
     .faq-a{font-size:14px;line-height:1.8;color:var(--text-muted);padding:0 20px 16px;margin:0;}
-    .related-tools{background:var(--blue-xlight);border:1px solid var(--blue-light);border-radius:var(--radius-lg);padding:24px 28px;margin:0 auto 48px;max-width:900px;}
-    .related-tools h3{font-size:13px;font-weight:700;color:var(--blue-dark);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;}
-    .related-tools-grid{display:flex;flex-wrap:wrap;gap:8px;}
-    .related-tools-grid a{background:var(--white);border:1px solid var(--blue-light);border-radius:var(--radius-full);padding:8px 16px;font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;transition:background .18s;}
-    .related-tools-grid a:hover{background:var(--blue);color:#fff;text-decoration:none;}
-    @media(max-width:600px){.cat-hero{padding:48px 16px 40px;}.cat-tools{padding:32px 16px 0;}.compare-section,.faq-section,.content-section{padding:0 16px 32px;}.decision-table{font-size:13px;}}
+    @media(max-width:600px){.compare-section{padding:0 16px 32px;}}
   </style>
 </head>
 <body>
@@ -154,7 +108,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -172,12 +126,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>

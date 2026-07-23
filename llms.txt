@@ -1,6 +1,6 @@
 # CalcolaPro - Calcolatori Finanziari Italiani Gratuiti
 
-CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 38 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
+CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 39 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
 
 ## Calcolatori
 
@@ -25,11 +25,13 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/calcolo-spese-acquisto-casa.html — Stima tutte le spese accessorie (notaio, imposte, agenzia) per l'acquisto di un immobile
 - https://calcolapro.it/calcolo-straordinari.html — Calcola il compenso lordo e netto delle ore straordinarie in base al CCNL
 - https://calcolapro.it/calcolo-quattordicesima-netta.html — Calcola il netto della quattordicesima: contributi INPS, IRPEF a scaglioni, chi ne ha diritto e quando viene pagata
+- https://calcolapro.it/calcolo-assegno-unico.html — Calcola l'importo mensile dell'Assegno Unico 2026 per figlio in base a ISEE, con maggiorazioni per madri under 21, famiglie numerose e figli disabili
 - https://calcolapro.it/divisione-conto.html — Dividi il conto al ristorante o le spese condivise tra piu' persone
 - https://calcolapro.it/calcolo-tfr-liquidazione.html — Calcola il TFR netto con tassazione separata e confronto con fondo pensione
 - https://calcolapro.it/calcolatore-percentuale.html — Calcola la percentuale di un numero, variazione %, sconti e ricarichi in 4 modalita'
 - https://calcolapro.it/calcolo-eta.html — Calcola l'eta' esatta in anni, mesi e giorni dalla data di nascita con countdown compleanno
 - https://calcolapro.it/calcolo-naspi.html — Calcola l'importo mensile NASpI 2026, durata e totale percepito dopo licenziamento o fine contratto
+- https://calcolapro.it/calcolo-cassa-integrazione.html — Calcola l'importo netto della cassa integrazione ordinaria (CIGO) e straordinaria (CIGS) 2026: 80% della retribuzione persa entro il massimale INPS di 1.423,69 € lordi
 - https://calcolapro.it/calcolo-malattia-inps.html — Calcola l'indennita' di malattia INPS per lavoratori dipendenti: importo giornaliero, carenza e totale periodo
 - https://calcolapro.it/calcolo-maternita-inps.html — Calcola l'indennita' di maternita' INPS 2026: 80% per 5 mesi (madre), 100% per 10 giorni (padre) e congedo parentale facoltativo
 - https://calcolapro.it/calcolo-bollo-auto.html — Calcola il bollo auto 2026 in base ai kW del veicolo con agevolazioni per elettrici, storici e calcolo proporzionale mensile
@@ -45,7 +47,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 ## Pagine categoria
 
 - https://calcolapro.it/categoria-freelance.html — Hub con tutti gli strumenti per freelance italiani: tariffa oraria, P.IVA vs dipendente, prestazioni occasionali, costo del lavoro e confronto forme contrattuali
-- https://calcolapro.it/categoria-lavoro-dipendente.html — Hub con 11 calcolatori per lavoratori dipendenti: stipendio netto, TFR, ferie, straordinari, NASpI, malattia, maternità, preavviso, pensione, costo del lavoro, rimborso chilometrico
+- https://calcolapro.it/categoria-lavoro-dipendente.html — Hub con 12 calcolatori per lavoratori dipendenti: stipendio netto, TFR, ferie, straordinari, NASpI, cassa integrazione, malattia, maternità, preavviso, pensione, costo del lavoro, rimborso chilometrico
 - https://calcolapro.it/categoria-casa-mutuo.html — Hub con 7 calcolatori per la casa: rata mutuo, affitto sostenibile, spese acquisto, IMU, cedolare secca, plusvalenza immobiliare, locazioni brevi
 - https://calcolapro.it/categoria-risparmio-investimenti.html — Hub con 5 calcolatori per il risparmio: conto deposito, buoni fruttiferi postali, piano di risparmio, prestito personale, fondo pensione
 - https://calcolapro.it/categoria-tasse-fisco.html — Hub con 6 calcolatori fiscali: IVA, ISEE, detrazioni 730, bollo auto, interessi di mora, prestazione occasionale

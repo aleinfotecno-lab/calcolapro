@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:locale" content="it_IT" />
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -57,7 +57,7 @@
   </script>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Quattordicesima Netta 2026","item":"https://calcolapro.it/calcolo-quattordicesima-netta.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo Quattordicesima Netta 2026","item":"https://calcolapro.it/calcolo-quattordicesima-netta.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -74,7 +74,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 38 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -92,13 +92,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
-              <a href="calcolo-quattordicesima-netta.html">Quattordicesima</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -184,7 +186,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -202,18 +204,18 @@
         <div class="field">
           <label for="stipendioLordo">Stipendio lordo mensile</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="stipendioLordo" value="2000" min="0" class="has-prefix"/></div>
-          <p class="hint">Retribuzione lorda ordinaria di una mensilità dalla tua busta paga</p>
+          <input type="number" id="stipendioLordo" value="2000" min="0" class="has-prefix" aria-describedby="stipendioLordo-help"/></div>
+          <p class="hint" id="stipendioLordo-help">Retribuzione lorda ordinaria di una mensilità dalla tua busta paga</p>
         </div>
         <div class="field">
           <label for="lordo14">Importo lordo della quattordicesima</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="lordo14" value="2000" min="0" class="has-prefix"/></div>
-          <p class="hint">Di norma coincide con lo stipendio lordo mensile, salvo diversa previsione del CCNL</p>
+          <input type="number" id="lordo14" value="2000" min="0" class="has-prefix" aria-describedby="lordo14-help"/></div>
+          <p class="hint" id="lordo14-help">Di norma coincide con lo stipendio lordo mensile, salvo diversa previsione del CCNL</p>
         </div>
         <div class="field">
           <label for="mesiMaturati">Mesi di servizio maturati nell'anno</label>
-          <select id="mesiMaturati">
+          <select id="mesiMaturati" aria-describedby="mesiMaturati-help">
             <option value="12" selected>12 mesi (anno intero)</option>
             <option value="11">11 mesi</option>
             <option value="10">10 mesi</option>
@@ -222,7 +224,7 @@
             <option value="6">6 mesi</option>
             <option value="4">4 mesi</option>
           </select>
-          <p class="hint">Part-time o tempo determinato: l'importo si riduce in proporzione</p>
+          <p class="hint" id="mesiMaturati-help">Part-time o tempo determinato: l'importo si riduce in proporzione</p>
         </div>
       </div>
 
@@ -231,10 +233,10 @@
         <div class="field">
           <label>Zona fiscale (per l'addizionale regionale)</label>
           <div class="radio-group">
-            <label><input type="radio" name="area" value="altro" checked> Centro-Nord</label>
-            <label><input type="radio" name="area" value="sud"> Sud e Isole</label>
+            <label><input type="radio" id="area-altro" name="area" value="altro" checked aria-describedby="area-help"> Centro-Nord</label>
+            <label><input type="radio" id="area-sud" name="area" value="sud" aria-describedby="area-help"> Sud e Isole</label>
           </div>
-          <p class="hint">Stima semplificata: 1,73% (Centro-Nord) o 1,23% (Sud e Isole) di addizionali regionale+comunale medie</p>
+          <p class="hint" id="area-help">Stima semplificata: 1,73% (Centro-Nord) o 1,23% (Sud e Isole) di addizionali regionale+comunale medie</p>
         </div>
       </div>
 
@@ -262,7 +264,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span>📊</span>
-          <h3>Altre mensilità e voci della tua busta paga</h3>
+          <h2>Altre mensilità e voci della tua busta paga</h2>
         </div>
         <p class="tool-cluster-sub">Confronta con lo stipendio ordinario, il TFR accumulato e gli straordinari.</p>
         <div class="tool-cluster-grid">
@@ -297,7 +299,7 @@
       </div>
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="lordonetto.html" class="cross-link-pill">💵 Stipendio lordo/netto</a>
@@ -310,16 +312,16 @@
 
     <div class="seo-section">
       <h2>Quattordicesima 2026: cos'è, chi la riceve e come si calcola il netto</h2>
-      <p>La quattordicesima è una mensilità aggiuntiva erogata generalmente a giugno o luglio insieme alla busta paga. A differenza della tredicesima, che spetta per legge a (quasi) tutti i lavoratori dipendenti a dicembre, la quattordicesima <strong>non è un obbligo generalizzato</strong>: la sua erogazione dipende esclusivamente da quanto previsto dal CCNL applicato o da eventuali accordi aziendali di secondo livello.</p>
+      <p>La quattordicesima è una mensilità aggiuntiva erogata generalmente a giugno o luglio insieme alla busta paga. A differenza della tredicesima, che spetta per legge a (quasi) tutti i lavoratori dipendenti a dicembre, la quattordicesima <strong>non è un obbligo generalizzato</strong>: la sua erogazione dipende esclusivamente da quanto previsto dal <a href="calcolo-costo-lavoro.html">CCNL applicato</a> o da eventuali accordi aziendali di secondo livello.</p>
 
       <h3>Chi ha diritto alla quattordicesima</h3>
-      <p>Tra i principali CCNL che prevedono la quattordicesima ci sono <strong>commercio e terziario, turismo e pubblici esercizi, vigilanza privata e servizi fiduciari, autotrasporto e logistica, multiservizi e pulizie</strong>, oltre ad alcuni contratti del settore chimico-farmaceutico e del terzo settore/cooperative sociali. Ne sono generalmente esclusi il <strong>pubblico impiego</strong> (con poche eccezioni), il CCNL metalmeccanici, i collaboratori co.co.co., gli autonomi con partita IVA e colf e badanti. Anche i lavoratori part-time, in apprendistato e a tempo determinato hanno diritto alla quattordicesima, ma in misura proporzionale ai periodi effettivamente lavorati.</p>
+      <p>Tra i principali CCNL che prevedono la quattordicesima ci sono <strong>commercio e terziario, turismo e pubblici esercizi, vigilanza privata e servizi fiduciari, autotrasporto e logistica, multiservizi e pulizie</strong>, oltre ad alcuni contratti del settore chimico-farmaceutico e del terzo settore/cooperative sociali. Ne sono generalmente esclusi il <strong>pubblico impiego</strong> (con poche eccezioni), il CCNL metalmeccanici, i collaboratori co.co.co., gli autonomi con <a href="partitaiva.html">partita IVA</a> e colf e badanti. Anche i lavoratori part-time, in apprendistato e a tempo determinato hanno diritto alla quattordicesima, ma in misura proporzionale ai periodi effettivamente lavorati.</p>
 
       <h3>Come si calcola l'importo lordo</h3>
       <p>La formula standard è: <strong>retribuzione mensile lorda × mesi di servizio maturati nel periodo di riferimento ÷ 12</strong>. Chi ha lavorato l'intero anno di riferimento riceve una mensilità piena, pari allo stipendio lordo mensile; chi ha lavorato solo una parte dell'anno (nuova assunzione, contratto a termine, dimissioni) riceve un rateo proporzionale, maturato a condizione di almeno 15 giorni di servizio nel mese. Per il part-time, l'importo si riduce ulteriormente in base alla percentuale di orario contrattuale rispetto al full-time.</p>
 
       <h3>Come viene tassata la quattordicesima</h3>
-      <p>Il meccanismo di tassazione è identico a quello della tredicesima: sull'importo lordo si applicano prima i <strong>contributi INPS al 9,19%</strong>, poi l'<strong>IRPEF</strong> calcolata per scaglioni in base a dove si colloca la mensilità nel reddito annuo complessivo del lavoratore (nel 2026: 23% fino a 28.000 €, 33% da 28.001 a 50.000 €, 43% oltre 50.000 €). La differenza sostanziale rispetto a una mensilità ordinaria è che sulla quattordicesima <strong>non si applicano le detrazioni da lavoro dipendente</strong>, che normalmente riducono l'imposta netta dovuta. Questo è il motivo per cui il netto della quattordicesima risulta quasi sempre proporzionalmente inferiore a quello di un mese di stipendio normale, anche a parità di importo lordo. Alle imposte si sommano infine le addizionali regionale e comunale, che variano in base al comune di residenza.</p>
+      <p>Il meccanismo di tassazione è identico a quello della tredicesima: sull'importo lordo si applicano prima i <strong>contributi INPS al 9,19%</strong>, poi l'<strong>IRPEF</strong> calcolata per scaglioni in base a dove si colloca la mensilità nel reddito annuo complessivo del lavoratore (nel 2026: 23% fino a 28.000 €, 33% da 28.001 a 50.000 €, 43% oltre 50.000 €). La differenza sostanziale rispetto a una mensilità ordinaria è che sulla quattordicesima <strong>non si applicano le <a href="calcolo-detrazioni-730.html">detrazioni da lavoro dipendente</a></strong>, che normalmente riducono l'imposta netta dovuta. Questo è il motivo per cui il netto della quattordicesima risulta quasi sempre proporzionalmente inferiore a quello di un mese di stipendio normale, anche a parità di importo lordo. Alle imposte si sommano infine le addizionali regionale e comunale, che variano in base al comune di residenza.</p>
 
       <h3>Quattordicesima pensionati INPS: un istituto diverso</h3>
       <p>Chi cerca "quattordicesima" spesso trova risultati riferiti anche ai pensionati: si tratta però di una misura INPS completamente distinta da quella dei lavoratori dipendenti, senza alcun collegamento con i CCNL. Riguarda chi ha <strong>almeno 64 anni compiuti</strong> entro il 31 dicembre e un reddito personale (non del nucleo familiare) entro soglie di legge: nel 2026, fino a <strong>11.931,08 €</strong> per l'importo pieno o fino a <strong>15.908,10 €</strong> per l'importo ridotto (con una clausola di salvaguardia per chi supera di poco la soglia). Gli importi vanno da <strong>336 a 655 €</strong> in base agli anni di contribuzione versati e alla fascia di reddito, e vengono accreditati automaticamente con la pensione di luglio, senza necessità di presentare domanda.</p>
@@ -361,7 +363,7 @@
       <h3>Fonti ufficiali</h3>
       <ul>
         <li><a href="https://www.agenziaentrate.gov.it/portale/imposta-sul-reddito-delle-persone-fisiche-irpef-/aliquote-e-calcolo-dell-irpef" target="_blank" rel="noopener">Agenzia delle Entrate — Aliquote e calcolo dell'IRPEF 2026</a></li>
-        <li><a href="https://www.informazionefiscale.it/quali-ccnl-hanno-quattordicesima-contratti" target="_blank" rel="noopener">InformazioneFiscale.it — CCNL che prevedono la quattordicesima mensilità</a></li>
+        <li><a href="https://www.cnel.it/Archivio-Contratti" target="_blank" rel="noopener">CNEL — Archivio Nazionale dei contratti collettivi (CCNL): mensilità aggiuntive</a></li>
         <li><a href="https://www.inps.it" target="_blank" rel="noopener">INPS — Quattordicesima sulle pensioni: requisiti e importi</a></li>
       </ul>
       <span class="src-note">Fonti consultate a luglio 2026.</span>
@@ -394,7 +396,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -406,14 +408,15 @@
           <li><a href="calcolo-tfr-liquidazione.html">Simulatore TFR</a></li>
           <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
           <li><a href="calcolo-straordinari.html">Straordinari</a></li>
-          <li><a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a></li>
+          <li><a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a></li>
           <li><a href="partitaiva.html">Partita IVA</a></li>
           <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
           <li><a href="divisione-conto.html">Divisione Conto</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -426,7 +429,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -451,20 +454,52 @@
 
     function fmt(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
+      pulisciErroreCampo('stipendioLordo');
+      pulisciErroreCampo('lordo14');
       const stipendioLordo = parseFloat(document.getElementById('stipendioLordo').value) || 0;
       const lordo14Input = parseFloat(document.getElementById('lordo14').value) || 0;
       const mesiMaturati = parseFloat(document.getElementById('mesiMaturati').value) || 12;
       const area = document.querySelector('input[name="area"]:checked').value;
 
-      if (stipendioLordo <= 0 || lordo14Input <= 0) { alert('Inserisci una retribuzione valida.'); return; }
+      if (stipendioLordo <= 0 || lordo14Input <= 0) {
+        if (stipendioLordo <= 0) mostraErroreCampo('stipendioLordo', 'Inserisci una retribuzione valida.');
+        if (lordo14Input <= 0) mostraErroreCampo('lordo14', 'Inserisci una retribuzione valida.');
+        document.getElementById(stipendioLordo <= 0 ? 'stipendioLordo' : 'lordo14').focus();
+        return;
+      }
 
       const lordo14 = lordo14Input * (mesiMaturati / 12);
       const inps14 = lordo14 * 0.0919;
       const imponibile14 = lordo14 - inps14;
 
-      // Colloca l'imponibile della 14esima negli scaglioni IRPEF 2026, sopra il reddito ordinario annuo
-      const ralOrdinaria = stipendioLordo * 12;
+      // Colloca l'imponibile della 14esima negli scaglioni IRPEF 2026, sopra il reddito ordinario annuo (12 mensilità + tredicesima)
+      const ralOrdinaria = stipendioLordo * 13;
       const imponibileOrdinario = ralOrdinaria * (1 - 0.0919);
       const soglia1 = 28000, soglia2 = 50000;
       let cursor = imponibileOrdinario, remaining = imponibile14, irpef14 = 0;
@@ -498,13 +533,7 @@
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
     }
 
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
+
   </script>
 
   <div class="amz-sticky" id="amzSticky">
@@ -512,18 +541,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

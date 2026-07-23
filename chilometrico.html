@@ -29,7 +29,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -44,18 +44,18 @@
   <meta property="og:url" content="https://calcolapro.it/chilometrico.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Calcola Rimborso Chilometrico 2026 | Tabelle ACI">
   <meta name="twitter:description" content="Calcola il rimborso chilometrico con le tabelle ACI 2026. Auto, moto e ciclomotore. Inserisci km, cilindrata e periodo per ottenere il rimborso esatto. Gratuito.">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Rimborso Chilometrico ACI","item":"https://calcolapro.it/chilometrico.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Rimborso Chilometrico ACI","item":"https://calcolapro.it/chilometrico.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -72,7 +72,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -90,12 +90,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -181,7 +184,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -209,13 +212,13 @@
         </div>
         <div class="field" id="fieldCilindrata">
           <label for="cilindrata">Cilindrata</label>
-          <select id="cilindrata">
+          <select id="cilindrata" aria-describedby="cilindrata-help">
             <option value="0.3676">Fino a 1000 cc — €0,3676/km</option>
             <option value="0.4344" selected>1001–1600 cc — €0,4344/km</option>
             <option value="0.5030">1601–2000 cc — €0,5030/km</option>
             <option value="0.6030">Oltre 2000 cc — €0,6030/km</option>
           </select>
-          <p class="hint">Tariffe ACI indicative 2026 — verifica sempre le tabelle ufficiali</p>
+          <p class="hint" id="cilindrata-help">Tariffe ACI indicative 2026 — verifica sempre le tabelle ufficiali</p>
         </div>
       </div>
 
@@ -228,9 +231,9 @@
           <label for="km">Chilometri totali percorsi</label>
           <div class="input-wrap">
             <span class="input-prefix">km</span>
-            <input type="number" id="km" value="500" min="0" style="padding-left:52px;" />
+            <input type="number" id="km" value="500" min="0" style="padding-left:52px;" aria-describedby="km-help" />
           </div>
-          <p class="hint">Totale del periodo (giornata, settimana, mese…)</p>
+          <p class="hint" id="km-help">Totale del periodo (giornata, settimana, mese…)</p>
         </div>
         <div class="field">
           <label for="periodo">Periodo di riferimento</label>
@@ -244,13 +247,13 @@
         </div>
         <div class="field">
           <label for="percentuale">Quota rimborsata dal datore</label>
-          <select id="percentuale">
+          <select id="percentuale" aria-describedby="percentuale-help">
             <option value="1">100% — rimborso totale</option>
             <option value="0.75">75%</option>
             <option value="0.5">50%</option>
             <option value="0.25">25%</option>
           </select>
-          <p class="hint">Se il datore rimborsa solo una parte</p>
+          <p class="hint" id="percentuale-help">Se il datore rimborsa solo una parte</p>
         </div>
       </div>
 
@@ -286,7 +289,7 @@
       </div>
 
       <div class="affiliazioni-box" id="affiliazioni" style="display:none;">
-        <h3>🚗 Strumenti utili per i tuoi spostamenti</h3>
+        <h2>🚗 Strumenti utili per i tuoi spostamenti</h2>
         <div class="affiliazioni-box-grid">
           <a href="https://amzn.to/4n6gHJ8" class="aff-box-item" target="_blank" rel="noopener sponsored">
             <div class="aff-label">📱 Smartphone consigliato</div>
@@ -300,7 +303,7 @@
       </div>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-bollo-auto.html" class="cross-link-pill">🚗 Bollo Auto 2026</a>
@@ -315,13 +318,13 @@
       <h2>Come funziona il rimborso chilometrico in Italia</h2>
       <p>Il rimborso chilometrico è l'indennità riconosciuta al lavoratore o al professionista che utilizza il proprio veicolo per motivi di lavoro. In Italia le tariffe di riferimento sono stabilite annualmente dall'ACI (Automobile Club d'Italia) e variano in base al tipo di veicolo e alla cilindrata.</p>
       <h3>Le tabelle ACI 2026</h3>
-      <p>Le tabelle ACI vengono aggiornate ogni anno e tengono conto del costo chilometrico medio per carburante, manutenzione, ammortamento e assicurazione. Il datore di lavoro che rimborsa i dipendenti usando le tariffe ACI non applica alcuna ritenuta fiscale sul rimborso, che risulta quindi esente da tassazione.</p>
+      <p>Le tabelle ACI vengono aggiornate ogni anno e tengono conto del costo chilometrico medio per carburante, manutenzione, ammortamento e assicurazione. Il <a href="calcolo-costo-lavoro.html">datore di lavoro</a> che rimborsa i dipendenti usando le tariffe ACI non applica alcuna ritenuta fiscale sul rimborso, che risulta quindi esente da tassazione.</p>
       <h3>Rimborso tassabile e non tassabile</h3>
-      <p>Il rimborso chilometrico calcolato sulle tariffe ACI è completamente esente da imposte e contributi previdenziali, a condizione che il percorso e i km siano documentati con apposito foglio trasferte o nota spese. Importi superiori alle tariffe ACI sono invece soggetti a tassazione come reddito da lavoro.</p>
+      <p>Il rimborso chilometrico calcolato sulle tariffe ACI è completamente esente da imposte e <a href="pensione.html">contributi previdenziali</a>, a condizione che il percorso e i km siano documentati con apposito foglio trasferte o nota spese. Importi superiori alle tariffe ACI sono invece soggetti a tassazione come reddito da lavoro.</p>
       <h3>Come documentare i km percorsi</h3>
       <p>Per ottenere il rimborso è necessario compilare una nota spese indicando data, luogo di partenza, destinazione, motivo della trasferta e chilometri percorsi. Alcuni datori di lavoro richiedono anche l'indicazione della targa del veicolo e la firma del responsabile.</p>
       <h3>Rimborso per autonomi e partite IVA</h3>
-      <p>I lavoratori autonomi e i titolari di partita IVA possono dedurre le spese auto in misura variabile (dal 20% al 100% a seconda del regime fiscale e dell'uso del veicolo). Il rimborso chilometrico tra autonomi è invece soggetto a ritenuta d'acconto.</p>
+      <p>I lavoratori autonomi e i titolari di <a href="partitaiva.html">partita IVA</a> possono dedurre le spese auto in misura variabile (dal 20% al 100% a seconda del regime fiscale e dell'uso del veicolo). Il rimborso chilometrico tra autonomi è invece soggetto a ritenuta d'acconto.</p>
     </div>
 
   <section class="container content-section">
@@ -409,7 +412,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi. Verifica sempre le tabelle ACI ufficiali aggiornate.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -427,7 +430,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -440,7 +443,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -531,15 +534,6 @@
       res.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   </script>
-  <script>
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
-  </script>
 
   <!-- BOX CONFRONTO RIMBORSO KM — sostituisci href con i tuoi link affiliati reali -->
   <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;max-width:720px;margin-left:auto;margin-right:auto;">
@@ -577,18 +571,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

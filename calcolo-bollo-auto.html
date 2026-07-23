@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -60,7 +60,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Tasse e Tributi","item":"https://calcolapro.it/#tasse"},{"@type":"ListItem","position":3,"name":"Calcolo Bollo Auto","item":"https://calcolapro.it/calcolo-bollo-auto.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Tasse e Tributi","item":"https://calcolapro.it/categoria-tasse-fisco.html"},{"@type":"ListItem","position":3,"name":"Calcolo Bollo Auto","item":"https://calcolapro.it/calcolo-bollo-auto.html"}]}
   </script>
 </head>
 <body>
@@ -78,7 +78,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -96,12 +96,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -184,7 +187,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#tasse" itemprop="item"><span itemprop="name">Tasse e Tributi</span></a>
+        <a href="https://calcolapro.it/categoria-tasse-fisco.html" itemprop="item"><span itemprop="name">Tasse e Tributi</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -213,8 +216,8 @@
         <div class="card-title"><span class="card-icon">🚗</span> Il tuo veicolo</div>
         <div class="field">
           <label for="kw">Potenza motore (kW) — campo P.2 del libretto</label>
-          <input type="number" id="kw" value="85" min="1" max="1000" step="1"/>
-          <p class="hint">Non conosci i kW? Usa il convertitore qui sopra oppure cerca la targa sul sito ACI o Ministero dei Trasporti.</p>
+          <input type="number" id="kw" value="85" min="1" max="1000" step="1" aria-describedby="kw-help"/>
+          <p class="hint" id="kw-help">Non conosci i kW? Usa il convertitore qui sopra oppure cerca la targa sul sito ACI o Ministero dei Trasporti.</p>
         </div>
         <div class="field">
           <label for="tipoVeicolo">Tipo di veicolo</label>
@@ -226,18 +229,18 @@
         </div>
         <div class="field" id="euroField">
           <label for="classeEuro">Classe ambientale (campo V.9 del libretto)</label>
-          <select id="classeEuro">
+          <select id="classeEuro" aria-describedby="classeEuro-help">
             <option value="456">Euro 4 / Euro 5 / Euro 6</option>
             <option value="3">Euro 3</option>
             <option value="2">Euro 2</option>
             <option value="1">Euro 1</option>
             <option value="0">Euro 0</option>
           </select>
-          <p class="hint">Le tariffe base nazionali sono più alte per i veicoli più vecchi/inquinanti. Trovi la classe Euro sulla carta di circolazione.</p>
+          <p class="hint" id="classeEuro-help">Le tariffe base nazionali sono più alte per i veicoli più vecchi/inquinanti. Trovi la classe Euro sulla carta di circolazione.</p>
         </div>
         <div class="field" id="regioneField">
           <label for="regione">Regione di residenza</label>
-          <select id="regione">
+          <select id="regione" aria-describedby="regione-help">
             <option value="standard">Tutte le regioni (tariffa base)</option>
             <option value="lomba">Lombardia (+5% addizionale)</option>
             <option value="standard">Piemonte</option>
@@ -250,7 +253,7 @@
             <option value="standard">Sardegna</option>
             <option value="standard">Altre regioni</option>
           </select>
-          <p class="hint">La maggior parte delle regioni applica la tariffa base nazionale. Alcune regioni come la Lombardia applicano una piccola addizionale.</p>
+          <p class="hint" id="regione-help">La maggior parte delle regioni applica la tariffa base nazionale. Alcune regioni come la Lombardia applicano una piccola addizionale.</p>
         </div>
       </div>
 
@@ -258,31 +261,31 @@
         <div class="card-title"><span class="card-icon">⚡</span> Agevolazioni</div>
         <div class="field" style="background:#f0fdf4;border-radius:10px;padding:14px;border:1.5px solid #bbf7d0;">
           <label style="font-weight:700;color:#166534;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
-            <input type="checkbox" id="elettrico" style="width:16px;height:16px;cursor:pointer;" onchange="toggleElettr()">
+            <input type="checkbox" id="elettrico" style="width:16px;height:16px;cursor:pointer;" onchange="toggleElettr()" aria-describedby="elettrico-help">
             Veicolo elettrico puro (100% BEV)
           </label>
-          <p class="hint" style="margin-top:6px;margin-bottom:0;color:#166534;">Esente per 5 anni dalla prima immatricolazione nella maggior parte delle regioni.</p>
+          <p class="hint" id="elettrico-help" style="margin-top:6px;margin-bottom:0;color:#166534;">Esente per 5 anni dalla prima immatricolazione nella maggior parte delle regioni.</p>
         </div>
         <div class="field" id="annoImmatField" style="display:none;">
           <label for="annoImmat">Anno di prima immatricolazione</label>
-          <input type="number" id="annoImmat" value="2023" min="2000" max="2026"/>
-          <p class="hint">Per verificare se i 5 anni di esenzione sono ancora attivi.</p>
+          <input type="number" id="annoImmat" value="2023" min="2000" max="2026" aria-describedby="annoImmat-help"/>
+          <p class="hint" id="annoImmat-help">Per verificare se i 5 anni di esenzione sono ancora attivi.</p>
         </div>
         <div class="field" style="background:#fef3c7;border-radius:10px;padding:14px;border:1.5px solid #fde68a;margin-top:12px;">
           <label style="font-weight:700;color:#92400e;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
-            <input type="checkbox" id="storico" style="width:16px;height:16px;cursor:pointer;" onchange="toggleStorico()">
+            <input type="checkbox" id="storico" style="width:16px;height:16px;cursor:pointer;" onchange="toggleStorico()" aria-describedby="storico-help">
             Veicolo storico / d'epoca
           </label>
-          <p class="hint" style="margin-top:6px;margin-bottom:0;color:#92400e;">Veicoli oltre 30 anni: esenti. Veicoli 20-29 anni iscritti a registri storici: riduzione.</p>
+          <p class="hint" id="storico-help" style="margin-top:6px;margin-bottom:0;color:#92400e;">Veicoli oltre 30 anni: esenti. Veicoli 20-29 anni iscritti a registri storici: riduzione.</p>
         </div>
         <div class="field" id="annoStorField" style="display:none;">
           <label for="annoStor">Anno di prima immatricolazione</label>
-          <input type="number" id="annoStor" value="1990" min="1900" max="2006"/>
-          <p class="hint">Inserisci l'anno per verificare se hai diritto all'esenzione (≥30 anni) o alla riduzione (20-29 anni).</p>
+          <input type="number" id="annoStor" value="1990" min="1900" max="2006" aria-describedby="annoStor-help"/>
+          <p class="hint" id="annoStor-help">Inserisci l'anno per verificare se hai diritto all'esenzione (≥30 anni) o alla riduzione (20-29 anni).</p>
         </div>
         <div class="field">
           <label for="mesiPossesso">Mesi di possesso nell'anno (per auto nuove)</label>
-          <select id="mesiPossesso">
+          <select id="mesiPossesso" aria-describedby="mesiPossesso-help">
             <option value="12" selected>12 mesi (bollo annuale completo)</option>
             <option value="11">11 mesi</option>
             <option value="10">10 mesi</option>
@@ -296,7 +299,7 @@
             <option value="2">2 mesi</option>
             <option value="1">1 mese</option>
           </select>
-          <p class="hint">Per un veicolo acquistato durante l'anno, il bollo si paga proporzionalmente ai mesi residui fino alla scadenza.</p>
+          <p class="hint" id="mesiPossesso-help">Per un veicolo acquistato durante l'anno, il bollo si paga proporzionalmente ai mesi residui fino alla scadenza.</p>
         </div>
       </div>
 
@@ -350,7 +353,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">💡</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri calcolatori auto e spese</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri calcolatori auto e spese</h2>
         </div>
         <p class="tool-cluster-sub">Calcola anche rimborso chilometrico, assicurazione e tutte le spese del tuo veicolo.</p>
         <div class="tool-cluster-grid">
@@ -386,7 +389,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="chilometrico.html" class="cross-link-pill">🚗 Rimborso Km ACI</a>
@@ -399,7 +402,7 @@
 
     <div class="seo-section">
       <h2>Bollo auto 2026: tutto quello che devi sapere</h2>
-      <p>Il bollo auto (tecnicamente: tassa automobilistica regionale) è un'imposta che ogni proprietario di veicolo deve pagare annualmente. Non è legato al chilometraggio o all'uso del veicolo, ma alla sola proprietà. Vediamo come funziona il calcolo e quando si paga nel 2026.</p>
+      <p>Il bollo auto (tecnicamente: tassa automobilistica regionale) è un'imposta che ogni proprietario di veicolo deve pagare annualmente. Non è legato al chilometraggio o all'uso del veicolo, ma alla sola <a href="calcolo-imu.html">proprietà</a>. Vediamo come funziona il calcolo e quando si paga nel 2026.</p>
 
       <h3>Come si calcola il bollo auto</h3>
       <p>La formula di base è semplice: si moltiplica la potenza del motore in <strong>kW</strong> per la tariffa stabilita dal MIMIT (Ministero delle Imprese e del Made in Italy):</p>
@@ -411,7 +414,7 @@
       <p>Alcune regioni applicano un'<strong>addizionale regionale</strong> che può aumentare leggermente l'importo finale. La Lombardia, ad esempio, applica un'addizionale del 5% circa.</p>
 
       <h3>Dove trovo i kW della mia auto?</h3>
-      <p>La potenza del motore in kW si trova sul <strong>libretto di circolazione</strong> (la carta di circolazione) al campo <strong>P.2</strong>, denominato "Potenza massima in kW". Se hai solo i dati in CV (cavalli vapore), dividi per 1,36 per ottenere i kW. In alternativa, puoi trovare i dati inserendo la targa sul sito del Ministero dei Trasporti o sul portale ACI.</p>
+      <p>La potenza del motore in kW si trova sul <strong>libretto di circolazione</strong> (la carta di circolazione) al campo <strong>P.2</strong>, denominato "Potenza massima in kW". Se hai solo i dati in CV (cavalli vapore), dividi per 1,36 per ottenere i kW. In alternativa, puoi trovare i dati inserendo la targa sul sito del Ministero dei Trasporti o sul portale ACI. Se usi l'auto anche per lavoro, con questi stessi dati puoi calcolare anche il <a href="chilometrico.html">rimborso chilometrico</a> spettante.</p>
 
       <h3>Agevolazioni e esenzioni 2026</h3>
       <p>Alcune categorie di veicoli beneficiano di riduzioni o esenzioni:</p>
@@ -511,7 +514,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi. Verifica sempre l'importo ufficiale su aci.it o portale della tua Regione.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -528,7 +531,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -541,7 +544,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>

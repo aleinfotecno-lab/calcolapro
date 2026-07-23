@@ -442,10 +442,6 @@ input[type="number"].has-prefix,
 input[type="text"].has-prefix {
   padding-left: 42px;
 }
-input[type="number"].has-suffix,
-input[type="text"].has-suffix {
-  padding-right: 42px;
-}
 select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -459,22 +455,6 @@ textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
 .radio-group {
   display: flex; gap: 10px; flex-wrap: wrap;
 }
-.radio-label {
-  display: flex; align-items: center; gap: 8px;
-  cursor: pointer; font-size: 14px;
-  padding: 10px 16px;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--white);
-  transition: border-color var(--transition), background var(--transition);
-  user-select: none;
-}
-.radio-label:has(input:checked) {
-  border-color: var(--blue);
-  background: var(--blue-xlight);
-  color: var(--blue);
-}
-.radio-label input[type="radio"] { accent-color: var(--blue); }
 
 /* ── RANGE SLIDER ── */
 input[type="range"] {
@@ -696,6 +676,7 @@ tbody tr:nth-child(even):hover { background: var(--blue-xlight); }
   border: 1px solid var(--blue-light);
   border-radius: var(--radius-lg);
 }
+.cross-links h2,
 .cross-links h3 {
   font-size: 14px; font-weight: 700;
   color: var(--blue-dark); margin-bottom: 14px;
@@ -769,6 +750,7 @@ tbody tr:nth-child(even):hover { background: var(--blue-xlight); }
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
+.aff-box h2,
 .aff-box h3 {
   font-size: 14px; font-weight: 700;
   color: var(--text-muted); margin-bottom: 16px;
@@ -969,24 +951,7 @@ body:has(#cp-cookie-banner) .amz-sticky { display: none !important; }
 /* ═══════════════════════════════════════════════════════════
    UTILITIES
    ═══════════════════════════════════════════════════════════ */
-.text-center { text-align: center; }
 .text-muted   { color: var(--text-muted); }
-.mt-4  { margin-top: 16px; }
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-.mt-8  { margin-top: 32px; }
-.mt-12 { margin-top: 48px; }
-.mb-4  { margin-bottom: 16px; }
-.mb-8  { margin-bottom: 32px; }
 .hidden { display: none !important; }
 
 /* ── ANIMATIONS ── */

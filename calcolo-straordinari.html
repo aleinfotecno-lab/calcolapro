@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:locale" content="it_IT" />
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -54,7 +54,7 @@
   </script>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Straordinari 2026","item":"https://calcolapro.it/calcolo-straordinari.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo Straordinari 2026","item":"https://calcolapro.it/calcolo-straordinari.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -71,7 +71,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -89,12 +89,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -168,7 +171,7 @@
       <p class="page-subtitle">Inserisci il tuo stipendio, le ore straordinarie e la maggiorazione applicata per scoprire quanto ti spetta in busta paga, lordo e netto stimato.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 09/07/2026</span>
+        <span>📅 Aggiornato il 23/07/2026</span>
       </div>
     </div>
   </div>
@@ -180,7 +183,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -198,8 +201,8 @@
         <div class="field">
           <label for="stipendioLordo">Stipendio lordo mensile</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="stipendioLordo" value="2000" min="0" class="has-prefix"/></div>
-          <p class="hint">Lo stipendio lordo mensile dalla tua busta paga</p>
+          <input type="number" id="stipendioLordo" value="2000" min="0" class="has-prefix" aria-describedby="stipendioLordo-help"/></div>
+          <p class="hint" id="stipendioLordo-help">Lo stipendio lordo mensile dalla tua busta paga</p>
         </div>
         <div class="field">
           <label for="oreContrattuali">Ore contrattuali settimanali</label>
@@ -211,12 +214,12 @@
         </div>
         <div class="field">
           <label for="mensilita">Numero di mensilità</label>
-          <select id="mensilita">
+          <select id="mensilita" aria-describedby="mensilita-help">
             <option value="13" selected>13 mensilità</option>
             <option value="14">14 mensilità</option>
             <option value="12">12 mensilità</option>
           </select>
-          <p class="hint">Include tredicesima (e quattordicesima se prevista dal CCNL)</p>
+          <p class="hint" id="mensilita-help">Include tredicesima (e quattordicesima se prevista dal CCNL)</p>
         </div>
       </div>
 
@@ -224,18 +227,18 @@
         <div class="card-title"><span class="card-icon">⏱️</span> Le ore straordinarie</div>
         <div class="field">
           <label for="oreStr1">Ore straordinarie ordinarie (magg. 25%)</label>
-          <input type="number" id="oreStr1" value="8" min="0"/>
-          <p class="hint">Prime ore settimanali oltre l'orario contrattuale (lunedì-sabato)</p>
+          <input type="number" id="oreStr1" value="8" min="0" aria-describedby="oreStr1-help"/>
+          <p class="hint" id="oreStr1-help">Prime ore settimanali oltre l'orario contrattuale (lunedì-sabato)</p>
         </div>
         <div class="field">
           <label for="oreStr2">Ore straordinarie elevate (magg. 50%)</label>
-          <input type="number" id="oreStr2" value="0" min="0"/>
-          <p class="hint">Ore notturne o oltre la soglia del CCNL</p>
+          <input type="number" id="oreStr2" value="0" min="0" aria-describedby="oreStr2-help"/>
+          <p class="hint" id="oreStr2-help">Ore notturne o oltre la soglia del CCNL</p>
         </div>
         <div class="field">
           <label for="oreStr3">Ore festive / domenicali (magg. 50-100%)</label>
-          <input type="number" id="oreStr3" value="0" min="0"/>
-          <p class="hint">Lavoro in giorno festivo o domenica</p>
+          <input type="number" id="oreStr3" value="0" min="0" aria-describedby="oreStr3-help"/>
+          <p class="hint" id="oreStr3-help">Lavoro in giorno festivo o domenica</p>
         </div>
         <div class="field">
           <label for="maggFestivo">Maggiorazione festivi applicata (%)</label>
@@ -272,7 +275,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">📊</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri calcolatori per la tua busta paga</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri calcolatori per la tua busta paga</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Calcola il netto in busta paga, le ferie residue e quanto accumulerai di TFR nel tempo.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -308,7 +311,7 @@
       </div>
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-ferie-permessi.html" class="cross-link-pill">🌴 Ferie e permessi</a>
@@ -321,11 +324,29 @@
 
     <div class="seo-section">
       <h2>Come calcolare il compenso per gli straordinari in Italia</h2>
-      <p>Il lavoro straordinario in Italia è regolato dal D.Lgs. 66/2003 e dai contratti collettivi nazionali (CCNL). Ogni ora oltre l'orario contrattuale prevede una maggiorazione sulla paga oraria ordinaria, la cui percentuale dipende dal CCNL applicato e dal tipo di straordinario.</p>
+      <p>Il lavoro straordinario in Italia è regolato dal D.Lgs. 66/2003 e dai <a href="calcolo-costo-lavoro.html">contratti collettivi nazionali (CCNL)</a>. Ogni ora oltre l'orario contrattuale prevede una maggiorazione sulla paga oraria ordinaria, la cui percentuale dipende dal CCNL applicato e dal tipo di straordinario.</p>
       <h3>Come si calcola la paga oraria?</h3>
-      <p>La paga oraria ordinaria si calcola dividendo lo stipendio lordo annuo (inclusa tredicesima) per le ore annue di lavoro. Con un full-time a 40 ore settimanali, le ore lavorate in un anno sono circa 2.080 (40 ore × 52 settimane). Con stipendio lordo di €24.000 annui, la paga oraria è €24.000 / 2.080 = €11,54/ora.</p>
+      <p>La paga oraria ordinaria si calcola dividendo lo <a href="guida-stipendio-netto-lordo.html">stipendio lordo annuo</a> (inclusa tredicesima) per le ore annue di lavoro. Con un full-time a 40 ore settimanali, le ore lavorate in un anno sono circa 2.080 (40 ore × 52 settimane). Con stipendio lordo di €24.000 annui, la paga oraria è €24.000 / 2.080 = €11,54/ora.</p>
       <h3>Le maggiorazioni per gli straordinari</h3>
-      <p>Le percentuali più comuni previste dai CCNL sono: <strong>25%</strong> per le prime ore di straordinario feriale diurno, <strong>50%</strong> per straordinario notturno o festivo, <strong>50-100%</strong> per il lavoro domenicale. Queste si applicano moltiplicando la paga oraria per (1 + percentuale maggiorazione).</p>
+      <p>Le percentuali più comuni previste dai CCNL sono: <strong>25%</strong> per le prime ore di straordinario feriale diurno, <strong>50%</strong> per straordinario notturno o festivo, <strong>50-100%</strong> per il lavoro domenicale. Queste si applicano moltiplicando la paga oraria per (1 + percentuale maggiorazione). Se il tuo CCNL prevede anche la <a href="calcolo-quattordicesima-netta.html">quattordicesima</a>, ricorda che segue un calcolo a parte rispetto agli straordinari.</p>
+      <h3>Cosa dice la legge: limiti e maggiorazioni</h3>
+      <p>Il <strong>D.Lgs. 66/2003</strong> definisce straordinario il lavoro prestato oltre le 40 ore settimanali (o oltre il minor orario fissato dal contratto). In assenza di una disciplina collettiva, il ricorso allo straordinario è ammesso entro il limite di <strong>250 ore annue</strong> (art. 5). La legge fissa inoltre un tetto invalicabile: la durata media dell'orario, straordinari inclusi, non può superare le <strong>48 ore settimanali</strong> calcolate su un periodo di riferimento di 4 mesi (art. 4), estendibile fino a 6 o 12 mesi dai CCNL. La normativa non stabilisce direttamente le percentuali di maggiorazione, ma impone che lo straordinario sia «computato a parte» e compensato con le maggiorazioni previste dalla contrattazione collettiva.</p>
+      <h3>Le maggiorazioni tipiche per tipo di straordinario</h3>
+      <p>Poiché le percentuali sono fissate dai singoli CCNL, variano da settore a settore. A titolo di esempio, il CCNL Terziario-Commercio (Confcommercio) prevede queste maggiorazioni sulla paga oraria:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Tipo di prestazione</th><th>Maggiorazione (CCNL Terziario)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Straordinario dalla 41ª alla 48ª ora settimanale</td><td>+15%</td></tr>
+            <tr><td>Straordinario oltre la 48ª ora settimanale</td><td>+20%</td></tr>
+            <tr><td>Lavoro festivo</td><td>+30%</td></tr>
+            <tr><td>Lavoro notturno (22:00–6:00)</td><td>+50%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Altri contratti adottano valori diversi: molti CCNL industriali partono dal 25% per lo straordinario feriale diurno e salgono per il notturno e il festivo. Verifica sempre le percentuali del tuo contratto collettivo. Il calcolatore qui sopra usa lo schema più diffuso (25% e 50%) come impostazione di partenza, che puoi adattare al tuo caso. Ricorda infine che il compenso per gli straordinari è reddito da lavoro dipendente e si somma allo stipendio ai fini del calcolo di <a href="lordonetto.html">IRPEF e contributi</a>.</p>
       <h3>Domande frequenti</h3>
       <div class="faq-list">
         <div class="faq-item">
@@ -346,6 +367,17 @@
         </div>
       </div>
     </div>
+
+  <div class="container">
+    <div class="sources-box">
+      <h3>Fonti ufficiali</h3>
+      <ul>
+        <li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-04-08;66" target="_blank" rel="noopener">Normattiva — D.Lgs. 8 aprile 2003, n. 66 (orario di lavoro, artt. 4 e 5)</a></li>
+        <li><a href="https://www.ispettorato.gov.it/" target="_blank" rel="noopener">Ispettorato Nazionale del Lavoro — vigilanza su orario di lavoro e straordinari</a></li>
+      </ul>
+      <span class="src-note">Le percentuali di maggiorazione sono stabilite dai singoli CCNL. Fonti consultate a luglio 2026.</span>
+    </div>
+  </div>
 
   <section class="container related-tools">
     <h3>Strumenti correlati</h3>
@@ -374,7 +406,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -392,7 +424,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -405,7 +437,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -430,7 +462,34 @@
 
     function fmt(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
+      pulisciErroreCampo('stipendioLordo');
       const stipendioLordo = parseFloat(document.getElementById('stipendioLordo').value) || 0;
       const oreContrattuali = parseFloat(document.getElementById('oreContrattuali').value) || 40;
       const mensilita = parseFloat(document.getElementById('mensilita').value) || 13;
@@ -439,7 +498,7 @@
       const oreStr3 = parseFloat(document.getElementById('oreStr3').value) || 0;
       const maggFestivo = parseFloat(document.getElementById('maggFestivo').value) || 70;
 
-      if (stipendioLordo <= 0) { alert('Inserisci uno stipendio valido.'); return; }
+      if (stipendioLordo <= 0) { mostraErroreCampo('stipendioLordo', 'Inserisci uno stipendio valido.'); return; }
 
       // Paga oraria: stipendio lordo annuo / ore annue
       const stipendioAnnuo = stipendioLordo * mensilita;
@@ -479,13 +538,6 @@
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
     }
 
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
   </script>
 
   <div class="amz-sticky" id="amzSticky">
@@ -493,18 +545,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

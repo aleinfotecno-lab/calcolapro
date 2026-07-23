@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -59,7 +59,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Indennità Maternità INPS","item":"https://calcolapro.it/calcolo-maternita-inps.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo Indennità Maternità INPS","item":"https://calcolapro.it/calcolo-maternita-inps.html"}]}
   </script>
 </head>
 <body>
@@ -77,7 +77,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -95,12 +95,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -183,7 +186,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -235,16 +238,16 @@
         </div>
         <div class="field">
           <label for="ccnlMat">Integrazione datoriale (CCNL)</label>
-          <select id="ccnlMat">
+          <select id="ccnlMat" aria-describedby="ccnlMat-help">
             <option value="100">100% — integrazione completa (es. Metalmeccanico, Chimico, Bancario)</option>
             <option value="80" selected>80% — solo INPS (es. Commercio, Terziario, molti CCNL)</option>
             <option value="0">0% — nessuna integrazione (contratti atipici)</option>
           </select>
-          <p class="hint">Molti CCNL integrano il trattamento di maternità al 100%. Verifica il tuo contratto collettivo applicato.</p>
+          <p class="hint" id="ccnlMat-help">Molti CCNL integrano il trattamento di maternità al 100%. Verifica il tuo contratto collettivo applicato.</p>
         </div>
         <div class="field" id="parentaleField">
           <label for="mesiParentale">Mesi di congedo parentale facoltativo (opzionale)</label>
-          <select id="mesiParentale">
+          <select id="mesiParentale" aria-describedby="mesiParentale-help">
             <option value="0" selected>0 mesi (non calcolare)</option>
             <option value="1">1 mese</option>
             <option value="2">2 mesi</option>
@@ -253,7 +256,7 @@
             <option value="5">5 mesi</option>
             <option value="6">6 mesi (max per un genitore)</option>
           </select>
-          <p class="hint">Il congedo parentale facoltativo è indennizzato all'80% per un massimo di 3 mesi complessivi tra i genitori (entro i 6 anni del figlio), poi al 30% fino a un totale di 9 mesi, utilizzabile fino ai 14 anni del figlio.</p>
+          <p class="hint" id="mesiParentale-help">Il congedo parentale facoltativo è indennizzato all'80% per un massimo di 3 mesi complessivi tra i genitori (entro i 6 anni del figlio), poi al 30% fino a un totale di 9 mesi, utilizzabile fino ai 14 anni del figlio.</p>
         </div>
       </div>
 
@@ -308,7 +311,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">🛡️</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri tutele per lavoratori dipendenti</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri tutele per lavoratori dipendenti</h2>
         </div>
         <p class="tool-cluster-sub">Scopri tutte le tutele INPS: malattia, disoccupazione e ferie.</p>
         <div class="tool-cluster-grid">
@@ -344,7 +347,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-malattia-inps.html" class="cross-link-pill">💊 Indennità Malattia INPS</a>
@@ -357,7 +360,7 @@
 
     <div class="seo-section">
       <h2>Indennità di maternità INPS 2026: guida completa al calcolo</h2>
-      <p>Scoprire "quanto si prende in maternità" è una delle domande più cercate da lavoratrici in attesa. La risposta dipende dal tuo stipendio, dal tipo di contratto e dal CCNL applicato. Ecco come funziona il calcolo dettagliato.</p>
+      <p>Scoprire "quanto si prende in maternità" è una delle domande più cercate da lavoratrici in attesa. La risposta dipende dal tuo stipendio, dal tipo di contratto e dal <a href="calcolo-costo-lavoro.html">CCNL applicato</a>. Ecco come funziona il calcolo dettagliato.</p>
 
       <h3>Congedo di maternità obbligatoria: 5 mesi all'80%</h3>
       <p>La lavoratrice dipendente ha diritto al <strong>congedo di maternità obbligatoria</strong> della durata di 5 mesi. Durante questo periodo l'INPS eroga un'indennità pari all'<strong>80% della retribuzione media giornaliera</strong>. Il calcolo:</p>
@@ -366,7 +369,7 @@
         <li>Indennità giornaliera INPS = retribuzione giornaliera × 80%</li>
         <li>Totale 5 mesi ≈ retribuzione giornaliera × 80% × 150 giorni</li>
       </ul>
-      <p>Il datore di lavoro anticipa l'indennità e poi recupera dall'INPS. Molti contratti collettivi (Metalmeccanico, Chimico, Bancario) integrano al 100%: in questo caso la lavoratrice riceve l'intero stipendio durante la maternità.</p>
+      <p>Il datore di lavoro anticipa l'indennità e poi recupera dall'INPS. Molti contratti collettivi (Metalmeccanico, Chimico, Bancario) integrano al 100%: in questo caso la lavoratrice riceve l'intero <a href="guida-stipendio-netto-lordo.html">stipendio</a> durante la maternità.</p>
 
       <h3>Come si distribuiscono i 5 mesi</h3>
       <p>Esistono due opzioni:</p>
@@ -379,7 +382,7 @@
       <p>Il padre lavoratore dipendente ha diritto a <strong>10 giorni di congedo obbligatorio</strong> (nel 2026 confermati) da usare entro i 5 mesi dalla nascita. L'indennità è al <strong>100% della retribuzione</strong> e viene pagata dall'INPS tramite conguaglio. I giorni possono essere non consecutivi e possono sovrapporsi al congedo di maternità della madre.</p>
 
       <h3>Congedo parentale facoltativo</h3>
-      <p>Dopo il congedo obbligatorio, entrambi i genitori possono usufruire del <strong>congedo parentale facoltativo</strong> (ex maternità/paternità facoltativa) fino ai <strong>14 anni</strong> del figlio (limite esteso da 12 a 14 anni dalla Legge di Bilancio 2026, solo per lavoratori dipendenti). Ogni genitore ha diritto a un massimo di 6 mesi (totale 9 mesi tra i due). L'indennità è:</p>
+      <p>Dopo il congedo obbligatorio, entrambi i genitori possono usufruire del <strong>congedo parentale facoltativo</strong> (ex maternità/paternità facoltativa) fino ai <strong>14 anni</strong> del figlio (limite esteso da 12 a 14 anni dalla Legge di Bilancio 2026, solo per <a href="partitaiva.html">lavoratori dipendenti</a>). Ogni genitore ha diritto a un massimo di 6 mesi (totale 9 mesi tra i due). L'indennità è:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li><strong>80%</strong> per un massimo di 3 mesi complessivi tra i genitori, da fruire entro i 6 anni del figlio</li>
         <li><strong>30%</strong> per i mesi rimanenti, fino a un totale di 9 mesi tra i due genitori</li>
@@ -468,7 +471,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza professionale o di un patronato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -485,7 +488,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -498,7 +501,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>

@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -52,7 +52,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Freelance","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Prestazione Occasionale","item":"https://calcolapro.it/calcolo-prestazione-occasionale.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Freelance","item":"https://calcolapro.it/categoria-freelance.html"},{"@type":"ListItem","position":3,"name":"Calcolo Prestazione Occasionale","item":"https://calcolapro.it/calcolo-prestazione-occasionale.html"}]}
   </script>
 </head>
 <body>
@@ -70,7 +70,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -88,12 +88,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -180,7 +183,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Freelance</span></a>
+        <a href="https://calcolapro.it/categoria-freelance.html" itemprop="item"><span itemprop="name">Lavoro e Freelance</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -199,22 +202,22 @@
         <div class="field">
           <label for="compenso">Compenso lordo concordato</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="compenso" value="1500" min="1" step="50" class="has-prefix"/></div>
-          <p class="hint">Il compenso lordo che hai pattuito con il committente, prima della ritenuta d'acconto.</p>
+          <input type="number" id="compenso" value="1500" min="1" step="50" class="has-prefix" aria-describedby="compenso-help"/></div>
+          <p class="hint" id="compenso-help">Il compenso lordo che hai pattuito con il committente, prima della ritenuta d'acconto.</p>
         </div>
         <div class="field">
           <label for="altriRedditi">Redditi occasionali già percepiti quest'anno (altri committenti)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="altriRedditi" value="0" min="0" step="100" class="has-prefix"/></div>
-          <p class="hint">Inserisci il totale già incassato da prestazioni occasionali nell'anno corrente (altri committenti). Serve per capire se superi la soglia INPS di €5.000.</p>
+          <input type="number" id="altriRedditi" value="0" min="0" step="100" class="has-prefix" aria-describedby="altriRedditi-help"/></div>
+          <p class="hint" id="altriRedditi-help">Inserisci il totale già incassato da prestazioni occasionali nell'anno corrente (altri committenti). Serve per capire se superi la soglia INPS di €5.000.</p>
         </div>
         <div class="field">
           <label for="marcaBollo">Marca da bollo</label>
-          <select id="marcaBollo">
+          <select id="marcaBollo" aria-describedby="marcaBollo-help">
             <option value="0">Non applicabile (compenso ≤ €77,47)</option>
             <option value="2" selected>€2,00 (compenso > €77,47 — obbligatoria)</option>
           </select>
-          <p class="hint">La marca da bollo da €2,00 è obbligatoria sulla ricevuta se l'importo supera €77,47. È a carico del prestatore.</p>
+          <p class="hint" id="marcaBollo-help">La marca da bollo da €2,00 è obbligatoria sulla ricevuta se l'importo supera €77,47. È a carico del prestatore.</p>
         </div>
       </div>
 
@@ -222,22 +225,22 @@
         <div class="card-title"><span class="card-icon">🧮</span> Situazione fiscale</div>
         <div class="field">
           <label for="aliquotaIRPEF">Aliquota IRPEF marginale stimata</label>
-          <select id="aliquotaIRPEF">
+          <select id="aliquotaIRPEF" aria-describedby="aliquotaIRPEF-help">
             <option value="0">0% — sotto la soglia no tax area (~€8.500)</option>
             <option value="23" selected>23% — reddito fino a €28.000</option>
             <option value="35">35% — reddito da €28.001 a €50.000</option>
             <option value="43">43% — reddito oltre €50.000</option>
           </select>
-          <p class="hint">Serve per stimare il rimborso o l'addebito IRPEF in dichiarazione. La ritenuta del 20% è un acconto: se la tua aliquota è inferiore, ricevi un rimborso.</p>
+          <p class="hint" id="aliquotaIRPEF-help">Serve per stimare il rimborso o l'addebito IRPEF in dichiarazione. La ritenuta del 20% è un acconto: se la tua aliquota è inferiore, ricevi un rimborso.</p>
         </div>
         <div class="field">
           <label for="regimeINPS">Iscrizione INPS Gestione Separata</label>
-          <select id="regimeINPS">
+          <select id="regimeINPS" aria-describedby="regimeINPS-help">
             <option value="non-iscritto" selected>Non iscritto (prima attività)</option>
             <option value="iscritto-altra">Già iscritto ad altra previdenza (dipendente/artigiano/commerciante)</option>
             <option value="iscritto-separata">Già iscritto solo Gestione Separata</option>
           </select>
-          <p class="hint">L'aliquota INPS Gestione Separata varia in base alla posizione previdenziale: 26,07% per non iscritti ad altra cassa, 24% circa per già iscritti ad altra previdenza obbligatoria.</p>
+          <p class="hint" id="regimeINPS-help">L'aliquota INPS Gestione Separata varia in base alla posizione previdenziale: 26,07% per non iscritti ad altra cassa, 24% circa per già iscritti ad altra previdenza obbligatoria.</p>
         </div>
       </div>
 
@@ -308,7 +311,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">📋</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Lavori molto in proprio? Valuta la P.IVA</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Lavori molto in proprio? Valuta la P.IVA</h2>
         </div>
         <p class="tool-cluster-sub">Se superi spesso i €5.000 o hai più clienti continuativi, la Partita IVA forfettaria può convenire.</p>
         <div class="tool-cluster-grid">
@@ -344,7 +347,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="partitaiva.html" class="cross-link-pill">📋 Dipendente vs P.IVA</a>
@@ -366,10 +369,10 @@
         <li>Versare questa somma all'Agenzia delle Entrate entro il 16 del mese successivo</li>
         <li>Rilasciarti la <strong>Certificazione Unica (CU)</strong> entro marzo dell'anno successivo</li>
       </ul>
-      <p>La ritenuta del 20% è un <em>acconto</em>, non un'imposta definitiva. In dichiarazione dei redditi (730 o Redditi PF), questo importo viene sottratto dall'IRPEF effettivamente dovuta. Se la tua aliquota IRPEF marginale è inferiore al 20%, avrai un rimborso; se è superiore, dovrai pagare la differenza.</p>
+      <p>La ritenuta del 20% è un <em>acconto</em>, non un'imposta definitiva. In dichiarazione dei redditi (<a href="calcolo-detrazioni-730.html">730</a> o Redditi PF), questo importo viene sottratto dall'IRPEF effettivamente dovuta. Se la tua aliquota IRPEF marginale è inferiore al 20%, avrai un rimborso; se è superiore, dovrai pagare la differenza.</p>
 
       <h3>La soglia dei €5.000 e l'INPS Gestione Separata</h3>
-      <p>Molti pensano erroneamente che la soglia di €5.000 sia un limite legale per fare prestazioni occasionali. Non è così: non c'è nessun limite di importo nelle norme fiscali. La soglia dei €5.000 riguarda esclusivamente i <strong>contributi INPS</strong>:</p>
+      <p>Molti pensano erroneamente che la soglia di €5.000 sia un limite legale per fare prestazioni occasionali. Non è così: non c'è nessun limite di importo nelle norme fiscali. La soglia dei €5.000 riguarda esclusivamente i <strong><a href="pensione.html">contributi INPS</a></strong>:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li>Sotto €5.000 di reddito annuo complessivo da prestazioni occasionali (da tutti i committenti): <strong>nessun contributo INPS</strong></li>
         <li>Sopra €5.000: obbligo di iscrizione alla <strong>Gestione Separata INPS</strong> con aliquota ~26,07% sulla parte eccedente</li>
@@ -390,7 +393,7 @@
       </ul>
 
       <h3>Quando conviene aprire la Partita IVA invece?</h3>
-      <p>La prestazione occasionale va bene per lavori sporadici. Considera l'apertura di Partita IVA (regime forfettario al 5% o 15%) quando:</p>
+      <p>La prestazione occasionale va bene per lavori sporadici. Considera l'apertura di Partita IVA (<a href="guida-regime-forfettario.html">regime forfettario</a> al 5% o 15%) quando:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li>Hai più clienti che si ripetono nel corso dell'anno</li>
         <li>Il tuo reddito supera regolarmente i €5.000-€8.000 annui da lavoro autonomo</li>
@@ -443,7 +446,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi. Per situazioni fiscali complesse, consulta un commercialista.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a></li>
           <li><a href="freelance.html">Tariffa Oraria Freelance</a></li>
@@ -460,7 +463,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
@@ -472,7 +475,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>

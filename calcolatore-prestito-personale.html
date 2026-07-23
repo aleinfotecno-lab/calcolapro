@@ -13,14 +13,14 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Calcolatore Prestito Personale 2026 | Rata Mensile | CalcolaPro"/>
   <meta name="twitter:description" content="Calcola la rata mensile del tuo prestito personale: importo, TAN, durata. Scopri TAEG e totale interessi. Simulatore gratuito 2026."/>
   <meta property="og:locale" content="it_IT" />
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/png" href="favicon.svg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Calcolatore Prestito Personale 2026","description":"Calcola la rata mensile del tuo prestito personale. Inserisci importo, tasso e durata. Gratis.","url":"https://calcolapro.it/calcolatore-prestito-personale.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Calcolatore Prestito Personale 2026","description":"Calcola la rata mensile del tuo prestito personale. Inserisci importo, tasso e durata. Gratis.","url":"https://calcolapro.it/calcolatore-prestito-personale.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -84,7 +84,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -102,12 +102,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -199,14 +202,14 @@
         <div class="field">
           <label for="importo">Importo richiesto</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="importo" value="10000" min="500" max="75000" class="has-prefix"/></div>
-          <p class="hint">Da €500 a €75.000 per i prestiti personali standard</p>
+          <input type="number" id="importo" value="10000" min="500" max="75000" class="has-prefix" aria-describedby="importo-help"/></div>
+          <p class="hint" id="importo-help">Da €500 a €75.000 per i prestiti personali standard</p>
         </div>
         <div class="field">
           <label for="tan">Tasso annuo (TAN %)</label>
           <div class="input-wrap"><span class="input-prefix">%</span>
-          <input type="number" id="tan" value="7.5" min="0" max="30" step="0.1" class="has-prefix"/></div>
-          <p class="hint">Il TAN medio sui prestiti personali in Italia è 7-10%</p>
+          <input type="number" id="tan" value="7.5" min="0" max="30" step="0.1" class="has-prefix" aria-describedby="tan-help"/></div>
+          <p class="hint" id="tan-help">Il TAN medio sui prestiti personali in Italia è 7-10%</p>
         </div>
         <div class="field">
           <label for="durata">Durata del prestito</label>
@@ -228,18 +231,18 @@
         <div class="field">
           <label for="spese">Spese di istruttoria</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="spese" value="0" min="0" class="has-prefix"/></div>
-          <p class="hint">Spese una tantum applicate da alcuni istituti</p>
+          <input type="number" id="spese" value="0" min="0" class="has-prefix" aria-describedby="spese-help"/></div>
+          <p class="hint" id="spese-help">Spese una tantum applicate da alcuni istituti</p>
         </div>
         <div class="field">
           <label for="speseGestione">Spese mensili di gestione</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="speseGestione" value="0" min="0" step="0.5" class="has-prefix"/></div>
-          <p class="hint">Se presenti, incidono sul TAEG effettivo</p>
+          <input type="number" id="speseGestione" value="0" min="0" step="0.5" class="has-prefix" aria-describedby="speseGestione-help"/></div>
+          <p class="hint" id="speseGestione-help">Se presenti, incidono sul TAEG effettivo</p>
         </div>
         <div class="field">
           <label for="finalita">Finalità del prestito</label>
-          <select id="finalita">
+          <select id="finalita" aria-describedby="finalita-help">
             <option value="auto">Acquisto auto / moto</option>
             <option value="casa">Ristrutturazione casa</option>
             <option value="liquidita" selected>Liquidità personale</option>
@@ -247,7 +250,7 @@
             <option value="vacanza">Vacanza / eventi</option>
             <option value="altro">Altro</option>
           </select>
-          <p class="hint">Alcune banche riservano tassi migliori per finalità specifiche</p>
+          <p class="hint" id="finalita-help">Alcune banche riservano tassi migliori per finalità specifiche</p>
         </div>
       </div>
 
@@ -283,7 +286,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">💳</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Confronta i migliori prestiti personali 2026</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Confronta i migliori prestiti personali 2026</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Hai calcolato la rata ideale — ora trova il finanziamento con il tasso più basso. Risposta in pochi minuti, senza impegno.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -398,7 +401,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -416,7 +419,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -429,7 +432,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -455,14 +458,40 @@
     function fmt(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);}
     function fmt2(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
+      pulisciErroreCampo('importo');
       const importo = parseFloat(document.getElementById('importo').value) || 0;
       const tan = parseFloat(document.getElementById('tan').value) || 0;
       const durata = parseInt(document.getElementById('durata').value) || 60;
       const spese = parseFloat(document.getElementById('spese').value) || 0;
       const speseGestione = parseFloat(document.getElementById('speseGestione').value) || 0;
 
-      if (importo <= 0) { alert('Inserisci un importo valido.'); return; }
+      if (importo <= 0) { mostraErroreCampo('importo', 'Inserisci un importo valido.'); document.getElementById('importo').focus(); return; }
 
       const r = tan / 100 / 12;
       let rata;
@@ -504,13 +533,6 @@
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
     }
 
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
   </script>
 
   <div class="amz-sticky" id="amzSticky">
@@ -518,18 +540,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
 <div class="sticky-affiliate-sidebar" id="affSidebar">
   <div class="sidebar-aff-box">

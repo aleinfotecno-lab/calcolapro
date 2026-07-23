@@ -22,6 +22,8 @@ const allPages = [
   '/calcolo-eta.html', '/calcolo-tfr-liquidazione.html',
   '/calcolo-buoni-fruttiferi-postali.html',
   '/calcolo-quattordicesima-netta.html',
+  '/calcolo-assegno-unico.html',
+  '/calcolo-cassa-integrazione.html',
   // Hub categoria
   '/categoria-casa-mutuo.html', '/categoria-freelance.html',
   '/categoria-lavoro-dipendente.html', '/categoria-risparmio-investimenti.html',
@@ -72,6 +74,32 @@ test('Calcolatore BFP - calcolo rendimento netto', async ({ page }) => {
   const netti = await page.locator('#interessiNettiOut').textContent();
   expect(netti).toContain('€');
   expect(netti).not.toContain('—');
+});
+
+// Test funzionale Assegno Unico
+test('Calcolatore Assegno Unico - calcolo importo', async ({ page }) => {
+  await page.goto('/calcolo-assegno-unico.html');
+  await page.fill('#isee', '25000');
+  await page.selectOption('#figliMinorenni', '2');
+  await page.click('button[onclick="calcola()"]');
+  const result = page.locator('#result');
+  await expect(result).toBeVisible({ timeout: 3000 });
+  const totale = await page.locator('#totaleOut').textContent();
+  expect(totale).toContain('€');
+  expect(totale).not.toContain('—');
+});
+
+// Test funzionale Cassa Integrazione
+test('Calcolatore Cassa Integrazione - calcolo importo netto', async ({ page }) => {
+  await page.goto('/calcolo-cassa-integrazione.html');
+  await page.fill('#retribuzione', '1800');
+  await page.fill('#percentuale', '100');
+  await page.click('button[onclick="calcola()"]');
+  const result = page.locator('#result');
+  await expect(result).toBeVisible({ timeout: 3000 });
+  const netto = await page.locator('#nettoOut').textContent();
+  expect(netto).toContain('€');
+  expect(netto).not.toContain('—');
 });
 
 // Test cookie banner

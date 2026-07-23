@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -58,7 +58,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Costo del Lavoro","item":"https://calcolapro.it/calcolo-costo-lavoro.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo Costo del Lavoro","item":"https://calcolapro.it/calcolo-costo-lavoro.html"}]}
   </script>
 </head>
 <body>
@@ -76,7 +76,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -94,12 +94,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -182,7 +185,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -200,7 +203,7 @@
         <div class="card-title"><span class="card-icon">🏢</span> Profilo dell'assunzione</div>
         <div class="field">
           <label for="settore">Settore / CCNL</label>
-          <select id="settore">
+          <select id="settore" aria-describedby="settore-help">
             <option value="29.4">Commercio / Terziario (contrib. datoriali ~29.4%)</option>
             <option value="32.7" selected>Industria / Manifatturiero (~32.7%)</option>
             <option value="31.2">Artigianato (~31.2%)</option>
@@ -208,7 +211,7 @@
             <option value="30.0">Edilizia (~30.0%)</option>
             <option value="28.0">Enti pubblici / PA (~28.0%)</option>
           </select>
-          <p class="hint">L'aliquota contributiva datoriale varia per settore ATECO e contratto collettivo applicato. Seleziona il più vicino alla tua situazione.</p>
+          <p class="hint" id="settore-help">L'aliquota contributiva datoriale varia per settore ATECO e contratto collettivo applicato. Seleziona il più vicino alla tua situazione.</p>
         </div>
         <div class="field">
           <label for="contratto">Tipo di contratto</label>
@@ -220,13 +223,13 @@
         </div>
         <div class="field">
           <label for="inail">Aliquota INAIL (rischio infortuni)</label>
-          <select id="inail">
+          <select id="inail" aria-describedby="inail-help">
             <option value="0.5">0.5% — Ufficio / Admin / IT (basso rischio)</option>
             <option value="1.0" selected>1.0% — Commercio / Servizi (medio-basso)</option>
             <option value="2.5">2.5% — Artigianato / Logistica (medio)</option>
             <option value="5.0">5.0% — Industria / Edilizia (alto rischio)</option>
           </select>
-          <p class="hint">L'aliquota INAIL dipende dal codice ATECO e dalla voce di rischio assegnata dall'INAIL alla tua azienda. Verifica la tua posizione INAIL.</p>
+          <p class="hint" id="inail-help">L'aliquota INAIL dipende dal codice ATECO e dalla voce di rischio assegnata dall'INAIL alla tua azienda. Verifica la tua posizione INAIL.</p>
         </div>
       </div>
 
@@ -235,8 +238,8 @@
         <div class="field">
           <label for="stipendio">Stipendio lordo mensile</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="stipendio" value="2000" min="500" step="50" class="has-prefix"/></div>
-          <p class="hint">Inserisci la RAL ÷ 12, oppure la retribuzione mensile lorda che vuoi offrire al dipendente.</p>
+          <input type="number" id="stipendio" value="2000" min="500" step="50" class="has-prefix" aria-describedby="stipendio-help"/></div>
+          <p class="hint" id="stipendio-help">Inserisci la RAL ÷ 12, oppure la retribuzione mensile lorda che vuoi offrire al dipendente.</p>
         </div>
         <div class="field">
           <label for="mensilita">Mensilità</label>
@@ -253,12 +256,12 @@
           </label>
           <div id="sgravioDetail" style="display:none;margin-top:10px;">
             <label for="sgravioGiornate">Riduzione contributi datoriali</label>
-            <select id="sgravioPct">
+            <select id="sgravioPct" aria-describedby="sgravioPct-help">
               <option value="50">50% (es. under 36, primo biennio)</option>
               <option value="100">100% (esonero totale, es. Garanzia Giovani NEET)</option>
               <option value="30">30% (esonero parziale Mezzogiorno)</option>
             </select>
-            <p class="hint" style="margin-bottom:0;color:#166534;">Lo sgravio si applica solo ai contributi INPS datoriali IVS, entro massimale annuo (verifica sempre su INPS).</p>
+            <p class="hint" id="sgravioPct-help" style="margin-bottom:0;color:#166534;">Lo sgravio si applica solo ai contributi INPS datoriali IVS, entro massimale annuo (verifica sempre su INPS).</p>
           </div>
         </div>
       </div>
@@ -324,7 +327,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">💼</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri strumenti per datori di lavoro</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri strumenti per datori di lavoro</h2>
         </div>
         <p class="tool-cluster-sub">Calcola rimborsi, straordinari e gestisci le spese del personale.</p>
         <div class="tool-cluster-grid">
@@ -360,7 +363,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="lordonetto.html" class="cross-link-pill">💵 Calcola stipendio netto</a>
@@ -373,7 +376,7 @@
 
     <div class="seo-section">
       <h2>Costo del lavoro dipendente 2026: la guida completa</h2>
-      <p>Molti imprenditori e liberi professionisti che vogliono assumere si chiedono: "Quanto costa davvero un dipendente?" La risposta è sempre molto più alta dello stipendio lordo. Vediamo perché e come calcolare il costo totale.</p>
+      <p>Molti imprenditori e liberi professionisti che vogliono assumere si chiedono: "Quanto costa davvero un dipendente?" La risposta è sempre molto più alta dello <a href="lordonetto.html">stipendio lordo</a>. Vediamo perché e come calcolare il costo totale.</p>
 
       <h3>Le quattro componenti del costo del lavoro</h3>
       <p>Il costo del lavoro per un'azienda è composto da quattro elementi principali:</p>
@@ -404,7 +407,7 @@
         <li><strong>Incentivi per percettori NASpI</strong>: riduzione contributi per chi assume ex-NASpI</li>
         <li><strong>Apprendistato professionalizzante</strong>: aliquote contributive ridotte per tutta la durata dell'apprendistato</li>
       </ul>
-      <p>Ogni incentivo ha durata, massimali e condizioni specifiche: verifica sempre l'attualità e i requisiti sul portale INPS o con un consulente del lavoro.</p>
+      <p>Ogni incentivo ha durata, massimali e condizioni specifiche: verifica sempre l'attualità e i requisiti sul portale INPS o con un consulente del lavoro. Per collaborazioni saltuarie può convenire valutare anche la <a href="calcolo-prestazione-occasionale.html">prestazione occasionale</a>.</p>
 
       <h3>Domande frequenti</h3>
       <div class="faq-list">
@@ -484,7 +487,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi. Consulta sempre un consulente del lavoro per decisioni di assunzione.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="calcolo-costo-lavoro.html">Costo del Lavoro</a></li>
@@ -501,7 +504,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -514,7 +517,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>

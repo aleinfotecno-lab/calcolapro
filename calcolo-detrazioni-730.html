@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -56,7 +56,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Tasse & IVA","item":"https://calcolapro.it/#tasse"},{"@type":"ListItem","position":3,"name":"Calcolo Detrazioni 730 2026","item":"https://calcolapro.it/calcolo-detrazioni-730.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Tasse & IVA","item":"https://calcolapro.it/categoria-tasse-fisco.html"},{"@type":"ListItem","position":3,"name":"Calcolo Detrazioni 730 2026","item":"https://calcolapro.it/calcolo-detrazioni-730.html"}]}
   </script>
 </head>
 <body>
@@ -74,7 +74,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -92,12 +92,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -179,7 +182,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#tasse" itemprop="item"><span itemprop="name">Tasse & IVA</span></a>
+        <a href="https://calcolapro.it/categoria-tasse-fisco.html" itemprop="item"><span itemprop="name">Tasse & IVA</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -208,14 +211,14 @@
         <div class="field">
           <label for="speseSanitarie">Totale spese sanitarie 2025</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="speseSanitarie" value="0" min="0" step="10" class="has-prefix"/></div>
-          <p class="hint">Visite specialistiche, esami diagnostici, farmaci con ricetta, occhiali, dentista, fisioterapia. Soglia di franchigia: €129,11. Pagamento tracciabile obbligatorio.</p>
+          <input type="number" id="speseSanitarie" value="0" min="0" step="10" class="has-prefix" aria-describedby="speseSanitarie-help"/></div>
+          <p class="hint" id="speseSanitarie-help">Visite specialistiche, esami diagnostici, farmaci con ricetta, occhiali, dentista, fisioterapia. Soglia di franchigia: €129,11. Pagamento tracciabile obbligatorio.</p>
         </div>
         <div class="field">
           <label for="speseVeterinarie">Spese veterinarie per animali domestici</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="speseVeterinarie" value="0" min="0" step="10" class="has-prefix"/></div>
-          <p class="hint">19% della spesa sopra €129,11 fino a un massimo di €550 di spesa detraibile. Pagamento tracciabile obbligatorio.</p>
+          <input type="number" id="speseVeterinarie" value="0" min="0" step="10" class="has-prefix" aria-describedby="speseVeterinarie-help"/></div>
+          <p class="hint" id="speseVeterinarie-help">19% della spesa sopra €129,11 fino a un massimo di €550 di spesa detraibile. Pagamento tracciabile obbligatorio.</p>
         </div>
       </div>
 
@@ -225,24 +228,24 @@
         <div class="field">
           <label for="interessiMutuo">Interessi passivi mutuo prima casa pagati nel 2025</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="interessiMutuo" value="0" min="0" step="50" class="has-prefix"/></div>
-          <p class="hint">19% degli interessi fino a €4.000/anno. Risultato massimo: €760. Solo mutuo per acquisto, costruzione o ristrutturazione dell'abitazione principale. Attenzione: per redditi oltre €75.000 vige un tetto complessivo sulle detrazioni (vedi sotto), non applicato da questo calcolatore.</p>
+          <input type="number" id="interessiMutuo" value="0" min="0" step="50" class="has-prefix" aria-describedby="interessiMutuo-help"/></div>
+          <p class="hint" id="interessiMutuo-help">19% degli interessi fino a €4.000/anno. Risultato massimo: €760. Solo mutuo per acquisto, costruzione o ristrutturazione dell'abitazione principale. Attenzione: per redditi oltre €75.000 vige un tetto complessivo sulle detrazioni (vedi sotto), non applicato da questo calcolatore.</p>
         </div>
         <div class="field">
           <label for="ristrutturazioni">Spese ristrutturazione (Bonus Casa)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="ristrutturazioni" value="0" min="0" step="100" class="has-prefix"/></div>
-          <select id="ristrutturazioniTipo" style="margin-top:8px;">
+          <input type="number" id="ristrutturazioni" value="0" min="0" step="100" class="has-prefix" aria-describedby="ristrutturazioni-help"/></div>
+          <select id="ristrutturazioniTipo" style="margin-top:8px;" aria-describedby="ristrutturazioni-help">
             <option value="0.50">Abitazione principale (50%)</option>
             <option value="0.36">Altro immobile (36%)</option>
           </select>
-          <p class="hint">50% sull'abitazione principale, 36% sugli altri immobili. Limite spesa: €96.000, in 10 rate annuali. Inserisci la spesa totale: la detrazione annua è 1/10 dell'aliquota applicata.</p>
+          <p class="hint" id="ristrutturazioni-help">50% sull'abitazione principale, 36% sugli altri immobili. Limite spesa: €96.000, in 10 rate annuali. Inserisci la spesa totale: la detrazione annua è 1/10 dell'aliquota applicata.</p>
         </div>
         <div class="field">
           <label for="affittoGiovani">Canone d'affitto 2025 (under 31, prima casa)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="affittoGiovani" value="0" min="0" step="50" class="has-prefix"/></div>
-          <p class="hint">Per under 31 anni con reddito ≤ €15.493,71: detrazione 20% del canone, max €2.000/anno di detrazione. Solo contratto registrato per abitazione principale.</p>
+          <input type="number" id="affittoGiovani" value="0" min="0" step="50" class="has-prefix" aria-describedby="affittoGiovani-help"/></div>
+          <p class="hint" id="affittoGiovani-help">Per under 31 anni con reddito ≤ €15.493,71: detrazione 20% del canone, max €2.000/anno di detrazione. Solo contratto registrato per abitazione principale.</p>
         </div>
       </div>
 
@@ -252,20 +255,20 @@
         <div class="field">
           <label for="speseIstruzione">Spese scolastiche (scuola dell'infanzia → secondaria)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="speseIstruzione" value="0" min="0" step="50" class="has-prefix"/></div>
-          <p class="hint">Rette, mense, gite, attività parascolastiche. 19% fino a €800 per studente. Solo istituti pubblici o pareggiati.</p>
+          <input type="number" id="speseIstruzione" value="0" min="0" step="50" class="has-prefix" aria-describedby="speseIstruzione-help"/></div>
+          <p class="hint" id="speseIstruzione-help">Rette, mense, gite, attività parascolastiche. 19% fino a €800 per studente. Solo istituti pubblici o pareggiati.</p>
         </div>
         <div class="field">
           <label for="speseUniversita">Spese universitarie 2025</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="speseUniversita" value="0" min="0" step="50" class="has-prefix"/></div>
-          <p class="hint">Tasse e contributi universitari. 19% senza limite massimo per atenei statali; per privati, limite pari alla tassa del corrispondente ateneo statale (≈€2.633).</p>
+          <input type="number" id="speseUniversita" value="0" min="0" step="50" class="has-prefix" aria-describedby="speseUniversita-help"/></div>
+          <p class="hint" id="speseUniversita-help">Tasse e contributi universitari. 19% senza limite massimo per atenei statali; per privati, limite pari alla tassa del corrispondente ateneo statale (≈€2.633).</p>
         </div>
         <div class="field">
           <label for="asiloNido">Rette asilo nido 2025 (per figlio)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="asiloNido" value="0" min="0" step="50" class="has-prefix"/></div>
-          <p class="hint">19% fino a €632 di retta per figlio. Detrazione massima: €120,08 per bambino.</p>
+          <input type="number" id="asiloNido" value="0" min="0" step="50" class="has-prefix" aria-describedby="asiloNido-help"/></div>
+          <p class="hint" id="asiloNido-help">19% fino a €632 di retta per figlio. Detrazione massima: €120,08 per bambino.</p>
         </div>
       </div>
 
@@ -275,14 +278,14 @@
         <div class="field">
           <label for="assicurazioni">Premi assicurazione vita / infortuni / non autosufficienza</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="assicurazioni" value="0" min="0" step="50" class="has-prefix"/></div>
-          <p class="hint">19% fino a €530/anno per vita e infortuni; fino a €1.291 per polizze non autosufficienza (escluso salute).</p>
+          <input type="number" id="assicurazioni" value="0" min="0" step="50" class="has-prefix" aria-describedby="assicurazioni-help"/></div>
+          <p class="hint" id="assicurazioni-help">19% fino a €530/anno per vita e infortuni; fino a €1.291 per polizze non autosufficienza (escluso salute).</p>
         </div>
         <div class="field">
           <label for="fondoPensione">Contributi fondo pensione / previdenza complementare</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="fondoPensione" value="0" min="0" step="100" class="has-prefix"/></div>
-          <p class="hint">Deducibili dal reddito complessivo (non una detrazione al 19%) fino a €5.164,57/anno. Riducono direttamente il reddito imponibile IRPEF.</p>
+          <input type="number" id="fondoPensione" value="0" min="0" step="100" class="has-prefix" aria-describedby="fondoPensione-help"/></div>
+          <p class="hint" id="fondoPensione-help">Deducibili dal reddito complessivo (non una detrazione al 19%) fino a €5.164,57/anno. Riducono direttamente il reddito imponibile IRPEF.</p>
         </div>
       </div>
 
@@ -335,7 +338,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">📊</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Ottimizza la tua situazione fiscale</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Ottimizza la tua situazione fiscale</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Usa questi strumenti per capire meglio la tua posizione fiscale complessiva.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -371,7 +374,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="lordonetto.html" class="cross-link-pill">💵 Calcola stipendio netto</a>
@@ -393,11 +396,11 @@
       <p>Chi ha stipulato un mutuo per l'acquisto, costruzione o ristrutturazione della <strong>prima casa</strong> può detrarre il 19% degli interessi passivi pagati, fino a un massimo di €4.000 annui. La detrazione massima quindi è €760 per anno. L'agevolazione si applica solo sull'abitazione principale e solo per l'intestatario del mutuo.</p>
 
       <h3>Ristrutturazioni: il Bonus Casa al 50% o 36%</h3>
-      <p>Le spese di ristrutturazione ordinaria e straordinaria danno diritto a una detrazione del <strong>50%</strong> se l'immobile è l'<strong>abitazione principale</strong>, o del <strong>36%</strong> per gli altri immobili (seconde case, affittati, in comodato), con un limite di €96.000 per unità immobiliare. La detrazione viene suddivisa in <strong>10 rate annuali</strong> di pari importo. Il calcolo mostra la quota annuale detraibile in base all'aliquota selezionata.</p>
+      <p><a href="guida-bonus-casa-2026.html">Le spese di ristrutturazione ordinaria e straordinaria</a> danno diritto a una detrazione del <strong>50%</strong> se l'immobile è l'<strong>abitazione principale</strong>, o del <strong>36%</strong> per gli altri immobili (seconde case, affittati, in comodato), con un limite di €96.000 per unità immobiliare. La detrazione viene suddivisa in <strong>10 rate annuali</strong> di pari importo. Il calcolo mostra la quota annuale detraibile in base all'aliquota selezionata.</p>
       <p style="font-size:13px;color:var(--text-muted);"><strong>Attenzione al tetto detrazioni 2026:</strong> per redditi complessivi superiori a €75.000, dal 2025 è in vigore un plafond massimo di detrazioni IRPEF (fino a €14.000 per redditi 75-100k, €8.000 per 100-120k, moltiplicato per un coefficiente in base al numero di figli a carico). Sono escluse dal tetto le spese sanitarie e gli interessi su mutui prima casa stipulati entro il 31/12/2024. Questo calcolatore non applica il tetto: se il tuo reddito supera €75.000, il totale reale potrebbe essere inferiore a quello mostrato.</p>
 
       <h3>Previdenza complementare: deduci fino a €5.164,57</h3>
-      <p>I contributi versati a fondi pensione o a forme di previdenza complementare individuale non sono detrazioni ma <strong>deduzioni</strong>: riducono direttamente il reddito imponibile fino a €5.164,57 all'anno. Questo può abbassare significativamente l'IRPEF dovuta, soprattutto per chi si trova in scaglioni di reddito elevati.</p>
+      <p>I contributi versati a <a href="calcolo-fondo-pensione.html">fondi pensione</a> o a forme di previdenza complementare individuale non sono detrazioni ma <strong>deduzioni</strong>: riducono direttamente il reddito imponibile fino a €5.164,57 all'anno. Questo può abbassare significativamente l'IRPEF dovuta, soprattutto per chi si trova in scaglioni di reddito elevati.</p>
 
       <h3>Domande frequenti sulle detrazioni 730</h3>
       <div class="faq-list">
@@ -469,7 +472,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -486,7 +489,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -499,7 +502,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>

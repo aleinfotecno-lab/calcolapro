@@ -29,7 +29,8 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Person", "name": "Alessandro Signorile", "url": "https://calcolapro.it/about.html"},
+    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -44,13 +45,13 @@
   <meta property="og:url" content="https://calcolapro.it/iva.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Calcolatore IVA Online 2026 | Aggiungi o Scorpora IVA | CalcolaPro">
   <meta name="twitter:description" content="Calcola l'IVA in un secondo: aggiungi o scorpora IVA al 22%, 10%, 5% o 4%. Con sconto e quantità multiple. Gratis.">
   <style>
@@ -60,7 +61,7 @@
   </style>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Tasse e Fisco","item":"https://calcolapro.it/#fisco"},{"@type":"ListItem","position":3,"name":"Calcolo IVA","item":"https://calcolapro.it/iva.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Tasse e Fisco","item":"https://calcolapro.it/categoria-tasse-fisco.html"},{"@type":"ListItem","position":3,"name":"Calcolo IVA","item":"https://calcolapro.it/iva.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -77,7 +78,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -95,12 +96,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -174,7 +178,7 @@
       <p class="page-subtitle">Aggiungi l'IVA a un imponibile o scorporala da un totale. Scegli l'aliquota 22%, 10% o 4% e ottieni il risultato istantaneamente.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 09/07/2026</span>
+        <span>📅 Aggiornato il 23/07/2026</span>
       </div>
     </div>
   </div>
@@ -186,7 +190,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#fisco" itemprop="item"><span itemprop="name">Tasse e Fisco</span></a>
+        <a href="https://calcolapro.it/categoria-tasse-fisco.html" itemprop="item"><span itemprop="name">Tasse e Fisco</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -239,17 +243,17 @@
           <label for="quantita">Quantità / unità</label>
           <div class="input-wrap">
             <span class="input-prefix">×</span>
-            <input type="number" id="quantita" value="1" min="1" class="has-prefix"/>
+            <input type="number" id="quantita" value="1" min="1" class="has-prefix" aria-describedby="quantita-help"/>
           </div>
-          <p class="hint">Per calcolare su più unità dello stesso importo</p>
+          <p class="hint" id="quantita-help">Per calcolare su più unità dello stesso importo</p>
         </div>
         <div class="field">
           <label for="sconto">Sconto applicato (%)</label>
           <div class="input-wrap">
             <span class="input-prefix">%</span>
-            <input type="number" id="sconto" value="0" min="0" max="100" class="has-prefix"/>
+            <input type="number" id="sconto" value="0" min="0" max="100" class="has-prefix" aria-describedby="sconto-help"/>
           </div>
-          <p class="hint">Lo sconto viene applicato prima del calcolo IVA</p>
+          <p class="hint" id="sconto-help">Lo sconto viene applicato prima del calcolo IVA</p>
         </div>
       </div>
 
@@ -286,7 +290,7 @@
       </div>
 
       <div class="affiliazioni-box" id="affiliazioni" style="display:none;">
-        <h3>📦 Consigliati da CalcolaPro</h3>
+        <h2>📦 Consigliati da CalcolaPro</h2>
         <div class="affiliazioni-box-grid">
           <a href="https://amzn.to/4d9ulqt" class="aff-box-item" target="_blank" rel="noopener sponsored">
             <div class="aff-label">📚 Libro consigliato</div>
@@ -300,7 +304,7 @@
       </div>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="partitaiva.html" class="cross-link-pill">📋 Conviene la Partita IVA?</a>
@@ -312,13 +316,31 @@
 
     <div class="seo-section">
       <h2>Come si calcola l'IVA in Italia</h2>
-      <p>L'IVA (Imposta sul Valore Aggiunto) è un'imposta indiretta che si applica alla cessione di beni e alla prestazione di servizi. In Italia esistono tre aliquote principali: ordinaria al 22% (la più comune), ridotta al 10% (alimentari, ristoranti, edilizia) e super-ridotta al 4% (beni di prima necessità, libri, alcuni alimenti).</p>
+      <p>L'IVA (Imposta sul Valore Aggiunto) è un'imposta indiretta che si applica alla cessione di beni e alla prestazione di servizi. In Italia esistono tre aliquote principali: ordinaria al 22% (la più comune), ridotta al 10% (alimentari, ristoranti, <a href="guida-bonus-casa-2026.html">edilizia</a>) e super-ridotta al 4% (beni di prima necessità, libri, alcuni alimenti).</p>
       <h3>Aggiungere l'IVA a un imponibile</h3>
-      <p>Per aggiungere l'IVA al 22% a un importo imponibile, moltiplica per 1,22. Per il 10% moltiplica per 1,10, per il 4% moltiplica per 1,04. Esempio: un imponibile di 1.000€ con IVA al 22% diventa 1.220€.</p>
+      <p>Per aggiungere l'IVA al 22% a un importo imponibile, <a href="calcolatore-percentuale.html">moltiplica per 1,22</a>. Per il 10% moltiplica per 1,10, per il 4% moltiplica per 1,04. Esempio: un imponibile di 1.000€ con IVA al 22% diventa 1.220€.</p>
       <h3>Scorporare l'IVA da un totale</h3>
       <p>Per ricavare l'imponibile da un totale IVA inclusa, dividi il totale per 1,22 (per l'aliquota al 22%). L'importo IVA è la differenza tra il totale e l'imponibile. Esempio: da un totale di 1.220€ si ricava un imponibile di 1.000€ e un'IVA di 220€.</p>
       <h3>IVA al 4%: quando si applica</h3>
-      <p>L'aliquota IVA ridotta al 4% si applica a prodotti alimentari di prima necessità (latte, pane, burro), editoria (libri, quotidiani, riviste), ausili per disabili, e all'acquisto della prima casa. È l'aliquota più favorevole e riguarda beni considerati essenziali dal legislatore italiano.</p>
+      <p>L'aliquota IVA ridotta al 4% si applica a prodotti alimentari di prima necessità (latte, pane, burro), editoria (libri, quotidiani, riviste), ausili per disabili, e all'<a href="calcolo-spese-acquisto-casa.html">acquisto della prima casa</a>. È l'aliquota più favorevole e riguarda beni considerati essenziali dal legislatore italiano.</p>
+      <h3>Le quattro aliquote IVA in vigore nel 2026</h3>
+      <p>Il sistema IVA italiano prevede un'aliquota ordinaria e tre aliquote ridotte, disciplinate dal D.P.R. 633/1972. Nel 2026 l'aliquota ordinaria resta al <strong>22%</strong> e si applica in via residuale a tutti i beni e servizi per cui non è prevista un'agevolazione. La tabella riepiloga aliquote e categorie tipiche:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Aliquota</th><th>Tipo</th><th>Esempi di beni e servizi</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>22%</td><td>Ordinaria</td><td>Elettronica, abbigliamento, carburanti, consulenze e servizi professionali</td></tr>
+            <tr><td>10%</td><td>Ridotta</td><td>Ristorazione, alimenti trasformati, energia elettrica e gas per uso domestico, ristrutturazioni edilizie</td></tr>
+            <tr><td>5%</td><td>Ridotta</td><td>Basilico, rosmarino, salvia e origano freschi; alcune prestazioni socio-sanitarie e assistenziali di cooperative sociali</td></tr>
+            <tr><td>4%</td><td>Super-ridotta</td><td>Pane, latte, frutta e verdura, libri e giornali, prima casa non di lusso, ausili per disabili</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>L'aliquota al <strong>5%</strong> è la meno conosciuta: introdotta nel 2016, riguarda un elenco tassativo di voci contenute nella Tabella A, parte II-bis, allegata al D.P.R. 633/1972. Quando su una stessa fattura convivono più aliquote, l'IVA va calcolata separatamente riga per riga e mai sul totale complessivo.</p>
+      <h3>Esente, non imponibile o escluso: non è la stessa cosa</h3>
+      <p>Oltre alle aliquote esistono operazioni senza IVA che seguono regole diverse. Le operazioni <strong>esenti</strong> (art. 10 del D.P.R. 633/1972, come prestazioni sanitarie, finanziarie e assicurative) non applicano l'imposta ma vanno comunque fatturate; le operazioni <strong>non imponibili</strong> (esportazioni e cessioni intracomunitarie, artt. 8 e 9) restano fuori dal campo di applicazione dell'imposta italiana; le operazioni <strong>escluse</strong> (art. 15) non concorrono alla base imponibile. Chi opera in <a href="guida-regime-forfettario.html">regime forfettario</a> non addebita l'IVA in fattura e non la detrae sugli acquisti. In tutti questi casi la fattura riporta la norma di riferimento al posto dell'aliquota.</p>
       <h3>Domande frequenti sul calcolo IVA</h3>
       <div class="faq-list">
         <div class="faq-item">
@@ -336,6 +358,17 @@
       </div>
     </div>
 
+  <div class="container">
+    <div class="sources-box">
+      <h3>Fonti ufficiali</h3>
+      <ul>
+        <li><a href="https://www.agenziaentrate.gov.it/portale/iva-regole-generali-aliquote-esenzioni-pagamento" target="_blank" rel="noopener">Agenzia delle Entrate — IVA: regole generali, aliquote, esenzioni e pagamento</a></li>
+        <li><a href="https://www.agenziaentrate.gov.it/portale/iva-regole-generali-aliquote-esenzioni-pagamento/norme-generali-e-aliquote" target="_blank" rel="noopener">Agenzia delle Entrate — Norme generali e aliquote IVA</a></li>
+        <li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1972-10-26;633" target="_blank" rel="noopener">Normattiva — D.P.R. 26 ottobre 1972, n. 633 (disciplina dell'IVA)</a></li>
+      </ul>
+      <span class="src-note">Fonti consultate a luglio 2026.</span>
+    </div>
+  </div>
   <section class="container related-tools">
     <h3>Strumenti correlati</h3>
     <div class="related-tools-grid">
@@ -363,7 +396,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -381,7 +414,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -394,7 +427,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -464,15 +497,6 @@
       res.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   </script>
-  <script>
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
-  </script>
 
   <!-- BOX CONFRONTO SOFTWARE FATTURAZIONE — sostituisci href con i tuoi link affiliati reali -->
   <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;max-width:720px;margin:0 auto 32px;">
@@ -510,18 +534,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

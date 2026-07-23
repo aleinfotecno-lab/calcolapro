@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:locale" content="it_IT" />
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -54,7 +54,7 @@
   </script>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Ferie e Permessi","item":"https://calcolapro.it/calcolo-ferie-permessi.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo Ferie e Permessi","item":"https://calcolapro.it/calcolo-ferie-permessi.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -71,7 +71,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -89,12 +89,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -180,7 +183,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -197,18 +200,18 @@
         <div class="card-title"><span class="card-icon">🏖️</span> Le tue ferie</div>
         <div class="field">
           <label for="ferieSpettanti">Ferie spettanti nell'anno (giorni)</label>
-          <input type="number" id="ferieSpettanti" value="26" min="20" max="40"/>
-          <p class="hint">Il minimo legale è 20 giorni. Controlla il tuo CCNL (tipicamente 22-26 giorni)</p>
+          <input type="number" id="ferieSpettanti" value="26" min="20" max="40" aria-describedby="ferieSpettanti-help"/>
+          <p class="hint" id="ferieSpettanti-help">Il minimo legale è 20 giorni. Controlla il tuo CCNL (tipicamente 22-26 giorni)</p>
         </div>
         <div class="field">
           <label for="ferieGodute">Ferie già godute (giorni)</label>
-          <input type="number" id="ferieGodute" value="10" min="0"/>
-          <p class="hint">I giorni di ferie già usufruiti dall'inizio dell'anno</p>
+          <input type="number" id="ferieGodute" value="10" min="0" aria-describedby="ferieGodute-help"/>
+          <p class="hint" id="ferieGodute-help">I giorni di ferie già usufruiti dall'inizio dell'anno</p>
         </div>
         <div class="field">
           <label for="feriePrecedenti">Ferie arretrate anni precedenti (giorni)</label>
-          <input type="number" id="feriePrecedenti" value="0" min="0"/>
-          <p class="hint">Ferie maturate ma non godute negli anni scorsi ancora disponibili</p>
+          <input type="number" id="feriePrecedenti" value="0" min="0" aria-describedby="feriePrecedenti-help"/>
+          <p class="hint" id="feriePrecedenti-help">Ferie maturate ma non godute negli anni scorsi ancora disponibili</p>
         </div>
       </div>
 
@@ -216,19 +219,19 @@
         <div class="card-title"><span class="card-icon">⏰</span> Permessi e stipendio</div>
         <div class="field">
           <label for="permessiSpettanti">Permessi ROL / ex festività (ore)</label>
-          <input type="number" id="permessiSpettanti" value="88" min="0"/>
-          <p class="hint">Ore di permesso previste dal tuo CCNL (es. 88h commercio, 104h industria)</p>
+          <input type="number" id="permessiSpettanti" value="88" min="0" aria-describedby="permessiSpettanti-help"/>
+          <p class="hint" id="permessiSpettanti-help">Ore di permesso previste dal tuo CCNL (es. 88h commercio, 104h industria)</p>
         </div>
         <div class="field">
           <label for="permessiGoduti">Permessi già goduti (ore)</label>
-          <input type="number" id="permessiGoduti" value="24" min="0"/>
-          <p class="hint">Ore di permesso già utilizzate dall'inizio dell'anno</p>
+          <input type="number" id="permessiGoduti" value="24" min="0" aria-describedby="permessiGoduti-help"/>
+          <p class="hint" id="permessiGoduti-help">Ore di permesso già utilizzate dall'inizio dell'anno</p>
         </div>
         <div class="field">
           <label for="stipendioLordo">Stipendio lordo mensile</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="stipendioLordo" value="2000" min="0" class="has-prefix"/></div>
-          <p class="hint">Serve per calcolare il valore economico delle ferie residue</p>
+          <input type="number" id="stipendioLordo" value="2000" min="0" class="has-prefix" aria-describedby="stipendioLordo-help"/></div>
+          <p class="hint" id="stipendioLordo-help">Serve per calcolare il valore economico delle ferie residue</p>
         </div>
         <div class="field">
           <label for="oreGiornaliere">Ore lavorative giornaliere</label>
@@ -264,7 +267,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">💼</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Strumenti utili per i lavoratori dipendenti</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Strumenti utili per i lavoratori dipendenti</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Gestisci meglio busta paga, contributi e futuro previdenziale con questi strumenti.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -300,7 +303,7 @@
       </div>
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-naspi.html" class="cross-link-pill">🛡️ Calcolo NASpI 2026</a>
@@ -313,11 +316,11 @@
 
     <div class="seo-section">
       <h2>Come calcolare le ferie residue e i permessi ROL</h2>
-      <p>Ogni lavoratore dipendente ha diritto a un certo numero di giorni di ferie e ore di permesso retribuito ogni anno. Tenere traccia di quanti ne rimangono è fondamentale per pianificare le vacanze ed evitare di perdere giorni scaduti.</p>
+      <p>Ogni lavoratore dipendente ha diritto a un certo numero di giorni di ferie e ore di permesso retribuito ogni anno, proprio come accade per l'assenza dovuta a <a href="calcolo-malattia-inps.html">malattia</a>. Tenere traccia di quanti ne rimangono è fondamentale per pianificare le vacanze ed evitare di perdere giorni scaduti.</p>
       <h3>Quante ferie spettano per legge?</h3>
-      <p>Il D.Lgs. 66/2003 garantisce a ogni lavoratore almeno <strong>4 settimane di ferie retribuite</strong> all'anno (20 giorni per chi lavora 5 giorni a settimana). I contratti collettivi (CCNL) possono prevedere un numero maggiore: il CCNL del commercio prevede 26 giorni, il metalmeccanico 22-25, il terziario 26.</p>
+      <p>Il D.Lgs. 66/2003 garantisce a ogni lavoratore almeno <strong>4 settimane di ferie retribuite</strong> all'anno (20 giorni per chi lavora 5 giorni a settimana). I <a href="calcolo-costo-lavoro.html">contratti collettivi (CCNL)</a> possono prevedere un numero maggiore: il CCNL del commercio prevede 26 giorni, il metalmeccanico 22-25, il terziario 26.</p>
       <h3>Le ferie maturano durante l'anno</h3>
-      <p>Se hai iniziato a lavorare a metà anno, le ferie maturano proporzionalmente. Con 26 giorni annui, maturano circa 2,17 giorni al mese. Il calcolatore sopra considera le ferie spettanti sull'intero anno: se hai iniziato dopo gennaio, adegua il valore di conseguenza.</p>
+      <p>Se hai iniziato a lavorare a metà anno, le ferie maturano proporzionalmente, esattamente come la <a href="calcolo-quattordicesima-netta.html">quattordicesima</a>. Con 26 giorni annui, maturano circa 2,17 giorni al mese. Il calcolatore sopra considera le ferie spettanti sull'intero anno: se hai iniziato dopo gennaio, adegua il valore di conseguenza.</p>
       <h3>Entro quando vanno godute?</h3>
       <p>Almeno <strong>2 settimane</strong> (10 giorni) devono essere godute entro l'anno di maturazione. Le restanti 2 settimane entro 18 mesi dalla fine dell'anno (es. ferie 2025 entro giugno 2027). I permessi ROL hanno generalmente scadenza al 31 dicembre o al 31 marzo dell'anno successivo secondo il CCNL.</p>
       <h3>Domande frequenti</h3>
@@ -368,7 +371,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -386,7 +389,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -399,7 +402,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -471,13 +474,6 @@
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
     }
 
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
   </script>
 
   <div class="amz-sticky" id="amzSticky">
@@ -485,18 +481,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

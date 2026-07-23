@@ -29,7 +29,8 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Person", "name": "Alessandro Signorile", "url": "https://calcolapro.it/about.html"},
+    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -54,18 +55,18 @@
   <meta property="og:url" content="https://calcolapro.it/lordonetto.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Da Lordo a Netto Stipendio 2026 | Calcola Busta Paga | CalcolaPro">
   <meta name="twitter:description" content="Converti lo stipendio lordo in netto in pochi secondi. IRPEF 2026, contributi INPS 9,19%, detrazioni per lavoro dipendente e familiari. Gratis.">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Stipendio Lordo / Netto","item":"https://calcolapro.it/lordonetto.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Stipendio Lordo / Netto","item":"https://calcolapro.it/lordonetto.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -82,7 +83,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -100,12 +101,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -187,7 +191,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -229,13 +233,13 @@
         <div class="card-title"><span class="card-icon">🧾</span> Situazione personale</div>
         <div class="field">
           <label for="figli">Figli a carico over 21 anni</label>
-          <select id="figli">
+          <select id="figli" aria-describedby="figli-help">
             <option value="0">Nessun figlio</option>
             <option value="1">1 figlio</option>
             <option value="2">2 figli</option>
             <option value="3">3 o più figli</option>
           </select>
-          <p class="hint">Detrazione IRPEF €950/figlio. Figli under 21: ricevono Assegno Unico INPS (non detrazione fiscale)</p>
+          <p class="hint" id="figli-help">Detrazione IRPEF €950/figlio. Figli under 21: ricevono Assegno Unico INPS (non detrazione fiscale)</p>
         </div>
         <div class="field">
           <label for="coniuge">Coniuge a carico</label>
@@ -246,11 +250,11 @@
         </div>
         <div class="field">
           <label for="nord">Area geografica</label>
-          <select id="nord">
+          <select id="nord" aria-describedby="nord-help">
             <option value="0">Nord/Centro Italia</option>
             <option value="1">Sud e Isole (addizionali regionali più basse)</option>
           </select>
-          <p class="hint">Le addizionali regionali variano tra 1.23% e 3.33%</p>
+          <p class="hint" id="nord-help">Le addizionali regionali variano tra 1.23% e 3.33%</p>
         </div>
       </div>
       <div class="col-full" style="display:flex;justify-content:center">
@@ -290,7 +294,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">💰</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Fai rendere il tuo stipendio — i migliori conti deposito 2026</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Fai rendere il tuo stipendio — i migliori conti deposito 2026</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Conosci il tuo netto mensile — ora fallo fruttare. I conti deposito offrono fino al 5% lordo senza rischio.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -485,7 +489,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo → Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -503,7 +507,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -516,7 +520,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -623,18 +627,6 @@
       res.scrollIntoView({behavior:'smooth',block:'nearest'});
     }
   </script>
-  <script>
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) {
-        answer.classList.add('open');
-        btn.setAttribute('aria-expanded','true');
-      }
-    }
-  </script>
 
   <!-- Amazon sticky banner -->
   <div class="amz-sticky" id="amzSticky">
@@ -642,18 +634,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

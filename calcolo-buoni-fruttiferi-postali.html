@@ -12,13 +12,13 @@
   <meta property="og:url" content="https://calcolapro.it/calcolo-buoni-fruttiferi-postali.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta name="twitter:title" content="Buoni Fruttiferi Postali 2026: Calcola Rendimento Netto | CalcolaPro"/>
   <meta name="twitter:description" content="Calcola il rendimento netto dei BFP 2026. Tassazione agevolata 12,5%, confronto con conto deposito. Gratis e immediato."/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>🧮</text></svg>"/>
@@ -41,7 +41,7 @@
         "isAccessibleForFree": true,
         "browserRequirements": "Requires JavaScript",
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-        "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+        "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
       },
       {
         "@type": "FAQPage",
@@ -105,7 +105,7 @@
     @media(max-width:1023px){.sticky-affiliate-sidebar{display:none!important;}}
   </style>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Risparmio e Investimenti","item":"https://calcolapro.it/#risparmio"},{"@type":"ListItem","position":3,"name":"Buoni Fruttiferi Postali","item":"https://calcolapro.it/calcolo-buoni-fruttiferi-postali.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it/"},{"@type":"ListItem","position":2,"name":"Risparmio e Investimenti","item":"https://calcolapro.it/categoria-risparmio-investimenti.html"},{"@type":"ListItem","position":3,"name":"Buoni Fruttiferi Postali","item":"https://calcolapro.it/calcolo-buoni-fruttiferi-postali.html"}]}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,7 +127,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -145,12 +145,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -228,7 +231,7 @@
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
   <span class="breadcrumb-sep" aria-hidden="true">›</span>
-  <a href="index.html#risparmio">Risparmio</a>
+  <a href="categoria-risparmio-investimenti.html">Risparmio</a>
   <span class="breadcrumb-sep" aria-hidden="true">›</span>
   <span aria-current="page">Buoni Fruttiferi Postali</span>
 </nav>
@@ -240,7 +243,7 @@
       <div class="card-title"><span class="card-icon">📮</span> Parametri del buono</div>
       <div class="field">
         <label for="tipoBfp">Tipo di BFP</label>
-        <select id="tipoBfp" onchange="onTipoChange()">
+        <select id="tipoBfp" onchange="onTipoChange()" aria-describedby="tipoBfp-help">
           <option value="3anni">Buono Ordinario (20 anni, il più diffuso)</option>
           <option value="flessibili">BFP Flessibili 18 mesi</option>
           <option value="risparmio">BFP Risparmio Semplice 5 anni</option>
@@ -248,24 +251,24 @@
           <option value="minori">BFP Dedicati Minori (tasso variabile in base all'età, fino a 18 anni)</option>
           <option value="custom">Personalizzato (inserisci tasso e durata)</option>
         </select>
-        <span class="hint">Seleziona il tipo: il calcolatore preimposta tasso indicativo e durata</span>
+        <span class="hint" id="tipoBfp-help">Seleziona il tipo: il calcolatore preimposta tasso indicativo e durata</span>
       </div>
       <div class="field">
         <label for="capitale">Importo sottoscritto (€)</label>
         <div class="input-wrap"><span class="input-prefix">€</span>
-        <input type="number" id="capitale" value="10000" min="50" step="50" class="has-prefix" aria-label="Importo in euro"/></div>
-        <span class="hint">Minimo €50, in multipli di €50</span>
+        <input type="number" id="capitale" value="10000" min="50" step="50" class="has-prefix" aria-label="Importo in euro" aria-describedby="capitale-help"/></div>
+        <span class="hint" id="capitale-help">Minimo €50, in multipli di €50</span>
       </div>
       <div class="field">
         <label for="tasso">Tasso lordo annuo (%)</label>
         <div class="input-wrap"><span class="input-prefix">%</span>
-        <input type="number" id="tasso" value="2.25" min="0" max="10" step="0.05" class="has-prefix" aria-label="Tasso lordo annuo"/></div>
-        <span class="hint">Verifica il tasso aggiornato su <strong>poste.it</strong> — si aggiorna ogni mese</span>
+        <input type="number" id="tasso" value="2.25" min="0" max="10" step="0.05" class="has-prefix" aria-label="Tasso lordo annuo" aria-describedby="tasso-help"/></div>
+        <span class="hint" id="tasso-help">Verifica il tasso aggiornato su <strong>poste.it</strong> — si aggiorna ogni mese</span>
       </div>
       <div class="field">
         <label for="anni">Durata (anni)</label>
-        <input type="number" id="anni" value="3" min="0.5" max="30" step="0.5" aria-label="Durata in anni"/>
-        <span class="hint">Esempio: 1.5 = 18 mesi · 3 = 36 mesi · 5 = 60 mesi</span>
+        <input type="number" id="anni" value="3" min="0.5" max="30" step="0.5" aria-label="Durata in anni" aria-describedby="anni-help"/>
+        <span class="hint" id="anni-help">Esempio: 1.5 = 18 mesi · 3 = 36 mesi · 5 = 60 mesi</span>
       </div>
     </div>
 
@@ -333,7 +336,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">💡</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Scopri e confronta altre forme di risparmio</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Scopri e confronta altre forme di risparmio</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Usa gli altri calcolatori CalcolaPro per trovare la soluzione più adatta al tuo profilo.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -476,7 +479,7 @@
       <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
     </div>
     <div class="footer-col">
-      <h4>Calcolatori</h4>
+      <h3>Calcolatori</h3>
       <ul>
         <li><a href="lordonetto.html">Lordo → Netto Stipendio</a></li>
         <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -490,7 +493,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Guide</h4>
+      <h3>Guide</h3>
       <ul>
         <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
         <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -503,7 +506,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Informazioni</h4>
+      <h3>Informazioni</h3>
       <ul>
         <li><a href="about.html">Chi Siamo</a></li>
         <li><a href="come-funziona.html">Come Funziona</a></li>

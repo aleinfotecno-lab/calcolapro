@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:locale" content="it_IT" />
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -61,7 +61,7 @@
   </style>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Mutuo e Casa","item":"https://calcolapro.it/#casa"},{"@type":"ListItem","position":3,"name":"Calcolo Spese Acquisto Casa 2026","item":"https://calcolapro.it/calcolo-spese-acquisto-casa.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Mutuo e Casa","item":"https://calcolapro.it/categoria-casa-mutuo.html"},{"@type":"ListItem","position":3,"name":"Calcolo Spese Acquisto Casa 2026","item":"https://calcolapro.it/calcolo-spese-acquisto-casa.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -78,7 +78,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -96,12 +96,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -183,7 +186,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#casa" itemprop="item"><span itemprop="name">Mutuo e Casa</span></a>
+        <a href="https://calcolapro.it/categoria-casa-mutuo.html" itemprop="item"><span itemprop="name">Mutuo e Casa</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -201,8 +204,8 @@
         <div class="field">
           <label for="prezzo">Prezzo di acquisto</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="prezzo" value="200000" min="0" step="1000" class="has-prefix"/></div>
-          <p class="hint">Il prezzo concordato nell'atto di compravendita</p>
+          <input type="number" id="prezzo" value="200000" min="0" step="1000" class="has-prefix" aria-describedby="prezzo-help"/></div>
+          <p class="hint" id="prezzo-help">Il prezzo concordato nell'atto di compravendita</p>
         </div>
         <div class="field">
           <label for="tipoCasa">Tipo di acquisto</label>
@@ -213,17 +216,17 @@
         </div>
         <div class="field">
           <label for="venditore">Venditore</label>
-          <select id="venditore" onchange="aggiorna()">
+          <select id="venditore" onchange="aggiorna()" aria-describedby="venditore-help">
             <option value="privato">Privato / rivenditore</option>
             <option value="costruttore">Impresa costruttrice (soggetto IVA)</option>
           </select>
-          <p class="hint">Se acquisti da un'impresa che ha costruito l'immobile si paga IVA, non imposta di registro</p>
+          <p class="hint" id="venditore-help">Se acquisti da un'impresa che ha costruito l'immobile si paga IVA, non imposta di registro</p>
         </div>
         <div class="field">
           <label for="rendita">Rendita catastale (per imposta di registro)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="rendita" value="600" min="0" step="10" class="has-prefix"/></div>
-          <p class="hint">Serve solo per acquisto da privato. Trovala nella visura catastale.</p>
+          <input type="number" id="rendita" value="600" min="0" step="10" class="has-prefix" aria-describedby="rendita-help"/></div>
+          <p class="hint" id="rendita-help">Serve solo per acquisto da privato. Trovala nella visura catastale.</p>
         </div>
       </div>
 
@@ -232,8 +235,8 @@
         <div class="field">
           <label for="agenzia">Commissione agenzia immobiliare (%)</label>
           <div class="input-wrap"><span class="input-prefix">%</span>
-          <input type="number" id="agenzia" value="3" min="0" max="10" step="0.5" class="has-prefix"/></div>
-          <p class="hint">Tipicamente 2-4% del prezzo per l'acquirente. Inserisci 0 se acquisti senza agenzia.</p>
+          <input type="number" id="agenzia" value="3" min="0" max="10" step="0.5" class="has-prefix" aria-describedby="agenzia-help"/></div>
+          <p class="hint" id="agenzia-help">Tipicamente 2-4% del prezzo per l'acquirente. Inserisci 0 se acquisti senza agenzia.</p>
         </div>
         <div class="field">
           <label for="mutuo">Vuoi calcolare anche le spese del mutuo?</label>
@@ -276,7 +279,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">🏆</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Stai comprando casa? Confronta i mutui</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Stai comprando casa? Confronta i mutui</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Ora che conosci le spese di acquisto, trova il mutuo con il tasso più basso. Confronto gratuito e senza impegno.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -313,7 +316,7 @@
       </div>
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="mutuo.html" class="cross-link-pill">🏦 Calcola rata mutuo</a>
@@ -329,13 +332,13 @@
       <h2>Quanto costa comprare casa in Italia nel 2026</h2>
       <p>Il prezzo dichiarato nell'atto notarile è solo una parte del costo reale di un acquisto immobiliare. Le spese accessorie possono arrivare al 10-15% del valore dell'immobile e includono imposte, onorari notarili, commissioni di agenzia e spese di mutuo.</p>
       <h3>Prima casa: imposta di registro al 2%</h3>
-      <p>Se acquisti la prima casa da un privato, paghi l'imposta di registro al <strong>2%</strong> calcolata non sul prezzo di acquisto ma sulla <strong>rendita catastale rivalutata</strong> (rendita × 115,5, coefficiente che include già la rivalutazione del 5%). Con rendita di €600, la base è €69.300 e l'imposta è €1.386. Il minimo è €1.000.</p>
+      <p>Se acquisti la prima casa da un privato, paghi l'<a href="glossario-finanziario.html">imposta di registro</a> al <strong>2%</strong> calcolata non sul prezzo di acquisto ma sulla <strong>rendita catastale rivalutata</strong> (rendita × 115,5, coefficiente che include già la rivalutazione del 5%). Con rendita di €600, la base è €69.300 e l'imposta è €1.386. Il minimo è €1.000.</p>
       <h3>Seconda casa: imposta di registro al 9%</h3>
       <p>Per la seconda casa l'aliquota sale al <strong>9%</strong>, sempre sulla rendita catastale rivalutata. Oltre all'imposta di registro si pagano €50 di imposta ipotecaria e €50 di imposta catastale.</p>
       <h3>Acquisto da costruttore: si paga l'IVA</h3>
-      <p>Se acquisti un'abitazione nuova da un'impresa costruttrice, non si applica l'imposta di registro ma l'<strong>IVA al 4%</strong> (prima casa) o al <strong>10%</strong> (seconda casa) sul prezzo di acquisto. Il notaio costa di più perché il rogito è più complesso.</p>
+      <p>Se acquisti un'abitazione nuova da un'impresa costruttrice, non si applica l'imposta di registro ma l'<strong><a href="iva.html">IVA</a> al 4%</strong> (prima casa) o al <strong>10%</strong> (seconda casa) sul prezzo di acquisto. Il notaio costa di più perché il rogito è più complesso.</p>
       <h3>Il costo del notaio</h3>
-      <p>Gli onorari del notaio dipendono dal valore dell'immobile. Per una casa da €200.000 stimano tra €1.800 e €3.000. Richiedi sempre almeno 2-3 preventivi: i notai possono variare i propri onorari.</p>
+      <p>Gli onorari del notaio dipendono dal valore dell'immobile. Per una casa da €200.000 stimano tra €1.800 e €3.000. Richiedi sempre almeno 2-3 preventivi: i notai possono variare i propri onorari. Se in futuro rivenderai l'immobile, ricorda di considerare anche la <a href="calcolo-plusvalenza-immobiliare.html">plusvalenza immobiliare</a> sulla vendita.</p>
       <h3>Domande frequenti</h3>
       <div class="faq-list">
         <div class="faq-item">
@@ -384,7 +387,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -402,7 +405,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -415,7 +418,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -446,7 +449,35 @@
 
     function aggiorna() { /* noop, calcola on button */ }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
+      pulisciErroreCampo('prezzo');
+      pulisciErroreCampo('rendita');
       const prezzo = parseFloat(document.getElementById('prezzo').value) || 0;
       const tipoCasa = document.getElementById('tipoCasa').value;
       const venditore = document.getElementById('venditore').value;
@@ -455,13 +486,14 @@
       const conMutuo = document.getElementById('mutuo').value === 'si';
       const importoMutuo = parseFloat(document.getElementById('importoMutuo').value) || 0;
 
-      if (prezzo <= 0) { alert('Inserisci il prezzo di acquisto.'); return; }
+      if (prezzo <= 0) { mostraErroreCampo('prezzo', 'Inserisci il prezzo di acquisto.'); return; }
+      if (venditore === 'privato' && rendita <= 0) { mostraErroreCampo('rendita', 'Inserisci la rendita catastale dell\'immobile: è necessaria per calcolare l\'imposta di registro su acquisti da privato.'); return; }
 
       let impostaReg = 0, iva = 0, imposteAcc = 100; // ipotecaria 50 + catastale 50
 
       if (venditore === 'privato') {
         // Imposta di registro su rendita catastale rivalutata
-        const baseImponibile = rendita > 0 ? rendita * (tipoCasa === 'prima' ? 115.5 : 126) : prezzo;
+        const baseImponibile = rendita * (tipoCasa === 'prima' ? 115.5 : 126);
         const aliquota = tipoCasa === 'prima' ? 0.02 : 0.09;
         impostaReg = Math.max(1000, baseImponibile * aliquota);
       } else {
@@ -529,13 +561,6 @@
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
     }
 
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
   </script>
 
   <div class="amz-sticky" id="amzSticky">
@@ -543,18 +568,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

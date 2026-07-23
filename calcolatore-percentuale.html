@@ -29,7 +29,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -44,17 +44,17 @@
   <meta property="og:url" content="https://calcolapro.it/calcolatore-percentuale.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Calcolatore Percentuale Online Gratis 2026 | CalcolaPro">
   <meta name="twitter:description" content="Calcola percentuali di un numero, variazioni %, sconti e ricarichi. Gratis e istantaneo.">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Utilità","item":"https://calcolapro.it/#utilita"},{"@type":"ListItem","position":3,"name":"Calcolatore Percentuale","item":"https://calcolapro.it/calcolatore-percentuale.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Utilità","item":"https://calcolapro.it/categoria-utilita-quotidiane.html"},{"@type":"ListItem","position":3,"name":"Calcolatore Percentuale","item":"https://calcolapro.it/calcolatore-percentuale.html"}]}
   </script>
   <style>
     .mode-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
@@ -79,7 +79,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -97,12 +97,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -176,7 +179,7 @@
       <p class="page-subtitle">Calcola la percentuale di un numero, la variazione tra due valori, lo sconto o il ricarico. Quattro modalità in un unico strumento.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 09/07/2026</span>
+        <span>📅 Aggiornato il 23/07/2026</span>
       </div>
     </div>
   </div>
@@ -188,7 +191,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#utilita" itemprop="item"><span itemprop="name">Utilità</span></a>
+        <a href="https://calcolapro.it/categoria-utilita-quotidiane.html" itemprop="item"><span itemprop="name">Utilità</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -303,8 +306,8 @@
 </div>
       </div>
 
-      <div class="cross-links" id="crossLinks" style="display:none;">
-        <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links" id="crossLinks">
+        <h2>🔗 Potrebbe interessarti anche</h2>
         <div class="cross-links-grid">
           <a href="iva.html" class="cross-link-pill">🧾 Calcola IVA</a>
           <a href="divisione-conto.html" class="cross-link-pill">🍽️ Dividi il conto</a>
@@ -318,13 +321,41 @@
         <p>La percentuale è un modo per esprimere un numero come frazione di 100. Il simbolo è %. Le quattro operazioni fondamentali con le percentuali sono: calcolare il valore di una percentuale, trovare la variazione percentuale tra due numeri, applicare uno sconto o un ricarico, e trovare il totale da una parte e dalla sua percentuale.</p>
 
         <h3>Formula: percentuale di un numero</h3>
-        <p>Per calcolare il X% di N: <strong>risultato = (N × X) ÷ 100</strong>. Esempio: il 20% di 150 = (150 × 20) ÷ 100 = 30. Oppure: 150 × 0,20 = 30.</p>
+        <p>Per calcolare il X% di N: <strong>risultato = (N × X) ÷ 100</strong>. Esempio: il 20% di 150 = (150 × 20) ÷ 100 = 30. Oppure: 150 × 0,20 = 30. È lo stesso calcolo che serve per stimare gli interessi di un <a href="calcolatore-interessi-conto-deposito.html">conto deposito</a>.</p>
 
         <h3>Formula: variazione percentuale</h3>
-        <p>Per calcolare quanto è variato un valore: <strong>variazione % = ((valore finale − valore iniziale) ÷ valore iniziale) × 100</strong>. Esempio: da 100 a 125 = ((125−100)÷100) × 100 = +25%. Un risultato positivo indica aumento, negativo indica diminuzione.</p>
+        <p>Per calcolare quanto è variato un valore: <strong>variazione % = ((valore finale − valore iniziale) ÷ valore iniziale) × 100</strong>. Esempio: da 100 a 125 = ((125−100)÷100) × 100 = +25%. Un risultato positivo indica aumento, negativo indica diminuzione. Lo stesso principio si applica per calcolare la <a href="calcolo-plusvalenza-immobiliare.html">plusvalenza</a> sulla vendita di un immobile.</p>
 
         <h3>Formula: prezzo scontato</h3>
-        <p>Prezzo dopo sconto del X%: <strong>prezzo scontato = prezzo × (1 − X/100)</strong>. Esempio: 200€ con sconto 30% = 200 × 0,70 = 140€. Il risparmio è 60€. Per il ricarico: <strong>prezzo finale = prezzo × (1 + X/100)</strong>.</p>
+        <p>Prezzo dopo sconto del X%: <strong>prezzo scontato = prezzo × (1 − X/100)</strong>. Esempio: 200€ con sconto 30% = 200 × 0,70 = 140€. Il risparmio è 60€. Per il ricarico: <strong>prezzo finale = prezzo × (1 + X/100)</strong>. È la stessa formula che si usa per aggiungere l'<a href="iva.html">IVA</a> a un prezzo netto.</p>
+
+        <h3>Punti percentuali e variazione percentuale: non sono la stessa cosa</h3>
+        <p>È uno degli errori più comuni. Se un tasso passa dal 5% al 7%, l'aumento è di <strong>2 punti percentuali</strong>, ma in termini relativi la crescita è del <strong>+40%</strong> (2 ÷ 5 × 100). I due valori rispondono a domande diverse: i "punti percentuali" misurano la differenza assoluta tra due percentuali, la "variazione percentuale" misura di quanto è cresciuto un valore rispetto al punto di partenza. Confonderli porta a leggere male le notizie su tassi, spread e interessi.</p>
+
+        <h3>Perché due sconti del 20% non fanno il 40%</h3>
+        <p>Gli sconti successivi non si sommano, si moltiplicano. Un prezzo di 100€ scontato del 20% diventa 80€; applicando un secondo sconto del 20% su 80€ si arriva a 64€. Lo sconto complessivo è quindi del <strong>36%</strong>, non del 40%: 1 − (0,80 × 0,80) = 0,36. Vale lo stesso ragionamento per i ricarichi applicati in cascata. Per questo, quando confronti offerte, conviene sempre calcolare il prezzo finale effettivo invece di sommare le percentuali tra loro.</p>
+
+        <h3>Tabella di conversione: frazioni, percentuali e decimali</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Frazione</th><th>Percentuale</th><th>Valore decimale</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1/10</td><td>10%</td><td>0,10</td></tr>
+              <tr><td>1/8</td><td>12,5%</td><td>0,125</td></tr>
+              <tr><td>1/5</td><td>20%</td><td>0,20</td></tr>
+              <tr><td>1/4</td><td>25%</td><td>0,25</td></tr>
+              <tr><td>1/3</td><td>33,3%</td><td>0,333…</td></tr>
+              <tr><td>1/2</td><td>50%</td><td>0,50</td></tr>
+              <tr><td>3/4</td><td>75%</td><td>0,75</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Le percentuali sono ovunque nella vita quotidiana: dall'<a href="iva.html">IVA</a> sugli acquisti agli interessi di un <a href="calcolatore-interessi-conto-deposito.html">conto deposito</a>, dalla mancia al ristorante fino agli aumenti contrattuali. Saper passare rapidamente da frazione a percentuale a numero decimale è la base per verificare al volo se un'offerta conviene davvero.</p>
+
+        <h3>Come si annulla un aumento percentuale</h3>
+        <p>Un altro errore frequente: dopo un aumento del 20%, per tornare al valore di partenza <strong>non</strong> si toglie il 20%. Se 100€ aumentano del 20% diventano 120€; sottraendo il 20% da 120€ si ottiene 96€, non 100€. Per annullare correttamente un aumento del X% bisogna dividere per (1 + X/100): 120 ÷ 1,20 = 100€. Lo stesso vale per lo scorporo dell'<a href="iva.html">IVA</a> da un totale, che si ottiene dividendo e non sottraendo la percentuale.</p>
 
         <h3>Domande frequenti sulle percentuali</h3>
         <div class="faq-list">
@@ -371,7 +402,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -384,7 +415,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -394,7 +425,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -442,8 +473,36 @@
       return (v >= 0 ? '+' : '') + v.toFixed(2).replace('.', ',') + '%';
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
       let label, big, unit, breakdown = '', formula = '';
+      pulisciErroreCampo('p2_da');
+      pulisciErroreCampo('p3_prezzo');
+      pulisciErroreCampo('p4_perc');
 
       if (modoAttuale === 1) {
         const perc = parseFloat(document.getElementById('p1_perc').value) || 0;
@@ -459,7 +518,7 @@
       } else if (modoAttuale === 2) {
         const da = parseFloat(document.getElementById('p2_da').value);
         const a = parseFloat(document.getElementById('p2_a').value);
-        if (!da) { alert('Il valore iniziale non può essere zero.'); return; }
+        if (!da) { mostraErroreCampo('p2_da', 'Il valore iniziale non può essere zero.'); document.getElementById('p2_da').focus(); return; }
         const var_ = ((a - da) / Math.abs(da)) * 100;
         label = var_ >= 0 ? 'Aumento percentuale' : 'Diminuzione percentuale';
         big = fmtPct(var_);
@@ -473,7 +532,7 @@
         const prezzo = parseFloat(document.getElementById('p3_prezzo').value) || 0;
         const tipo = document.getElementById('p3_tipo').value;
         const perc = parseFloat(document.getElementById('p3_perc').value) || 0;
-        if (prezzo <= 0) { alert('Inserisci un prezzo valido.'); return; }
+        if (prezzo <= 0) { mostraErroreCampo('p3_prezzo', 'Inserisci un prezzo valido.'); document.getElementById('p3_prezzo').focus(); return; }
         let finale, diff;
         if (tipo === 'sconto') {
           finale = prezzo * (1 - perc / 100);
@@ -497,7 +556,7 @@
       } else {
         const x = parseFloat(document.getElementById('p4_x').value);
         const perc = parseFloat(document.getElementById('p4_perc').value);
-        if (!perc) { alert('La percentuale non può essere zero.'); return; }
+        if (!perc) { mostraErroreCampo('p4_perc', 'La percentuale non può essere zero.'); document.getElementById('p4_perc').focus(); return; }
         const totale = (x / perc) * 100;
         label = fmtN(x) + ' è il ' + perc.toLocaleString('it-IT') + '% di';
         big = fmtN(totale);
@@ -521,28 +580,13 @@
       if (typeof gtag !== 'undefined') gtag('event', 'calcolo_percentuale', {modo: modoAttuale});
     }
 
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
   </script>
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-  <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() { sticky.style.display = 'none'; localStorage.setItem('amzClosed', '1'); };
-    })();
-  </script>
+  <script src="js/ui-common.js" defer></script>
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>

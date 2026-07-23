@@ -12,13 +12,13 @@
   <meta property="og:url" content="https://calcolapro.it/calcolatore-risparmio.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Calcola Risparmio 2026 | Quanto Risparmiare | CalcolaPro"/>
   <meta name="twitter:description" content="Calcola quanto devo risparmiare al mese per raggiungere il tuo obiettivo. Interesse composto. Gratis e immediato."/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e40af'/><text y='.9em' font-size='70' x='15'>🧮</text></svg>"/>
@@ -38,7 +38,7 @@
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-        "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+        "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
       },
       {
         "@type": "FAQPage",
@@ -104,7 +104,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -122,12 +122,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -235,8 +238,8 @@
       <div class="field">
         <label for="rendimento">Rendimento annuo atteso (%)</label>
         <div class="input-wrap"><span class="input-prefix">%</span>
-        <input type="number" id="rendimento" value="2" min="0" max="20" step="0.1" class="has-prefix"/></div>
-        <p class="hint">Usa 2-3% per conto deposito/BTP, 5-7% per ETF azionari su lungo periodo</p>
+        <input type="number" id="rendimento" value="2" min="0" max="20" step="0.1" class="has-prefix" aria-describedby="rendimento-help"/></div>
+        <p class="hint" id="rendimento-help">Usa 2-3% per conto deposito/BTP, 5-7% per ETF azionari su lungo periodo</p>
       </div>
 
       <div id="panelA" role="tabpanel" aria-labelledby="tabA">
@@ -334,7 +337,7 @@
       </div>
 
       <div class="aff-box" style="margin-top:16px;">
-        <h3>📚 Libri consigliati sul risparmio</h3>
+        <h2>📚 Libri consigliati sul risparmio</h2>
         <div class="aff-grid">
           <a href="https://amzn.to/4n7fL7D" class="aff-item" target="_blank" rel="noopener sponsored"><div class="aff-label">📚 Finanza personale</div><div class="aff-title">Ti Insegno Come Diventare Ricco — Il metodo per automatizzare i risparmi e raggiungere i tuoi obiettivi</div></a>
           <a href="https://amzn.to/4d9ulqt" class="aff-item" target="_blank" rel="noopener sponsored"><div class="aff-label">📚 Tasse e risparmio</div><div class="aff-title">Partita IVA Semplice — Come pagare meno tasse e risparmiare di più ogni anno</div></a>
@@ -464,7 +467,7 @@
       <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
     </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -482,7 +485,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -495,7 +498,7 @@
         </ul>
       </div>
     <div class="footer-col">
-      <h4>Informazioni</h4>
+      <h3>Informazioni</h3>
       <ul>
         <li><a href="about.html">Chi Siamo</a></li>
         <li><a href="come-funziona.html">Come Funziona</a></li>
@@ -545,20 +548,47 @@
     return iniziale * fattore + mensile * ((fattore - 1) / r);
   }
 
+  function mostraErroreCampo(id, messaggio) {
+    const input = document.getElementById(id);
+    const field = input.closest('.field');
+    let msg = document.getElementById(id + '-error');
+    if (!msg) {
+      msg = document.createElement('span');
+      msg.className = 'error-msg';
+      msg.id = id + '-error';
+      field.appendChild(msg);
+    }
+    msg.textContent = messaggio;
+    field.classList.add('error');
+    input.setAttribute('aria-invalid', 'true');
+    const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+    described.push(msg.id);
+    input.setAttribute('aria-describedby', described.join(' '));
+    input.focus();
+  }
+  function pulisciErroreCampo(id) {
+    const input = document.getElementById(id);
+    if (!input) return;
+    const field = input.closest('.field');
+    if (field) field.classList.remove('error');
+    input.removeAttribute('aria-invalid');
+  }
+
   function calcola() {
+    ['obiettivo', 'iniziale', 'mensileA', 'anniB'].forEach(pulisciErroreCampo);
     const obiettivo = parseFloat(document.getElementById('obiettivo').value) || 0;
     const iniziale = parseFloat(document.getElementById('iniziale').value) || 0;
     const rendimento = parseFloat(document.getElementById('rendimento').value) || 0;
 
-    if (obiettivo <= 0) { alert('Inserisci un obiettivo di risparmio valido.'); return; }
-    if (iniziale >= obiettivo) { alert('Il risparmio iniziale è già pari o superiore all\'obiettivo!'); return; }
+    if (obiettivo <= 0) { mostraErroreCampo('obiettivo', 'Inserisci un obiettivo di risparmio valido.'); return; }
+    if (iniziale >= obiettivo) { mostraErroreCampo('iniziale', 'Il risparmio iniziale è già pari o superiore all\'obiettivo!'); return; }
 
     let resultBigVal, resultBigLabelVal, resultLabelVal;
     let totaleVersato, interessi, montante, anniRisultato, mensileRisultato;
 
     if (modoAttuale === 'A') {
       const mensile = parseFloat(document.getElementById('mensileA').value) || 0;
-      if (mensile <= 0) { alert('Inserisci un risparmio mensile valido.'); return; }
+      if (mensile <= 0) { mostraErroreCampo('mensileA', 'Inserisci un risparmio mensile valido.'); return; }
 
       // Trova mesi necessari per raggiungere obiettivo
       const r = rendimento / 100 / 12;
@@ -574,7 +604,7 @@
         }
       }
       if (mesi >= MAX_MESI) {
-        alert('Con questo risparmio mensile e rendimento non raggiungi l\'obiettivo in 50 anni. Aumenta il risparmio mensile o il rendimento.');
+        mostraErroreCampo('mensileA', 'Con questo risparmio mensile e rendimento non raggiungi l\'obiettivo in 50 anni. Aumenta il risparmio mensile o il rendimento.');
         return;
       }
       montante = montanteCalc;
@@ -606,7 +636,7 @@
         mensile = (obiettivo - iniziale * fattore) * r / (fattore - 1);
       }
       if (mensile <= 0) {
-        alert('Il tuo risparmio iniziale con il rendimento indicato supera già l\'obiettivo nel tempo scelto!');
+        mostraErroreCampo('iniziale', 'Il tuo risparmio iniziale con il rendimento indicato supera già l\'obiettivo nel tempo scelto!');
         return;
       }
       montante = calcolaMontante(iniziale, mensile, rendimento, mesi);
@@ -644,18 +674,7 @@
     if (typeof gtag !== 'undefined') gtag('event', 'calcolo_risparmio', { modo: modoAttuale, rendimento: rendimento });
   }
 </script>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

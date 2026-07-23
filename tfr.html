@@ -23,18 +23,18 @@
   <meta property="og:url" content="https://calcolapro.it/tfr.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Simulatore TFR 2026 | Calcola la Liquidazione | CalcolaPro">
   <meta name="twitter:description" content="Calcola il TFR (Trattamento di Fine Rapporto) maturato con rivalutazione ISTAT e tassazione separata. Confronta fondo pensione. Simulatore gratuito.">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Simulatore TFR","item":"https://calcolapro.it/tfr.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Simulatore TFR","item":"https://calcolapro.it/tfr.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -51,7 +51,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -69,12 +69,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -156,7 +159,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -178,9 +181,9 @@
           <label for="ral">Retribuzione Annua Lorda (RAL)</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
-            <input type="number" id="ral" value="30000" min="0" class="has-prefix"/>
+            <input type="number" id="ral" value="30000" min="0" class="has-prefix" aria-describedby="ral-help"/>
           </div>
-          <p class="hint">Il totale lordo annuale inclusi i ratei di 13ª e 14ª</p>
+          <p class="hint" id="ral-help">Il totale lordo annuale inclusi i ratei di 13ª e 14ª</p>
         </div>
         <div class="field">
           <label for="anni">Anni di servizio</label>
@@ -191,12 +194,12 @@
         </div>
         <div class="field">
           <label for="destinazione">Destinazione del TFR</label>
-          <select id="destinazione">
+          <select id="destinazione" aria-describedby="destinazione-help">
             <option value="azienda">In azienda (aziende &lt;50 dipendenti)</option>
             <option value="inps">Fondo INPS (aziende ≥50 dipendenti)</option>
             <option value="fondo">Fondo pensione complementare</option>
           </select>
-          <p class="hint">Influenza la rivalutazione annua</p>
+          <p class="hint" id="destinazione-help">Influenza la rivalutazione annua</p>
         </div>
       </div>
 
@@ -209,17 +212,17 @@
           <label for="inflazione">Tasso inflazione medio annuo stimato (%)</label>
           <div class="input-wrap">
             <span class="input-prefix">%</span>
-            <input type="number" id="inflazione" value="2.5" min="0" max="20" step="0.1" class="has-prefix"/>
+            <input type="number" id="inflazione" value="2.5" min="0" max="20" step="0.1" class="has-prefix" aria-describedby="inflazione-help"/>
           </div>
-          <p class="hint">La rivalutazione TFR = 1,5% fisso + 75% dell'inflazione</p>
+          <p class="hint" id="inflazione-help">La rivalutazione TFR = 1,5% fisso + 75% dell'inflazione</p>
         </div>
         <div class="field">
           <label for="tassazione">Aliquota media tassazione separata (%)</label>
           <div class="input-wrap">
             <span class="input-prefix">%</span>
-            <input type="number" id="tassazione" value="23" min="0" max="43" class="has-prefix"/>
+            <input type="number" id="tassazione" value="23" min="0" max="43" class="has-prefix" aria-describedby="tassazione-help"/>
           </div>
-          <p class="hint">La tassazione del TFR è separata e agevolata</p>
+          <p class="hint" id="tassazione-help">La tassazione del TFR è separata e agevolata</p>
         </div>
       </div>
 
@@ -318,7 +321,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un commercialista o consulente del lavoro.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -336,7 +339,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -349,7 +352,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -408,15 +411,6 @@
       res.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   </script>
-  <script>
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
-  </script>
 
   <!-- BOX CONFRONTO FONDI PENSIONE TFR — sostituisci href con i tuoi link affiliati reali -->
   <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;max-width:720px;margin:0 auto 32px;">
@@ -454,18 +448,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

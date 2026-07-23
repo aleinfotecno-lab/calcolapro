@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -59,7 +59,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Casa e Immobili","item":"https://calcolapro.it/#casa"},{"@type":"ListItem","position":3,"name":"Locazioni Brevi","item":"https://calcolapro.it/calcolo-locazioni-brevi.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Casa e Immobili","item":"https://calcolapro.it/categoria-casa-mutuo.html"},{"@type":"ListItem","position":3,"name":"Locazioni Brevi","item":"https://calcolapro.it/calcolo-locazioni-brevi.html"}]}
   </script>
 </head>
 <body>
@@ -77,7 +77,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -95,12 +95,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -183,7 +186,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#casa" itemprop="item"><span itemprop="name">Casa e Immobili</span></a>
+        <a href="https://calcolapro.it/categoria-casa-mutuo.html" itemprop="item"><span itemprop="name">Casa e Immobili</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -208,12 +211,12 @@
 
         <div style="margin-bottom:18px;">
           <div class="calc-section-title">Quanti immobili affitti tramite locazioni brevi in totale nel 2026?</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;" role="radiogroup">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;" role="radiogroup" aria-describedby="nImm-help">
             <label id="lbl-n1" style="border:2px solid var(--blue);background:#eff6ff;border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;color:#1d4ed8;" onclick="setNImm(1,this)">1</label>
             <label id="lbl-n2" style="border:2px solid var(--border);border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;" onclick="setNImm(2,this)">2</label>
             <label id="lbl-n3" style="border:2px solid var(--border);border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;" onclick="setNImm(3,this)">3+</label>
           </div>
-          <p class="hint" style="margin-top:8px;">Il primo immobile (con il reddito più alto) è tassato al 21%, il secondo al 26%. Dal terzo, la cedolare secca non è più applicabile (vedi avviso sopra).</p>
+          <p class="hint" id="nImm-help" style="margin-top:8px;">Il primo immobile (con il reddito più alto) è tassato al 21%, il secondo al 26%. Dal terzo, la cedolare secca non è più applicabile (vedi avviso sopra).</p>
         </div>
 
         <!-- Immobile 1 -->
@@ -259,11 +262,11 @@
         <div class="card-title"><span class="card-icon">⚙️</span> Opzioni fiscali</div>
         <div class="field">
           <label for="regimeFiscale">Regime fiscale scelto</label>
-          <select id="regimeFiscale">
+          <select id="regimeFiscale" aria-describedby="regimeFiscale-help">
             <option value="cedolare" selected>Cedolare secca (21% / 26%) — consigliato</option>
             <option value="irpef">IRPEF ordinaria (scaglioni 2026)</option>
           </select>
-          <p class="hint">La cedolare secca è quasi sempre più conveniente. L'IRPEF ordinaria può convenire solo con redditi imponibili molto bassi (aliquota 23%) e poche spese deducibili.</p>
+          <p class="hint" id="regimeFiscale-help">La cedolare secca è quasi sempre più conveniente. L'IRPEF ordinaria può convenire solo con redditi imponibili molto bassi (aliquota 23%) e poche spese deducibili.</p>
         </div>
         <div class="field" id="campoAliqIRPEF" style="display:none;">
           <label for="aliqIRPEF">Aliquota IRPEF marginale</label>
@@ -359,7 +362,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">🏡</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri strumenti per i proprietari di casa</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Altri strumenti per i proprietari di casa</h2>
         </div>
         <p class="tool-cluster-sub">IMU, cedolare secca, plusvalenza: calcola tutte le tasse immobiliari.</p>
         <div class="tool-cluster-grid">
@@ -395,7 +398,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-cedolare-secca.html" class="cross-link-pill">🏘️ Cedolare secca affitti lunghi</a>
@@ -408,15 +411,15 @@
 
     <div class="seo-section">
       <h2>Locazioni brevi 2026: la guida fiscale per host</h2>
-      <p>Le <strong>locazioni brevi</strong> sono contratti di locazione di immobili a uso abitativo di durata non superiore a 30 giorni consecutivi, stipulati da privati al di fuori di attività d'impresa. Da quando Airbnb e Booking hanno rivoluzionato il mercato degli affitti brevi, sempre più italiani si trovano a dover capire come tassare questi redditi.</p>
+      <p>Le <strong>locazioni brevi</strong> sono contratti di locazione di immobili a uso abitativo di durata non superiore a 30 giorni consecutivi, stipulati da privati al di fuori di attività d'impresa. Da quando Airbnb e Booking hanno rivoluzionato il mercato degli affitti brevi, sempre più italiani si trovano a dover capire come <a href="guida-730-precompilato-2026.html">tassare questi redditi</a>.</p>
 
       <h3>Le aliquote 2026: 21% e 26%, ma solo per 2 immobili</h3>
-      <p>Dal 1° gennaio 2026 (Legge di Bilancio 2026, L. 199/2025), la cedolare secca sulle locazioni brevi si può applicare a un massimo di <strong>2 immobili</strong> per periodo d'imposta (in precedenza il limite era 4):</p>
+      <p>Dal 1° gennaio 2026 (Legge di Bilancio 2026, L. 199/2025), la <a href="guida-cedolare-secca-affitti.html">cedolare secca</a> sulle locazioni brevi si può applicare a un massimo di <strong>2 immobili</strong> per periodo d'imposta (in precedenza il limite era 4):</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li><strong>21%</strong> per il primo immobile affittato con locazione breve (quello con il reddito più alto nell'anno)</li>
         <li><strong>26%</strong> per il secondo immobile affittato nello stesso anno</li>
       </ul>
-      <p>Dal <strong>terzo immobile</strong> destinato alla locazione breve, l'attività si presume svolta in forma imprenditoriale: è obbligatorio aprire la Partita IVA e la cedolare secca non è più un'opzione. Prima della riforma 2024, la cedolare sulle locazioni brevi era sempre al 21%; l'introduzione del 26% (poi la stretta a 2 immobili nel 2026) vuole disincentivare la concentrazione di appartamenti nel settore short-term, che riduce l'offerta di affitti tradizionali.</p>
+      <p>Dal <strong>terzo immobile</strong> destinato alla locazione breve, l'attività si presume svolta in forma imprenditoriale: è obbligatorio aprire la <a href="partitaiva.html">Partita IVA</a> e la cedolare secca non è più un'opzione. Prima della riforma 2024, la cedolare sulle locazioni brevi era sempre al 21%; l'introduzione del 26% (poi la stretta a 2 immobili nel 2026) vuole disincentivare la concentrazione di appartamenti nel settore short-term, che riduce l'offerta di affitti tradizionali.</p>
 
       <h3>Come funziona la ritenuta di Airbnb e Booking</h3>
       <p>Le piattaforme OTA (Online Travel Agencies) come Airbnb, Booking.com, Vrbo operano come <strong>sostituti d'imposta</strong> per gli host italiani. In pratica:</p>
@@ -531,7 +534,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="about.html">Chi Siamo</a></li>
           <li><a href="contatti.html">Contatti</a></li>

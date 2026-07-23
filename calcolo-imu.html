@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:locale" content="it_IT" />
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,8 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Person", "name": "Alessandro Signorile", "url": "https://calcolapro.it/about.html"},
+    "publisher": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -54,7 +55,7 @@
   </script>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Mutuo e Casa","item":"https://calcolapro.it/#casa"},{"@type":"ListItem","position":3,"name":"Calcolo IMU 2026","item":"https://calcolapro.it/calcolo-imu.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Mutuo e Casa","item":"https://calcolapro.it/categoria-casa-mutuo.html"},{"@type":"ListItem","position":3,"name":"Calcolo IMU 2026","item":"https://calcolapro.it/calcolo-imu.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -71,7 +72,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -89,12 +90,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -180,7 +184,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#casa" itemprop="item"><span itemprop="name">Mutuo e Casa</span></a>
+        <a href="https://calcolapro.it/categoria-casa-mutuo.html" itemprop="item"><span itemprop="name">Mutuo e Casa</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -197,7 +201,7 @@
         <div class="card-title"><span class="card-icon">🏠</span> L'immobile</div>
         <div class="field">
           <label for="tipo">Tipo di immobile</label>
-          <select id="tipo" onchange="aggiornaCoefficiente()">
+          <select id="tipo" onchange="aggiornaCoefficiente()" aria-describedby="tipo-help">
             <option value="160">Abitazione (cat. A, escluso A/10) — coeff. 160</option>
             <option value="80">Ufficio / Studio (cat. A/10) — coeff. 80</option>
             <option value="55">Negozi (cat. C/1) — coeff. 55</option>
@@ -205,13 +209,13 @@
             <option value="65">Capannoni (cat. D) — coeff. 65</option>
             <option value="135">Terreni agricoli — coeff. 135</option>
           </select>
-          <p class="hint">Il coefficiente catastale dipende dalla categoria dell'immobile</p>
+          <p class="hint" id="tipo-help">Il coefficiente catastale dipende dalla categoria dell'immobile</p>
         </div>
         <div class="field">
           <label for="rendita">Rendita catastale annua</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="rendita" value="600" min="1" step="10" class="has-prefix"/></div>
-          <p class="hint">Trovi la rendita nella visura catastale (Agenzia delle Entrate)</p>
+          <input type="number" id="rendita" value="600" min="1" step="10" class="has-prefix" aria-describedby="rendita-help"/></div>
+          <p class="hint" id="rendita-help">Trovi la rendita nella visura catastale (Agenzia delle Entrate)</p>
         </div>
         <div class="field">
           <label for="mesi">Mesi di possesso nell'anno</label>
@@ -237,14 +241,14 @@
         <div class="field">
           <label for="aliquota">Aliquota IMU comunale (%)</label>
           <div class="input-wrap"><span class="input-prefix">%</span>
-          <input type="number" id="aliquota" value="0.86" min="0" max="1.06" step="0.01" class="has-prefix"/></div>
-          <p class="hint">L'aliquota base è 0,86%. Ogni Comune può variare tra 0% e 1,06%. Controlla il sito del tuo Comune.</p>
+          <input type="number" id="aliquota" value="0.86" min="0" max="1.06" step="0.01" class="has-prefix" aria-describedby="aliquota-help"/></div>
+          <p class="hint" id="aliquota-help">L'aliquota base è 0,86%. Ogni Comune può variare tra 0% e 1,06%. Controlla il sito del tuo Comune.</p>
         </div>
         <div class="field">
           <label for="quota">Quota di possesso (%)</label>
           <div class="input-wrap"><span class="input-prefix">%</span>
-          <input type="number" id="quota" value="100" min="1" max="100" class="has-prefix"/></div>
-          <p class="hint">Se sei comproprietario, inserisci la tua quota (es. 50% per metà)</p>
+          <input type="number" id="quota" value="100" min="1" max="100" class="has-prefix" aria-describedby="quota-help"/></div>
+          <p class="hint" id="quota-help">Se sei comproprietario, inserisci la tua quota (es. 50% per metà)</p>
         </div>
         <div class="field">
           <label for="riduzioni">Riduzioni applicabili</label>
@@ -281,7 +285,7 @@
       <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:28px 24px;margin-top:16px;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
           <span style="font-size:1.5rem;">🏡</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Gestisci la tua casa in modo intelligente</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Gestisci la tua casa in modo intelligente</h2>
         </div>
         <p style="color:rgba(255,255,255,0.6);font-size:13px;margin:0 0 20px;">Visura catastale, dichiarazione dei redditi precompilata e conto corrente per le spese casa.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
@@ -318,7 +322,7 @@
       </div>
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-bollo-auto.html" class="cross-link-pill">🚗 Bollo Auto 2026</a>
@@ -334,11 +338,11 @@
       <p>L'IMU (Imposta Municipale Propria) è la principale imposta patrimoniale sugli immobili in Italia. Si paga ogni anno sulla seconda casa, sui terreni agricoli e sugli immobili strumentali. La prima casa è esente, salvo categorie di lusso.</p>
       <h3>La formula per il calcolo IMU</h3>
       <p>IMU = Rendita catastale × 1,05 × Coefficiente catastale × Aliquota comunale × (Quota %) × (Mesi / 12)</p>
-      <p>Per un'abitazione residenziale (cat. A): il coefficiente è 160. Se la rendita catastale è €600, la base imponibile è 600 × 1,05 × 160 = €100.800. Con aliquota base 0,86%, l'IMU annua è €867.</p>
+      <p>Per un'abitazione residenziale (cat. A): il coefficiente è 160. Se la rendita catastale è €600, la base imponibile è 600 × 1,05 × 160 = €100.800. Con aliquota base 0,86%, l'IMU annua è €867. La stessa rendita catastale rivalutata concorre anche al patrimonio immobiliare usato per calcolare l'<a href="calcolo-isee.html">ISEE</a>.</p>
       <h3>Prima casa: quando è esente?</h3>
-      <p>L'abitazione principale non paga IMU se non è classificata nelle categorie catastali A/1 (abitazioni di tipo signorile), A/8 (ville) o A/9 (castelli, palazzi). Anche le pertinenze della prima casa sono esenti: un box (C/6), una cantina (C/2) e un solaio (C/7).</p>
+      <p>L'abitazione principale non paga IMU se non è classificata nelle categorie catastali A/1 (abitazioni di tipo signorile), A/8 (ville) o A/9 (castelli, palazzi). Anche le pertinenze della prima casa sono esenti: un box (C/6), una cantina (C/2) e un solaio (C/7). È uno dei fattori da mettere in conto quando si valuta se <a href="guida-comprare-affittare-casa.html">comprare o affittare casa</a>.</p>
       <h3>Le scadenze IMU 2026</h3>
-      <p>L'IMU si versa in due rate tramite modello F24: l'acconto entro il <strong>16 giugno 2026</strong> (50% dell'imposta calcolata con le aliquote 2025) e il saldo entro il <strong>16 dicembre 2026</strong> (importo a conguaglio con le aliquote 2026 definitivamente approvate dal Comune).</p>
+      <p>L'IMU si versa in due rate tramite modello F24: l'acconto entro il <strong>16 giugno 2026</strong> (50% dell'imposta calcolata con le aliquote 2025) e il saldo entro il <strong>16 dicembre 2026</strong> (importo a conguaglio con le aliquote 2026 definitivamente approvate dal Comune). Le stesse scadenze valgono anche per gli immobili destinati a <a href="calcolo-locazioni-brevi.html">locazioni brevi</a>, salvo l'esenzione prevista per la prima casa.</p>
       <h3>Domande frequenti</h3>
       <div class="faq-list">
         <div class="faq-item">
@@ -360,6 +364,15 @@
       </div>
     </div>
 
+  <div class="container">
+    <div class="sources-box">
+      <h3>Fonti ufficiali</h3>
+      <ul>
+        <li><a href="https://www.finanze.gov.it/it/fiscalita/fiscalita-regionale-e-locale/Imposta-municipale-propria-IMU/" target="_blank" rel="noopener">Dipartimento delle Finanze (MEF) — Imposta municipale propria (IMU)</a></li>
+      </ul>
+      <span class="src-note">Fonti consultate a luglio 2026.</span>
+    </div>
+  </div>
   <section class="container related-tools">
     <h3>Strumenti correlati</h3>
     <div class="related-tools-grid">
@@ -387,7 +400,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -405,7 +418,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -418,7 +431,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -445,7 +458,34 @@
 
     function aggiornaCoefficiente() { /* coefficiente già nel value della select */ }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
+      pulisciErroreCampo('rendita');
       const coefficiente = parseFloat(document.getElementById('tipo').value) || 160;
       const rendita = parseFloat(document.getElementById('rendita').value) || 0;
       const aliquotaRaw = parseFloat(document.getElementById('aliquota').value);
@@ -454,7 +494,7 @@
       const quota = Math.min(100, Math.max(0, parseFloat(document.getElementById('quota').value) || 100));
       const riduzione = parseFloat(document.getElementById('riduzioni').value) || 1;
 
-      if (rendita <= 0) { alert('Inserisci una rendita catastale valida.'); return; }
+      if (rendita <= 0) { mostraErroreCampo('rendita', 'Inserisci una rendita catastale valida.'); return; }
 
       const baseImponibile = rendita * 1.05 * coefficiente;
       const imuAnnua = baseImponibile * (aliquota / 100) * (quota / 100) * (mesi / 12) * riduzione;
@@ -480,13 +520,6 @@
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
     }
 
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
   </script>
 
   <div class="amz-sticky" id="amzSticky">
@@ -494,18 +527,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>

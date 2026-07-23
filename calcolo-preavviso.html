@@ -13,12 +13,12 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="CalcolaPro"/>
   <meta property="og:locale" content="it_IT"/>
-  <meta property="og:image" content="https://calcolapro.it/og-image.png"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg"/>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
-    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it"}
+    "author": {"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -53,7 +53,7 @@
   ]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/#lavoro"},{"@type":"ListItem","position":3,"name":"Calcolo Preavviso","item":"https://calcolapro.it/calcolo-preavviso.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo Preavviso","item":"https://calcolapro.it/calcolo-preavviso.html"}]}
   </script>
 </head>
 <body>
@@ -71,7 +71,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -89,12 +89,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -181,7 +184,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#lavoro" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
+        <a href="https://calcolapro.it/categoria-lavoro-dipendente.html" itemprop="item"><span itemprop="name">Lavoro e Stipendio</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -214,7 +217,7 @@
         </div>
         <div class="field">
           <label for="ccnl">CCNL / Settore</label>
-          <select id="ccnl" onchange="aggiornaLivelli()">
+          <select id="ccnl" onchange="aggiornaLivelli()" aria-describedby="ccnl-help">
             <option value="commercio">Commercio / Terziario (Confcommercio)</option>
             <option value="metalmeccanico">Metalmeccanico / Industria (FIM-UILM-FIOM)</option>
             <option value="credito">Credito / Bancario (ABI)</option>
@@ -223,7 +226,7 @@
             <option value="tessile">Tessile / Abbigliamento</option>
             <option value="custom">Altro (inserisci mesi manualmente)</option>
           </select>
-          <p class="hint">Seleziona il CCNL applicato al tuo contratto di lavoro. Verifica sempre il contratto collettivo nella lettera di assunzione o con il tuo sindacato.</p>
+          <p class="hint" id="ccnl-help">Seleziona il CCNL applicato al tuo contratto di lavoro. Verifica sempre il contratto collettivo nella lettera di assunzione o con il tuo sindacato.</p>
         </div>
         <div id="sezione-ccnl" class="field">
           <label for="livello">Categoria / Livello contrattuale</label>
@@ -239,8 +242,8 @@
         </div>
         <div id="sezione-custom" class="field" style="display:none;">
           <label for="mesiCustom">Mesi di preavviso da contratto</label>
-          <div class="input-wrap"><input type="number" id="mesiCustom" value="2" min="0.5" max="12" step="0.5" style="text-align:right;"/><span class="input-suffix">mesi</span></div>
-          <p class="hint">Inserisci i mesi di preavviso indicati nel tuo CCNL o contratto individuale per il tuo livello e anzianità.</p>
+          <div class="input-wrap"><input type="number" id="mesiCustom" value="2" min="0.5" max="12" step="0.5" style="text-align:right;" aria-describedby="mesiCustom-help"/><span class="input-suffix">mesi</span></div>
+          <p class="hint" id="mesiCustom-help">Inserisci i mesi di preavviso indicati nel tuo CCNL o contratto individuale per il tuo livello e anzianità.</p>
         </div>
 
         <div style="background:#f1f5f9;border-radius:10px;padding:12px 14px;margin-top:4px;">
@@ -255,13 +258,13 @@
         <div class="field">
           <label for="stipendio">Stipendio lordo mensile</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
-          <input type="number" id="stipendio" value="2000" min="500" step="50" class="has-prefix"/></div>
-          <p class="hint">Includi tutti gli elementi della retribuzione mensile lorda (paga base + superminimi + indennità contrattuali). Non includere la 13ª mensilità.</p>
+          <input type="number" id="stipendio" value="2000" min="500" step="50" class="has-prefix" aria-describedby="stipendio-help"/></div>
+          <p class="hint" id="stipendio-help">Includi tutti gli elementi della retribuzione mensile lorda (paga base + superminimi + indennità contrattuali). Non includere la 13ª mensilità.</p>
         </div>
         <div class="field">
           <label for="mesiEffettivi">Mesi di preavviso effettivamente lavorati / concessi</label>
-          <div class="input-wrap"><input type="number" id="mesiEffettivi" value="0" min="0" max="12" step="0.5" style="text-align:right;"/><span class="input-suffix">mesi</span></div>
-          <p class="hint">Se il preavviso viene lavorato integralmente, inserisci 0 (nessuna indennità sostitutiva). Se il datore tronca prima o tu lasci subito, inserisci i mesi effettivamente lavorati.</p>
+          <div class="input-wrap"><input type="number" id="mesiEffettivi" value="0" min="0" max="12" step="0.5" style="text-align:right;" aria-describedby="mesiEffettivi-help"/><span class="input-suffix">mesi</span></div>
+          <p class="hint" id="mesiEffettivi-help">Se il preavviso viene lavorato integralmente, inserisci 0 (nessuna indennità sostitutiva). Se il datore tronca prima o tu lasci subito, inserisci i mesi effettivamente lavorati.</p>
         </div>
         <div class="field">
           <label for="aliqIRPEF">Aliquota IRPEF marginale</label>
@@ -320,7 +323,7 @@
       <div class="tool-cluster">
         <div class="tool-cluster-header">
           <span style="font-size:1.5rem;">📦</span>
-          <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Tutti i calcoli per la fine del rapporto</h3>
+          <h2 style="color:#fff;font-size:1.15rem;font-weight:800;margin:0;">Tutti i calcoli per la fine del rapporto</h2>
         </div>
         <p class="tool-cluster-sub">TFR, NASpI e liquidazione: calcola tutto prima di firmare.</p>
         <div class="tool-cluster-grid">
@@ -356,7 +359,7 @@
       <a href="https://amzn.to/48xt2jL" class="amz-card-btn" target="_blank" rel="noopener sponsored">Prova gratis →</a>
     </div>
 
-    <div class="cross-links" id="crossLinks" style="display:none;">
+    <div class="cross-links" id="crossLinks">
       <h3>🔗 Potrebbe interessarti anche</h3>
       <div class="cross-links-grid">
         <a href="calcolo-tfr-liquidazione.html" class="cross-link-pill">📦 Simulatore TFR</a>
@@ -369,10 +372,10 @@
 
     <div class="seo-section">
       <h2>Preavviso licenziamento e dimissioni: guida 2026</h2>
-      <p>Il preavviso è il periodo che deve intercorrere tra la comunicazione della cessazione del rapporto di lavoro e l'effettiva data di fine rapporto. È disciplinato dal codice civile (art. 2118 c.c.) e specificato in dettaglio da ciascun CCNL.</p>
+      <p>Il preavviso è il periodo che deve intercorrere tra la comunicazione della cessazione del rapporto di lavoro e l'effettiva data di <a href="calcolo-tfr-liquidazione.html">fine rapporto</a>. È disciplinato dal codice civile (art. 2118 c.c.) e specificato in dettaglio da ciascun CCNL.</p>
 
       <h3>Come funziona il preavviso</h3>
-      <p>In caso di licenziamento (da parte del datore) o dimissioni (da parte del lavoratore), chi recede dal contratto deve:</p>
+      <p>In caso di <a href="calcolo-naspi.html">licenziamento</a> (da parte del datore) o dimissioni (da parte del lavoratore), chi recede dal contratto deve:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li>Comunicare per iscritto la volontà di cessare il rapporto</li>
         <li>Rispettare il periodo di preavviso previsto dal CCNL</li>
@@ -398,7 +401,7 @@
           </tbody>
         </table>
       </div>
-      <p>Verifica sempre il tuo CCNL: i valori esatti possono differire dalla tabella indicativa sopra, specialmente per CCNL aziendali o di secondo livello.</p>
+      <p>Verifica sempre il tuo <a href="calcolo-costo-lavoro.html">CCNL</a>: i valori esatti possono differire dalla tabella indicativa sopra, specialmente per CCNL aziendali o di secondo livello.</p>
 
       <h3>Domande frequenti</h3>
       <div class="faq-list">
@@ -465,7 +468,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
@@ -474,7 +477,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="about.html">Chi Siamo</a></li>
           <li><a href="contatti.html">Contatti</a></li>

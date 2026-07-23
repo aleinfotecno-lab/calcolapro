@@ -26,11 +26,14 @@ calcolapro/
 │   ├── cookie-consent.js           Banner cookie GDPR + Google Consent Mode v2:
 │   │                                gestisce il consenso e carica GA4/AdSense SOLO dopo
 │   │                                un'azione esplicita dell'utente (Accetta/Rifiuta/Personalizza)
-│   └── analytics-events.js         Eventi custom GA4 (calcolo_completato, cta_affiliato_click, ecc.)
+│   ├── analytics-events.js         Eventi custom GA4 (calcolo_completato, cta_affiliato_click, ecc.)
+│   ├── navbar.js                   Mega-menu di navigazione (apertura/chiusura, ricerca)
+│   └── ui-common.js                Accordion FAQ (toggleFaq) + dismiss banner sticky Amazon,
+│                                    condivisi dalle pagine con markup identico
 │
 ├── loghi/                          Logo del sito (PNG)
 ├── favicon.svg                     Favicon (SVG, usata da tutte le pagine)
-├── og-image.png / og-image.svg     Immagine social condivisa (Open Graph / Twitter Card)
+├── og-image.jpg / og-image.svg     Immagine social condivisa (Open Graph / Twitter Card)
 │
 ├── sitemap.xml                     Sitemap XML per i motori di ricerca
 ├── robots.txt                      Direttive crawler + riferimento alla sitemap
@@ -42,8 +45,7 @@ calcolapro/
 ├── scripts/                        Script Node di supporto (non pubblicati, uso interno)
 │   ├── pre-deploy-check.js          Controllo automatico pre-deploy (Playwright)
 │   ├── screenshots.js               Genera screenshot delle pagine principali
-│   ├── visual-audit.js              Audit visivo automatizzato
-│   └── compare-nav.mjs              Confronta la navbar tra le pagine per individuare incoerenze
+│   └── visual-audit.js              Audit visivo automatizzato
 │
 ├── tests/
 │   └── calcolatori.spec.js         Test end-to-end (Playwright) sui calcolatori principali

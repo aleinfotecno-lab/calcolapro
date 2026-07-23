@@ -29,7 +29,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -44,17 +44,17 @@
   <meta property="og:url" content="https://calcolapro.it/calcolo-eta.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Calcola Età Online Gratis 2026 | Quanti Anni Ho | CalcolaPro">
   <meta name="twitter:description" content="Calcola la tua età esatta in anni, mesi e giorni dalla data di nascita. Countdown al prossimo compleanno. Gratis.">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Utilità","item":"https://calcolapro.it/#utilita"},{"@type":"ListItem","position":3,"name":"Calcola Età","item":"https://calcolapro.it/calcolo-eta.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Utilità","item":"https://calcolapro.it/categoria-utilita-quotidiane.html"},{"@type":"ListItem","position":3,"name":"Calcola Età","item":"https://calcolapro.it/calcolo-eta.html"}]}
   </script>
   <style>
     .birthday-box{background:linear-gradient(135deg,rgba(var(--accent-rgb),0.08),rgba(var(--accent-rgb),0.03));border:1px solid rgba(var(--accent-rgb),0.2);border-radius:16px;padding:20px 24px;margin-top:20px;text-align:center;}
@@ -84,7 +84,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -102,12 +102,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -181,7 +184,7 @@
       <p class="page-subtitle">Inserisci la tua data di nascita e scopri la tua età esatta in anni, mesi e giorni. Con countdown al prossimo compleanno e segno zodiacale.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 09/07/2026</span>
+        <span>📅 Aggiornato il 23/07/2026</span>
       </div>
     </div>
   </div>
@@ -193,7 +196,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#utilita" itemprop="item"><span itemprop="name">Utilità</span></a>
+        <a href="https://calcolapro.it/categoria-utilita-quotidiane.html" itemprop="item"><span itemprop="name">Utilità</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -213,13 +216,13 @@
         </div>
         <div class="field">
           <label for="dataNascita">La tua data di nascita</label>
-          <input type="date" id="dataNascita" value="1990-01-15" max="" />
-          <p class="hint">Inserisci la data di nascita per calcolare l'età esatta</p>
+          <input type="date" id="dataNascita" value="1990-01-15" max="" aria-describedby="dataNascita-help" />
+          <p class="hint" id="dataNascita-help">Inserisci la data di nascita per calcolare l'età esatta</p>
         </div>
         <div class="field">
           <label for="dataRiferimento">Calcola l'età al (opzionale)</label>
-          <input type="date" id="dataRiferimento" max="" />
-          <p class="hint">Lascia vuoto per usare la data di oggi</p>
+          <input type="date" id="dataRiferimento" max="" aria-describedby="dataRiferimento-help" />
+          <p class="hint" id="dataRiferimento-help">Lascia vuoto per usare la data di oggi</p>
         </div>
       </div>
 
@@ -281,8 +284,8 @@
         </div>
       </div>
 
-      <div class="cross-links" id="crossLinks" style="display:none;">
-        <h3>🔗 Potrebbe interessarti anche</h3>
+      <div class="cross-links" id="crossLinks">
+        <h2>🔗 Potrebbe interessarti anche</h2>
         <div class="cross-links-grid">
           <a href="pensione.html" class="cross-link-pill">👴 Quando vado in pensione</a>
           <a href="bmi.html" class="cross-link-pill">⚖️ Calcola il BMI</a>
@@ -293,13 +296,22 @@
 
       <div class="seo-section">
         <h2>Come calcolare l'età esatta</h2>
-        <p>Calcolare l'età esatta richiede di considerare anni bisestili e il numero variabile di giorni per ogni mese. Il metodo più preciso è sottrarre la data di nascita dalla data corrente, contando prima gli anni compiuti, poi i mesi e infine i giorni rimanenti.</p>
+        <p>Calcolare l'età esatta richiede di considerare anni bisestili e il numero variabile di giorni per ogni mese. Il metodo più preciso è sottrarre la data di nascita dalla data corrente, contando prima gli anni compiuti, poi i mesi e infine i giorni rimanenti: lo stesso dato di partenza che serve per capire <a href="pensione.html">quando andrai in pensione</a>.</p>
 
         <h3>Calcolo dei giorni totali vissuti</h3>
-        <p>I giorni totali si calcolano tenendo conto che un anno solare medio dura 365,2425 giorni (365 giorni + 1 giorno ogni 4 anni per il bisestile, con correzioni per i secoli). Una persona di 36 anni ha vissuto circa 13.149 giorni.</p>
+        <p>I giorni totali si calcolano tenendo conto che un anno solare medio dura 365,2425 giorni (365 giorni + 1 giorno ogni 4 anni per il bisestile, con correzioni per i secoli). Una persona di 36 anni ha vissuto circa 13.149 giorni, un'età in cui molti iniziano già a informarsi sui requisiti della <a href="guida-pensione-anticipata-2026.html">pensione anticipata</a>.</p>
 
         <h3>I segni zodiacali e le date</h3>
-        <p>I 12 segni zodiacali coprono il calendario dall'anno solare: Ariete (21 mar–19 apr), Toro (20 apr–20 mag), Gemelli (21 mag–20 giu), Cancro (21 giu–22 lug), Leone (23 lug–22 ago), Vergine (23 ago–22 set), Bilancia (23 set–22 ott), Scorpione (23 ott–21 nov), Sagittario (22 nov–21 dic), Capricorno (22 dic–19 gen), Acquario (20 gen–18 feb), Pesci (19 feb–20 mar).</p>
+        <p>I 12 segni zodiacali coprono il calendario dall'anno solare: Ariete (21 mar–19 apr), Toro (20 apr–20 mag), Gemelli (21 mag–20 giu), Cancro (21 giu–22 lug), Leone (23 lug–22 ago), Vergine (23 ago–22 set), Bilancia (23 set–22 ott), Scorpione (23 ott–21 nov), Sagittario (22 nov–21 dic), Capricorno (22 dic–19 gen), Acquario (20 gen–18 feb), Pesci (19 feb–20 mar). Se organizzi una cena per festeggiare un compleanno, può tornare utile anche la nostra <a href="divisione-conto.html">calcolatrice per dividere il conto</a>.</p>
+
+        <h3>Perché l'età esatta conta: le principali soglie di legge in Italia</h3>
+        <p>Conoscere l'età precisa non è solo una curiosità: in Italia molti diritti e doveri scattano a una data anagrafica esatta. A <strong>14 anni</strong> si raggiunge l'età minima per l'imputabilità penale e si può conseguire la patente AM per i ciclomotori 50 cc; a <strong>16 anni</strong> si accede alla patente A1 per le moto fino a 125 cc; a <strong>18 anni</strong> si diventa maggiorenni, con il diritto di voto, la capacità di firmare contratti e di conseguire la patente B. Sul fronte previdenziale il requisito anagrafico per la <a href="pensione.html">pensione di vecchiaia</a> resta fissato a <strong>67 anni</strong>, mentre le forme di <a href="guida-pensione-anticipata-2026.html">pensione anticipata</a> impongono il calcolo puntuale di anni e mesi di contributi maturati: sbagliare anche di pochi giorni può spostare una finestra di uscita.</p>
+
+        <h3>Anni bisestili e la regola del calendario gregoriano</h3>
+        <p>Il conteggio esatto dei giorni dipende dagli anni bisestili, che aggiungono il 29 febbraio. La regola del calendario gregoriano è precisa: un anno è bisestile se divisibile per 4, ma <em>non</em> se divisibile per 100, salvo che sia divisibile anche per 400. Per questo il 2000 è stato bisestile, mentre il 1900 e il 2100 non lo sono. Gli anni bisestili più vicini sono il 2024 e il 2028. Un anno bisestile dura 366 giorni invece di 365: ignorare questa regola falserebbe il conteggio dei giorni vissuti su periodi lunghi.</p>
+
+        <h3>Chi è nato il 29 febbraio quando compie gli anni?</h3>
+        <p>Chi nasce il 29 febbraio festeggia il compleanno ogni anno anche quando il calendario non prevede quel giorno: negli anni non bisestili l'anniversario si considera convenzionalmente il 28 febbraio o il 1º marzo, ma l'età legale aumenta comunque di un anno allo scadere dei dodici mesi. Il nostro calcolatore gestisce automaticamente questi casi limite e i mesi di lunghezza diversa (28, 30 o 31 giorni), restituendo sempre il valore corretto in anni, mesi e giorni.</p>
 
         <h3>Domande frequenti sul calcolo dell'età</h3>
         <div class="faq-list">
@@ -346,7 +358,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="calcolo-eta.html">Calcola Età</a></li>
           <li><a href="calcolatore-percentuale.html">Calcolo Percentuale</a></li>
@@ -359,7 +371,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -369,7 +381,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="come-funziona.html">Come Funziona</a></li>
           <li><a href="about.html">Chi Siamo</a></li>
@@ -437,15 +449,42 @@
       return {anni: y, mesi: m, giorni: d};
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
+      pulisciErroreCampo('dataNascita');
       const nascitaStr = document.getElementById('dataNascita').value;
       const rifStr = document.getElementById('dataRiferimento').value;
-      if (!nascitaStr) { alert('Inserisci la data di nascita.'); return; }
+      if (!nascitaStr) { mostraErroreCampo('dataNascita', 'Inserisci la data di nascita.'); return; }
 
       const nascita = new Date(nascitaStr + 'T00:00:00');
       const rif = rifStr ? new Date(rifStr + 'T00:00:00') : new Date(new Date().toDateString());
 
-      if (nascita > rif) { alert('La data di nascita non può essere successiva alla data di riferimento.'); return; }
+      if (nascita > rif) { mostraErroreCampo('dataNascita', 'La data di nascita non può essere successiva alla data di riferimento.'); return; }
 
       const {anni, mesi, giorni} = diffDate(nascita, rif);
 
@@ -497,28 +536,13 @@
       if (typeof gtag !== 'undefined') gtag('event', 'calcolo_eta', {anni: anni});
     }
 
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) { answer.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    }
   </script>
   <div class="amz-sticky" id="amzSticky">
     <span class="amz-sticky-text">📦 <strong>Amazon Prime</strong> — Spedizione gratuita e illimitata su milioni di prodotti</span>
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-  <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() { sticky.style.display = 'none'; localStorage.setItem('amzClosed', '1'); };
-    })();
-  </script>
+  <script src="js/ui-common.js" defer></script>
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>

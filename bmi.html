@@ -39,7 +39,7 @@
     "inLanguage": "it-IT",
     "isAccessibleForFree": true,
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it"}
+    "author": {"@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}
   }
   </script>
   <script type="application/ld+json">
@@ -57,18 +57,18 @@
   <meta property="og:url" content="https://calcolapro.it/bmi.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:image" content="https://calcolapro.it/og-image.png" />
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="CalcolaPro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://calcolapro.it/og-image.png" />
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
   <meta name="twitter:title" content="Calcola BMI Online Gratis 2026 | Indice Massa Corporea | CalcolaPro">
   <meta name="twitter:description" content="Calcola il tuo BMI gratis. Scopri se sei sottopeso, normopeso o sovrappeso con classificazione OMS, peso ideale e scala visiva. Aggiornato 2026.">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Salute e Benessere","item":"https://calcolapro.it/#salute"},{"@type":"ListItem","position":3,"name":"Calcolo BMI","item":"https://calcolapro.it/bmi.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Salute e Benessere","item":"https://calcolapro.it/categoria-utilita-quotidiane.html"},{"@type":"ListItem","position":3,"name":"Calcolo BMI","item":"https://calcolapro.it/bmi.html"}]}
   </script></head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -85,7 +85,7 @@
   <div class="nav-menu-panel" id="navMenuPanel">
     <div class="nav-menu-inner">
       <div class="nav-menu-search">
-        <input type="text" id="navSearchInput" placeholder="Cerca tra i 37 calcolatori..." aria-label="Cerca un calcolatore">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 39 calcolatori..." aria-label="Cerca un calcolatore">
       </div>
       <div class="nav-menu-grid">
         <div class="nav-menu-col nav-menu-col-wide">
@@ -103,12 +103,15 @@
             </div>
             <div>
               <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
               <a href="calcolo-malattia-inps.html">Malattia INPS</a>
               <a href="calcolo-maternita-inps.html">Maternità INPS</a>
               <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
               <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
               <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
               <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
             </div>
           </div>
         </div>
@@ -194,7 +197,7 @@
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="https://calcolapro.it/#salute" itemprop="item"><span itemprop="name">Salute e Benessere</span></a>
+        <a href="https://calcolapro.it/categoria-utilita-quotidiane.html" itemprop="item"><span itemprop="name">Salute e Benessere</span></a>
         <meta itemprop="position" content="2">
       </li>
       <span class="breadcrumb-separator" aria-hidden="true">›</span>
@@ -210,13 +213,6 @@
       <div class="card">
         <div class="card-title"><span class="card-icon">👤</span> I tuoi dati</div>
         <div class="field">
-          <label>Sesso</label>
-          <div class="radio-group">
-            <label><input type="radio" name="sesso" value="m" checked> 👨 Uomo</label>
-            <label><input type="radio" name="sesso" value="f"> 👩 Donna</label>
-          </div>
-        </div>
-        <div class="field">
           <label for="peso">Peso attuale</label>
           <div class="input-wrap"><span class="input-prefix">kg</span>
           <input type="number" id="peso" value="75" min="20" max="300" class="has-prefix"/></div>
@@ -225,11 +221,6 @@
           <label for="altezza">Altezza</label>
           <div class="input-wrap"><span class="input-prefix">cm</span>
           <input type="number" id="altezza" value="175" min="100" max="230" class="has-prefix"/></div>
-        </div>
-        <div class="field">
-          <label for="eta">Età</label>
-          <div class="input-wrap"><span class="input-prefix">yr</span>
-          <input type="number" id="eta" value="30" min="10" max="100" class="has-prefix"/></div>
         </div>
       </div>
       <div class="card">
@@ -284,7 +275,7 @@
       </div>
 
       <div class="affiliazioni-box" id="affiliazioni" style="display:none;">
-        <h3>📦 Consigliati da CalcolaPro</h3>
+        <h2>📦 Consigliati da CalcolaPro</h2>
         <div class="affiliazioni-box-grid">
           <a href="https://amzn.to/4cZR209" class="aff-box-item" target="_blank" rel="noopener sponsored">
             <div class="aff-label">🏃 Attrezzo fitness</div>
@@ -300,7 +291,7 @@
           </a>
         </div>
       </div>
-      <div class="cross-links" id="crossLinks" style="display:none;">
+      <div class="cross-links" id="crossLinks">
         <h3>🔗 Potrebbe interessarti anche</h3>
         <div class="cross-links-grid">
           <a href="tdee.html" class="cross-link-pill">🥗 Calcola il tuo TDEE</a>
@@ -338,10 +329,10 @@
       <p>Il BMI non distingue tra massa muscolare e grasso corporeo: un atleta con molta massa muscolare può risultare in sovrappeso pur essendo in ottima salute. Allo stesso modo, una persona anziana con poca massa muscolare può avere un BMI normale ma un'elevata percentuale di grasso. Per questa ragione ISSalute raccomanda di affiancare al BMI la misurazione della <strong>circonferenza vita</strong>, che valuta il grasso addominale (un fattore di rischio cardiometabolico specifico): è consigliabile intervenire sul peso quando la circonferenza vita supera 94 cm negli uomini o 80 cm nelle donne, mentre il rischio per la salute è considerato elevato oltre 102 cm (uomini) o 88 cm (donne).</p>
 
       <h3>BMI ideale per uomini e donne</h3>
-      <p>Sebbene la scala BMI sia uguale per entrambi i sessi, le donne tendono ad avere naturalmente una percentuale di grasso corporeo più alta degli uomini a parità di BMI. Alcuni esperti suggeriscono soglie leggermente diverse per genere ed età, ma le categorie standard ISSalute/OMS rimangono il riferimento principale per la popolazione adulta generale.</p>
+      <p>Sebbene la scala BMI sia uguale per entrambi i sessi, le donne tendono ad avere naturalmente una percentuale di grasso corporeo più alta degli uomini a parità di BMI. Alcuni esperti suggeriscono soglie leggermente diverse per genere ed <a href="calcolo-eta.html">età</a>, ma le categorie standard ISSalute/OMS rimangono il riferimento principale per la popolazione adulta generale.</p>
 
       <h3>Come raggiungere un BMI sano</h3>
-      <p>Per ridurre il BMI in caso di sovrappeso è generalmente indicato un deficit calorico moderato (300-500 kcal/giorno) combinato con attività fisica regolare — puoi stimare il tuo fabbisogno con il <a href="tdee.html">calcolatore TDEE</a>. Per aumentare il BMI in caso di sottopeso, si consiglia un surplus calorico con alimenti nutrienti e un programma di allenamento con i pesi. In entrambi i casi, la consulenza di un medico o nutrizionista è fondamentale, soprattutto se il BMI è lontano dal range 18,5-24,99 o se sono presenti altre condizioni di salute.</p>
+      <p>Per ridurre il BMI in caso di sovrappeso è generalmente indicato <a href="guida-deficit-calorico-dimagrire.html">un deficit calorico moderato</a> (300-500 kcal/giorno) combinato con attività fisica regolare — puoi stimare il tuo fabbisogno con il <a href="tdee.html">calcolatore TDEE</a>. Per aumentare il BMI in caso di sottopeso, si consiglia un surplus calorico con alimenti nutrienti e un programma di allenamento con i pesi. In entrambi i casi, la consulenza di un medico o nutrizionista è fondamentale, soprattutto se il BMI è lontano dal range 18,5-24,99 o se sono presenti altre condizioni di salute.</p>
 
       <h3>Domande frequenti</h3>
       <div class="faq-list">
@@ -401,7 +392,7 @@
         <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
       </div>
       <div class="footer-col">
-        <h4>Calcolatori</h4>
+        <h3>Calcolatori</h3>
         <ul>
           <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
           <li><a href="mutuo.html">Rata Mutuo</a></li>
@@ -419,7 +410,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Guide</h4>
+        <h3>Guide</h3>
         <ul>
           <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
           <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
@@ -432,7 +423,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Informazioni</h4>
+        <h3>Informazioni</h3>
         <ul>
           <li><a href="about.html">Chi Siamo</a></li>
           <li><a href="contatti.html">Contatti</a></li>
@@ -492,18 +483,6 @@
       document.getElementById('result').scrollIntoView({behavior:'smooth',block:'nearest'});
     }
   </script>
-  <script>
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded','false'));
-      if (!isOpen) {
-        answer.classList.add('open');
-        btn.setAttribute('aria-expanded','true');
-      }
-    }
-  </script>
 
   <!-- Amazon sticky banner -->
   <div class="amz-sticky" id="amzSticky">
@@ -511,18 +490,7 @@
     <a href="https://amzn.to/48xt2jL" class="amz-sticky-btn" target="_blank" rel="noopener sponsored">Prova gratis 30 giorni →</a>
     <button class="amz-sticky-close" id="amzClose" aria-label="Chiudi">×</button>
   </div>
-    <script>
-    (function() {
-      var sticky = document.getElementById('amzSticky');
-      var btn = document.getElementById('amzClose');
-      if (!sticky || !btn) return;
-      if (localStorage.getItem('amzClosed')) { sticky.style.display = 'none'; }
-      btn.onclick = function() {
-        sticky.style.display = 'none';
-        localStorage.setItem('amzClosed', '1');
-      };
-    })();
-  </script><script src="js/cookie-consent.js" defer></script>
+    <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>
