@@ -575,6 +575,16 @@ tbody td {
 tbody tr:nth-child(even) { background: var(--bg); }
 tbody tr:nth-child(even):hover { background: var(--blue-xlight); }
 
+/* Tabelle esplicative: celle di prosa, il testo va a capo invece di forzare
+   la larghezza (il nowrap di default serve alle tabelle di soli dati brevi). */
+.table-text th,
+.table-text td { white-space: normal; }
+.table-text td { line-height: 1.55; vertical-align: top; }
+@media (max-width: 640px) {
+  .table-text th,
+  .table-text td { padding: 10px 12px; font-size: 13px; }
+}
+
 /* ═══════════════════════════════════════════════════════════
    FAQ ACCORDION
    ═══════════════════════════════════════════════════════════ */
