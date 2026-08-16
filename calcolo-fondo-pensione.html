@@ -648,7 +648,6 @@
 
       // TFR in azienda (rivalutazione 1.5% + 75% FOI circa 2%)
       const tfrAziendaRend = 0.015 + 0.75 * 0.02; // ~3% annuo
-      const capitaleTFRAzienda = destinaTFR ? 0 : fvAnnuity(ral/12*0.0691, tfrAziendaRend/12, mesi);
 
       // Risparmio fiscale
       const contribDeducibili = Math.min((contribVol + contribDatore) * 12, 5300);
@@ -698,29 +697,34 @@
          Risparmio IRPEF totale in ${anni} anni: <strong>${fmt(rispTotale)}</strong><br>
          Equivale a versare solo <strong>${fmt2(pmtTotale - rispAnnuo/12)}</strong>/mese invece di ${fmt2(pmtTotale)}/mese.`;
 
-      // Confronto TFR
-      const tfrFondo = destinaTFR ? capitale : 0;
-      const tfrAzienda = !destinaTFR ? capitaleTFRAzienda : fvAnnuity(ral/12*0.0691, tfrAziendaRend/12, mesi);
-      const fondoSenzaTFR = !destinaTFR ? fvAnnuity(contribVol + contribDatore, rMensile, mesi) : 0;
-      const differenza = tfrFondo > 0 ? (capitale - (fondoSenzaTFR + tfrAzienda)) : (fondoSenzaTFR + tfrFondo - capitale);
+      // Confronto TFR — entrambi gli scenari vanno calcolati SEMPRE, a prescindere dalla
+      // scelta fatta nel form: chi lascia il TFR in azienda continua comunque a versare al
+      // fondo il contributo volontario e quello del datore. Azzerare il fondo nello scenario
+      // "TFR in azienda" gonfiava artificialmente il vantaggio della previdenza complementare.
+      const tfrMensilePieno = ral / 12 * 0.0691;
+      const fondoSenzaTFR = fvAnnuity(contribVol + contribDatore, rMensile, mesi);
+      const tfrAzienda = fvAnnuity(tfrMensilePieno, tfrAziendaRend / 12, mesi);
+      const scenarioFondo = fvAnnuity(contribVol + contribDatore + tfrMensilePieno, rMensile, mesi);
+      const scenarioAzienda = fondoSenzaTFR + tfrAzienda;
+      const differenza = scenarioFondo - scenarioAzienda;
 
       document.getElementById('confrontoTFRContent').innerHTML = `
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;text-align:center;">
           <div style="background:${destinaTFR ? '#eff6ff' : '#f8fafc'};border:2px solid ${destinaTFR ? 'var(--blue)' : 'var(--border)'};border-radius:12px;padding:16px;">
             <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">TFR al Fondo Pensione</div>
-            <div style="font-size:1.3rem;font-weight:800;color:var(--blue);">${fmt(capitale)}</div>
+            <div style="font-size:1.3rem;font-weight:800;color:var(--blue);">${fmt(scenarioFondo)}</div>
             <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">capitale totale fondo</div>
             ${destinaTFR ? '<div style="margin-top:8px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;display:inline-block;">✓ Opzione selezionata</div>' : ''}
           </div>
           <div style="background:${!destinaTFR ? '#eff6ff' : '#f8fafc'};border:2px solid ${!destinaTFR ? 'var(--blue)' : 'var(--border)'};border-radius:12px;padding:16px;">
             <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">TFR in Azienda + Fondo</div>
-            <div style="font-size:1.3rem;font-weight:800;color:var(--text);">${fmt(tfrAzienda + fondoSenzaTFR)}</div>
+            <div style="font-size:1.3rem;font-weight:800;color:var(--text);">${fmt(scenarioAzienda)}</div>
             <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">TFR maturato: ${fmt(tfrAzienda)} (${(tfrAziendaRend*100).toFixed(1)}%/anno)</div>
             <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">+ Fondo pensione: ${fmt(fondoSenzaTFR)}</div>
             ${!destinaTFR ? '<div style="margin-top:8px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;display:inline-block;">✓ Opzione selezionata</div>' : ''}
           </div>
         </div>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:14px;margin-bottom:0;">Rivalutazione TFR in azienda stimata al ${(tfrAziendaRend*100).toFixed(1)}%/anno (1,5% fisso + 75% FOI stimato 2%). I fondi pensione hanno sovraperformato il TFR in azienda storicamente, ma il confronto dipende molto dai mercati e dal comparto scelto.</p>`;
+        <p style="font-size:12px;color:var(--text-muted);margin-top:14px;margin-bottom:0;">Differenza fra i due scenari: <strong>${fmt(Math.abs(differenza))}</strong> a favore ${differenza >= 0 ? 'del fondo pensione' : 'del TFR lasciato in azienda'}. Rivalutazione TFR in azienda stimata al ${(tfrAziendaRend*100).toFixed(1)}%/anno (1,5% fisso + 75% FOI stimato 2%). I fondi pensione hanno sovraperformato il TFR in azienda storicamente, ma il confronto dipende molto dai mercati e dal comparto scelto.</p>`;
 
       // Grafico semplice
       const steps = Math.min(anni, 10);
