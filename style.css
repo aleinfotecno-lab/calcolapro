@@ -551,6 +551,13 @@ input[type="range"] {
 /* ═══════════════════════════════════════════════════════════
    TABLES
    ═══════════════════════════════════════════════════════════ */
+/* Contenitore di sola scrollabilita': evita che una tabella larga
+   generi scroll orizzontale sull'intera pagina. Nessun bordo: non altera l'aspetto. */
+.table-scroll {
+  overflow-x: auto; max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
 .table-wrap {
   overflow-x: auto; border-radius: var(--radius-md);
   border: 1px solid var(--border);

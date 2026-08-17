@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Divisione Conto Ristorante 2026 | Calcola la Quota</title>
-  <meta name="description" content="Dividi il conto del ristorante o le spese tra coinquilini in modo equo. Inserisci importo, numero di persone e mancia opzionale. Calcolo istantaneo della quota individuale. Gratis."/>
+  <meta name="description" content="Dividi il conto del ristorante o le spese di gruppo: quota uguale o per consumo, gestione di coperto e mancia e metodo del saldo netto."/>
   <meta name="keywords" content="divisione conto, dividere conto ristorante, calcolo quota amici, split bill, dividere spese coinquilini, conto alla romana, calcola quanto paga ognuno"/>
   <link rel="canonical" href="https://calcolapro.it/divisione-conto.html"/>
   <meta property="og:title" content="Divisione Conto Ristorante 2026 | Calcola la Quota | CalcolaPro"/>
@@ -658,12 +658,12 @@
       document.getElementById('resultUnit').textContent = 'euro totali';
       document.getElementById('resultBreakdown').innerHTML = `<div class="breakdown-item"><div class="breakdown-value">${persone.length}</div><div class="breakdown-label">persone</div></div><div class="breakdown-item"><div class="breakdown-value">${fmt(quotaUguale)}</div><div class="breakdown-label">quota uguale</div></div>`;
 
-      let tableHtml = '<table class="persona-result-table"><thead><tr><th>Persona</th><th>Spesa</th><th>% sul totale</th></tr></thead><tbody>';
-      persone.forEach(p => {
-        const perc = totale > 0 ? (p.importo / totale * 100).toFixed(1) : '0.0';
-        tableHtml += `<tr><td>${esc(p.nome)}</td><td>${fmt(p.importo)}</td><td>${perc}%</td></tr>`;
-      });
-      tableHtml += '</tbody></table>';
+      let tableHtml = '<div class="table-scroll"><table class="persona-result-table"><thead><tr><th>Persona</th><th>Spesa</th><th>% sul totale</th></tr></thead><tbody>';
+        persone.forEach(p => {
+          const perc = totale > 0 ? (p.importo / totale * 100).toFixed(1) : '0.0';
+          tableHtml += `<tr><td>${esc(p.nome)}</td><td>${fmt(p.importo)}</td><td>${perc}%</td></tr>`;
+        });
+        tableHtml += '</tbody></table></div>';
 
       const personaTableEl = document.getElementById('personaTable');
       personaTableEl.innerHTML = tableHtml;
