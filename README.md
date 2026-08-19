@@ -1,6 +1,6 @@
 # CalcolaPro
 
-[calcolapro.it](https://calcolapro.it) — 37 calcolatori finanziari e fiscali gratuiti per lavoratori, freelance e famiglie italiane (mutuo, stipendio netto, IVA, pensione, IMU, TFR, regime forfettario, ISEE, e altro), più 13 guide di approfondimento.
+[calcolapro.it](https://calcolapro.it) — 39 calcolatori finanziari e fiscali gratuiti per lavoratori, freelance e famiglie italiane (mutuo, stipendio netto, IVA, pensione, IMU, TFR, regime forfettario, ISEE, e altro), più 11 guide di approfondimento e 6 pagine di categoria. Ogni pagina cita in fondo le fonti normative ufficiali su cui si basano i calcoli (Normattiva, Agenzia delle Entrate, INPS, MEF, Banca d'Italia).
 
 Sito **statico** (HTML/CSS/JS puro, nessun framework, nessun build step), pensato per essere pubblicato così com'è su **GitHub Pages**. Tutti i calcoli vengono eseguiti interamente nel browser dell'utente: nessun dato viene inviato a un server.
 
@@ -11,8 +11,9 @@ Il sito è volutamente **flat** (nessuna sottocartella per le pagine): essendo u
 ```
 calcolapro/
 ├── index.html                      Home page
-├── mutuo.html, lordonetto.html...  I 37 calcolatori (root, un file per pagina)
-├── guida-*.html, categoria-*.html  Le 13 guide di approfondimento
+├── mutuo.html, lordonetto.html...  I 39 calcolatori (root, un file per pagina)
+├── guida-*.html                    Le 11 guide di approfondimento
+├── categoria-*.html                I 6 hub di categoria
 ├── privacy.html, cookie.html,      Pagine legali/informative
 │   termini.html, disclaimer.html,
 │   about.html, contatti.html,
