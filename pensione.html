@@ -218,7 +218,7 @@
     <p class="page-subtitle">Scopri quando puoi andare in pensione e quanto prenderai ogni mese. Pensione di vecchiaia, anticipata e Quota 103. Calcolo gratuito e immediato.</p>
     <div class="article-meta">
       <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-      <span>📅 Aggiornato il 09/07/2026</span>
+      <span>📅 Aggiornato il 20/08/2026</span>
     </div>
   </div>
 </div>
@@ -328,7 +328,7 @@
           </div>
 
           <div id="tipoAccesso" style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:8px;"></div>
-          <p class="result-disclaimer">ℹ️ Calcolo indicativo — non sostituisce la consulenza di un professionista qualificato.</p>
+          <p class="result-disclaimer">ℹ️ Calcolo indicativo — non sostituisce la consulenza di un professionista qualificato. Il montante dei contributi già versati è <strong>stimato</strong> ricostruendo le retribuzioni passate a partire da quella attuale: per il dato reale consulta l'estratto conto contributivo sul sito INPS.</p>
         </div>
       </div>
 
@@ -725,13 +725,14 @@
       scenari.push({ tipo: 'Pensione anticipata', eta: Math.round(etaAnticipata), anni: anniMancAnticipata, contributi: contributiAttuali + anniMancAnticipata });
     }
 
-    // Quota 103
-    const anniMancQ103eta = Math.max(0, ETÀ_QUOTA103 - etaAttuale);
-    const anniMancQ103contrib = Math.max(0, CONTRIBUTI_QUOTA103 - contributiAttuali);
-    const anniMancQ103 = Math.max(anniMancQ103eta, anniMancQ103contrib);
-    const etaQ103 = etaAttuale + anniMancQ103;
-    if (etaQ103 < ETÀ_VECCHIAIA && etaQ103 >= ETÀ_QUOTA103) {
-      scenari.push({ tipo: 'Quota 103', eta: Math.round(etaQ103), anni: anniMancQ103, contributi: contributiAttuali + anniMancQ103 });
+    // Quota 103 — abolita per i nuovi accessi. Resta utilizzabile SOLO da chi aveva gia'
+    // maturato entrambi i requisiti (62 anni di eta' + 41 di contributi) entro il 31/12/2025:
+    // il diritto, una volta maturato, e' cristallizzato. Non va quindi mai proposta come
+    // via di uscita futura, come faceva la versione precedente di questo calcolatore.
+    const etaAFine2025 = 2025 - annoNascita;
+    const contribAFine2025 = contributiAttuali - Math.max(0, annoCorrente - 2025);
+    if (etaAFine2025 >= ETÀ_QUOTA103 && contribAFine2025 >= CONTRIBUTI_QUOTA103 && etaAttuale < ETÀ_VECCHIAIA) {
+      scenari.push({ tipo: 'Quota 103', eta: Math.round(etaAttuale), anni: 0, contributi: contributiAttuali });
     }
 
     // Scegli lo scenario più favorevole (meno anni di attesa)
@@ -743,9 +744,21 @@
     const coefficiente = COEFFICIENTI[Math.min(70, Math.max(62, etaPensione))] || 0.05608;
 
     // Calcolo montante contributivo
-    let montante = 0;
-    let stipendioSim = stipendio;
     const rivalutazione = 0.015; // rivalutazione montante ~1.5%/anno
+    // (a) Contributi GIA' versati. La versione precedente li ignorava, con l'effetto
+    //     paradossale che piu' anni avevi versato, piu' bassa risultava la pensione.
+    //     Le retribuzioni passate sono ricostruite a ritroso dalla retribuzione attuale
+    //     con lo stesso tasso di crescita, e rivalutate fino a oggi con lo stesso 1,5%.
+    //     Nel sistema misto gli anni ante 1996 restano fuori: li copre la quota retributiva.
+    const anniPre96 = Math.max(0, 1996 - annoInizio);
+    const anniPassatiContributivi = Math.max(0, Math.round(contributiAttuali) - (sistema === 'misto' ? anniPre96 : 0));
+    let montante = 0;
+    for (let k = anniPassatiContributivi; k >= 1; k--) {
+      const stipendioPassato = stipendio / Math.pow(1 + crescita, k);
+      montante += stipendioPassato * ALIQUOTA_CONTRIBUTIVA * Math.pow(1 + rivalutazione, k);
+    }
+    // (b) Contributi futuri, fino alla data di uscita.
+    let stipendioSim = stipendio;
     for (let i = 0; i < Math.ceil(migliore.anni); i++) {
       const contributo = stipendioSim * ALIQUOTA_CONTRIBUTIVA;
       montante = (montante + contributo) * (1 + rivalutazione);
@@ -755,7 +768,6 @@
     // Per sistema misto considera anche quota retributiva pre-1996
     let pensioneLorda = 0;
     if (sistema === 'misto') {
-      const anniPre96 = Math.max(0, 1996 - annoInizio);
       const quotaRetributiva = (stipendio * 0.02 * anniPre96); // semplificazione
       pensioneLorda = (montante * coefficiente + quotaRetributiva) / 12;
     } else {
