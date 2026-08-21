@@ -178,7 +178,7 @@
       <p class="page-subtitle">Calcola tutte le spese di acquisto: imposte, notaio, agenzia e costi accessori. Prima casa o seconda casa, da privato o costruttore.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -343,6 +343,10 @@
       <p>Se acquisti un'abitazione nuova da un'impresa costruttrice, non si applica l'imposta di registro ma l'<strong><a href="iva.html">IVA</a> al 4%</strong> (prima casa) o al <strong>10%</strong> (seconda casa) sul prezzo di acquisto. Il notaio costa di più perché il rogito è più complesso.</p>
       <h3>Il costo del notaio</h3>
       <p>Gli onorari del notaio dipendono dal valore dell'immobile. Per una casa da €200.000 stimano tra €1.800 e €3.000. Richiedi sempre almeno 2-3 preventivi: i notai possono variare i propri onorari. Se in futuro rivenderai l'immobile, ricorda di considerare anche la <a href="calcolo-plusvalenza-immobiliare.html">plusvalenza immobiliare</a> sulla vendita.</p>
+      <h3>L'imposta sostitutiva sul mutuo, la voce che quasi nessuno mette in conto</h3>
+      <p>Chi compra con un mutuo paga un'imposta che nelle stime non compare quasi mai: l'<strong>imposta sostitutiva</strong> prevista dagli articoli 15-18 del <strong>D.P.R. 601/1973</strong> per i finanziamenti di durata superiore a diciotto mesi. Sostituisce in un colpo solo imposta di registro, bollo, ipotecaria, catastale e tasse sulle concessioni governative sull'atto di mutuo, e la banca la trattiene direttamente dalla somma erogata: sul conto arriva quindi un importo già decurtato.</p>
+      <p>L'aliquota è dello <strong>0,25%</strong> se ricorrono i requisiti prima casa, ma sale al <strong>2%</strong> in tutti gli altri casi: otto volte tanto. Su un mutuo da €200.000 significa <strong>€500</strong> per la prima casa e <strong>€4.000</strong> per la seconda. È una differenza che da sola supera l'onorario del notaio, e cade esattamente dove le stime approssimative tendono a fermarsi.</p>
+
       <h3>Le quattro combinazioni possibili, in una tabella</h3>
       <p>Quanto paghi non dipende dal prezzo dell'immobile ma da due sole variabili: <strong>chi vende</strong> (un privato oppure un'impresa che applica l'IVA) e <strong>se hai i requisiti prima casa</strong>. Da queste due domande discendono quattro scenari, con imposte molto diverse tra loro.</p>
       <div class="table-wrap table-text">
@@ -574,12 +578,18 @@
       const commissione = prezzo * percAgenzia / 100;
 
       // Spese mutuo
-      let speseMutuo = 0;
+      let speseMutuo = 0, impostaSostitutiva = 0;
       if (conMutuo && importoMutuo > 0) {
         speseMutuo = importoMutuo * 0.002 + 300; // istruttoria + perizia stima
+        // Artt. 15-18 DPR 601/1973: sui finanziamenti di durata superiore a 18 mesi
+        // si applica un'imposta sostitutiva dello 0,25% dell'erogato, che sale al 2%
+        // quando non ricorrono i requisiti prima casa. Sostituisce registro, bollo,
+        // ipotecaria, catastale e concessioni governative sull'atto di mutuo, e la
+        // banca la trattiene dalla somma erogata: mancava del tutto.
+        impostaSostitutiva = importoMutuo * (tipoCasa === 'prima' ? 0.0025 : 0.02);
       }
 
-      const totaleSpese = impostaReg + iva + imposteAcc + notaio + commissione + speseMutuo;
+      const totaleSpese = impostaReg + iva + imposteAcc + notaio + commissione + speseMutuo + impostaSostitutiva;
       const totaleCasa = prezzo + totaleSpese;
       const percentuale = (totaleSpese / prezzo * 100).toFixed(1);
       // Liquidità necessaria = spese + acconto (prezzo - mutuo)
@@ -604,6 +614,7 @@
       rows += `<tr><td>Onorario notaio (stima)</td><td>${fmt(notaio)}</td></tr>`;
       if (commissione > 0) rows += `<tr><td>Commissione agenzia (${percAgenzia}%)</td><td>${fmt(commissione)}</td></tr>`;
       if (speseMutuo > 0) rows += `<tr><td>Spese istruttoria + perizia mutuo</td><td>${fmt(speseMutuo)}</td></tr>`;
+      if (impostaSostitutiva > 0) rows += `<tr><td>Imposta sostitutiva sul mutuo (${tipoCasa === 'prima' ? '0,25%' : '2%'})</td><td>${fmt(impostaSostitutiva)}</td></tr>`;
       rows += `<tr class="total-row"><td><strong>Totale spese</strong></td><td><strong>${fmt(totaleSpese)}</strong></td></tr>`;
 
       document.getElementById('dettaglioBox').innerHTML = `
@@ -616,7 +627,11 @@
 
       const alertEl = document.getElementById('alertBox');
       alertEl.className = 'alert alert-info';
-      alertEl.innerHTML = 'ℹ️ <strong>Nota:</strong> i costi del notaio sono stime. Richiedine sempre il preventivo. Le imposte su rendita catastale si applicano solo per acquisto da privato. Per agevolazioni prima casa verifica i requisiti con il notaio.';
+      let notaSost = '';
+      if (impostaSostitutiva > 0 && tipoCasa !== 'prima') {
+        notaSost = '<br><br>⚠️ Senza i requisiti prima casa l\'imposta sostitutiva sul mutuo passa dallo 0,25% al <strong>2%</strong>: qui sono <strong>' + fmt(impostaSostitutiva) + '</strong> invece di ' + fmt(importoMutuo * 0.0025) + '. È la voce che le stime a occhio dimenticano più spesso.';
+      }
+      alertEl.innerHTML = 'ℹ️ <strong>Nota:</strong> i costi del notaio sono stime. Richiedine sempre il preventivo. Le imposte su rendita catastale si applicano solo per acquisto da privato. Per agevolazioni prima casa verifica i requisiti con il notaio.' + notaSost;
 
       document.getElementById('result').style.display = 'block';
       const cl = document.getElementById('crossLinks'); if (cl) cl.style.display = 'block';
