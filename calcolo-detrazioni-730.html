@@ -174,7 +174,7 @@
       <p class="page-subtitle">Inserisci le spese sostenute nel 2025 e scopri subito quanto recuperi con il 730. Spese sanitarie, mutuo, istruzione, assicurazioni e ristrutturazioni.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -222,7 +222,7 @@
           <label for="speseVeterinarie">Spese veterinarie per animali domestici</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="speseVeterinarie" value="0" min="0" step="10" class="has-prefix" aria-describedby="speseVeterinarie-help"/></div>
-          <p class="hint" id="speseVeterinarie-help">19% della spesa sopra €129,11 fino a un massimo di €550 di spesa detraibile. Pagamento tracciabile obbligatorio.</p>
+          <p class="hint" id="speseVeterinarie-help">19% della parte di spesa compresa fra €129,11 e €550: la detrazione massima e’ quindi €79,97, non €104,50. Pagamento tracciabile obbligatorio.</p>
         </div>
       </div>
 
@@ -249,7 +249,7 @@
           <label for="affittoGiovani">Canone d'affitto 2025 (under 31, prima casa)</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="affittoGiovani" value="0" min="0" step="50" class="has-prefix" aria-describedby="affittoGiovani-help"/></div>
-          <p class="hint" id="affittoGiovani-help">Per under 31 anni con reddito ≤ €15.493,71: detrazione 20% del canone, max €2.000/anno di detrazione. Solo contratto registrato per abitazione principale.</p>
+          <p class="hint" id="affittoGiovani-help">Per chi ha fra 20 e 31 anni non compiuti, con reddito complessivo ≤ €15.493,71: detrazione del 20% del canone, con un <strong>minimo garantito di €991,60</strong> e un massimo di €2.000 l’anno. Spetta per i primi 4 anni di contratto, su immobile registrato adibito a residenza e diverso dall’abitazione principale dei genitori.</p>
         </div>
       </div>
 
@@ -560,8 +560,11 @@
       const baseSS = Math.max(0, ss - FRANCHIGIA);
       const detSS = baseSS * ALIQ;
 
-      // Spese veterinarie: 19% sopra €129,11 fino a max €550 di base
-      const baseSV = Math.min(Math.max(0, sv - FRANCHIGIA), 550);
+      // Art. 15 c.1 lett. c-bis) TUIR: la detrazione spetta sulle spese che SUPERANO
+      // la franchigia di 129,11 e NON ECCEDONO 550 euro. Il tetto di 550 va applicato
+      // alla spesa, non alla base gia’ al netto della franchigia: la base massima e’
+      // quindi 420,89 e la detrazione massima 79,97 euro, non 104,50.
+      const baseSV = Math.max(0, Math.min(sv, 550) - FRANCHIGIA);
       const detSV = baseSV * ALIQ;
 
       // Interessi mutuo: 19% fino a €4.000
@@ -572,8 +575,10 @@
       const baseRS = Math.min(Math.max(0, rs), 96000);
       const detRS = (baseRS * rsAliq) / 10;
 
-      // Affitto giovani: 20% fino a €2.000 detrazione (max canone €10.000)
-      const detAG = Math.min(ag * 0.20, 2000);
+      // Art. 16 c.1-ter TUIR: 20% del canone, ma con un MINIMO garantito di 991,60
+      // euro e un massimo di 2.000. Il minimo mancava, quindi sotto i 4.958 euro di
+      // canone la detrazione usciva piu’ bassa del dovuto.
+      const detAG = ag > 0 ? Math.max(991.60, Math.min(ag * 0.20, 2000)) : 0;
 
       // Istruzione: 19% fino a €800
       const baseSI = Math.min(Math.max(0, si), 800);
