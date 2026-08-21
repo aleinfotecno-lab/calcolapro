@@ -36,7 +36,12 @@ const ENTITA = {
 // entità decodificate, apici tipografici e trattini unificati, spazi collassati.
 function norm(s) {
   return String(s)
-    .replace(/<[^>]+>/g, ' ')
+    // I tag di BLOCCO separano parole e diventano uno spazio; quelli INLINE no.
+    // Sostituire ogni tag con uno spazio inseriva un blank prima della
+    // punteggiatura ("<strong>3%</strong>," diventava "3% ,") e faceva risultare
+    // diverse due frasi che il browser rende identiche: falsi positivi.
+    .replace(/<\/?(?:br|p|div|li|ul|ol|table|thead|tbody|tr|td|th|h[1-6]|section|article|blockquote|dl|dt|dd|hr)\b[^>]*>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
     .replace(/&[a-z#0-9]+;/gi, m => (ENTITA[m.toLowerCase()] !== undefined ? ENTITA[m.toLowerCase()] : ' '))
     .replace(/[‘’ʼ]/g, "'")
     .replace(/[“”]/g, '"')
