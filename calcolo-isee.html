@@ -49,7 +49,7 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"Come si calcola l'ISEE?","acceptedAnswer":{"@type":"Answer","text":"L'ISEE si calcola con la formula: (ISE / scala equivalenza). Dove ISE = redditi complessivi del nucleo + 20% del patrimonio mobiliare + 20% del patrimonio immobiliare. La scala di equivalenza dipende dal numero e dalla composizione dei componenti del nucleo familiare."}},
     {"@type":"Question","name":"Entro quando va presentata la DSU per l'ISEE 2026?","acceptedAnswer":{"@type":"Answer","text":"La DSU (Dichiarazione Sostitutiva Unica) per l'ISEE 2026 può essere presentata in qualsiasi momento dell'anno. L'ISEE calcolato è valido dall'1 gennaio al 31 dicembre 2026 (o fino a quando non cambia la situazione familiare)."}},
-    {"@type":"Question","name":"Cosa si include nel patrimonio immobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio immobiliare ISEE si includono: tutti gli immobili posseduti (prima casa, seconda casa, terreni) al valore IMU. Per la prima casa si applica una franchigia di €52.500, maggiorata di €2.500 per ogni figlio oltre il secondo."}},
+    {"@type":"Question","name":"Cosa si include nel patrimonio immobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio immobiliare ISEE si includono: tutti gli immobili posseduti (prima casa, seconda casa, terreni) al valore IMU. Per la prima casa si applica una franchigia di €52.500, maggiorata di €2.500 per ogni figlio oltre il secondo; la parte di valore che eccede la franchigia si conteggia per <strong>due terzi</strong>, non per intero (art. 5 c.2 DPCM 159/2013)."}},
     {"@type":"Question","name":"Cosa si include nel patrimonio mobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio mobiliare ISEE si includono: conti correnti e depositi (saldo medio annuo), BOT, BTP, fondi, azioni, polizze assicurative a risparmio. Si applica una franchigia di €6.000 per nucleo, aumentata di €2.000 per ogni componente oltre il primo (max €10.000 totali)."}},
     {"@type":"Question","name":"Qual è la soglia ISEE per il Bonus Asilo Nido?","acceptedAnswer":{"@type":"Answer","text":"Il Bonus Asilo Nido 2026 varia in base all'ISEE: fino a €25.001 → €3.000/anno; da €25.001 a €40.000 → €2.500/anno; oltre €40.000 → €1.500/anno. Per il secondo figlio nato dopo il 1° gennaio 2024, se nel nucleo è presente anche un altro figlio under 10, l'importo sale a €3.600/anno con ISEE fino a €40.000 (oltre questa soglia si applica il valore ordinario di €1.500)."}}
   ]}
@@ -169,7 +169,7 @@
       <p class="page-subtitle">Stima il tuo ISEE online in pochi secondi e scopri a quali bonus e agevolazioni hai diritto. Calcolo gratuito e immediato — nessuna registrazione.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -347,7 +347,7 @@
       <h2>Come si calcola l'ISEE 2026: guida pratica</h2>
       <p>Il calcolo ISEE 2026 (Indicatore della Situazione Economica Equivalente) si basa su tre componenti principali: i <a href="guida-stipendio-netto-lordo.html">redditi del nucleo familiare</a>, il patrimonio mobiliare e il patrimonio immobiliare. Il simulatore ISEE ti permette di ottenere una stima indicativa prima di presentare la DSU ufficiale al CAF o all'INPS.</p>
       <h3>La formula ISEE in dettaglio</h3>
-      <p>Il calcolo ISEE segue questa formula: ISE ÷ scala di equivalenza = ISEE. L'ISE comprende i redditi 2024 del nucleo familiare, più il 20% del <a href="calcolo-buoni-fruttiferi-postali.html">patrimonio mobiliare</a> (al netto della franchigia di €6.000) e il 20% del patrimonio immobiliare (al netto della franchigia di €52.500 per la prima casa). La scala di equivalenza parte da 1,00 per un singolo e aumenta in base al numero e alle caratteristiche dei componenti del nucleo.</p>
+      <p>Il calcolo ISEE segue questa formula: ISE ÷ scala di equivalenza = ISEE. L'ISE comprende i redditi del nucleo familiare — dai quali si detrae il <strong>20% dei redditi da lavoro dipendente, fino a 3.000 €</strong> (art. 4 c.4 lett. f) DPCM 159/2013) — più il 20% del <a href="calcolo-buoni-fruttiferi-postali.html">patrimonio mobiliare</a> (al netto della franchigia di €6.000) e il 20% del patrimonio immobiliare, dove la prima casa entra solo per la parte eccedente la franchigia di €52.500 e per <strong>due terzi</strong> di essa. La scala di equivalenza parte da 1,00 per un singolo e aumenta in base al numero e alle caratteristiche dei componenti del nucleo.</p>
       <h3>A cosa serve l'ISEE 2026</h3>
       <p>L'ISEE è necessario per accedere a molte agevolazioni: Bonus Asilo Nido, <a href="calcolo-assegno-unico.html">Assegno Unico e Universale</a> per i figli a carico, borse di studio universitarie (ERSU), reddito di cittadinanza, agevolazioni tariffarie per utenze, mense scolastiche, contributi per l'affitto e prestazioni sociosanitarie. Presentare la DSU all'inizio dell'anno permette di sfruttare subito tutte le agevolazioni disponibili, così come conviene verificare per tempo anche le <a href="calcolo-detrazioni-730.html">detrazioni del 730</a>.</p>
     </div>
@@ -523,13 +523,20 @@
 
       const redDip = parseFloat(document.getElementById('redditoLavDip').value) || 0;
       const redAltri = parseFloat(document.getElementById('redditoAltri').value) || 0;
-      const redditoTotale = redDip + redAltri;
+      // Art. 4 c.4 lett. f) DPCM 159/2013: dal reddito si detrae il 20% dei redditi da
+      // lavoro dipendente, fino a un massimo di 3.000 euro. Mancava del tutto, e la sua
+      // assenza alzava l'ISEE, cioe' faceva perdere agevolazioni a chi lo calcolava qui.
+      const detrazioneLavoro = Math.min(redDip * 0.20, 3000);
+      const redditoTotale = Math.max(0, redDip + redAltri - detrazioneLavoro);
 
       // Patrimonio immobiliare
       const imuPrima = parseFloat(document.getElementById('valoreImuPrimaCasa').value) || 0;
       const imuAltri = parseFloat(document.getElementById('valoreImuAltri').value) || 0;
       const franchPrima = 52500 + 2500 * Math.max(0, n - 2);
-      const patrimonioImm = Math.max(0, imuPrima - franchPrima) + imuAltri;
+      // Art. 5 c.2 DPCM 159/2013: la parte di valore della casa di abitazione che eccede
+      // la franchigia si assume per DUE TERZI, non per intero.
+      const eccedenzaPrima = Math.max(0, imuPrima - franchPrima) * (2 / 3);
+      const patrimonioImm = eccedenzaPrima + imuAltri;
 
       // Patrimonio mobiliare
       const saldoConti = parseFloat(document.getElementById('saldoConti').value) || 0;
@@ -570,7 +577,7 @@
           <div style="display:flex;justify-content:space-between;padding:10px 0;"><span style="color:var(--text-muted);font-size:14px;">Scala equivalenza applicata</span><span style="font-weight:700;font-size:14px;">${scala.toFixed(2)}</span></div>
         </div>
         <div style="background:rgba(217,119,6,0.08);border-left:3px solid #d97706;border-radius:0 8px 8px 0;padding:12px 14px;margin-top:16px;font-size:13px;color:var(--text-muted);">
-          ⚠️ Stima orientativa. L'ISEE ufficiale può differire — presenta la DSU all'INPS o a un CAF per il valore certificato.
+          ⚠️ Stima orientativa dell'<strong>ISEE ordinario</strong>. Dal 2026 esiste un secondo indicatore, l'<strong>ISEE per prestazioni familiari e per l'inclusione</strong> (legge di bilancio 2026), che si usa per <strong>assegno unico, assegno di inclusione, supporto per la formazione e il lavoro, bonus nido e bonus nuovi nati</strong>: lì la franchigia sulla casa di abitazione sale a <strong>91.500 €</strong> (120.000 € nei capoluoghi di città metropolitana) e la scala di equivalenza ha maggiorazioni proprie per i figli. Per quelle cinque prestazioni il tuo ISEE è quindi <em>più basso</em> di quello stimato qui. Questo calcolatore non lo copre: presenta la DSU all'INPS o a un CAF per i valori certificati.
         </div>
       `;
 
