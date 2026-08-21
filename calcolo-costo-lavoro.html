@@ -176,7 +176,7 @@
       <p class="page-subtitle">Quant'è il costo reale di un dipendente per l'azienda? Scopri il totale mensile e annuale: stipendio lordo, contributi INPS datoriali, INAIL e TFR. Utile per PMI, startup e liberi professionisti che vogliono assumere.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -256,16 +256,21 @@
         <div class="field" style="background:#f0fdf4;border-radius:10px;padding:14px;border:1.5px solid #bbf7d0;">
           <label style="font-weight:700;color:#166534;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
             <input type="checkbox" id="sgravioSud" style="width:16px;height:16px;cursor:pointer;">
-            Sgravio contributivo (es. under 36, NASpI, Mezzogiorno)
+            Esonero contributivo per una nuova assunzione
           </label>
           <div id="sgravioDetail" style="display:none;margin-top:10px;">
-            <label for="sgravioGiornate">Riduzione contributi datoriali</label>
-            <select id="sgravioPct" aria-describedby="sgravioPct-help">
-              <option value="50">50% (es. under 36, primo biennio)</option>
-              <option value="100">100% (esonero totale, es. Garanzia Giovani NEET)</option>
-              <option value="30">30% (esonero parziale Mezzogiorno)</option>
+            <label for="sgravioTipo">Quale esonero</label>
+            <select id="sgravioTipo" aria-describedby="sgravioTipo-help">
+              <option value="giovani">Bonus Giovani — under 35</option>
+              <option value="donne">Bonus Donne — donne svantaggiate</option>
+              <option value="zes">Bonus ZES — over 35 nel Mezzogiorno</option>
             </select>
-            <p class="hint" id="sgravioPct-help" style="margin-bottom:0;color:#166534;">Lo sgravio si applica solo ai contributi INPS datoriali IVS, entro massimale annuo (verifica sempre su INPS).</p>
+            <label for="zesUnica" style="display:block;margin-top:10px;">Sede o unità produttiva</label>
+            <select id="zesUnica">
+              <option value="no" selected>Fuori dalla ZES unica</option>
+              <option value="si">Nella ZES unica</option>
+            </select>
+            <p class="hint" id="sgravioTipo-help" style="margin-bottom:0;color:#166534;">I tre esoneri del decreto lavoro 2026 azzerano il <strong>100% dei contributi previdenziali a carico del datore</strong> — l'INAIL resta comunque dovuto — ma <strong>entro un tetto mensile per lavoratore</strong>: 500 € per il Bonus Giovani, che salgono a 650 € nella ZES unica; 650 € per il Bonus Donne, 800 € nella ZES; 650 € per il Bonus ZES. Durano <strong>24 mesi</strong> e <strong>non spettano per l'apprendistato</strong>. La ZES unica comprende Abruzzo, Molise, Campania, Basilicata, Puglia, Calabria, Sicilia, Sardegna, Marche e Umbria. Il Bonus ZES è inoltre riservato ai datori fino a 10 dipendenti che assumono over 35 disoccupati da almeno 24 mesi. Fonti: circolari INPS 55, 56 e 57 del 14 maggio 2026.</p>
           </div>
         </div>
       </div>
@@ -559,16 +564,44 @@
       document.getElementById('sgravioDetail').style.display = this.checked ? 'block' : 'none';
     });
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
-      const stipendio = parseFloat(document.getElementById('stipendio').value) || 0;
-      const mensilita = parseInt(document.getElementById('mensilita').value) || 13;
+      pulisciErroreCampo('stipendio');
+      const stipendio = parseFloat(document.getElementById('stipendio').value);
+      const mensilita = parseInt(document.getElementById('mensilita').value, 10) || 13;
       const settore = parseFloat(document.getElementById('settore').value) || 30;
       const contratto = document.getElementById('contratto').value;
       const inailPct = parseFloat(document.getElementById('inail').value) || 1.0;
       const hasSgravio = document.getElementById('sgravioSud').checked;
-      const sgravioPct = hasSgravio ? parseInt(document.getElementById('sgravioPct').value) / 100 : 0;
+      const sgravioTipo = document.getElementById('sgravioTipo').value;
+      const inZes = document.getElementById('zesUnica').value === 'si';
 
-      if (stipendio <= 0) return;
+      if (!Number.isFinite(stipendio) || stipendio <= 0) {
+        mostraErroreCampo('stipendio', 'Inserisci la retribuzione lorda mensile, maggiore di zero.');
+        return;
+      }
 
       // RAL
       const ralAnnua = stipendio * mensilita;
@@ -578,11 +611,21 @@
       if (contratto === 'determinato') contributiPct += 0.014; // maggiorazione 1.4% contratti a termine
       if (contratto === 'apprendistato') contributiPct = 0.115; // apprendistato max (aziende >9 dip)
 
-      // Sgravio
-      const contributiEffPct = hasSgravio ? contributiPct * (1 - sgravioPct) : contributiPct;
+      // Esonero contributivo. I tre bonus del decreto lavoro 2026 azzerano il 100%
+      // dei COMPLESSIVI contributi previdenziali a carico del datore (l'INAIL resta
+      // dovuto, e qui e' gia' un campo a parte), ma entro un tetto MENSILE per
+      // lavoratore che il sito ignorava: con l'esonero al 100% i contributi uscivano
+      // a zero a qualunque retribuzione. Circolari INPS 55, 56 e 57 del 14/05/2026.
+      const TETTI = { giovani: inZes ? 650 : 500, donne: inZes ? 800 : 650, zes: 650 };
+      // Tutti e tre escludono i rapporti di apprendistato.
+      const sgravioEscluso = hasSgravio && contratto === 'apprendistato';
+      const sgravioAttivo = hasSgravio && !sgravioEscluso;
+      const tettoMensile = sgravioAttivo ? TETTI[sgravioTipo] : 0;
 
-      const contributiAnnui = ralAnnua * contributiEffPct;
-      const contributiRisparmiati = hasSgravio ? ralAnnua * contributiPct * sgravioPct : 0;
+      const contributiPieni = ralAnnua * contributiPct;
+      const contributiRisparmiati = sgravioAttivo ? Math.min(contributiPieni, tettoMensile * 12) : 0;
+      const contributiAnnui = contributiPieni - contributiRisparmiati;
+      const contributiEffPct = ralAnnua > 0 ? contributiAnnui / ralAnnua : 0;
 
       // INAIL
       const inailAnnuo = ralAnnua * (inailPct / 100);
@@ -656,9 +699,18 @@
       document.getElementById('barsContainer').innerHTML = barsHtml;
 
       // Sgravio note
-      if (hasSgravio && contributiRisparmiati > 0) {
+      if (sgravioEscluso) {
         document.getElementById('sgravioNote').style.display = 'block';
-        document.getElementById('sgravioNoteText').innerHTML = `Lo sgravio riduce i contributi datoriali del <strong>${document.getElementById('sgravioPct').options[document.getElementById('sgravioPct').selectedIndex].text.split(' ')[0]}</strong>, con un risparmio stimato di <strong>${fmt(contributiRisparmiati)}/anno</strong>. Il costo reale con sgravio è <strong>${fmt(costoTotAnnuo)}</strong> vs <strong>${fmt(costoTotAnnuo + contributiRisparmiati)}</strong> senza incentivo.`;
+        document.getElementById('sgravioNoteText').innerHTML = `⚠️ L'esonero <strong>non è stato applicato</strong>: i rapporti di apprendistato sono esclusi da tutti e tre i bonus del decreto lavoro 2026. L'apprendistato ha già di suo un'aliquota datoriale ridotta.`;
+      } else if (sgravioAttivo && contributiRisparmiati > 0) {
+        const nomeBonus = { giovani: 'Bonus Giovani', donne: 'Bonus Donne', zes: 'Bonus ZES' }[sgravioTipo];
+        const tettoRaggiunto = contributiPieni > tettoMensile * 12;
+        document.getElementById('sgravioNote').style.display = 'block';
+        document.getElementById('sgravioNoteText').innerHTML = `<strong>${nomeBonus}</strong>: esonero del 100% dei contributi previdenziali a carico del datore, entro <strong>${fmt(tettoMensile)}/mese</strong> per lavoratore, cioè ${fmt(tettoMensile * 12)} l'anno. ` +
+          (tettoRaggiunto
+            ? `Qui il tetto <strong>si raggiunge</strong>: dei ${fmt(contributiPieni)} di contributi dovuti ne restano <strong>${fmt(contributiAnnui)}</strong> a carico dell'azienda. `
+            : `Qui il tetto <strong>non si raggiunge</strong>: i contributi dovuti sono ${fmt(contributiPieni)} e vengono azzerati per intero. `) +
+          `Il costo annuo scende da <strong>${fmt(costoTotAnnuo + contributiRisparmiati)}</strong> a <strong>${fmt(costoTotAnnuo)}</strong>. L'esonero dura <strong>24 mesi</strong>, quindi il risparmio non si ripete oltre.`;
       } else {
         document.getElementById('sgravioNote').style.display = 'none';
       }
