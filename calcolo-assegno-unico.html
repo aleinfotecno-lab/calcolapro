@@ -173,7 +173,7 @@
       <p class="page-subtitle">Stima l'importo mensile dell'Assegno Unico e Universale per i tuoi figli in base a ISEE, numero di figli e maggiorazioni INPS. Gratuito, immediato, nessuna registrazione.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 22/07/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -484,20 +484,31 @@
     const IMPORTO_MIN_MINORE = 58.30;
     const IMPORTO_MAX_MAGGIORE = 99.10;
     const IMPORTO_MIN_MAGGIORE = 29.10;
-    const MAGG_3FIGLIO_MAX = 96.90;
+    // Stessa base di legge del figlio 18-20 anni (85 euro, tabella 1 D.Lgs. 230/2021):
+    // legandola alla costante evitiamo che una delle due resti indietro alla prossima
+    // rivalutazione, come e' successo qui (96,90 era il valore 2024).
+    const MAGG_3FIGLIO_MAX = IMPORTO_MAX_MAGGIORE;
+    // Decresce fino a un minimo, non fino a zero (base di legge 15 euro).
+    const MAGG_3FIGLIO_MIN = 17.45;
     const MAGG_4FIGLI_FLAT = 150.00;
     const MAGG_MADRE_UNDER21 = 23.30;
     const MAGG_DISABILITA = { media: 99.10, grave: 110.60, nonautosufficienza: 122.30 };
 
+    // isee === null significa "DSU non presentata": solo in quel caso si liquida il minimo
+    // (circolare INPS 7/2026). Un ISEE pari a 0 e' invece il piu' basso possibile e da'
+    // diritto all'importo massimo.
     function quotaGraduata(isee, max, min) {
-      if (!isee || isee <= 0) return min;
+      if (isee === null) return min;
       if (isee <= ISEE_MIN) return max;
       if (isee >= ISEE_MAX) return min;
       return max - (isee - ISEE_MIN) / (ISEE_MAX - ISEE_MIN) * (max - min);
     }
 
     function calcola() {
-      const isee = parseFloat(document.getElementById('isee').value) || 0;
+      const iseeRaw = document.getElementById('isee').value.trim();
+      const iseeNum = parseFloat(iseeRaw);
+      // campo vuoto o non numerico = ISEE non presentato; 0 e' un valore valido
+      const isee = (iseeRaw === '' || !Number.isFinite(iseeNum) || iseeNum < 0) ? null : iseeNum;
       const nMin = parseInt(document.getElementById('figliMinorenni').value) || 0;
       const nMag = parseInt(document.getElementById('figliMaggiorenni').value) || 0;
       const nDisabili = parseInt(document.getElementById('figliDisabili').value) || 0;
@@ -510,11 +521,13 @@
       const quotaMaggiorenne = quotaGraduata(isee, IMPORTO_MAX_MAGGIORE, IMPORTO_MIN_MAGGIORE);
       const baseTotale = nMin * quotaMinorenne + nMag * quotaMaggiorenne;
 
-      const quota3Figlio = quotaGraduata(isee, MAGG_3FIGLIO_MAX, 0);
+      const quota3Figlio = quotaGraduata(isee, MAGG_3FIGLIO_MAX, MAGG_3FIGLIO_MIN);
       const nFigliOltreSecondo = Math.max(0, figliTotali - 2);
       const magg3Figli = nFigliOltreSecondo * quota3Figlio;
 
-      const magg4Figli = (figliTotali >= 4 && isee > 0 && isee <= ISEE_MAX) ? MAGG_4FIGLI_FLAT : 0;
+      // Forfetaria per 4+ figli: la circolare non la condiziona all'ISEE, a differenza
+      // della maggiorazione del 50% per i figli 1-3 anni nei nuclei con almeno tre figli.
+      const magg4Figli = (figliTotali >= 4) ? MAGG_4FIGLI_FLAT : 0;
 
       const maggMadre = madreUnder21 ? MAGG_MADRE_UNDER21 * figliTotali : 0;
 
@@ -533,7 +546,7 @@
       const alertEl = document.getElementById('alertBox');
       alertEl.className = 'alert alert-info';
       alertEl.innerHTML = figliTotali > 0
-        ? 'ℹ️ Stima basata sugli importi INPS 2026 rivalutati dell\'1,4% (circolare INPS n. 7 del 30 gennaio 2026). L\'importo effettivo dipende anche da situazioni particolari del nucleo: verifica sempre con il simulatore ufficiale INPS o un CAF.'
+        ? 'ℹ️ Stima basata sugli importi INPS 2026 rivalutati dell\'1,4% (circolare INPS n. 7 del 30 gennaio 2026). <strong>Non sono incluse</strong> tre maggiorazioni che spettano solo in casi particolari e che farebbero <em>salire</em> l\'importo: il bonus per i nuclei con entrambi i genitori titolari di reddito da lavoro, il +50% per ogni figlio sotto l\'anno di età e il +50% per i figli da uno a tre anni nei nuclei con almeno tre figli e ISEE entro la soglia massima. Per l\'importo esatto usa il simulatore ufficiale INPS o rivolgiti a un CAF.'
         : 'ℹ️ Inserisci almeno un figlio minorenne o tra 18 e 20 anni per ottenere una stima.';
 
       document.getElementById('result').style.display = 'block';
