@@ -49,27 +49,27 @@
           {
             "@type": "Question",
             "name": "Qual è la tassazione dei Buoni Fruttiferi Postali?",
-            "acceptedAnswer": {"@type": "Answer", "text": "I BFP beneficiano di una tassazione agevolata del 12,5% sugli interessi — la metà rispetto al 26% dei conti deposito bancari. Questa imposta sostitutiva è applicata direttamente da Poste Italiane al rimborso. Si applica anche l'imposta di bollo dello 0,20% annuo sul valore nominale."}
+            "acceptedAnswer": {"@type": "Answer", "text": "I BFP beneficiano di una tassazione agevolata del 12,5% sugli interessi maturati — esattamente la metà del 26% dei conti deposito bancari. Questa imposta sostitutiva è applicata direttamente da Poste Italiane al rimborso del buono, senza bisogno di dichiarare nulla nel 730. Si applica anche l'imposta di bollo dello 0,20% annuo, calcolata al 31 dicembre sul valore di rimborso: i buoni il cui valore complessivo non supera 5.000 euro ne sono però esenti, e ai fini della soglia si sommano tutti i buoni intestati allo stesso cliente presso Poste."}
           },
           {
             "@type": "Question",
             "name": "Quanto si guadagna con i Buoni Fruttiferi Postali?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Con €10.000 al 3% lordo per 3 anni in capitalizzazione composta: interessi lordi €927, ritenuta 12,5% €116, bollo €60, interessi netti €751 (rendimento netto 7,51% in 3 anni). I tassi si aggiornano ogni mese su poste.it."}
+            "acceptedAnswer": {"@type": "Answer", "text": "Il rendimento dipende dal tipo di buono e dal tasso aggiornato ogni mese su poste.it. Esempio con €10.000 al 3% lordo per 3 anni in capitalizzazione composta: interessi lordi €927 → ritenuta 12,5% €116 → bollo €64 → netti €748 (rendimento netto 7,48% in 3 anni, circa 2,43% annuo netto). Con €4.000 alle stesse condizioni il bollo non è dovuto, perché il valore di rimborso resta sotto i 5.000 euro, e il rendimento netto sale al 8,11%. Inserisci il tasso reale nel calcolatore per il tuo scenario preciso."}
           },
           {
             "@type": "Question",
             "name": "I Buoni Fruttiferi Postali sono sicuri?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Sì. I BFP sono garantiti dallo Stato italiano tramite Cassa Depositi e Prestiti (CDP), distribuiti da Poste Italiane. Non hanno un limite di garanzia come il FITD bancario (100.000€ per banca): sono garantiti integralmente dallo Stato."}
+            "acceptedAnswer": {"@type": "Answer", "text": "Sì. I BFP sono garantiti dallo Stato italiano tramite Cassa Depositi e Prestiti (CDP). Non hanno un limite di garanzia come il FITD bancario (100.000€ per banca): l'intera somma investita è garantita dallo Stato. Per importi superiori a €100.000, i BFP sono quindi più sicuri dei conti deposito bancari."}
           },
           {
             "@type": "Question",
             "name": "Come si sottoscrivono i BFP nel 2026?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Si acquistano su poste.it, dall'app BancoPosta o agli sportelli Poste Italiane. Serve un conto BancoPosta o un libretto postale. Importo minimo €50, in multipli di €50. Nessuna commissione di sottoscrizione."}
+            "acceptedAnswer": {"@type": "Answer", "text": "Si acquistano su poste.it, dall'app BancoPosta o agli sportelli fisici Poste Italiane. Serve un conto BancoPosta o un libretto postale. I buoni vengono emessi in forma dematerializzata (non cartacea), a partire da €50 in multipli di €50. Non ci sono commissioni di sottoscrizione né di rimborso anticipato."}
           },
           {
             "@type": "Question",
             "name": "Conviene un BFP o un conto deposito?",
-            "acceptedAnswer": {"@type": "Answer", "text": "A parità di tasso lordo, il BFP vince sempre per la fiscalità agevolata (12,5% vs 26%). I conti deposito bancari possono avere tassi lordi più alti: il CD pareggia il BFP quando offre un tasso circa il 34% superiore. Esempio: BFP al 3% → equivalente a CD al 4,02% lordo."}
+            "acceptedAnswer": {"@type": "Answer", "text": "A parità di tasso lordo, il BFP vince sempre per la fiscalità agevolata (12,5% vs 26%). I conti deposito bancari possono avere tassi lordi più alti: il CD pareggia il BFP quando offre un tasso lordo circa il 18% superiore: a parità di netto il rapporto fra i due tassi è 0,875/0,74. Esempio: un BFP al 3% su tre anni equivale a un CD al 3,53% lordo. Sotto i 5.000 euro il divario è ancora più ampio, perché il BFP non paga il bollo e il conto deposito sì. Inserisci i tassi reali nel calcolatore per confrontare direttamente i due strumenti."}
           }
         ]
       }
@@ -228,7 +228,7 @@
     <p class="page-subtitle">Calcola il rendimento netto dei tuoi BFP con tassazione agevolata 12,5%. Confronta con conto deposito e scopri quanto risparmi sulle tasse. Gratis e immediato.</p>
     <div class="article-meta">
       <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-      <span>📅 Aggiornato il 17/08/2026</span>
+      <span>📅 Aggiornato il 21/08/2026</span>
     </div>
   </div>
 </div>
@@ -392,13 +392,13 @@
             <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
               Qual è la tassazione dei Buoni Fruttiferi Postali? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
-            <div class="faq-answer"><p>I BFP beneficiano di una <strong>tassazione agevolata del 12,5%</strong> sugli interessi maturati — esattamente la metà del 26% dei conti deposito bancari. Questa imposta sostitutiva è applicata direttamente da Poste Italiane al rimborso del buono, senza bisogno di dichiarare nulla nel 730. Si applica anche l'<strong>imposta di bollo dello 0,20% annuo</strong> sul valore nominale.</p></div>
+            <div class="faq-answer"><p>I BFP beneficiano di una <strong>tassazione agevolata del 12,5%</strong> sugli interessi maturati — esattamente la metà del 26% dei conti deposito bancari. Questa imposta sostitutiva è applicata direttamente da Poste Italiane al rimborso del buono, senza bisogno di dichiarare nulla nel 730. Si applica anche l'<strong>imposta di bollo dello 0,20% annuo</strong>, calcolata al 31 dicembre sul valore di rimborso: i buoni il cui valore complessivo non supera 5.000 euro ne sono però esenti, e ai fini della soglia si sommano tutti i buoni intestati allo stesso cliente presso Poste.</p></div>
           </div>
           <div class="faq-item">
             <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
               Quanto si guadagna con i Buoni Fruttiferi Postali? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
-            <div class="faq-answer"><p>Il rendimento dipende dal tipo di buono e dal tasso aggiornato ogni mese su <strong>poste.it</strong>. Esempio con €10.000 al 3% lordo per 3 anni in capitalizzazione composta: interessi lordi €927 → ritenuta 12,5% €116 → bollo €60 → <strong>netti €751</strong> (rendimento netto 7,51% in 3 anni, circa 2,44% annuo netto). Inserisci il tasso reale nel calcolatore per il tuo scenario preciso.</p></div>
+            <div class="faq-answer"><p>Il rendimento dipende dal tipo di buono e dal tasso aggiornato ogni mese su <strong>poste.it</strong>. Esempio con €10.000 al 3% lordo per 3 anni in capitalizzazione composta: interessi lordi €927 → ritenuta 12,5% €116 → bollo €64 → <strong>netti €748</strong> (rendimento netto 7,48% in 3 anni, circa 2,43% annuo netto). Con €4.000 alle stesse condizioni il bollo non è dovuto, perché il valore di rimborso resta sotto i 5.000 euro, e il rendimento netto sale al 8,11%. Inserisci il tasso reale nel calcolatore per il tuo scenario preciso.</p></div>
           </div>
           <div class="faq-item">
             <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
@@ -416,7 +416,7 @@
             <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
               Conviene un BFP o un conto deposito? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
-            <div class="faq-answer"><p>A <strong>parità di tasso lordo</strong>, il BFP vince sempre per la fiscalità agevolata (12,5% vs 26%). I conti deposito bancari possono avere tassi lordi più alti: il CD pareggia il BFP quando offre un tasso circa il <strong>34% superiore</strong>. Esempio: BFP al 3% → il CD deve offrire circa il 4,02% lordo per dare lo stesso netto. Inserisci i tassi reali nel calcolatore per confrontare direttamente i due strumenti.</p></div>
+            <div class="faq-answer"><p>A <strong>parità di tasso lordo</strong>, il BFP vince sempre per la fiscalità agevolata (12,5% vs 26%). I conti deposito bancari possono avere tassi lordi più alti: il CD pareggia il BFP quando offre un tasso lordo circa il <strong>18% superiore</strong>: a parità di netto il rapporto fra i due tassi è 0,875/0,74. Esempio: un BFP al 3% su tre anni equivale a un CD al 3,53% lordo. Sotto i 5.000 euro il divario è ancora più ampio, perché il BFP non paga il bollo e il conto deposito sì. Inserisci i tassi reali nel calcolatore per confrontare direttamente i due strumenti.</p></div>
           </div>
         </div>
       </div>
@@ -441,7 +441,7 @@
     <p>Il calcolo segue la capitalizzazione composta: gli interessi maturano anche sugli interessi precedenti.</p>
     <div class="formula-box">Interessi lordi = Capitale × [(1 + Tasso%)^Anni − 1]</div>
     <div class="formula-box">Ritenuta fiscale = Interessi lordi × 0,125 &nbsp;&nbsp;<em>(12,5% imposta sostitutiva agevolata)</em></div>
-    <div class="formula-box">Imposta di bollo = Capitale × 0,002 × Anni &nbsp;&nbsp;<em>(0,20%/anno sul valore nominale)</em></div>
+    <div class="formula-box">Imposta di bollo = Σ (Valore di rimborso al 31/12 × 0,002) &nbsp;&nbsp;<em>(0,20% annuo, dovuta solo se il valore supera 5.000 €)</em></div>
     <div class="formula-box">Interessi netti = Interessi lordi − Ritenuta − Imposta di bollo</div>
 
     <h3>Esempio concreto: BFP 3 anni, €10.000 al 3% lordo</h3>
@@ -469,11 +469,21 @@
     <h3>BFP vs conto deposito: quando conviene ciascuno?</h3>
     <ul>
       <li><strong>A tassi simili:</strong> il BFP vince sempre per la fiscalità agevolata.</li>
-      <li><strong>Regola pratica:</strong> il conto deposito pareggia il BFP quando offre un tasso lordo circa il 34% superiore. Esempio: BFP al 3% → CD deve offrire ~4,02% lordo.</li>
+      <li><strong>Regola pratica:</strong> il conto deposito pareggia il BFP quando offre un tasso lordo circa il <strong>18% superiore</strong> — a parità di netto il rapporto fra i due tassi è 0,875/0,74. Esempio: BFP al 3% su tre anni → il CD deve offrire ~3,53% lordo.</li>
       <li><strong>Per importi sopra €100.000:</strong> i BFP sono preferibili — garantiti dallo Stato senza limiti (vs FITD max €100.000 per banca).</li>
       <li><strong>Per i minori:</strong> il BFP Dedicati Minori è la scelta ideale per un capitale vincolato fino ai 18 anni.</li>
     </ul>
   </div>
+
+    <div class="sources-box">
+      <h3>Fonti ufficiali</h3>
+      <ul>
+        <li><a href="https://www.agenziaentrate.gov.it/portale/documents/20143/299337/Circolare+48+imposta+bollo_cir48e+del+21+12+12.pdf/82024aae-3b12-b5e2-6800-9fc7a939dd8b" target="_blank" rel="noopener">Agenzia delle Entrate — Circolare 48/E del 21 dicembre 2012, imposta di bollo sui prodotti finanziari</a></li>
+        <li><a href="https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&amp;art.idGruppo=0&amp;art.flagTipoArticolo=0&amp;art.codiceRedazionale=12A06249&amp;art.idArticolo=3&amp;art.idSottoArticolo=1&amp;art.idSottoArticolo1=10&amp;art.dataPubblicazioneGazzetta=2012-06-01&amp;art.progressivo=0" target="_blank" rel="noopener">Gazzetta Ufficiale — DM 24 maggio 2012, art. 3 (base imponibile ed esenzione dei buoni postali fino a 5.000 €)</a></li>
+        <li><a href="https://www.cdp.it/sitointernet/it/faq_imposta_di_bollo.page" target="_blank" rel="noopener">Cassa Depositi e Prestiti — FAQ sull'imposta di bollo del risparmio postale</a></li>
+      </ul>
+      <span class="src-note">Fonti consultate ad agosto 2026. I tassi dei buoni cambiano ogni mese: vanno verificati su poste.it prima di sottoscrivere.</span>
+    </div>
 
   <div class="related-tools" role="complementary" aria-label="Strumenti correlati">
     <h3>Strumenti correlati</h3>
@@ -594,13 +604,36 @@ function calcola() {
   var tasso = tassoPerc / 100;
   var interessiLordi = capitale * (Math.pow(1 + tasso, anni) - 1);
   var ritenuta = interessiLordi * 0.125;
-  var bollo = capitale * 0.002 * anni;
+
+  // Il bollo si liquida ogni 31 dicembre sul VALORE DI RIMBORSO di quel momento,
+  // non sul capitale iniziale: va quindi calcolato anno per anno. E i buoni
+  // fruttiferi postali sono esenti finche' quel valore non supera i 5.000 euro
+  // (nota 3-ter art. 13 Tariffa DPR 642/1972; DM 24 maggio 2012). L'esenzione vale
+  // solo per i buoni postali: il conto deposito paga comunque.
+  function bolloPeriodo(esente) {
+    var tot = 0, interi = Math.floor(anni), k, valore;
+    for (k = 1; k <= interi; k++) {
+      valore = capitale * Math.pow(1 + tasso, k);
+      if (!esente || valore > 5000) tot += valore * 0.002;
+    }
+    var resto = anni - interi;
+    if (resto > 0) {
+      valore = capitale * Math.pow(1 + tasso, anni);
+      if (!esente || valore > 5000) tot += valore * 0.002 * resto;
+    }
+    return tot;
+  }
+  var bollo = bolloPeriodo(true);
+  var bolloCD = bolloPeriodo(false);
+  var valoreFinale = capitale * Math.pow(1 + tasso, anni);
+  var esenteBollo = bollo === 0;
+
   var interessiNetti = interessiLordi - ritenuta - bollo;
   var capitaleFinale = capitale + interessiNetti;
   var rendNetto = (interessiNetti / capitale * 100);
 
   var ritenutaCD = interessiLordi * 0.26;
-  var interessiNettiCD = interessiLordi - ritenutaCD - bollo;
+  var interessiNettiCD = interessiLordi - ritenutaCD - bolloCD;
   var vantaggio = interessiNetti - interessiNettiCD;
 
   document.getElementById('interessiNettiOut').textContent = fmtEur(interessiNetti);
@@ -612,9 +645,12 @@ function calcola() {
   document.getElementById('vantaggioOut').textContent = fmtEur(vantaggio);
 
   alertEl.className = 'alert-box alert-info';
-  alertEl.innerHTML = 'ℹ️ I tassi BFP si aggiornano ogni mese: verifica il tasso su <strong>poste.it</strong> prima di sottoscrivere. ' +
+  var notaBollo = esenteBollo
+    ? '✅ <strong>Nessuna imposta di bollo</strong>: il valore di rimborso resta sotto i 5.000 € per tutta la durata, e i buoni postali sotto quella soglia ne sono esenti. Attenzione però: la soglia si valuta sommando <strong>tutti</strong> i buoni a te intestati presso Poste, non solo questo. '
+    : '';
+  alertEl.innerHTML = notaBollo + 'ℹ️ I tassi BFP si aggiornano ogni mese: verifica il tasso su <strong>poste.it</strong> prima di sottoscrivere. ' +
     'Con un conto deposito allo stesso ' + tassoPerc.toFixed(2).replace('.', ',') + '% lordo avresti guadagnato <strong>' + fmtEur(interessiNettiCD) + '</strong> netti — ' +
-    'il BFP porta <strong>' + fmtEur(vantaggio) + '</strong> in più grazie alla tassazione 12,5%.';
+    'il BFP porta <strong>' + fmtEur(vantaggio) + '</strong> in più.';
 
   document.getElementById('result').style.display = 'block';
   document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
