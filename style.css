@@ -197,6 +197,29 @@ a:hover { text-decoration: underline; }
   border-radius: 0; border-left: none; border-right: none; border-top: none;
   background: transparent;
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+   SLOT IN CIMA COLLASSATO — da rimuovere il giorno dell'approvazione AdSense
+
+   Finche' il sito non e' approvato Google risponde data-ad-status="unfilled":
+   nessun annuncio viene servito, ma lo script AdSense scrive comunque
+   style="height:280px" direttamente sull'<ins> (desktop; 390px su mobile),
+   perche' lo slot e' data-ad-format="auto" + data-full-width-responsive="true".
+   Il min-height:90px qui sopra non c'entra: perde contro l'altezza inline
+   scritta dallo script sul figlio.
+   Risultato: 280px di vuoto sopra la piega su 61 pagine, a fronte di zero
+   ricavi, con il primo campo dei calcolatori spinto sotto la piega.
+
+   Lo slot viene azzerato in altezza, NON nascosto con display:none: con
+   display:none lo script AdSense va in eccezione su ogni pagina (verificato,
+   0 errori JS prima e 1 dopo). Cosi' l'elemento resta misurabile e in flusso,
+   ma non occupa spazio.
+
+   PER RIATTIVARE: cancellare le due regole qui sotto. Il markup degli slot
+   nelle 61 pagine non e' stato toccato.
+   ───────────────────────────────────────────────────────────────────── */
+.ad-slot-top { height: 0; min-height: 0; overflow: hidden; border: none; }
+.ad-slot-top .ad-slot, .ad-slot-top .ad-slot ins, .ad-slot-top .ad-slot iframe { height: 0 !important; min-height: 0 !important; }
 /* Nasconde il wrapper quando AdSense non ha ancora caricato */
 .ad-slot-top .ad-slot {
   height: auto; min-height: 0;
