@@ -171,7 +171,7 @@
       <p class="page-subtitle">Vendi un immobile? Scopri se sei esente dalla tassa sulla plusvalenza, quanto paghi se non lo sei, e quali spese puoi dedurre per ridurre l'importo. Include la scelta tra imposta sostitutiva 26% e tassazione IRPEF ordinaria.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -242,7 +242,12 @@
             <input type="checkbox" id="superbonus" style="width:16px;height:16px;cursor:pointer;" onchange="aggiornaUI()" aria-describedby="superbonus-help">
             Sono stati eseguiti lavori con Superbonus 110%
           </label>
-          <p class="hint" id="superbonus-help">Regola Legge di Bilancio 2024: se vendi entro 10 anni dalla fine dei lavori Superbonus, la plusvalenza è tassabile anche se possiedi l'immobile da oltre 5 anni.</p>
+          <p class="hint" id="superbonus-help">Regola della legge di bilancio 2024: se vendi <strong>entro dieci anni dalla fine dei lavori</strong> Superbonus la plusvalenza è tassabile anche se possiedi l'immobile da oltre cinque anni (art. 67 c. 1 lett. b-bis TUIR). Oltre i dieci anni torna la regola ordinaria. Attenzione anche all'esenzione per abitazione principale: in questo caso non basta averla abitata per la maggior parte del possesso, serve per la maggior parte dei <strong>dieci anni</strong> precedenti la vendita.</p>
+        </div>
+        <div class="field" id="superbonusDataBox" style="display:none;">
+          <label for="dataFineLavori">Data di conclusione dei lavori Superbonus</label>
+          <input type="date" id="dataFineLavori" aria-describedby="dataFineLavori-help"/>
+          <p class="hint" id="dataFineLavori-help">Da questa data decorrono <strong>due</strong> termini distinti: i <strong>dieci anni</strong> entro cui la vendita resta tassabile, e i <strong>cinque anni</strong> che decidono come vengono trattate le spese dei lavori.</p>
         </div>
 
         <div id="banneresenzione" style="display:none;border-radius:12px;padding:14px 16px;margin-top:4px;"></div>
@@ -272,6 +277,12 @@
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="speseMigliorie" value="0" min="0" step="500" class="has-prefix" aria-describedby="speseMigliorie-help"/></div>
           <p class="hint" id="speseMigliorie-help">Solo ristrutturazioni straordinarie con fatture (bagno, cucina, impianti). Non manutenzione ordinaria né spese condominiali.</p>
+        </div>
+        <div class="field" id="superbonusSpeseBox" style="display:none;">
+          <label for="speseSuperbonus">Di cui spese Superbonus al 110% con sconto in fattura o cessione del credito</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+          <input type="number" id="speseSuperbonus" value="0" min="0" step="500" class="has-prefix" aria-describedby="speseSuperbonus-help"/></div>
+          <p class="hint" id="speseSuperbonus-help">La parte delle spese indicate sopra che ha fruito del Superbonus <strong>al 110%</strong> con <strong>sconto in fattura o cessione del credito</strong>. Solo questa subisce la limitazione dell'art. 68 c. 1 del TUIR: se i lavori sono conclusi da <strong>non più di cinque anni</strong> non si computa affatto, se da <strong>più di cinque</strong> si computa al <strong>50%</strong>. Le spese portate in detrazione nella dichiarazione dei redditi, o agevolate a un'aliquota diversa dal 110%, restano deducibili per intero.</p>
         </div>
         <div class="field">
           <label for="speseVendita">Spese per la vendita (agenzia, notaio)</label>
@@ -515,6 +526,9 @@
     }
 
     function aggiornaUI() {
+      const sb = document.getElementById('superbonus').checked ? 'block' : 'none';
+      document.getElementById('superbonusDataBox').style.display = sb;
+      document.getElementById('superbonusSpeseBox').style.display = sb;
       const prov = document.querySelector('input[name="provenienza"]:checked').value;
       ['acquisto','eredita','donazione','costruzione'].forEach(k => {
         const lbl = document.getElementById('lbl-'+k);
@@ -592,13 +606,45 @@
       const speseVend = parseFloat(document.getElementById('speseVendita').value) || 0;
       const aliqIRPEF = parseInt(document.getElementById('aliqIRPEF').value) || 33;
 
-      const costoFiscale = prezzoAcquisto + speseAcq + speseMig + speseVend;
+      // Art. 68 c. 1 TUIR, periodi aggiunti dall'art. 1 c. 64 della L. 213/2023: per gli
+      // immobili della lettera b-bis) le spese degli interventi Superbonus NON si
+      // computano se i lavori sono conclusi da non piu' di cinque anni, e si computano
+      // al 50% se conclusi da piu' di cinque. La limitazione riguarda le sole spese
+      // agevolate al 110% con sconto in fattura o cessione del credito. Il sito le
+      // deduceva per intero, dimezzando l'imposta dovuta.
+      const dataFine = new Date(document.getElementById('dataFineLavori').value);
+      const anniLavori = (oggi - dataFine) / (365.25 * 24 * 3600 * 1000);
+      const campoData = document.getElementById('dataFineLavori');
+      if (superbonus && isNaN(anniLavori)) {
+        campoData.setAttribute('aria-invalid', 'true');
+        campoData.closest('.field').classList.add('error');
+        let msg = document.getElementById('dataFineLavori-error');
+        if (!msg) {
+          msg = document.createElement('span');
+          msg.className = 'error-msg';
+          msg.id = 'dataFineLavori-error';
+          campoData.closest('.field').appendChild(msg);
+        }
+        msg.textContent = 'Indica quando sono finiti i lavori: da quella data dipendono sia i dieci anni di tassabilità sia il trattamento delle spese.';
+        campoData.focus();
+        return;
+      }
+      campoData.removeAttribute('aria-invalid');
+      campoData.closest('.field').classList.remove('error');
+      const speseSb = superbonus ? Math.min(parseFloat(document.getElementById('speseSuperbonus').value) || 0, speseMig) : 0;
+      // Oltre i dieci anni dalla fine dei lavori la lettera b-bis) non opera piu' e le
+      // spese tornano deducibili per intero.
+      const lavoriEntro10 = superbonus && !isNaN(anniLavori) && anniLavori < 10;
+      const quotaSb = lavoriEntro10 ? (anniLavori > 5 ? 0.5 : 0) : 1;
+      const speseMigComputabili = (speseMig - speseSb) + speseSb * quotaSb;
+
+      const costoFiscale = prezzoAcquisto + speseAcq + speseMigComputabili + speseVend;
       const plusvalenza = prezzoVendita - costoFiscale;
 
       // Determina esenzione
       const esente_eredita = prov === 'eredita';
       const esente_abitPrinc = abitPrinc;
-      const esente_5anni = !isNaN(anni) && anni >= 5 && !superbonus;
+      const esente_5anni = !isNaN(anni) && anni >= 5 && !lavoriEntro10;
       const esente = esente_eredita || esente_abitPrinc || esente_5anni;
 
       const banner = document.getElementById('resultBanner');
