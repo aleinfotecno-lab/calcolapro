@@ -240,7 +240,7 @@
             <option value="iscritto-altra">Già iscritto ad altra previdenza (dipendente/artigiano/commerciante)</option>
             <option value="iscritto-separata">Già iscritto solo Gestione Separata</option>
           </select>
-          <p class="hint" id="regimeINPS-help">L'aliquota INPS Gestione Separata varia in base alla posizione previdenziale: 26,07% per non iscritti ad altra cassa, 24% circa per già iscritti ad altra previdenza obbligatoria.</p>
+          <p class="hint" id="regimeINPS-help">L'aliquota INPS Gestione Separata varia in base alla posizione previdenziale: <strong>33,72%</strong> per chi non è iscritto ad altra gestione obbligatoria (aliquota dei non titolari di partita IVA, che è il caso del lavoro occasionale), <strong>24%</strong> per pensionati e già iscritti ad altra previdenza obbligatoria. Circolare INPS n. 8 del 3 febbraio 2026.</p>
         </div>
       </div>
 
@@ -375,7 +375,7 @@
       <p>Molti pensano erroneamente che la soglia di €5.000 sia un limite legale per fare prestazioni occasionali. Non è così: non c'è nessun limite di importo nelle norme fiscali. La soglia dei €5.000 riguarda esclusivamente i <strong><a href="pensione.html">contributi INPS</a></strong>:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li>Sotto €5.000 di reddito annuo complessivo da prestazioni occasionali (da tutti i committenti): <strong>nessun contributo INPS</strong></li>
-        <li>Sopra €5.000: obbligo di iscrizione alla <strong>Gestione Separata INPS</strong> con aliquota ~26,07% sulla parte eccedente</li>
+        <li>Sopra €5.000: obbligo di iscrizione alla <strong>Gestione Separata INPS</strong> con aliquota del <strong>33,72%</strong> sulla parte eccedente (24% per pensionati e iscritti ad altra gestione obbligatoria)</li>
         <li>I contributi si dividono: 2/3 a carico del committente, 1/3 a carico tuo (e vengono versati dal committente)</li>
       </ul>
       <p>Attenzione: il limite dei €5.000 è <em>cumulativo</em> tra tutti i committenti nell'anno, non per singolo committente.</p>
@@ -509,14 +509,43 @@
       btn.querySelector('.faq-arrow').textContent = exp ? '▾' : '▴';
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
-      const compenso = parseFloat(document.getElementById('compenso').value) || 0;
+      pulisciErroreCampo('compenso');
+      const compenso = parseFloat(document.getElementById('compenso').value);
       const altriRedditi = parseFloat(document.getElementById('altriRedditi').value) || 0;
       const marcaBollo = parseFloat(document.getElementById('marcaBollo').value) || 0;
-      const aliqIRPEF = parseInt(document.getElementById('aliquotaIRPEF').value) || 23;
+      // lo 0% della no tax area e' una scelta valida: non va scambiato per "campo vuoto"
+      const aliqRaw = document.getElementById('aliquotaIRPEF').value;
+      const aliqIRPEF = aliqRaw === '' ? 23 : parseInt(aliqRaw, 10);
       const regimeINPS = document.getElementById('regimeINPS').value;
 
-      if (compenso <= 0) return;
+      if (!Number.isFinite(compenso) || compenso <= 0) {
+        mostraErroreCampo('compenso', 'Inserisci un compenso lordo maggiore di zero.');
+        return;
+      }
 
       const ritenuta = compenso * 0.20;
       const nettoImm = compenso - ritenuta - marcaBollo;
@@ -533,7 +562,11 @@
       let inpsTotale = 0;
       let inpsLavoratore = 0;
       let inpsCommittente = 0;
-      let aliqINPS = regimeINPS === 'iscritto-altra' ? 0.24 : 0.2607;
+      // Circolare INPS n. 8 del 3 febbraio 2026. Il lavoro autonomo occasionale non
+      // comporta partita IVA, quindi ricade fra i "non titolari di partita IVA senza
+      // DIS-COLL": 33,72%. Il 26,07% e' l'aliquota dei titolari di partita IVA e qui
+      // non si applica. Pensionati e iscritti ad altra gestione obbligatoria: 24%.
+      let aliqINPS = regimeINPS === 'iscritto-altra' ? 0.24 : 0.3372;
       const sopraSoglia = totaleOccasionale > soglia;
       let baseINPS = 0;
 
