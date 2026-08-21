@@ -209,7 +209,7 @@
     <p class="page-subtitle">Scopri se conviene la cedolare secca (21% o 10%) rispetto all'IRPEF ordinaria sul tuo affitto. Confronto immediato con il verdetto personalizzato per la tua situazione.</p>
     <div class="article-meta">
       <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-      <span>📅 Aggiornato il 16/08/2026</span>
+      <span>📅 Aggiornato il 21/08/2026</span>
     </div>
   </div>
 </div>
@@ -246,11 +246,19 @@
       <div class="field">
         <label for="contratto">Tipo di contratto</label>
         <select id="contratto">
-          <option value="libero">Libero (4+4) — cedolare 21%</option>
-          <option value="concordato">Concordato (3+2) — cedolare 10%</option>
-          <option value="transitorio">Transitorio — cedolare 21%</option>
-          <option value="studenti">Studenti universitari — cedolare 10%</option>
+          <option value="libero">Libero (4+4)</option>
+          <option value="concordato">Concordato (3+2)</option>
+          <option value="transitorio">Transitorio</option>
+          <option value="studenti">Studenti universitari</option>
         </select>
+      </div>
+      <div class="field">
+        <label for="altaTensione">Comune ad alta tensione abitativa</label>
+        <select id="altaTensione" aria-describedby="altaTensione-help">
+          <option value="si" selected>Sì</option>
+          <option value="no">No</option>
+        </select>
+        <p class="hint" id="altaTensione-help">Le agevolazioni del canone concordato — cedolare al <strong>10%</strong> invece del 21% e riduzione del <strong>30%</strong> della base IRPEF (art. 8 L. 431/1998) — spettano <strong>solo</strong> nei comuni ad alta tensione abitativa individuati dall'art. 1 del D.L. 551/1988: capoluoghi di provincia, comuni confinanti con essi e comuni con oltre 10.000 abitanti indicati dal CIPE. Fuori da quei comuni il concordato si tassa come un contratto libero.</p>
       </div>
       <div class="field">
         <label for="reddito">Reddito complessivo annuo del proprietario (€)</label>
@@ -422,7 +430,7 @@
       <li>Netto annuo: 9.600 − 3.010 = <strong>6.590€</strong> (549€/mese)</li>
     </ul>
     <p><strong>Risparmio annuo scegliendo la cedolare secca: 994€</strong> — più di una mensilità in più.</p>
-    <p>Con la cedolare al 10% (contratto concordato), il risparmio sarebbe ancora maggiore: imposta 960€, netto 8.640€, risparmio rispetto all'IRPEF di oltre 2.000€/anno.</p>
+    <p>Con la cedolare al 10% (contratto concordato in un comune ad alta tensione abitativa) l'imposta scende a 960€ e il netto sale a 8.640€. Il confronto con l'IRPEF però va fatto per intero: sullo stesso contratto concordato la base imponibile IRPEF gode dell'<strong>ulteriore riduzione del 30%</strong> prevista dall'art. 8 della legge 431/1998 (9.600 × 95% × 70% = 6.384€), quindi l'IRPEF scende a 2.107€. Il risparmio reale della cedolare è di <strong>1.147€ l'anno</strong>, non il doppio: la stessa agevolazione che abbassa l'aliquota della cedolare abbassa anche l'imponibile IRPEF.</p>
   </div>
 
 <section class="container related-tools">
@@ -581,20 +589,36 @@
     if (canone <= 0) { mostraErroreCampo('canone', 'Inserisci un canone di affitto valido.'); return; }
     if (reddito <= 0) { mostraErroreCampo('reddito', 'Inserisci il tuo reddito complessivo.'); return; }
 
-    const aliquotaCed = (contratto === 'concordato' || contratto === 'studenti') ? 0.10 : 0.21;
+    const altaTensione = document.getElementById('altaTensione').value === 'si';
+    // Il 10% spetta al concordato (e ai contratti per studenti, che ne sono una
+    // specie) SOLO nei comuni ad alta tensione abitativa: fuori si torna al 21%.
+    const agevolato = (contratto === 'concordato' || contratto === 'studenti') && altaTensione;
+    const aliquotaCed = agevolato ? 0.10 : 0.21;
     const impostaCed = canone * aliquotaCed;
     const nettoCed = canone - impostaCed;
 
+    // Base IRPEF: deduzione forfetaria del 5% (art. 37 c.4-bis TUIR) e, per il
+    // concordato nei comuni ad alta tensione, l'ulteriore riduzione del 30%
+    // prevista dall'art. 8 c.1 della legge 431/1998, che qui mancava del tutto.
     const deduzForfit = canone * 0.05;
-    const baseImponibile = canone - deduzForfit;
+    const baseDopoForfait = canone - deduzForfit;
+    const baseImponibile = agevolato ? baseDopoForfait * 0.70 : baseDopoForfait;
+
+    // L'IRPEF e' progressiva: l'imposta sul canone e' la DIFFERENZA fra l'imposta
+    // sul reddito complessivo e quella sul solo reddito preesistente. Applicare
+    // l'aliquota marginale a tutta la base la sovrastima quando il canone
+    // attraversa una soglia di scaglione.
+    const irpefScaglioni = function (imponibile) {
+      if (imponibile <= 0) return 0;
+      if (imponibile <= 28000) return imponibile * 0.23;
+      if (imponibile <= 50000) return 28000 * 0.23 + (imponibile - 28000) * 0.33;
+      return 28000 * 0.23 + 22000 * 0.33 + (imponibile - 50000) * 0.43;
+    };
     const redditoTotale = reddito + baseImponibile;
+    const aliqMarg = redditoTotale <= 28000 ? 0.23 : (redditoTotale <= 50000 ? 0.33 : 0.43);
+    const irpefIncrementale = irpefScaglioni(redditoTotale) - irpefScaglioni(reddito);
 
-    let aliqMarg;
-    if (redditoTotale <= 28000) aliqMarg = 0.23;
-    else if (redditoTotale <= 50000) aliqMarg = 0.33;
-    else aliqMarg = 0.43;
-
-    const imposteIrpef = Math.max(0, baseImponibile * aliqMarg - detrazioni);
+    const imposteIrpef = Math.max(0, irpefIncrementale - detrazioni);
     const nettoIrpef = canone - imposteIrpef;
 
     const risparmio = Math.abs(nettoCed - nettoIrpef);
