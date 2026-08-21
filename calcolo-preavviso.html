@@ -171,7 +171,7 @@
       <p class="page-subtitle">Quanti mesi di preavviso devi dare (o ricevere) in caso di licenziamento o dimissioni? Calcola l'indennità sostitutiva se il preavviso non viene rispettato, con riferimento ai principali CCNL italiani. Tassazione e netto inclusi.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -226,7 +226,7 @@
             <option value="tessile">Tessile / Abbigliamento</option>
             <option value="custom">Altro (inserisci mesi manualmente)</option>
           </select>
-          <p class="hint" id="ccnl-help">Seleziona il CCNL applicato al tuo contratto di lavoro. Verifica sempre il contratto collettivo nella lettera di assunzione o con il tuo sindacato.</p>
+          <p class="hint" id="ccnl-help">Seleziona il CCNL applicato al tuo contratto di lavoro. Verifica sempre il contratto collettivo nella lettera di assunzione o con il tuo sindacato. <strong>Attenzione</strong>: i mesi qui riportati sono quelli previsti in caso di <strong>licenziamento</strong>. Diversi CCNL fissano per le <strong>dimissioni</strong> termini piu' brevi, in molti casi la meta': se ti stai dimettendo, controlla l'articolo del tuo contratto prima di fare affidamento su questo numero.</p>
         </div>
         <div id="sezione-ccnl" class="field">
           <label for="livello">Categoria / Livello contrattuale</label>
@@ -259,7 +259,16 @@
           <label for="stipendio">Stipendio lordo mensile</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="stipendio" value="2000" min="500" step="50" class="has-prefix" aria-describedby="stipendio-help"/></div>
-          <p class="hint" id="stipendio-help">Includi tutti gli elementi della retribuzione mensile lorda (paga base + superminimi + indennità contrattuali). Non includere la 13ª mensilità.</p>
+          <p class="hint" id="stipendio-help">Includi tutti gli elementi della retribuzione mensile lorda (paga base + superminimi + indennità contrattuali). Non includere qui la 13ª: si aggiunge dal campo accanto.</p>
+        </div>
+        <div class="field">
+          <label for="mensilita">Mensilità previste dal CCNL</label>
+          <select id="mensilita" aria-describedby="mensilita-help">
+            <option value="12">12 (nessuna mensilità aggiuntiva)</option>
+            <option value="13" selected>13 (tredicesima)</option>
+            <option value="14">14 (tredicesima e quattordicesima)</option>
+          </select>
+          <p class="hint" id="mensilita-help">L'indennità si calcola sulla <strong>retribuzione globale di fatto</strong> (art. 2118 c.c.), che comprende i ratei di 13ª e 14ª: con 14 mensilità un mese di preavviso vale il 16,7% in più dello stipendio base.</p>
         </div>
         <div class="field">
           <label for="mesiEffettivi">Mesi di preavviso effettivamente lavorati / concessi</label>
@@ -267,12 +276,14 @@
           <p class="hint" id="mesiEffettivi-help">Se il preavviso viene lavorato integralmente, inserisci 0 (nessuna indennità sostitutiva). Se il datore tronca prima o tu lasci subito, inserisci i mesi effettivamente lavorati.</p>
         </div>
         <div class="field">
-          <label for="aliqIRPEF">Aliquota IRPEF marginale</label>
-          <select id="aliqIRPEF">
-            <option value="23" selected>23% (reddito fino a €28.000)</option>
-            <option value="33">33% (reddito €28.001 - €50.000)</option>
-            <option value="43">43% (reddito oltre €50.000)</option>
+          <label for="aliqIRPEF">Aliquota di tassazione separata (aliquota del TFR)</label>
+          <select id="aliqIRPEF" aria-describedby="aliqIRPEF-help">
+            <option value="23" selected>23%</option>
+            <option value="27">27%</option>
+            <option value="33">33%</option>
+            <option value="43">43%</option>
           </select>
+          <p class="hint" id="aliqIRPEF-help">L'indennità sostitutiva è soggetta a <strong>tassazione separata</strong> (art. 17 TUIR), non all'IRPEF ordinaria: si applica l'aliquota media del tuo reddito complessivo dei <strong>due anni precedenti</strong>, la stessa usata per il TFR. Il datore trattiene provvisoriamente il <strong>20%</strong> e l'Agenzia delle Entrate riliquida più tardi, a conguaglio.</p>
         </div>
       </div>
 
@@ -623,6 +634,7 @@
     function calcola() {
       const tipo = document.querySelector('input[name="tipoCess"]:checked').value;
       const stipendio = parseFloat(document.getElementById('stipendio').value) || 0;
+      const mensilita = parseFloat(document.getElementById('mensilita').value) || 13;
       const mesiContrattuali = getMesi();
       const mesiEff = parseFloat(document.getElementById('mesiEffettivi').value) || 0;
       const aliqIRPEF = parseInt(document.getElementById('aliqIRPEF').value) || 23;
@@ -630,10 +642,18 @@
       if (stipendio <= 0 || mesiContrattuali <= 0) return;
 
       const mesiMancanti = Math.max(0, mesiContrattuali - mesiEff);
-      const indennitaLorda = stipendio * mesiMancanti;
+      // Art. 2118 c.2 c.c.: l'indennita' equivale alla retribuzione che sarebbe spettata
+      // nel periodo di preavviso, cioe' la retribuzione GLOBALE DI FATTO mensilizzata,
+      // ratei di 13ª e 14ª compresi. Prima si moltiplicava il solo stipendio base.
+      const retribuzioneMensilizzata = stipendio * mensilita / 12;
+      const indennitaLorda = retribuzioneMensilizzata * mesiMancanti;
+      // Tassazione separata ex art. 17 c.1 lett. a) TUIR, con l'aliquota del TFR.
+      // Il sostituto trattiene il 20% in via provvisoria, poi l'Agenzia riliquida.
       const irpef = indennitaLorda * (aliqIRPEF / 100);
+      const irpefProvvisoria = indennitaLorda * 0.20;
       const inps = indennitaLorda * 0.0919;
       const indennitaNetta = indennitaLorda - irpef - inps;
+      const indennitaNettaProvvisoria = indennitaLorda - irpefProvvisoria - inps;
 
       // Data fine rapporto
       const oggi = new Date();
@@ -654,7 +674,7 @@
 
       document.getElementById('resultLabel').textContent = isCompleto ? 'Preavviso integrale lavorato' : 'Indennità sostitutiva lorda';
       document.getElementById('indennitaLordaOut').textContent = isCompleto ? fmtMesi(mesiContrattuali) : fmt(indennitaLorda);
-      document.getElementById('resultUnit').textContent = isCompleto ? 'di preavviso lavorato' : `${fmtMesi(mesiMancanti)} × €${stipendio.toFixed(2)}/mese`;
+      document.getElementById('resultUnit').textContent = isCompleto ? 'di preavviso lavorato' : `${fmtMesi(mesiMancanti)} × €${retribuzioneMensilizzata.toFixed(2)}/mese (retribuzione globale di fatto)`;
       document.getElementById('mesiMancOut').textContent = fmtMesi(mesiMancanti);
       document.getElementById('indennitaNettoOut').textContent = fmt(indennitaNetta);
       document.getElementById('dataFineOut').textContent = fineRapporto.toLocaleDateString('it-IT');
@@ -665,8 +685,11 @@
         {v: 'Preavviso effettivamente lavorato', val: fmtMesi(mesiEff)},
         {v: 'Mesi di preavviso non lavorati', val: fmtMesi(mesiMancanti)},
         {v: 'Stipendio mensile lordo', val: fmt(stipendio)},
+        {v: `Retribuzione globale di fatto mensilizzata (${mensilita} mensilità)`, val: fmt(retribuzioneMensilizzata)},
         {v: 'Indennità sostitutiva lorda', val: fmt(indennitaLorda), bold: true},
-        {v: `IRPEF stimata (aliquota ${aliqIRPEF}%)`, val: '- ' + fmt(irpef)},
+        {v: `Tassazione separata a conguaglio (aliquota ${aliqIRPEF}%)`, val: '- ' + fmt(irpef)},
+        {v: 'Ritenuta provvisoria del datore (20%)', val: '- ' + fmt(irpefProvvisoria)},
+        {v: 'Netto che incassi subito (con la ritenuta del 20%)', val: fmt(indennitaNettaProvvisoria)},
         {v: 'Contributi INPS (9,19% a carico lavoratore)', val: '- ' + fmt(inps)},
         {v: 'Indennità netta stimata', val: fmt(indennitaNetta), bold: true},
       ];
