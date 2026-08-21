@@ -46,7 +46,7 @@
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Come si calcola il bollo auto 2026?","acceptedAnswer":{"@type":"Answer","text":"Il bollo auto si calcola moltiplicando la potenza del motore (in kW, indicata sul libretto di circolazione al punto P.2) per la tariffa nazionale: €2,58/kW per i primi 100 kW e €3,87/kW per la potenza oltre i 100 kW. Il risultato è l'importo annuale della tassa automobilistica. Alcune regioni possono applicare una piccola addizionale regionale."}},
+    {"@type":"Question","name":"Come si calcola il bollo auto 2026?","acceptedAnswer":{"@type":"Answer","text":"Il bollo auto si calcola moltiplicando la potenza del motore (in kW, indicata sul libretto di circolazione al punto P.2) per la tariffa nazionale: €2,58/kW per i primi 100 kW e €3,87/kW per la potenza oltre i 100 kW. Il risultato è l'importo annuale della tassa automobilistica. Le Regioni deliberano tariffe proprie: il Lazio, per esempio, applica 2,84 €/kW alle Euro 4-6 invece di 2,58."}},
     {"@type":"Question","name":"Dove trovo i kW della mia auto?","acceptedAnswer":{"@type":"Answer","text":"I kW della tua auto si trovano sul libretto di circolazione (carta di circolazione), alla voce P.2 'Potenza massima in kW'. In alternativa, puoi trovare questa informazione nel sito del Ministero dei Trasporti oppure sul sito dell'ACI inserendo la targa. I cavalli (CV o HP) si convertono in kW dividendo per 1.36."}},
     {"@type":"Question","name":"Le auto elettriche pagano il bollo?","acceptedAnswer":{"@type":"Answer","text":"I veicoli elettrici puri (100% elettrici) sono esenti dal bollo auto per i primi 5 anni dalla prima immatricolazione nella maggior parte delle regioni italiane. Dopo i 5 anni, alcune regioni concedono uno sconto del 75% sull'importo ordinario. I veicoli ibridi invece pagano il bollo normale in base alla potenza totale del sistema."}},
     {"@type":"Question","name":"I veicoli storici pagano il bollo?","acceptedAnswer":{"@type":"Answer","text":"I veicoli di interesse storico e collezionistico con più di 30 anni di anzianità sono esenti dal bollo auto se non circolano su strada pubblica (altrimenti è dovuta una tassa forfettaria fissa, variabile per regione). I veicoli tra i 20 e 29 anni di anzianità (riconosciuti storici con apposita iscrizione ai registri ASI, Storico Lancia, FIAT, ecc.) pagano il bollo con una riduzione del 50% sulla tariffa ordinaria calcolata sui kW."}},
@@ -178,7 +178,7 @@
       <p class="page-subtitle">Inserisci i kW del tuo veicolo (dal libretto di circolazione, campo P.2) e scopri subito quanto devi pagare di tassa automobilistica. Include agevolazioni per elettrici e storici.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 09/07/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -242,22 +242,8 @@
           </select>
           <p class="hint" id="classeEuro-help">Le tariffe base nazionali sono più alte per i veicoli più vecchi/inquinanti. Trovi la classe Euro sulla carta di circolazione.</p>
         </div>
-        <div class="field" id="regioneField">
-          <label for="regione">Regione di residenza</label>
-          <select id="regione" aria-describedby="regione-help">
-            <option value="standard">Tutte le regioni (tariffa base)</option>
-            <option value="lomba">Lombardia (+5% addizionale)</option>
-            <option value="standard">Piemonte</option>
-            <option value="standard">Veneto</option>
-            <option value="standard">Emilia-Romagna</option>
-            <option value="standard">Toscana</option>
-            <option value="standard">Lazio</option>
-            <option value="standard">Campania</option>
-            <option value="standard">Sicilia</option>
-            <option value="standard">Sardegna</option>
-            <option value="standard">Altre regioni</option>
-          </select>
-          <p class="hint" id="regione-help">La maggior parte delle regioni applica la tariffa base nazionale. Alcune regioni come la Lombardia applicano una piccola addizionale.</p>
+        <div class="field">
+          <p class="hint" style="margin:0;">Il calcolo usa la <strong>tariffa nazionale base</strong>. Diverse Regioni deliberano tariffe proprie: il Lazio, per esempio, applica 2,84 €/kW alle Euro 4-6 invece di 2,58. Per l'importo esatto della tua Regione usa il <a href="https://online.aci.it/acinet/calcolobollo/" target="_blank" rel="noopener">calcolatore ufficiale ACI</a>.</p>
         </div>
       </div>
 
@@ -270,10 +256,10 @@
           </label>
           <p class="hint" id="elettrico-help" style="margin-top:6px;margin-bottom:0;color:#166534;">Esente per 5 anni dalla prima immatricolazione nella maggior parte delle regioni.</p>
         </div>
-        <div class="field" id="annoImmatField" style="display:none;">
+        <div class="field" id="annoImmatField">
           <label for="annoImmat">Anno di prima immatricolazione</label>
-          <input type="number" id="annoImmat" value="2023" min="2000" max="2026" aria-describedby="annoImmat-help"/>
-          <p class="hint" id="annoImmat-help">Per verificare se i 5 anni di esenzione sono ancora attivi.</p>
+          <input type="number" id="annoImmat" value="2023" min="1950" max="2026" aria-describedby="annoImmat-help"/>
+          <p class="hint" id="annoImmat-help">Serve per l'esenzione quinquennale dei veicoli elettrici e per la riduzione del superbollo sulle auto oltre 185 kW.</p>
         </div>
         <div class="field" style="background:#fef3c7;border-radius:10px;padding:14px;border:1.5px solid #fde68a;margin-top:12px;">
           <label style="font-weight:700;color:#92400e;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
@@ -415,7 +401,24 @@
         <li>Oltre 100 kW: <strong>€3,87 per kW</strong> (solo per la parte eccedente i 100 kW)</li>
       </ul>
       <p>Esempio: un'auto da 85 kW paga 85 × €2,58 = <strong>€219,30</strong>. Un'auto da 120 kW paga (100 × €2,58) + (20 × €3,87) = €258 + €77,40 = <strong>€335,40</strong>.</p>
-      <p>Alcune regioni applicano un'<strong>addizionale regionale</strong> che può aumentare leggermente l'importo finale. La Lombardia, ad esempio, applica un'addizionale del 5% circa.</p>
+      <p>Le tariffe qui sopra sono quelle <strong>nazionali di base</strong>. Le Regioni a statuto ordinario possono deliberare tariffe proprie entro i limiti di legge: il <strong>Lazio</strong>, per esempio, applica 2,84 €/kW alle Euro 4-6 invece di 2,58, mentre la <strong>Lombardia</strong> resta sulla tariffa nazionale. Per l'importo esatto della tua Regione conviene usare il <a href="https://online.aci.it/acinet/calcolobollo/" target="_blank" rel="noopener">calcolatore ufficiale ACI</a>.</p>
+
+      <h3>Superbollo: l'addizionale erariale oltre i 185 kW</h3>
+      <p>Le auto con potenza superiore a <strong>185 kW</strong> (circa 251 CV) pagano, oltre al bollo, l'<strong>addizionale erariale</strong> introdotta dall'art. 23 comma 21 del D.L. 98/2011: <strong>20 € per ogni kW eccedente i 185</strong>. La soglia si supera solo <em>oltre</em> i 185 kW: un'auto da esattamente 185 kW non paga nulla in più.</p>
+      <p>L'importo si riduce con l'anzianità del veicolo. I periodi decorrono dal 1° gennaio dell'anno successivo a quello di costruzione:</p>
+      <div class="table-scroll">
+      <table>
+        <thead><tr><th>Anni dalla costruzione</th><th>Quota dovuta</th><th>Esempio: auto da 220 kW</th></tr></thead>
+        <tbody>
+          <tr><td>Fino a 5 anni</td><td>100%</td><td>700 €</td></tr>
+          <tr><td>Da 5 a 10 anni</td><td>60%</td><td>420 €</td></tr>
+          <tr><td>Da 10 a 15 anni</td><td>30%</td><td>210 €</td></tr>
+          <tr><td>Da 15 a 20 anni</td><td>15%</td><td>105 €</td></tr>
+          <tr><td>Oltre 20 anni</td><td>non dovuto</td><td>0 €</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Un'auto da 220 kW immatricolata di recente paga quindi 722,40 € di bollo più 700 € di superbollo: <strong>1.422,40 € all'anno</strong>. La stessa auto con più di vent'anni paga solo i 722,40 € del bollo ordinario.</p>
 
       <h3>Dove trovo i kW della mia auto?</h3>
       <p>La potenza del motore in kW si trova sul <strong>libretto di circolazione</strong> (la carta di circolazione) al campo <strong>P.2</strong>, denominato "Potenza massima in kW". Se hai solo i dati in CV (cavalli vapore), dividi per 1,36 per ottenere i kW. In alternativa, puoi trovare i dati inserendo la targa sul sito del Ministero dei Trasporti o sul portale ACI. Se usi l'auto anche per lavoro, con questi stessi dati puoi calcolare anche il <a href="chilometrico.html">rimborso chilometrico</a> spettante.</p>
@@ -436,7 +439,7 @@
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola il bollo auto 2026?<span class="faq-arrow">▾</span></button>
-          <div class="faq-answer">Il bollo auto si calcola moltiplicando la potenza del motore (in kW, indicata sul libretto di circolazione al punto P.2) per la tariffa nazionale: €2,58/kW per i primi 100 kW e €3,87/kW per la potenza oltre i 100 kW. Il risultato è l'importo annuale della tassa automobilistica. Alcune regioni possono applicare una piccola addizionale regionale.</div>
+          <div class="faq-answer">Il bollo auto si calcola moltiplicando la potenza del motore (in kW, indicata sul libretto di circolazione al punto P.2) per la tariffa nazionale: €2,58/kW per i primi 100 kW e €3,87/kW per la potenza oltre i 100 kW. Il risultato è l'importo annuale della tassa automobilistica. Le Regioni deliberano tariffe proprie: il Lazio, per esempio, applica 2,84 €/kW alle Euro 4-6 invece di 2,58.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Dove trovo i kW della mia auto?<span class="faq-arrow">▾</span></button>
@@ -590,7 +593,6 @@
 
     function toggleElettr() {
       const on = document.getElementById('elettrico').checked;
-      document.getElementById('annoImmatField').style.display = on ? 'block' : 'none';
       if (on) document.getElementById('storico').checked = false;
       toggleStorico();
     }
@@ -599,7 +601,6 @@
       const on = document.getElementById('storico').checked;
       document.getElementById('annoStorField').style.display = on ? 'block' : 'none';
       if (on) document.getElementById('elettrico').checked = false;
-      document.getElementById('annoImmatField').style.display = document.getElementById('elettrico').checked ? 'block' : 'none';
     }
 
     function aggiornaTipo() {
@@ -610,7 +611,6 @@
       const kw = parseFloat(document.getElementById('kw').value) || 0;
       const tipo = document.getElementById('tipoVeicolo').value;
       const classeEuro = document.getElementById('classeEuro').value;
-      const regione = document.getElementById('regione').value;
       // Tariffe €/kW nazionali base per classe Euro (soglia 100kW per auto): fino a Euro3 tariffe piu' alte, unificate da Euro4 in su
       const TARIFFE_AUTO = { '0': [3.00, 4.50], '1': [2.90, 4.35], '2': [2.80, 4.20], '3': [2.70, 4.05], '456': [2.58, 3.87] };
       // Moto: quota fissa fino a 11kW + tariffa aggiuntiva per ogni kW oltre gli 11kW
@@ -687,10 +687,26 @@
         }
       }
 
-      // Regional surcharge
+      // Addizionale erariale (superbollo): 20 €/kW oltre 185 kW, solo autovetture.
+      // Si riduce con l'anzianita' del veicolo e non e' piu' dovuta dopo 20 anni;
+      // i periodi decorrono dal 1° gennaio dell'anno successivo alla costruzione.
       let addizionale = 0;
-      if (regione === 'lomba' && status === 'normale') {
-        addizionale = bolloBase * 0.05;
+      let notaSuperbollo = '';
+      if (tipo === 'auto' && kw > 185 && status !== 'esente') {
+        const anniDaCostruzione = annoCorrente - (annoImmat + 1);
+        let quota = 1;
+        if (anniDaCostruzione >= 20) quota = 0;
+        else if (anniDaCostruzione >= 15) quota = 0.15;
+        else if (anniDaCostruzione >= 10) quota = 0.30;
+        else if (anniDaCostruzione >= 5) quota = 0.60;
+        addizionale = 20 * (kw - 185) * quota;
+        if (quota === 0) {
+          notaSuperbollo = ' Il superbollo non e\u2019 piu\u2019 dovuto: sono passati oltre 20 anni dalla costruzione.';
+        } else {
+          notaSuperbollo = ' Superbollo: 20 \u20ac \u00d7 ' + (kw - 185) + ' kW oltre i 185' +
+            (quota < 1 ? ', ridotto al ' + Math.round(quota * 100) + '% per l\u2019anzianita\u2019 del veicolo' : '') + '.';
+        }
+        nota = nota + notaSuperbollo;
       }
 
       const bolloTot = bolloBase + addizionale;
