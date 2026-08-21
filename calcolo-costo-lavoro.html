@@ -225,6 +225,16 @@
             <option value="apprendistato">Apprendistato professionalizzante (contrib. ridotti)</option>
           </select>
         </div>
+        <div class="field" id="apprendistatoBox" style="display:none;">
+          <label for="apprendistatoRegime">Dimensione aziendale e anno di apprendistato</label>
+          <select id="apprendistatoRegime" aria-describedby="apprendistatoRegime-help">
+            <option value="11.61" selected>Più di 9 dipendenti — 11,61%</option>
+            <option value="3.11">Fino a 9 dipendenti, 1° anno — 3,11%</option>
+            <option value="4.61">Fino a 9 dipendenti, 2° anno — 4,61%</option>
+            <option value="11.61">Fino a 9 dipendenti, dal 3° anno — 11,61%</option>
+          </select>
+          <p class="hint" id="apprendistatoRegime-help">L'aliquota datoriale dell'apprendistato non è unica. Sopra i 9 dipendenti è dell'<strong>11,61%</strong>, cioè 10% di contribuzione previdenziale più un 1,61% fisso fra NASpI e fondi interprofessionali. <strong>Fino a 9 dipendenti</strong> la quota previdenziale scende all'1,5% il primo anno e al 3% il secondo, per poi allinearsi al 10% dal terzo: sono <strong>3,11%</strong>, <strong>4,61%</strong> e <strong>11,61%</strong> comprensivi dell'1,61%. L'apprendista, dal canto suo, versa il <strong>5,84%</strong> invece del 9,19%.</p>
+        </div>
         <div class="field">
           <label for="inail">Aliquota INAIL (rischio infortuni)</label>
           <select id="inail" aria-describedby="inail-help">
@@ -288,7 +298,7 @@
           <div class="result-breakdown">
             <div class="breakdown-item"><div class="breakdown-value" id="costoMensileOut">—</div><div class="breakdown-label">costo mensile medio</div></div>
             <div class="breakdown-item"><div class="breakdown-value" id="ratioOut">—</div><div class="breakdown-label">moltiplicatore vs lordo</div></div>
-            <div class="breakdown-item"><div class="breakdown-value" id="nettoStimOut">—</div><div class="breakdown-label">netto stimato dipendente</div></div>
+            <div class="breakdown-item"><div class="breakdown-value" id="nettoStimOut">—</div><div class="breakdown-label">netto dipendente (addizionali medie)</div></div>
           </div>
                   <p class="result-disclaimer">ℹ️ Calcolo indicativo — non sostituisce la consulenza di un professionista qualificato.</p>
 </div>
@@ -564,6 +574,10 @@
       document.getElementById('sgravioDetail').style.display = this.checked ? 'block' : 'none';
     });
 
+    document.getElementById('contratto').addEventListener('change', function() {
+      document.getElementById('apprendistatoBox').style.display = this.value === 'apprendistato' ? 'block' : 'none';
+    });
+
     function mostraErroreCampo(id, messaggio) {
       const input = document.getElementById(id);
       const field = input.closest('.field');
@@ -609,7 +623,10 @@
       // Contributi datoriali base
       let contributiPct = settore / 100;
       if (contratto === 'determinato') contributiPct += 0.014; // maggiorazione 1.4% contratti a termine
-      if (contratto === 'apprendistato') contributiPct = 0.115; // apprendistato max (aziende >9 dip)
+      // L'aliquota dell'apprendistato non e' unica: 11,61% sopra i 9 dipendenti
+      // (10% previdenziale + 1,61% fra NASpI e fondi interprofessionali), mentre fino a
+      // 9 dipendenti la quota previdenziale e' 1,5% il primo anno e 3% il secondo.
+      if (contratto === 'apprendistato') contributiPct = parseFloat(document.getElementById('apprendistatoRegime').value) / 100;
 
       // Esonero contributivo. I tre bonus del decreto lavoro 2026 azzerano il 100%
       // dei COMPLESSIVI contributi previdenziali a carico del datore (l'INAIL resta
@@ -637,21 +654,38 @@
       const costoTotAnnuo = ralAnnua + contributiAnnui + inailAnnuo + tfrAnnuo;
       const costoMensile = costoTotAnnuo / 12;
 
-      // Netto stimato (IRPEF media stimata ~20% lordo per fascia media)
-      const contributiDip = ralAnnua * 0.0919; // 9.19% a carico lavoratore
+      // Netto del dipendente. Stesso motore di lordonetto.html: prima mancavano sia il
+      // taglio del cuneo fiscale sia le addizionali, e le due pagine davano numeri
+      // diversi per la stessa RAL. Se si tocca la formula di la', va toccata anche qui.
+      // L'apprendista versa il 5,84% e non il 9,19%: prima il suo netto usciva
+      // identico a quello di un lavoratore ordinario.
+      const aliqDip = contratto === 'apprendistato' ? 0.0584 : 0.0919;
+      const contributiDip = ralAnnua * aliqDip;
       const imponibileIRPEF = ralAnnua - contributiDip;
       let irpef = 0;
-      // Scaglioni 2026
       if (imponibileIRPEF <= 28000) irpef = imponibileIRPEF * 0.23;
       else if (imponibileIRPEF <= 50000) irpef = 28000*0.23 + (imponibileIRPEF-28000)*0.33;
       else irpef = 28000*0.23 + 22000*0.33 + (imponibileIRPEF-50000)*0.43;
-      // Detrazione da lavoro dipendente (TUIR art.13, formula 2024+)
+      // Detrazione da lavoro dipendente (TUIR art. 13)
       let detrazione = 0;
       if (ralAnnua <= 15000) detrazione = 1955;
       else if (ralAnnua <= 28000) detrazione = 1910 + 1190 * ((28000 - ralAnnua) / 13000);
       else if (ralAnnua <= 50000) detrazione = 1910 * ((50000 - ralAnnua) / 22000);
-      const irpefNetta = Math.max(0, irpef - detrazione);
-      const nettoAnnuo = imponibileIRPEF - irpefNetta;
+      // Taglio del cuneo fiscale, L. 207/2024 art. 1 commi 4-9: somma esente fino a
+      // 20.000 di imponibile, poi ulteriore detrazione fino a 40.000.
+      let sommaEsente = 0;
+      if (imponibileIRPEF <= 20000) {
+        const aliqBonus = imponibileIRPEF <= 8500 ? 0.071 : (imponibileIRPEF <= 15000 ? 0.053 : 0.048);
+        sommaEsente = imponibileIRPEF * aliqBonus;
+      }
+      let ulterioreDetr = 0;
+      if (imponibileIRPEF > 20000 && imponibileIRPEF <= 32000) ulterioreDetr = 1000;
+      else if (imponibileIRPEF > 32000 && imponibileIRPEF <= 40000) ulterioreDetr = 1000 * (40000 - imponibileIRPEF) / 8000;
+      // Addizionali: aliquote medie, come su lordonetto.html fuori dal Mezzogiorno.
+      const addReg = imponibileIRPEF * 0.0173;
+      const addCom = imponibileIRPEF * 0.005;
+      const irpefNetta = Math.max(0, irpef - detrazione - ulterioreDetr) + addReg + addCom;
+      const nettoAnnuo = imponibileIRPEF - irpefNetta + sommaEsente;
       const nettoMensile = nettoAnnuo / 12;
 
       const ratio = costoTotAnnuo / ralAnnua;
