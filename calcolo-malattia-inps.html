@@ -46,8 +46,8 @@
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Quanto paga l'INPS in caso di malattia?","acceptedAnswer":{"@type":"Answer","text":"L'INPS eroga l'indennità di malattia dal 4° giorno di assenza (i primi 3 giorni sono il periodo di carenza, solitamente a carico del datore di lavoro secondo il CCNL). L'importo è pari al 50% della retribuzione media giornaliera per i giorni dal 4° al 20°, e al 66,67% dal 21° al 180° giorno. La retribuzione media giornaliera si calcola dividendo la retribuzione annua lorda per 365."}},
-    {"@type":"Question","name":"Cosa sono i 3 giorni di carenza malattia?","acceptedAnswer":{"@type":"Answer","text":"I primi 3 giorni di ogni episodio di malattia si chiamano 'periodo di carenza'. Durante questo periodo l'INPS non eroga alcuna indennità. Il CCNL applicato stabilisce se il datore di lavoro integra o meno questi giorni: molti contratti (commercio, metalmeccanico, terziario) prevedono l'integrazione al 100% per i giorni di carenza. In caso di ricovero ospedaliero, la carenza è generalmente coperta."}},
+    {"@type":"Question","name":"Quanto paga l'INPS in caso di malattia?","acceptedAnswer":{"@type":"Answer","text":"L'INPS eroga l'indennità di malattia dal 4° giorno di assenza (i primi 3 giorni sono il periodo di carenza, solitamente a carico del datore di lavoro secondo il CCNL). L'importo è pari al 50% della retribuzione media giornaliera per i giorni dal 4° al 20°, e al 66,66% dal 21° al 180° giorno. La retribuzione media globale giornaliera si ottiene dividendo la retribuzione mensile, comprensiva dei ratei delle mensilità aggiuntive, per il divisore convenzionale di 30 giorni."}},
+    {"@type":"Question","name":"Cosa sono i 3 giorni di carenza malattia?","acceptedAnswer":{"@type":"Answer","text":"I primi 3 giorni di ogni episodio di malattia si chiamano 'periodo di carenza'. Durante questo periodo l'INPS non eroga alcuna indennità. Il CCNL applicato stabilisce se il datore di lavoro integra o meno questi giorni: molti contratti (commercio, metalmeccanico, terziario) prevedono l'integrazione al 100% per i giorni di carenza. Il ricovero ospedaliero non elimina la carenza: l'INPS indennizza comunque dal 4° giorno."}},
     {"@type":"Question","name":"Quanto dura la malattia pagata dall'INPS?","acceptedAnswer":{"@type":"Answer","text":"L'indennità INPS per malattia ordinaria dura al massimo 180 giorni per anno solare. Superato questo limite, il lavoratore non percepisce più l'indennità INPS. Il CCNL può tuttavia garantire un periodo di comporto (il periodo massimo di conservazione del posto) più lungo, tipicamente da 6 a 18 mesi."}},
     {"@type":"Question","name":"Come si calcola la retribuzione giornaliera per la malattia?","acceptedAnswer":{"@type":"Answer","text":"La retribuzione media giornaliera si ottiene dividendo la retribuzione lorda annua (compresa la tredicesima) per 365. Esempio: RAL €25.000 con tredicesima (stipendio mensile × 13) = retribuzione annua €27.083 ÷ 365 = €74,20 al giorno. L'INPS applica poi le percentuali del 50% o 66,67% su questo importo."}},
     {"@type":"Question","name":"La malattia fa perdere i contributi pensionistici?","acceptedAnswer":{"@type":"Answer","text":"No. Durante il periodo di malattia indennizzata dall'INPS, i contributi previdenziali continuano ad essere accreditati sulla posizione del lavoratore come se avesse lavorato normalmente. Questo vale per la quota contributiva figurativa corrispondente all'indennità percepita."}},
@@ -178,7 +178,7 @@
       <p class="page-subtitle">Scopri quanto percepisce un lavoratore dipendente durante la malattia: indennità INPS giornaliera, carenza, totale del periodo e integrazione datoriale stimata.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 16/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -242,9 +242,17 @@
         <div class="field" style="background:#fef3c7;border-radius:10px;padding:14px;border:1.5px solid #fde68a;">
           <label style="font-weight:700;color:#92400e;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
             <input type="checkbox" id="ricovero" style="width:16px;height:16px;cursor:pointer;" aria-describedby="ricovero-help">
-            Ricovero ospedaliero (la carenza è azzerata)
+            Ricovero ospedaliero per tutto il periodo indicato
           </label>
-          <p class="hint" id="ricovero-help" style="margin-top:6px;margin-bottom:0;color:#92400e;">In caso di ricovero ospedaliero, l'INPS eroga l'indennità dal 1° giorno (nessun periodo di carenza).</p>
+          <p class="hint" id="ricovero-help" style="margin-top:6px;margin-bottom:0;color:#92400e;">Il ricovero <strong>non cancella</strong> i tre giorni di carenza: la circolare INPS 84/1980 fissa l'indennità dal 4° giorno di malattia e non prevede eccezioni per la degenza. Cambia invece un'altra cosa, in peggio, ed è il campo qui sotto.</p>
+        </div>
+        <div class="field">
+          <label for="familiari">Familiari fiscalmente a carico</label>
+          <select id="familiari" aria-describedby="familiari-help">
+            <option value="si" selected>Sì</option>
+            <option value="no">No</option>
+          </select>
+          <p class="hint" id="familiari-help">Conta <strong>solo se hai spuntato il ricovero</strong>: per il degente senza familiari a carico l'indennità dei giorni di degenza scende ai <strong>due quinti</strong> di quella ordinaria (art. 1 D.L. 663/1979). Fuori dal ricovero questa scelta non cambia il risultato.</p>
         </div>
         <div class="field">
           <label for="episodiAnno">Episodi di malattia nell'anno corrente (incluso questo)</label>
@@ -260,7 +268,7 @@
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo malattia INPS">
         <div class="result-card">
-          <div class="result-label">Importo netto stimato ricevuto</div>
+          <div class="result-label">Importo lordo stimato ricevuto</div>
           <div class="result-value" id="totaleOut">—</div>
           <div class="result-unit">per l'intero periodo di malattia</div>
           <div class="result-breakdown">
@@ -280,8 +288,8 @@
               <tr style="background:#f8fafc;">
                 <th style="text-align:left;padding:12px 18px;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);">Periodo</th>
                 <th style="text-align:center;padding:12px 18px;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);">Giorni</th>
-                <th style="text-align:center;padding:12px 18px;font-weight:700;color:var(--text-muted);border-bottom:1px solid var(--border);">INPS %</th>
-                <th style="text-align:right;padding:12px 18px;font-weight:700;color:var(--text-muted);border-bottom:1px solid var(--border);">INPS/giorno</th>
+                <th style="text-align:center;padding:12px 18px;font-weight:700;color:var(--text-muted);border-bottom:1px solid var(--border);">% applicata</th>
+                <th style="text-align:right;padding:12px 18px;font-weight:700;color:var(--text-muted);border-bottom:1px solid var(--border);">Importo/giorno</th>
                 <th style="text-align:right;padding:12px 18px;font-weight:700;color:var(--blue);border-bottom:1px solid var(--border);">Totale periodo</th>
               </tr>
             </thead>
@@ -294,7 +302,7 @@
           <div style="font-size:13px;color:#1e3a8a;line-height:1.8;">
             • L'<strong>indennità INPS</strong> è pagata direttamente dall'INPS in busta paga (anticipo datoriale) — è soggetta a IRPEF.<br>
             • L'<strong>integrazione datoriale</strong> dipende dal CCNL: alcuni contratti portano la malattia al 100% dello stipendio.<br>
-            • I <strong>giorni di carenza</strong> (1-3) non sono coperti da INPS salvo ricovero; il CCNL può coprirli.<br>
+            • I <strong>giorni di carenza</strong> (1-3) non sono mai coperti dall'INPS, nemmeno in caso di ricovero: li copre il CCNL, se lo prevede.<br>
             • L'importo mostrato è <strong>lordo IRPEF</strong>. Il netto effettivo dipende dalla tua aliquota fiscale.
           </div>
         </div>
@@ -355,13 +363,13 @@
       <p>Quando un lavoratore dipendente si ammala e non può recarsi al lavoro, ha diritto all'<strong>indennità di malattia</strong> erogata dall'INPS. L'indennità non sostituisce completamente lo stipendio, ma garantisce un reddito durante il periodo di assenza.</p>
 
       <h3>I 3 giorni di carenza: chi li paga?</h3>
-      <p>I primi 3 giorni di ogni episodio di malattia costituiscono il <strong>periodo di carenza</strong>: l'INPS non eroga nulla. Questi giorni sono a carico del datore di lavoro solo se il CCNL applicato lo prevede. Molti contratti collettivi (metalmeccanico, chimico, alcuni del commercio) prevedono l'integrazione al 100% per i giorni di carenza. In caso di <strong>ricovero ospedaliero</strong>, il periodo di carenza non si applica: l'INPS paga dal primo giorno.</p>
+      <p>I primi 3 giorni di ogni episodio di malattia costituiscono il <strong>periodo di carenza</strong>: l'INPS non eroga nulla. Questi giorni sono a carico del datore di lavoro solo se il CCNL applicato lo prevede. Molti contratti collettivi (metalmeccanico, chimico, alcuni del commercio) prevedono l'integrazione al 100% per i giorni di carenza. Il <strong>ricovero ospedaliero non elimina la carenza</strong>: la circolare INPS 84/1980 fissa l'indennità dal quarto giorno di malattia senza eccezioni per la degenza. Il ricovero incide semmai in senso opposto, perché per il degente <strong>privo di familiari fiscalmente a carico</strong> l'indennità dei giorni di degenza è ridotta ai <strong>due quinti</strong> (art. 1 del D.L. 663/1979).</p>
 
       <h3>Come si calcola l'indennità INPS</h3>
-      <p>L'importo dell'indennità si calcola a partire dalla <strong>retribuzione media giornaliera</strong>, ottenuta dividendo la retribuzione annua lorda (comprensiva di tredicesima e <a href="calcolo-quattordicesima-netta.html">quattordicesima</a>) per 365. Su questa base si applicano le percentuali INPS:</p>
+      <p>L'importo dell'indennità si calcola a partire dalla <strong>retribuzione media giornaliera</strong>, ottenuta dividendo la retribuzione <strong>mensile</strong> — già comprensiva dei ratei di tredicesima e <a href="calcolo-quattordicesima-netta.html">quattordicesima</a> — per il divisore convenzionale di <strong>30 giorni</strong>, non per i 365 giorni di calendario. Su questa base si applicano le percentuali INPS:</p>
       <ul style="margin:12px 0 12px 20px;line-height:2.2;color:var(--text-muted);font-size:15px;">
         <li>Giorni <strong>4° - 20°</strong>: indennità = retribuzione giornaliera × <strong>50%</strong></li>
-        <li>Giorni <strong>21° - 180°</strong>: indennità = retribuzione giornaliera × <strong>66,67%</strong></li>
+        <li>Giorni <strong>21° - 180°</strong>: indennità = retribuzione giornaliera × <strong>66,66%</strong></li>
         <li>Oltre il 180° giorno: nessuna indennità INPS per malattia ordinaria</li>
       </ul>
       <p>Il datore di lavoro anticipa l'indennità in busta paga e poi ottiene rimborso dall'INPS. L'importo è soggetto a <a href="calcolo-detrazioni-730.html">IRPEF</a>.</p>
@@ -373,11 +381,11 @@
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto paga l'INPS in caso di malattia?<span class="faq-arrow">▾</span></button>
-          <div class="faq-answer">L'INPS eroga l'indennità di malattia dal 4° giorno di assenza (i primi 3 giorni sono il periodo di carenza, solitamente a carico del datore di lavoro secondo il CCNL). L'importo è pari al 50% della retribuzione media giornaliera per i giorni dal 4° al 20°, e al 66,67% dal 21° al 180° giorno. La retribuzione media giornaliera si calcola dividendo la retribuzione annua lorda per 365.</div>
+          <div class="faq-answer">L'INPS eroga l'indennità di malattia dal 4° giorno di assenza (i primi 3 giorni sono il periodo di carenza, solitamente a carico del datore di lavoro secondo il CCNL). L'importo è pari al 50% della retribuzione media giornaliera per i giorni dal 4° al 20°, e al 66,66% dal 21° al 180° giorno. La retribuzione media globale giornaliera si ottiene dividendo la retribuzione mensile, comprensiva dei ratei delle mensilità aggiuntive, per il divisore convenzionale di 30 giorni.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Cosa sono i 3 giorni di carenza malattia?<span class="faq-arrow">▾</span></button>
-          <div class="faq-answer">I primi 3 giorni di ogni episodio di malattia si chiamano "periodo di carenza". Durante questo periodo l'INPS non eroga alcuna indennità. Il CCNL applicato stabilisce se il datore di lavoro integra o meno questi giorni: molti contratti (commercio, metalmeccanico, terziario) prevedono l'integrazione al 100% per i giorni di carenza. In caso di ricovero ospedaliero, la carenza è generalmente coperta.</div>
+          <div class="faq-answer">I primi 3 giorni di ogni episodio di malattia si chiamano 'periodo di carenza'. Durante questo periodo l'INPS non eroga alcuna indennità. Il CCNL applicato stabilisce se il datore di lavoro integra o meno questi giorni: molti contratti (commercio, metalmeccanico, terziario) prevedono l'integrazione al 100% per i giorni di carenza. Il ricovero ospedaliero non elimina la carenza: l'INPS indennizza comunque dal 4° giorno.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Quanto dura la malattia pagata dall'INPS?<span class="faq-arrow">▾</span></button>
@@ -419,8 +427,10 @@
       <ul>
         <li><a href="https://www.inps.it/it/it/sostegni-sussidi-indennita/per-malattia.html" target="_blank" rel="noopener">INPS — Per malattia</a></li>
         <li><a href="https://www.inps.it/it/it/dettaglio-approfondimento.schede-informative.indennit--di-malattia-e-visite-mediche-di-controllo.html" target="_blank" rel="noopener">INPS — Indennità di malattia/degenza ospedaliera e visite mediche di controllo</a></li>
+        <li><a href="https://servizi2.inps.it/servizi/Bussola/VisualizzaDoc.aspx?sVirtualURL=/Circolari/Circolare+numero+84+del+22-4-1980.htm" target="_blank" rel="noopener">INPS — Circolare n. 84 del 22 aprile 1980 (decorrenza dal 4° giorno e riduzione ai due quinti in degenza)</a></li>
+        <li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:1979-12-30;663" target="_blank" rel="noopener">Normattiva — D.L. 663/1979, art. 1 (conv. L. 33/1980)</a></li>
       </ul>
-      <span class="src-note">Fonti consultate a luglio 2026.</span>
+      <span class="src-note">Fonti consultate ad agosto 2026.</span>
     </div>
 
   <section class="container related-tools">
@@ -513,37 +523,95 @@
       btn.querySelector('.faq-arrow').textContent = expanded ? '▾' : '▴';
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field');
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
-      const stipendio = parseFloat(document.getElementById('stipendio').value) || 0;
-      const mensilita = parseInt(document.getElementById('mensilita').value) || 13;
-      const ccnlPct = parseInt(document.getElementById('ccnl').value) || 50;
-      const giorni = parseInt(document.getElementById('giorni').value) || 0;
+      pulisciErroreCampo('stipendio');
+      pulisciErroreCampo('giorni');
+      const stipendio = parseFloat(document.getElementById('stipendio').value);
+      const mensilita = parseInt(document.getElementById('mensilita').value, 10) || 13;
+      // parseInt('0') vale 0, che e' falsy: con "|| 50" chi sceglieva
+      // "nessuna integrazione" si vedeva applicare comunque il CCNL medio al 50%.
+      const ccnlRaw = parseInt(document.getElementById('ccnl').value, 10);
+      const ccnlPct = Number.isFinite(ccnlRaw) ? ccnlRaw : 50;
+      const giorni = parseInt(document.getElementById('giorni').value, 10);
       const ricovero = document.getElementById('ricovero').checked;
-      const episodi = parseInt(document.getElementById('episodiAnno').value) || 1;
+      const familiariACarico = document.getElementById('familiari').value === 'si';
+      const episodi = parseInt(document.getElementById('episodiAnno').value, 10) || 1;
 
-      if (stipendio <= 0 || giorni <= 0) return;
+      if (!Number.isFinite(stipendio) || stipendio <= 0) {
+        mostraErroreCampo('stipendio', 'Inserisci lo stipendio lordo mensile, maggiore di zero.');
+        return;
+      }
+      if (!Number.isFinite(giorni) || giorni <= 0) {
+        mostraErroreCampo('giorni', 'Inserisci almeno un giorno di malattia.');
+        return;
+      }
+      if (giorni > 180) {
+        mostraErroreCampo('giorni', 'Oltre il 180° giorno nell\'anno solare l\'INPS non indennizza più la malattia ordinaria.');
+        return;
+      }
 
-      // Retribuzione giornaliera lorda
-      const ralAnnua = stipendio * mensilita;
-      const retribGiornaliera = ralAnnua / 365;
+      // Retribuzione media globale giornaliera. Il divisore convenzionale INPS per i
+      // mensilizzati e' 30, applicato alla retribuzione mensile gia' comprensiva dei ratei
+      // delle mensilita' aggiuntive. Dividere la RAL per 365 sottostimava ogni importo
+      // dell'1,39%, perche' l'anno convenzionale INPS vale 360 giornate, non 365.
+      const mensileConRatei = stipendio * mensilita / 12;
+      const retribGiornaliera = mensileConRatei / 30;
 
-      // Giorni di carenza (0 se ricovero)
-      const carenza = ricovero ? 0 : Math.min(3, giorni);
+      // La carenza vale SEMPRE. La circolare INPS 84/1980 stabilisce che l'indennita'
+      // giornaliera spetta dal quarto giorno di malattia e non prevede eccezioni per il
+      // ricovero: azzerarla in degenza regalava tre giorni di indennita' inesistenti.
+      const carenza = Math.min(3, giorni);
       const giorniINPS = Math.max(0, giorni - carenza);
 
-      // Split in fasce
-      const giorniF1 = Math.max(0, Math.min(giorniINPS, 17));     // giorni 4-20 (max 17 giorni)
-      const giorniF2 = Math.max(0, Math.min(giorniINPS - 17, 160)); // giorni 21-180 (max 160 giorni)
+      // Le fasce si contano sui giorni di MALATTIA, non su quelli indennizzati:
+      // 50% dal 4° al 20° (17 giorni), 66,66% dal 21° al 180° (160 giorni).
+      const giorniF1 = Math.max(0, Math.min(giorniINPS, 17));
+      const giorniF2 = Math.max(0, Math.min(giorniINPS - 17, 160));
 
-      const inpsF1 = giorniF1 * retribGiornaliera * 0.50;
-      const inpsF2 = giorniF2 * retribGiornaliera * 0.6667;
+      // Art. 1 D.L. 663/1979: durante il ricovero il degente privo di familiari
+      // fiscalmente a carico percepisce due quinti dell'indennita' ordinaria.
+      const fattoreDegenza = (ricovero && !familiariACarico) ? 0.40 : 1;
+      const inpsF1 = giorniF1 * retribGiornaliera * 0.50 * fattoreDegenza;
+      const inpsF2 = giorniF2 * retribGiornaliera * (2 / 3) * fattoreDegenza;
       const totaleINPS = inpsF1 + inpsF2;
 
-      // Integrazione datoriale sui giorni di carenza
-      const integrazioneCarenza = carenza > 0 ? (carenza * retribGiornaliera * (ccnlPct / 100)) : 0;
+      // L'integrazione del CCNL non riguarda i soli giorni di carenza: il contratto
+      // garantisce una percentuale della retribuzione per TUTTO il periodo di malattia,
+      // e il datore versa la differenza fra quella garanzia e quanto paga l'INPS.
+      // Fermandola alla carenza, il sito attribuiva a chi ha un CCNL al 100% una
+      // perdita che nella realta' non subisce. La differenza si calcola fascia per
+      // fascia: dove l'INPS paga gia' piu' della garanzia non si restituisce nulla.
+      const garanzia = retribGiornaliera * (ccnlPct / 100);
+      const integrCarenza = carenza * garanzia;
+      const integrF1 = Math.max(0, giorniF1 * garanzia - inpsF1);
+      const integrF2 = Math.max(0, giorniF2 * garanzia - inpsF2);
+      const integrazioneINPS = integrF1 + integrF2;
+      const integrazioneDatore = integrCarenza + integrazioneINPS;
 
-      // Totale lordo stimato
-      const totaleLordo = totaleINPS + integrazioneCarenza;
+      const totaleLordo = totaleINPS + integrazioneDatore;
 
       // Quanto avrebbe preso lavorando
       const stipendioFullPeriodo = giorni * retribGiornaliera;
@@ -561,10 +629,15 @@
       if (giorniTotAnnuo > 180) {
         alert += `<div style="background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;padding:14px 18px;color:#991b1b;font-size:14px;margin-bottom:8px;">⚠️ Attenzione: con ${giorniTotAnnuo} giorni nell'anno superi il limite di 180 giorni INPS. Oltre il 180° giorno l'INPS non eroga più l'indennità.</div>`;
       }
-      if (carenza === 0 && ricovero) {
-        alert += '<div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:10px;padding:14px 18px;color:#166534;font-size:14px;">✅ Ricovero ospedaliero: nessun periodo di carenza. L\'INPS eroga dal 1° giorno.</div>';
-      } else if (carenza > 0) {
-        alert += `<div style="background:#fef3c7;border:1.5px solid #fde68a;border-radius:10px;padding:14px 18px;color:#92400e;font-size:14px;">ℹ️ ${carenza} giorni di carenza: non coperti da INPS. Il CCNL selezionato prevede una copertura parziale (${ccnlPct}% dello stipendio).</div>`;
+      if (ricovero && !familiariACarico) {
+        alert += '<div style="background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;padding:14px 18px;color:#991b1b;font-size:14px;margin-bottom:8px;">⚠️ Ricovero senza familiari fiscalmente a carico: per i giorni di degenza l\'indennità INPS scende ai due quinti (art. 1 D.L. 663/1979). Il ricovero non elimina invece i tre giorni di carenza.</div>';
+      } else if (ricovero) {
+        alert += '<div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:10px;padding:14px 18px;color:#166534;font-size:14px;margin-bottom:8px;">✅ Ricovero con familiari fiscalmente a carico: l\'indennità resta piena. Attenzione però: anche in degenza i primi tre giorni restano di carenza.</div>';
+      }
+      if (ccnlPct > 0) {
+        alert += `<div style="background:#fef3c7;border:1.5px solid #fde68a;border-radius:10px;padding:14px 18px;color:#92400e;font-size:14px;">ℹ️ I primi ${carenza} giorni non sono mai a carico dell\'INPS. Qui li copre il CCNL, che garantisce il ${ccnlPct}% della retribuzione e integra anche i giorni successivi fino a quella soglia.</div>`;
+      } else {
+        alert += `<div style="background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;padding:14px 18px;color:#991b1b;font-size:14px;">⚠️ Hai indicato un CCNL senza integrazione: i primi ${carenza} giorni restano non retribuiti e per i giorni successivi percepisci la sola indennità INPS.</div>`;
       }
       document.getElementById('alertBox').innerHTML = alert;
 
@@ -572,18 +645,22 @@
       const tbody = document.getElementById('tabellaBody');
       tbody.innerHTML = '';
       const rows = [];
+      const suffDeg = fattoreDegenza < 1 ? ' × 2/5' : '';
       if (carenza > 0) {
-        rows.push({ periodo: `Carenza (giorni 1-${carenza})`, giorni: carenza, pct: `${ccnlPct}% CCNL`, g: retribGiornaliera * (ccnlPct / 100), tot: integrazioneCarenza, note: true });
+        rows.push({ periodo: `Carenza (giorni 1-${carenza}) — a carico del CCNL`, giorni: carenza, pct: `${ccnlPct}% CCNL`, g: garanzia, tot: integrCarenza, note: true });
       }
       if (giorniF1 > 0) {
         const startDay = carenza + 1;
         const endDay = carenza + giorniF1;
-        rows.push({ periodo: `INPS 50% (giorni ${startDay}-${endDay})`, giorni: giorniF1, pct: '50%', g: retribGiornaliera * 0.50, tot: inpsF1 });
+        rows.push({ periodo: `INPS 50% (giorni ${startDay}-${endDay})`, giorni: giorniF1, pct: `50%${suffDeg}`, g: retribGiornaliera * 0.50 * fattoreDegenza, tot: inpsF1 });
       }
       if (giorniF2 > 0) {
         const startDay = carenza + giorniF1 + 1;
         const endDay = giorni;
-        rows.push({ periodo: `INPS 66,67% (giorni ${startDay}-${endDay})`, giorni: giorniF2, pct: '66,67%', g: retribGiornaliera * 0.6667, tot: inpsF2 });
+        rows.push({ periodo: `INPS 66,66% (giorni ${startDay}-${endDay})`, giorni: giorniF2, pct: `66,66%${suffDeg}`, g: retribGiornaliera * (2 / 3) * fattoreDegenza, tot: inpsF2 });
+      }
+      if (integrazioneINPS > 0.005) {
+        rows.push({ periodo: `Integrazione del datore sui giorni indennizzati (fino al ${ccnlPct}%)`, giorni: giorniINPS, pct: `${ccnlPct}% CCNL`, g: integrazioneINPS / giorniINPS, tot: integrazioneINPS, note: true });
       }
       rows.forEach(r => {
         const color = r.note ? 'color:#f59e0b' : 'color:var(--blue)';
