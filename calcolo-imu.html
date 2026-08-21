@@ -172,7 +172,7 @@
       <p class="page-subtitle">Inserisci la rendita catastale dell'immobile e l'aliquota IMU del tuo comune per scoprire quanto pagare a giugno e dicembre. La prima casa è esente.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 19/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -212,7 +212,7 @@
           <p class="hint" id="tipo-help">Il coefficiente catastale dipende dalla categoria dell'immobile</p>
         </div>
         <div class="field">
-          <label for="rendita">Rendita catastale annua</label>
+          <label for="rendita" id="renditaLabel">Rendita catastale annua</label>
           <div class="input-wrap"><span class="input-prefix">€</span>
           <input type="number" id="rendita" value="600" min="1" step="10" class="has-prefix" aria-describedby="rendita-help"/></div>
           <p class="hint" id="rendita-help">Trovi la rendita nella visura catastale (Agenzia delle Entrate)</p>
@@ -344,7 +344,7 @@
       <h3>Le scadenze IMU 2026</h3>
       <p>L'IMU si versa in due rate tramite modello F24: l'acconto entro il <strong>16 giugno 2026</strong> (50% dell'imposta calcolata con le aliquote 2025) e il saldo entro il <strong>16 dicembre 2026</strong> (importo a conguaglio con le aliquote 2026 definitivamente approvate dal Comune). Le stesse scadenze valgono anche per gli immobili destinati a <a href="calcolo-locazioni-brevi.html">locazioni brevi</a>, salvo l'esenzione prevista per la prima casa.</p>
       <h3>I moltiplicatori catastali, categoria per categoria</h3>
-      <p>La base imponibile IMU non è il valore di mercato dell'immobile e non è nemmeno il prezzo che hai pagato: si ricava dalla rendita catastale, rivalutata del 5% e moltiplicata per un coefficiente che dipende dalla categoria catastale. Il moltiplicatore cambia molto da una categoria all'altra, ed è la ragione per cui due immobili con la stessa rendita possono avere IMU molto diverse.</p>
+      <p>La base imponibile IMU non è il valore di mercato dell'immobile e non è nemmeno il prezzo che hai pagato. Per i <strong>fabbricati</strong> si ricava dalla rendita catastale rivalutata del <strong>5%</strong> e moltiplicata per un coefficiente che dipende dalla categoria catastale; per i <strong>terreni agricoli</strong> la base non è la rendita ma il <strong>reddito dominicale</strong>, rivalutato del <strong>25%</strong> e moltiplicato per 135 (art. 1, comma 746, della legge 160/2019). Il moltiplicatore cambia molto da una categoria all'altra, ed è la ragione per cui due immobili con la stessa rendita possono avere IMU molto diverse.</p>
       <div class="table-wrap table-text">
         <table>
           <thead>
@@ -359,10 +359,11 @@
             <tr><td>C/3, C/4, C/5</td><td>Laboratori, fabbricati sportivi, stabilimenti termali</td><td>140</td><td>× 147</td></tr>
             <tr><td>D (escluso D/5)</td><td>Immobili a destinazione speciale</td><td>65</td><td>× 68,25</td></tr>
             <tr><td>D/5</td><td>Istituti di credito, cambio e assicurazione</td><td>80</td><td>× 84</td></tr>
+            <tr><td>Terreni agricoli</td><td>Base: reddito dominicale, non rendita catastale</td><td>135</td><td>× 168,75</td></tr>
           </tbody>
         </table>
       </div>
-      <p>La colonna di destra è la scorciatoia pratica: moltiplicando direttamente la rendita per quel numero ottieni la base imponibile senza passare dal calcolo della rivalutazione. Un appartamento con rendita di 600 euro ha quindi una base imponibile di 100.800 euro (600 × 168), su cui si applica l'aliquota decisa dal Comune. Un box auto con la stessa rendita porta allo stesso risultato, un negozio a poco più di un terzo.</p>
+      <p>La colonna di destra è la scorciatoia pratica: moltiplicando direttamente la rendita per quel numero ottieni la base imponibile senza passare dal calcolo della rivalutazione. Attenzione alla riga dei terreni: lì il coefficiente è 168,75 e non 141,75, perché la rivalutazione è del 25% e non del 5%. Un appartamento con rendita di 600 euro ha quindi una base imponibile di 100.800 euro (600 × 168), su cui si applica l'aliquota decisa dal Comune. Un box auto con la stessa rendita porta allo stesso risultato, un negozio a poco più di un terzo.</p>
       <p>Attenzione a un dettaglio che sfugge spesso: conta la rendita <strong>vigente al 1° gennaio</strong> dell'anno d'imposta. Se durante l'anno hai accatastato una ristrutturazione o variato la categoria, quella modifica peserà sull'IMU dell'anno successivo, non su quella in corso.</p>
 
       <h3>Le situazioni che cambiano l'importo (e che il calcolo standard non copre)</h3>
@@ -539,19 +540,52 @@
       input.removeAttribute('aria-invalid');
     }
 
+    // Per i terreni la base imponibile non e' la rendita catastale ma il reddito
+    // dominicale: l'etichetta lo dice, altrimenti l'utente inserisce il dato sbagliato.
+    function aggiornaEtichettaBase() {
+      const sel = document.getElementById('tipo');
+      const lab = document.getElementById('renditaLabel');
+      const help = document.getElementById('rendita-help');
+      if (!sel || !lab || !help) return;
+      if (sel.value === '135') {
+        lab.textContent = 'Reddito dominicale annuo';
+        help.textContent = 'Per i terreni agricoli la base e\u2019 il reddito dominicale, rivalutato del 25% (visura catastale, Agenzia delle Entrate).';
+      } else {
+        lab.textContent = 'Rendita catastale annua';
+        help.textContent = 'Trovi la rendita nella visura catastale (Agenzia delle Entrate)';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      const sel = document.getElementById('tipo');
+      if (sel) { sel.addEventListener('change', aggiornaEtichettaBase); aggiornaEtichettaBase(); }
+    });
+
     function calcola() {
       pulisciErroreCampo('rendita');
+      pulisciErroreCampo('quota');
       const coefficiente = parseFloat(document.getElementById('tipo').value) || 160;
       const rendita = parseFloat(document.getElementById('rendita').value) || 0;
       const aliquotaRaw = parseFloat(document.getElementById('aliquota').value);
       const aliquota = Math.max(0, Number.isNaN(aliquotaRaw) ? 0.86 : aliquotaRaw);
       const mesi = parseInt(document.getElementById('mesi').value) || 12;
-      const quota = Math.min(100, Math.max(0, parseFloat(document.getElementById('quota').value) || 100));
+      const quotaRaw = document.getElementById('quota').value.trim();
+      const quotaNum = parseFloat(quotaRaw);
+      const quota = (quotaRaw === '' ) ? 100 : quotaNum;
       const riduzione = parseFloat(document.getElementById('riduzioni').value) || 1;
 
       if (rendita <= 0) { mostraErroreCampo('rendita', 'Inserisci una rendita catastale valida.'); return; }
+      if (!Number.isFinite(quota) || quota <= 0 || quota > 100) {
+        mostraErroreCampo('quota', 'Inserisci una quota di possesso tra 1 e 100.');
+        return;
+      }
 
-      const baseImponibile = rendita * 1.05 * coefficiente;
+      // Comma 746 L. 160/2019: per i FABBRICATI la base e' la rendita catastale
+      // rivalutata del 5%; per i TERRENI AGRICOLI e' il reddito dominicale
+      // rivalutato del 25%, moltiplicato per 135. Applicare il 5% anche ai terreni
+      // sottostimava la base imponibile del 16%.
+      const COEFF_TERRENI = 135;
+      const rivalutazione = (coefficiente === COEFF_TERRENI) ? 1.25 : 1.05;
+      const baseImponibile = rendita * rivalutazione * coefficiente;
       const imuAnnua = baseImponibile * (aliquota / 100) * (quota / 100) * (mesi / 12) * riduzione;
       const acconto = imuAnnua * 0.5;
       const saldo = imuAnnua - acconto;
