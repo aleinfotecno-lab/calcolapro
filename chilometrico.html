@@ -172,7 +172,7 @@
       <p class="page-subtitle">Inserisci i chilometri percorsi, il tipo di veicolo e la cilindrata. Il calcolatore usa le tariffe ACI ufficiali per darti il rimborso esatto.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 16/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -504,8 +504,36 @@
       return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', maximumFractionDigits:2}).format(n);
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
-      const km          = parseFloat(document.getElementById('km').value) || 0;
+      pulisciErroreCampo('km');
+      // A campo vuoto il rimborso usciva a zero euro dentro un box di risultati
+      // perfettamente formattato: sembrava una risposta, era un campo dimenticato.
+      const km          = parseFloat(document.getElementById('km').value);
+      if (!Number.isFinite(km) || km <= 0) { mostraErroreCampo('km', 'Inserisci i chilometri percorsi.'); return; }
       const tariffa     = parseFloat(document.getElementById('cilindrata').value) || 0.4344;
       const percentuale = parseFloat(document.getElementById('percentuale').value) || 1;
       const periodoSel  = document.getElementById('periodo');

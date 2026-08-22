@@ -176,7 +176,7 @@
       <p class="page-subtitle">Quant'è il capitale che accumulerai? Quanto risparmierai di IRPEF ogni anno? E quale rendita mensile avrai alla pensione? Confronta anche TFR in azienda vs TFR al fondo e scopri l'opzione più conveniente per te.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -622,9 +622,14 @@
 
     function calcola() {
       pulisciErroreCampo('etaPensione');
-      const eta = parseInt(document.getElementById('etaAttuale').value) || 35;
+      pulisciErroreCampo('etaAttuale'); pulisciErroreCampo('stipendioLordo');
+      // I default sostituivano i campi vuoti e gli zeri: il calcolatore proiettava
+      // una pensione su un'eta' e una RAL che l'utente non aveva mai indicato.
+      const eta = parseInt(document.getElementById('etaAttuale').value, 10);
+      if (!Number.isFinite(eta) || eta < 16 || eta > 100) { mostraErroreCampo('etaAttuale', 'Inserisci la tua età attuale.'); return; }
       const etaPens = parseInt(document.getElementById('etaPensione').value) || 67;
-      const ral = parseFloat(document.getElementById('stipendioLordo').value) || 30000;
+      const ral = parseFloat(document.getElementById('stipendioLordo').value);
+      if (!Number.isFinite(ral) || ral <= 0) { mostraErroreCampo('stipendioLordo', 'Inserisci la tua retribuzione annua lorda.'); return; }
       const aliqIRPEF = parseInt(document.getElementById('aliqIRPEF').value) || 33;
       const contribVol = parseFloat(document.getElementById('contributoVolontario').value) || 0;
       const contribDatore = parseFloat(document.getElementById('contributoDatore').value) || 0;

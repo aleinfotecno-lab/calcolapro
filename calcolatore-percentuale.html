@@ -179,7 +179,7 @@
       <p class="page-subtitle">Calcola la percentuale di un numero, la variazione tra due valori, lo sconto o il ricarico. Quattro modalità in un unico strumento.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -503,6 +503,8 @@
       pulisciErroreCampo('p2_da');
       pulisciErroreCampo('p3_prezzo');
       pulisciErroreCampo('p4_perc');
+      pulisciErroreCampo('p2_a');
+      pulisciErroreCampo('p4_x');
 
       if (modoAttuale === 1) {
         const perc = parseFloat(document.getElementById('p1_perc').value) || 0;
@@ -519,6 +521,9 @@
         const da = parseFloat(document.getElementById('p2_da').value);
         const a = parseFloat(document.getElementById('p2_a').value);
         if (!da) { mostraErroreCampo('p2_da', 'Il valore iniziale non può essere zero.'); document.getElementById('p2_da').focus(); return; }
+        // Il valore finale PUO' essere zero (da 100 a 0 e' -100%): a non essere
+        // ammesso e' il campo vuoto, che finiva a schermo come NaN.
+        if (!Number.isFinite(a)) { pulisciErroreCampo('p2_da'); mostraErroreCampo('p2_a', 'Inserisci il valore finale.'); return; }
         const var_ = ((a - da) / Math.abs(da)) * 100;
         label = var_ >= 0 ? 'Aumento percentuale' : 'Diminuzione percentuale';
         big = fmtPct(var_);
@@ -556,6 +561,8 @@
       } else {
         const x = parseFloat(document.getElementById('p4_x').value);
         const perc = parseFloat(document.getElementById('p4_perc').value);
+        // Anche qui lo zero e' legittimo, zero e' il 20% di zero: il campo vuoto no.
+        if (!Number.isFinite(x)) { mostraErroreCampo('p4_x', 'Inserisci il valore parziale.'); return; }
         if (!perc) { mostraErroreCampo('p4_perc', 'La percentuale non può essere zero.'); document.getElementById('p4_perc').focus(); return; }
         const totale = (x / perc) * 100;
         label = fmtN(x) + ' è il ' + perc.toLocaleString('it-IT') + '% di';

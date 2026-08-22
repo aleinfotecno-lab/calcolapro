@@ -185,7 +185,7 @@
       <p class="page-subtitle">Calcola il tuo Indice di Massa Corporea (BMI) e scopri il range di peso ideale in base alla tua altezza. Con scala visiva e interpretazione completa.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -454,9 +454,39 @@
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
   <script>
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola(){
-      const peso=parseFloat(document.getElementById('peso').value)||75;
-      const altezza=parseFloat(document.getElementById('altezza').value)||175;
+      pulisciErroreCampo('peso'); pulisciErroreCampo('altezza');
+      // Con "|| 75" e "|| 175" un campo vuoto, o uno zero digitato di proposito,
+      // finiva sostituito dai valori di default: il sito calcolava un BMI su misure
+      // che l'utente non aveva mai inserito e lo presentava come suo.
+      const peso=parseFloat(document.getElementById('peso').value);
+      const altezza=parseFloat(document.getElementById('altezza').value);
+      if(!Number.isFinite(peso)||peso<=0){mostraErroreCampo('peso','Inserisci il tuo peso in chilogrammi.');return;}
+      if(!Number.isFinite(altezza)||altezza<=0){mostraErroreCampo('altezza','Inserisci la tua altezza in centimetri.');return;}
       const altezzaM=altezza/100;
       const bmi=peso/(altezzaM*altezzaM);
       const pesoMin=18.5*altezzaM*altezzaM;

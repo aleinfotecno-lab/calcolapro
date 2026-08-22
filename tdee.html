@@ -180,7 +180,7 @@
       <p class="page-subtitle">Calcola il tuo fabbisogno calorico reale (TDEE) e scopri quante calorie mangiare per dimagrire, mantenere o aumentare la massa muscolare.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -280,6 +280,7 @@
           <div class="result-label">Calorie giornaliere consigliate</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">kcal / giorno</div>
+          <div id="avvisoBMR" style="display:none;background:#fef3c7;border:1.5px solid #fde68a;border-radius:10px;padding:14px 18px;color:#92400e;font-size:14px;margin:16px 0 4px;text-align:left;line-height:1.7;"></div>
           <div class="result-breakdown result-breakdown-4">
             <div class="breakdown-item">
               <div class="breakdown-value" id="bmrOut">—</div>
@@ -464,11 +465,41 @@
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
   <script>
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
       const sesso    = document.querySelector('input[name="sesso"]:checked').value;
-      const eta      = parseFloat(document.getElementById('eta').value) || 30;
-      const peso     = parseFloat(document.getElementById('peso').value) || 75;
-      const altezza  = parseFloat(document.getElementById('altezza').value) || 175;
+      pulisciErroreCampo('eta'); pulisciErroreCampo('peso'); pulisciErroreCampo('altezza');
+      // I default sostituivano i campi vuoti e gli zeri: il risultato era
+      // indistinguibile da un calcolo reale ma si riferiva a un'altra persona.
+      const eta      = parseFloat(document.getElementById('eta').value);
+      const peso     = parseFloat(document.getElementById('peso').value);
+      const altezza  = parseFloat(document.getElementById('altezza').value);
+      if (!Number.isFinite(eta) || eta < 10 || eta > 100) { mostraErroreCampo('eta', 'Inserisci un\'età compresa fra 10 e 100 anni.'); return; }
+      if (!Number.isFinite(peso) || peso <= 0) { mostraErroreCampo('peso', 'Inserisci il tuo peso in chilogrammi.'); return; }
+      if (!Number.isFinite(altezza) || altezza <= 0) { mostraErroreCampo('altezza', 'Inserisci la tua altezza in centimetri.'); return; }
       const attivita = parseFloat(document.getElementById('attivita').value) || 1.55;
       const obiettivo = parseFloat(document.getElementById('obiettivo').value) || 0;
       // Mifflin-St Jeor
@@ -476,7 +507,14 @@
         ? (10 * peso) + (6.25 * altezza) - (5 * eta) + 5
         : (10 * peso) + (6.25 * altezza) - (5 * eta) - 161;
       const tdee   = Math.round(bmr * attivita);
-      const target = tdee + obiettivo;
+      // Un deficit aggressivo su una persona minuta porta il target sotto il
+      // metabolismo basale: 987 kcal contro un BMR di 1.239, mostrate comunque come
+      // "calorie giornaliere consigliate". Scendere sotto il BMR non e' una
+      // raccomandazione che un calcolatore possa dare da solo, quindi il target si
+      // ferma li' e la pagina spiega perche'.
+      const targetRichiesto = tdee + obiettivo;
+      const sottoBMR = targetRichiesto < bmr;
+      const target = sottoBMR ? Math.round(bmr) : targetRichiesto;
       const proteine = Math.round(peso * 1.8);
       const carb     = Math.round((target * 0.45) / 4);
       document.getElementById('priceOut').textContent   = Math.round(target);
@@ -484,6 +522,13 @@
       document.getElementById('tdeeOut').textContent    = tdee + ' kcal';
       document.getElementById('proteineOut').textContent = proteine + 'g';
       document.getElementById('carbOut').textContent    = carb + 'g';
+      const avviso = document.getElementById('avvisoBMR');
+      if (sottoBMR) {
+        avviso.style.display = 'block';
+        avviso.innerHTML = '⚠️ Con l\'obiettivo scelto il fabbisogno scenderebbe a <strong>' + Math.round(targetRichiesto) + ' kcal</strong>, sotto il tuo metabolismo basale di <strong>' + Math.round(bmr) + ' kcal</strong>: sotto quella soglia il corpo non copre nemmeno le funzioni vitali a riposo. Il valore mostrato e\' stato fermato al metabolismo basale. Un deficit piu\' marcato va impostato con un medico o un nutrizionista, non con un calcolatore.';
+      } else {
+        avviso.style.display = 'none';
+      }
       const res = document.getElementById('result');
       res.style.display = 'block';
       document.getElementById('affiliazioni').style.display = 'block';

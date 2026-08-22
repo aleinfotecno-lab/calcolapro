@@ -364,6 +364,109 @@
     },
 
     {
+      "file": "/tdee.html",
+      "caso": "Il target non scende sotto il metabolismo basale",
+      "norma": "Donna 20 anni, 50 kg, 160 cm: BMR Mifflin-St Jeor = 1.239. Con -500 kcal il target sarebbe 987, sotto il fabbisogno a riposo: viene fermato al BMR",
+      "pre": ["document.querySelector('input[name=sesso][value=f]').checked = true"],
+      "campi": { "eta": 20, "peso": 50, "altezza": 160, "attivita": "1.2", "obiettivo": "-500" },
+      "attesi": { "priceOut": 1239, "bmrOut": 1239 }
+    },
+    {
+      "file": "/tdee.html",
+      "caso": "Mantenimento: il target resta il TDEE, nessun taglio",
+      "norma": "Controprova: uomo 30 anni, 75 kg, 175 cm, BMR 1.699, fattore 1,55 -> 2.633",
+      "pre": ["document.querySelector('input[name=sesso][value=m]').checked = true"],
+      "campi": { "eta": 30, "peso": 75, "altezza": 175, "attivita": "1.55", "obiettivo": "0" },
+      "attesi": { "priceOut": 2633, "bmrOut": 1699 }
+    },
+    {
+      "file": "/tdee.html",
+      "caso": "Campi vuoti: nessun risultato inventato sui valori di default",
+      "norma": "Il default 30 anni / 75 kg / 175 cm produceva un risultato completo indistinguibile da un calcolo reale",
+      "campi": { "eta": "", "peso": "", "altezza": "" },
+      "erroreSu": "eta"
+    },
+
+    {
+      "file": "/bmi.html",
+      "caso": "BMI su misure reali",
+      "norma": "80 / 1,80^2 = 24,691, mostrato con un decimale",
+      "campi": { "peso": 80, "altezza": 180 },
+      "attesi": { "bmiOut": 24.7 }
+    },
+    {
+      "file": "/bmi.html",
+      "caso": "Peso zero: e' un errore, non un invito a usare 75 kg",
+      "norma": "Con parseFloat(...)||75 uno zero digitato diventava il peso di default",
+      "campi": { "peso": "0", "altezza": "180" },
+      "erroreSu": "peso"
+    },
+
+    {
+      "file": "/mutuo.html",
+      "caso": "Importo vuoto: nessuna rata su un mutuo mai chiesto",
+      "norma": "Con parseFloat(...)||150000 il sito mostrava la rata di un capitale che l'utente non aveva digitato",
+      "campi": { "importo": "", "tasso": 3.5, "durata": 20, "valoreCasa": 200000 },
+      "erroreSu": "importo"
+    },
+    {
+      "file": "/mutuo.html",
+      "caso": "Rata francese su dati completi",
+      "norma": "Controprova: 150.000 al 3,5% per 20 anni, ammortamento alla francese",
+      "campi": { "importo": 150000, "tasso": 3.5, "durata": 20, "valoreCasa": 200000 },
+      "attesi": { "priceOut": 870 }
+    },
+
+    {
+      "file": "/chilometrico.html",
+      "caso": "Chilometri non indicati: errore, non un rimborso di zero euro",
+      "norma": "Il box risultati compariva con 0,00 euro: sembrava una risposta, era un campo dimenticato",
+      "campi": { "km": "" },
+      "erroreSu": "km"
+    },
+
+    {
+      "file": "/calcolo-fondo-pensione.html",
+      "caso": "Eta e RAL a zero: nessuna proiezione su dati mai inseriti",
+      "norma": "I default 35 anni e 30.000 euro producevano una pensione stimata su valori che l'utente non aveva indicato",
+      "campi": { "etaAttuale": "0", "stipendioLordo": "0" },
+      "erroreSu": "etaAttuale"
+    },
+
+    {
+      "file": "/calcolo-maternita-inps.html",
+      "caso": "Stipendio vuoto: il pulsante non deve piu' sembrare rotto",
+      "norma": "Prima la funzione usciva muta: nessun messaggio, nessun risultato, nessun errore",
+      "campi": { "stipendio": "" },
+      "erroreSu": "stipendio"
+    },
+
+    {
+      "file": "/calcolatore-percentuale.html",
+      "caso": "Variazione percentuale col valore finale vuoto: errore, non NaN",
+      "norma": "Il campo vuoto arrivava fino a schermo come NaN%",
+      "pre": ["switchTab(2)"],
+      "campi": { "p2_da": 100, "p2_a": "" },
+      "erroreSu": "p2_a"
+    },
+    {
+      "file": "/calcolatore-percentuale.html",
+      "caso": "Variazione percentuale verso zero: lo zero e' un valore legittimo",
+      "norma": "Controprova: da 100 a 0 e' una diminuzione del 100%, non un campo mancante",
+      "pre": ["switchTab(2)"],
+      "campi": { "p2_da": 100, "p2_a": 0 },
+      "attesi": { "priceOut": 100 }
+    },
+    {
+      "file": "/calcolatore-percentuale.html",
+      "caso": "X e' il Y% di: valore parziale vuoto, errore invece di NaN",
+      "norma": "Il campo vuoto produceva NAN E' IL 20% DI NaN",
+      "pre": ["switchTab(4)"],
+      "campi": { "p4_x": "", "p4_perc": 20 },
+      "erroreSu": "p4_x"
+    },
+
+    {
       "file": "/calcolo-straordinari.html",
       "caso": "Quota oraria dal divisore contrattuale, non dalla RAL divisa per le ore annue",
       "norma": "CCNL Metalmeccanica industria: divisore 173 e maggiorazione 25% per le prime due ore. 2.000/173 x 8 x 1,25",

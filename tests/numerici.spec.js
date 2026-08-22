@@ -21,11 +21,16 @@ import path from 'path';
 const cartellaTest = typeof __dirname !== 'undefined' ? __dirname : path.resolve(process.cwd(), 'tests');
 const { casi } = JSON.parse(readFileSync(path.join(cartellaTest, 'casi-numerici.json'), 'utf8'));
 
-// I risultati sono formattati all'italiana ("1.234,56 €") e alcune voci di costo
-// hanno il segno meno davanti: qui interessa la grandezza, non come viene mostrata.
+// I risultati sono quasi tutti formattati all'italiana ("1.234,56 €"), ma non tutti:
+// il BMI usa toFixed(1) e quindi il punto come separatore decimale. Senza virgola,
+// un punto seguito da esattamente tre cifre e' un separatore delle migliaia
+// ("23.106"), altrimenti e' decimale ("24.7"). Il segno meno davanti alle voci di
+// costo si ignora: qui interessa la grandezza, non come viene mostrata.
 function numeroDa(testo) {
-  const pulito = String(testo).replace(/[^0-9,.-]/g, '').replace(/\./g, '').replace(',', '.');
-  const n = parseFloat(pulito);
+  let s = String(testo).replace(/[^0-9,.-]/g, '');
+  if (s.includes(',')) s = s.replace(/\./g, '').replace(',', '.');
+  else s = s.replace(/\.(?=\d{3}(?:\D|$))/g, '');
+  const n = parseFloat(s);
   return Number.isFinite(n) ? Math.abs(n) : NaN;
 }
 
@@ -70,6 +75,28 @@ for (const c of casi) {
     // Un campo sparito e' una regressione a sua volta: il caso starebbe misurando
     // un calcolatore diverso da quello che credeva di misurare.
     expect(mancanti, `campi non trovati nella pagina: ${mancanti.join(', ')}`).toEqual([]);
+
+    // Casi di validazione: il calcolatore non deve inventare un risultato quando un
+    // campo obbligatorio manca. Sostituire un campo vuoto con un valore di default
+    // e' il bug che ha prodotto piu' rilievi in assoluto in questo audit.
+    if (c.erroreSu) {
+      const stato = await page.evaluate((campo) => {
+        const input = document.getElementById(campo);
+        const res = document.getElementById('result');
+        return {
+          segnalato: !!input && input.getAttribute('aria-invalid') === 'true',
+          messaggio: (document.querySelector('.field.error .error-msg') || {}).textContent || '',
+          risultatoVisibile: res ? res.style.display !== 'none' : false,
+          nan: /NaN/.test(document.body.innerText),
+        };
+      }, c.erroreSu);
+      expect(stato.segnalato, `il campo #${c.erroreSu} doveva essere segnalato come non valido`).toBe(true);
+      expect(stato.messaggio.length, 'doveva comparire un messaggio di errore').toBeGreaterThan(0);
+      expect(stato.risultatoVisibile, 'il box risultato non doveva comparire').toBe(false);
+      expect(stato.nan, 'nessun NaN deve finire a schermo').toBe(false);
+      expect(errori, `errori JS: ${errori.join('; ')}`).toEqual([]);
+      return;
+    }
 
     for (const [id, atteso] of Object.entries(c.attesi)) {
       const testo = await page.evaluate((i) => {
