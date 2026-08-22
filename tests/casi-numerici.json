@@ -1,0 +1,244 @@
+{
+  "_nota": [
+    "Casi d'oro: ogni voce fissa un numero che il calcolatore DEVE produrre.",
+    "I valori attesi non sono copiati dall'output del sito: derivano da un ricalcolo",
+    "indipendente a partire dalla norma citata in 'norma'. Se un test qui fallisce,",
+    "o e' cambiata la norma (allora si aggiorna il caso, citando la fonte nuova) oppure",
+    "una modifica ha rotto il calcolo (allora si aggiusta il codice, non il caso).",
+    "Aggiungere qui un caso ogni volta che si corregge o si crea un calcolatore.",
+    "",
+    "campi   : id -> valore. true/false su una checkbox. 'annifa:N' = data di N anni fa.",
+    "pre     : JS eseguito dopo aver riempito i campi e prima di calcola().",
+    "attesi  : id di output -> numero atteso (confronto a meno di 0,01, segno ignorato",
+    "          perche' alcune voci si mostrano col meno davanti) oppure stringa esatta."
+  ],
+
+  "casi": [
+    {
+      "file": "/calcolo-detrazioni-730.html",
+      "caso": "Spese veterinarie oltre il tetto: la detrazione si ferma a 79,97",
+      "norma": "Art. 15 c.1 lett. c-bis) TUIR: 19% sulle spese eccedenti 129,11 e non superiori a 550, quindi base massima 420,89",
+      "campi": { "speseVeterinarie": 800, "speseSanitarie": 0, "interessiMutuo": 0, "ristrutturazioni": 0, "affittoGiovani": 0, "speseIstruzione": 0, "speseUniversita": 0, "asiloNido": 0, "assicurazioni": 0, "fondoPensione": 0 },
+      "attesi": { "totaleDetrazioniOut": 79.97 }
+    },
+    {
+      "file": "/calcolo-detrazioni-730.html",
+      "caso": "Spese veterinarie dentro il range: invariate rispetto a prima del fix",
+      "norma": "Art. 15 c.1 lett. c-bis) TUIR: (300 - 129,11) x 19%",
+      "campi": { "speseVeterinarie": 300, "speseSanitarie": 0, "interessiMutuo": 0, "ristrutturazioni": 0, "affittoGiovani": 0, "speseIstruzione": 0, "speseUniversita": 0, "asiloNido": 0, "assicurazioni": 0, "fondoPensione": 0 },
+      "attesi": { "totaleDetrazioniOut": 32.47 }
+    },
+    {
+      "file": "/calcolo-detrazioni-730.html",
+      "caso": "Affitto giovani sotto il minimo: scatta il minimo garantito di 991,60",
+      "norma": "Art. 16 c.1-ter TUIR: 20% del canone, minimo 991,60, massimo 2.000",
+      "campi": { "speseVeterinarie": 0, "speseSanitarie": 0, "interessiMutuo": 0, "ristrutturazioni": 0, "affittoGiovani": 4000, "speseIstruzione": 0, "speseUniversita": 0, "asiloNido": 0, "assicurazioni": 0, "fondoPensione": 0 },
+      "attesi": { "totaleDetrazioniOut": 991.60 }
+    },
+    {
+      "file": "/calcolo-detrazioni-730.html",
+      "caso": "Affitto giovani sopra il minimo: resta il 20% del canone",
+      "norma": "Art. 16 c.1-ter TUIR: 8.000 x 20% = 1.600, sotto il massimo di 2.000",
+      "campi": { "speseVeterinarie": 0, "speseSanitarie": 0, "interessiMutuo": 0, "ristrutturazioni": 0, "affittoGiovani": 8000, "speseIstruzione": 0, "speseUniversita": 0, "asiloNido": 0, "assicurazioni": 0, "fondoPensione": 0 },
+      "attesi": { "totaleDetrazioniOut": 1600.00 }
+    },
+    {
+      "file": "/calcolo-detrazioni-730.html",
+      "caso": "Nessuna spesa: nessuna detrazione, il minimo affitto non si inventa",
+      "norma": "Controprova: senza canone non spetta il minimo di 991,60",
+      "campi": { "speseVeterinarie": 0, "speseSanitarie": 0, "interessiMutuo": 0, "ristrutturazioni": 0, "affittoGiovani": 0, "speseIstruzione": 0, "speseUniversita": 0, "asiloNido": 0, "assicurazioni": 0, "fondoPensione": 0 },
+      "attesi": { "totaleDetrazioniOut": 0 }
+    },
+
+    {
+      "file": "/calcolo-malattia-inps.html",
+      "caso": "10 giorni senza integrazione CCNL: solo indennita' INPS dal 4 giorno",
+      "norma": "Circolare INPS 84/1980: indennita' dal 4 giorno, 50% dal 4 al 20. RMGG = 1800 x 13 / 12 / 30 = 65. 7 giorni x 65 x 50%",
+      "campi": { "stipendio": 1800, "mensilita": 13, "ccnl": "0", "giorni": 10, "ricovero": false, "familiari": "si", "episodiAnno": 1 },
+      "attesi": { "totaleOut": 227.50 }
+    },
+    {
+      "file": "/calcolo-malattia-inps.html",
+      "caso": "CCNL al 100%: il lavoratore percepisce l'intera retribuzione, perdita zero",
+      "norma": "L'integrazione del CCNL copre tutto il periodo, non i soli 3 giorni di carenza: 10 x 65",
+      "campi": { "stipendio": 1800, "mensilita": 13, "ccnl": "100", "giorni": 10, "ricovero": false, "familiari": "si", "episodiAnno": 1 },
+      "attesi": { "totaleOut": 650.00 }
+    },
+    {
+      "file": "/calcolo-malattia-inps.html",
+      "caso": "30 giorni con CCNL al 75%: esattamente il 75% della retribuzione",
+      "norma": "Garanzia contrattuale superiore a quanto paga l'INPS in entrambe le fasce: 30 x 65 x 75%",
+      "campi": { "stipendio": 1800, "mensilita": 13, "ccnl": "75", "giorni": 30, "ricovero": false, "familiari": "si", "episodiAnno": 1 },
+      "attesi": { "totaleOut": 1462.50 }
+    },
+    {
+      "file": "/calcolo-malattia-inps.html",
+      "caso": "Ricovero senza familiari a carico: indennita' ridotta ai due quinti",
+      "norma": "Art. 1 D.L. 663/1979. La carenza resta: 7 x 65 x 50% x 2/5",
+      "campi": { "stipendio": 1800, "mensilita": 13, "ccnl": "0", "giorni": 10, "ricovero": true, "familiari": "no", "episodiAnno": 1 },
+      "attesi": { "totaleOut": 91.00 }
+    },
+    {
+      "file": "/calcolo-malattia-inps.html",
+      "caso": "CCNL al 50% su 25 giorni: nessun conguaglio a rovescio dove l'INPS paga di piu'",
+      "norma": "Controprova: nella fascia al 66,66% la garanzia contrattuale al 50% e' inferiore e non si sottrae nulla",
+      "campi": { "stipendio": 1800, "mensilita": 13, "ccnl": "50", "giorni": 25, "ricovero": false, "familiari": "si", "episodiAnno": 1 },
+      "attesi": { "totaleOut": 866.67 }
+    },
+
+    {
+      "file": "/calcolo-naspi.html",
+      "caso": "Decalage composto su 24 mesi: l'ultima mensilita' e' il 56,1% dell'importo pieno",
+      "norma": "Art. 4 c.3 D.Lgs. 22/2015: riduzione del 3% sull'importo del mese precedente, dal 6 mese. 1103,36 x 0,97^19",
+      "campi": { "stipendio": 1500, "mensilita": 12, "settimane": 208, "over55": false },
+      "attesi": { "importoOut": 1103.36, "durataOut": "24 mesi", "ultMeseOut": 618.56 }
+    },
+    {
+      "file": "/calcolo-naspi.html",
+      "caso": "55 anni compiuti alla domanda: la riduzione parte dall'ottavo mese",
+      "norma": "Art. 4 c.3 D.Lgs. 22/2015, periodo introdotto dalla L. 234/2021: 1103,36 x 0,97^17",
+      "campi": { "stipendio": 1500, "mensilita": 12, "settimane": 208, "over55": true },
+      "attesi": { "importoOut": 1103.36, "ultMeseOut": 657.41 }
+    },
+    {
+      "file": "/calcolo-naspi.html",
+      "caso": "Retribuzione sotto la soglia: 75% pieno",
+      "norma": "Circolare INPS 4/2026: soglia 1.456,72. Sotto, l'indennita' e' il 75%",
+      "campi": { "stipendio": 1000, "mensilita": 12, "settimane": 104, "over55": false },
+      "attesi": { "importoOut": 750.00, "durataOut": "12 mesi", "ultMeseOut": 605.99 }
+    },
+    {
+      "file": "/calcolo-naspi.html",
+      "caso": "Retribuzione alta: scatta il massimale mensile",
+      "norma": "Circolare INPS 4/2026: massimale 1.584,70 euro al mese",
+      "campi": { "stipendio": 5000, "mensilita": 12, "settimane": 208, "over55": false },
+      "attesi": { "importoOut": 1584.70 }
+    },
+    {
+      "file": "/calcolo-naspi.html",
+      "caso": "Durata sotto il sesto mese: nessuna riduzione, ultima mensilita' piena",
+      "norma": "Controprova: con 26 settimane la durata e' di 3 mesi e il decalage non parte",
+      "campi": { "stipendio": 1500, "mensilita": 12, "settimane": 26, "over55": false },
+      "attesi": { "durataOut": "3 mesi", "ultMeseOut": 1103.36 }
+    },
+
+    {
+      "file": "/calcolo-buoni-fruttiferi-postali.html",
+      "caso": "Sopra la soglia: bollo anno per anno sul valore di rimborso",
+      "norma": "DM 24 maggio 2012: 0,20% sul valore di rimborso al 31 dicembre di ciascun anno",
+      "campi": { "capitale": 10000, "tasso": 3, "anni": 3 },
+      "attesi": { "bolloOut": 63.67, "interessiNettiOut": 747.69 }
+    },
+    {
+      "file": "/calcolo-buoni-fruttiferi-postali.html",
+      "caso": "Sotto i 5.000 per tutta la durata: nessun bollo",
+      "norma": "Nota 3-ter art. 13 Tariffa DPR 642/1972: esenti i buoni di valore di rimborso non superiore a 5.000",
+      "campi": { "capitale": 4000, "tasso": 3, "anni": 3 },
+      "attesi": { "bolloOut": 0, "interessiNettiOut": 324.54 }
+    },
+    {
+      "file": "/calcolo-buoni-fruttiferi-postali.html",
+      "caso": "Caso limite: 4.900 supera i 5.000 gia' al primo anno e paga sempre",
+      "norma": "La soglia si valuta sul valore di rimborso a fine anno: 4.900 x 1,03 = 5.047",
+      "campi": { "capitale": 4900, "tasso": 3, "anni": 3 },
+      "attesi": { "bolloOut": 31.20 }
+    },
+    {
+      "file": "/calcolo-buoni-fruttiferi-postali.html",
+      "caso": "Caso limite opposto: 4.950 allo 0,5% resta sotto la soglia",
+      "norma": "4.950 x 1,005 = 4.974,75, sotto i 5.000: esente",
+      "campi": { "capitale": 4950, "tasso": 0.5, "anni": 1 },
+      "attesi": { "bolloOut": 0 }
+    },
+
+    {
+      "file": "/calcolo-spese-acquisto-casa.html",
+      "caso": "Prima casa con mutuo: imposta sostitutiva allo 0,25%",
+      "norma": "Artt. 15-18 DPR 601/1973: 0,25% dell'erogato con i requisiti prima casa. 200.000 x 0,25% = 500",
+      "campi": { "prezzo": 250000, "tipoCasa": "prima", "venditore": "privato", "rendita": 900, "agenzia": 3, "mutuo": "si", "importoMutuo": 200000 },
+      "attesi": { "priceOut": 13879 }
+    },
+    {
+      "file": "/calcolo-spese-acquisto-casa.html",
+      "caso": "Seconda casa con mutuo: imposta sostitutiva al 2%",
+      "norma": "Artt. 15-18 DPR 601/1973: 2% senza i requisiti prima casa. 200.000 x 2% = 4.000",
+      "campi": { "prezzo": 250000, "tipoCasa": "seconda", "venditore": "privato", "rendita": 900, "agenzia": 3, "mutuo": "si", "importoMutuo": 200000 },
+      "attesi": { "priceOut": 25506 }
+    },
+    {
+      "file": "/calcolo-spese-acquisto-casa.html",
+      "caso": "Senza mutuo: l'imposta sostitutiva non deve comparire",
+      "norma": "Controprova: senza finanziamento non c'e' imposta sostitutiva",
+      "campi": { "prezzo": 250000, "tipoCasa": "prima", "venditore": "privato", "rendita": 900, "agenzia": 3, "mutuo": "no", "importoMutuo": 0 },
+      "attesi": { "priceOut": 11879 }
+    },
+
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Nessun esonero: costo pieno e netto allineato a lordonetto",
+      "norma": "RAL 26.000, contributi 32,7%, INAIL 1%, TFR 6,91%. Netto con taglio del cuneo L. 207/2024 e addizionali",
+      "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1", "sgravioSud": false },
+      "attesi": { "costoAnnuoOut": 36558.60, "nettoStimOut": 1728.89 }
+    },
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Bonus Giovani: l'esonero si ferma al tetto di 500 euro al mese",
+      "norma": "Circolare INPS 55/2026: 100% dei contributi previdenziali entro 500 euro mensili. 8.502 dovuti, 6.000 esonerati",
+      "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1", "sgravioSud": true, "sgravioTipo": "giovani", "zesUnica": "no" },
+      "attesi": { "costoAnnuoOut": 30558.60 }
+    },
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Bonus Giovani nella ZES unica: tetto elevato a 650 euro",
+      "norma": "Circolare INPS 55/2026: massimale maggiorato nelle regioni della ZES unica",
+      "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1", "sgravioSud": true, "sgravioTipo": "giovani", "zesUnica": "si" },
+      "attesi": { "costoAnnuoOut": 28758.60 }
+    },
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Bonus Donne in ZES: il tetto non morde, i contributi si azzerano",
+      "norma": "Circolare INPS 57/2026: tetto 800 euro mensili, cioe' 9.600 l'anno, superiore agli 8.502 dovuti",
+      "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1", "sgravioSud": true, "sgravioTipo": "donne", "zesUnica": "si" },
+      "attesi": { "costoAnnuoOut": 28056.60 }
+    },
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Apprendistato sopra i 9 dipendenti: aliquota 11,61% e niente esonero",
+      "norma": "Le circolari INPS 55-57/2026 escludono l'apprendistato. Aliquota 10% + 1,61%. Apprendista al 5,84%",
+      "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "apprendistato", "inail": "1", "sgravioSud": true, "sgravioTipo": "giovani", "zesUnica": "no", "apprendistatoRegime": "11.61" },
+      "attesi": { "costoAnnuoOut": 31075.20, "nettoStimOut": 1783.16 }
+    },
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Apprendistato fino a 9 dipendenti, primo anno: aliquota 3,11%",
+      "norma": "Quota previdenziale all'1,5% il primo anno per i datori fino a 9 dipendenti, piu' l'1,61% fisso",
+      "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "apprendistato", "inail": "1", "sgravioSud": false, "apprendistatoRegime": "3.11" },
+      "attesi": { "costoAnnuoOut": 28865.20 }
+    },
+
+    {
+      "file": "/calcolo-plusvalenza-immobiliare.html",
+      "caso": "Superbonus con lavori conclusi da meno di 5 anni: spese non computabili",
+      "norma": "Art. 68 c.1 TUIR, periodi aggiunti dall'art. 1 c.64 L. 213/2023: non si tiene conto delle spese",
+      "pre": ["document.querySelector('input[name=provenienza][value=acquisto]').checked = true", "document.getElementById('superbonus').checked = true", "aggiornaUI()"],
+      "campi": { "dataAcquisto": "annifa:3", "prezzoVendita": 350000, "prezzoAcquisto": 180000, "speseAcquisto": 8000, "speseMigliorie": 80000, "speseVendita": 0, "dataFineLavori": "annifa:3", "speseSuperbonus": 80000 },
+      "attesi": { "plusvalenzaOut": 162000, "impSostOut": 42120 }
+    },
+    {
+      "file": "/calcolo-plusvalenza-immobiliare.html",
+      "caso": "Superbonus con lavori conclusi da piu' di 5 anni: spese al 50%",
+      "norma": "Art. 68 c.1 TUIR: si tiene conto del 50% delle spese",
+      "pre": ["document.querySelector('input[name=provenienza][value=acquisto]').checked = true", "document.getElementById('superbonus').checked = true", "aggiornaUI()"],
+      "campi": { "dataAcquisto": "annifa:8", "prezzoVendita": 350000, "prezzoAcquisto": 180000, "speseAcquisto": 8000, "speseMigliorie": 80000, "speseVendita": 0, "dataFineLavori": "annifa:7", "speseSuperbonus": 80000 },
+      "attesi": { "plusvalenzaOut": 122000, "impSostOut": 31720 }
+    },
+    {
+      "file": "/calcolo-plusvalenza-immobiliare.html",
+      "caso": "Senza Superbonus: le migliorie restano deducibili per intero",
+      "norma": "Controprova: la limitazione riguarda solo gli immobili della lettera b-bis) dell'art. 67",
+      "pre": ["document.querySelector('input[name=provenienza][value=acquisto]').checked = true"],
+      "campi": { "dataAcquisto": "annifa:3", "prezzoVendita": 350000, "prezzoAcquisto": 180000, "speseAcquisto": 8000, "speseMigliorie": 80000, "speseVendita": 0 },
+      "attesi": { "plusvalenzaOut": 82000, "impSostOut": 21320 }
+    }
+  ]
+}
