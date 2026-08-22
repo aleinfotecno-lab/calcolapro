@@ -171,7 +171,7 @@
       <p class="page-subtitle">Inserisci il tuo stipendio, le ore straordinarie e la maggiorazione applicata per scoprire quanto ti spetta in busta paga, lordo e netto stimato.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 21/08/2026</span>
       </div>
     </div>
   </div>
@@ -225,29 +225,38 @@
 
       <div class="card">
         <div class="card-title"><span class="card-icon">⏱️</span> Le ore straordinarie</div>
+        <p class="hint" style="margin:-4px 0 14px;">Le percentuali di maggiorazione <strong>non sono fissate dalla legge</strong>: le stabilisce il tuo CCNL, e cambiano molto da contratto a contratto. Due esempi verificati: il <strong>CCNL Terziario, Distribuzione e Servizi</strong> (art. 149) prevede <strong>15%</strong> dalla 41ª alla 48ª ora settimanale, <strong>20%</strong> oltre la 48ª, <strong>30%</strong> per festivo e domenicale e <strong>50%</strong> per il notturno fra le 22 e le 6, e precisa che le maggiorazioni <strong>non sono cumulabili</strong> fra loro; il <strong>CCNL Metalmeccanica industria</strong> prevede <strong>25%</strong> per le prime due ore e <strong>30%</strong> per le successive. Compila i campi con le percentuali del tuo contratto.</p>
         <div class="field">
-          <label for="oreStr1">Ore straordinarie ordinarie (magg. 25%)</label>
+          <label for="oreStr1">Ore straordinarie del mese — prima fascia</label>
           <input type="number" id="oreStr1" value="8" min="0" aria-describedby="oreStr1-help"/>
-          <p class="hint" id="oreStr1-help">Prime ore settimanali oltre l'orario contrattuale (lunedì-sabato)</p>
+          <p class="hint" id="oreStr1-help">Le prime ore oltre l'orario contrattuale, quelle con la maggiorazione più bassa.</p>
         </div>
         <div class="field">
-          <label for="oreStr2">Ore straordinarie elevate (magg. 50%)</label>
+          <label for="magg1">Maggiorazione prima fascia (%)</label>
+          <input type="number" id="magg1" value="25" min="0" max="200" step="1"/>
+        </div>
+        <div class="field">
+          <label for="oreStr2">Ore straordinarie del mese — seconda fascia</label>
           <input type="number" id="oreStr2" value="0" min="0" aria-describedby="oreStr2-help"/>
-          <p class="hint" id="oreStr2-help">Ore notturne o oltre la soglia del CCNL</p>
+          <p class="hint" id="oreStr2-help">Le ore oltre la soglia settimanale fissata dal CCNL, con maggiorazione più alta.</p>
         </div>
         <div class="field">
-          <label for="oreStr3">Ore festive / domenicali (magg. 50-100%)</label>
+          <label for="magg2">Maggiorazione seconda fascia (%)</label>
+          <input type="number" id="magg2" value="30" min="0" max="200" step="1"/>
+        </div>
+        <div class="field">
+          <label for="oreStr3">Ore festive, domenicali o notturne del mese</label>
           <input type="number" id="oreStr3" value="0" min="0" aria-describedby="oreStr3-help"/>
-          <p class="hint" id="oreStr3-help">Lavoro in giorno festivo o domenica</p>
+          <p class="hint" id="oreStr3-help">Attenzione: in molti CCNL, fra cui il Terziario, queste maggiorazioni <strong>non si sommano</strong> a quelle della fascia oraria.</p>
         </div>
         <div class="field">
-          <label for="maggFestivo">Maggiorazione festivi applicata (%)</label>
-          <select id="maggFestivo">
-            <option value="50">50% (minimo contrattuale)</option>
-            <option value="60">60%</option>
-            <option value="70" selected>70% (media CCNL)</option>
-            <option value="100">100%</option>
-          </select>
+          <label for="maggFestivo">Maggiorazione festivi, domenicali o notturni (%)</label>
+          <input type="number" id="maggFestivo" value="30" min="0" max="200" step="1"/>
+        </div>
+        <div class="field">
+          <label for="divisore">Divisore orario del CCNL</label>
+          <input type="number" id="divisore" value="173" min="100" max="200" step="1" aria-describedby="divisore-help"/>
+          <p class="hint" id="divisore-help">È il numero convenzionale di ore mensili con cui il contratto divide la retribuzione per ottenere la quota oraria. Si aggiorna da solo quando cambi le ore settimanali, applicando <strong>ore × 52 ÷ 12</strong>: con 40 ore dà <strong>173</strong>, che è il divisore del CCNL Metalmeccanica industria. Puoi però correggerlo, perché non tutti i contratti seguono quel calcolo: il Terziario, per esempio, usa 168. Lo trovi nel tuo CCNL o sulla busta paga.</p>
         </div>
       </div>
 
@@ -488,6 +497,10 @@
       input.removeAttribute('aria-invalid');
     }
 
+    document.getElementById('oreContrattuali').addEventListener('change', function () {
+      document.getElementById('divisore').value = Math.round(parseFloat(this.value) * 52 / 12);
+    });
+
     function calcola() {
       pulisciErroreCampo('stipendioLordo');
       const stipendioLordo = parseFloat(document.getElementById('stipendioLordo').value) || 0;
@@ -500,14 +513,22 @@
 
       if (stipendioLordo <= 0) { mostraErroreCampo('stipendioLordo', 'Inserisci uno stipendio valido.'); return; }
 
-      // Paga oraria: stipendio lordo annuo / ore annue
       const stipendioAnnuo = stipendioLordo * mensilita;
-      const oreAnnue = oreContrattuali * 52;
-      const pagaOraria = stipendioAnnuo / oreAnnue;
+      // Quota oraria: sulla busta paga e' la retribuzione MENSILE divisa per il
+      // divisore contrattuale, non la retribuzione annua comprensiva di tredicesima
+      // divisa per le ore annue. La vecchia formula gonfiava la paga oraria di circa
+      // l'8% con 13 mensilita', perche' spalmava la tredicesima su ogni ora.
+      const divisore = parseFloat(document.getElementById('divisore').value) || Math.round(oreContrattuali * 52 / 12);
+      const pagaOraria = stipendioLordo / divisore;
 
       // Compenso straordinari
-      const compenso1 = oreStr1 * pagaOraria * 1.25;
-      const compenso2 = oreStr2 * pagaOraria * 1.50;
+      // Le maggiorazioni le fissa il CCNL, non la legge: erano cablate al 25% e al 50%,
+      // e il festivo aveva come default un 70% presentato come media dei contratti
+      // collettivi, che non corrisponde ad alcun CCNL maggiore. Ora arrivano dai campi.
+      const magg1 = parseFloat(document.getElementById('magg1').value) || 0;
+      const magg2 = parseFloat(document.getElementById('magg2').value) || 0;
+      const compenso1 = oreStr1 * pagaOraria * (1 + magg1 / 100);
+      const compenso2 = oreStr2 * pagaOraria * (1 + magg2 / 100);
       const compenso3 = oreStr3 * pagaOraria * (1 + maggFestivo / 100);
       const totLordo = compenso1 + compenso2 + compenso3;
       const oreTot = oreStr1 + oreStr2 + oreStr3;
@@ -517,7 +538,9 @@
       let aliquotaMarg = 0.23;
       if (redditoAnnuo > 28000) aliquotaMarg = 0.33;
       if (redditoAnnuo > 50000) aliquotaMarg = 0.43;
-      const totNetto = totLordo * (1 - aliquotaMarg - 0.0919);
+      // L'IRPEF si applica al lordo GIA' al netto dei contributi, non al lordo pieno:
+      // sottrarre le due aliquote una accanto all'altra sottostimava il netto.
+      const totNetto = totLordo * (1 - 0.0919) * (1 - aliquotaMarg);
 
       document.getElementById('priceOut').textContent = fmt(totLordo);
       document.getElementById('nettoOut').textContent = fmt(totNetto);

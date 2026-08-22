@@ -364,6 +364,28 @@
     },
 
     {
+      "file": "/calcolo-straordinari.html",
+      "caso": "Quota oraria dal divisore contrattuale, non dalla RAL divisa per le ore annue",
+      "norma": "CCNL Metalmeccanica industria: divisore 173 e maggiorazione 25% per le prime due ore. 2.000/173 x 8 x 1,25",
+      "campi": { "stipendioLordo": 2000, "mensilita": 13, "oreContrattuali": 40, "divisore": 173, "oreStr1": 8, "magg1": 25, "oreStr2": 0, "magg2": 30, "oreStr3": 0, "maggFestivo": 30 },
+      "attesi": { "priceOut": 115.61, "pagorariaOut": 11.56, "nettoOut": 80.84 }
+    },
+    {
+      "file": "/calcolo-straordinari.html",
+      "caso": "CCNL Terziario: maggiorazione al 15% e divisore 168",
+      "norma": "Art. 149 CCNL Terziario Distribuzione e Servizi: 15% dalla 41a alla 48a ora. 2.000/168 x 8 x 1,15",
+      "campi": { "stipendioLordo": 2000, "mensilita": 13, "oreContrattuali": 40, "divisore": 168, "oreStr1": 8, "magg1": 15, "oreStr2": 0, "magg2": 20, "oreStr3": 0, "maggFestivo": 30 },
+      "attesi": { "priceOut": 109.52 }
+    },
+    {
+      "file": "/calcolo-straordinari.html",
+      "caso": "Ore festive con la maggiorazione del contratto, non con un 70% inventato",
+      "norma": "Art. 149 CCNL Terziario: 30% per festivo e domenicale. 2.000/173 x 8 x 1,30",
+      "campi": { "stipendioLordo": 2000, "mensilita": 13, "oreContrattuali": 40, "divisore": 173, "oreStr1": 0, "magg1": 25, "oreStr2": 0, "magg2": 30, "oreStr3": 8, "maggFestivo": 30 },
+      "attesi": { "priceOut": 120.23 }
+    },
+
+    {
       "file": "/calcolo-bollo-auto.html",
       "caso": "Superbollo sopra i 185 kW",
       "norma": "D.L. 98/2011 art. 23 c.21: 20 euro per kW oltre 185. Bollo 722,40 piu' 35 kW x 20 = 700",
