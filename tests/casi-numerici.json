@@ -239,6 +239,136 @@
       "pre": ["document.querySelector('input[name=provenienza][value=acquisto]').checked = true"],
       "campi": { "dataAcquisto": "annifa:3", "prezzoVendita": 350000, "prezzoAcquisto": 180000, "speseAcquisto": 8000, "speseMigliorie": 80000, "speseVendita": 0 },
       "attesi": { "plusvalenzaOut": 82000, "impSostOut": 21320 }
+    },
+
+    {
+      "file": "/lordonetto.html",
+      "caso": "RAL 30.000: taglio del cuneo con l'ulteriore detrazione da 1.000 euro",
+      "norma": "L. 207/2024 art. 1 c.4-9. Imponibile 27.243, dentro la fascia 20.000-32.000: detrazione piena di 1.000",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "nord": "0" },
+      "attesi": { "priceOut": 23106, "irpefOut": 4137, "inpsOut": 2757 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "RAL 45.000: sopra i 40.000 di imponibile il cuneo non spetta piu'",
+      "norma": "Controprova del gate: imponibile 40.864 supera i 40.000, ulteriore detrazione azzerata",
+      "campi": { "importo": 45000, "tipo": "lordo", "mensilita": 13, "figli": 0, "nord": "0" },
+      "attesi": { "priceOut": 29702, "irpefOut": 11162 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Modalita' inversa: da 20.000 netti risale al lordo",
+      "norma": "Bisezione su bustaPaga(). Prima la modalita' netto->lordo non scriveva il lordo a schermo",
+      "campi": { "importo": 20000, "tipo": "netto", "mensilita": 13, "figli": 0, "nord": "0" },
+      "attesi": { "priceOut": 24729 }
+    },
+
+    {
+      "file": "/lordonetto.html",
+      "caso": "Sud e isole: addizionale regionale piu bassa",
+      "norma": "Controprova del ramo geografico: 1,23% invece di 1,73% sull imponibile di 27.243",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "nord": "1" },
+      "attesi": { "priceOut": 23242 }
+    },
+
+    {
+      "file": "/calcolatore-prestito-personale.html",
+      "caso": "TAEG come tasso interno di rendimento, non come somma di percentuali",
+      "norma": "Allegato 5B Banca d'Italia. Senza spese il TAEG e' (1+0,075/12)^12-1 = 7,76%. Rata francese: 200,38",
+      "campi": { "importo": 10000, "tan": 7.5, "durata": 60, "spese": 0, "speseGestione": 0 },
+      "attesi": { "taegOut": 7.76, "priceOut": 200.38 }
+    },
+
+    {
+      "file": "/calcolo-assegno-unico.html",
+      "caso": "ISEE pari a zero: spetta l'importo massimo, non il minimo",
+      "norma": "Circolare INPS 7/2026: e' l'ASSENZA di ISEE a dare il minimo. Zero sta sotto la prima soglia: 2 x 203,80",
+      "campi": { "isee": 0, "figliMinorenni": 2, "figliMaggiorenni": 0, "figliDisabili": 0 },
+      "attesi": { "totaleOut": 407.60 }
+    },
+    {
+      "file": "/calcolo-assegno-unico.html",
+      "caso": "ISEE non dichiarato: importo minimo",
+      "norma": "Controprova: campo vuoto e valore zero devono restare distinti. 2 x 58,30",
+      "campi": { "isee": "", "figliMinorenni": 2, "figliMaggiorenni": 0, "figliDisabili": 0 },
+      "attesi": { "totaleOut": 116.60 }
+    },
+
+    {
+      "file": "/calcolo-imu.html",
+      "caso": "Terreni agricoli: rivalutazione del 25%, non del 5%",
+      "norma": "L. 160/2019 c.746: reddito dominicale +25% per 135. 200 x 1,25 x 135 = 33.750, al 0,76%",
+      "campi": { "tipo": "135", "rendita": 200, "mesi": 12, "aliquota": 0.76, "quota": 100 },
+      "attesi": { "priceOut": 257, "baseImponibileOut": 33750 }
+    },
+
+    {
+      "file": "/partitaiva.html",
+      "caso": "Forfettario: i contributi si deducono prima dell'imposta sostitutiva",
+      "norma": "L. 190/2014 c.64. Imponibile 27.300, INPS 7.117, base imposta 20.183, imposta 15% = 3.027",
+      "campi": { "fatturato": 35000, "categoria": "0.78", "regime": "0.15", "spesePiva": 1500 },
+      "attesi": { "nettoIvaOut": 23355 }
+    },
+
+    {
+      "file": "/calcolo-tfr-liquidazione.html",
+      "caso": "Accantonamento al netto del contributo dello 0,50%",
+      "norma": "Art. 2120 c.c. e art. 3 L. 297/1982: 30.000/13,5 - 30.000x0,5% = 2.072,22 l'anno",
+      "campi": { "ral": 30000, "anni": 10, "destinazione": "azienda", "inflazione": 2.0, "tassazione": 23 },
+      "attesi": { "annuoOut": 2072, "lordoOut": 24109, "priceOut": 18564 }
+    },
+
+    {
+      "file": "/calcolo-prestazione-occasionale.html",
+      "caso": "Aliquota INPS dei non titolari di partita IVA: 33,72%",
+      "norma": "Circolare INPS 8/2026. Base 3.000 oltre i 5.000: contributo 1.011,60, un terzo al lavoratore = 337,20",
+      "campi": { "compenso": 8000, "altriRedditi": 0, "marcaBollo": 0, "aliquotaIRPEF": "23", "regimeINPS": "non-iscritto" },
+      "attesi": { "ritenutaOut": 1600, "nettoImmOut": 6400, "nettoFinalOut": 5822.80 }
+    },
+    {
+      "file": "/calcolo-prestazione-occasionale.html",
+      "caso": "Iscritto ad altra gestione obbligatoria: 24% invece del 33,72%",
+      "norma": "Circolare INPS 8/2026: 3.000 x 24% = 720, un terzo = 240",
+      "campi": { "compenso": 8000, "altriRedditi": 0, "marcaBollo": 0, "aliquotaIRPEF": "23", "regimeINPS": "iscritto-altra" },
+      "attesi": { "nettoFinalOut": 5920 }
+    },
+    {
+      "file": "/calcolo-prestazione-occasionale.html",
+      "caso": "Aliquota IRPEF allo 0%: la ritenuta torna tutta indietro",
+      "norma": "Lo zero e' una scelta valida e non un campo vuoto: la ritenuta d'acconto del 20% su 1.500 diventa un rimborso di 300",
+      "campi": { "compenso": 1500, "altriRedditi": 0, "marcaBollo": 0, "aliquotaIRPEF": "0", "regimeINPS": "non-iscritto" },
+      "attesi": { "ritenutaOut": 300, "nettoImmOut": 1200, "diffIRPEFOut": 300 }
+    },
+
+    {
+      "file": "/calcolo-preavviso.html",
+      "caso": "Indennita' commisurata alla retribuzione globale di fatto, ratei compresi",
+      "norma": "Art. 2118 c.2 c.c.: 2.000 x 13 / 12 x 4 mesi = 8.666,67",
+      "campi": { "ccnl": "custom", "mesiCustom": 4, "stipendio": 2000, "mensilita": 13, "mesiEffettivi": 0, "aliqIRPEF": "23" },
+      "attesi": { "indennitaLordaOut": 8666.67, "mesiMancOut": "4 mesi" }
+    },
+    {
+      "file": "/calcolo-preavviso.html",
+      "caso": "Con 12 mensilita' il risultato coincide con la vecchia formula",
+      "norma": "Controprova: senza ratei la mensilizzazione non cambia nulla, 2.000 x 4",
+      "campi": { "ccnl": "custom", "mesiCustom": 4, "stipendio": 2000, "mensilita": 12, "mesiEffettivi": 0, "aliqIRPEF": "23" },
+      "attesi": { "indennitaLordaOut": 8000 }
+    },
+
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Canone concordato: riduzione del 30% della base IRPEF e imposta per scaglioni",
+      "norma": "Art. 8 c.1 L. 431/1998 oltre al 5% dell'art. 37 c.4-bis TUIR: 9.600 x 0,95 x 0,70 = 6.384. IRPEF incrementale su reddito 25.000 = 1.807",
+      "campi": { "canone": 9600, "contratto": "concordato", "altaTensione": "si", "reddito": 25000, "detrazioni": 0 },
+      "attesi": { "baseImponibileOut": 6384, "impostaCedOut": 960, "imposteIrpefOut": 1807 }
+    },
+
+    {
+      "file": "/calcolo-bollo-auto.html",
+      "caso": "Superbollo sopra i 185 kW",
+      "norma": "D.L. 98/2011 art. 23 c.21: 20 euro per kW oltre 185. Bollo 722,40 piu' 35 kW x 20 = 700",
+      "campi": { "kw": 220, "tipoVeicolo": "auto", "classeEuro": "456", "annoImmat": 2023, "mesiPossesso": 12 },
+      "attesi": { "totaleOut": 1422.40 }
     }
   ]
 }
