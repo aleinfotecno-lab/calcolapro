@@ -489,6 +489,35 @@
     },
 
     {
+      "file": "/calcolo-quattordicesima-netta.html",
+      "caso": "Addizionale regionale e comunale sono due tributi e si sommano",
+      "norma": "D.Lgs. 68/2011 e D.Lgs. 360/1998. Con 1,73% + 0,50% sull'imponibile di 1.816,20 le addizionali sono 40,50, non 31,42 come con l'1,73% preso per il totale",
+      "campi": { "stipendioLordo": 2000, "lordo14": 2000, "mesiMaturati": "12", "addRegionale": 1.73, "addComunale": 0.50 },
+      "attesi": { "priceOut": 1357.97, "addOut": 40.50, "inpsOut": 183.80 }
+    },
+    {
+      "file": "/calcolo-quattordicesima-netta.html",
+      "caso": "Regione in piano di rientro: 3,33% e non l'1,23% che il sito attribuiva al Sud",
+      "norma": "D.Lgs. 68/2011: aliquota base 1,23% maggiorabile fino al 3,33%, applicata al massimo da Campania, Calabria, Molise, Abruzzo e Lazio",
+      "campi": { "stipendioLordo": 2000, "lordo14": 2000, "mesiMaturati": "12", "addRegionale": 3.33, "addComunale": 0.80 },
+      "attesi": { "addOut": 75.01, "priceOut": 1323.46 }
+    },
+    {
+      "file": "/calcolo-quattordicesima-netta.html",
+      "caso": "Sopra la prima fascia scatta l'aliquota aggiuntiva dell'1%",
+      "norma": "Art. 3-ter D.L. 384/1992: 1% sulla quota oltre 56.224 euro annui (circolare INPS 6/2026). 4.700 x 10,19% = 478,93",
+      "campi": { "stipendioLordo": 4700, "lordo14": 4700, "mesiMaturati": "12", "addRegionale": 1.73, "addComunale": 0.50 },
+      "attesi": { "inpsOut": 478.93, "priceOut": 2311.88 }
+    },
+    {
+      "file": "/calcolo-quattordicesima-netta.html",
+      "caso": "Sei mesi maturati: tutto proporzionale, nessuna soglia toccata",
+      "norma": "Controprova: la quattordicesima matura per dodicesimi e sotto la prima fascia l'1% non si applica",
+      "campi": { "stipendioLordo": 2000, "lordo14": 2000, "mesiMaturati": "6", "addRegionale": 1.73, "addComunale": 0.50 },
+      "attesi": { "priceOut": 678.99, "inpsOut": 91.90 }
+    },
+
+    {
       "file": "/calcolo-bollo-auto.html",
       "caso": "Superbollo sopra i 185 kW",
       "norma": "D.L. 98/2011 art. 23 c.21: 20 euro per kW oltre 185. Bollo 722,40 piu' 35 kW x 20 = 700",

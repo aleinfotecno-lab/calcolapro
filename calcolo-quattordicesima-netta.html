@@ -174,7 +174,7 @@
       <p class="page-subtitle">Inserisci la tua retribuzione lorda e scopri quanto ti arriva davvero in busta paga: contributi INPS, IRPEF a scaglioni e netto stimato della quattordicesima.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -231,12 +231,11 @@
       <div class="card">
         <div class="card-title"><span class="card-icon">📍</span> Regione di residenza</div>
         <div class="field">
-          <label>Zona fiscale (per l'addizionale regionale)</label>
-          <div class="radio-group">
-            <label><input type="radio" id="area-altro" name="area" value="altro" checked aria-describedby="area-help"> Centro-Nord</label>
-            <label><input type="radio" id="area-sud" name="area" value="sud" aria-describedby="area-help"> Sud e Isole</label>
-          </div>
-          <p class="hint" id="area-help">Stima semplificata: 1,73% (Centro-Nord) o 1,23% (Sud e Isole) di addizionali regionale+comunale medie</p>
+          <label for="addRegionale">Addizionale regionale (%)</label>
+          <input type="number" id="addRegionale" value="1.73" min="0" max="4" step="0.01" aria-describedby="area-help"/>
+          <label for="addComunale" style="display:block;margin-top:12px;">Addizionale comunale (%)</label>
+          <input type="number" id="addComunale" value="0.50" min="0" max="1" step="0.01" aria-describedby="area-help"/>
+          <p class="hint" id="area-help">Sono <strong>due tributi distinti</strong> e si sommano. I valori proposti sono ipotesi di comodo, non i tuoi: cambiali con quelli che ti riguardano. L'<strong>addizionale regionale</strong> parte dall'aliquota base dell'<strong>1,23%</strong> e arriva al <strong>3,33%</strong> nelle regioni in piano di rientro sanitario — <strong>Campania, Calabria, Molise, Abruzzo e Lazio</strong>: non è vero, come si legge spesso, che al Sud siano più basse. L'<strong>addizionale comunale</strong> va da <strong>0%</strong> a <strong>0,80%</strong> (0,90% solo a Roma) e la decide il tuo Comune. Le aliquote ufficiali si cercano sul sito del <a href="https://www1.finanze.gov.it/finanze2/dipartimentopolitichefiscali/fiscalitalocale/addregirpef/sceltaregione.htm" target="_blank" rel="noopener">Dipartimento delle Finanze</a>.</p>
         </div>
       </div>
 
@@ -321,7 +320,7 @@
       <p>La formula standard è: <strong>retribuzione mensile lorda × mesi di servizio maturati nel periodo di riferimento ÷ 12</strong>. Chi ha lavorato l'intero anno di riferimento riceve una mensilità piena, pari allo stipendio lordo mensile; chi ha lavorato solo una parte dell'anno (nuova assunzione, contratto a termine, dimissioni) riceve un rateo proporzionale, maturato a condizione di almeno 15 giorni di servizio nel mese. Per il part-time, l'importo si riduce ulteriormente in base alla percentuale di orario contrattuale rispetto al full-time.</p>
 
       <h3>Come viene tassata la quattordicesima</h3>
-      <p>Il meccanismo di tassazione è identico a quello della tredicesima: sull'importo lordo si applicano prima i <strong>contributi INPS al 9,19%</strong>, poi l'<strong>IRPEF</strong> calcolata per scaglioni in base a dove si colloca la mensilità nel reddito annuo complessivo del lavoratore (nel 2026: 23% fino a 28.000 €, 33% da 28.001 a 50.000 €, 43% oltre 50.000 €). La differenza sostanziale rispetto a una mensilità ordinaria è che sulla quattordicesima <strong>non si applicano le <a href="calcolo-detrazioni-730.html">detrazioni da lavoro dipendente</a></strong>, che normalmente riducono l'imposta netta dovuta. Questo è il motivo per cui il netto della quattordicesima risulta quasi sempre proporzionalmente inferiore a quello di un mese di stipendio normale, anche a parità di importo lordo. Alle imposte si sommano infine le addizionali regionale e comunale, che variano in base al comune di residenza.</p>
+      <p>Il meccanismo di tassazione è identico a quello della tredicesima: sull'importo lordo si applicano prima i <strong>contributi INPS al 9,19%</strong>, poi l'<strong>IRPEF</strong> calcolata per scaglioni in base a dove si colloca la mensilità nel reddito annuo complessivo del lavoratore (nel 2026: 23% fino a 28.000 €, 33% da 28.001 a 50.000 €, 43% oltre 50.000 €). La differenza sostanziale rispetto a una mensilità ordinaria è che sulla quattordicesima <strong>non si applicano le <a href="calcolo-detrazioni-730.html">detrazioni da lavoro dipendente</a></strong>, che normalmente riducono l'imposta netta dovuta. Questo è il motivo per cui il netto della quattordicesima risulta quasi sempre proporzionalmente inferiore a quello di un mese di stipendio normale, anche a parità di importo lordo. Alle imposte si sommano infine l'addizionale regionale e quella comunale, che sono due tributi distinti e si sommano fra loro. La regionale parte da un'aliquota base dell'1,23% e sale fino al 3,33% nelle regioni in piano di rientro sanitario, fra cui Campania, Calabria, Molise, Abruzzo e Lazio: al contrario di quanto si sente ripetere, al Sud non sono affatto più basse. La comunale la decide il singolo Comune e arriva allo 0,80%.</p>
 
       <h3>Quattordicesima pensionati INPS: un istituto diverso</h3>
       <p>Chi cerca "quattordicesima" spesso trova risultati riferiti anche ai pensionati: si tratta però di una misura INPS completamente distinta da quella dei lavoratori dipendenti, senza alcun collegamento con i CCNL. Riguarda chi ha <strong>almeno 64 anni compiuti</strong> entro il 31 dicembre e un reddito personale (non del nucleo familiare) entro soglie di legge: nel 2026, fino a <strong>11.931,08 €</strong> per l'importo pieno o fino a <strong>15.908,10 €</strong> per l'importo ridotto (con una clausola di salvaguardia per chi supera di poco la soglia). Gli importi vanno da <strong>336 a 655 €</strong> in base agli anni di contribuzione versati e alla fascia di reddito, e vengono accreditati automaticamente con la pensione di luglio, senza necessità di presentare domanda.</p>
@@ -485,7 +484,8 @@
       const stipendioLordo = parseFloat(document.getElementById('stipendioLordo').value) || 0;
       const lordo14Input = parseFloat(document.getElementById('lordo14').value) || 0;
       const mesiMaturati = parseFloat(document.getElementById('mesiMaturati').value) || 12;
-      const area = document.querySelector('input[name="area"]:checked').value;
+      const aliqReg = parseFloat(document.getElementById('addRegionale').value);
+      const aliqCom = parseFloat(document.getElementById('addComunale').value);
 
       if (stipendioLordo <= 0 || lordo14Input <= 0) {
         if (stipendioLordo <= 0) mostraErroreCampo('stipendioLordo', 'Inserisci una retribuzione valida.');
@@ -495,11 +495,16 @@
       }
 
       const lordo14 = lordo14Input * (mesiMaturati / 12);
-      const inps14 = lordo14 * 0.0919;
+      // La quattordicesima si somma alla retribuzione ordinaria, quindi e' la prima a
+      // superare la prima fascia di retribuzione pensionabile: sulla quota eccedente
+      // grava l'aliquota aggiuntiva dell'1% dell'art. 3-ter del D.L. 384/1992. Per il
+      // 2026 la soglia e' 56.224 euro (circolare INPS 6 del 30 gennaio 2026).
+      const PRIMA_FASCIA = 56224;
+      const ralOrdinaria = stipendioLordo * 13;
+      const quotaOltreFascia = Math.max(0, Math.min(lordo14, ralOrdinaria + lordo14 - PRIMA_FASCIA));
+      const inps14 = lordo14 * 0.0919 + quotaOltreFascia * 0.01;
       const imponibile14 = lordo14 - inps14;
 
-      // Colloca l'imponibile della 14esima negli scaglioni IRPEF 2026, sopra il reddito ordinario annuo (12 mensilità + tredicesima)
-      const ralOrdinaria = stipendioLordo * 13;
       const imponibileOrdinario = ralOrdinaria * (1 - 0.0919);
       const soglia1 = 28000, soglia2 = 50000;
       let cursor = imponibileOrdinario, remaining = imponibile14, irpef14 = 0;
@@ -513,8 +518,7 @@
       }
       if (remaining > 0) { irpef14 += remaining * 0.43; }
 
-      const aliquotaAdd = area === 'sud' ? 0.0123 : 0.0173;
-      const addizionali14 = imponibile14 * aliquotaAdd;
+      const addizionali14 = imponibile14 * (aliqReg + aliqCom) / 100;
 
       const netto14 = lordo14 - inps14 - irpef14 - addizionali14;
 
