@@ -56,7 +56,7 @@ for (const c of casi) {
     const campi = {};
     for (const [id, v] of Object.entries(c.campi || {})) campi[id] = risolviValore(v);
 
-    const mancanti = await page.evaluate(([campi, pre]) => {
+    const mancanti = await page.evaluate(([campi, pre, fn]) => {
       const assenti = [];
       for (const [id, v] of Object.entries(campi)) {
         const el = document.getElementById(id);
@@ -67,10 +67,11 @@ for (const c of casi) {
         el.dispatchEvent(new Event('change', { bubbles: true }));
       }
       for (const js of pre || []) eval(js);
-      // eslint-disable-next-line no-undef
-      calcola();
+      // Quasi tutti i calcolatori entrano da calcola(), ma non tutti: divisione-conto
+      // ha calcolaUguale() e calcolaPersona(), uno per modalita'.
+      eval(fn + '()');
       return assenti;
-    }, [campi, c.pre]);
+    }, [campi, c.pre, c.funzione || 'calcola']);
 
     // Un campo sparito e' una regressione a sua volta: il caso starebbe misurando
     // un calcolatore diverso da quello che credeva di misurare.

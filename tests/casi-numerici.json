@@ -533,6 +533,43 @@
     },
 
     {
+      "file": "/divisione-conto.html",
+      "caso": "Il centesimo che non tornava viene assegnato",
+      "norma": "100 euro fra tre persone: 33,33 a testa fanno 99,99. Il resto di un centesimo va a qualcuno, e la pagina deve dirlo",
+      "funzione": "calcolaUguale",
+      "pre": ["nPersone = 3", "document.querySelector('.mancia-pill[data-val=\"0\"]').click()"],
+      "campi": { "totale": 100 },
+      "attesi": { "quotaOut": 33.33 }
+    },
+    {
+      "file": "/divisione-conto.html",
+      "caso": "Divisione esatta: nessun resto da assegnare",
+      "norma": "Controprova: 100 euro fra quattro persone fanno 25,00 esatti",
+      "funzione": "calcolaUguale",
+      "pre": ["nPersone = 4", "document.querySelector('.mancia-pill[data-val=\"0\"]').click()"],
+      "campi": { "totale": 100 },
+      "attesi": { "quotaOut": 25 }
+    },
+    {
+      "file": "/divisione-conto.html",
+      "caso": "Mancia oltre il massimo dichiarato dall'input",
+      "norma": "Il campo dichiara max=100 ma il calcolo accettava qualsiasi valore: con il 500% usciva una mancia di 300 euro su un conto di 100",
+      "funzione": "calcolaUguale",
+      "pre": ["nPersone = 3", "document.querySelector('.mancia-pill[data-val=\"custom\"]').click()"],
+      "campi": { "totale": 100, "manciaCustom": 500 },
+      "erroreSu": "manciaCustom"
+    },
+    {
+      "file": "/divisione-conto.html",
+      "caso": "Mancia personalizzata lasciata vuota",
+      "norma": "Avendo scelto \"altra percentuale\", applicare zero in silenzio non e' una risposta: va chiesta la percentuale",
+      "funzione": "calcolaUguale",
+      "pre": ["nPersone = 3", "document.querySelector('.mancia-pill[data-val=\"custom\"]').click()"],
+      "campi": { "totale": 100, "manciaCustom": "" },
+      "erroreSu": "manciaCustom"
+    },
+
+    {
       "file": "/iva.html",
       "caso": "Importo non indicato: niente totale a zero euro",
       "norma": "Il box risultato si apriva con 'TOTALE CON IVA AL 22% / € 0,00', che sembra una risposta",

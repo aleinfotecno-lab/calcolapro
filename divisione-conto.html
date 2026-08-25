@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Divisione Conto Ristorante 2026 | Calcola la Quota</title>
-  <meta name="description" content="Dividi il conto del ristorante o le spese di gruppo: quota uguale o per consumo, gestione di coperto e mancia e metodo del saldo netto."/>
+  <meta name="description" content="Dividi il conto del ristorante o le spese di gruppo: quota uguale per tutti oppure in proporzione a quanto ha consumato ciascuno, con la mancia distribuita e il resto in centesimi assegnato."/>
   <meta name="keywords" content="divisione conto, dividere conto ristorante, calcolo quota amici, split bill, dividere spese coinquilini, conto alla romana, calcola quanto paga ognuno"/>
   <link rel="canonical" href="https://calcolapro.it/divisione-conto.html"/>
   <meta property="og:title" content="Divisione Conto Ristorante 2026 | Calcola la Quota | CalcolaPro"/>
@@ -185,7 +185,7 @@
       <p class="page-subtitle">Ristorante, vacanze, affitto, bollette: calcola in un secondo quanto deve pagare ognuno. Divisione uguale o personalizzata.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -252,6 +252,7 @@
             <label for="manciaCustom">Percentuale mancia</label>
             <div class="input-wrap"><span class="input-prefix">%</span>
             <input type="number" id="manciaCustom" value="12" min="0" max="100" step="1" class="has-prefix" inputmode="numeric" aria-describedby="manciaCustom-help"/></div>
+            <p class="hint" id="manciaCustom-help">Percentuale da aggiungere al conto e poi dividere fra tutti. In Italia la mancia è facoltativa: lasciala a zero se il gruppo non la prevede.</p>
           </div>
         </div>
         <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcolaUguale()">🔍 Calcola la quota →</button></div>
@@ -261,7 +262,7 @@
       <div id="panel-persona" role="tabpanel" aria-labelledby="tab-persona" class="col-full" style="display:none;">
         <div class="card">
           <div class="card-title"><span class="card-icon">👥</span> Chi ha speso quanto</div>
-          <p class="hint" id="manciaCustom-help" style="margin-bottom:16px;">Inserisci il nome e la spesa di ciascuna persona. Il calcolatore mostra la quota di ognuno.</p>
+          <p class="hint" id="perPersona-help" style="margin-bottom:16px;">Inserisci il nome e la spesa di ciascuna persona. Il calcolatore mostra la quota di ognuno.</p>
           <div style="display:grid;grid-template-columns:1fr 140px 36px;gap:8px;margin-bottom:6px;">
             <span style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;">Nome</span>
             <span style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;">Spesa (€)</span>
@@ -561,13 +562,32 @@
       let perc = 0;
       if (manciaAttiva) {
         const val = manciaAttiva.dataset.val;
-        perc = val === 'custom' ? (parseFloat(document.getElementById('manciaCustom').value) || 0) : parseFloat(val);
+        if (val === 'custom') {
+          pulisciErroreCampo('manciaCustom');
+          const custom = parseFloat(document.getElementById('manciaCustom').value);
+          // Il campo dichiara max="100" ma il calcolo accettava qualsiasi valore, e a
+          // campo vuoto applicava zero senza dirlo, pur avendo scelto "altra percentuale".
+          if (!Number.isFinite(custom) || custom < 0 || custom > 100) {
+            mostraErroreCampo('manciaCustom', 'Inserisci una percentuale di mancia compresa fra 0 e 100.');
+            return;
+          }
+          perc = custom;
+        } else {
+          perc = parseFloat(val);
+        }
       }
 
       const manciaEuro = totale * perc / 100;
       const totaleConMancia = totale + manciaEuro;
-      const quota = totaleConMancia / nPersone;
       const manciaPerPersona = manciaEuro / nPersone;
+      // Dividendo in centesimi si vede subito quanti ne restano scoperti: 100 euro
+      // fra tre persone facevano 33,33 a testa, cioe' 99,99, e il centesimo mancante
+      // non era assegnato a nessuno. Su un calcolatore che serve a non litigare al
+      // ristorante, e' proprio il dettaglio da dire.
+      const centesimiTotali = Math.round(totaleConMancia * 100);
+      const centesimiBase = Math.floor(centesimiTotali / nPersone);
+      const restoCentesimi = centesimiTotali - centesimiBase * nPersone;
+      const quota = centesimiBase / 100;
 
       document.getElementById('resultLabel').textContent = 'Ciascuno paga';
       document.getElementById('quotaOut').textContent = fmt(quota);
@@ -578,6 +598,9 @@
       if (perc > 0) {
         breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(manciaEuro)}</div><div class="breakdown-label">mancia totale (${perc}%)</div></div>`;
         breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(manciaPerPersona)}</div><div class="breakdown-label">mancia a testa</div></div>`;
+      }
+      if (restoCentesimi > 0) {
+        breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt((centesimiBase + 1) / 100)}</div><div class="breakdown-label">${restoCentesimi === 1 ? 'una persona paga' : restoCentesimi + ' persone pagano'}</div></div>`;
       }
       breakdown += `<div class="breakdown-item"><div class="breakdown-value">${fmt(totaleConMancia)}</div><div class="breakdown-label">totale${perc > 0 ? ' con mancia' : ''}</div></div>`;
       document.getElementById('resultBreakdown').innerHTML = breakdown;
@@ -660,7 +683,8 @@
 
       let tableHtml = '<div class="table-scroll"><table class="persona-result-table"><thead><tr><th>Persona</th><th>Spesa</th><th>% sul totale</th></tr></thead><tbody>';
         persone.forEach(p => {
-          const perc = totale > 0 ? (p.importo / totale * 100).toFixed(1) : '0.0';
+          // Il punto decimale accanto agli importi in formato italiano, nella stessa riga.
+          const perc = (totale > 0 ? (p.importo / totale * 100).toFixed(1) : '0.0').replace('.', ',');
           tableHtml += `<tr><td>${esc(p.nome)}</td><td>${fmt(p.importo)}</td><td>${perc}%</td></tr>`;
         });
         tableHtml += '</tbody></table></div>';
