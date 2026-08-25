@@ -533,6 +533,35 @@
     },
 
     {
+      "file": "/calcolo-eta.html",
+      "caso": "Giorni totali immuni all'ora legale",
+      "norma": "Fra una nascita invernale e una data estiva le due mezzanotte locali distano 3.600.000 ms in meno di un multiplo di 24 ore, e Math.floor scartava un giorno. Dal 15/01/1990 al 20/08/2026 sono 13.366 giorni",
+      "campi": { "dataNascita": "1990-01-15", "dataRiferimento": "2026-08-20" },
+      "attesi": { "giorniTotaliOut": 13366, "oreOut": 320784, "anniOut": 36, "mesiOut": 7, "giorniOut": 5 }
+    },
+    {
+      "file": "/calcolo-eta.html",
+      "caso": "Prestito dal mese corto: nessun numero di giorni negativo",
+      "norma": "Dal 31/01/2000 al 01/03/2026: febbraio ha 28 giorni e il giorno di nascita e' il 31, quindi il prestito va saturato. Il risultato e' 26 anni, 1 mese, 1 giorno",
+      "campi": { "dataNascita": "2000-01-31", "dataRiferimento": "2026-03-01" },
+      "attesi": { "anniOut": 26, "mesiOut": 1, "giorniOut": 1 }
+    },
+    {
+      "file": "/calcolo-eta.html",
+      "caso": "Nato il 29 febbraio: compleanno al 28, non traboccato al 1 marzo",
+      "norma": "new Date(2027, 1, 29) scavalca silenziosamente al 1 marzo. Dal 20/08/2026 al 28/02/2027 sono 192 giorni, non 193",
+      "campi": { "dataNascita": "2000-02-29", "dataRiferimento": "2026-08-20" },
+      "attesi": { "giorniTotaliOut": 9669, "bdayDays": 192 }
+    },
+    {
+      "file": "/calcolo-eta.html",
+      "caso": "Due date nello stesso regime orario: il conto non cambia",
+      "norma": "Controprova: qui il bug dell'ora legale non si manifestava, e il valore deve restare quello di prima",
+      "campi": { "dataNascita": "2000-11-15", "dataRiferimento": "2026-01-20" },
+      "attesi": { "giorniTotaliOut": 9197, "anniOut": 25, "mesiOut": 2, "giorniOut": 5 }
+    },
+
+    {
       "file": "/calcolo-bollo-auto.html",
       "caso": "Superbollo sopra i 185 kW",
       "norma": "D.L. 98/2011 art. 23 c.21: 20 euro per kW oltre 185. Bollo 722,40 piu' 35 kW x 20 = 700",

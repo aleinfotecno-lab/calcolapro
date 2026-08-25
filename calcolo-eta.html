@@ -184,7 +184,7 @@
       <p class="page-subtitle">Inserisci la tua data di nascita e scopri la tua età esatta in anni, mesi e giorni. Con countdown al prossimo compleanno e segno zodiacale.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -444,7 +444,17 @@
       let y = d2.getFullYear() - d1.getFullYear();
       let m = d2.getMonth() - d1.getMonth();
       let d = d2.getDate() - d1.getDate();
-      if (d < 0) { m--; const prev = new Date(d2.getFullYear(), d2.getMonth(), 0); d += prev.getDate(); }
+      if (d < 0) {
+        m--;
+        // Giorni del mese che precede la data di riferimento.
+        const giorniPrev = new Date(d2.getFullYear(), d2.getMonth(), 0).getDate();
+        // Il giorno di nascita puo' non esistere in quel mese: chi e' nato il 31
+        // gennaio, in febbraio "compie il mese" il 28. Saturando alla fine del mese
+        // il prestito non lascia mai un resto negativo, che prima finiva a schermo
+        // come "-2 giorni".
+        const giornoNascita = Math.min(d1.getDate(), giorniPrev);
+        d = giorniPrev - giornoNascita + d2.getDate();
+      }
       if (m < 0) { y--; m += 12; }
       return {anni: y, mesi: m, giorni: d};
     }
@@ -488,16 +498,31 @@
 
       const {anni, mesi, giorni} = diffDate(nascita, rif);
 
-      // Giorni totali
+      // Giorni totali. La sottrazione fra due mezzanotte LOCALI non e' un multiplo
+      // esatto di 24 ore quando le due date stanno in regimi orari diversi: fra una
+      // nascita invernale e una data estiva mancano 3.600.000 ms e Math.floor
+      // scartava un giorno intero. Portando entrambe le date su UTC a parita' di
+      // anno, mese e giorno, l'ora legale sparisce dal conto.
       const msPerDay = 86400000;
-      const giorniTotali = Math.floor((rif - nascita) / msPerDay);
+      const aMezzanotteUTC = (x) => Date.UTC(x.getFullYear(), x.getMonth(), x.getDate());
+      const giorniTotali = Math.round((aMezzanotteUTC(rif) - aMezzanotteUTC(nascita)) / msPerDay);
       const settimane = Math.floor(giorniTotali / 7);
       const ore = giorniTotali * 24;
 
       // Prossimo compleanno
-      let prossimoBday = new Date(rif.getFullYear(), nascita.getMonth(), nascita.getDate());
-      if (prossimoBday <= rif) prossimoBday = new Date(rif.getFullYear() + 1, nascita.getMonth(), nascita.getDate());
-      const giorniABday = Math.round((prossimoBday - rif) / msPerDay);
+      // Chi e' nato il 29 febbraio non ha un compleanno negli anni non bisestili, e
+      // new Date(anno, 1, 29) traboccava in silenzio al 1 marzo. Le fonti non
+      // concordano — INPS e anagrafe usano il 28 febbraio, la pratica civile spesso
+      // il 1 marzo — quindi il calcolatore usa il 28 e lo dichiara in pagina.
+      const nato29Feb = nascita.getMonth() === 1 && nascita.getDate() === 29;
+      const bdayNellAnno = (anno) => {
+        const giorno = nato29Feb ? new Date(anno, 1, 29).getDate() === 29 ? 29 : 28 : nascita.getDate();
+        return new Date(anno, nascita.getMonth(), giorno);
+      };
+      let prossimoBday = bdayNellAnno(rif.getFullYear());
+      if (prossimoBday <= rif) prossimoBday = bdayNellAnno(rif.getFullYear() + 1);
+      const giorniABday = Math.round((aMezzanotteUTC(prossimoBday) - aMezzanotteUTC(rif)) / msPerDay);
+      const bdayAnticipato = nato29Feb && prossimoBday.getDate() === 28;
       const eBday = giorniABday === 0;
 
       // Segno zodiacale
@@ -507,15 +532,15 @@
       document.getElementById('etaOut').textContent = anni;
       document.getElementById('etaUnitOut').textContent = 'ann' + (anni === 1 ? 'o' : 'i');
       document.getElementById('etaBreakdown').innerHTML =
-        '<div class="breakdown-item"><div class="breakdown-value">' + anni + '</div><div class="breakdown-label">anni</div></div>' +
-        '<div class="breakdown-item"><div class="breakdown-value">' + mesi + '</div><div class="breakdown-label">mesi</div></div>' +
-        '<div class="breakdown-item"><div class="breakdown-value">' + giorni + '</div><div class="breakdown-label">giorni</div></div>';
+        '<div class="breakdown-item"><div class="breakdown-value" id="anniOut">' + anni + '</div><div class="breakdown-label">anni</div></div>' +
+        '<div class="breakdown-item"><div class="breakdown-value" id="mesiOut">' + mesi + '</div><div class="breakdown-label">mesi</div></div>' +
+        '<div class="breakdown-item"><div class="breakdown-value" id="giorniOut">' + giorni + '</div><div class="breakdown-label">giorni</div></div>';
 
       document.getElementById('statGrid').innerHTML =
-        '<div class="stat-box"><div class="stat-val">' + giorniTotali.toLocaleString('it-IT') + '</div><div class="stat-lbl">Giorni totali</div></div>' +
-        '<div class="stat-box"><div class="stat-val">' + settimane.toLocaleString('it-IT') + '</div><div class="stat-lbl">Settimane</div></div>' +
-        '<div class="stat-box"><div class="stat-val">' + ore.toLocaleString('it-IT') + '</div><div class="stat-lbl">Ore vissute</div></div>' +
-        '<div class="stat-box"><div class="stat-val">' + (anni * 12 + mesi) + '</div><div class="stat-lbl">Mesi totali</div></div>';
+        '<div class="stat-box"><div class="stat-val" id="giorniTotaliOut">' + giorniTotali.toLocaleString('it-IT') + '</div><div class="stat-lbl">Giorni totali</div></div>' +
+        '<div class="stat-box"><div class="stat-val" id="settimaneOut">' + settimane.toLocaleString('it-IT') + '</div><div class="stat-lbl">Settimane</div></div>' +
+        '<div class="stat-box"><div class="stat-val" id="oreOut">' + ore.toLocaleString('it-IT') + '</div><div class="stat-lbl">Ore vissute</div></div>' +
+        '<div class="stat-box"><div class="stat-val" id="mesiTotaliOut">' + (anni * 12 + mesi) + '</div><div class="stat-lbl">Mesi totali</div></div>';
 
       if (eBday) {
         document.getElementById('bdayDays').textContent = '🎉';
@@ -523,7 +548,8 @@
       } else {
         document.getElementById('bdayDays').textContent = giorniABday;
         const mm = prossimoBday.toLocaleDateString('it-IT', {day:'numeric', month:'long', year:'numeric'});
-        document.getElementById('bdayLabel').textContent = 'giorni al prossimo compleanno (' + mm + ')';
+        document.getElementById('bdayLabel').textContent = 'giorni al prossimo compleanno (' + mm + ')' +
+          (bdayAnticipato ? ' — sei nato il 29 febbraio e quello non è un anno bisestile: qui il compleanno si anticipa al 28, come fanno INPS e anagrafe, ma nella pratica civile si usa spesso il 1° marzo' : '');
       }
 
       document.getElementById('zodiakIcon').textContent = zodiac.emoji;
