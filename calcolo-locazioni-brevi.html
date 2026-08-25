@@ -177,7 +177,7 @@
       <p class="page-subtitle">Host Airbnb, Booking o Vrbo? Calcola quante tasse paghi sulle locazioni brevi, la differenza tra cedolare 21% e 26%, quanto ha già trattenuto la piattaforma e cosa devi ancora versare nella dichiarazione dei redditi.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -301,7 +301,7 @@
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo locazioni brevi">
 
         <div class="result-card">
-          <div class="result-label">Tasse totali da pagare (cedolare secca)</div>
+          <div class="result-label" id="regimeLabel">Tasse totali da pagare</div>
           <div class="result-value" id="tasseTotOut">—</div>
           <div class="result-unit" id="tasseTotUnit">—</div>
           <div class="result-breakdown">
@@ -589,6 +589,30 @@
       btn.querySelector('.faq-arrow').textContent = exp ? '▾' : '▴';
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
       const regime = document.getElementById('regimeFiscale').value;
       const aliqIRPEF = parseInt(document.getElementById('aliqIRPEF').value) || 33;
@@ -597,6 +621,14 @@
       const piatt1 = document.getElementById('piatt1').checked;
       const lordo2 = nImm >= 2 ? (parseFloat(document.getElementById('lordo2').value) || 0) : 0;
       const piatt2 = nImm >= 2 && document.getElementById('piatt2').checked;
+
+      // Senza canone non c'e' nulla da tassare: prima usciva un risultato a zero
+      // completo di istruzioni per la dichiarazione, che sembrava una risposta.
+      pulisciErroreCampo('lordo1');
+      if (!Number.isFinite(parseFloat(document.getElementById('lordo1').value)) || lordo1 <= 0) {
+        mostraErroreCampo('lordo1', 'Inserisci il canone lordo incassato per il primo immobile.');
+        return;
+      }
 
       const lordo_tot = lordo1 + lordo2;
 
@@ -617,6 +649,9 @@
       const saldo_tot = saldo1 + saldo2;
       const netto_tot = lordo_tot - tasse_tot;
 
+      document.getElementById('regimeLabel').textContent = regime === 'cedolare'
+        ? 'Tasse totali da pagare (cedolare secca)'
+        : 'Tasse totali da pagare (IRPEF ordinaria)';
       document.getElementById('tasseTotOut').textContent = fmt(tasse_tot);
       document.getElementById('tasseTotUnit').textContent = `su ${fmt(lordo_tot)} di canoni lordi (${regime === 'cedolare' ? 'cedolare secca' : 'IRPEF ordinaria'})`;
       document.getElementById('nettoOut').textContent = fmt(netto_tot);
@@ -625,9 +660,11 @@
 
       // Dettaglio
       const rows = [
-        {name: 'Immobile 1 (21%)', lordo: lordo1, aliq: aliq1*100, imp: imp1, rit: rit1, saldo: saldo1},
+        // L'aliquota ha gia' la sua colonna: cablarla anche nel nome della riga la
+        // faceva restare al 21% pure scegliendo l'IRPEF ordinaria.
+        {name: 'Immobile 1', lordo: lordo1, aliq: aliq1*100, imp: imp1, rit: rit1, saldo: saldo1},
       ];
-      if (nImm >= 2) rows.push({name: 'Immobile 2 (26%)', lordo: lordo2, aliq: aliq26*100, imp: imp2, rit: rit2, saldo: saldo2});
+      if (nImm >= 2) rows.push({name: 'Immobile 2', lordo: lordo2, aliq: aliq26*100, imp: imp2, rit: rit2, saldo: saldo2});
       rows.push({name: 'TOTALE (1°+2° immobile)', lordo: lordo_tot, aliq: null, imp: tasse_tot, rit: rit_tot, saldo: saldo_tot, bold: true});
 
       document.getElementById('dettaglioBody').innerHTML = rows.map(r => `<tr style="border-bottom:1px solid var(--border)${r.bold ? ';background:#f8fafc;font-weight:800;' : ''}">

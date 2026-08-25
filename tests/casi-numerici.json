@@ -533,6 +533,28 @@
     },
 
     {
+      "file": "/calcolo-locazioni-brevi.html",
+      "caso": "Canone non indicato: niente risultato a zero con le istruzioni per il quadro RB",
+      "norma": "Senza canone non c'e' materia imponibile: il risultato a zero sembrava una risposta",
+      "campi": { "lordo1": "", "regimeFiscale": "cedolare" },
+      "erroreSu": "lordo1"
+    },
+    {
+      "file": "/calcolo-locazioni-brevi.html",
+      "caso": "Cedolare secca al 21% sul primo immobile",
+      "norma": "Art. 4 D.L. 50/2017: 21% sul canone lordo, senza deduzione forfetaria",
+      "campi": { "lordo1": 8000, "regimeFiscale": "cedolare" },
+      "attesi": { "tasseTotOut": 1680, "regimeLabel": "Tasse totali da pagare (cedolare secca)" }
+    },
+    {
+      "file": "/calcolo-locazioni-brevi.html",
+      "caso": "IRPEF ordinaria: l'intestazione non deve continuare a dire cedolare secca",
+      "norma": "Art. 37 c.4-bis TUIR: deduzione forfetaria del 5%, poi aliquota marginale. 8.000 x 0,95 x 33% = 2.508",
+      "campi": { "lordo1": 8000, "regimeFiscale": "irpef", "aliqIRPEF": "33" },
+      "attesi": { "tasseTotOut": 2508, "regimeLabel": "Tasse totali da pagare (IRPEF ordinaria)" }
+    },
+
+    {
       "file": "/calcolo-ferie-permessi.html",
       "caso": "Modulo vuoto: non si risponde che le ferie sono esaurite",
       "norma": "Senza i giorni spettanti non c'e' nulla da calcolare, ma la pagina mostrava il risultato e concludeva che le ferie erano finite",
