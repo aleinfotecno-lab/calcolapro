@@ -168,7 +168,7 @@
       <p class="page-subtitle">Inserisci le tue spese e il reddito desiderato. Il calcolatore trova il prezzo orario minimo per lavorare in modo sostenibile.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -594,8 +594,10 @@
       const ferieRaw = parseFloat(document.getElementById('ferie').value);
       const oreDì    = parseFloat(document.getElementById('ore').value) || 6;
 
-      if (!isNaN(ferieRaw) && (ferieRaw < 0 || ferieRaw > 50)) { mostraErroreCampo('ferie', 'Le settimane di ferie/malattia devono essere comprese tra 0 e 50.'); return; }
-      const ferie = Math.min(50, Math.max(0, isNaN(ferieRaw) ? 6 : ferieRaw));
+      // L'attributo max dell'input dichiara 30 settimane, il controllo JS ne
+      // accettava 50: due limiti che dicevano cose diverse sullo stesso campo.
+      if (!isNaN(ferieRaw) && (ferieRaw < 0 || ferieRaw > 30)) { mostraErroreCampo('ferie', 'Le settimane di ferie e malattia devono essere comprese tra 0 e 30.'); return; }
+      const ferie = Math.min(30, Math.max(0, isNaN(ferieRaw) ? 6 : ferieRaw));
 
       // Reddito lordo mensile necessario (netto + tasse + INPS + spese)
       const lordo = (reddito / (1 - aliquota)) + inps + spese;
@@ -611,9 +613,13 @@
       // Prezzo orario
       const orario = lordoAnno / oreAnno;
 
-      document.getElementById('priceOut').textContent = '€ ' + Math.ceil(orario);
-      document.getElementById('giornalieroOut').textContent = fmt(orario * oreDì);
-      document.getElementById('settimanalOut').textContent = fmt(orario * oreDì * 5);
+      // La tariffa giornaliera e quella settimanale vanno costruite sul prezzo
+      // orario che l'utente vede, non su quello grezzo: 30 euro l'ora accanto a 175
+      // al giorno erano due numeri che non tornavano fra loro.
+      const orarioMostrato = Math.ceil(orario);
+      document.getElementById('priceOut').textContent = '€ ' + orarioMostrato;
+      document.getElementById('giornalieroOut').textContent = fmt(orarioMostrato * oreDì);
+      document.getElementById('settimanalOut').textContent = fmt(orarioMostrato * oreDì * 5);
       document.getElementById('lordoOut').textContent = fmt(lordo);
 
       const res = document.getElementById('result');

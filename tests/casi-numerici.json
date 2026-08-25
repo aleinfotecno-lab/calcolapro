@@ -533,6 +533,60 @@
     },
 
     {
+      "file": "/iva.html",
+      "caso": "Importo non indicato: niente totale a zero euro",
+      "norma": "Il box risultato si apriva con 'TOTALE CON IVA AL 22% / € 0,00', che sembra una risposta",
+      "campi": { "importo": "" },
+      "erroreSu": "importo"
+    },
+    {
+      "file": "/iva.html",
+      "caso": "Scorporo e aggiunta dell'IVA ordinaria",
+      "norma": "Controprova: 1.000 piu' IVA al 22% fa 1.220",
+      "campi": { "importo": 1000 },
+      "attesi": { "priceOut": 1220 }
+    },
+
+    {
+      "file": "/calcolatore-risparmio.html",
+      "caso": "Orizzonte temporale non indicato: non si assumono dieci anni",
+      "norma": "Con parseInt(...)||10 il risultato annunciava 'per raggiungere l'obiettivo in 10 anni', un periodo mai inserito",
+      "pre": ["switchMode('B')"],
+      "campi": { "obiettivo": 100000, "iniziale": 0, "anniB": "" },
+      "erroreSu": "anniB"
+    },
+
+    {
+      "file": "/freelance.html",
+      "caso": "Tariffa giornaliera e settimanale coerenti col prezzo orario mostrato",
+      "norma": "2.000 netti al mese, regime 30%, 6 settimane di ferie, 6 ore al giorno: orario esatto 24,84 arrotondato a 25, quindi 150 al giorno e 750 a settimana",
+      "campi": { "reddito": 2000, "regime": "0.30", "inps": 0, "spese": 0, "ferie": 6, "ore": 6 },
+      "attesi": { "priceOut": 25, "giornalieroOut": 150, "settimanalOut": 750 }
+    },
+    {
+      "file": "/freelance.html",
+      "caso": "Settimane di ferie oltre il massimo dichiarato dall'input",
+      "norma": "L'attributo max dell'input dichiara 30 settimane e il controllo JS ne accettava 50: i due limiti devono coincidere",
+      "campi": { "reddito": 2000, "ferie": 40 },
+      "erroreSu": "ferie"
+    },
+
+    {
+      "file": "/affitto.html",
+      "caso": "Gli altri redditi non si moltiplicano per i conviventi",
+      "norma": "Il reddito inserito e' pro-capite, gli altri redditi sono del nucleo: (1.800 x 2) + 500 = 4.100, il 30% e' 1.230 e non 1.380",
+      "campi": { "reddito": 1800, "altriRedditi": 500, "conviventi": 2, "bollette": 0, "speseFisse": 0, "risparmio": 0 },
+      "attesi": { "priceOut": 1230, "regola30Out": 1230 }
+    },
+    {
+      "file": "/affitto.html",
+      "caso": "Reddito non indicato: niente semaforo rosso sui campi vuoti",
+      "norma": "A modulo vuoto usciva '0 euro/mese' con l'avviso che le spese fisse superavano gia' il reddito disponibile",
+      "campi": { "reddito": "", "conviventi": 2 },
+      "erroreSu": "reddito"
+    },
+
+    {
       "file": "/calcolo-locazioni-brevi.html",
       "caso": "Canone non indicato: niente risultato a zero con le istruzioni per il quadro RB",
       "norma": "Senza canone non c'e' materia imponibile: il risultato a zero sembrava una risposta",

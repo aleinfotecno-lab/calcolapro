@@ -179,7 +179,7 @@
       <p class="page-subtitle">Inserisci il tuo reddito e scopri l'affitto massimo sostenibile, quanto ti rimane per le spese e se stai rischiando uno squilibrio finanziario.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 16/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -218,7 +218,7 @@
           <p class="hint" id="reddito-help">Il tuo stipendio o guadagno netto individuale dopo le tasse — non il totale familiare</p>
         </div>
         <div class="field">
-          <label for="altriRedditi">Altri redditi mensili (opzionale)</label>
+          <label for="altriRedditi">Altri redditi mensili del nucleo (opzionale)</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
             <input type="number" id="altriRedditi" value="0" min="0" class="has-prefix" aria-describedby="altriRedditi-help" />
@@ -243,7 +243,7 @@
           Le tue spese fisse
         </div>
         <div class="field">
-          <label for="bollette">Bollette e utenze mensili stimate</label>
+          <label for="bollette">Bollette e utenze mensili del nucleo</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
             <input type="number" id="bollette" value="150" min="0" class="has-prefix" aria-describedby="bollette-help" />
@@ -251,7 +251,7 @@
           <p class="hint" id="bollette-help">Luce, gas, acqua, internet, telefono</p>
         </div>
         <div class="field">
-          <label for="speseFisse">Altre spese fisse mensili</label>
+          <label for="speseFisse">Altre spese fisse mensili del nucleo</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
             <input type="number" id="speseFisse" value="200" min="0" class="has-prefix" aria-describedby="speseFisse-help" />
@@ -532,15 +532,47 @@
       return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
     }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
     function calcola() {
-      const reddito      = parseFloat(document.getElementById('reddito').value) || 0;
+      pulisciErroreCampo('reddito');
+      const reddito      = parseFloat(document.getElementById('reddito').value);
+      if (!Number.isFinite(reddito) || reddito <= 0) {
+        mostraErroreCampo('reddito', 'Inserisci il tuo reddito netto mensile.');
+        return;
+      }
       const altriRedditi = parseFloat(document.getElementById('altriRedditi').value) || 0;
       const conviventi   = parseFloat(document.getElementById('conviventi').value) || 1;
       const bollette     = parseFloat(document.getElementById('bollette').value) || 0;
       const speseFisse   = parseFloat(document.getElementById('speseFisse').value) || 0;
       const risparmio    = parseFloat(document.getElementById('risparmio').value) || 0;
 
-      const redditoTotale = (reddito + altriRedditi) * conviventi;
+      // Il reddito inserito e' pro-capite e va moltiplicato per chi contribuisce,
+      // ma gli altri redditi sono del nucleo e non vanno moltiplicati: farlo
+      // gonfiava l'affitto sostenibile del 12% con due conviventi.
+      const redditoTotale = reddito * conviventi + altriRedditi;
       const regola30 = redditoTotale * 0.30;
       const affittoMax = redditoTotale - bollette - speseFisse - risparmio;
       const affittoConsigliato = Math.max(0, Math.min(regola30, affittoMax));
