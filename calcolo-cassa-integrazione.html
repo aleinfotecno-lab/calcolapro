@@ -174,7 +174,7 @@
       <p class="page-subtitle">Stima l'importo netto della cassa integrazione ordinaria (CIGO) e straordinaria (CIGS): l'80% della retribuzione persa, entro il massimale INPS 2026. Gratuito, immediato, nessuna registrazione.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 17/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -243,8 +243,8 @@
           <div class="result-unit">al mese (netto della riduzione INPS, ancora soggetto a IRPEF)</div>
           <div class="result-breakdown">
             <div class="breakdown-item"><div class="breakdown-value" id="lordoOut">—</div><div class="breakdown-label">indennità lorda (80%)</div></div>
-            <div class="breakdown-item"><div class="breakdown-value" id="redditoOut">—</div><div class="breakdown-label">reddito mensile stimato</div></div>
-            <div class="breakdown-item"><div class="breakdown-value" id="perditaOut">—</div><div class="breakdown-label">perdita vs stipendio pieno</div></div>
+            <div class="breakdown-item"><div class="breakdown-value" id="redditoOut">—</div><div class="breakdown-label">reddito mensile lordo</div></div>
+            <div class="breakdown-item"><div class="breakdown-value" id="perditaOut">—</div><div class="breakdown-label">perdita sul lordo</div></div>
             <div class="breakdown-item"><div class="breakdown-value" id="totaleOut">—</div><div class="breakdown-label">totale indennità</div></div>
           </div>
           <div id="alertBox" style="margin-top:16px;"></div>
@@ -488,9 +488,11 @@
 
     function calcola() {
       const retribuzione = parseFloat(document.getElementById('retribuzione').value) || 0;
-      let pct = parseFloat(document.getElementById('percentuale').value);
-      if (isNaN(pct)) pct = 100;
-      pct = Math.min(Math.max(pct, 0), 100);
+      // La percentuale di orario sospeso non e' surrogabile con un default: l'art. 3
+      // del D.Lgs. 148/2015 commisura l'integrazione alle ore effettivamente non
+      // prestate. A campo vuoto il calcolo procedeva come sospensione totale.
+      const pctRaw = parseFloat(document.getElementById('percentuale').value);
+      const pct = Number.isFinite(pctRaw) ? Math.min(Math.max(pctRaw, 0), 100) : 0;
       const mesi = Math.min(Math.max(parseInt(document.getElementById('mesi').value) || 1, 1), 24);
       const tipo = document.getElementById('tipo').value;
 
@@ -521,7 +523,11 @@
       }
 
       const retribuzioneLavorata = retribuzione * (1 - frazione);
-      const redditoMensile = retribuzioneLavorata + indennitaNetta;
+      // Il confronto va fatto sullo stesso piano. Sommare alla retribuzione LORDA
+      // delle ore lavorate un'indennita' gia' al netto del 5,84% e poi sottrarre
+      // il tutto dalla retribuzione lorda piena sovrastimava la perdita di circa il
+      // 22%: era come togliere due volte la contribuzione da una sola delle due voci.
+      const redditoMensile = retribuzioneLavorata + indennitaLorda;
       const perdita = retribuzione - redditoMensile;
       const pctPersaCoperta = retribuzionePersa > 0 ? (indennitaNetta / retribuzionePersa) * 100 : 0;
       const totaleIndennita = indennitaNetta * mesi;

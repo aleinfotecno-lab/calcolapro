@@ -533,6 +533,35 @@
     },
 
     {
+      "file": "/calcolo-cassa-integrazione.html",
+      "caso": "Confronto lordo su lordo, non lordo contro netto",
+      "norma": "Art. 3 D.Lgs. 148/2015 e art. 26 L. 41/1986. Sommare alla retribuzione lorda un'indennita' gia' ridotta del 5,84% sovrastimava la perdita: 1.800 - 1.423,69 = 376,31, non 459,44",
+      "campi": { "retribuzione": 1800, "percentuale": 100, "mesi": 1 },
+      "attesi": { "lordoOut": 1423.69, "nettoOut": 1340.56, "redditoOut": 1423.69, "perditaOut": 376.31 }
+    },
+    {
+      "file": "/calcolo-cassa-integrazione.html",
+      "caso": "Sotto il massimale: 80% pieno e perdita del 20%",
+      "norma": "Controprova senza tetto: 1.500 x 80% = 1.200 lordi, perdita 300",
+      "campi": { "retribuzione": 1500, "percentuale": 100, "mesi": 1 },
+      "attesi": { "lordoOut": 1200, "perditaOut": 300 }
+    },
+    {
+      "file": "/calcolo-cassa-integrazione.html",
+      "caso": "Sospensione parziale: il massimale si proporziona alle ore",
+      "norma": "Con il 50% sospeso il tetto vale 711,85 e le ore lavorate restano lorde: reddito 1.611,85",
+      "campi": { "retribuzione": 1800, "percentuale": 50, "mesi": 1 },
+      "attesi": { "lordoOut": 711.85, "redditoOut": 1611.85, "perditaOut": 188.15 }
+    },
+    {
+      "file": "/calcolo-cassa-integrazione.html",
+      "caso": "Percentuale non indicata: non si assume la sospensione totale",
+      "norma": "L'art. 3 D.Lgs. 148/2015 commisura l'integrazione alle ore non prestate: il dato non e' surrogabile con un default del 100%",
+      "campi": { "retribuzione": 1800, "percentuale": "", "mesi": 1 },
+      "attesi": { "redditoOut": "—", "perditaOut": "—" }
+    },
+
+    {
       "file": "/calcolo-eta.html",
       "caso": "Giorni totali immuni all'ora legale",
       "norma": "Fra una nascita invernale e una data estiva le due mezzanotte locali distano 3.600.000 ms in meno di un multiplo di 24 ore, e Math.floor scartava un giorno. Dal 15/01/1990 al 20/08/2026 sono 13.366 giorni",
