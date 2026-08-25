@@ -176,7 +176,7 @@
       <p class="page-subtitle">Quant'è il costo reale di un dipendente per l'azienda? Scopri il totale mensile e annuale: stipendio lordo, contributi INPS datoriali, INAIL e TFR. Utile per PMI, startup e liberi professionisti che vogliono assumere.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 21/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -660,7 +660,11 @@
       // L'apprendista versa il 5,84% e non il 9,19%: prima il suo netto usciva
       // identico a quello di un lavoratore ordinario.
       const aliqDip = contratto === 'apprendistato' ? 0.0584 : 0.0919;
-      const contributiDip = ralAnnua * aliqDip;
+      // Art. 3-ter D.L. 384/1992: 1% in piu' sulla quota oltre la prima fascia di
+      // retribuzione pensionabile, 56.224 euro per il 2026 (circolare INPS 6/2026).
+      // Stessa regola di lordonetto.html, che resta il riferimento.
+      const PRIMA_FASCIA = 56224;
+      const contributiDip = ralAnnua * aliqDip + Math.max(0, ralAnnua - PRIMA_FASCIA) * 0.01;
       const imponibileIRPEF = ralAnnua - contributiDip;
       let irpef = 0;
       if (imponibileIRPEF <= 28000) irpef = imponibileIRPEF * 0.23;

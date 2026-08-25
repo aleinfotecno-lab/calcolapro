@@ -245,30 +245,45 @@
       "file": "/lordonetto.html",
       "caso": "RAL 30.000: taglio del cuneo con l'ulteriore detrazione da 1.000 euro",
       "norma": "L. 207/2024 art. 1 c.4-9. Imponibile 27.243, dentro la fascia 20.000-32.000: detrazione piena di 1.000",
-      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "nord": "0" },
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
       "attesi": { "priceOut": 23106, "irpefOut": 4137, "inpsOut": 2757 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "RAL 45.000: sopra i 40.000 di imponibile il cuneo non spetta piu'",
       "norma": "Controprova del gate: imponibile 40.864 supera i 40.000, ulteriore detrazione azzerata",
-      "campi": { "importo": 45000, "tipo": "lordo", "mensilita": 13, "figli": 0, "nord": "0" },
+      "campi": { "importo": 45000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
       "attesi": { "priceOut": 29702, "irpefOut": 11162 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Modalita' inversa: da 20.000 netti risale al lordo",
       "norma": "Bisezione su bustaPaga(). Prima la modalita' netto->lordo non scriveva il lordo a schermo",
-      "campi": { "importo": 20000, "tipo": "netto", "mensilita": 13, "figli": 0, "nord": "0" },
+      "campi": { "importo": 20000, "tipo": "netto", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
       "attesi": { "priceOut": 24729 }
     },
 
     {
       "file": "/lordonetto.html",
-      "caso": "Sud e isole: addizionale regionale piu bassa",
-      "norma": "Controprova del ramo geografico: 1,23% invece di 1,73% sull imponibile di 27.243",
-      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "nord": "1" },
+      "caso": "Aliquota regionale minima di legge (1,23%)",
+      "norma": "Controprova: 1,23% e la aliquota BASE del D.Lgs. 68/2011, non quella del Sud. Su 27.243 di imponibile",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.23, "addComunale": 0.50 },
       "attesi": { "priceOut": 23242 }
+    },
+
+    {
+      "file": "/lordonetto.html",
+      "caso": "Sopra la prima fascia scatta l'aliquota aggiuntiva dell'1%",
+      "norma": "Art. 3-ter D.L. 384/1992: 1% sulla quota oltre 56.224 euro (circolare INPS 6/2026). Su RAL 78.000 i contributi sono 7.168,20 + 217,76",
+      "campi": { "importo": 78000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
+      "attesi": { "priceOut": 46475, "inpsOut": 7386 }
+    },
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Anche qui l'1% sopra la prima fascia, e il netto resta allineato a lordonetto",
+      "norma": "Stessa regola e stesso motore di lordonetto.html: RAL 78.000 da' 46.475,31 l'anno, cioe' 3.872,94 al mese",
+      "campi": { "stipendio": 6000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1", "sgravioSud": false },
+      "attesi": { "nettoStimOut": 3872.94 }
     },
 
     {
