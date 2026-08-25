@@ -533,6 +533,35 @@
     },
 
     {
+      "file": "/calcolatore-interessi-conto-deposito.html",
+      "caso": "Interessi a scadenza: nessuna capitalizzazione",
+      "norma": "50.000 al 4% per 36 mesi in interesse semplice: 6.000 lordi, ritenuta 26%, bollo 0,20% annuo sulla giacenza rendicontata",
+      "campi": { "capitale": 50000, "tasso": 4, "durata": "36", "liquidazione": "scadenza", "reinvesto": "no" },
+      "attesi": { "interessiLordiOut": 6000, "bolloOut": 308.88, "interessiNettiOut": 4131.12 }
+    },
+    {
+      "file": "/calcolatore-interessi-conto-deposito.html",
+      "caso": "Interessi mensili lasciati sul conto: si capitalizzano",
+      "norma": "Il campo prima non cambiava nulla. Con accredito mensile del netto il saldo cresce e i mesi successivi maturano su una base piu' alta",
+      "campi": { "capitale": 50000, "tasso": 4, "durata": "36", "liquidazione": "mensile", "reinvesto": "si" },
+      "attesi": { "interessiLordiOut": 6266.39, "interessiNettiOut": 4318.76 }
+    },
+    {
+      "file": "/calcolatore-interessi-conto-deposito.html",
+      "caso": "Interessi mensili accreditati altrove: nessuna capitalizzazione",
+      "norma": "Controprova: se gli interessi lasciano il conto il capitale resta fermo e il risultato torna quello dell'interesse semplice",
+      "campi": { "capitale": 50000, "tasso": 4, "durata": "36", "liquidazione": "mensile", "reinvesto": "no" },
+      "attesi": { "interessiNettiOut": 4131.12 }
+    },
+    {
+      "file": "/calcolatore-interessi-conto-deposito.html",
+      "caso": "Bollo sulla giacenza rendicontata, non sul capitale iniziale",
+      "norma": "Art. 13 c.2-ter Tariffa DPR 642/1972: 0,20% sulla giacenza di fine periodo. Su 10.000 al 3,5% per 12 mesi il saldo a fine anno e' 10.259 e il bollo 20,52, non 20,00",
+      "campi": { "capitale": 10000, "tasso": 3.5, "durata": "12", "liquidazione": "scadenza", "reinvesto": "no" },
+      "attesi": { "bolloOut": 20.52, "interessiNettiOut": 238.48 }
+    },
+
+    {
       "file": "/calcolo-cassa-integrazione.html",
       "caso": "Confronto lordo su lordo, non lordo contro netto",
       "norma": "Art. 3 D.Lgs. 148/2015 e art. 26 L. 41/1986. Sommare alla retribuzione lorda un'indennita' gia' ridotta del 5,84% sovrastimava la perdita: 1.800 - 1.423,69 = 376,31, non 459,44",

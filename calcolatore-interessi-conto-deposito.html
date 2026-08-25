@@ -209,7 +209,7 @@
     <p class="page-subtitle">Calcola gli interessi netti del tuo conto deposito dopo tassazione 26% e imposta di bollo 0,20%. Confronta rendimento lordo e netto. Gratuito e immediato.</p>
     <div class="article-meta">
       <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-      <span>📅 Aggiornato il 17/08/2026</span>
+      <span>📅 Aggiornato il 22/08/2026</span>
     </div>
   </div>
 </div>
@@ -272,6 +272,14 @@
           <option value="mensile">Mensili</option>
           <option value="trimestrale">Trimestrali</option>
         </select>
+      </div>
+      <div class="field">
+        <label for="reinvesto">Gli interessi restano sul conto?</label>
+        <select id="reinvesto" aria-describedby="reinvesto-help">
+          <option value="si" selected>Sì, si sommano al capitale</option>
+          <option value="no">No, vengono accreditati altrove</option>
+        </select>
+        <p class="hint" id="reinvesto-help">È questo, e non la sola periodicità, a cambiare il risultato. Se gli interessi liquidati <strong>restano sul conto</strong> il capitale cresce e i mesi successivi maturano su un saldo più alto: è l'interesse composto. Se invece finiscono su un altro conto, il capitale resta fermo e gli interessi sono semplici. Con liquidazione <strong>alla scadenza</strong> non c'è nulla da capitalizzare, quindi la scelta non ha effetto.</p>
       </div>
     </div>
 
@@ -565,6 +573,7 @@
     const mesi = parseInt(document.getElementById('durata').value) || 12;
     const tipo = document.getElementById('tipo').value;
     const liquidazione = document.getElementById('liquidazione').value;
+    const reinveste = document.getElementById('reinvesto').value === 'si';
 
     if (capitale <= 0 || tasso <= 0) {
       if (capitale <= 0) mostraErroreCampo('capitale', 'Inserisci capitale e tasso validi.');
@@ -573,18 +582,43 @@
       return;
     }
 
-    const frazione = mesi / 12;
-
-    // Calcolo base
-    const interessiLordi = capitale * (tasso / 100) * frazione;
-    const ritenuta = interessiLordi * 0.26;
-    const bollo = capitale * 0.002 * frazione;
+    // Simulazione mese per mese. Serve per tre cose che la formula secca non sapeva
+    // fare: capitalizzare gli interessi quando restano sul conto, trattenere la
+    // ritenuta al momento di ogni accredito, e calcolare il bollo sulla giacenza
+    // rendicontata invece che sul capitale iniziale.
+    const passo = liquidazione === 'mensile' ? 1 : (liquidazione === 'trimestrale' ? 3 : 0);
+    const capitalizza = passo > 0 && reinveste;
+    let saldo = capitale, maturato = 0;
+    let interessiLordi = 0, ritenuta = 0, bollo = 0;
+    for (let m = 1; m <= mesi; m++) {
+      // Senza capitalizzazione gli interessi maturano sempre sul capitale iniziale.
+      const base = capitalizza ? saldo : capitale;
+      const lordoMese = base * (tasso / 100) / 12;
+      interessiLordi += lordoMese;
+      maturato += lordoMese;
+      const liquida = capitalizza ? (m % passo === 0) : (m === mesi);
+      if (liquida) {
+        const rit = maturato * 0.26;
+        ritenuta += rit;
+        saldo += maturato - rit;
+        maturato = 0;
+      }
+      // Rendicontazione: il bollo dello 0,20% annuo si applica alla giacenza di
+      // fine periodo, non al capitale di partenza.
+      if (m % 12 === 0 || m === mesi) {
+        const quotaAnno = (m % 12 === 0) ? 1 : (m % 12) / 12;
+        bollo += saldo * 0.002 * quotaAnno;
+      }
+    }
     const interessiNetti = interessiLordi - ritenuta - bollo;
-    const rendimentoNetto = (interessiNetti / capitale) * 100;
     const capitaleFinale = capitale + interessiNetti;
+    // Rendimento del PERIODO, e accanto il suo equivalente su base annua: sono due
+    // numeri diversi e prima ne compariva uno solo, col nome del secondo.
+    const rendimentoNetto = (interessiNetti / capitale) * 100;
+    const rendimentoAnnuo = (Math.pow(1 + interessiNetti / capitale, 12 / mesi) - 1) * 100;
 
     document.getElementById('interessiNettiOut').textContent = fmtEur(interessiNetti);
-    document.getElementById('rendimentoNettoOut').textContent = 'Rendimento netto: ' + fmtPct(rendimentoNetto) + ' (' + mesi + ' mesi)';
+    document.getElementById('rendimentoNettoOut').textContent = 'Rendimento netto ' + fmtPct(rendimentoNetto) + ' sui ' + mesi + ' mesi, pari a ' + fmtPct(rendimentoAnnuo) + ' annuo';
     document.getElementById('interessiLordiOut').textContent = fmtEur(interessiLordi);
     document.getElementById('ritenutaOut').textContent = '- ' + fmtEur(ritenuta);
     document.getElementById('bolloOut').textContent = '- ' + fmtEur(bollo);
@@ -594,9 +628,11 @@
     const tipoLabel = tipo === 'vincolato' ? 'vincolato' : 'libero';
     const liquidLabel = liquidazione === 'scadenza' ? 'alla scadenza' : (liquidazione === 'mensile' ? 'mensili' : 'trimestrali');
     alertEl.className = 'alert-box alert-info';
-    alertEl.innerHTML = 'ℹ️ Conto deposito <strong>' + tipoLabel + '</strong> con interessi liquidati <strong>' + liquidLabel + '</strong>. '
-      + 'Su ' + fmtEur(capitale) + ' al ' + tasso.toFixed(1).replace('.', ',') + '% lordo per ' + mesi + ' mesi, '
-      + 'il rendimento netto effettivo è <strong>' + fmtPct(rendimentoNetto) + '</strong> dopo ritenuta 26% e imposta di bollo 0,20%.';
+    alertEl.innerHTML = 'ℹ️ Conto deposito <strong>' + tipoLabel + '</strong> con interessi liquidati <strong>' + liquidLabel + '</strong>'
+      + (capitalizza ? ' e lasciati sul conto, quindi <strong>capitalizzati</strong>' : (passo > 0 ? ' e accreditati altrove, quindi <strong>senza capitalizzazione</strong>' : '')) + '. '
+      + 'Su ' + fmtEur(capitale) + ' al ' + tasso.toFixed(1).replace('.', ',') + '% lordo per ' + mesi + ' mesi, dopo ritenuta del 26% e imposta di bollo dello 0,20%, '
+      + 'restano <strong>' + fmtEur(interessiNetti) + '</strong>: il <strong>' + fmtPct(rendimentoNetto) + '</strong> sull\'intero periodo, che equivale al <strong>' + fmtPct(rendimentoAnnuo) + ' annuo</strong>. '
+      + 'Il secondo e\' il numero da confrontare con il tasso lordo dichiarato dalla banca, che e\' anch\'esso annuo.';
 
     const res = document.getElementById('result');
     res.style.display = 'block';
