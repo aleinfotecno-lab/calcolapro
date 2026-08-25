@@ -533,6 +533,35 @@
     },
 
     {
+      "file": "/calcolo-ferie-permessi.html",
+      "caso": "Modulo vuoto: non si risponde che le ferie sono esaurite",
+      "norma": "Senza i giorni spettanti non c'e' nulla da calcolare, ma la pagina mostrava il risultato e concludeva che le ferie erano finite",
+      "campi": { "ferieSpettanti": "", "ferieGodute": "", "feriePrecedenti": "", "permessiSpettanti": "", "permessiGoduti": "", "stipendioLordo": "" },
+      "erroreSu": "ferieSpettanti"
+    },
+    {
+      "file": "/calcolo-ferie-permessi.html",
+      "caso": "Ferie godute in anticipo: il saldo negativo non si azzera in silenzio",
+      "norma": "26 spettanti, 30 godute, 5 arretrate: il saldo e' +1 giorno. I permessi, 88 spettanti e 100 goduti, sono -12 ore",
+      "campi": { "ferieSpettanti": 26, "ferieGodute": 30, "feriePrecedenti": 5, "permessiSpettanti": 88, "permessiGoduti": 100, "stipendioLordo": 2000, "divisoreOre": 173 },
+      "attesi": { "priceOut": 1, "permessiOut": "-12 ore" }
+    },
+    {
+      "file": "/calcolo-ferie-permessi.html",
+      "caso": "Caso normale: nulla cambia rispetto a prima",
+      "norma": "Controprova: 26 spettanti e 10 godute danno 16 giorni. Valore dei permessi con divisore 173: 2.000/173 x 64",
+      "campi": { "ferieSpettanti": 26, "ferieGodute": 10, "feriePrecedenti": 0, "permessiSpettanti": 88, "permessiGoduti": 24, "stipendioLordo": 2000, "divisoreOre": 173 },
+      "attesi": { "priceOut": 16, "permessiOut": "64 ore", "valorePermessiOut": 740 }
+    },
+    {
+      "file": "/calcolo-ferie-permessi.html",
+      "caso": "Divisore contrattuale invece delle ore lavorate nel mese",
+      "norma": "Con 8 x 22 = 176 il valore usciva 727. Col divisore 168 del CCNL Terziario sono 2.000/168 x 64 = 761,90",
+      "campi": { "ferieSpettanti": 26, "ferieGodute": 26, "feriePrecedenti": 0, "permessiSpettanti": 64, "permessiGoduti": 0, "stipendioLordo": 2000, "divisoreOre": 168 },
+      "attesi": { "valorePermessiOut": 762 }
+    },
+
+    {
       "file": "/calcolatore-interessi-conto-deposito.html",
       "caso": "Interessi a scadenza: nessuna capitalizzazione",
       "norma": "50.000 al 4% per 36 mesi in interesse semplice: 6.000 lordi, ritenuta 26%, bollo 0,20% annuo sulla giacenza rendicontata",

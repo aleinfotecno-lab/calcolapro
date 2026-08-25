@@ -171,7 +171,7 @@
       <p class="page-subtitle">Calcola quante ferie ti restano da godere, quanti permessi ROL hai disponibili e il loro valore economico in caso di liquidazione.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 21/08/2026</span>
+        <span>📅 Aggiornato il 22/08/2026</span>
       </div>
     </div>
   </div>
@@ -240,6 +240,11 @@
             <option value="7">7 ore</option>
             <option value="8" selected>8 ore (full-time standard)</option>
           </select>
+        </div>
+        <div class="field">
+          <label for="divisoreOre">Divisore orario del CCNL</label>
+          <input type="number" id="divisoreOre" value="173" min="100" max="220" step="1" aria-describedby="divisoreOre-help"/>
+          <p class="hint" id="divisoreOre-help">Serve a convertire lo stipendio mensile in paga oraria per valorizzare i permessi. Non è il numero di ore lavorate nel mese: è il <strong>divisore convenzionale</strong> fissato dal contratto, che nasce da <strong>ore settimanali × 52 ÷ 12</strong> e vale <strong>173</strong> nel CCNL Metalmeccanica industria e <strong>168</strong> nel Terziario. Si aggiorna da solo quando cambi le ore giornaliere, ma puoi correggerlo con quello del tuo contratto.</p>
         </div>
       </div>
 
@@ -481,6 +486,34 @@
 
     function fmt(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);}
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field') || input.parentElement;
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+
+    document.getElementById('oreGiornaliere').addEventListener('change', function () {
+      document.getElementById('divisoreOre').value = Math.round(parseFloat(this.value) * 5 * 52 / 12);
+    });
+
     function calcola() {
       const ferieSpettanti = parseFloat(document.getElementById('ferieSpettanti').value) || 0;
       const ferieGodute = parseFloat(document.getElementById('ferieGodute').value) || 0;
@@ -489,16 +522,29 @@
       const permessiGoduti = parseFloat(document.getElementById('permessiGoduti').value) || 0;
       const stipendioLordo = parseFloat(document.getElementById('stipendioLordo').value) || 0;
       const oreGiornaliere = parseFloat(document.getElementById('oreGiornaliere').value) || 8;
+      const divisoreOre = parseFloat(document.getElementById('divisoreOre').value) || Math.round(oreGiornaliere * 5 * 52 / 12);
 
-      const ferieResidueAnno = Math.max(0, ferieSpettanti - ferieGodute);
+      // Senza i giorni spettanti non c'e' nulla da calcolare: prima la pagina
+      // rispondeva comunque, e concludeva che le ferie erano esaurite.
+      pulisciErroreCampo('ferieSpettanti');
+      if (!Number.isFinite(parseFloat(document.getElementById('ferieSpettanti').value)) || ferieSpettanti <= 0) {
+        mostraErroreCampo('ferieSpettanti', 'Inserisci i giorni di ferie che ti spettano nell\'anno.');
+        return;
+      }
+
+      // Il saldo puo' essere negativo, e in quel caso e' l'informazione piu' utile della
+      // pagina: chi ha goduto piu' giorni di quanti ne ha maturati li ha presi in
+      // anticipo. Azzerarlo con Math.max(0, ...) lo nascondeva proprio a chi serviva.
+      const ferieResidueAnno = ferieSpettanti - ferieGodute;
       const ferieTotali = ferieResidueAnno + feriePrecedenti;
-      const permessiResidui = Math.max(0, permessiSpettanti - permessiGoduti);
+      const permessiResidui = permessiSpettanti - permessiGoduti;
 
       // Valore economico: stipendio lordo / 26 giorni convenzionali per le ferie
       const valoreFerie = stipendioLordo > 0 ? (stipendioLordo / 26) * ferieTotali : 0;
-      // Valore permessi: stipendio lordo / (ore mensili) * ore residue
-      const oreMensili = oreGiornaliere * 22;
-      const valorePermessi = stipendioLordo > 0 ? (stipendioLordo / oreMensili) * permessiResidui : 0;
+      // Valore permessi. Il divisore non e' il prodotto dei giorni lavorati nel mese:
+      // e' il divisore convenzionale del CCNL, che nasce da ore settimanali x 52 / 12.
+      // Con 8 x 22 = 176 il valore usciva sottostimato del 3-4%.
+      const valorePermessi = stipendioLordo > 0 ? (stipendioLordo / divisoreOre) * permessiResidui : 0;
 
       document.getElementById('priceOut').textContent = ferieTotali;
       document.getElementById('permessiOut').textContent = permessiResidui.toFixed(0) + ' ore';
@@ -509,7 +555,15 @@
       const today = new Date();
       const monthsLeft = 12 - today.getMonth();
 
-      if (ferieTotali > 20 && monthsLeft < 4) {
+      const inAnticipo = ferieResidueAnno < 0 || permessiResidui < 0;
+      if (inAnticipo) {
+        alertEl.className = 'alert alert-warning';
+        alertEl.innerHTML = '⚠️ <strong>Hai già usufruito di più di quanto maturato.</strong> ' +
+          (ferieResidueAnno < 0 ? 'Ferie dell\'anno: ' + Math.abs(ferieResidueAnno) + ' giorni goduti in anticipo. ' : '') +
+          (permessiResidui < 0 ? 'Permessi: ' + Math.abs(permessiResidui).toFixed(0) + ' ore godute in anticipo. ' : '') +
+          'Non è un errore di per sé, molti contratti lo consentono, ma quei giorni e quelle ore verranno scalati da quanto maturerai nei mesi successivi.' +
+          (ferieTotali >= 0 && ferieResidueAnno < 0 ? ' Il saldo complessivo resta positivo grazie alle ferie arretrate.' : '');
+      } else if (ferieTotali > 20 && monthsLeft < 4) {
         alertEl.className = 'alert alert-warning';
         alertEl.innerHTML = '⚠️ <strong>Attenzione:</strong> hai ancora <strong>' + ferieTotali + ' giorni</strong> di ferie da godere e mancano pochi mesi alla fine dell\'anno. Rischi di perdere le ferie che eccedono il limite contrattuale.';
       } else if (ferieTotali > 30) {
