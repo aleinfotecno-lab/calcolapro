@@ -45,19 +45,100 @@
   }
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Come si calcolano gli interessi di mora su una fattura non pagata?","acceptedAnswer":{"@type":"Answer","text":"Per le transazioni commerciali (B2B), si applica il D.Lgs. 231/2002: gli interessi di mora decorrono automaticamente dal giorno successivo alla scadenza pattuita (o ai 30 giorni dalla data fattura se non concordato). Il tasso è: tasso di riferimento BCE semestralmente vigente + 8 punti percentuali. Formula: Interessi = Capitale × (Tasso mora / 365) × Giorni di ritardo."}},
-    {"@type":"Question","name":"Qual è il tasso di mora per le transazioni commerciali nel 2026?","acceptedAnswer":{"@type":"Answer","text":"Per il secondo semestre 2026 (1° luglio - 31 dicembre) il tasso di riferimento è il 2,40%, quindi il tasso di mora commerciale è il 10,40%: lo ha fissato il comunicato MEF pubblicato in Gazzetta Ufficiale n. 163 del 16 luglio 2026. Nel primo semestre 2026 era il 10,15%. La regola non cambia mai: tasso di riferimento BCE del primo giorno del semestre più 8 punti percentuali."}},
-    {"@type":"Question","name":"Cos'è l'indennità forfettaria di recupero del credito?","acceptedAnswer":{"@type":"Answer","text":"Il D.Lgs. 231/2002 (art. 6) prevede, per ogni transazione commerciale in ritardo, un'indennità forfettaria fissa di €40 per i costi di recupero del credito, indipendentemente dall'importo del credito. Questa indennità si aggiunge agli interessi di mora ed è dovuta automaticamente, senza bisogno di messa in mora. Resta salvo il diritto al risarcimento del maggior danno se documentato."}},
-    {"@type":"Question","name":"Quando decorrono gli interessi di mora senza accordo contrattuale?","acceptedAnswer":{"@type":"Answer","text":"Nelle transazioni commerciali (D.Lgs. 231/2002): se non è indicata una scadenza nel contratto/fattura, gli interessi decorrono automaticamente dopo 30 giorni dalla ricezione della fattura (o della merce/servizio). Se la scadenza è pattuita, gli interessi decorrono dal giorno successivo alla scadenza. Non occorre alcuna messa in mora formale."}},
-    {"@type":"Question","name":"Gli interessi di mora tra privati (non commerciali) si calcolano diversamente?","acceptedAnswer":{"@type":"Answer","text":"Sì. Per i crediti civili tra privati (non transazioni commerciali tra imprese), si applica il tasso legale, stabilito annualmente dal MEF con decreto ministeriale. Il tasso legale è fissato ogni anno dal MEF con decreto: per il 2026 è l'1,60% (D.M. 10 dicembre 2025, G.U. n. 289 del 13 dicembre 2025), dopo il 2,00% del 2025 e il 2,50% del 2024. Gli interessi moratori tra privati di solito richiedono anche una messa in mora formale (raccomandata/PEC)."}},
-    {"@type":"Question","name":"Posso richiedere anche le spese legali oltre agli interessi di mora?","acceptedAnswer":{"@type":"Answer","text":"Sì. Oltre agli interessi di mora e all'indennità forfettaria, puoi richiedere il risarcimento integrale dei costi di recupero del credito (spese legali, spese di sollecito, costi di consulenza) se dimostri che sono superiori all'indennità forfettaria. In caso di ricorso a decreto ingiuntivo, le spese legali sono generalmente condannate a carico del debitore inadempiente."}},
-    {"@type":"Question","name":"L'indennità forfettaria si somma agli interessi?","acceptedAnswer":{"@type":"Answer","text":"Sì. L'indennità forfettaria di recupero crediti (€40 fissi, indipendentemente dall'importo del credito) si somma separatamente agli interessi di mora. Non è soggetta a IVA. Nella richiesta di pagamento, presentala come voce separata rispetto agli interessi di mora calcolati sulla base del tasso BCE + 8%."}},
-    {"@type":"Question","name":"Come invio la richiesta di interessi di mora?","acceptedAnswer":{"@type":"Answer","text":"Invia una raccomandata A/R o PEC all'indirizzo legale del debitore. Nella richiesta specifica: importo del credito, data di scadenza, numero di giorni di ritardo, tasso di mora applicato (BCE % + 8%), totale interessi maturati e indennità forfettaria richiesta. Il calcolatore genera il testo da usare. Conserva copia di tutti i documenti."}},
-    {"@type":"Question","name":"Il cliente può rifiutarsi di pagare gli interessi di mora?","acceptedAnswer":{"@type":"Answer","text":"No, se il rapporto rientra nel D.Lgs. 231/2002. Il diritto agli interessi di mora decorre automaticamente senza bisogno di messa in mora. In caso di contestazione, puoi agire con decreto ingiuntivo. Le clausole contrattuali che escludono o limitano gli interessi di mora sono nulle se \"gravemente inique\" ai sensi del D.Lgs. 231/2002."}},
-    {"@type":"Question","name":"Gli interessi di mora vanno in fattura?","acceptedAnswer":{"@type":"Answer","text":"Sì, se decidi di emetterli formalmente. Gli interessi di mora costituiscono un corrispettivo imponibile IVA se pagati da soggetti passivi. Emetti una nota di debito separata con dicitura \"interessi di mora ex D.Lgs. 231/2002\" e specifica il periodo di maturazione. L'indennità forfettaria è invece esente IVA (compensazione danni, non corrispettivo)."}},
-    {"@type":"Question","name":"Il D.Lgs. 231/2002 si applica anche ai contratti con privati consumatori?","acceptedAnswer":{"@type":"Answer","text":"No. Il D.Lgs. 231/2002 si applica solo alle transazioni commerciali, cioè tra imprese e/o tra imprese e pubblica amministrazione. Per i crediti verso privati consumatori si applica l'art. 1284 del Codice Civile con il tasso legale (1,60% dal 1° gennaio 2026). In questi casi di solito è necessaria anche una messa in mora formale (raccomandata/PEC) prima che gli interessi inizino a decorrere."}}
-  ]}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Come invio la richiesta di interessi di mora?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Invia una raccomandata A/R o PEC all'indirizzo legale del debitore. Nella richiesta specifica: importo del credito, data di scadenza, numero di giorni di ritardo, tasso di mora applicato (BCE % + 8%), totale interessi maturati e indennità forfettaria richiesta. Il calcolatore sopra genera il testo da usare. Conserva copia di tutti i documenti."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Il cliente può rifiutarsi di pagare gli interessi di mora?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, se il rapporto rientra nel D.Lgs. 231/2002. Il diritto agli interessi di mora decorre automaticamente senza bisogno di messa in mora. In caso di contestazione, puoi agire con decreto ingiuntivo. Le clausole contrattuali che escludono o limitano gli interessi di mora sono nulle se \"gravemente inique\" ai sensi del D.Lgs. 231/2002."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gli interessi di mora vanno in fattura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, se decidi di emetterli formalmente. Gli interessi di mora costituiscono un corrispettivo imponibile IVA se pagati da soggetti passivi. Emetti una nota di debito separata con dicitura \"interessi di mora ex D.Lgs. 231/2002\" e specifica il periodo di maturazione. L'indennità forfettaria è invece esente IVA (compensazione danni, non corrispettivo)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Il D.Lgs. 231/2002 si applica anche ai contratti con privati consumatori?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Il D.Lgs. 231/2002 si applica solo alle transazioni commerciali, cioè tra imprese e/o tra imprese e pubblica amministrazione. Per i crediti verso privati consumatori si applica l'art. 1284 del Codice Civile con il tasso legale (1,60% dal 1° gennaio 2026). In questi casi di solito è necessaria anche una messa in mora formale (raccomandata/PEC) prima che gli interessi inizino a decorrere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Come si calcolano gli interessi di mora su una fattura non pagata?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per le transazioni commerciali (B2B), si applica il D.Lgs. 231/2002: gli interessi di mora decorrono automaticamente dal giorno successivo alla scadenza pattuita (o ai 30 giorni dalla data fattura se non concordato). Il tasso è: tasso di riferimento BCE semestralmente vigente + 8 punti percentuali. Formula: Interessi = Capitale × (Tasso mora / 365) × Giorni di ritardo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual è il tasso di mora per le transazioni commerciali nel 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per il secondo semestre 2026 (1° luglio - 31 dicembre) il tasso di riferimento è il 2,40%, quindi il tasso di mora commerciale è il 10,40%: lo ha fissato il comunicato MEF pubblicato in Gazzetta Ufficiale n. 163 del 16 luglio 2026. Nel primo semestre 2026 era il 10,15%. La regola non cambia mai: tasso di riferimento BCE del primo giorno del semestre più 8 punti percentuali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cos'è l'indennità forfettaria di recupero del credito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il D.Lgs. 231/2002 (art. 6) prevede, per ogni transazione commerciale in ritardo, un'indennità forfettaria fissa di €40 per i costi di recupero del credito, indipendentemente dall'importo del credito. Questa indennità si aggiunge agli interessi di mora ed è dovuta automaticamente, senza bisogno di messa in mora. Resta salvo il diritto al risarcimento del maggior danno se documentato."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quando decorrono gli interessi di mora senza accordo contrattuale?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nelle transazioni commerciali (D.Lgs. 231/2002): se non è indicata una scadenza nel contratto/fattura, gli interessi decorrono automaticamente dopo 30 giorni dalla ricezione della fattura (o della merce/servizio). Se la scadenza è pattuita, gli interessi decorrono dal giorno successivo alla scadenza. Non occorre alcuna messa in mora formale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gli interessi di mora tra privati (non commerciali) si calcolano diversamente?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì. Per i crediti civili tra privati (non transazioni commerciali tra imprese), si applica il tasso legale, stabilito annualmente dal MEF con decreto ministeriale. Il tasso legale è fissato ogni anno dal MEF con decreto: per il 2026 è l'1,60% (D.M. 10 dicembre 2025, G.U. n. 289 del 13 dicembre 2025), dopo il 2,00% del 2025 e il 2,50% del 2024. Gli interessi moratori tra privati di solito richiedono anche una messa in mora formale (raccomandata/PEC)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso richiedere anche le spese legali oltre agli interessi di mora?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì. Oltre agli interessi di mora e all'indennità forfettaria, puoi richiedere il risarcimento integrale dei costi di recupero del credito (spese legali, spese di sollecito, costi di consulenza) se dimostri che sono superiori all'indennità forfettaria. In caso di ricorso a decreto ingiuntivo, le spese legali sono generalmente condannate a carico del debitore inadempiente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "L'indennità forfettaria si somma agli interessi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì. L'indennità forfettaria di recupero crediti (€40 fissi, indipendentemente dall'importo del credito) si somma separatamente agli interessi di mora. Non è soggetta a IVA. Nella richiesta di pagamento, presentala come voce separata rispetto agli interessi di mora calcolati sulla base del tasso BCE + 8%."
+        }
+      }
+    ]
+  }
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Tasse e Fisco","item":"https://calcolapro.it/categoria-tasse-fisco.html"},{"@type":"ListItem","position":3,"name":"Calcolo Interessi di Mora","item":"https://calcolapro.it/calcolo-interessi-mora.html"}]}

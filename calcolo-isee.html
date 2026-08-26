@@ -46,13 +46,52 @@
   }
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Come si calcola l'ISEE?","acceptedAnswer":{"@type":"Answer","text":"L'ISEE si calcola con la formula: (ISE / scala equivalenza). Dove ISE = redditi complessivi del nucleo + 20% del patrimonio mobiliare + 20% del patrimonio immobiliare. La scala di equivalenza dipende dal numero e dalla composizione dei componenti del nucleo familiare."}},
-    {"@type":"Question","name":"Entro quando va presentata la DSU per l'ISEE 2026?","acceptedAnswer":{"@type":"Answer","text":"La DSU (Dichiarazione Sostitutiva Unica) per l'ISEE 2026 può essere presentata in qualsiasi momento dell'anno. L'ISEE calcolato è valido dall'1 gennaio al 31 dicembre 2026 (o fino a quando non cambia la situazione familiare)."}},
-    {"@type":"Question","name":"Cosa si include nel patrimonio immobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio immobiliare ISEE si includono: tutti gli immobili posseduti (prima casa, seconda casa, terreni) al valore IMU. Per la prima casa si applica una franchigia di €52.500, maggiorata di €2.500 per ogni figlio oltre il secondo; la parte di valore che eccede la franchigia si conteggia per <strong>due terzi</strong>, non per intero (art. 5 c.2 DPCM 159/2013)."}},
-    {"@type":"Question","name":"Cosa si include nel patrimonio mobiliare ISEE?","acceptedAnswer":{"@type":"Answer","text":"Nel patrimonio mobiliare ISEE si includono: conti correnti e depositi (saldo medio annuo), BOT, BTP, fondi, azioni, polizze assicurative a risparmio. Si applica una franchigia di €6.000 per nucleo, aumentata di €2.000 per ogni componente oltre il primo (max €10.000 totali)."}},
-    {"@type":"Question","name":"Qual è la soglia ISEE per il Bonus Asilo Nido?","acceptedAnswer":{"@type":"Answer","text":"Il Bonus Asilo Nido 2026 varia in base all'ISEE: fino a €25.001 → €3.000/anno; da €25.001 a €40.000 → €2.500/anno; oltre €40.000 → €1.500/anno. Per il secondo figlio nato dopo il 1° gennaio 2024, se nel nucleo è presente anche un altro figlio under 10, l'importo sale a €3.600/anno con ISEE fino a €40.000 (oltre questa soglia si applica il valore ordinario di €1.500)."}}
-  ]}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Come si calcola l'ISEE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'ISEE si calcola dividendo l'ISE (Indicatore della Situazione Economica) per il parametro della scala di equivalenza. L'ISE è la somma dei redditi complessivi del nucleo, più il 20% del patrimonio mobiliare (conti, titoli) e il 20% del patrimonio immobiliare (immobili al valore IMU), al netto delle relative franchigie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Entro quando va presentata la DSU per l'ISEE 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La DSU può essere presentata in qualsiasi momento dell'anno. L'ISEE ottenuto vale fino al 31 dicembre 2026, oppure fino a quando non cambia la situazione reddituale o familiare. È conveniente presentarla all'inizio dell'anno per sfruttare subito tutte le agevolazioni."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cosa si include nel patrimonio mobiliare ISEE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Conti correnti e depositi (al saldo medio annuo 2024), BOT, BTP, fondi comuni, azioni, obbligazioni, polizze assicurative a risparmio. Si applica una franchigia base di €6.000, aumentata di €2.000 per ogni componente del nucleo oltre il primo (max franchigia €10.000)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual è la soglia ISEE per il Bonus Asilo Nido 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il Bonus Asilo Nido varia: ISEE fino a €25.001 → €3.000/anno; ISEE da €25.001 a €40.000 → €2.500/anno; ISEE oltre €40.000 → €1.500/anno. Per il secondo figlio nato dopo il 1° gennaio 2024, se c'è un altro figlio under 10 nel nucleo, l'importo sale a €3.600/anno con ISEE fino a €40.000 (oltre questa soglia si applica il valore ordinario di €1.500)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "L'ISEE precompilato è diverso da quello ordinario?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'ISEE precompilato è già parzialmente compilato dall'INPS con i dati in suo possesso (redditi, immobili, conti). Si accede con SPID sul portale INPS. Se i dati precompilati sono corretti, si può confermare senza modifiche ottenendo così la protezione da controlli formali. L'ISEE ordinario si compila interamente dal contribuente (o tramite CAF)."
+        }
+      }
+    ]
+  }
   </script>
 
   <script type="application/ld+json">

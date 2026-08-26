@@ -34,12 +34,44 @@
   {"@context":"https://schema.org","@type":"WebApplication","name":"Calcolatore Prestito Personale 2026","description":"Calcola la rata mensile del tuo prestito personale. Inserisci importo, tasso e durata. Gratis.","url":"https://calcolapro.it/calcolatore-prestito-personale.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type": "Person", "name": "Alessandro Signorile", "url": "https://calcolapro.it/about.html"},"publisher":{"@type":"Organization","name":"CalcolaPro","url":"https://calcolapro.it", "logo": {"@type": "ImageObject", "url": "https://calcolapro.it/favicon.svg"}}}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Come si calcola la rata di un prestito personale?","acceptedAnswer":{"@type":"Answer","text":"La rata mensile si calcola con la formula dell'ammortamento alla francese: rata = Importo × [r(1+r)^n] / [(1+r)^n − 1], dove r è il tasso mensile e n il numero di rate. Le banche possono aggiungere spese accessorie che aumentano il TAEG rispetto al TAN nominale."}},
-    {"@type":"Question","name":"Qual è la differenza tra TAN e TAEG?","acceptedAnswer":{"@type":"Answer","text":"Il TAN (Tasso Annuo Nominale) è il tasso di interesse puro. Il TAEG (Tasso Annuo Effettivo Globale) include anche tutte le spese accessorie: assicurazioni obbligatorie, spese di istruttoria, spese di gestione. Il TAEG è il vero costo del prestito e deve essere riportato in ogni offerta."}},
-    {"@type":"Question","name":"Posso estinguere anticipatamente un prestito personale?","acceptedAnswer":{"@type":"Answer","text":"Sì. Per i prestiti stipulati dopo il 2011, la penale massima di estinzione anticipata è dell'1% del capitale residuo (0,5% se manca meno di un anno alla scadenza). Spesso conviene estinguere anticipatamente se si hanno liquidità disponibili, poiché si risparmiano gli interessi futuri."}},
-    {"@type":"Question","name":"Quanti anni può durare un prestito personale?","acceptedAnswer":{"@type":"Answer","text":"In Italia i prestiti personali durano tipicamente da 12 a 120 mesi (1-10 anni). La durata più comune è 60 mesi (5 anni). Durate più lunghe riducono la rata mensile ma aumentano il totale degli interessi pagati."}}
-  ]}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Come si calcola la rata di un prestito personale?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La rata mensile si calcola con la formula dell'ammortamento alla francese: rata = Importo × [r(1+r)^n] / [(1+r)^n − 1], dove r è il tasso mensile e n il numero di rate totali. A questa si aggiungono eventuali spese mensili di gestione."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual è la differenza tra TAN e TAEG?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il TAN (Tasso Annuo Nominale) è il tasso di interesse puro applicato al capitale, senza includere le spese accessorie. Il TAEG (Tasso Annuo Effettivo Globale) include invece tutte le voci di costo: assicurazioni obbligatorie, spese di istruttoria, gestione del conto e altri oneri. La legge italiana obbliga ogni istituto di credito a comunicare il TAEG prima della firma del contratto: è questo il numero da confrontare tra più offerte per capire quale prestito costa davvero di meno."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso estinguere anticipatamente un prestito personale?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, per i prestiti stipulati dopo il 2011 la penale massima di estinzione anticipata è dell'1% del capitale residuo, o dello 0,5% se manca meno di un anno alla scadenza. Conviene confrontare il risparmio sugli interessi futuri con il costo della penale: nella maggior parte dei casi l'estinzione anticipata è vantaggiosa, soprattutto nei primi anni del prestito quando la quota interessi è più alta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanti anni può durare un prestito personale?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Italia i prestiti personali durano tipicamente da 12 a 120 mesi (1-10 anni). La durata più comune è 60 mesi (5 anni). Durate più lunghe riducono la rata mensile ma aumentano il totale degli interessi pagati."
+        }
+      }
+    ]
+  }
   </script>
 
   <script type="application/ld+json">

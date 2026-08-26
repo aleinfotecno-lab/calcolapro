@@ -163,7 +163,7 @@ function listAllHtml() {
     .map(f => path.join(ROOT, f));
 }
 
-module.exports = { checkFile, checkTesti, listAllHtml, SKIP };
+module.exports = { checkFile, checkTesti, listAllHtml, SKIP, norm, leggiFaqVisibili };
 
 if (require.main === module) {
   const argv = process.argv.slice(2);

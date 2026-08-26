@@ -7,7 +7,7 @@ import { chromium } from '@playwright/test';
 import { readdirSync, readFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import { checkFile, listAllHtml, SKIP } from './check-faq-alignment.js';
+import { checkFile, checkTesti, listAllHtml, SKIP } from './check-faq-alignment.js';
 
 const BASE = 'http://localhost:3000';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -25,6 +25,13 @@ for (const file of listAllHtml()) {
   const problems = checkFile(file);
   for (const problem of problems) {
     staticResults.errors.push({ path: `/${path.basename(file)}`, issue: `[FAQ/Schema] ${problem}` });
+  }
+  // Anche il TESTO deve coincidere, non solo il conteggio: Google confronta la
+  // risposta del rich result con quella in pagina. Bloccante da quando il sito e'
+  // interamente allineato, cosi' la deriva non puo' rientrare da pagine che
+  // nessuno tocca e che quindi sfuggono all'hook sugli Edit.
+  for (const avviso of checkTesti(file)) {
+    staticResults.errors.push({ path: `/${path.basename(file)}`, issue: `[FAQ/testo] ${avviso}` });
   }
 }
 

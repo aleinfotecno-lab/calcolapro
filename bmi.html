@@ -43,14 +43,60 @@
   }
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Come si calcola il BMI?","acceptedAnswer":{"@type":"Answer","text":"Il BMI (Body Mass Index, Indice di Massa Corporea) si calcola dividendo il peso in kg per il quadrato dell'altezza in metri. Formula: BMI = peso (kg) ÷ altezza² (m²). Ad esempio, una persona di 70 kg e 1,75 m ha un BMI di 70 ÷ (1,75 × 1,75) = 22,9, che rientra nella fascia normale."}},
-    {"@type":"Question","name":"Quali sono i valori normali del BMI?","acceptedAnswer":{"@type":"Answer","text":"Secondo ISSalute (il portale ufficiale dell'Istituto Superiore di Sanità) e l'OMS, la classificazione del BMI per gli adulti è: sottopeso (BMI < 18,5), normopeso o peso ottimale (18,5-24,99), sovrappeso (25-29,99), obesità (≥ 30, a sua volta suddivisa in grado I 30-34,9, grado II 35-39,9 e grado III o grave ≥ 40). Il range ottimale per la salute è 18,5-24,99."}},
-    {"@type":"Question","name":"Il BMI è un indicatore affidabile per tutti?","acceptedAnswer":{"@type":"Answer","text":"Il BMI è uno strumento semplice e utile per valutare il peso a livello di popolazione, ma ha dei limiti riconosciuti anche da ISSalute: non distingue tra massa muscolare e massa grassa, quindi può sovrastimare l'eccesso di peso negli atleti (molto muscolosi) e sottostimarlo negli anziani (che perdono massa muscolare). Non considera il tipo di costituzione fisica né la distribuzione del grasso corporeo. Per una valutazione più completa, ISSalute raccomanda di affiancare al BMI la misurazione della circonferenza vita."}},
-    {"@type":"Question","name":"Quanti italiani sono in sovrappeso o obesi?","acceptedAnswer":{"@type":"Answer","text":"Secondo i dati del sistema di sorveglianza PASSI dell'Istituto Superiore di Sanità (biennio 2022-2023), circa 4 adulti italiani su 10 sono in eccesso di peso: 3 sovrappeso e 1 obeso. L'eccesso ponderale è più diffuso tra gli uomini che tra le donne: sovrappeso 44% (uomini) contro 27,3% (donne); obesità 10,8% (uomini) contro 9% (donne)."}},
-    {"@type":"Question","name":"Cos'è la circonferenza vita e perché è importante insieme al BMI?","acceptedAnswer":{"@type":"Answer","text":"La circonferenza vita misura l'accumulo di grasso addominale, un fattore di rischio cardiometabolico che il BMI da solo non cattura. Secondo ISSalute, è consigliabile intervenire sul peso quando la circonferenza vita supera 94 cm negli uomini o 80 cm nelle donne, mentre il rischio per la salute è considerato elevato oltre 102 cm (uomini) o 88 cm (donne)."}},
-    {"@type":"Question","name":"Come posso riportare il BMI nella norma?","acceptedAnswer":{"@type":"Answer","text":"Per ridurre il BMI in caso di sovrappeso è generalmente indicato un deficit calorico moderato (300-500 kcal/giorno) unito ad attività fisica regolare. Per aumentare il BMI in caso di sottopeso, si consiglia un surplus calorico con alimenti nutrienti e allenamento con i pesi. In entrambi i casi la consulenza di un medico o nutrizionista è fondamentale, soprattutto se il BMI è lontano dal range 18,5-24,99 o se sono presenti altre condizioni di salute."}}
-  ]}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Come si calcola il BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il BMI si calcola dividendo il peso in kg per il quadrato dell'altezza in metri. Formula: BMI = peso (kg) ÷ altezza² (m²). Ad esempio, una persona di 70 kg e 1,75 m ha un BMI di 70 ÷ (1,75 × 1,75) = 22,9, che rientra nella fascia normale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quali sono i valori normali del BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Secondo ISSalute e l'OMS: sottopeso (BMI < 18,5), normopeso o peso ottimale (18,5-24,99), sovrappeso (25-29,99), obesità (≥ 30, suddivisa in grado I 30-34,9, grado II 35-39,9 e grado III o grave ≥ 40). Il range ottimale per la salute è 18,5-24,99."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Il BMI è un indicatore affidabile per tutti?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il BMI è utile a livello di popolazione ma ha dei limiti riconosciuti anche da ISSalute: non distingue tra massa muscolare e grassa, può sovrastimare l'eccesso di peso negli atleti e sottostimarlo negli anziani, e non considera la distribuzione del grasso corporeo. ISSalute raccomanda di affiancare la misurazione della circonferenza vita per una valutazione più completa."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanti italiani sono in sovrappeso o obesi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Secondo i dati PASSI dell'Istituto Superiore di Sanità (biennio 2022-2023), circa 4 adulti italiani su 10 sono in eccesso di peso: 3 sovrappeso e 1 obeso. Sovrappeso: 44% uomini vs 27,3% donne. Obesità: 10,8% uomini vs 9% donne."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cos'è la circonferenza vita e perché è importante insieme al BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La circonferenza vita misura l'accumulo di grasso addominale, un fattore di rischio cardiometabolico che il BMI da solo non cattura. Secondo ISSalute è consigliabile intervenire quando supera 94 cm (uomini) o 80 cm (donne); il rischio è considerato elevato oltre 102 cm (uomini) o 88 cm (donne)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Come posso riportare il BMI nella norma?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per ridurre il BMI in caso di sovrappeso: deficit calorico moderato (300-500 kcal/giorno) con attività fisica regolare. Per aumentare il BMI in caso di sottopeso: surplus calorico con alimenti nutrienti e allenamento con i pesi. In entrambi i casi la consulenza di un medico o nutrizionista è fondamentale."
+        }
+      }
+    ]
+  }
   </script>
   <meta property="og:title" content="Calcola BMI Online Gratis 2026 | Indice Massa Corporea | CalcolaPro">
   <meta property="og:description" content="Calcola il tuo BMI (Indice di Massa Corporea) gratis. Scopri se sei sottopeso, normopeso o sovrappeso, il tuo peso ideale e la classificazione OMS con scala visiva. Aggiornato 2026.">

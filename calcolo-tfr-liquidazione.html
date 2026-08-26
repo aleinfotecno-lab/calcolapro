@@ -51,16 +51,76 @@
   }
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Il TFR mi viene pagato sempre alla fine del rapporto di lavoro?","acceptedAnswer":{"@type":"Answer","text":"Sì, il TFR viene erogato alla cessazione del rapporto di lavoro per qualsiasi motivo: licenziamento, dimissioni, pensionamento o scadenza del contratto. Nel settore privato il pagamento avviene generalmente entro 30-60 giorni dalla cessazione. Per i dipendenti pubblici i tempi sono più lunghi: fino a 2 anni per chi va in pensione anticipata, fino a 3 mesi per chi raggiunge l'età pensionabile ordinaria."}},
-    {"@type":"Question","name":"Posso richiedere un'anticipazione del TFR durante il lavoro?","acceptedAnswer":{"@type":"Answer","text":"Sì, dopo almeno 8 anni di servizio è possibile richiedere un anticipo fino al 70% del TFR maturato per: acquisto o ristrutturazione della prima casa, spese sanitarie straordinarie documentate, e congedi formativi o per maternità/paternità. L'anticipazione è concessa una sola volta nel corso del rapporto di lavoro ed è tassata con tassazione separata come il TFR integrale."}},
-    {"@type":"Question","name":"Cosa succede al TFR se l'azienda fallisce?","acceptedAnswer":{"@type":"Answer","text":"In caso di fallimento del datore di lavoro, il TFR è protetto dal Fondo di Garanzia INPS. Questo fondo interviene quando l'azienda non è in grado di corrispondere il TFR al lavoratore. Per ottenere il pagamento bisogna presentare domanda all'INPS con la documentazione del credito da lavoro."}},
-    {"@type":"Question","name":"Il TFR va dichiarato nel 730?","acceptedAnswer":{"@type":"Answer","text":"No, il TFR non va incluso nel 730 perché è soggetto a tassazione separata e non ordinaria. Il datore di lavoro applica una ritenuta a titolo d'acconto e l'Agenzia delle Entrate provvede autonomamente al conguaglio definitivo. Tuttavia, se l'Agenzia delle Entrate notifica una diversa imposta, potrebbe comparire in una comunicazione separata."}},
-    {"@type":"Question","name":"Cambia qualcosa se sono un lavoratore part-time?","acceptedAnswer":{"@type":"Answer","text":"Per un lavoratore part-time il TFR si calcola sulla RAL proporzionata all'orario di lavoro. Un part-time al 50% con RAL equivalente full-time di 30.000 € avrà una RAL effettiva di 15.000 €, quindi accumula il 6,91% di 15.000 € = 1.036 € di TFR ogni anno anziché 2.072 €. Il meccanismo di rivalutazione e tassazione rimane identico."}},
-    {"@type":"Question","name":"Come si calcola il TFR per un rapporto di lavoro inferiore all'anno?","acceptedAnswer":{"@type":"Answer","text":"Per periodi inferiori all'anno, l'accantonamento è proporzionale ai mesi lavorati. Per ogni mese si accantona il 6,91% della RAL diviso 12. Per i giorni si divide ulteriormente per 30. Esempio: 6 mesi con RAL 30.000 € = 2.072 / 12 × 6 = 1.036 €, cui si aggiunge la rivalutazione maturata nel periodo."}},
-    {"@type":"Question","name":"Il TFR è cumulabile con la pensione?","acceptedAnswer":{"@type":"Answer","text":"Sì, il TFR è cumulabile con qualsiasi altra prestazione pensionistica. Non è una prestazione previdenziale ma una retribuzione differita. Chi va in pensione riceve il TFR maturato durante la vita lavorativa indipendentemente dall'importo della pensione mensile. Per i dipendenti pubblici il TFR (denominato TFS) viene erogato separatamente dalla pensione."}},
-    {"@type":"Question","name":"Posso scegliere di destinare il TFR a un fondo pensione anche dopo anni in azienda?","acceptedAnswer":{"@type":"Answer","text":"Sì, è possibile destinare il TFR maturando (quello futuro) a un fondo pensione in qualsiasi momento del rapporto di lavoro, tramite comunicazione scritta al datore. Il TFR già accumulato in azienda rimane lì fino alla cessazione del rapporto, salvo diverse previsioni del fondo pensione scelto che in alcuni casi permette di trasferire anche il pregrasso."}}
-  ]}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Il TFR mi viene pagato sempre alla fine del rapporto di lavoro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, il TFR viene erogato alla cessazione del rapporto di lavoro per qualsiasi motivo: licenziamento, dimissioni, pensionamento o scadenza del contratto. Nel settore privato il pagamento avviene generalmente entro 30-60 giorni dalla cessazione. Per i dipendenti pubblici i tempi sono più lunghi: fino a 2 anni per chi va in pensione anticipata, fino a 3 mesi per chi raggiunge l'età pensionabile ordinaria."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso richiedere un'anticipazione del TFR durante il lavoro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, dopo almeno 8 anni di servizio è possibile richiedere un anticipo fino al 70% del TFR maturato per: acquisto o ristrutturazione della prima casa, spese sanitarie straordinarie documentate, congedi formativi o per maternità/paternità. L'anticipazione è concessa una sola volta nel corso del rapporto di lavoro e il TFR anticipato è soggetto alla stessa tassazione separata della liquidazione finale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cosa succede al TFR se l'azienda fallisce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In caso di fallimento del datore di lavoro, il TFR è protetto dal Fondo di Garanzia INPS (art. 2 L. 297/1982). Questo fondo interviene quando l'azienda è insolvente e non è in grado di corrispondere il TFR. Il lavoratore deve presentare domanda all'INPS con la documentazione del credito da lavoro (sentenza di fallimento o certificazione del commissario liquidatore)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Il TFR va dichiarato nel 730?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, il TFR non va incluso nel 730 perché è soggetto a tassazione separata e non ordinaria. Il datore di lavoro applica la ritenuta a titolo d'acconto e l'Agenzia delle Entrate provvede autonomamente al conguaglio definitivo nei mesi successivi. Tuttavia, se l'Agenzia delle Entrate determina un'imposta definitiva diversa, potrebbe inviare una comunicazione separata (rimborso o cartella)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cambia qualcosa se sono un lavoratore part-time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per un lavoratore part-time il TFR si calcola sulla RAL proporzionata all'orario di lavoro effettivo. Un part-time al 50% con RAL equivalente full-time di 30.000 € avrà una RAL effettiva di 15.000 €, quindi accumula il 6,91% di 15.000 € = 1.036 € di TFR ogni anno anziché 2.072 €. Il meccanismo di rivalutazione e tassazione separata rimane identico a quello del lavoro a tempo pieno."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Come si calcola il TFR per un rapporto di lavoro inferiore all'anno?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per periodi inferiori all'anno, l'accantonamento è proporzionale ai mesi lavorati. Per ogni mese si accantona il 6,91% della RAL diviso 12. Esempio: 6 mesi con RAL 30.000 € = 2.072 / 12 × 6 = 1.036 €, cui si aggiunge la rivalutazione maturata nel periodo. I giorni vengono calcolati dividendo ulteriormente per 30 (mese commerciale). I contratti a termine hanno le stesse regole dei contratti a tempo indeterminato."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Il TFR è cumulabile con la pensione?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, il TFR è cumulabile con qualsiasi prestazione pensionistica. Non è una prestazione previdenziale ma una retribuzione differita: chi va in pensione riceve il TFR maturato indipendentemente dall'importo della pensione mensile. Per i dipendenti pubblici il TFR (denominato ufficialmente TFS, Trattamento di Fine Servizio) ha tempi di erogazione più lunghi rispetto al settore privato."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso scegliere di destinare il TFR a un fondo pensione anche dopo anni in azienda?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, è possibile destinare il TFR maturando (quello futuro) a un fondo pensione in qualsiasi momento del rapporto di lavoro, tramite comunicazione scritta al datore di lavoro. Il TFR già accumulato in azienda rimane lì fino alla cessazione del rapporto, salvo diverse previsioni del fondo pensione scelto che in alcuni casi permette di trasferire anche il pregresso. La scelta è irreversibile."
+        }
+      }
+    ]
+  }
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CalcolaPro","item":"https://calcolapro.it"},{"@type":"ListItem","position":2,"name":"Lavoro e Stipendio","item":"https://calcolapro.it/categoria-lavoro-dipendente.html"},{"@type":"ListItem","position":3,"name":"Calcolo TFR Liquidazione 2026","item":"https://calcolapro.it/calcolo-tfr-liquidazione.html"}]}
