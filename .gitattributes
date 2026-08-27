@@ -1,0 +1,33 @@
+# Fine riga.
+#
+# Nel repository tutto viene normalizzato a LF: e' quello che git memorizza, ed e'
+# indipendente dal sistema operativo di chi ci lavora.
+#
+# Nel working tree invece alcuni file devono restare CRLF, perche' gli script di
+# manutenzione del sito li leggono e li riscrivono assumendo \r\n. Se arrivassero
+# con LF, i replace multi-file troverebbero zero corrispondenze senza dire niente,
+# che e' il modo peggiore in cui uno script possa fallire: sembra andato a buon
+# fine e non ha fatto nulla.
+#
+# Senza questo file la convenzione dipendeva da core.autocrlf configurato sulla
+# singola macchina. E' cosi' che 38 HTML sono finiti a LF il 27/08/2026 senza che
+# niente lo segnalasse.
+
+* text=auto
+
+# I file che gli script riscrivono: devono arrivare CRLF ovunque si faccia clone.
+*.html      text eol=crlf
+sitemap.xml text eol=crlf
+llms.txt    text eol=crlf
+style.css   text eol=crlf
+
+# Binari: nessuna conversione, altrimenti si corrompono.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
