@@ -80,7 +80,7 @@
     },
     {
       "file": "/calcolo-malattia-inps.html",
-      "caso": "CCNL al 50% su 25 giorni: nessun conguaglio a rovescio dove l'INPS paga di piu'",
+      "caso": "CCNL al 50% su 25 giorni: nessun conguaglio a rovescio dove l'INPS paga di più'",
       "norma": "Controprova: nella fascia al 66,66% la garanzia contrattuale al 50% e' inferiore e non si sottrae nulla",
       "campi": { "stipendio": 1800, "mensilita": 13, "ccnl": "50", "giorni": 25, "ricovero": false, "familiari": "si", "episodiAnno": 1 },
       "attesi": { "totaleOut": 866.67 }
@@ -138,7 +138,7 @@
     },
     {
       "file": "/calcolo-buoni-fruttiferi-postali.html",
-      "caso": "Caso limite: 4.900 supera i 5.000 gia' al primo anno e paga sempre",
+      "caso": "Caso limite: 4.900 supera i 5.000 già' al primo anno e paga sempre",
       "norma": "La soglia si valuta sul valore di rimborso a fine anno: 4.900 x 1,03 = 5.047",
       "campi": { "capitale": 4900, "tasso": 3, "anni": 3 },
       "attesi": { "bolloOut": 31.20 }
@@ -211,7 +211,7 @@
     {
       "file": "/calcolo-costo-lavoro.html",
       "caso": "Apprendistato fino a 9 dipendenti, primo anno: aliquota 3,11%",
-      "norma": "Quota previdenziale all'1,5% il primo anno per i datori fino a 9 dipendenti, piu' l'1,61% fisso",
+      "norma": "Quota previdenziale all'1,5% il primo anno per i datori fino a 9 dipendenti, più' l'1,61% fisso",
       "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "apprendistato", "inail": "1", "sgravioSud": false, "apprendistatoRegime": "3.11" },
       "attesi": { "costoAnnuoOut": 28865.20 }
     },
@@ -226,7 +226,7 @@
     },
     {
       "file": "/calcolo-plusvalenza-immobiliare.html",
-      "caso": "Superbonus con lavori conclusi da piu' di 5 anni: spese al 50%",
+      "caso": "Superbonus con lavori conclusi da più' di 5 anni: spese al 50%",
       "norma": "Art. 68 c.1 TUIR: si tiene conto del 50% delle spese",
       "pre": ["document.querySelector('input[name=provenienza][value=acquisto]').checked = true", "document.getElementById('superbonus').checked = true", "aggiornaUI()"],
       "campi": { "dataAcquisto": "annifa:8", "prezzoVendita": 350000, "prezzoAcquisto": 180000, "speseAcquisto": 8000, "speseMigliorie": 80000, "speseVendita": 0, "dataFineLavori": "annifa:7", "speseSuperbonus": 80000 },
@@ -250,7 +250,7 @@
     },
     {
       "file": "/lordonetto.html",
-      "caso": "RAL 45.000: sopra i 40.000 di imponibile il cuneo non spetta piu'",
+      "caso": "RAL 45.000: sopra i 40.000 di imponibile il cuneo non spetta più'",
       "norma": "Controprova del gate: imponibile 40.864 supera i 40.000, ulteriore detrazione azzerata",
       "campi": { "importo": 45000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
       "attesi": { "priceOut": 29702, "irpefOut": 11162 }
@@ -450,7 +450,7 @@
 
     {
       "file": "/calcolo-maternita-inps.html",
-      "caso": "Stipendio vuoto: il pulsante non deve piu' sembrare rotto",
+      "caso": "Stipendio vuoto: il pulsante non deve più' sembrare rotto",
       "norma": "Prima la funzione usciva muta: nessun messaggio, nessun risultato, nessun errore",
       "campi": { "stipendio": "" },
       "erroreSu": "stipendio"
@@ -579,7 +579,7 @@
     {
       "file": "/iva.html",
       "caso": "Scorporo e aggiunta dell'IVA ordinaria",
-      "norma": "Controprova: 1.000 piu' IVA al 22% fa 1.220",
+      "norma": "Controprova: 1.000 più' IVA al 22% fa 1.220",
       "campi": { "importo": 1000 },
       "attesi": { "priceOut": 1220 }
     },
@@ -618,7 +618,7 @@
     {
       "file": "/affitto.html",
       "caso": "Reddito non indicato: niente semaforo rosso sui campi vuoti",
-      "norma": "A modulo vuoto usciva '0 euro/mese' con l'avviso che le spese fisse superavano gia' il reddito disponibile",
+      "norma": "A modulo vuoto usciva '0 euro/mese' con l'avviso che le spese fisse superavano già' il reddito disponibile",
       "campi": { "reddito": "", "conviventi": 2 },
       "erroreSu": "reddito"
     },
@@ -684,7 +684,7 @@
     {
       "file": "/calcolatore-interessi-conto-deposito.html",
       "caso": "Interessi mensili lasciati sul conto: si capitalizzano",
-      "norma": "Il campo prima non cambiava nulla. Con accredito mensile del netto il saldo cresce e i mesi successivi maturano su una base piu' alta",
+      "norma": "Il campo prima non cambiava nulla. Con accredito mensile del netto il saldo cresce e i mesi successivi maturano su una base più' alta",
       "campi": { "capitale": 50000, "tasso": 4, "durata": "36", "liquidazione": "mensile", "reinvesto": "si" },
       "attesi": { "interessiLordiOut": 6266.39, "interessiNettiOut": 4318.76 }
     },
@@ -706,7 +706,7 @@
     {
       "file": "/calcolo-cassa-integrazione.html",
       "caso": "Confronto lordo su lordo, non lordo contro netto",
-      "norma": "Art. 3 D.Lgs. 148/2015 e art. 26 L. 41/1986. Sommare alla retribuzione lorda un'indennita' gia' ridotta del 5,84% sovrastimava la perdita: 1.800 - 1.423,69 = 376,31, non 459,44",
+      "norma": "Art. 3 D.Lgs. 148/2015 e art. 26 L. 41/1986. Sommare alla retribuzione lorda un'indennita' già' ridotta del 5,84% sovrastimava la perdita: 1.800 - 1.423,69 = 376,31, non 459,44",
       "campi": { "retribuzione": 1800, "percentuale": 100, "mesi": 1 },
       "attesi": { "lordoOut": 1423.69, "nettoOut": 1340.56, "redditoOut": 1423.69, "perditaOut": 376.31 }
     },
@@ -764,9 +764,30 @@
     {
       "file": "/calcolo-bollo-auto.html",
       "caso": "Superbollo sopra i 185 kW",
-      "norma": "D.L. 98/2011 art. 23 c.21: 20 euro per kW oltre 185. Bollo 722,40 piu' 35 kW x 20 = 700",
+      "norma": "D.L. 98/2011 art. 23 c.21: 20 euro per kW oltre 185. Bollo 722,40 più' 35 kW x 20 = 700",
       "campi": { "kw": 220, "tipoVeicolo": "auto", "classeEuro": "456", "annoImmat": 2023, "mesiPossesso": 12 },
       "attesi": { "totaleOut": 1422.40 }
+    },
+    {
+      "file": "/calcolo-capitale-assicurato.html",
+      "caso": "Famiglia con mutuo e due figli",
+      "norma": "Analisi dei bisogni: reddito da sostituire 28000 x 0,70 x 15 = 294.000, più debiti 90.000, più istruzione 2 figli x 4.000 x 15 anni = 120.000, meno patrimonio 20.000 = 484.000",
+      "campi": { "reddito": 28000, "quota": 70, "anni": 15, "debiti": 90000, "figli": 2, "anniFigli": 15, "costoFiglio": 4000, "patrimonio": 20000 },
+      "attesi": { "capitaleOut": 484000, "redditoOut": 294000, "debitiOut": 90000, "istruzioneOut": 120000, "patrimonioOut": 20000 }
+    },
+    {
+      "file": "/calcolo-capitale-assicurato.html",
+      "caso": "Controprova: il patrimonio copre già tutto, servono zero euro",
+      "norma": "Fabbisogno 20000 x 0,50 x 5 = 50.000, inferiore ai 100.000 gia disponibili: il capitale necessario non può essere negativo e va mostrato come zero",
+      "campi": { "reddito": 20000, "quota": 50, "anni": 5, "debiti": 0, "figli": 0, "anniFigli": 0, "costoFiglio": 0, "patrimonio": 100000 },
+      "attesi": { "capitaleOut": 0 }
+    },
+    {
+      "file": "/calcolo-capitale-assicurato.html",
+      "caso": "Limite: una quota oltre il 100% viene riportata a 100",
+      "norma": "Non si può sostituire più del reddito che entrava: con quota 150 il calcolo deve usare 100, quindi 30000 x 1,00 x 10 = 300.000 e non 450.000",
+      "campi": { "reddito": 30000, "quota": 150, "anni": 10, "debiti": 0, "figli": 0, "anniFigli": 0, "costoFiglio": 0, "patrimonio": 0 },
+      "attesi": { "capitaleOut": 300000 }
     }
   ]
 }

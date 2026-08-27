@@ -1,6 +1,6 @@
 # CalcolaPro - Calcolatori Finanziari Italiani Gratuiti
 
-CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 39 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
+CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipendenti, freelance e professionisti. Offre oltre 40 strumenti di calcolo fiscale, finanziario e previdenziale, tutti aggiornati alle normative italiane 2026 (IRPEF, INPS, IMU, cedolare secca, regime forfettario). I calcoli avvengono interamente nel browser, senza raccolta di dati personali e senza registrazione.
 
 ## Calcolatori
 
@@ -18,6 +18,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/bmi.html — Calcola l'Indice di Massa Corporea (BMI) e la classificazione OMS
 - https://calcolapro.it/calcolatore-interessi-conto-deposito.html — Calcola il rendimento netto di un conto deposito con tassazione al 26%
 - https://calcolapro.it/calcolo-buoni-fruttiferi-postali.html — Calcola il rendimento netto dei Buoni Fruttiferi Postali con tassazione agevolata 12,5% e confronto con conto deposito
+- https://calcolapro.it/calcolo-capitale-assicurato.html — Calcola di quanto capitale ha bisogno la famiglia in caso di premorienza: reddito da sostituire, debiti da estinguere e spese di istruzione, meno il patrimonio gia disponibile
 - https://calcolapro.it/calcolatore-prestito-personale.html — Calcola la rata, gli interessi totali e il piano di ammortamento di un prestito personale
 - https://calcolapro.it/calcolatore-risparmio.html — Proietta il risparmio nel tempo con interesse composto e contributi mensili
 - https://calcolapro.it/calcolo-cedolare-secca.html — Confronta cedolare secca al 21%/10% vs IRPEF ordinaria per proprietari immobiliari
