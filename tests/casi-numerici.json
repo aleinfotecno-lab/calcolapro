@@ -1166,6 +1166,34 @@
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1970, "annoInizio": 1996, "contributiAttuali": 30, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
       "attesi": { "etaPensioneOut": "67 anni", "anniMancantiOut": "11", "importoMensileOut": 2486 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Campania dal menu regioni: scaglioni progressivi, non aliquota unica",
+      "norma": "Aliquote Campania 2026 (MEF) 1,73/2,96/3,20/3,33 applicate per scaglioni come prevede l Allegato C del 730/2026: su imponibile 27.243 l addizionale e 621,89 e il netto 23.092. Con l aliquota massima 3,33% applicata a tutto darebbe 22.806, cioe 286 euro in meno",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "campania", "addComunale": 0 },
+      "attesi": { "priceOut": 23092 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Trento: la deduzione di 30.000 azzera l addizionale regionale",
+      "norma": "Allegato C 730/2026 par. 19.24.3.1.10: con imponibile non superiore a 30.000 spetta una deduzione di 30.000, quindi base imponibile zero e addizionale zero. Netto 23.713",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "trento", "addComunale": 0 },
+      "attesi": { "priceOut": 23713 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Friuli: aliquota unica sull intero imponibile, non per scaglioni",
+      "norma": "Allegato C 730/2026 par. 19.24.3.1.6: non vigendo il principio di progressivita per scaglioni, sopra 15.000 l aliquota 1,23% si applica sull intero importo. Su 27.243 fa 335,09 e il netto e 23.378",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "friuliveneziagiulia", "addComunale": 0 },
+      "attesi": { "priceOut": 23378 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Controprova: senza regione scelta vale ancora l aliquota digitata a mano",
+      "norma": "Il menu regioni non deve cambiare il comportamento storico: con regione vuota e aliquota 1,73% su imponibile 27.243 l addizionale e 471,30 e il netto resta 23.242",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0 },
+      "attesi": { "priceOut": 23242 }
     }
   ]
 }
