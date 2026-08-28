@@ -224,6 +224,7 @@
               <a href="categoria-freelance.html">Calcolatori per Freelance</a>
               <a href="guida-regime-forfettario.html">Regime Forfettario</a>
               <a href="guida-stipendio-netto-lordo.html">Stipendio Netto dal Lordo</a>
+              <a href="stipendio-netto-per-regione.html">Stipendio Netto per Regione</a>
               <a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso o Variabile</a>
               <a href="guida-comprare-affittare-casa.html">Comprare o Affittare</a>
               <a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a>
@@ -704,7 +705,9 @@
     }
 
     // Box risparmio
-    document.getElementById('risparmioOut').textContent = fmtEur(risparmio) + '/anno (' + fmtEur2(risparmio / 12) + '/mese) scegliendo ' + (cedolareMigliore ? 'la cedolare secca' : 'l\'IRPEF ordinaria');
+    // Dentro risparmioOut convivono due importi e una frase: senza un id proprio, ne'
+    // il risparmio annuo ne' il regime vincente sono asseribili in un test numerico.
+    document.getElementById('risparmioOut').innerHTML = '<span id="risparmioAnnoOut">' + fmtEur(risparmio) + '</span>/anno (' + fmtEur2(risparmio / 12) + '/mese) scegliendo <span id="regimeMiglioreOut">' + (cedolareMigliore ? 'la cedolare secca' : 'l\'IRPEF ordinaria') + '</span>';
 
     const res = document.getElementById('result');
     res.style.display = 'block';

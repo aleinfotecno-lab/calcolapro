@@ -462,40 +462,37 @@
       "caso": "Contratto libero: cedolare al 21% contro IRPEF al 33%",
       "norma": "Art. 3 D.Lgs. 23/2011 (cedolare 21% sul canone intero) contro IRPEF su canone - 5% forfettario (art. 37 c.4-bis TUIR) con gli scaglioni 2026 23/33/43% (L. 199/2025 art. 1 c.3). Base IRPEF 9.120; imposta incrementale = T(44.120) - T(35.000) = 3.009,60",
       "campi": { "canone": 9600, "contratto": "libero", "altaTensione": "si", "reddito": 35000, "detrazioni": 0 },
-      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 2016, "nettoAnnoCedOut": 7584, "nettoMensileUno": 632, "baseImponibileOut": 9120, "aliquotaIrpefOut": 33, "imposteIrpefOut": 3010, "nettoAnnoIrpefOut": 6590 },
-      "note": "L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut."
+      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 2016, "nettoAnnoCedOut": 7584, "nettoMensileUno": 632, "baseImponibileOut": 9120, "aliquotaIrpefOut": 33, "imposteIrpefOut": 3010, "nettoAnnoIrpefOut": 6590, "risparmioAnnoOut": 994, "regimeMiglioreOut": "la cedolare secca" }
     },
     {
       "file": "/calcolo-cedolare-secca.html",
       "caso": "Canone concordato in comune ad alta tensione: 10% e imponibile IRPEF ridotto del 30%",
       "norma": "Art. 3 c.2 D.Lgs. 23/2011 (aliquota 10% per il concordato nei comuni ad alta tensione abitativa) e art. 8 c.1 L. 431/1998 (imponibile IRPEF ridotto di un ulteriore 30%): 6.000 x 0,95 x 0,70 = 3.990. T(23.990) - T(20.000) = 917,70",
       "campi": { "canone": 6000, "contratto": "concordato", "altaTensione": "si", "reddito": 20000, "detrazioni": 0 },
-      "attesi": { "aliquotaCedOut": 10, "impostaCedOut": 600, "nettoAnnoCedOut": 5400, "baseImponibileOut": 3990, "aliquotaIrpefOut": 23, "imposteIrpefOut": 918, "nettoAnnoIrpefOut": 5082 },
-      "note": "L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut."
+      "attesi": { "aliquotaCedOut": 10, "impostaCedOut": 600, "nettoAnnoCedOut": 5400, "baseImponibileOut": 3990, "aliquotaIrpefOut": 23, "imposteIrpefOut": 918, "nettoAnnoIrpefOut": 5082, "risparmioAnnoOut": 318, "regimeMiglioreOut": "la cedolare secca" }
     },
     {
       "file": "/calcolo-cedolare-secca.html",
       "caso": "Controprova: stesso concordato fuori dai comuni ad alta tensione, torna il 21%",
       "norma": "Art. 3 c.2 D.Lgs. 23/2011 e art. 8 c.1 L. 431/1998 legano sia il 10% sia la riduzione del 30% ai comuni di cui all'art. 1 c.1 lett. a) e b) del D.L. 551/1988. Fuori: cedolare 21% e base IRPEF 6.000 x 0,95 = 5.700",
-      "note": "Cambia un solo campo rispetto al caso precedente. Se il risultato non cambia, la condizione sull'alta tensione non sta funzionando. L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut.",
+      "note": "Cambia un solo campo rispetto al caso precedente. Se il risultato non cambia, la condizione sull'alta tensione non sta funzionando.",
       "campi": { "canone": 6000, "contratto": "concordato", "altaTensione": "no", "reddito": 20000, "detrazioni": 0 },
-      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 1260, "nettoAnnoCedOut": 4740, "baseImponibileOut": 5700, "imposteIrpefOut": 1311, "nettoAnnoIrpefOut": 4689 }
+      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 1260, "nettoAnnoCedOut": 4740, "baseImponibileOut": 5700, "imposteIrpefOut": 1311, "nettoAnnoIrpefOut": 4689, "risparmioAnnoOut": 51, "regimeMiglioreOut": "la cedolare secca" }
     },
     {
       "file": "/calcolo-cedolare-secca.html",
       "caso": "Il canone attraversa lo scaglione dei 50.000: l'IRPEF va calcolata a scaglioni, non con l'aliquota marginale",
       "norma": "Scaglioni IRPEF 2026 (L. 199/2025 art. 1 c.3): 23% fino a 28.000, 33% fino a 50.000, 43% oltre. Con reddito 45.000 e base 11.400 l'imposta incrementale e' T(56.400) - T(45.000) = 4.402",
-      "note": "Applicare il 43% a tutta la base darebbe 4.902: 500 euro di imposta inesistente. E' l'errore che questo caso deve intercettare. L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut.",
+      "note": "Applicare il 43% a tutta la base darebbe 4.902: 500 euro di imposta inesistente. E' l'errore che questo caso deve intercettare.",
       "campi": { "canone": 12000, "contratto": "libero", "altaTensione": "no", "reddito": 45000, "detrazioni": 0 },
-      "attesi": { "aliquotaCedOut": 21, "nettoAnnoCedOut": 9480, "baseImponibileOut": 11400, "aliquotaIrpefOut": 43, "imposteIrpefOut": 4402, "nettoAnnoIrpefOut": 7598 }
+      "attesi": { "aliquotaCedOut": 21, "nettoAnnoCedOut": 9480, "baseImponibileOut": 11400, "aliquotaIrpefOut": 43, "imposteIrpefOut": 4402, "nettoAnnoIrpefOut": 7598, "risparmioAnnoOut": 1882, "regimeMiglioreOut": "la cedolare secca" }
     },
     {
       "file": "/calcolo-cedolare-secca.html",
       "caso": "Detrazioni capienti: l'IRPEF sul canone si azzera e la cedolare non conviene",
       "norma": "Le detrazioni abbattono l'imposta lorda fino a concorrenza (art. 15 TUIR): 1.748 di IRPEF incrementale contro 3.000 di detrazioni danno imposta zero, non un credito. La cedolare secca invece si paga sempre: 8.000 x 21% = 1.680",
       "campi": { "canone": 8000, "contratto": "libero", "altaTensione": "no", "reddito": 10000, "detrazioni": 3000 },
-      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 1680, "nettoAnnoCedOut": 6320, "baseImponibileOut": 7600, "imposteIrpefOut": 0, "nettoAnnoIrpefOut": 8000 },
-      "note": "L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut."
+      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 1680, "nettoAnnoCedOut": 6320, "baseImponibileOut": 7600, "imposteIrpefOut": 0, "nettoAnnoIrpefOut": 8000, "risparmioAnnoOut": 1680, "regimeMiglioreOut": "l'IRPEF ordinaria" }
     },
     {
       "file": "/calcolo-cedolare-secca.html",
