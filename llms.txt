@@ -5,6 +5,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 ## Calcolatori
 
 - https://calcolapro.it/lordonetto.html — Converti stipendio lordo in netto (o viceversa) con IRPEF 2026, detrazioni e contributi INPS
+- https://calcolapro.it/stipendio-netto-per-regione.html — Dataset: stipendio netto di 30.000 euro lordi in tutte e 21 le regioni italiane, con addizionale regionale IRPEF 2026 e regole derogatorie di Trento, Bolzano, Friuli, Valle d Aosta, Umbria e Lazio
 - https://calcolapro.it/mutuo.html — Calcola la rata mensile del mutuo con piano di ammortamento alla francese
 - https://calcolapro.it/pensione.html — Stima eta' pensionabile e importo assegno INPS in base ai contributi versati
 - https://calcolapro.it/freelance.html — Calcola la tariffa oraria ideale per freelance in regime forfettario o ordinario
