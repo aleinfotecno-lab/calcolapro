@@ -448,31 +448,31 @@
     <h2>Domande frequenti</h2>
     <div class="faq-list">
           <div class="faq-item">
-            <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               Quanto capitale serve davvero per una polizza vita? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
             <div class="faq-answer"><p>Non esiste un multiplo valido per tutti. Il metodo corretto è partire dai bisogni concreti: quanto reddito verrebbe a mancare e per quanti anni, quali debiti resterebbero da pagare, quanto costerà far studiare i figli. Da questa somma si sottrae quello che la famiglia ha già: risparmi, TFR, altre polizze. Le regole del pollice tipo "dieci volte il reddito" danno un ordine di grandezza, ma ignorano proprio le due variabili che cambiano tutto, cioè il debito residuo del mutuo e l'età dei figli. Una coppia senza figli con il mutuo quasi estinto ha bisogno di molto meno di una famiglia che ha appena comprato casa con due bambini piccoli, a parità di stipendio.</p></div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               Che differenza c'è tra una TCM e una polizza mista o rivalutabile? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
             <div class="faq-answer"><p>La temporanea caso morte (TCM) copre solo il rischio di decesso entro una durata stabilita: se l'assicurato sopravvive alla scadenza, il premio pagato non torna indietro. In cambio costa poco, perché paghi solo la copertura. Le polizze miste e rivalutabili uniscono invece la protezione a una componente di investimento e restituiscono un capitale anche a scadenza, ma il premio è molto più alto e la parte investita sconta i costi del prodotto assicurativo. Se l'obiettivo è proteggere la famiglia dal rischio di morte prematura, la TCM è lo strumento che fa quel lavoro al costo minore; se l'obiettivo è far crescere un capitale, conviene confrontare il rendimento netto della parte finanziaria con quello di un investimento diretto, tenendo conto dei costi di entrambi.</p></div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               La polizza vita è detraibile dalle tasse? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
             <div class="faq-answer"><p>Sì, ma solo per la parte che copre il rischio di morte o di invalidità permanente non inferiore al 5%, e su un importo massimo di 530 euro l'anno. La detrazione è del 19%, quindi il risparmio fiscale massimo è di 100,70 euro l'anno. Il limite è complessivo: se hai più polizze, i premi si sommano e il tetto resta 530 euro. Per le polizze che coprono il rischio di non autosufficienza nel compimento degli atti della vita quotidiana il limite sale a 1.291,14 euro, al netto dei premi già portati in detrazione per morte e invalidità; per quelle a tutela di persone con disabilità grave ai sensi dell'art. 3 comma 3 della legge 104/1992 il tetto è di 750 euro. Dal 2020 la detrazione spetta solo se il premio è pagato con mezzi tracciabili: bonifico, carta, bollettino postale. Attenzione infine a due limiti legati al reddito: la detrazione è piena fino a 120.000 euro di reddito complessivo, poi si riduce progressivamente fino ad azzerarsi a 240.000 euro, e per i redditi sopra 75.000 euro l'art. 16-ter del TUIR pone un tetto complessivo a tutti gli oneri detraibili, dal quale restano però esclusi i premi dei contratti stipulati entro il 31 dicembre 2024.</p></div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               Il capitale della polizza vita rientra nell'eredità? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
             <div class="faq-answer"><p>No. L'art. 1920 del Codice Civile stabilisce che per effetto della designazione il beneficiario acquista un diritto proprio ai vantaggi dell'assicurazione: il capitale gli arriva direttamente dalla compagnia, non passa dall'asse ereditario e non è soggetto a imposta di successione. L'art. 1923 aggiunge che le somme dovute dall'assicuratore non possono essere sottoposte ad azione esecutiva o cautelare, quindi i creditori non possono aggredirle. Il secondo comma dello stesso articolo pone però un limite importante da conoscere: restano salve, rispetto ai premi pagati, le norme sulla revocatoria degli atti in pregiudizio dei creditori e quelle su collazione, imputazione e riduzione delle donazioni. In pratica il capitale è protetto, ma i premi versati possono essere contestati da creditori o eredi legittimari.</p></div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               Serve una polizza vita se ho già l'assicurazione sul mutuo? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
             <div class="faq-answer"><p>Sono due cose diverse e la seconda non sostituisce la prima. La polizza abbinata al mutuo, spesso chiamata CPI, ha come beneficiaria la banca e serve a estinguere il debito residuo: elimina la rata, ma non lascia un euro alla famiglia per vivere. Inoltre il capitale assicurato scende insieme al debito, quindi verso la fine del piano di ammortamento copre pochissimo. Nel calcolatore qui sopra il mutuo va quindi inserito tra i debiti solo se non hai già una CPI che lo copre: se ce l'hai, azzera quella voce e concentrati sul reddito da sostituire e sulle spese dei figli, che sono i due bisogni che nessuna polizza sul mutuo copre.</p></div>
@@ -592,6 +592,8 @@ function calcola() {
   }
 }
 </script>
+  <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
 </body>
 </html>
