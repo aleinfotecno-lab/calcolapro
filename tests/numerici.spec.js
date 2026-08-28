@@ -69,6 +69,12 @@ for (const c of casi) {
         if (!el) { assenti.push(id); continue; }
         if (el.type === 'checkbox') el.checked = v === true;
         else el.value = v;
+        // Assegnare a un <select> un valore che nessuna option espone non fallisce:
+        // il select resta sul valore precedente e il caso finisce per misurare uno
+        // scenario diverso da quello che descrive. Va trattato come campo mancante.
+        if (el.tagName === 'SELECT' && String(el.value) !== String(v)) {
+          assenti.push(`${id} (nessuna opzione con valore "${v}")`);
+        }
         el.dispatchEvent(new Event('input', { bubbles: true }));
         el.dispatchEvent(new Event('change', { bubbles: true }));
       }
