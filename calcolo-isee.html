@@ -300,9 +300,7 @@
             <input class="field-input" type="number" id="redditoAltri" placeholder="es. 5000" min="0"/>
           </div>
           <div class="field-group">
-            <label class="field-label" for="assegnoUnico">Assegno Unico percepito (€ annui)</label>
-            <input class="field-input" type="number" id="assegnoUnico" placeholder="es. 2400" min="0"/>
-            <span class="field-hint">L'Assegno Unico è escluso dal reddito ISEE, inseriscilo solo se vuoi escluderlo dal totale</span>
+            <span class="field-hint">⚠️ L'<strong>Assegno Unico non va incluso</strong> negli altri redditi: dal 2025 è escluso dal calcolo dell'ISEE. Se lo sommi qui sopra, l'indicatore esce più alto del dovuto e rischi di perdere agevolazioni a cui hai diritto.</span>
           </div>
         </div>
 
@@ -561,7 +559,11 @@
     if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
 
-    const scaleTable = { 1: 1.00, 2: 1.57, 3: 2.04, 4: 2.46, 5: 2.85, 6: 3.19, 7: 3.53 };
+    // Allegato 1 DPCM 159/2013: 1,00 / 1,57 / 2,04 / 2,46 / 2,85 e poi "incrementato
+    // di 0,35 per ogni ulteriore componente". I valori per 6 e 7 erano 3,19 e 3,53,
+    // cioe' un divisore piu' basso e quindi un ISEE piu' alto, a danno delle famiglie
+    // numerose: sono 3,20 e 3,55.
+    const scaleTable = { 1: 1.00, 2: 1.57, 3: 2.04, 4: 2.46, 5: 2.85, 6: 3.20, 7: 3.55 };
 
     function aggiornaScale() {
       const n = parseInt(document.getElementById('componenti').value);

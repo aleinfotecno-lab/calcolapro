@@ -51,6 +51,12 @@ for (const c of casi) {
     const errori = [];
     page.on('pageerror', (e) => errori.push(e.message));
 
+    // Alcuni calcolatori leggono la data di oggi (pensione.html parte da
+    // new Date().getFullYear(), calcolo-eta.html dalla data corrente). Senza congelare
+    // l'orologio il valore atteso scadrebbe da solo al cambio d'anno, e il test
+    // diventerebbe rosso senza che nulla si sia rotto. 'oggi' fissa il giorno.
+    if (c.oggi) await page.clock.setFixedTime(new Date(`${c.oggi}T09:00:00`));
+
     await page.goto(c.file, { waitUntil: 'domcontentloaded' });
 
     const campi = {};
@@ -100,8 +106,11 @@ for (const c of casi) {
     }
 
     for (const [id, atteso] of Object.entries(c.attesi)) {
+      // Chiave = id semplice (il caso normale) oppure selettore CSS. Serve per le pagine
+      // che scrivono il risultato dentro un innerHTML senza dare un id al numero:
+      // calcolo-isee.html e' l'esempio, la cifra dell'ISEE vive in un <div> anonimo.
       const testo = await page.evaluate((i) => {
-        const el = document.getElementById(i);
+        const el = /^[A-Za-z_][\w-]*$/.test(i) ? document.getElementById(i) : document.querySelector(i);
         return el ? el.textContent.trim() : null;
       }, id);
       expect(testo, `output #${id} assente`).not.toBeNull();

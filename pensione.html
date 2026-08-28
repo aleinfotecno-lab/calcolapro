@@ -455,6 +455,11 @@
           <table class="coeff-table">
             <thead><tr><th>Età</th><th>Coefficiente</th><th>Pensione su 100.000€ di montante</th></tr></thead>
             <tbody id="coeffTable">
+              <tr><td>57 anni</td><td>4,204%</td><td>€ 4.204/anno</td></tr>
+              <tr><td>58 anni</td><td>4,308%</td><td>€ 4.308/anno</td></tr>
+              <tr><td>59 anni</td><td>4,419%</td><td>€ 4.419/anno</td></tr>
+              <tr><td>60 anni</td><td>4,536%</td><td>€ 4.536/anno</td></tr>
+              <tr><td>61 anni</td><td>4,661%</td><td>€ 4.661/anno</td></tr>
               <tr><td>62 anni</td><td>4,795%</td><td>€ 4.795/anno</td></tr>
               <tr><td>63 anni</td><td>4,936%</td><td>€ 4.936/anno</td></tr>
               <tr><td>64 anni</td><td>5,088%</td><td>€ 5.088/anno</td></tr>
@@ -467,7 +472,7 @@
             </tbody>
           </table>
         </div>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">★ Età standard pensione di vecchiaia 2026. Fonte: INPS — tabelle aggiornate triennalmente.</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">★ Età standard pensione di vecchiaia 2026. Fonte: decreto direttoriale Ministero del Lavoro–MEF del 20 novembre 2024, valido per il biennio 2025-2026.</p>
       </div>
 
       <div class="aff-box" style="margin-top:16px;">
@@ -594,7 +599,7 @@
         </tbody>
       </table>
     </div>
-    <p style="font-size:12px;color:var(--text-muted)">★ Età standard pensione di vecchiaia 2026. I coefficienti vengono aggiornati dall'INPS ogni tre anni in base all'aspettativa di vita media della popolazione.</p>
+    <p style="font-size:12px;color:var(--text-muted)">★ Età standard pensione di vecchiaia 2026. I coefficienti vengono aggiornati ogni due anni con decreto del Ministero del Lavoro di concerto con il MEF, sulla base dell'aspettativa di vita rilevata dall'ISTAT (art. 12 comma 12-bis del D.L. 78/2010).</p>
     <p><strong>Esempio pratico:</strong> con un montante contributivo di 280.000 € e pensionamento a 67 anni: 280.000 × 5,608% = <strong>15.702 €/anno = circa 1.208 €/mese lordi</strong> (su 13 mensilità). Lo stesso montante liquidato a 62 anni varrebbe invece: 280.000 × 4,795% = 13.426 €/anno = circa 1.033 €/mese — circa 175 € in meno ogni mese per tutta la vita pensionistica.</p>
   </section>
 
@@ -798,7 +803,12 @@
     const ETA_QUOTA103 = 62;
     const CONTRIBUTI_QUOTA103 = 41;
     const ALIQUOTA_CONTRIBUTIVA = 0.33;
-    const COEFFICIENTI = {62:0.04795,63:0.04936,64:0.05088,65:0.05250,66:0.05423,67:0.05608,68:0.05808,69:0.06024,70:0.06258};
+    // Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, in vigore dal
+    // 1° gennaio 2025 per il biennio 2025-2026. La tabella ufficiale parte da 57
+    // anni: mancavano le prime cinque eta' e il coefficiente veniva agganciato a
+    // quello dei 62, sovrastimando la pensione di chi esce prima (a 59 anni si
+    // applicava 4,795% invece di 4,419%, quasi l'8% in piu').
+    const COEFFICIENTI = {57:0.04204,58:0.04308,59:0.04419,60:0.04536,61:0.04661,62:0.04795,63:0.04936,64:0.05088,65:0.05250,66:0.05423,67:0.05608,68:0.05808,69:0.06024,70:0.06258};
 
     const annoNascita = parseInt(document.getElementById('annoNascita').value) || 1980;
     const sesso = document.getElementById('sesso').value;
@@ -844,7 +854,7 @@
 
     const annoPensione = annoCorrente + Math.ceil(migliore.anni);
     const etaPensione = Math.min(migliore.eta, ETÀ_VECCHIAIA);
-    const coefficiente = COEFFICIENTI[Math.min(70, Math.max(62, etaPensione))] || 0.05608;
+    const coefficiente = COEFFICIENTI[Math.min(70, Math.max(57, etaPensione))] || 0.05608;
 
     // Calcolo montante contributivo
     const rivalutazione = 0.015; // rivalutazione montante ~1.5%/anno

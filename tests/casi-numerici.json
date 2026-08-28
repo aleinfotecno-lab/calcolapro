@@ -215,6 +215,13 @@
       "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "apprendistato", "inail": "1", "sgravioSud": false, "apprendistatoRegime": "3.11" },
       "attesi": { "costoAnnuoOut": 28865.20 }
     },
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Anche qui l'1% sopra la prima fascia, e il netto resta allineato a lordonetto",
+      "norma": "Stessa regola e stesso motore di lordonetto.html: RAL 78.000 da' 46.475,31 l'anno, cioe' 3.872,94 al mese",
+      "campi": { "stipendio": 6000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1", "sgravioSud": false },
+      "attesi": { "nettoStimOut": 3872.94 }
+    },
 
     {
       "file": "/calcolo-plusvalenza-immobiliare.html",
@@ -262,7 +269,6 @@
       "campi": { "importo": 20000, "tipo": "netto", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
       "attesi": { "priceOut": 24729 }
     },
-
     {
       "file": "/lordonetto.html",
       "caso": "Aliquota regionale minima di legge (1,23%)",
@@ -270,20 +276,12 @@
       "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.23, "addComunale": 0.50 },
       "attesi": { "priceOut": 23242 }
     },
-
     {
       "file": "/lordonetto.html",
       "caso": "Sopra la prima fascia scatta l'aliquota aggiuntiva dell'1%",
       "norma": "Art. 3-ter D.L. 384/1992: 1% sulla quota oltre 56.224 euro (circolare INPS 6/2026). Su RAL 78.000 i contributi sono 7.168,20 + 217,76",
       "campi": { "importo": 78000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
       "attesi": { "priceOut": 46475, "inpsOut": 7386 }
-    },
-    {
-      "file": "/calcolo-costo-lavoro.html",
-      "caso": "Anche qui l'1% sopra la prima fascia, e il netto resta allineato a lordonetto",
-      "norma": "Stessa regola e stesso motore di lordonetto.html: RAL 78.000 da' 46.475,31 l'anno, cioe' 3.872,94 al mese",
-      "campi": { "stipendio": 6000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1", "sgravioSud": false },
-      "attesi": { "nettoStimOut": 3872.94 }
     },
 
     {
@@ -292,6 +290,42 @@
       "norma": "Allegato 5B Banca d'Italia. Senza spese il TAEG e' (1+0,075/12)^12-1 = 7,76%. Rata francese: 200,38",
       "campi": { "importo": 10000, "tan": 7.5, "durata": 60, "spese": 0, "speseGestione": 0 },
       "attesi": { "taegOut": 7.76, "priceOut": 200.38 }
+    },
+    {
+      "file": "/calcolatore-prestito-personale.html",
+      "caso": "Ammortamento francese: 10.000 euro al 7,5% in 60 mesi",
+      "norma": "Rata costante dell'ammortamento alla francese: R = C x i x (1+i)^n / ((1+i)^n - 1) con i = 7,5%/12 = 0,625%. Senza costi accessori il TAEG e' il TAN composto mensilmente: (1,00625^12 - 1) = 7,76%",
+      "campi": { "importo": 10000, "tan": 7.5, "durata": "60", "spese": 0, "speseGestione": 0 },
+      "attesi": { "priceOut": 200.38, "totaleOut": 12023, "interessiOut": 2023, "taegOut": 7.76 }
+    },
+    {
+      "file": "/calcolatore-prestito-personale.html",
+      "caso": "Tasso zero: la rata e' il capitale diviso le rate, senza divisioni per zero",
+      "norma": "Con i = 0 la formula francese e' indeterminata e la rata e' semplicemente C/n: 6.000/12 = 500. Interessi nulli e TAEG 0%",
+      "campi": { "importo": 6000, "tan": 0, "durata": "12", "spese": 0, "speseGestione": 0 },
+      "attesi": { "priceOut": 500, "totaleOut": 6000, "interessiOut": 0, "taegOut": 0 }
+    },
+    {
+      "file": "/calcolatore-prestito-personale.html",
+      "caso": "Massimali del modulo: 75.000 euro al 12% in 120 mesi",
+      "norma": "Stessa formula francese ai limiti superiori accettati dal form (importo max 75.000, durata max 120 mesi): rata 1.076,03, interessi complessivi 54.124, TAEG (1,01^12 - 1) = 12,68%",
+      "campi": { "importo": 75000, "tan": 12, "durata": "120", "spese": 0, "speseGestione": 0 },
+      "attesi": { "priceOut": 1076.03, "totaleOut": 129124, "interessiOut": 54124, "taegOut": 12.68 }
+    },
+    {
+      "file": "/calcolatore-prestito-personale.html",
+      "caso": "Con istruttoria e spese mensili il TAEG si stacca dal TAN",
+      "norma": "Direttiva 2008/48/CE e Allegato 5B delle Disposizioni di trasparenza di Banca d'Italia: il TAEG e' il tasso che eguaglia il netto erogato (10.000 - 300) al valore attuale delle rate comprensive delle spese di gestione (200,38 + 2). Risultato 9,62% contro un TAN del 7,5%",
+      "note": "Il TAEG deve sempre stare sopra il TAN quando ci sono costi: un TAEG inferiore al TAN e' impossibile per definizione ed e' l'errore che questo caso presidia.",
+      "campi": { "importo": 10000, "tan": 7.5, "durata": "60", "spese": 300, "speseGestione": 2 },
+      "attesi": { "priceOut": 202.38, "totaleOut": 12443, "interessiOut": 2443, "taegOut": 9.62 }
+    },
+    {
+      "file": "/calcolatore-prestito-personale.html",
+      "caso": "Prestito minimo con istruttoria sproporzionata: TAEG al 28% con TAN al 5%",
+      "norma": "Su 500 euro in 12 mesi, 50 euro di istruttoria valgono il 10% del capitale: il netto erogato scende a 450 e il TAEG sale al 28,27% pur restando il TAN al 5%. E' l'effetto che il TAEG serve a rendere visibile",
+      "campi": { "importo": 500, "tan": 5, "durata": "12", "spese": 50, "speseGestione": 0 },
+      "attesi": { "priceOut": 42.8, "totaleOut": 564, "interessiOut": 64, "taegOut": 28.27 }
     },
 
     {
@@ -315,6 +349,52 @@
       "norma": "L. 160/2019 c.746: reddito dominicale +25% per 135. 200 x 1,25 x 135 = 33.750, al 0,76%",
       "campi": { "tipo": "135", "rendita": 200, "mesi": 12, "aliquota": 0.76, "quota": 100 },
       "attesi": { "priceOut": 257, "baseImponibileOut": 33750 }
+    },
+    {
+      "file": "/calcolo-imu.html",
+      "caso": "Seconda casa di categoria A per tutto l'anno all'aliquota base",
+      "norma": "L. 160/2019 c. 745-746: rendita catastale rivalutata del 5% x coefficiente 160; aliquota base 0,86%. 600 x 1,05 x 160 = 100.800; 100.800 x 0,86% = 866,88; acconto e saldo al 50% (c. 762)",
+      "note": "La pagina arrotonda all'euro: acconto e saldo si mostrano entrambi come 433.",
+      "campi": { "tipo": "160", "rendita": 600, "mesi": 12, "aliquota": 0.86, "quota": 100, "riduzioni": "1" },
+      "attesi": { "baseImponibileOut": 100800, "priceOut": 867, "accontoOut": 433, "saldoOut": 433 }
+    },
+    {
+      "file": "/calcolo-imu.html",
+      "caso": "Comune che azzera l'aliquota: zero non deve diventare 0,86%",
+      "norma": "L. 160/2019 c. 748-755: i comuni possono azzerare l'aliquota. Con aliquota 0 l'imposta e' 0, ma la base imponibile resta 1 x 1,05 x 160 = 168",
+      "note": "Zero e' un valore legittimo, non un campo vuoto: sostituirlo col default e' il classico errore che fa comparire un'imposta inesistente.",
+      "campi": { "tipo": "160", "rendita": 1, "mesi": 12, "aliquota": 0, "quota": 100, "riduzioni": "1" },
+      "attesi": { "baseImponibileOut": 168, "priceOut": 0, "accontoOut": 0, "saldoOut": 0 }
+    },
+    {
+      "file": "/calcolo-imu.html",
+      "caso": "Aliquota massima 1,06% su una rendita alta",
+      "norma": "L. 160/2019 c. 754: i comuni possono elevare l'aliquota degli immobili diversi dall'abitazione principale fino all'1,06%. 3.000 x 1,05 x 160 = 504.000; 504.000 x 1,06% = 5.342,40",
+      "campi": { "tipo": "160", "rendita": 3000, "mesi": 12, "aliquota": 1.06, "quota": 100, "riduzioni": "1" },
+      "attesi": { "baseImponibileOut": 504000, "priceOut": 5342, "accontoOut": 2671, "saldoOut": 2671 }
+    },
+    {
+      "file": "/calcolo-imu.html",
+      "caso": "Terreno agricolo: il reddito dominicale si rivaluta del 25%, non del 5%",
+      "norma": "L. 160/2019 c. 746: per i terreni agricoli la base e' il reddito dominicale rivalutato del 25% moltiplicato per 135. 500 x 1,25 x 135 = 84.375; x 0,76% = 641,25",
+      "note": "E' la soglia dove cambia la regola: applicare ai terreni la rivalutazione del 5% dei fabbricati sottostima la base del 16%.",
+      "campi": { "tipo": "135", "rendita": 500, "mesi": 12, "aliquota": 0.76, "quota": 100, "riduzioni": "1" },
+      "attesi": { "baseImponibileOut": 84375, "priceOut": 641 }
+    },
+    {
+      "file": "/calcolo-imu.html",
+      "caso": "Canone concordato, comproprieta' al 50% e sette mesi di possesso",
+      "norma": "L. 160/2019 c. 760 (imposta ridotta al 75% per i contratti a canone concordato) e c. 761 (imposta dovuta in proporzione ai mesi di possesso e alla quota). 950 x 1,05 x 160 = 159.600; x 0,96% x 50% x 7/12 x 0,75 = 335,16",
+      "campi": { "tipo": "160", "rendita": 950, "mesi": 7, "aliquota": 0.96, "quota": 50, "riduzioni": "0.75" },
+      "attesi": { "baseImponibileOut": 159600, "priceOut": 335, "accontoOut": 168, "saldoOut": 168 }
+    },
+    {
+      "file": "/calcolo-imu.html",
+      "caso": "Quota di possesso oltre il 100%: il modulo si ferma invece di calcolare",
+      "norma": "La quota di possesso e' una frazione di proprieta': oltre il 100% non ha significato e non deve produrre un'imposta",
+      "campi": { "tipo": "160", "rendita": 600, "mesi": 12, "aliquota": 0.86, "quota": 150, "riduzioni": "1" },
+      "erroreSu": "quota",
+      "attesi": {}
     },
 
     {
@@ -376,6 +456,54 @@
       "norma": "Art. 8 c.1 L. 431/1998 oltre al 5% dell'art. 37 c.4-bis TUIR: 9.600 x 0,95 x 0,70 = 6.384. IRPEF incrementale su reddito 25.000 = 1.807",
       "campi": { "canone": 9600, "contratto": "concordato", "altaTensione": "si", "reddito": 25000, "detrazioni": 0 },
       "attesi": { "baseImponibileOut": 6384, "impostaCedOut": 960, "imposteIrpefOut": 1807 }
+    },
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Contratto libero: cedolare al 21% contro IRPEF al 33%",
+      "norma": "Art. 3 D.Lgs. 23/2011 (cedolare 21% sul canone intero) contro IRPEF su canone - 5% forfettario (art. 37 c.4-bis TUIR) con gli scaglioni 2026 23/33/43% (L. 199/2025 art. 1 c.3). Base IRPEF 9.120; imposta incrementale = T(44.120) - T(35.000) = 3.009,60",
+      "campi": { "canone": 9600, "contratto": "libero", "altaTensione": "si", "reddito": 35000, "detrazioni": 0 },
+      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 2016, "nettoAnnoCedOut": 7584, "nettoMensileUno": 632, "baseImponibileOut": 9120, "aliquotaIrpefOut": 33, "imposteIrpefOut": 3010, "nettoAnnoIrpefOut": 6590 },
+      "note": "L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut."
+    },
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Canone concordato in comune ad alta tensione: 10% e imponibile IRPEF ridotto del 30%",
+      "norma": "Art. 3 c.2 D.Lgs. 23/2011 (aliquota 10% per il concordato nei comuni ad alta tensione abitativa) e art. 8 c.1 L. 431/1998 (imponibile IRPEF ridotto di un ulteriore 30%): 6.000 x 0,95 x 0,70 = 3.990. T(23.990) - T(20.000) = 917,70",
+      "campi": { "canone": 6000, "contratto": "concordato", "altaTensione": "si", "reddito": 20000, "detrazioni": 0 },
+      "attesi": { "aliquotaCedOut": 10, "impostaCedOut": 600, "nettoAnnoCedOut": 5400, "baseImponibileOut": 3990, "aliquotaIrpefOut": 23, "imposteIrpefOut": 918, "nettoAnnoIrpefOut": 5082 },
+      "note": "L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut."
+    },
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Controprova: stesso concordato fuori dai comuni ad alta tensione, torna il 21%",
+      "norma": "Art. 3 c.2 D.Lgs. 23/2011 e art. 8 c.1 L. 431/1998 legano sia il 10% sia la riduzione del 30% ai comuni di cui all'art. 1 c.1 lett. a) e b) del D.L. 551/1988. Fuori: cedolare 21% e base IRPEF 6.000 x 0,95 = 5.700",
+      "note": "Cambia un solo campo rispetto al caso precedente. Se il risultato non cambia, la condizione sull'alta tensione non sta funzionando. L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut.",
+      "campi": { "canone": 6000, "contratto": "concordato", "altaTensione": "no", "reddito": 20000, "detrazioni": 0 },
+      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 1260, "nettoAnnoCedOut": 4740, "baseImponibileOut": 5700, "imposteIrpefOut": 1311, "nettoAnnoIrpefOut": 4689 }
+    },
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Il canone attraversa lo scaglione dei 50.000: l'IRPEF va calcolata a scaglioni, non con l'aliquota marginale",
+      "norma": "Scaglioni IRPEF 2026 (L. 199/2025 art. 1 c.3): 23% fino a 28.000, 33% fino a 50.000, 43% oltre. Con reddito 45.000 e base 11.400 l'imposta incrementale e' T(56.400) - T(45.000) = 4.402",
+      "note": "Applicare il 43% a tutta la base darebbe 4.902: 500 euro di imposta inesistente. E' l'errore che questo caso deve intercettare. L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut.",
+      "campi": { "canone": 12000, "contratto": "libero", "altaTensione": "no", "reddito": 45000, "detrazioni": 0 },
+      "attesi": { "aliquotaCedOut": 21, "nettoAnnoCedOut": 9480, "baseImponibileOut": 11400, "aliquotaIrpefOut": 43, "imposteIrpefOut": 4402, "nettoAnnoIrpefOut": 7598 }
+    },
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Detrazioni capienti: l'IRPEF sul canone si azzera e la cedolare non conviene",
+      "norma": "Le detrazioni abbattono l'imposta lorda fino a concorrenza (art. 15 TUIR): 1.748 di IRPEF incrementale contro 3.000 di detrazioni danno imposta zero, non un credito. La cedolare secca invece si paga sempre: 8.000 x 21% = 1.680",
+      "campi": { "canone": 8000, "contratto": "libero", "altaTensione": "no", "reddito": 10000, "detrazioni": 3000 },
+      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 1680, "nettoAnnoCedOut": 6320, "baseImponibileOut": 7600, "imposteIrpefOut": 0, "nettoAnnoIrpefOut": 8000 },
+      "note": "L'asserzione su #risparmioOut e' stata tolta perche' quell'elemento non contiene un numero ma una frase con due importi (annuo e mensile) piu' il regime vincente: il parser dei test li concatena. Il risparmio resta comunque fissato, come differenza fra nettoAnnoCedOut e nettoAnnoIrpefOut. Per poter asserire anche quale regime vince, basterebbe racchiudere il solo importo annuo in uno <span> con un id proprio dentro risparmioOut."
+    },
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Canone non indicato: nessun confronto costruito sul nulla",
+      "norma": "Senza canone non esiste base imponibile: il calcolatore deve segnalare il campo, non proporre un confronto fra due zeri",
+      "campi": { "canone": "", "contratto": "libero", "altaTensione": "no", "reddito": 30000, "detrazioni": 0 },
+      "erroreSu": "canone",
+      "attesi": {}
     },
 
     {
@@ -768,6 +896,7 @@
       "campi": { "kw": 220, "tipoVeicolo": "auto", "classeEuro": "456", "annoImmat": 2023, "mesiPossesso": 12 },
       "attesi": { "totaleOut": 1422.40 }
     },
+
     {
       "file": "/calcolo-capitale-assicurato.html",
       "caso": "Famiglia con mutuo e due figli",
@@ -788,6 +917,258 @@
       "norma": "Non si può sostituire più del reddito che entrava: con quota 150 il calcolo deve usare 100, quindi 30000 x 1,00 x 10 = 300.000 e non 450.000",
       "campi": { "reddito": 30000, "quota": 150, "anni": 10, "debiti": 0, "figli": 0, "anniFigli": 0, "costoFiglio": 0, "patrimonio": 0 },
       "attesi": { "capitaleOut": 300000 }
+    },
+
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Coppia con casa di proprieta' appena sopra la franchigia",
+      "norma": "DPCM 159/2013 artt. 2, 4 c.4 lett. f), 5 c.2 e c.4, All. 1: ISR = 32.000 - 3.000 (20% del reddito da lavoro, tetto 3.000); casa (60.000 - 52.500) x 2/3 = 5.000; mobiliare 8.000 - franchigia 8.000 = 0; ISE = 29.000 + 20% x 5.000 = 30.000; ISEE = 30.000 / 1,57",
+      "note": "La pagina arrotonda all'euro (Intl maximumFractionDigits 0): 19.108,28 si mostra come 19.108.",
+      "funzione": "calcolaISEE",
+      "campi": { "componenti": 2, "figlioDisabile": 0, "genitoreMonogenitoriale": 0, "redditoLavDip": 32000, "redditoAltri": 0, "valoreImuPrimaCasa": 60000, "valoreImuAltri": 0, "saldoConti": 8000, "titoliFinanziari": 0 },
+      "attesi": { "#resultMain > div > div:nth-child(1)": 19108, "#resultDetails > div:first-child > div:nth-child(1) > span:last-child": 29000, "#resultDetails > div:first-child > div:nth-child(2) > span:last-child": 5000, "#resultDetails > div:first-child > div:nth-child(3) > span:last-child": 0, "#resultDetails > div:first-child > div:nth-child(4) > span:last-child": 30000, "#resultDetails > div:first-child > div:nth-child(5) > span:last-child": 1.57 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Persona sola con reddito basso: franchigia mobiliare e detrazione al 20% non capiente",
+      "norma": "DPCM 159/2013 art. 4 c.4 lett. f) (20% di 5.000 = 1.000, sotto il tetto di 3.000) e art. 5 c.4 (franchigia mobiliare 6.000 per il primo componente, 5.000 di conti non rilevano). ISE = 4.000, scala 1,00",
+      "funzione": "calcolaISEE",
+      "campi": { "componenti": 1, "figlioDisabile": 0, "genitoreMonogenitoriale": 0, "redditoLavDip": 5000, "redditoAltri": 0, "valoreImuPrimaCasa": 0, "valoreImuAltri": 0, "saldoConti": 5000, "titoliFinanziari": 0 },
+      "attesi": { "#resultMain > div > div:nth-child(1)": 4000, "#resultDetails > div:first-child > div:nth-child(3) > span:last-child": 0 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Nucleo di cinque: entrambi i tetti mordono, detrazione 3.000 e franchigia mobiliare 10.000",
+      "norma": "DPCM 159/2013 art. 4 c.4 lett. f) tetto 3.000; art. 5 c.4 franchigia 6.000 + 2.000 per componente ma non oltre 10.000 (con 5 componenti il calcolo darebbe 14.000). ISR = 70.000 - 3.000 = 67.000; mobiliare 30.000 - 10.000 = 20.000; ISE = 67.000 + 4.000 = 71.000; scala 2,85",
+      "funzione": "calcolaISEE",
+      "campi": { "componenti": 5, "figlioDisabile": 0, "genitoreMonogenitoriale": 0, "redditoLavDip": 60000, "redditoAltri": 10000, "valoreImuPrimaCasa": 0, "valoreImuAltri": 0, "saldoConti": 30000, "titoliFinanziari": 0 },
+      "attesi": { "#resultMain > div > div:nth-child(1)": 24912, "#resultDetails > div:first-child > div:nth-child(1) > span:last-child": 67000, "#resultDetails > div:first-child > div:nth-child(3) > span:last-child": 20000 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Casa sopra franchigia: l'eccedenza vale due terzi, e i redditi non da lavoro non hanno detrazione",
+      "norma": "DPCM 159/2013 art. 5 c.2: (82.500 - 52.500) x 2/3 = 20.000. La detrazione del 20% dell'art. 4 c.4 lett. f) spetta solo ai redditi da lavoro dipendente: qui il reddito e' \"altro\" e resta intero. ISE = 20.000 + 20% x 20.000 = 24.000; scala 1,57",
+      "funzione": "calcolaISEE",
+      "campi": { "componenti": 2, "figlioDisabile": 0, "genitoreMonogenitoriale": 0, "redditoLavDip": 0, "redditoAltri": 20000, "valoreImuPrimaCasa": 82500, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "attesi": { "#resultMain > div > div:nth-child(1)": 15287, "#resultDetails > div:first-child > div:nth-child(1) > span:last-child": 20000, "#resultDetails > div:first-child > div:nth-child(2) > span:last-child": 20000 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Controprova sulla soglia: casa esattamente a 52.500, il patrimonio immobiliare resta zero",
+      "norma": "DPCM 159/2013 art. 5 c.2: la franchigia e' 52.500 e sotto di essa la casa di abitazione non rileva. Stesso caso precedente con la casa sul valore di soglia: ISE = 20.000, ISEE = 20.000 / 1,57",
+      "note": "Serve a distinguere un errore di formula da un errore di soglia: cambia solo il valore della casa, di 30.000 euro, e il resto deve restare identico.",
+      "funzione": "calcolaISEE",
+      "campi": { "componenti": 2, "figlioDisabile": 0, "genitoreMonogenitoriale": 0, "redditoLavDip": 0, "redditoAltri": 20000, "valoreImuPrimaCasa": 52500, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "attesi": { "#resultMain > div > div:nth-child(1)": 12739, "#resultDetails > div:first-child > div:nth-child(2) > span:last-child": 0 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "L'Assegno Unico non entra nell'ISEE: la pagina non lo chiede nemmeno",
+      "norma": "DPCM 159/2013 art. 4: l'AUU (D.Lgs. 230/2021) non e' fra i redditi che concorrono all'ISR. ISR = 25.000 - 3.000 = 22.000, ISE = 22.000, scala 2,04",
+      "note": "Il campo #assegnoUnico e' stato tolto dal form: non veniva letto da nessuna parte, e un campo che chiede un numero senza usarlo fa credere che quel numero venga sottratto. La garanzia documentata qui resta, ed e' anzi diventata strutturale: l'AUU non puo' spostare l'ISEE perche' la pagina non lo raccoglie. Al suo posto c'e' un avviso sotto 'Altri redditi', che e' il punto in cui l'errore si commette davvero.",
+      "funzione": "calcolaISEE",
+      "campi": { "componenti": 3, "figlioDisabile": 0, "genitoreMonogenitoriale": 0, "redditoLavDip": 25000, "redditoAltri": 0, "valoreImuPrimaCasa": 0, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "attesi": { "#resultMain > div > div:nth-child(1)": 10784, "#resultDetails > div:first-child > div:nth-child(1) > span:last-child": 22000 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Nucleo di 6 componenti: la scala vale 3,20, non 3,19",
+      "norma": "Allegato 1 DPCM 159/2013: scala di equivalenza 1,00 / 1,57 / 2,04 / 2,46 / 2,85 e poi +0,35 per ogni componente oltre il quinto, quindi 2,85 + 0,35 = 3,20 per il sesto componente. Un parametro piu basso alzerebbe l ISEE proprio delle famiglie numerose",
+      "campi": { "componenti": 6, "redditoLavDip": 30000, "redditoAltri": 0, "valoreImuPrimaCasa": 0, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "funzione": "calcolaISEE",
+      "attesi": { "#resultMain > div > div:first-child": 8438 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Nucleo di 7 componenti: la scala vale 3,55, non 3,53",
+      "norma": "Allegato 1 DPCM 159/2013: scala di equivalenza 1,00 / 1,57 / 2,04 / 2,46 / 2,85 e poi +0,35 per ogni componente oltre il quinto, quindi 2,85 + 0,35 + 0,35 = 3,55 per il settimo componente",
+      "campi": { "componenti": 7, "redditoLavDip": 30000, "redditoAltri": 0, "valoreImuPrimaCasa": 0, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "funzione": "calcolaISEE",
+      "attesi": { "#resultMain > div > div:first-child": 7606 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Controprova: con 4 componenti la scala 2,46 resta quella di sempre, casa oltre franchigia",
+      "norma": "Art. 5 DPCM 159/2013: franchigia sulla prima casa 52.500 euro piu 2.500 per ogni figlio oltre il secondo; l eccedenza rileva per due terzi e il patrimonio entra nell ISE al 20%",
+      "campi": { "componenti": 4, "redditoLavDip": 28000, "redditoAltri": 0, "valoreImuPrimaCasa": 90000, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "funzione": "calcolaISEE",
+      "attesi": { "#resultMain > div > div:first-child": 11924 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Confine: casa da 50.000 euro sotto la franchigia di 52.500, non deve pesare nulla",
+      "norma": "Art. 5 DPCM 159/2013: la franchigia sulla casa di abitazione e di 52.500 euro, sotto quella soglia il patrimonio immobiliare non concorre",
+      "campi": { "componenti": 2, "redditoLavDip": 20000, "redditoAltri": 0, "valoreImuPrimaCasa": 50000, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "funzione": "calcolaISEE",
+      "attesi": { "#resultMain > div > div:first-child": 10828 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Detrazione da lavoro dipendente al tetto: su 40.000 euro si ferma a 3.000, non al 20%",
+      "norma": "Art. 4 c. 4 lett. a) DPCM 159/2013: dal reddito da lavoro dipendente si deduce il 20% fino a un massimo di 3.000 euro",
+      "campi": { "componenti": 2, "redditoLavDip": 40000, "redditoAltri": 0, "valoreImuPrimaCasa": 0, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "funzione": "calcolaISEE",
+      "attesi": { "#resultMain > div > div:first-child": 23567 }
+    },
+
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Fattura commerciale pagata con 89 giorni di ritardo",
+      "norma": "D.Lgs. 231/2002 art. 5 (tasso BCE + 8 punti) e art. 6 (indennizzo forfettario 40 euro). Tasso di riferimento del 2 semestre 2026: 2,40% (comunicato MEF, GU 163 del 16/7/2026) -> 10,40%. 5.000 x 10,40% x 89/365",
+      "campi": { "capitale": 5000, "dataScadenza": "2026-01-31", "dataPagamento": "2026-04-30", "tassoBCE": 2.4, "includiIndennita": true },
+      "attesi": { "giorniOut": 89, "interessiOut": 126.79, "indennitaOut": 40, "totaleOut": 5166.79 }
+    },
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Un solo giorno di ritardo: l'indennizzo forfettario pesa piu' degli interessi",
+      "norma": "D.Lgs. 231/2002 art. 6: i 40 euro spettano automaticamente e non sono proporzionati al ritardo. 1.000 x 10,40% x 1/365 = 0,28",
+      "campi": { "capitale": 1000, "dataScadenza": "2026-06-30", "dataPagamento": "2026-07-01", "tassoBCE": 2.4, "includiIndennita": true },
+      "attesi": { "giorniOut": 1, "interessiOut": 0.28, "indennitaOut": 40, "totaleOut": 1040.28 }
+    },
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Due anni di ritardo su 50.000 euro con tasso di riferimento alto",
+      "norma": "D.Lgs. 231/2002 art. 5: 4,50% + 8 = 12,50%. Dal 15/1/2024 al 15/1/2026 sono 731 giorni (il 2024 e' bisestile). 50.000 x 12,50% x 731/365",
+      "campi": { "capitale": 50000, "dataScadenza": "2024-01-15", "dataPagamento": "2026-01-15", "tassoBCE": 4.5, "includiIndennita": true },
+      "attesi": { "giorniOut": 731, "interessiOut": 12517.12, "indennitaOut": 40, "totaleOut": 62557.12 }
+    },
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Credito civile: tasso legale e nessun indennizzo forfettario",
+      "norma": "Art. 1284 c.c. e DM MEF 10/12/2025 (GU 289 del 13/12/2025): saggio legale 1,60% dal 1/1/2026. L'indennizzo di 40 euro dell'art. 6 D.Lgs. 231/2002 vale solo per le transazioni commerciali. 5.000 x 1,60% x 89/365",
+      "note": "La casella dell'indennizzo resta spuntata di proposito: e' il caso in cui la spunta non deve avere effetto.",
+      "campi": { "capitale": 5000, "dataScadenza": "2026-01-31", "dataPagamento": "2026-04-30", "tassoLegale": 1.6, "includiIndennita": true },
+      "pre": ["document.querySelector('input[name=\"tipoCredito\"][value=\"civile\"]').checked = true;"],
+      "attesi": { "giorniOut": 89, "interessiOut": 19.51, "indennitaOut": 0, "totaleOut": 5019.51 }
+    },
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Anno bisestile: il denominatore resta 365, i giorni contati sono 366",
+      "norma": "La prassi sugli interessi di mora ex D.Lgs. 231/2002 usa l'anno civile di 365 giorni anche negli anni bisestili. Dal 1/1/2024 al 1/1/2025 sono 366 giorni: 10.000 x 10,40% x 366/365 = 1.042,85, cioe' un giorno di interessi in piu' del tasso annuo",
+      "campi": { "capitale": 10000, "dataScadenza": "2024-01-01", "dataPagamento": "2025-01-01", "tassoBCE": 2.4, "includiIndennita": true },
+      "attesi": { "giorniOut": 366, "interessiOut": 1042.85, "totaleOut": 11082.85 }
+    },
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Data di pagamento anteriore alla scadenza: nessun interesse inventato",
+      "norma": "D.Lgs. 231/2002 art. 4: gli interessi decorrono dal giorno successivo alla scadenza. Senza ritardo non c'e' nulla da calcolare",
+      "campi": { "capitale": 5000, "dataScadenza": "2026-04-30", "dataPagamento": "2026-01-31", "tassoBCE": 2.4, "includiIndennita": true },
+      "erroreSu": "dataPagamento",
+      "attesi": {}
+    },
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Credito commerciale: BCE 3,15% + 8 punti su 90 giorni, con i 40 euro di indennita",
+      "norma": "Art. 5 D.Lgs. 231/2002: tasso BCE del semestre maggiorato di 8 punti, sui giorni di ritardo effettivi (anno civile di 365 giorni); art. 6: indennita forfettaria di 40 euro sempre dovuta, senza necessita di costituzione in mora",
+      "campi": { "capitale": 10000, "dataScadenza": "2026-01-01", "dataPagamento": "2026-04-01", "tassoBCE": 3.15, "includiIndennita": true },
+      "attesi": { "giorniOut": "90 gg", "interessiOut": 274.93, "totaleOut": 10314.93 }
+    },
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Controprova: senza indennita il totale cala di esattamente 40 euro, gli interessi non cambiano",
+      "norma": "Art. 5 D.Lgs. 231/2002: tasso BCE del semestre maggiorato di 8 punti, sui giorni di ritardo effettivi (anno civile di 365 giorni); art. 6 D.Lgs. 231/2002: i 40 euro sono un forfait aggiuntivo, non entrano nella base di calcolo degli interessi",
+      "campi": { "capitale": 10000, "dataScadenza": "2026-01-01", "dataPagamento": "2026-04-01", "tassoBCE": 3.15, "includiIndennita": false },
+      "attesi": { "interessiOut": 274.93, "totaleOut": 10274.93 }
+    },
+    {
+      "file": "/calcolo-interessi-mora.html",
+      "caso": "Credito civile: tasso legale 1,60% su un anno pieno, nessuna indennita",
+      "norma": "Art. 1284 c.c.: sul credito civile si applica il saggio legale, non la maggiorazione del D.Lgs. 231/2002, e i 40 euro non spettano",
+      "campi": { "capitale": 10000, "dataScadenza": "2026-01-01", "dataPagamento": "2027-01-01", "tassoLegale": 1.6 },
+      "pre": ["document.querySelector('input[name=\"tipoCredito\"][value=\"civile\"]').checked = true; aggiornaUI();"],
+      "attesi": { "giorniOut": "365 gg", "interessiOut": 160, "totaleOut": 10160 }
+    },
+
+    {
+      "file": "/pensione.html",
+      "caso": "Quarantunenne lontano dai requisiti: pensione di vecchiaia a 67 anni",
+      "norma": "Art. 24 c.6 D.L. 201/2011: requisito anagrafico per la pensione di vecchiaia fermo a 67 anni per il biennio 2025-2026. Nato nel 1985, nel 2026 ha 41 anni: mancano 26 anni, uscita nel 2052 con 15 + 26 = 41 anni di contributi",
+      "note": "Il caso fissa i requisiti di accesso, non l'importo: l'importo mensile e' una proiezione che dipende da ipotesi (rivalutazione del montante, crescita retributiva) non fissate da alcuna norma.",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1985, "sesso": "M", "annoInizio": 2010, "contributiAttuali": 15, "stipendioLordo": 30000, "sistema": "contributivo", "crescitaStipendio": "0" },
+      "attesi": { "anniMancantiOut": 26, "annoPensioneOut": 2052, "etaPensioneOut": 67, "contributiFinaliOut": 41, "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Uomo con 38 anni di contributi: anticipata a 42 anni e 10 mesi",
+      "norma": "Art. 24 c.10 D.L. 201/2011: pensione anticipata con 42 anni e 10 mesi di contributi per gli uomini, indipendentemente dall'eta'. Con 38 anni gia' versati ne mancano 4 anni e 10 mesi: uscita nel 2031",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1968, "sesso": "M", "annoInizio": 1996, "contributiAttuali": 38, "stipendioLordo": 40000, "sistema": "contributivo", "crescitaStipendio": "0" },
+      "attesi": { "anniMancantiOut": 5, "annoPensioneOut": 2031, "etaPensioneOut": 63, "contributiFinaliOut": 43, "tipoAccesso": "📋 Tipo di accesso: Pensione anticipata" }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Stessa carriera al femminile: un anno prima, perche' il requisito e' 41 anni e 10 mesi",
+      "norma": "Art. 24 c.10 D.L. 201/2011: alle donne servono 41 anni e 10 mesi di contributi, dodici mesi in meno degli uomini. Con 38 anni versati mancano 3 anni e 10 mesi: uscita nel 2030 a 62 anni",
+      "note": "Coppia di controprova con il caso precedente: cambia solo il sesso, e la differenza attesa e' esattamente di un anno di attesa.",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1968, "sesso": "F", "annoInizio": 1996, "contributiAttuali": 38, "stipendioLordo": 40000, "sistema": "contributivo", "crescitaStipendio": "0" },
+      "attesi": { "anniMancantiOut": 4, "annoPensioneOut": 2030, "etaPensioneOut": 62, "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Pensione anticipata" }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Quota 103 cristallizzata: requisiti maturati entro il 2025, si esce subito",
+      "norma": "La L. 199/2025 non ha prorogato Quota 103: dal 2026 resta accessibile solo a chi aveva gia' maturato 62 anni e 41 di contributi entro il 31/12/2025. Nato nel 1962, a fine 2025 aveva 63 anni e 41 di contributi: il diritto e' cristallizzato e la finestra e' aperta ora",
+      "note": "La controprova sta nel caso 1968/M: li' i requisiti maturerebbero dopo il 2025 e Quota 103 non deve mai comparire.",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1962, "sesso": "M", "annoInizio": 1984, "contributiAttuali": 42, "stipendioLordo": 38000, "sistema": "misto", "crescitaStipendio": "0" },
+      "attesi": { "anniMancantiOut": "Ora!", "annoPensioneOut": 2026, "etaPensioneOut": 64, "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Quota 103" }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Sistema misto con contributi ante 1996: i requisiti di accesso non cambiano",
+      "norma": "Art. 24 D.L. 201/2011: il sistema di calcolo (retributivo, misto, contributivo) incide sull'importo, non sui requisiti di accesso. Nato nel 1965, 36 anni di contributi nel 2026: l'anticipata arriverebbe a 67,8 anni, quindi vince la vecchiaia a 67 nel 2032 con 42 anni di contributi",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1965, "sesso": "M", "annoInizio": 1990, "contributiAttuali": 36, "stipendioLordo": 45000, "sistema": "misto", "crescitaStipendio": "0" },
+      "attesi": { "anniMancantiOut": 6, "annoPensioneOut": 2032, "etaPensioneOut": 67, "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Uscita anticipata a 59 anni: si applica il coefficiente dei 59 (4,419%), non quello dei 62",
+      "norma": "Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, coefficienti di trasformazione del biennio 2025-2026 (art. 1 c. 6 L. 335/1995). La tabella parte da 57 anni: agganciare le eta inferiori ai 62 sovrastimava la pensione di chi esce prima",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1985, "annoInizio": 2005, "contributiAttuali": 25, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
+      "attesi": { "etaPensioneOut": "59 anni", "anniMancantiOut": "18", "importoMensileOut": 2349 }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Confine basso: 38 anni versati portano l uscita a 61, prima agganciata ai 62",
+      "norma": "Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, coefficienti di trasformazione del biennio 2025-2026 (art. 1 c. 6 L. 335/1995); art. 24 c. 10 D.L. 201/2011: anticipata con 42 anni e 10 mesi di contributi per gli uomini. Coefficiente dei 61 anni: 4,661%",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1970, "annoInizio": 1988, "contributiAttuali": 38, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
+      "attesi": { "etaPensioneOut": "61 anni", "importoMensileOut": 1915 }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Confine alto: 37 anni versati portano l uscita a 62, eta gia coperta prima del fix",
+      "norma": "Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, coefficienti di trasformazione del biennio 2025-2026 (art. 1 c. 6 L. 335/1995). Coefficiente dei 62 anni: 4,795%, invariato. Il caso deve restare identico a prima della correzione",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1970, "annoInizio": 1989, "contributiAttuali": 37, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
+      "attesi": { "etaPensioneOut": "62 anni", "importoMensileOut": 2010 }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Controprova: chi arriva alla vecchiaia a 67 anni non e toccato dalla correzione",
+      "norma": "Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, coefficienti di trasformazione del biennio 2025-2026 (art. 1 c. 6 L. 335/1995); art. 24 D.L. 201/2011: eta di vecchiaia 67 anni, coefficiente 5,608%",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1985, "annoInizio": 2005, "contributiAttuali": 5, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
+      "attesi": { "etaPensioneOut": "67 anni", "anniMancantiOut": "26", "importoMensileOut": 2591 }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Quota 103 gia maturata entro il 2025: uscita immediata a 64 anni",
+      "norma": "Art. 1 c. 139 L. 197/2022 e art. 1 c. 140 L. 213/2023: 62 anni di eta e 41 di contributi. Abolita per i nuovi accessi, ma il diritto maturato entro il 31/12/2025 resta cristallizzato",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1962, "annoInizio": 1985, "contributiAttuali": 45, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
+      "attesi": { "etaPensioneOut": "64 anni", "anniMancantiOut": "Ora!", "importoMensileOut": 1972 }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Controprova su Quota 103: a 56 anni con 30 di contributi non spetta, si va a 67",
+      "norma": "Art. 1 c. 139 L. 197/2022: servono 62 anni di eta e 41 di contributi maturati entro il 31/12/2025. Chi non li aveva non puo accedervi, e il calcolatore non deve proporla",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1970, "annoInizio": 1996, "contributiAttuali": 30, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
+      "attesi": { "etaPensioneOut": "67 anni", "anniMancantiOut": "11", "importoMensileOut": 2486 }
     }
   ]
 }
