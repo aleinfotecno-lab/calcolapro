@@ -533,7 +533,11 @@
       const coeff     = parseFloat(document.getElementById('categoria').value) || 0.78;
       const aliquota  = parseFloat(document.getElementById('regime').value) || 0.15;
       const ral       = parseFloat(document.getElementById('ral').value);
-      const spese     = parseFloat(document.getElementById('spesePiva').value) || 1500;
+      // "|| 1500" sostituiva lo zero con il valore di esempio del modulo: chi non ha
+      // spese di partita IVA se le vedeva sottrarre lo stesso, 1.500 euro l'anno di
+      // netto in meno su un dato che non aveva inserito.
+      const speseRaw  = parseFloat(document.getElementById('spesePiva').value);
+      const spese     = Number.isFinite(speseRaw) && speseRaw > 0 ? speseRaw : 0;
       if (fatturato <= 0 || isNaN(fatturato)) { mostraErroreCampo('fatturato', 'Inserisci un fatturato annuo valido (maggiore di zero).'); return; }
       if (ral <= 0 || isNaN(ral)) { mostraErroreCampo('ral', 'Inserisci una RAL da dipendente valida (maggiore di zero).'); return; }
       // P.IVA forfettario

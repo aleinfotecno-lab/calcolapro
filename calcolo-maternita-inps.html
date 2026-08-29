@@ -596,8 +596,12 @@
         return;
       }
 
-      const ralAnnua = stipendio * mensilita;
-      const retribGiornaliera = ralAnnua / 365;
+      // Art. 23 c.2 D.Lgs. 151/2001 e circolare INPS 60/2002: la retribuzione media
+      // globale giornaliera si ottiene dividendo per TRENTA la retribuzione del mese,
+      // aggiungendo il rateo giornaliero di tredicesima e quattordicesima. Dividere la
+      // retribuzione annua per 365 la sottostimava dell'1,37% (64,11 invece di 65,00 su
+      // 1.800 euro x 13) e contraddiceva calcolo-malattia-inps, che divide per 30.
+      const retribGiornaliera = stipendio * (mensilita / 12) / 30;
 
       let rows = [];
       let totaleObbl = 0;

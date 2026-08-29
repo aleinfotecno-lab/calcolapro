@@ -2005,6 +2005,68 @@
       "norma": "Art. 3 D.Lgs. 148/2015 e circ. INPS 4/2026: massimale unico 1.423,69 lordi al mese (1.340,56 netti). Con 2.500 di retribuzione l'80% sarebbe 2.000, quindi il massimale morde; su tre mesi l'indennita' netta complessiva e' 4.021,68",
       "campi": { "retribuzione": 2500, "percentuale": 100, "mesi": 3 },
       "attesi": { "lordoOut": 1423.69, "nettoOut": 1340.56, "redditoOut": 1423.69, "perditaOut": 1076.31, "totaleOut": 4022 }
+    },
+    {
+      "file": "/calcolo-maternita-inps.html",
+      "caso": "Retribuzione media globale giornaliera: si divide per 30, non per 365",
+      "norma": "Art. 23 c.2 D.Lgs. 151/2001 e circolare INPS 60/2002: la RMG e' la retribuzione del mese divisa per trenta, ratei di tredicesima compresi. Con 1.800 x 13 mensilita' vale 65,00 al giorno; l'indennita' e' l'80% per 150 giorni (art. 22): 7.800,00",
+      "note": "Dividendo la retribuzione annua per 365 la RMG scendeva a 64,11 e il totale a 7.693,15: 106,85 euro in meno. La stessa grandezza in calcolo-malattia-inps era gia' calcolata su base 30.",
+      "campi": { "tipoGenitore": "madre", "opzione": "standard", "stipendio": 1800, "mensilita": "13", "ccnlMat": "80", "mesiParentale": "0" },
+      "attesi": { "totaleOut": 7800 }
+    },
+    {
+      "file": "/calcolo-maternita-inps.html",
+      "caso": "CCNL che integra al 100%: il 20% mancante lo mette il datore",
+      "norma": "L'INPS paga l'80% (art. 22 D.Lgs. 151/2001); molti CCNL integrano fino al 100%. Su una RMG di 65,00 per 150 giorni l'intero vale 9.750,00, cioe' 1.950 in piu' della sola indennita' INPS",
+      "campi": { "tipoGenitore": "madre", "opzione": "standard", "stipendio": 1800, "mensilita": "13", "ccnlMat": "100", "mesiParentale": "0" },
+      "attesi": { "totaleOut": 9750 }
+    },
+    {
+      "file": "/calcolo-maternita-inps.html",
+      "caso": "Congedo di paternita' obbligatorio: dieci giorni al 100%",
+      "norma": "Art. 27-bis D.Lgs. 151/2001: dieci giorni lavorativi di congedo obbligatorio per il padre, indennizzati al 100% della retribuzione. RMG = 2.400 x 14 / 12 / 30 = 93,33; per dieci giorni 933,33",
+      "campi": { "tipoGenitore": "padre", "stipendio": 2400, "mensilita": "14", "ccnlMat": "80" },
+      "attesi": { "totaleOut": 933.33 }
+    },
+    {
+      "file": "/calcolo-maternita-inps.html",
+      "caso": "Quattro mesi di congedo parentale: tre all'80% e uno al 30%",
+      "norma": "Art. 34 D.Lgs. 151/2001 con le modifiche della L. 207/2024: tre mesi di congedo parentale sono indennizzati all'80%, i successivi al 30%. RMG 50,00 (1.500 x 12 / 12 / 30): obbligatorio 6.000 + 90 giorni all'80% (3.600) + 30 giorni al 30% (450) = 10.050",
+      "campi": { "tipoGenitore": "madre", "opzione": "standard", "stipendio": 1500, "mensilita": "12", "ccnlMat": "80", "mesiParentale": "4" },
+      "attesi": { "totaleOut": 10050 }
+    },
+    {
+      "file": "/calcolo-maternita-inps.html",
+      "caso": "Cinque mesi di parentale: oltre il terzo mese si scende al 30%",
+      "norma": "Art. 34 D.Lgs. 151/2001: superati i tre mesi all'80% i restanti valgono il 30%. RMG 72,22 (2.000 x 13 / 12 / 30): obbligatorio 8.666,67 + 3 mesi all'80% (5.200) + 2 mesi al 30% (1.300) = 15.166,67",
+      "note": "Controprova con il caso a quattro mesi: il quinto mese aggiunge 650 euro, non 1.733 come farebbe se restasse all'80%.",
+      "campi": { "tipoGenitore": "madre", "opzione": "standard", "stipendio": 2000, "mensilita": "13", "ccnlMat": "80", "mesiParentale": "5" },
+      "attesi": { "totaleOut": 15166.67 }
+    },
+    {
+      "file": "/partitaiva.html",
+      "caso": "Zero spese di partita IVA: zero, non i 1.500 di esempio del modulo",
+      "norma": "L. 190/2014 c. 64: il netto e' fatturato meno imposta sostitutiva, contributi e spese effettivamente sostenute. Senza spese: 35.000 - 3.027,43 - 7.117,11 = 24.855",
+      "note": "Con il default a 1.500 il netto usciva 23.355, identico a quello di chi dichiara 1.500 euro di spese: 1.500 euro l'anno sottratti a un dato mai inserito.",
+      "campi": { "fatturato": 35000, "categoria": "0.78", "regime": "0.15", "ral": 30000, "spesePiva": 0 },
+      "attesi": { "nettoIvaOut": 24855 }
+    },
+    {
+      "file": "/calcolatore-risparmio.html",
+      "caso": "Quanto versare a rendimento zero: il montante e' la somma dei versamenti",
+      "norma": "Senza interessi la rata e' (24.000 - 4.000)/60 = 333,33 e il montante coincide con quanto versato: 24.000. La formula del montante divide per il tasso, e a tasso nullo l'espressione e' 0/0",
+      "note": "Prima di questo caso la pagina mostrava 'NaN euro' su montante, interessi, rendimento e barra del grafico.",
+      "campi": { "obiettivo": 24000, "iniziale": 4000, "rendimento": 0, "anniB": 5 },
+      "pre": ["switchMode('B')"],
+      "attesi": { "resultBig": 333.33, "totaleVersatoOut": 24000, "montanteOut": 24000, "interessiOut": 0, "rendimentoTotOut": 0 }
+    },
+    {
+      "file": "/mutuo.html",
+      "caso": "Valore dell'immobile non indicato: il rapporto non si calcola",
+      "norma": "Il loan to value ha senso solo se si conosce il valore dell'immobile: senza, il dato va lasciato vuoto. La rata resta calcolabile perche' non dipende da quel campo",
+      "note": "Dividere per zero produceva 'Infinity%' nel box del risultato, accanto a una rata corretta.",
+      "campi": { "importo": 150000, "tasso": 3.5, "durata": "20", "valoreCasa": "", "tipoMutuo": "prima" },
+      "attesi": { "priceOut": 870, "totaleOut": 208785, "interessiOut": 58785, "ltvOut": "—" }
     }
   ]
 }

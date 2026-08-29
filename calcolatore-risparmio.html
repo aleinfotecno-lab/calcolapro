@@ -617,6 +617,10 @@
   function calcolaMontante(iniziale, mensile, rendimentoAnnuo, mesi) {
     const r = rendimentoAnnuo / 100 / 12;
     const n = mesi;
+    // Con rendimento nullo (fattore - 1) / r e' 0/0: la modalita' "in quanti anni"
+    // arrivava qui senza filtro e mostrava "NaN euro" su montante, interessi,
+    // rendimento e barra del grafico. Senza interessi il montante e' la somma versata.
+    if (r === 0) return iniziale + mensile * n;
     const fattore = Math.pow(1 + r, n);
     return iniziale * fattore + mensile * ((fattore - 1) / r);
   }

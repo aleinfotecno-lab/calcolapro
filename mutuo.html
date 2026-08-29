@@ -670,13 +670,15 @@
       const rata=r===0?importo/n:importo*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
       const totale=rata*n;
       const interessi=totale-importo;
-      const ltv=Math.round((importo/valoreCasa)*100);
+      // Il valore dell'immobile a zero significa "non indicato": la divisione
+      // produceva Infinity e il box del risultato mostrava "Infinity%".
+      const ltv=valoreCasa>0?Math.round((importo/valoreCasa)*100):null;
       document.getElementById('priceOut').textContent='€ '+Math.round(rata).toLocaleString('it-IT');
       var ctxAmt=document.getElementById('ctxRataMutuo');if(ctxAmt)ctxAmt.textContent='€ '+Math.round(rata).toLocaleString('it-IT');
       var ctxBox=document.getElementById('ctxCtaMutuo');if(ctxBox)ctxBox.classList.add('visible');
       document.getElementById('totaleOut').textContent=fmt(totale);
       document.getElementById('interessiOut').textContent=fmt(interessi);
-      document.getElementById('ltvOut').textContent=ltv+'%';
+      document.getElementById('ltvOut').textContent=ltv===null?'—':ltv+'%';
       const res=document.getElementById('result');
       res.style.display='block';
       document.getElementById('affiliazioni').style.display='block';
