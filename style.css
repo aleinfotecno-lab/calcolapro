@@ -4,40 +4,49 @@
    ═══════════════════════════════════════════════════════════ */
 
 /* ── RESET & ROOT ── */
+/* ── Divisumma ──────────────────────────────────────────────────────────
+   CalcolaPro discende dalle macchine da calcolo Olivetti, che il risultato
+   non lo mostravano: lo STAMPAVANO su una banda di carta. Da li' vengono i
+   colori (i manifesti di Pintori: rosso Valentine, verde intaglio, senape),
+   le cifre in Courier Prime e la banda che esce dal box del risultato.
+   Prima erano gli slate e il blue-700 di default di Tailwind: due valori,
+   --green e --amber, stavano sotto il 4,5:1 richiesto da WCAG AA, e il bordo
+   dei campi era a 1,23:1 contro il 3:1 del criterio 1.4.11. Ora tutti sopra. */
 :root {
-  --blue:        #1a56db;
-  --blue-dark:   #1d4ed8;
-  --blue-light:  #dbeafe;
-  --blue-xlight: #eff6ff;
-  --navy:        #0f172a;
-  --navy-mid:    #1e293b;
-  --text:        #0f172a;
-  --text-muted:  #64748b;
-  --text-light:  #94a3b8;
-  --bg:          #f8fafc;
+  --blue:        #C4351F;   /* il rosso prende il posto dell'accento blu */
+  --blue-dark:   #9E2716;
+  --blue-light:  #F7E2DD;
+  --blue-xlight: #FCF1EE;
+  --navy:        #1A1815;
+  --navy-mid:    #2A2721;
+  --text:        #1A1815;
+  --text-muted:  #5B574F;
+  --text-light:  #857F73;
+  --bg:          #EDEBE6;
   --white:       #ffffff;
-  --border:      #e2e8f0;
-  --border-dark: #cbd5e1;
-  --green:       #059669;
-  --green-light: #d1fae5;
-  --amber:       #d97706;
-  --amber-light: #fef3c7;
-  --red:         #dc2626;
-  --red-light:   #fee2e2;
+  --tape:        #FAF8F3;   /* la carta della banda */
+  --border:      #CFC8B8;   /* filetti decorativi */
+  --border-dark: #8C8474;   /* controlli: 3,71:1 su bianco */
+  --green:       #0E5A54;   /* era #059669, 3,77:1 */
+  --green-light: #DCE9E7;
+  --amber:       #96650A;   /* era #d97706, 3,19:1 */
+  --amber-light: #F6EBD3;
+  --red:         #A82A16;
+  --red-light:   #F7DFDB;
   /* Alias per compatibilità */
-  --accent:      #1a56db;
-  --accent-rgb:  26, 86, 219;
-  --accent2:     #0891b2;
+  --accent:      #C4351F;
+  --accent-rgb:  196, 53, 31;
+  --accent2:     #0E5A54;
   --surface:     #ffffff;
   --shadow-xs:   0 1px 2px rgba(0,0,0,0.06);
   --shadow-sm:   0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
   --shadow-md:   0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
   --shadow-lg:   0 10px 40px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.05);
   --shadow-xl:   0 20px 60px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.06);
-  --radius-sm:   6px;
-  --radius-md:   10px;
-  --radius-lg:   14px;
-  --radius-xl:   20px;
+  --radius-sm:   3px;
+  --radius-md:   5px;
+  --radius-lg:   7px;
+  --radius-xl:   10px;
   --radius-full: 9999px;
   --transition:  0.18s ease;
 }
@@ -47,7 +56,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Familjen Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 15px;
   line-height: 1.7;
   min-height: 100vh;
@@ -451,7 +460,7 @@ select,
 textarea {
   width: 100%;
   padding: 12px 14px;
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border-dark);
   border-radius: var(--radius-sm);
   background: var(--white);
   font-family: inherit; font-size: 15px;
@@ -467,7 +476,7 @@ input[type="email"]:focus,
 select:focus,
 textarea:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(26,86,219,0.12);
+  box-shadow: 0 0 0 3px rgba(196,53,31,0.26);
 }
 input[type="number"].has-prefix,
 input[type="text"].has-prefix {
@@ -1170,3 +1179,62 @@ a:focus-visible { border-radius: 4px; }
 .sources-box a{color:var(--blue);text-decoration:none;}
 .sources-box a:hover{text-decoration:underline;}
 .sources-box .src-note{font-size:12px;color:var(--text-muted);margin-top:8px;display:block;}
+
+
+/* ═══════════════════════════════════════════════════════════
+   DIVISUMMA — cifre, macchie dell'hero, pannello dell'hero vivo
+   ═══════════════════════════════════════════════════════════ */
+
+/* Ogni cifra del sito e' battuta a macchina, e incolonnata */
+.result-value, .breakdown-value, .stat-value, .hg-screen-num,
+input[type="number"], input[type="text"], select {
+  font-variant-numeric: tabular-nums;
+}
+.result-value, .breakdown-value, .hg-screen-num {
+  font-family: 'Courier Prime', ui-monospace, 'Courier New', monospace;
+}
+
+/* Le macchie dietro l'hero erano azzurre e viola: qui la luce e' quella
+   dei manifesti, rosso caldo e verde intaglio. */
+.hero-aurora span:nth-child(1) { background: radial-gradient(circle, #E9C4AE, transparent 70%); }
+.hero-aurora span:nth-child(2) { background: radial-gradient(circle, #D8C6A6, transparent 70%); }
+.hero-aurora span:nth-child(3) { background: radial-gradient(circle, #B4CDC6, transparent 70%); }
+
+/* ── L'hero che calcola davvero ──
+   Lo slider pilota bustaPaga() di js/busta-paga.js, la stessa funzione del
+   calcolatore Stipendio Lordo/Netto: il display non puo' divergere da lui. */
+.hero-live {
+  max-width: 540px; margin: 0 auto 30px; text-align: left;
+  background: var(--tape); border: 1px solid var(--border);
+  padding: 16px 18px 14px;
+}
+.hero-live > label {
+  display: block; font-family: 'Courier Prime', ui-monospace, monospace; font-weight: 700;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 10px;
+}
+.hero-live-row { display: flex; align-items: center; gap: 16px; }
+.hero-live-row output {
+  font-family: 'Courier Prime', ui-monospace, monospace; font-weight: 700;
+  font-size: 1.15rem; color: var(--text); white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.hero-live input[type="range"] {
+  flex: 1; -webkit-appearance: none; appearance: none;
+  height: 3px; padding: 0; border: none; background: var(--border-dark); border-radius: 0;
+}
+.hero-live input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--blue); border: 2px solid var(--tape);
+  box-shadow: 0 0 0 1px var(--blue); cursor: pointer;
+}
+.hero-live input[type="range"]::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--blue); border: 2px solid var(--tape);
+  box-shadow: 0 0 0 1px var(--blue); cursor: pointer;
+}
+.hero-live input[type="range"]:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.hero-live-note {
+  font-family: 'Courier Prime', ui-monospace, monospace; font-size: 10.5px;
+  line-height: 1.6; color: var(--text-light); margin: 11px 0 0;
+}

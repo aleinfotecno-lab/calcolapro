@@ -80,10 +80,12 @@ for (const c of casi) {
       }
       for (const js of pre || []) eval(js);
       // Quasi tutti i calcolatori entrano da calcola(), ma non tutti: divisione-conto
-      // ha calcolaUguale() e calcolaPersona(), uno per modalita'.
-      eval(fn + '()');
+      // ha calcolaUguale() e calcolaPersona(), uno per modalita'. Con "funzione": ""
+      // non si chiama niente: e' il caso dell'hero della home, che si aggiorna da solo
+      // sull'evento input dello slider.
+      if (fn) eval(fn + '()');
       return assenti;
-    }, [campi, c.pre, c.funzione || 'calcola']);
+    }, [campi, c.pre, c.funzione === undefined ? 'calcola' : c.funzione]);
 
     // Un campo sparito e' una regressione a sua volta: il caso starebbe misurando
     // un calcolatore diverso da quello che credeva di misurare.

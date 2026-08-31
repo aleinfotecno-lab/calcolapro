@@ -2095,6 +2095,23 @@
       "note": "Dividere per zero produceva 'Infinity%' nel box del risultato, accanto a una rata corretta.",
       "campi": { "importo": 150000, "tasso": 3.5, "durata": "20", "valoreCasa": "", "tipoMutuo": "prima" },
       "attesi": { "priceOut": 870, "totaleOut": 208785, "interessiOut": 58785, "ltvOut": "—" }
+    },
+    {
+      "file": "/index.html",
+      "caso": "La calcolatrice dell'hero mostra il numero del calcolatore, non una cifra decorativa",
+      "norma": "Stesso motore di lordonetto (js/busta-paga.js). Su 30.000 di RAL: contributi 9,19% = 2.757, imponibile 27.243, IRPEF lorda 27.243 x 23% = 6.265,89, detrazione art. 13 c.1 lett. b) TUIR = 1.910 + 1.190 x 0,0582 = 1.979,26, ulteriore detrazione L. 207/2024 = 1.000. IRPEF netta 3.286,63, netto annuo 23.956,37, su 13 mensilita' 1.842,80",
+      "note": "E' il motivo per cui bustaPaga e' stata estratta in js/busta-paga.js: finche' l'hero ricopiava la formula poteva divergere dal calcolatore senza che nessuno se ne accorgesse. Se un giorno i due numeri si scostano, questo caso diventa rosso.",
+      "campi": { "heroSlider": 30000 },
+      "attesi": { "heroLordo": 30000, "heroBadgeIrpef": 3287, "heroBadgeNetto": 80 },
+      "funzione": ""
+    },
+    {
+      "file": "/index.html",
+      "caso": "Muovendo lo slider il display segue: 50.000 di RAL",
+      "norma": "Su 50.000: contributi 4.595, imponibile 45.405, IRPEF lorda 28.000 x 23% + 17.405 x 33% = 6.440 + 5.743,65 = 12.183,65, detrazione art. 13 lett. c) = 1.910 x 0,2088 = 398,80, nessuna ulteriore detrazione oltre i 40.000. IRPEF netta 11.784,85, netto 33.620,15",
+      "campi": { "heroSlider": 50000 },
+      "attesi": { "heroLordo": 50000, "heroBadgeIrpef": 11785, "heroBadgeNetto": 67 },
+      "funzione": ""
     }
   ]
 }

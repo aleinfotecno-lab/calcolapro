@@ -10,8 +10,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/png" href="favicon.svg">
@@ -313,7 +313,9 @@
       <div class="social-proof-counter" id="spcCounter"><span class="spc-dot"></span><span id="spcText">Calcolo gratuito nel browser</span></div>
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola la rata del mutuo">🔍 Calcola la rata mensile →</button></div>
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo mutuo">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Ammortamento alla francese: rata costante R = C · i(1+i)^n / ((1+i)^n − 1), con i tasso mensile e n numero delle rate. Il rapporto fra mutuo e valore dell’immobile e’ il parametro con cui le banche graduano lo spread.">
           <div class="result-label">Rata mensile</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">euro / mese</div>
@@ -722,5 +724,6 @@
 })();
 </script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

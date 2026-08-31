@@ -10,8 +10,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/png" href="favicon.svg">
@@ -355,7 +355,10 @@
         <div id="avvisoFondo" class="alert alert-warning" style="display:none;margin-bottom:16px;">
           <strong>Il TFR in fondo pensione non si calcola cosi.</strong> Conferendolo a previdenza complementare il montante non segue la rivalutazione di legge (1,5% + 75% ISTAT) ma il rendimento della linea di investimento scelta, e la tassazione finale e' del 15%, ridotta dello 0,30% per ogni anno di partecipazione oltre il quindicesimo fino a un minimo del 9%, invece della tassazione separata. Il numero qui sotto vale quindi solo come confronto con l'ipotesi "TFR in azienda": per una stima del fondo usa il <a href="calcolo-fondo-pensione.html">calcolatore del fondo pensione</a>.
         </div>
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-split="impostaOut:tassazione separata, priceOut:TFR netto"
+             data-norma="Art. 2120 c.c.: quota annua pari alla retribuzione divisa per 13,5, al netto del contributo dello 0,50% dell’art. 3 della L. 297/1982. Rivalutazione dell’1,5% in misura fissa piu’ il 75% dell’aumento dell’indice ISTAT dei prezzi al consumo.">
           <div class="result-label">TFR netto stimato</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">euro netti</div>
@@ -704,5 +707,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

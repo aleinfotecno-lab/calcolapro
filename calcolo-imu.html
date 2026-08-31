@@ -23,8 +23,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/png" href="favicon.svg">
@@ -318,7 +318,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola l'IMU 2026">🔍 Calcola l'IMU 2026 →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo IMU">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="L. 160/2019 c. 745-746 — rendita catastale rivalutata del 5% moltiplicata per il coefficiente della categoria; per i terreni agricoli il reddito dominicale rivalutato del 25% per 135. Aliquota deliberata dal Comune. Versamento in due rate: acconto entro il 16 giugno, saldo entro il 16 dicembre (c. 762).">
           <div class="result-label">IMU annua totale</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">euro / anno</div>
@@ -664,5 +666,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

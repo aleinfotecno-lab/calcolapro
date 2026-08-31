@@ -197,3 +197,124 @@
   flex-wrap: wrap; margin-top: 16px;
 }
 .article-meta a { color: inherit; text-decoration: underline; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   LA BANDA — il risultato stampato
+
+   Si attiva con class="result-card tape" e un attributo data-norma sul box
+   del risultato. Le altre pagine restano com'erano: la banda si estende un
+   calcolatore alla volta, e si toglie togliendo una classe.
+
+   L'idea: una macchina da calcolo il risultato lo stampa. Fessura in cima,
+   strappo in fondo, righe puntinate come su un prospetto, e in calce la
+   norma da cui il numero discende — che e' il tratto per cui questo sito
+   esiste, finalmente visibile invece che sepolto a fondo pagina.
+   ═══════════════════════════════════════════════════════════ */
+.result-card.tape {
+  background: var(--tape);
+  color: var(--text);
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  position: relative;
+  padding: 34px 30px 46px;
+  max-width: 520px;
+  margin: 0 auto;
+  box-shadow: 0 1px 0 rgba(26,24,21,0.08), 0 18px 36px -26px rgba(26,24,21,0.5);
+  text-align: left;
+}
+.result-card.tape::before {          /* la fessura della stampante */
+  content: '';
+  position: absolute; left: 0; right: 0; top: -9px; height: 9px;
+  background: var(--navy);
+  border-radius: 2px 2px 0 0;
+}
+.result-card.tape::after {           /* lo strappo */
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: -8px; height: 16px;
+  background: radial-gradient(circle at 8px 0, var(--bg) 7.5px, transparent 8px);
+  background-size: 16px 16px; background-repeat: repeat-x;
+  pointer-events: none;
+}
+.result-card.tape .result-label {
+  font-family: 'Courier Prime', ui-monospace, monospace; font-weight: 700;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-muted); text-align: center;
+  padding-bottom: 14px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.result-card.tape .result-value {
+  font-family: 'Courier Prime', ui-monospace, monospace; font-weight: 700;
+  color: var(--text);
+  font-size: clamp(2.6rem, 9vw, 4.1rem);
+  letter-spacing: -0.04em; line-height: 1;
+  text-align: center; margin: 0 0 4px;
+}
+.result-card.tape .result-unit {
+  font-family: 'Courier Prime', ui-monospace, monospace; font-size: 12px;
+  letter-spacing: 0.1em; color: var(--text-light);
+  text-align: center; text-transform: uppercase; margin-bottom: 22px;
+}
+/* le voci diventano righe di prospetto, coi puntini che portano al numero */
+.result-card.tape .result-breakdown {
+  display: flex; flex-direction: column; gap: 0;
+  margin-top: 0; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.result-card.tape .breakdown-item {
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: baseline; gap: 8px;
+  background: none; border: none; border-radius: 0;
+  padding: 7px 0; text-align: left;
+}
+.result-card.tape .breakdown-item::after {
+  content: ''; order: 2;
+  border-bottom: 1px dotted var(--border-dark);
+  transform: translateY(-4px);
+}
+.result-card.tape .breakdown-label {
+  order: 1; font-family: 'Courier Prime', ui-monospace, monospace;
+  font-size: 12.5px; color: var(--text-muted); text-transform: lowercase;
+}
+.result-card.tape .breakdown-value {
+  order: 3; font-family: 'Courier Prime', ui-monospace, monospace;
+  font-weight: 700; font-size: 14.5px; color: var(--text);
+}
+.result-card.tape .result-disclaimer {
+  font-family: 'Courier Prime', ui-monospace, monospace; font-size: 11px;
+  line-height: 1.6; color: var(--text-light);
+  border-top: 1px dashed var(--border);
+  margin-top: 16px; padding-top: 12px; text-align: left;
+}
+/* sulla banda tutto e' stampato: anche l'avviso perde il fondo colorato */
+.result-card.tape .alert,
+.result-card.tape .alert-info {
+  background: transparent; border: 1px dashed var(--border-dark); border-radius: 0;
+  font-family: 'Courier Prime', ui-monospace, monospace; font-size: 11.5px;
+  line-height: 1.65; color: var(--text-muted); padding: 11px 13px;
+}
+.result-card.tape .alert strong,
+.result-card.tape .alert b { color: var(--text); }
+
+/* la composizione: dove finisce il denaro, costruita da js/tape.js */
+.tape-split { margin: 18px 0 4px; }
+.tape-split .bar { display: flex; height: 13px; border: 1px solid var(--navy); background: var(--tape); }
+.tape-split .bar i { display: block; height: 100%; }
+.tape-split .key {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 9px;
+  font-family: 'Courier Prime', ui-monospace, monospace; font-size: 11px; color: var(--text-muted);
+}
+.tape-split .key span { display: flex; align-items: center; gap: 5px; }
+.tape-split .key i { width: 9px; height: 9px; border: 1px solid var(--navy); flex: none; }
+
+/* la norma, in calce come i dati fiscali su uno scontrino */
+.tape-norma {
+  margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border);
+  font-family: 'Courier Prime', ui-monospace, monospace; font-size: 10.5px;
+  line-height: 1.65; color: var(--text-muted); letter-spacing: 0.02em;
+}
+.tape-norma b {
+  display: block; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-light); font-weight: 700; margin-bottom: 3px;
+}

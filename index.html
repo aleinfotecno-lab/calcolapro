@@ -36,8 +36,8 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
   <style>
   /* HERO */
@@ -558,6 +558,19 @@
         <h1>Calcola le tue tasse,<br>il mutuo, lo stipendio. <em>Gratis.</em></h1>
         <p class="hero-sub">40 strumenti precisi per freelance, dipendenti e chi compra o affitta casa. Zero dati inviati, zero abbonamenti.</p>
 
+        <!-- La calcolatrice dell'hero mostra un calcolo vero: stesso motore di
+             lordonetto.html, cosi' il numero in vetrina non puo' divergere da
+             quello del calcolatore. Addizionali locali escluse, ed e' scritto. -->
+        <div class="hero-live">
+          <label for="heroSlider">Stipendio lordo annuo</label>
+          <div class="hero-live-row">
+            <input id="heroSlider" type="range" min="15000" max="80000" step="1000" value="30000"
+                   aria-describedby="heroNota" />
+            <output id="heroLordo" for="heroSlider">30.000 €</output>
+          </div>
+          <p class="hero-live-note" id="heroNota">Netto calcolato con lo stesso motore di <a href="lordonetto.html">Stipendio Lordo/Netto</a>: scaglioni IRPEF 2026, detrazione art. 13 TUIR, contributi 9,19%. Addizionali regionali e comunali escluse.</p>
+        </div>
+
         <!-- Search -->
         <div class="search-wrap">
           <input type="text" id="searchInput" placeholder="Cerca un calcolatore… (es. mutuo, IVA, stipendio)" autocomplete="off" />
@@ -656,8 +669,8 @@
           </div>
 
           <!-- Badge in vetro fluttuanti -->
-          <div class="hg-badge3d hg-badge3d-green"><span class="hg-badge3d-arrow">&#9650;</span> +12,4%</div>
-          <div class="hg-badge3d hg-badge3d-blue">TAEG <b>3,2%</b></div>
+          <div class="hg-badge3d hg-badge3d-green" id="heroBadgeNetto"><span class="hg-badge3d-arrow">&#9650;</span> 80% netto</div>
+          <div class="hg-badge3d hg-badge3d-blue" id="heroBadgeIrpef">IRPEF <b>3.287 €</b></div>
 
           <!-- Scintillii -->
           <span class="hg-spark s1"></span>
@@ -1107,6 +1120,37 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
 
+  <script src="js/busta-paga.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script defer>
+    // Attende js/busta-paga.js: entrambi sono defer, quindi l'ordine e' garantito.
+    document.addEventListener('DOMContentLoaded', function () {
+      var slider = document.getElementById('heroSlider');
+      var schermo = document.querySelector('.hg-screen-num');
+      if (!slider || !schermo || typeof bustaPaga !== 'function') return;
+
+      var etichetta = document.querySelector('.hg-screen-label');
+      var outLordo = document.getElementById('heroLordo');
+      var badgeNetto = document.getElementById('heroBadgeNetto');
+      var badgeIrpef = document.getElementById('heroBadgeIrpef');
+      var eur0 = function (n) {
+        return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+      };
+
+      function aggiorna() {
+        var lordo = parseFloat(slider.value);
+        // stessa firma del calcolatore: nessun figlio, nessun coniuge a carico,
+        // nessuna addizionale locale. La nota sotto lo slider lo dichiara.
+        var r = bustaPaga(lordo, 0, 0, 0, 0, '');
+        outLordo.textContent = new Intl.NumberFormat('it-IT').format(lordo) + ' €';
+        if (etichetta) etichetta.textContent = 'NETTO IN BUSTA · 13 MENSILITÀ';
+        schermo.textContent = '€ ' + new Intl.NumberFormat('it-IT', { maximumFractionDigits: 0 }).format(r.netto / 13);
+        if (badgeNetto) badgeNetto.innerHTML = '<span class="hg-badge3d-arrow">&#9650;</span> ' + Math.round(r.netto / lordo * 100) + '% netto';
+        if (badgeIrpef) badgeIrpef.innerHTML = 'IRPEF <b>' + eur0(r.irpefNetta) + '</b>';
+      }
+      slider.addEventListener('input', aggiorna);
+      aggiorna();
+    });
+  </script>
 </body>
 </html>

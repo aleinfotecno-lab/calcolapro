@@ -25,8 +25,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="shared-calc.css">
   <link rel="icon" type="image/png" href="favicon.svg">
@@ -337,7 +337,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" type="button" onclick="calcola()">🔍 Calcola la rata mensile →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo prestito personale">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Ammortamento alla francese. Il TAEG e’ il tasso che eguaglia il netto erogato al valore attuale delle rate, spese comprese: equazione dell’Allegato 5B delle Disposizioni di trasparenza della Banca d’Italia, in attuazione della direttiva 2008/48/CE.">
           <div class="result-label">Rata mensile</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">euro / mese</div>
@@ -671,5 +673,6 @@
 })();
 </script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>
