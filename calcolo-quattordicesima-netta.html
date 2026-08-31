@@ -256,7 +256,10 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola il netto della quattordicesima →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo quattordicesima">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="La quattordicesima matura in dodicesimi e si somma alla retribuzione ordinaria, quindi e’ la prima a superare la prima fascia di retribuzione pensionabile: sulla quota eccedente grava l’1% aggiuntivo dell’art. 3-ter del D.L. 384/1992 (soglia 2026: 56.224 euro, circolare INPS 6 del 30 gennaio 2026). Addizionale regionale ex D.Lgs. 68/2011 e comunale ex D.Lgs. 360/1998."
+             data-split="inpsOut:contributi, irpefOut:IRPEF, addOut:addizionali, priceOut:netto in busta">
           <div class="result-label">Quattordicesima netta stimata</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">euro (netto)</div>
@@ -559,5 +562,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

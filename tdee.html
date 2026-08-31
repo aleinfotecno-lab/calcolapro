@@ -287,7 +287,9 @@
       </div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo TDEE">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Come si ottiene"
+             data-norma="Equazione di Mifflin-St Jeor per il metabolismo basale (10 x peso + 6,25 x altezza − 5 x eta’, +5 per gli uomini e −161 per le donne), moltiplicata per il fattore di attivita’. Il fabbisogno non scende mai sotto il metabolismo basale: sotto quella soglia il corpo non copre le funzioni vitali a riposo.">
           <div class="result-label">Calorie giornaliere consigliate</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">kcal / giorno</div>
@@ -557,5 +559,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

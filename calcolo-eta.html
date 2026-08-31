@@ -296,7 +296,9 @@
       </div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo età">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Come si ottiene"
+             data-norma="La differenza fra due date si calcola in anni, mesi e giorni di calendario, tenendo conto degli anni bisestili e della lunghezza diversa dei mesi. I giorni totali si contano in tempo universale, cosi’ il cambio dell’ora legale non aggiunge o toglie un’ora al conto. Chi e’ nato il 29 febbraio compie gli anni il 28 negli anni non bisestili.">
           <div class="result-label">La tua età</div>
           <div class="result-value" id="etaOut">—</div>
           <div class="result-unit" id="etaUnitOut">anni</div>
@@ -608,5 +610,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

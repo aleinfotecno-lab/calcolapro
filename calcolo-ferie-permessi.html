@@ -297,7 +297,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola ferie residue →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo ferie e permessi">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Come si ottiene"
+             data-norma="Le ferie si monetizzano sui 26 giorni convenzionali del mese; i permessi ROL sul divisore orario del CCNL, che nasce dalle ore settimanali per 52 diviso 12. Sono due divisori diversi perche’ misurano cose diverse, giornate e ore. Il saldo puo’ essere negativo: sono i giorni goduti in anticipo.">
           <div class="result-label">Ferie residue totali</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">giorni lavorativi</div>
@@ -635,5 +637,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

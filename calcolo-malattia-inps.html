@@ -278,7 +278,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button">🔍 Calcola indennità →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo malattia INPS">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Circolare INPS 84/1980 e art. 1 D.L. 663/1979: nessuna indennita’ per i primi tre giorni di carenza, poi il 50% della retribuzione media globale giornaliera dal quarto al ventesimo e il 66,66% dal ventunesimo. La retribuzione media giornaliera e’ quella del mese diviso trenta, ratei compresi. L’integrazione fino al 100% la mette il CCNL, non la legge.">
           <div class="result-label">Importo lordo stimato ricevuto</div>
           <div class="result-value" id="totaleOut">—</div>
           <div class="result-unit">per l'intero periodo di malattia</div>
@@ -697,5 +699,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

@@ -377,7 +377,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button">⚖️ Calcola interessi →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo interessi di mora">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="D.Lgs. 231/2002 artt. 4-6 per le transazioni commerciali: interessi al tasso di riferimento BCE piu’ otto punti, comunicato dal MEF ogni semestre in Gazzetta Ufficiale, piu’ 40 euro di indennizzo forfettario dovuti automaticamente. Per i crediti civili vale invece il saggio legale dell’art. 1284 c.c., fissato ogni anno con decreto del MEF.">
           <div class="result-label">Totale da richiedere al debitore</div>
           <div class="result-value" id="totaleOut">—</div>
           <div class="result-unit">capitale + interessi di mora + indennità</div>
@@ -822,5 +824,6 @@ Si diffida al pagamento entro 15 giorni dal ricevimento della presente.`;
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

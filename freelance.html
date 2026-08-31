@@ -344,7 +344,9 @@
       </div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo prezzo orario">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Come si ottiene"
+             data-norma="Il prezzo orario e’ il lordo mensile necessario moltiplicato per dodici e diviso le ore effettivamente fatturabili in un anno. Il lordo si ottiene risalendo dal netto desiderato attraverso l’aliquota, e aggiungendo contributi e spese. Le ore fatturabili tolgono ferie e malattia: e’ il numero che quasi tutti dimenticano.">
           <div class="result-label">Il tuo prezzo orario minimo</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">euro / ora</div>
@@ -690,5 +692,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

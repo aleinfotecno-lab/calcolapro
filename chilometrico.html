@@ -277,7 +277,9 @@
       </div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo rimborso chilometrico">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Art. 51 c.5 TUIR: il rimborso chilometrico non concorre al reddito se calcolato sulle tabelle ACI dei costi chilometrici, pubblicate ogni anno in Gazzetta Ufficiale (per il 2026, GU 297 del 23 dicembre 2025).">
           <div class="result-label">Rimborso chilometrico totale</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit" id="periodoLabel">euro</div>
@@ -584,5 +586,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

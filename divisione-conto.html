@@ -343,7 +343,9 @@
 
       <!-- RESULT (hidden by default) -->
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati della divisione conto">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Come si ottiene"
+             data-norma="Il totale, con la mancia se prevista, viene diviso in centesimi: cosi’ si vede subito quanti ne restano scoperti e a chi assegnarli. Cento euro fra tre persone fanno 33,33 a testa, cioe’ 99,99: il centesimo mancante va dato a qualcuno, e questo calcolatore dice a chi.">
           <div class="result-label" id="resultLabel">Ciascuno paga</div>
           <div class="result-value" id="quotaOut">—</div>
           <div class="result-unit" id="resultUnit">euro / persona</div>
@@ -768,5 +770,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

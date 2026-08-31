@@ -312,7 +312,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola NASpI →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo NASpI">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Art. 4 D.Lgs. 22/2015: la NASpI e’ il 75% della retribuzione media mensile fino alla soglia annualmente rivalutata, piu’ il 25% della parte eccedente, entro il massimale. Decalage del 3% al mese dal sesto (dall’ottavo per chi ha almeno 55 anni). Importi 2026: circolare INPS 4 del 28 gennaio 2026.">
           <div class="result-label">Importo NASpI mensile iniziale</div>
           <div class="result-value" id="importoOut">—</div>
           <div class="result-unit">al mese (lordo IRPEF)</div>
@@ -678,5 +680,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

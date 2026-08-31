@@ -281,7 +281,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button">🔍 Calcola indennità →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo maternità INPS">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Art. 22 D.Lgs. 151/2001: indennita’ dell’80% per i cinque mesi di congedo obbligatorio; art. 27-bis: dieci giorni al 100% per il padre; art. 34 con le modifiche della L. 207/2024: tre mesi di congedo parentale all’80%, i successivi al 30%. La retribuzione media globale giornaliera e’ quella del mese diviso trenta (art. 23 c.2 e circolare INPS 60/2002).">
           <div class="result-label" id="resultLabel">Totale indennità periodo obbligatorio</div>
           <div class="result-value" id="totaleOut">—</div>
           <div class="result-unit">lordo IRPEF per l'intero congedo</div>
@@ -696,5 +698,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

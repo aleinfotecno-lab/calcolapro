@@ -363,7 +363,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola le mie detrazioni →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo detrazioni 730">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Art. 15 TUIR: detrazione del 19% sulle spese sanitarie eccedenti la franchigia di 129,11 euro, sulle spese veterinarie entro il tetto di 550 euro e sugli interessi del mutuo per l’abitazione principale entro 4.000. Art. 16 c.1-ter: detrazione per i giovani in affitto, 20% del canone con un minimo di 991,60 e un massimo di 2.000 euro.">
           <div class="result-label">Totale detrazioni IRPEF 2026</div>
           <div class="result-value" id="totaleDetrazioniOut">—</div>
           <div class="result-unit">da scalare dall'IRPEF dovuta</div>
@@ -722,5 +724,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

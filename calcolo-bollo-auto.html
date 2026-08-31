@@ -391,7 +391,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button">🔍 Calcola bollo →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo bollo auto">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Tariffa nazionale per kW, crescente al scendere della classe ambientale: 2,58 euro/kW fino a 100 kW e 3,87 oltre per Euro 4 e superiori. Le Regioni possono discostarsene. Addizionale erariale (superbollo) di 20 euro per ogni kW oltre 185, ridotta con l’anzianita’ del veicolo e non piu’ dovuta dopo vent’anni (art. 23 c.21 D.L. 98/2011).">
           <div class="result-label" id="resultLabel">Bollo auto annuale</div>
           <div class="result-value" id="totaleOut">—</div>
           <div class="result-unit" id="resultUnit">importo da pagare</div>
@@ -869,5 +871,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

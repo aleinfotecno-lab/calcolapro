@@ -385,7 +385,10 @@
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo locazioni brevi">
 
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-split="tasseTotOut:tasse, nettoOut:netto in tasca"
+             data-norma="Art. 1 c.63 L. 213/2023: cedolare secca al 26% dal secondo immobile, 21% su uno a scelta del contribuente. Gli intermediari operano una ritenuta del 21% sui canoni che incassano (art. 4 c.5 D.L. 50/2017). In regime ordinario il canone concorre al reddito per il 95% (art. 37 c.4-bis TUIR).">
           <div class="result-label" id="regimeLabel">Tasse totali da pagare</div>
           <div class="result-value" id="tasseTotOut">—</div>
           <div class="result-unit" id="tasseTotUnit">—</div>
@@ -784,5 +787,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

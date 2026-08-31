@@ -283,7 +283,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola l'Assegno Unico stimato">🔍 Calcola l'Assegno Unico →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo Assegno Unico">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="D.Lgs. 230/2021: quota base per figlio decrescente in modo lineare fra le due soglie ISEE, con maggiorazioni per i figli successivi al secondo (art. 4 c.3), per i nuclei con almeno quattro figli (c.10), per la disabilita’ e per la madre di eta’ inferiore a ventuno anni. Importi 2026 rivalutati dell’1,4%: circolare INPS 7 del 30 gennaio 2026.">
           <div class="result-label">Assegno Unico stimato</div>
           <div class="result-value" id="totaleOut">—</div>
           <div class="result-unit">euro al mese</div>
@@ -574,5 +576,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

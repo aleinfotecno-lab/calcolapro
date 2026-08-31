@@ -369,7 +369,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button">🔍 Calcola costo →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo costo del lavoro">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Il costo aziendale e’ la retribuzione lorda piu’ i contributi a carico del datore, l’INAIL e il TFR. Sugli esoneri: Bonus Giovani e Bonus Donne della L. 207/2024, con i tetti e le maggiorazioni per la ZES unica fissati dalle circolari INPS 55 e 57 del 2026.">
           <div class="result-label">Costo annuale totale per l'azienda</div>
           <div class="result-value" id="costoAnnuoOut">—</div>
           <div class="result-unit">per questo dipendente (tutti i costi inclusi)</div>
@@ -847,5 +849,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

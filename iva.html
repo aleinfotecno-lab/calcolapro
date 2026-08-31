@@ -311,7 +311,9 @@
       </div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo IVA">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="DPR 633/1972: aliquote 22% ordinaria, 10% e 5% ridotte, 4% super-ridotta (Tabella A). La base imponibile e’ il corrispettivo al netto degli sconti (art. 13). Lo scorporo si fa dividendo per 1 + aliquota, non sottraendo la percentuale dal totale.">
           <div class="result-label" id="resultLabel">Totale con IVA</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">euro</div>
@@ -611,5 +613,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

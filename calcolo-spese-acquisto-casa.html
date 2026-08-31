@@ -307,7 +307,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola tutte le spese →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo spese acquisto casa">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Fra privati la base dell’imposta di registro e’ la rendita catastale rivalutata del 5% per 110 (prima casa) o 120 (seconda), art. 1 c.497 L. 266/2005; aliquota 2% o 9%, minimo 1.000 euro (art. 10 c.2 D.Lgs. 23/2011). Da impresa costruttrice si paga invece l’IVA al 4% o 10% (DPR 633/1972) e le imposte in misura fissa. Sul mutuo, imposta sostitutiva 0,25% o 2% (artt. 15-18 DPR 601/1973).">
           <div class="result-label">Spese totali di acquisto</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">oltre al prezzo dell'immobile</div>
@@ -679,5 +681,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

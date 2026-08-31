@@ -302,7 +302,9 @@
       </div>
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola il mio BMI →</button></div>
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo BMI">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Come si ottiene"
+             data-norma="Indice di massa corporea dell’OMS: peso in chilogrammi diviso il quadrato dell’altezza in metri. Soglie: sottopeso sotto 18,5, normopeso fino a 24,9, sovrappeso fino a 29,9, obesita’ oltre 30. E’ un indicatore di popolazione, non una diagnosi: non distingue massa magra da massa grassa.">
           <div class="result-label">Il tuo BMI</div>
           <div class="result-value" id="bmiOut">—</div>
           <div class="result-unit">kg/m²</div>
@@ -580,5 +582,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

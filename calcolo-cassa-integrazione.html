@@ -248,7 +248,10 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Calcola l'importo della cassa integrazione">🔍 Calcola la cassa integrazione →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo cassa integrazione">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Art. 3 D.Lgs. 148/2015: integrazione salariale pari all’80% della retribuzione persa, entro un massimale mensile unico rivalutato ogni anno (per il 2026: 1.423,69 euro lordi e 1.340,56 netti, circolare INPS 4/2026). Il massimale si proporziona alle ore effettivamente sospese. Sull’indennita’ grava la riduzione del 5,84% dell’art. 26 della L. 41/1986."
+             data-split="lordoOut:integrazione INPS, perditaOut:quota non coperta">
           <div class="result-label">Indennità netta mensile</div>
           <div class="result-value" id="nettoOut">—</div>
           <div class="result-unit">al mese (netto della riduzione INPS, ancora soggetto a IRPEF)</div>
@@ -606,5 +609,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

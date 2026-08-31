@@ -311,7 +311,9 @@
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo fondo pensione">
 
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="D.Lgs. 252/2005: i contributi del lavoratore e del datore sono deducibili entro un tetto unico, elevato a 5.300 euro dal 2026 dalla L. 199/2025 (art. 8 c.4); il TFR conferito non e’ deducibile. Sulla prestazione finale la ritenuta e’ il 15%, ridotto di 0,30 punti per ogni anno di partecipazione oltre il quindicesimo fino a un minimo del 9% (art. 11 c.6).">
           <div class="result-label">Capitale accumulato alla pensione</div>
           <div class="result-value" id="capitaleOut">—</div>
           <div class="result-unit" id="capitaleUnit">—</div>
@@ -781,5 +783,6 @@
   <script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

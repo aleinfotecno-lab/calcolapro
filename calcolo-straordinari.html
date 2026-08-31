@@ -309,7 +309,9 @@
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Calcola il compenso →</button></div>
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo straordinari">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="La paga oraria e’ la retribuzione mensile divisa per il divisore orario del CCNL, non la retribuzione annua divisa per le ore annue. Le maggiorazioni le fissa il contratto collettivo, non la legge (per il Terziario l’art. 149 del CCNL Distribuzione e Servizi).">
           <div class="result-label">Compenso straordinari lordo</div>
           <div class="result-value" id="priceOut">—</div>
           <div class="result-unit">euro (lordo)</div>
@@ -614,5 +616,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>
