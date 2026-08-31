@@ -2,7 +2,21 @@
    CalcolaPro — CSS condiviso delle pagine hub categoria-*.html
    Importato da tutte e 6 le pagine categoria (dopo style.css).
    ═══════════════════════════════════════════════════════════ */
-.cat-hero{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 100%);color:#fff;padding:60px 24px 52px;text-align:center;}
+/* ── Un accento per area ─────────────────────────────────────────────────
+   I sei hub erano indistinguibili l'uno dall'altro. Ogni area prende una
+   tinta della stessa famiglia (i manifesti Olivetti), cosi' si capisce dove
+   si e' senza leggere l'intestazione. Tutti e sei passano il 4,5:1 sul bianco
+   in entrambi i versi, testo e fondo del bottone; --cat-da e' l'inizio del
+   gradiente dell'hero, e il bianco su quello sta fra 13,9 e 17.
+   ─────────────────────────────────────────────────────────────────────── */
+body.cat-casa{--blue:#B4491F;--blue-dark:#853617;--blue-light:#E6C7B8;--blue-xlight:#F4EAE2;--accent:#B4491F;--cat-da:#4C1F0D;}
+body.cat-lavoro{--blue:#0E5A54;--blue-dark:#0A433E;--blue-light:#B8CCC6;--blue-xlight:#E7EBE6;--accent:#0E5A54;--cat-da:#062623;}
+body.cat-fisco{--blue:#8A2B3B;--blue-dark:#66202C;--blue-light:#DBBFBF;--blue-xlight:#F1E8E4;--accent:#8A2B3B;--cat-da:#3A1219;}
+body.cat-risparmio{--blue:#8A6008;--blue-dark:#664706;--blue-light:#DBCDB1;--blue-xlight:#F1ECE0;--accent:#8A6008;--cat-da:#3A2803;}
+body.cat-freelance{--blue:#2E4374;--blue-dark:#223256;--blue-light:#C1C5CF;--blue-xlight:#EAEAE9;--accent:#2E4374;--cat-da:#131C31;}
+body.cat-utilita{--blue:#4A5A2E;--blue-dark:#374322;--blue-light:#C9CCBC;--blue-xlight:#ECEBE3;--accent:#4A5A2E;--cat-da:#1F2613;}
+
+.cat-hero{background:linear-gradient(135deg,var(--cat-da,#1A1815) 0%,var(--blue) 100%);color:#fff;padding:60px 24px 52px;text-align:center;}
 .cat-hero-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:12px;}
 .cat-hero h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:900;letter-spacing:-.03em;margin-bottom:14px;line-height:1.15;}
 .cat-hero p{font-size:1.05rem;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto 28px;line-height:1.7;}
@@ -15,7 +29,7 @@
 .cat-tools > p{font-size:15px;color:var(--text-muted);margin-bottom:28px;}
 .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-bottom:48px;}
 .tool-entry{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s,border-color .18s;text-decoration:none;color:inherit;}
-.tool-entry:hover{box-shadow:0 4px 24px rgba(30,58,138,.1);border-color:var(--blue-light);text-decoration:none;}
+.tool-entry:hover{box-shadow:0 4px 24px rgba(26,24,21,.12);border-color:var(--blue-light);text-decoration:none;}
 .tool-entry-icon{font-size:1.8rem;line-height:1;}
 .tool-entry-title{font-size:1rem;font-weight:800;color:var(--text);}
 .tool-entry-desc{font-size:13.5px;color:var(--text-muted);line-height:1.65;flex:1;}
