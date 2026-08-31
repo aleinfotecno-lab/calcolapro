@@ -68,7 +68,7 @@
             "name": "Qual è la differenza tra cedolare al 21% e al 10%?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "L'aliquota del 21% si applica ai contratti a canone libero (4+4 anni) e ai contratti transitori. L'aliquota ridotta del 10% si applica ai contratti a canone concordato (3+2 anni) e ai contratti per studenti universitari. Il contratto concordato ha un canone fissato da accordi tra associazioni di proprietari e inquilini, inferiore al mercato libero: la minore entrata può essere ampiamente compensata dall'aliquota più bassa."
+              "text": "L'aliquota del 21% si applica ai contratti a canone libero (4+4 anni) e ai transitori a canone libero. L'aliquota ridotta del 10% si applica ai contratti a canone concordato (3+2 anni), ai contratti per studenti universitari e ai contratti transitori a canone concordato, purché stipulati in un comune ad alta tensione abitativa e conformi all'accordo territoriale. Il contratto concordato ha un canone fissato da accordi tra associazioni di proprietari e inquilini, inferiore al mercato libero: la minore entrata può essere ampiamente compensata dall'aliquota più bassa."
             }
           },
           {
@@ -294,7 +294,7 @@
         <select id="contratto">
           <option value="libero">Libero (4+4)</option>
           <option value="concordato">Concordato (3+2)</option>
-          <option value="transitorio">Transitorio</option>
+          <option value="transitorio">Transitorio a canone concordato</option>
           <option value="studenti">Studenti universitari</option>
         </select>
       </div>
@@ -402,7 +402,7 @@
             <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
               Qual è la differenza tra cedolare al 21% e al 10%? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
-            <div class="faq-answer"><p>L'aliquota del <strong>21%</strong> si applica ai contratti a canone libero (4+4 anni) e ai contratti transitori. L'aliquota ridotta del <strong>10%</strong> si applica ai contratti a canone concordato (3+2 anni) e ai contratti per studenti universitari. Il contratto concordato ha un canone fissato da accordi tra associazioni di proprietari e inquilini, inferiore al mercato libero: la minore entrata può essere ampiamente compensata dall'aliquota più bassa.</p></div>
+            <div class="faq-answer"><p>L'aliquota del <strong>21%</strong> si applica ai contratti a canone libero (4+4 anni) e ai transitori a canone libero. L'aliquota ridotta del <strong>10%</strong> si applica ai contratti a canone concordato (3+2 anni), ai contratti per studenti universitari e ai contratti transitori a canone concordato, purché stipulati in un comune ad alta tensione abitativa e conformi all'accordo territoriale. Il contratto concordato ha un canone fissato da accordi tra associazioni di proprietari e inquilini, inferiore al mercato libero: la minore entrata può essere ampiamente compensata dall'aliquota più bassa.</p></div>
           </div>
           <div class="faq-item">
             <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
@@ -624,9 +624,12 @@
     if (reddito <= 0) { mostraErroreCampo('reddito', 'Inserisci il tuo reddito complessivo.'); return; }
 
     const altaTensione = document.getElementById('altaTensione').value === 'si';
-    // Il 10% spetta al concordato (e ai contratti per studenti, che ne sono una
-    // specie) SOLO nei comuni ad alta tensione abitativa: fuori si torna al 21%.
-    const agevolato = (contratto === 'concordato' || contratto === 'studenti') && altaTensione;
+    // Il 10% spetta ai contratti a canone concordato nei soli comuni ad alta
+    // tensione abitativa: fuori si torna al 21%. Rientrano nella stessa famiglia i
+    // contratti per studenti universitari e i TRANSITORI a canone concordato, che
+    // prima erano esclusi sempre e per tutti (art. 3 c.2 D.Lgs. 23/2011; per i
+    // transitori serve l'attestazione di conformita' all'accordo territoriale).
+    const agevolato = (contratto === 'concordato' || contratto === 'studenti' || contratto === 'transitorio') && altaTensione;
     const aliquotaCed = agevolato ? 0.10 : 0.21;
     const impostaCed = canone * aliquotaCed;
     const nettoCed = canone - impostaCed;

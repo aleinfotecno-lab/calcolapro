@@ -280,6 +280,19 @@
               </select>
             </div>
             <div class="field-group">
+              <label class="field-label" for="figliConviventi">Figli conviventi</label>
+              <select class="field-input" id="figliConviventi">
+                <option value="0">Nessuno</option>
+                <option value="1">1 figlio</option>
+                <option value="2">2 figli</option>
+                <option value="3">3 figli</option>
+                <option value="4">4 figli</option>
+                <option value="5">5 figli</option>
+                <option value="6">6 o più figli</option>
+              </select>
+              <span class="field-hint">Serve alla franchigia sulla casa di abitazione: cresce di 2.500 € per ogni figlio convivente <strong>successivo al secondo</strong> (art. 5 c.2 DPCM 159/2013).</span>
+            </div>
+            <div class="field-group">
               <label class="field-label" for="genitoreMonogenitoriale">Nucleo monogenitoriale?</label>
               <select class="field-input" id="genitoreMonogenitoriale">
                 <option value="0">No</option>
@@ -310,7 +323,7 @@
           <div class="field-group">
             <label class="field-label" for="valoreImuPrimaCasa">Valore IMU prima casa (€)</label>
             <input class="field-input" type="number" id="valoreImuPrimaCasa" placeholder="es. 120000" min="0"/>
-            <span class="field-hint">Rendita catastale × 1.05 × 160. Applica la franchigia di €52.500 (valida per l'ISEE ordinario). Dal 2026 esiste una franchigia più alta — €91.500, €120.000 nei comuni capoluogo di città metropolitana — ma solo per il calcolo ISEE usato per Assegno di Inclusione, Supporto Formazione e Lavoro, Assegno Unico, bonus asilo nido e bonus nuovi nati: per questi usi il valore qui sopra potrebbe risultare più favorevole di quanto mostrato.</span>
+            <span class="field-hint">Rendita catastale × 1.05 × 160. Applica la franchigia di €52.500, che cresce di €2.500 per ogni figlio convivente successivo al secondo (ISEE ordinario). Dal 2026 esiste una franchigia più alta — €91.500, €120.000 nei comuni capoluogo di città metropolitana — ma solo per il calcolo ISEE usato per Assegno di Inclusione, Supporto Formazione e Lavoro, Assegno Unico, bonus asilo nido e bonus nuovi nati: per questi usi il valore qui sopra potrebbe risultare più favorevole di quanto mostrato.</span>
           </div>
           <div class="field-group">
             <label class="field-label" for="valoreImuAltri">Valore IMU altri immobili (seconde case, terreni) (€)</label>
@@ -592,7 +605,12 @@
       // Patrimonio immobiliare
       const imuPrima = parseFloat(document.getElementById('valoreImuPrimaCasa').value) || 0;
       const imuAltri = parseFloat(document.getElementById('valoreImuAltri').value) || 0;
-      const franchPrima = 52500 + 2500 * Math.max(0, n - 2);
+      // Art. 5 c.2 DPCM 159/2013: "incrementata di 2.500 euro per ogni FIGLIO
+      // convivente successivo al secondo". Qui si contavano i COMPONENTI oltre il
+      // secondo: con quattro componenti (due genitori e due figli) la franchigia
+      // usciva 57.500 invece di 52.500, e l'ISEE piu' basso del dovuto.
+      const figliConviventi = parseInt(document.getElementById('figliConviventi').value, 10) || 0;
+      const franchPrima = 52500 + 2500 * Math.max(0, figliConviventi - 2);
       // Art. 5 c.2 DPCM 159/2013: la parte di valore della casa di abitazione che eccede
       // la franchigia si assume per DUE TERZI, non per intero.
       const eccedenzaPrima = Math.max(0, imuPrima - franchPrima) * (2 / 3);

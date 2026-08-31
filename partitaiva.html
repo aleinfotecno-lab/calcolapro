@@ -499,6 +499,7 @@
     // Footer year
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>
+  <script src="js/busta-paga.js"></script>
   <script>
     function fmt(n) { return new Intl.NumberFormat('it-IT', {style:'currency', currency:'EUR', maximumFractionDigits:0}).format(n); }
     function mostraErroreCampo(id, messaggio) {
@@ -548,11 +549,16 @@
       const inps         = imponibile * 0.2607;
       const imposta      = Math.max(0, imponibile - inps) * aliquota;
       const nettoIva     = fatturato - imposta - inps - spese;
-      // Dipendente (stima con IRPEF media 27% e contributi 9.19%)
-      const contributiDip  = ral * 0.0919;
-      const imponibileDip  = ral - contributiDip;
-      const irpef          = imponibileDip * 0.27;
-      const nettoDip       = imponibileDip - irpef;
+      // Dipendente. Prima: contributi 9,19% e poi un'IRPEF piatta al 27% sul
+      // resto, senza scaglioni ne' detrazioni. Su una RAL di 30.000 il netto
+      // usciva 19.887 invece di 23.956: quattro mila euro in meno sul termine di
+      // paragone di un calcolatore che esiste per fare un paragone, tutti a
+      // favore della partita IVA. Ora chiama bustaPaga() di js/busta-paga.js, la
+      // stessa funzione del calcolatore Stipendio Lordo/Netto: scaglioni IRPEF
+      // 2026, detrazione art. 13 TUIR, taglio del cuneo. Addizionali locali
+      // escluse, come nella colonna della partita IVA.
+      const bp             = bustaPaga(ral, 0, 0, 0, 0, '');
+      const nettoDip       = bp.netto;
       const diff           = nettoIva - nettoDip;
       document.getElementById('nettoIvaOut').textContent = fmt(nettoIva);
       document.getElementById('nettoDipOut').textContent = fmt(nettoDip);

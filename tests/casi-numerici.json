@@ -418,9 +418,9 @@
     {
       "file": "/calcolo-tfr-liquidazione.html",
       "caso": "Accantonamento al netto del contributo dello 0,50%",
-      "norma": "Art. 2120 c.c. e art. 3 L. 297/1982: 30.000/13,5 - 30.000x0,5% = 2.072,22 l'anno",
+      "norma": "Art. 2120 c.c.: quota annua = retribuzione / 13,5, meno il contributo dello 0,50% dell'art. 3 L. 297/1982. Su 10 anni: 20.722 di quote nominali piu' 3.387 di rivalutazione (1,5% fisso + 75% di un'inflazione al 2%). Tassazione separata al 23% sulle quote (4.766) e imposta sostitutiva del 17% sulla sola rivalutazione (576)",
       "campi": { "ral": 30000, "anni": 10, "destinazione": "azienda", "inflazione": 2.0, "tassazione": 23 },
-      "attesi": { "annuoOut": 2072, "lordoOut": 24109, "priceOut": 18564 }
+      "attesi": { "annuoOut": 2072, "lordoOut": 24109, "priceOut": 18767 }
     },
 
     {
@@ -997,10 +997,11 @@
     {
       "file": "/calcolo-isee.html",
       "caso": "Controprova: con 4 componenti la scala 2,46 resta quella di sempre, casa oltre franchigia",
-      "norma": "Art. 5 DPCM 159/2013: franchigia sulla prima casa 52.500 euro piu 2.500 per ogni figlio oltre il secondo; l eccedenza rileva per due terzi e il patrimonio entra nell ISE al 20%",
-      "campi": { "componenti": 4, "redditoLavDip": 28000, "redditoAltri": 0, "valoreImuPrimaCasa": 90000, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "norma": "Art. 5 c.2 DPCM 159/2013: franchigia 52.500 piu 2.500 per ogni FIGLIO convivente successivo al secondo. Con due figli l aumento non spetta: franchigia 52.500, eccedenza (90.000 - 52.500) x 2/3 = 25.000, ISE = 25.000 + 20% x 25.000 = 30.000, ISEE = 30.000 / 2,46",
+      "note": "Il valore atteso era 11.924, prodotto dalla franchigia calcolata sui COMPONENTI oltre il secondo invece che sui figli: la norma citata nel caso e quella applicata dal codice dicevano due cose diverse.",
+      "campi": { "componenti": 4, "figliConviventi": "2", "redditoLavDip": 28000, "redditoAltri": 0, "valoreImuPrimaCasa": 90000, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
       "funzione": "calcolaISEE",
-      "attesi": { "#resultMain > div > div:first-child": 11924 }
+      "attesi": { "#resultMain > div > div:first-child": 12195 }
     },
     {
       "file": "/calcolo-isee.html",
@@ -1089,29 +1090,29 @@
 
     {
       "file": "/pensione.html",
-      "caso": "Quarantunenne lontano dai requisiti: pensione di vecchiaia a 67 anni",
-      "norma": "Art. 24 c.6 D.L. 201/2011: requisito anagrafico per la pensione di vecchiaia fermo a 67 anni per il biennio 2025-2026. Nato nel 1985, nel 2026 ha 41 anni: mancano 26 anni, uscita nel 2052 con 15 + 26 = 41 anni di contributi",
-      "note": "Il caso fissa i requisiti di accesso, non l'importo: l'importo mensile e' una proiezione che dipende da ipotesi (rivalutazione del montante, crescita retributiva) non fissate da alcuna norma.",
+      "caso": "Quarantunenne lontano dai requisiti: la vecchiaia lo trova a 67 anni e 3 mesi",
+      "norma": "Art. 24 c.6 D.L. 201/2011 con l'adeguamento alla speranza di vita (circolare INPS 28 del 16/3/2026): il requisito e' 67 anni nel 2026, 67 e 1 mese nel 2027, 67 e 3 mesi dal 2028. Nato nel 1985, nel 2026 ha 41 anni: uscita nel 2053 con 15 + 27 = 42 anni di contributi, ma la pagina mostra i 41 maturati al compimento del requisito",
+      "note": "Prima l'eta' era cablata a 67 per qualunque anno futuro: chi esce fra trent'anni vedeva 67 tondi e un anno di attesa in meno.",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1985, "sesso": "M", "annoInizio": 2010, "contributiAttuali": 15, "stipendioLordo": 30000, "sistema": "contributivo", "crescitaStipendio": "0" },
-      "attesi": { "anniMancantiOut": 26, "annoPensioneOut": 2052, "etaPensioneOut": 67, "contributiFinaliOut": 41, "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
+      "attesi": { "anniMancantiOut": 27, "annoPensioneOut": 2053, "etaPensioneOut": "67 anni e 3 mesi", "contributiFinaliOut": 41, "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
     },
     {
       "file": "/pensione.html",
-      "caso": "Uomo con 38 anni di contributi: anticipata a 42 anni e 10 mesi",
-      "norma": "Art. 24 c.10 D.L. 201/2011: pensione anticipata con 42 anni e 10 mesi di contributi per gli uomini, indipendentemente dall'eta'. Con 38 anni gia' versati ne mancano 4 anni e 10 mesi: uscita nel 2031",
+      "caso": "Uomo con 38 anni di contributi: l'anticipata si allontana con la speranza di vita",
+      "norma": "Art. 24 c.10 D.L. 201/2011 e circolare INPS 28/2026: i contributi richiesti per l'anticipata sono 42 anni e 10 mesi nel 2026, 42 e 11 nel 2027, 43 anni e 1 mese dal 2028. Chi ne ha 38 nel 2026 li completa nel 2032, non nel 2031",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1968, "sesso": "M", "annoInizio": 1996, "contributiAttuali": 38, "stipendioLordo": 40000, "sistema": "contributivo", "crescitaStipendio": "0" },
-      "attesi": { "anniMancantiOut": 5, "annoPensioneOut": 2031, "etaPensioneOut": 63, "contributiFinaliOut": 43, "tipoAccesso": "📋 Tipo di accesso: Pensione anticipata" }
+      "attesi": { "anniMancantiOut": 6, "annoPensioneOut": 2032, "etaPensioneOut": "63 anni", "contributiFinaliOut": 43, "tipoAccesso": "📋 Tipo di accesso: Pensione anticipata" }
     },
     {
       "file": "/pensione.html",
-      "caso": "Stessa carriera al femminile: un anno prima, perche' il requisito e' 41 anni e 10 mesi",
-      "norma": "Art. 24 c.10 D.L. 201/2011: alle donne servono 41 anni e 10 mesi di contributi, dodici mesi in meno degli uomini. Con 38 anni versati mancano 3 anni e 10 mesi: uscita nel 2030 a 62 anni",
-      "note": "Coppia di controprova con il caso precedente: cambia solo il sesso, e la differenza attesa e' esattamente di un anno di attesa.",
+      "caso": "Stessa carriera al femminile: un anno prima, perche' alle donne serve un anno in meno",
+      "norma": "Art. 24 c.10 D.L. 201/2011: alle donne servono dodici mesi in meno degli uomini, quindi 41 anni e 10 mesi nel 2026 e 42 anni e 1 mese dal 2028 (circolare INPS 28/2026). Con 38 anni versati l'uscita cade nel 2031, un anno prima dell'uomo con la stessa carriera",
+      "note": "Coppia di controprova col caso maschile: cambia solo il sesso, e la differenza attesa resta di un anno anche dopo l'adeguamento.",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1968, "sesso": "F", "annoInizio": 1996, "contributiAttuali": 38, "stipendioLordo": 40000, "sistema": "contributivo", "crescitaStipendio": "0" },
-      "attesi": { "anniMancantiOut": 4, "annoPensioneOut": 2030, "etaPensioneOut": 62, "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Pensione anticipata" }
+      "attesi": { "anniMancantiOut": 5, "annoPensioneOut": 2031, "etaPensioneOut": "62 anni", "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Pensione anticipata" }
     },
     {
       "file": "/pensione.html",
@@ -1120,23 +1121,24 @@
       "note": "La controprova sta nel caso 1968/M: li' i requisiti maturerebbero dopo il 2025 e Quota 103 non deve mai comparire.",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1962, "sesso": "M", "annoInizio": 1984, "contributiAttuali": 42, "stipendioLordo": 38000, "sistema": "misto", "crescitaStipendio": "0" },
-      "attesi": { "anniMancantiOut": "Ora!", "annoPensioneOut": 2026, "etaPensioneOut": 64, "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Quota 103" }
+      "attesi": { "anniMancantiOut": "Ora!", "annoPensioneOut": 2026, "etaPensioneOut": "64 anni", "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Quota 103" }
     },
     {
       "file": "/pensione.html",
       "caso": "Sistema misto con contributi ante 1996: i requisiti di accesso non cambiano",
-      "norma": "Art. 24 D.L. 201/2011: il sistema di calcolo (retributivo, misto, contributivo) incide sull'importo, non sui requisiti di accesso. Nato nel 1965, 36 anni di contributi nel 2026: l'anticipata arriverebbe a 67,8 anni, quindi vince la vecchiaia a 67 nel 2032 con 42 anni di contributi",
+      "norma": "Art. 24 D.L. 201/2011: il sistema di calcolo incide sull'importo, non sui requisiti di accesso. Nato nel 1965, 36 anni di contributi nel 2026: l'anticipata arriverebbe oltre l'eta' di vecchiaia, quindi vince la vecchiaia a 67 anni e 3 mesi, nel 2033",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1965, "sesso": "M", "annoInizio": 1990, "contributiAttuali": 36, "stipendioLordo": 45000, "sistema": "misto", "crescitaStipendio": "0" },
-      "attesi": { "anniMancantiOut": 6, "annoPensioneOut": 2032, "etaPensioneOut": 67, "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
+      "attesi": { "anniMancantiOut": 7, "annoPensioneOut": 2033, "etaPensioneOut": "67 anni e 3 mesi", "contributiFinaliOut": 42, "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
     },
     {
       "file": "/pensione.html",
       "caso": "Uscita anticipata a 59 anni: si applica il coefficiente dei 59 (4,419%), non quello dei 62",
       "norma": "Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, coefficienti di trasformazione del biennio 2025-2026 (art. 1 c. 6 L. 335/1995). La tabella parte da 57 anni: agganciare le eta inferiori ai 62 sovrastimava la pensione di chi esce prima",
+      "note": "L'anno di uscita si sposta di uno per l'adeguamento alla speranza di vita (circ. INPS 28/2026): un anno di contributi in piu' nel montante, e l'importo sale da 2.349 a 2.446.",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1985, "annoInizio": 2005, "contributiAttuali": 25, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
-      "attesi": { "etaPensioneOut": "59 anni", "anniMancantiOut": "18", "importoMensileOut": 2349 }
+      "attesi": { "etaPensioneOut": "59 anni", "anniMancantiOut": 19, "importoMensileOut": 2446 }
     },
     {
       "file": "/pensione.html",
@@ -1144,7 +1146,7 @@
       "norma": "Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, coefficienti di trasformazione del biennio 2025-2026 (art. 1 c. 6 L. 335/1995); art. 24 c. 10 D.L. 201/2011: anticipata con 42 anni e 10 mesi di contributi per gli uomini. Coefficiente dei 61 anni: 4,661%",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1970, "annoInizio": 1988, "contributiAttuali": 38, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
-      "attesi": { "etaPensioneOut": "61 anni", "importoMensileOut": 1915 }
+      "attesi": { "etaPensioneOut": "61 anni", "importoMensileOut": 1994 }
     },
     {
       "file": "/pensione.html",
@@ -1152,15 +1154,16 @@
       "norma": "Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, coefficienti di trasformazione del biennio 2025-2026 (art. 1 c. 6 L. 335/1995). Coefficiente dei 62 anni: 4,795%, invariato. Il caso deve restare identico a prima della correzione",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1970, "annoInizio": 1989, "contributiAttuali": 37, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
-      "attesi": { "etaPensioneOut": "62 anni", "importoMensileOut": 2010 }
+      "attesi": { "etaPensioneOut": "62 anni", "importoMensileOut": 2093 }
     },
     {
       "file": "/pensione.html",
-      "caso": "Controprova: chi arriva alla vecchiaia a 67 anni non e toccato dalla correzione",
+      "caso": "Controprova sul coefficiente: chi arriva alla vecchiaia usa quello dei 67",
       "norma": "Decreto direttoriale Ministero del Lavoro-MEF del 20/11/2024, coefficienti di trasformazione del biennio 2025-2026 (art. 1 c. 6 L. 335/1995); art. 24 D.L. 201/2011: eta di vecchiaia 67 anni, coefficiente 5,608%",
+      "note": "Il titolo diceva 'non e toccato dalla correzione' riferendosi al fix sui coefficienti: l'adeguamento alla speranza di vita invece lo tocca, e porta l'uscita a 67 anni e 3 mesi.",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1985, "annoInizio": 2005, "contributiAttuali": 5, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
-      "attesi": { "etaPensioneOut": "67 anni", "anniMancantiOut": "26", "importoMensileOut": 2591 }
+      "attesi": { "etaPensioneOut": "67 anni e 3 mesi", "anniMancantiOut": 27, "importoMensileOut": 2721 }
     },
     {
       "file": "/pensione.html",
@@ -1172,11 +1175,11 @@
     },
     {
       "file": "/pensione.html",
-      "caso": "Controprova su Quota 103: a 56 anni con 30 di contributi non spetta, si va a 67",
+      "caso": "Controprova su Quota 103: a 56 anni con 30 di contributi non spetta, si va alla vecchiaia",
       "norma": "Art. 1 c. 139 L. 197/2022: servono 62 anni di eta e 41 di contributi maturati entro il 31/12/2025. Chi non li aveva non puo accedervi, e il calcolatore non deve proporla",
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1970, "annoInizio": 1996, "contributiAttuali": 30, "sesso": "M", "stipendioLordo": 35000, "sistema": "contributivo", "crescitaStipendio": 0.02 },
-      "attesi": { "etaPensioneOut": "67 anni", "anniMancantiOut": "11", "importoMensileOut": 2486 }
+      "attesi": { "etaPensioneOut": "67 anni e 3 mesi", "anniMancantiOut": 12, "importoMensileOut": 2591 }
     },
     {
       "file": "/lordonetto.html",
@@ -1366,31 +1369,33 @@
     {
       "file": "/calcolo-tfr-liquidazione.html",
       "caso": "Un solo anno di servizio: mezzo anno di rivalutazione",
-      "norma": "Art. 2120 c.c.: quota annua = retribuzione / 13,5, meno il contributo dello 0,50% dell'art. 3 L. 297/1982. 25.000 x (1/13,5 - 0,005) = 1.726,85; rivalutazione 1,5% + 75% dell'inflazione = 3%, applicata per mezzo anno",
+      "norma": "Art. 2120 c.c.: 25.000 x (1/13,5 - 0,005) = 1.726,85 di quota, rivalutata per mezzo anno al 3% = 26 euro. Imposta: 23% sulla quota (397) piu' 17% sulla rivalutazione (4), art. 11 c.3 D.Lgs. 47/2000",
       "campi": { "ral": 25000, "anni": 1, "destinazione": "azienda", "inflazione": 2, "tassazione": 23 },
-      "attesi": { "annuoOut": 1727, "lordoOut": 1753, "impostaOut": 403, "priceOut": 1349 }
+      "attesi": { "annuoOut": 1727, "lordoOut": 1753, "impostaOut": 402, "priceOut": 1351 }
     },
     {
       "file": "/calcolo-tfr-liquidazione.html",
       "caso": "Inflazione a zero: resta solo l'1,5% fisso di legge",
-      "norma": "Art. 2120 c.4 c.c.: la rivalutazione e' 1,5% in misura fissa piu' il 75% dell'aumento ISTAT. Con inflazione nulla resta l'1,5%: 30.000 -> quota 2.072,22 x 5 anni con rivalutazione 1,5%",
+      "norma": "Art. 2120 c.4 c.c.: con inflazione nulla la rivalutazione e' il solo 1,5% fisso. Su 5 anni: 10.361 di quote e 395 di rivalutazione. Imposta 23% sulle quote (2.383) piu' 17% sulla rivalutazione (67)",
       "note": "Zero e' un valore legittimo per l'inflazione: non deve essere sostituito da un default.",
       "campi": { "ral": 30000, "anni": 5, "destinazione": "azienda", "inflazione": 0, "tassazione": 23 },
-      "attesi": { "annuoOut": 2072, "lordoOut": 10756, "impostaOut": 2474, "priceOut": 8282 }
+      "attesi": { "annuoOut": 2072, "lordoOut": 10756, "impostaOut": 2450, "priceOut": 8306 }
     },
     {
       "file": "/calcolo-tfr-liquidazione.html",
-      "caso": "Aliquota di tassazione separata a zero: netto uguale al lordo",
-      "norma": "Con aliquota 0 l'imposta e' 0 e il netto coincide col lordo. 40.000 x (1/13,5 - 0,005) = 2.762,96 all'anno per 8 anni, rivalutati al 2,625% (1,5% + 75% di 1,5%)",
+      "caso": "Aliquota di tassazione separata a zero: resta dovuto il 17% sulla rivalutazione",
+      "norma": "Con aliquota di tassazione separata a zero le quote accantonate non pagano nulla, ma l'imposta sostitutiva del 17% sulla rivalutazione (art. 11 c.3 D.Lgs. 47/2000, elevata dall'art. 1 c. 623 L. 190/2014) resta dovuta: 2.457 di rivalutazione x 17% = 418",
+      "note": "E' il caso che isola la seconda imposta: azzerando la prima, quello che resta e' tutto e solo il 17% sulla rivalutazione. Con la vecchia formula il netto coincideva col lordo, ed era falso.",
       "campi": { "ral": 40000, "anni": 8, "destinazione": "inps", "inflazione": 1.5, "tassazione": 0 },
-      "attesi": { "annuoOut": 2763, "lordoOut": 24561, "impostaOut": 0, "priceOut": 24561 }
+      "attesi": { "annuoOut": 2763, "lordoOut": 24561, "impostaOut": 418, "priceOut": 24143 }
     },
     {
       "file": "/calcolo-tfr-liquidazione.html",
       "caso": "Carriera lunga ai massimi: 40 anni con inflazione al 3%",
-      "norma": "Stessa regola dell'art. 2120 c.c. ai limiti del modulo: 100.000 x (1/13,5 - 0,005) = 6.907,41 all'anno per 40 anni, rivalutazione 3,75% (1,5% + 75% di 3%), aliquota 43%",
+      "norma": "Su 40 anni al 3,75% di rivalutazione il lordo e' 630.472, di cui 276.296 di quote nominali e 354.176 di rivalutazione. Imposta: 43% sulle quote (118.807) piu' 17% sulla rivalutazione (60.210)",
+      "note": "E' il caso dove la correzione pesa di piu': applicando il 43% anche alla rivalutazione l'imposta usciva 271.103, cioe' 92.086 euro di tassa che non e' dovuta.",
       "campi": { "ral": 100000, "anni": 40, "destinazione": "azienda", "inflazione": 3, "tassazione": 43 },
-      "attesi": { "annuoOut": 6907, "lordoOut": 630472, "impostaOut": 271103, "priceOut": 359369 }
+      "attesi": { "annuoOut": 6907, "lordoOut": 630472, "impostaOut": 179017, "priceOut": 451455 }
     },
     {
       "file": "/calcolo-tfr-liquidazione.html",
@@ -2112,6 +2117,71 @@
       "campi": { "heroSlider": 50000 },
       "attesi": { "heroLordo": 50000, "heroBadgeIrpef": 11785, "heroBadgeNetto": 67 },
       "funzione": ""
+    },
+    {
+      "file": "/partitaiva.html",
+      "caso": "Il termine di paragone e' il netto vero da dipendente, non un'IRPEF piatta al 27%",
+      "norma": "Stesso motore del calcolatore Stipendio Lordo/Netto (js/busta-paga.js). Su 30.000 di RAL: contributi 2.757, imponibile 27.243, IRPEF lorda 6.265,89, detrazione art. 13 c.1 lett. b) TUIR 1.979,26, ulteriore detrazione L. 207/2024 1.000. Netto 23.956",
+      "note": "Con l'IRPEF piatta al 27% il netto da dipendente usciva 19.887: 4.069 euro in meno, tutti a favore della partita IVA, su un calcolatore che esiste per mettere a confronto le due strade.",
+      "campi": { "fatturato": 35000, "categoria": "0.78", "regime": "0.15", "ral": 30000, "spesePiva": 1500 },
+      "attesi": { "nettoDipOut": 23956 }
+    },
+    {
+      "file": "/partitaiva.html",
+      "caso": "RAL bassa: il taglio del cuneo cambia il confronto",
+      "norma": "L. 207/2024 art. 1 c. 4-9: sotto i 20.000 di imponibile spetta una somma esente (4,8% fra 15.000 e 20.000). Su 18.000 di RAL: contributi 1.654,20, imponibile 16.345,80, detrazione 2.976,72, IRPEF netta 782,82, somma esente 784,60. Netto 16.348",
+      "note": "Il vecchio modello dava 11.932: quattro mila e mezzo in meno. E' la fascia dove la distorsione era piu' grave.",
+      "campi": { "fatturato": 25000, "categoria": "0.78", "regime": "0.05", "ral": 18000, "spesePiva": 500 },
+      "attesi": { "nettoDipOut": 16348 }
+    },
+    {
+      "file": "/partitaiva.html",
+      "caso": "RAL oltre la prima fascia pensionabile: scatta l'1% aggiuntivo",
+      "norma": "Art. 3-ter D.L. 384/1992: sulla quota oltre 56.224 euro (circ. INPS 6/2026) grava un ulteriore 1%. Su 60.000: contributi 5.514 + 37,76 = 5.551,76, imponibile 54.448,24, IRPEF 15.612,74, nessuna detrazione da lavoro oltre i 50.000. Netto 38.835",
+      "campi": { "fatturato": 85000, "categoria": "0.78", "regime": "0.15", "ral": 60000, "spesePiva": 5000 },
+      "attesi": { "nettoDipOut": 38835 }
+    },
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Transitorio a canone concordato in comune ad alta tensione: spetta il 10%",
+      "norma": "Art. 3 c.2 D.Lgs. 23/2011: l'aliquota ridotta del 10% spetta ai contratti a canone concordato nei comuni ad alta tensione abitativa, e nella stessa famiglia rientrano i contratti per studenti e i transitori a canone concordato conformi all'accordo territoriale. Base IRPEF 7.000 x 0,95 x 0,70 = 4.655 (art. 8 c.1 L. 431/1998)",
+      "note": "Il transitorio era escluso sempre e per tutti, anche quando a canone concordato: 770 euro l'anno di cedolare in piu' su questo caso.",
+      "campi": { "canone": 7000, "contratto": "transitorio", "altaTensione": "si", "reddito": 25000, "detrazioni": 0 },
+      "attesi": { "aliquotaCedOut": 10, "impostaCedOut": 700, "nettoAnnoCedOut": 6300, "baseImponibileOut": 4655, "imposteIrpefOut": 1236, "nettoAnnoIrpefOut": 5764 }
+    },
+    {
+      "file": "/calcolo-cedolare-secca.html",
+      "caso": "Controprova: lo stesso transitorio fuori dai comuni ad alta tensione resta al 21%",
+      "norma": "Il 10% e la riduzione del 30% dell'imponibile IRPEF sono entrambi legati ai comuni di cui all'art. 1 c.1 lett. a) e b) del D.L. 551/1988. Fuori: cedolare 21% su 7.000 e base IRPEF 6.650 senza l'ulteriore taglio",
+      "campi": { "canone": 7000, "contratto": "transitorio", "altaTensione": "no", "reddito": 25000, "detrazioni": 0 },
+      "attesi": { "aliquotaCedOut": 21, "impostaCedOut": 1470, "nettoAnnoCedOut": 5530, "baseImponibileOut": 6650, "imposteIrpefOut": 1895, "nettoAnnoIrpefOut": 5106 }
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Tre figli conviventi: la franchigia sulla casa sale di 2.500 euro, una volta sola",
+      "norma": "Art. 5 c.2 DPCM 159/2013: la franchigia di 52.500 cresce di 2.500 per ogni figlio convivente successivo al secondo. Con tre figli l'aumento spetta una volta: franchigia 55.000, eccedenza (90.000 - 55.000) x 2/3 = 23.333, ISE = 25.000 + 20% x 23.333 = 29.667, scala 2,85",
+      "note": "Accoppiato al caso con due figli: cambia solo il numero dei figli e la franchigia deve salire di 2.500, non di 2.500 per componente.",
+      "campi": { "componenti": 5, "figliConviventi": "3", "redditoLavDip": 28000, "redditoAltri": 0, "valoreImuPrimaCasa": 90000, "valoreImuAltri": 0, "saldoConti": 0, "titoliFinanziari": 0 },
+      "attesi": { "#resultMain > div > div:first-child": 10409 },
+      "funzione": "calcolaISEE"
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Adeguamento alla speranza di vita: chi compie 67 anni dopo il 2026 ne trova 67 e 3 mesi",
+      "norma": "Circolare INPS 28 del 16/3/2026 e decreto direttoriale MEF-Lavoro: il requisito di vecchiaia e' 67 anni nel 2026, 67 e 1 mese nel 2027, 67 e 3 mesi dal 2028. Nato nel 1960, nel 2026 ha 66 anni: quando raggiunge il requisito siamo gia' nel 2028, quindi gli servono 67 anni e 3 mesi e l'uscita cade due anni dopo, non uno",
+      "note": "Il gradino intermedio del 2027 non e' raggiungibile in questo calcolatore, che ragiona in anni interi: chi compie 67 anni nel 2026 esce subito, chi li compie dopo finisce gia' oltre il 1 gennaio 2028. E' un limite del modello, non della norma.",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1960, "sesso": "M", "annoInizio": 1985, "contributiAttuali": 30, "stipendioLordo": 35000, "sistema": "misto", "crescitaStipendio": "0" },
+      "attesi": { "anniMancantiOut": 2, "annoPensioneOut": 2028, "etaPensioneOut": "67 anni e 3 mesi", "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Controprova: chi compie il requisito nel 2026 resta a 67 tondi",
+      "norma": "Nel 2026 il requisito e' ancora 67 anni pieni: l'adeguamento decorre dal 1 gennaio 2027 (circolare INPS 28/2026). Nato nel 1959, nel 2026 ne compie 67 ed esce subito",
+      "note": "Un solo anno di nascita separa questo caso dal precedente, e la differenza attesa e' di due anni di attesa piu' tre mesi di requisito.",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1959, "sesso": "M", "annoInizio": 1985, "contributiAttuali": 30, "stipendioLordo": 35000, "sistema": "misto", "crescitaStipendio": "0" },
+      "attesi": { "anniMancantiOut": "Ora!", "annoPensioneOut": 2026, "etaPensioneOut": "67 anni", "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
     }
   ]
 }

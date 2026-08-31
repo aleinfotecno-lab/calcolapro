@@ -69,7 +69,7 @@
             "name": "Quanti anni di contributi servono per la pensione?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Per la pensione di vecchiaia servono 67 anni di età e almeno 20 anni di contributi versati all'INPS. Per la pensione anticipata servono 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne), senza limiti di età anagrafica. Chi ha iniziato a lavorare molto giovane può spesso accedere alla pensione anticipata prima dei 60 anni."
+              "text": "Per la pensione di vecchiaia servono 67 anni di età e almeno 20 anni di contributi versati all'INPS. Per la pensione anticipata servono 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne), senza limiti di età anagrafica. Dal 2027 i requisiti crescono con l'adeguamento alla speranza di vita: 67 anni e 1 mese nel 2027 e 67 anni e 3 mesi dal 2028 per la vecchiaia, 42 anni e 11 mesi (uomini) e 41 anni e 11 mesi (donne) nel 2027, 43 anni e 1 mese e 42 anni e 1 mese dal 2028 per l'anticipata (circolare INPS 28 del 16 marzo 2026). Chi ha iniziato a lavorare molto giovane può spesso accedere alla pensione anticipata prima dei 60 anni."
             }
           },
           {
@@ -109,7 +109,7 @@
             "name": "A che età vado in pensione nel 2026?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La pensione di vecchiaia richiede 67 anni di età e almeno 20 anni di contributi. Chi ha 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne) può accedere alla pensione anticipata ordinaria senza limiti di età. Esistono poi opzioni come Quota 103 (62 anni + 41 anni contributi) e APe Sociale (63 anni e 5 mesi) per categorie specifiche."
+              "text": "La pensione di vecchiaia richiede 67 anni di età e almeno 20 anni di contributi. Chi ha 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne) può accedere alla pensione anticipata ordinaria senza limiti di età. Esistono poi opzioni come Quota 103 (62 anni + 41 anni contributi, ormai accessibile solo a chi aveva maturato i requisiti entro il 31/12/2025) e APe Sociale (63 anni e 5 mesi) per categorie specifiche. Dal 2027 i requisiti crescono con l'adeguamento alla speranza di vita: 67 anni e 1 mese nel 2027 e 67 anni e 3 mesi dal 2028 per la vecchiaia, 42 anni e 11 mesi (uomini) e 41 anni e 11 mesi (donne) nel 2027, 43 anni e 1 mese e 42 anni e 1 mese dal 2028 per l'anticipata (circolare INPS 28 del 16 marzo 2026)."
             }
           },
           {
@@ -185,6 +185,9 @@
     .result-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
     .result-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md); padding: 16px; text-align: center; }
     .result-box-val { font-size: 1.6rem; font-weight: 800; color: #fff; }
+    .result-ipotesi { margin-top: 14px; padding-top: 12px; border-top: 1px dashed rgba(255,255,255,0.22); font-size: 12px; line-height: 1.7; color: rgba(255,255,255,0.62); text-align: left; }
+    .result-ipotesi b { display: block; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 5px; }
+    .result-ipotesi strong { color: rgba(255,255,255,0.86); font-weight: 700; }
     .result-box-lab { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
     .alert-box { border-radius: var(--radius-md); padding: 16px 20px; margin: 16px 0; font-size: 14px; line-height: 1.7; }
     .alert-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
@@ -438,6 +441,22 @@
           </div>
 
           <div id="tipoAccesso" style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:8px;"></div>
+          <!-- Le due meta' del risultato non hanno lo stesso statuto: eta' e anno
+               discendono dalla legge, l'importo da ipotesi. Finora quelle ipotesi
+               stavano soltanto nei commenti del codice. -->
+          <div class="result-ipotesi">
+            <b>Su cosa poggia l'importo</b>
+            Et&agrave; di uscita, anni di contributi e tipo di accesso discendono dalla legge
+            (art. 24 D.L. 201/2011 e adeguamento alla speranza di vita, circolare INPS 28/2026).
+            L'<strong>importo mensile</strong> no: &egrave; una proiezione, e poggia su tre ipotesi
+            che nessuna norma fissa. Il montante contributivo &egrave; rivalutato all'<strong>1,5%
+            l'anno</strong> (per legge segue la media quinquennale del PIL nominale, che non &egrave;
+            prevedibile); le retribuzioni gi&agrave; versate sono ricostruite a ritroso da quella
+            attuale con lo stesso tasso di crescita che hai indicato; per il sistema misto la
+            quota retributiva ante 1996 &egrave; stimata al <strong>2% della retribuzione per ogni
+            anno</strong>. Il coefficiente di trasformazione invece &egrave; quello ufficiale del
+            biennio 2025-2026.
+          </div>
           <p class="result-disclaimer">ℹ️ Calcolo indicativo — non sostituisce la consulenza di un professionista qualificato. Il montante dei contributi già versati è <strong>stimato</strong> ricostruendo le retribuzioni passate a partire da quella attuale: per il dato reale consulta l'estratto conto contributivo sul sito INPS.</p>
         </div>
       </div>
@@ -492,7 +511,7 @@
             <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
               Quanti anni di contributi servono per la pensione? <span class="faq-arrow" aria-hidden="true">▾</span>
             </button>
-            <div class="faq-answer"><p>Per la <strong>pensione di vecchiaia</strong> servono 67 anni di età e almeno 20 anni di contributi versati all'INPS. Per la <strong>pensione anticipata</strong> servono 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne), senza limiti di età anagrafica. Chi ha iniziato a lavorare molto giovane può spesso accedere alla pensione anticipata prima dei 60 anni.</p></div>
+            <div class="faq-answer"><p>Per la <strong>pensione di vecchiaia</strong> servono 67 anni di età e almeno 20 anni di contributi versati all'INPS. Per la <strong>pensione anticipata</strong> servono 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne), senza limiti di età anagrafica. Dal 2027 i requisiti crescono con l'adeguamento alla speranza di vita: 67 anni e 1 mese nel 2027 e 67 anni e 3 mesi dal 2028 per la vecchiaia, 42 anni e 11 mesi (uomini) e 41 anni e 11 mesi (donne) nel 2027, 43 anni e 1 mese e 42 anni e 1 mese dal 2028 per l'anticipata (circolare INPS 28 del 16 marzo 2026). Chi ha iniziato a lavorare molto giovane può spesso accedere alla pensione anticipata prima dei 60 anni.</p></div>
           </div>
           <div class="faq-item">
             <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open');this.setAttribute('aria-expanded',this.closest('.faq-item').classList.contains('open'));" aria-expanded="false">
@@ -635,7 +654,7 @@
       <h2>Domande frequenti sul calcolo della pensione</h2>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">A che età vado in pensione nel 2026?<span class="faq-chevron" aria-hidden="true">▾</span></button>
-        <div class="faq-answer"><p>La pensione di vecchiaia richiede 67 anni di età e almeno 20 anni di contributi. Chi ha 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne) può accedere alla pensione anticipata ordinaria senza limiti di età. Esistono poi opzioni come Quota 103 (62 anni + 41 anni contributi) e APe Sociale (63 anni e 5 mesi) per categorie specifiche.</p></div>
+        <div class="faq-answer"><p>La pensione di vecchiaia richiede 67 anni di età e almeno 20 anni di contributi. Chi ha 42 anni e 10 mesi di contributi (uomini) o 41 anni e 10 mesi (donne) può accedere alla pensione anticipata ordinaria senza limiti di età. Esistono poi opzioni come Quota 103 (62 anni + 41 anni contributi, ormai accessibile solo a chi aveva maturato i requisiti entro il 31/12/2025) e APe Sociale (63 anni e 5 mesi) per categorie specifiche. Dal 2027 i requisiti crescono con l'adeguamento alla speranza di vita: 67 anni e 1 mese nel 2027 e 67 anni e 3 mesi dal 2028 per la vecchiaia, 42 anni e 11 mesi (uomini) e 41 anni e 11 mesi (donne) nel 2027, 43 anni e 1 mese e 42 anni e 1 mese dal 2028 per l'anticipata (circolare INPS 28 del 16 marzo 2026).</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Come si calcola il montante contributivo?<span class="faq-chevron" aria-hidden="true">▾</span></button>
@@ -799,8 +818,33 @@
   });
   document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
 
+  // Circolare INPS 28 del 16 marzo 2026 e decreto direttoriale MEF-Lavoro:
+  // l'adeguamento alla speranza di vita alza i requisiti di un mese nel 2027 e
+  // di tre mesi dal 2028. Prima erano cablati ai valori del 2026 e restavano
+  // quelli per sempre: chi esce nel 2052 vedeva 67 anni tondi, non 67 e 3 mesi.
+  function etaVecchiaia(anno) {
+    return anno >= 2028 ? 67 + 3 / 12 : anno >= 2027 ? 67 + 1 / 12 : 67;
+  }
+  function contributiAnticipata(anno, sesso) {
+    const mesi = anno >= 2028 ? 13 : anno >= 2027 ? 11 : 10;
+    return (sesso === 'M' ? 42 : 41) + mesi / 12;
+  }
+  // Il requisito dipende dall'anno di uscita, e l'anno di uscita dipende dal
+  // requisito: due passate bastano a chiudere il cerchio, perche' gli scalini
+  // sono di pochi mesi.
+  function convergi(requisito, anniDa) {
+    let r = requisito(new Date().getFullYear());
+    for (let k = 0; k < 3; k++) r = requisito(new Date().getFullYear() + Math.ceil(anniDa(r)));
+    return r;
+  }
+  // "67 anni e 3 mesi" invece di "67.25 anni"
+  function fmtAnni(x) {
+    const a = Math.floor(x + 1e-9);
+    const m = Math.round((x - a) * 12);
+    return a + ' anni' + (m > 0 ? ' e ' + m + (m === 1 ? ' mese' : ' mesi') : '');
+  }
+
   function calcola() {
-    const ETA_VECCHIAIA = 67;
     const ETA_QUOTA103 = 62;
     const CONTRIBUTI_QUOTA103 = 41;
     const ALIQUOTA_CONTRIBUTIVA = 0.33;
@@ -822,7 +866,10 @@
 
     const annoCorrente = new Date().getFullYear();
     const etaAttuale = annoCorrente - annoNascita;
-    const contribReqAnticipata = sesso === 'M' ? 42 + 10/12 : 41 + 10/12;
+    const ETA_VECCHIAIA = convergi(etaVecchiaia, (r) => Math.max(0, r - etaAttuale));
+    const contribReqAnticipata = convergi(
+      (anno) => contributiAnticipata(anno, sesso),
+      (r) => Math.max(0, r - contributiAttuali));
     const ETÀ_VECCHIAIA = ETA_VECCHIAIA;
     const ETÀ_QUOTA103 = ETA_QUOTA103;
     const CONTRIBUTI_QUOTA103_C = CONTRIBUTI_QUOTA103;
@@ -855,10 +902,17 @@
 
     const annoPensione = annoCorrente + Math.ceil(migliore.anni);
     const etaPensione = Math.min(migliore.eta, ETÀ_VECCHIAIA);
-    const coefficiente = COEFFICIENTI[Math.min(70, Math.max(57, etaPensione))] || 0.05608;
+    // La tabella dei coefficienti e' indicizzata per anno intero. Da quando
+    // l'eta' di vecchiaia ha i mesi (67 e 3 mesi dal 2028) la chiave frazionaria
+    // non trovava nulla e cadeva sul valore di riserva: si prende l'anno compiuto.
+    const coefficiente = COEFFICIENTI[Math.min(70, Math.max(57, Math.floor(etaPensione)))] || 0.05608;
 
-    // Calcolo montante contributivo
-    const rivalutazione = 0.015; // rivalutazione montante ~1.5%/anno
+    // Calcolo montante contributivo.
+    // ATTENZIONE: da qui in avanti si esce dalla norma e si entra nelle ipotesi.
+    // L'1,5% e' una media di comodo della rivalutazione del montante, che per
+    // legge segue la media quinquennale del PIL nominale e quindi non e'
+    // prevedibile. La pagina lo dichiara al lettore sotto il risultato.
+    const rivalutazione = 0.015;
     // (a) Contributi GIA' versati. La versione precedente li ignorava, con l'effetto
     //     paradossale che piu' anni avevi versato, piu' bassa risultava la pensione.
     //     Le retribuzioni passate sono ricostruite a ritroso dalla retribuzione attuale
@@ -895,7 +949,7 @@
     // Output
     document.getElementById('anniMancantiOut').textContent = Math.ceil(migliore.anni) === 0 ? 'Ora!' : Math.ceil(migliore.anni);
     document.getElementById('annoPensioneOut').textContent = 'Anno previsto: ' + annoPensione;
-    document.getElementById('etaPensioneOut').textContent = etaPensione + ' anni';
+    document.getElementById('etaPensioneOut').textContent = fmtAnni(etaPensione);
     document.getElementById('contributiFinaliOut').textContent = Math.round(migliore.contributi) + ' anni';
     document.getElementById('importoMensileOut').textContent = fmt(pensioneLorda);
     document.getElementById('tassoSostitOut').textContent = tassoSostituzione + '%';

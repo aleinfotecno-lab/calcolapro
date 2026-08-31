@@ -62,7 +62,7 @@
       {"@type": "HowToStep", "position": 1, "name": "Calcola l'accantonamento annuo", "text": "Dividi la Retribuzione Annua Lorda (RAL) per 13,5 e sottrai il contributo dello 0,50% previsto dall'art. 3 della legge 297/1982: l'accantonamento netto e' il 6,91% della retribuzione. Esempio: RAL 30.000 € / 13,5 = 2.222 €, meno 150 € di contributo, fa 2.072 € accantonati ogni anno."},
       {"@type": "HowToStep", "position": 2, "name": "Calcola la rivalutazione annua", "text": "La rivalutazione è pari all'1,5% fisso più il 75% dell'aumento dell'indice ISTAT dei prezzi al consumo. Con inflazione al 2%, la rivalutazione è: 1,5% + (75% × 2%) = 3%."},
       {"@type": "HowToStep", "position": 3, "name": "Accumula gli accantonamenti rivalutati", "text": "Somma gli accantonamenti annui rivalutati per tutti gli anni di servizio. Il TFR lordo cresce ogni anno grazie alla rivalutazione composta."},
-      {"@type": "HowToStep", "position": 4, "name": "Calcola la tassazione separata", "text": "Il TFR è soggetto a tassazione separata. Il datore applica un'aliquota provvisoria calcolata sugli scaglioni IRPEF del reddito di riferimento (TFR/anni di servizio × 12): per redditi medio-bassi si avvicina al 23% (primo scaglione), ma può salire fino al 43% per TFR elevati o lunga anzianità. L'Agenzia delle Entrate ricalcola poi l'imposta definitiva sull'aliquota media effettiva degli ultimi 5 anni."},
+      {"@type": "HowToStep", "position": 4, "name": "Calcola la tassazione separata", "text": "Il TFR è soggetto a tassazione separata. Il datore applica un'aliquota provvisoria calcolata sugli scaglioni IRPEF del reddito di riferimento (TFR/anni di servizio × 12): per redditi medio-bassi si avvicina al 23% (primo scaglione), ma può salire fino al 43% per TFR elevati o lunga anzianità. L'Agenzia delle Entrate ricalcola poi l'imposta definitiva sull'aliquota media effettiva degli ultimi 5 anni. La rivalutazione annuale segue invece una strada sua: imposta sostitutiva del 17% (art. 11 c.3 D.Lgs. 47/2000), che il datore versa anno per anno e scala dal fondo."},
       {"@type": "HowToStep", "position": 5, "name": "Ottieni il TFR netto", "text": "Sottrai l'imposta calcolata dal TFR lordo rivalutato. Il risultato è il TFR netto che riceverai alla cessazione del rapporto di lavoro."}
     ]
   }
@@ -357,7 +357,7 @@
         </div>
         <div class="result-card tape"
              data-norma-titolo="Base di calcolo"
-             data-split="impostaOut:tassazione separata, priceOut:TFR netto"
+             data-split="impostaOut:imposte, priceOut:TFR netto"
              data-norma="Art. 2120 c.c.: quota annua pari alla retribuzione divisa per 13,5, al netto del contributo dello 0,50% dell’art. 3 della L. 297/1982. Rivalutazione dell’1,5% in misura fissa piu’ il 75% dell’aumento dell’indice ISTAT dei prezzi al consumo.">
           <div class="result-label">TFR netto stimato</div>
           <div class="result-value" id="priceOut">—</div>
@@ -679,11 +679,21 @@
       const accantonoAnnuo = ral / 13.5 - ral * 0.005;
       // Azienda e Fondo di Tesoreria INPS: stessa rivalutazione, cambia solo chi la paga.
       const rivalutazione = (1.5 + 0.75 * inflazione) / 100;
-      let tfrLordo = 0;
+      let tfrLordo = 0, accantonatoNominale = 0;
       for (let i = 1; i <= anni; i++) {
         tfrLordo += accantonoAnnuo * Math.pow(1 + rivalutazione, anni - i + 0.5);
+        accantonatoNominale += accantonoAnnuo;
       }
-      const imposta  = tfrLordo * (tassazione / 100);
+      // Le due parti del TFR non si tassano allo stesso modo, e prima si applicava
+      // l'aliquota della tassazione separata a tutto il lordo. Le quote accantonate
+      // seguono la tassazione separata dell'art. 19 TUIR (aliquota media dei cinque
+      // anni precedenti); sulla sola RIVALUTAZIONE grava invece l'imposta
+      // sostitutiva del 17% dell'art. 11 c.3 del D.Lgs. 47/2000, elevata dall'11%
+      // dall'art. 1 c. 623 della L. 190/2014, che il datore versa anno per anno.
+      const quotaRivalutazione = tfrLordo - accantonatoNominale;
+      const impostaCapitale = accantonatoNominale * (tassazione / 100);
+      const impostaRivalutazione = quotaRivalutazione * 0.17;
+      const imposta  = impostaCapitale + impostaRivalutazione;
       const tfrNetto = tfrLordo - imposta;
       document.getElementById('priceOut').textContent  = '€ ' + Math.round(tfrNetto).toLocaleString('it-IT');
       document.getElementById('lordoOut').textContent  = fmt(tfrLordo);
