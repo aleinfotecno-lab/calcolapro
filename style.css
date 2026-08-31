@@ -807,8 +807,15 @@ tbody tr:nth-child(even):hover { background: var(--blue-xlight); }
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
+/* .affiliazioni-box non aveva NESSUNA regola: il suo titolo prendeva lo stile
+   generico degli heading, e usciva a 22,5px senza maiuscoletto accanto al box
+   gemello .cross-links a 14px. Si vedeva gia' su bmi.html da mesi, ed e' emerso
+   promuovendo quel titolo da h3 a h2 per la gerarchia. I tre box laterali
+   condividono ora lo stesso trattamento, a qualunque livello stia il titolo. */
 .aff-box h2,
-.aff-box h3 {
+.aff-box h3,
+.affiliazioni-box h2,
+.affiliazioni-box h3 {
   font-size: 14px; font-weight: 700;
   color: var(--text-muted); margin-bottom: 16px;
   letter-spacing: 0.04em; text-transform: uppercase;
