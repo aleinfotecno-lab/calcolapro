@@ -1,0 +1,22 @@
+﻿posizione,codice,regione,addizionale_regionale_eur,netto_annuo_eur,netto_mensile_eur,regola_derogatoria
+1,bolzano,Provincia autonoma di Bolzano,0,23956.37,1842.8,"detrazione di 430,50 euro per imponibili fino a 90.000 euro (Allegato C, par. 19.24.3.1.4)"
+2,trento,Provincia autonoma di Trento,0,23956.37,1842.8,"deduzione di 30.000 euro: sotto quella soglia la base imponibile e' zero (Allegato C, par. 19.24.3.1.10)"
+3,basilicata,Basilicata,335.09,23621.28,1817.02,
+4,friuliveneziagiulia,Friuli-Venezia Giulia,335.09,23621.28,1817.02,"nessuna progressivita' per scaglioni: l'aliquota si applica all'intero imponibile (Allegato C, par. 19.24.3.1.6)"
+5,liguria,Liguria,335.09,23621.28,1817.02,
+6,sardegna,Sardegna,335.09,23621.28,1817.02,
+7,sicilia,Sicilia,335.09,23621.28,1817.02,
+8,umbria,Umbria,335.09,23621.28,1817.02,"sotto 28.000 le maggiorazioni sono disapplicate: 1,23% sull'intero importo (Allegato C, par. 19.24.3.1.1)"
+9,valledaosta,Valle d'Aosta,335.09,23621.28,1817.02,"esente sotto 15.000; sopra, aliquota ordinaria sull'intero imponibile (Allegato C, par. 19.24.3.1.3)"
+10,veneto,Veneto,335.09,23621.28,1817.02,
+11,marche,Marche,371.82,23584.55,1814.2,
+12,lombardia,Lombardia,377.94,23578.43,1813.73,
+13,toscana,Toscana,388.07,23568.29,1812.95,
+14,emiliaromagna,Emilia-Romagna,435.79,23520.58,1809.28,
+15,abruzzo,Abruzzo,454.96,23501.41,1807.8,
+16,puglia,Puglia,460.28,23496.09,1807.39,
+17,calabria,Calabria,471.3,23485.06,1806.54,
+18,lazio,Lazio,471.3,23485.06,1806.54,"sotto 28.000 la maggiorazione dell'1,60% e' disapplicata: 1,73% sull'intero importo (Allegato C, par. 19.24.3.1.2)"
+19,piemonte,Piemonte,571.11,23385.26,1798.87,
+20,molise,Molise,577.52,23378.85,1798.37,
+21,campania,Campania,621.89,23334.48,1794.96,

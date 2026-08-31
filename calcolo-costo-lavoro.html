@@ -50,7 +50,7 @@
       "name": "Alessandro Signorile",
       "url": "https://calcolapro.it/about.html"
     },
-    "dateModified": "2026-08-22"
+    "dateModified": "2026-08-29"
   }
   </script>
   <script type="application/ld+json">
@@ -254,7 +254,7 @@
       <p class="page-subtitle">Quant'è il costo reale di un dipendente per l'azienda? Scopri il totale mensile e annuale: stipendio lordo, contributi INPS datoriali, INAIL e TFR. Utile per PMI, startup e liberi professionisti che vogliono assumere.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 22/08/2026</span>
+        <span>📅 Aggiornato il 29/08/2026</span>
       </div>
     </div>
   </div>
@@ -749,10 +749,18 @@
       else if (imponibileIRPEF <= 50000) irpef = 28000*0.23 + (imponibileIRPEF-28000)*0.33;
       else irpef = 28000*0.23 + 22000*0.33 + (imponibileIRPEF-50000)*0.43;
       // Detrazione da lavoro dipendente (TUIR art. 13)
+      // Art. 13 c.1 TUIR: la detrazione e' parametrata sul REDDITO COMPLESSIVO, non sulla
+      // retribuzione lorda. Per un dipendente senza altri redditi il reddito complessivo
+      // coincide con l'imponibile fiscale, perche' l'art. 51 c.2 lett. a) tiene fuori dal
+      // reddito i contributi previdenziali obbligatori. Usare il lordo sbagliava anche lo
+      // scaglione: con RAL 30.000 applicava la lettera c) al posto della b), e appena sopra
+      // i 15.000 di RAL produceva detrazioni oltre il massimo di legge.
+      // Art. 13 c.6: il risultato del rapporto si assume nelle prime quattro cifre decimali.
+      const tronca4 = x => Math.trunc(x * 10000) / 10000;
       let detrazione = 0;
-      if (ralAnnua <= 15000) detrazione = 1955;
-      else if (ralAnnua <= 28000) detrazione = 1910 + 1190 * ((28000 - ralAnnua) / 13000);
-      else if (ralAnnua <= 50000) detrazione = 1910 * ((50000 - ralAnnua) / 22000);
+      if (imponibileIRPEF <= 15000) detrazione = 1955;
+      else if (imponibileIRPEF <= 28000) detrazione = 1910 + 1190 * tronca4((28000 - imponibileIRPEF) / 13000);
+      else if (imponibileIRPEF <= 50000) detrazione = 1910 * tronca4((50000 - imponibileIRPEF) / 22000);
       // Taglio del cuneo fiscale, L. 207/2024 art. 1 commi 4-9: somma esente fino a
       // 20.000 di imponibile, poi ulteriore detrazione fino a 40.000.
       let sommaEsente = 0;

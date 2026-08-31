@@ -37,10 +37,17 @@
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "isAccessibleForFree": true,
         "inLanguage": "it-IT",
-        "dateModified": "2026-08-27",
+        "dateModified": "2026-08-29",
         "spatialCoverage": {"@type": "Place", "name": "Italia"},
         "temporalCoverage": "2026",
         "variableMeasured": ["Addizionale regionale IRPEF", "Retribuzione netta annua", "Retribuzione netta mensile"],
+        "creditText": "CalcolaPro — calcolapro.it",
+        "distribution": [
+          {"@type": "DataDownload", "encodingFormat": "text/csv", "name": "Tabella in formato CSV",
+           "contentUrl": "https://calcolapro.it/dati/stipendio-netto-per-regione-2026.csv"},
+          {"@type": "DataDownload", "encodingFormat": "application/json", "name": "Tabella e metodo in formato JSON",
+           "contentUrl": "https://calcolapro.it/dati/stipendio-netto-per-regione-2026.json"}
+        ],
         "creator": {"@type": "Person", "name": "Alessandro Signorile", "url": "https://calcolapro.it/about.html"},
         "isBasedOn": [
           "https://www1.finanze.gov.it/finanze2/dipartimentopolitichefiscali/fiscalitalocale/addregirpef/sceltaregione.htm",
@@ -92,6 +99,9 @@
     .tab-regioni tr:nth-child(even) td { background:var(--bg); }
     .tab-regioni tr.riga-zero td { background:#f0fdf4; font-weight:600; }
     .tab-regioni tr.riga-ultima td { background:#fef2f2; }
+    .download-dati { list-style:none; padding:0; margin:16px 0 24px; display:grid; gap:10px; }
+    .download-dati li { background:var(--white); border:1px solid var(--border); border-radius:10px; padding:14px 18px; font-size:14px; }
+    .download-dati a { font-weight:700; }
     .asterisco { color:var(--blue); font-weight:700; cursor:help; }
     .alert-box { border-radius:var(--radius-md); padding:16px 20px; margin:16px 0; font-size:14px; line-height:1.7; }
     .alert-info { background:#eff6ff; border:1px solid #bfdbfe; color:#1e40af; }
@@ -233,7 +243,7 @@
     <p class="page-subtitle">Stesso contratto, stesso lordo di 30.000 €, stesse detrazioni. Cambia solo la regione di residenza — e il netto cambia di 622 € l'anno.</p>
     <div class="article-meta">
       <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-      <span>📅 Aggiornato il 27/08/2026</span>
+      <span>📅 Aggiornato il 29/08/2026</span>
     </div>
   </div>
 </div>
@@ -278,27 +288,27 @@
           <tr><th>#</th><th>Regione</th><th class="num">Addizionale</th><th class="num">Netto/anno</th><th class="num">Netto/mese</th></tr>
         </thead>
         <tbody>
-            <tr class="riga-zero"><td>1</td><td>Provincia autonoma di Bolzano <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">0,00 €</td><td class="num"><strong>23.713,47 €</strong></td><td class="num">1.824,11 €</td></tr>
-            <tr class="riga-zero"><td>2</td><td>Provincia autonoma di Trento <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">0,00 €</td><td class="num"><strong>23.713,47 €</strong></td><td class="num">1.824,11 €</td></tr>
-            <tr><td>3</td><td>Basilicata</td><td class="num">335,09 €</td><td class="num"><strong>23.378,38 €</strong></td><td class="num">1.798,34 €</td></tr>
-            <tr><td>4</td><td>Friuli-Venezia Giulia <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">335,09 €</td><td class="num"><strong>23.378,38 €</strong></td><td class="num">1.798,34 €</td></tr>
-            <tr><td>5</td><td>Liguria</td><td class="num">335,09 €</td><td class="num"><strong>23.378,38 €</strong></td><td class="num">1.798,34 €</td></tr>
-            <tr><td>6</td><td>Sardegna</td><td class="num">335,09 €</td><td class="num"><strong>23.378,38 €</strong></td><td class="num">1.798,34 €</td></tr>
-            <tr><td>7</td><td>Sicilia</td><td class="num">335,09 €</td><td class="num"><strong>23.378,38 €</strong></td><td class="num">1.798,34 €</td></tr>
-            <tr><td>8</td><td>Umbria <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">335,09 €</td><td class="num"><strong>23.378,38 €</strong></td><td class="num">1.798,34 €</td></tr>
-            <tr><td>9</td><td>Valle d'Aosta <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">335,09 €</td><td class="num"><strong>23.378,38 €</strong></td><td class="num">1.798,34 €</td></tr>
-            <tr><td>10</td><td>Veneto</td><td class="num">335,09 €</td><td class="num"><strong>23.378,38 €</strong></td><td class="num">1.798,34 €</td></tr>
-            <tr><td>11</td><td>Marche</td><td class="num">371,82 €</td><td class="num"><strong>23.341,66 €</strong></td><td class="num">1.795,51 €</td></tr>
-            <tr><td>12</td><td>Lombardia</td><td class="num">377,94 €</td><td class="num"><strong>23.335,53 €</strong></td><td class="num">1.795,04 €</td></tr>
-            <tr><td>13</td><td>Toscana</td><td class="num">388,07 €</td><td class="num"><strong>23.325,40 €</strong></td><td class="num">1.794,26 €</td></tr>
-            <tr><td>14</td><td>Emilia-Romagna</td><td class="num">435,79 €</td><td class="num"><strong>23.277,68 €</strong></td><td class="num">1.790,59 €</td></tr>
-            <tr><td>15</td><td>Abruzzo</td><td class="num">454,96 €</td><td class="num"><strong>23.258,52 €</strong></td><td class="num">1.789,12 €</td></tr>
-            <tr><td>16</td><td>Puglia</td><td class="num">460,28 €</td><td class="num"><strong>23.253,20 €</strong></td><td class="num">1.788,71 €</td></tr>
-            <tr><td>17</td><td>Calabria</td><td class="num">471,30 €</td><td class="num"><strong>23.242,17 €</strong></td><td class="num">1.787,86 €</td></tr>
-            <tr><td>18</td><td>Lazio <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">471,30 €</td><td class="num"><strong>23.242,17 €</strong></td><td class="num">1.787,86 €</td></tr>
-            <tr><td>19</td><td>Piemonte</td><td class="num">571,11 €</td><td class="num"><strong>23.142,36 €</strong></td><td class="num">1.780,18 €</td></tr>
-            <tr><td>20</td><td>Molise</td><td class="num">577,52 €</td><td class="num"><strong>23.135,95 €</strong></td><td class="num">1.779,69 €</td></tr>
-            <tr class="riga-ultima"><td>21</td><td>Campania</td><td class="num">621,89 €</td><td class="num"><strong>23.091,58 €</strong></td><td class="num">1.776,28 €</td></tr>
+            <tr class="riga-zero"><td>1</td><td>Provincia autonoma di Bolzano <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">0,00 €</td><td class="num"><strong>23.956,37 €</strong></td><td class="num">1.842,80 €</td></tr>
+            <tr class="riga-zero"><td>2</td><td>Provincia autonoma di Trento <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">0,00 €</td><td class="num"><strong>23.956,37 €</strong></td><td class="num">1.842,80 €</td></tr>
+            <tr><td>3</td><td>Basilicata</td><td class="num">335,09 €</td><td class="num"><strong>23.621,28 €</strong></td><td class="num">1.817,02 €</td></tr>
+            <tr><td>4</td><td>Friuli-Venezia Giulia <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">335,09 €</td><td class="num"><strong>23.621,28 €</strong></td><td class="num">1.817,02 €</td></tr>
+            <tr><td>5</td><td>Liguria</td><td class="num">335,09 €</td><td class="num"><strong>23.621,28 €</strong></td><td class="num">1.817,02 €</td></tr>
+            <tr><td>6</td><td>Sardegna</td><td class="num">335,09 €</td><td class="num"><strong>23.621,28 €</strong></td><td class="num">1.817,02 €</td></tr>
+            <tr><td>7</td><td>Sicilia</td><td class="num">335,09 €</td><td class="num"><strong>23.621,28 €</strong></td><td class="num">1.817,02 €</td></tr>
+            <tr><td>8</td><td>Umbria <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">335,09 €</td><td class="num"><strong>23.621,28 €</strong></td><td class="num">1.817,02 €</td></tr>
+            <tr><td>9</td><td>Valle d'Aosta <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">335,09 €</td><td class="num"><strong>23.621,28 €</strong></td><td class="num">1.817,02 €</td></tr>
+            <tr><td>10</td><td>Veneto</td><td class="num">335,09 €</td><td class="num"><strong>23.621,28 €</strong></td><td class="num">1.817,02 €</td></tr>
+            <tr><td>11</td><td>Marche</td><td class="num">371,82 €</td><td class="num"><strong>23.584,55 €</strong></td><td class="num">1.814,20 €</td></tr>
+            <tr><td>12</td><td>Lombardia</td><td class="num">377,94 €</td><td class="num"><strong>23.578,43 €</strong></td><td class="num">1.813,73 €</td></tr>
+            <tr><td>13</td><td>Toscana</td><td class="num">388,07 €</td><td class="num"><strong>23.568,29 €</strong></td><td class="num">1.812,95 €</td></tr>
+            <tr><td>14</td><td>Emilia-Romagna</td><td class="num">435,79 €</td><td class="num"><strong>23.520,58 €</strong></td><td class="num">1.809,28 €</td></tr>
+            <tr><td>15</td><td>Abruzzo</td><td class="num">454,96 €</td><td class="num"><strong>23.501,41 €</strong></td><td class="num">1.807,80 €</td></tr>
+            <tr><td>16</td><td>Puglia</td><td class="num">460,28 €</td><td class="num"><strong>23.496,09 €</strong></td><td class="num">1.807,39 €</td></tr>
+            <tr><td>17</td><td>Calabria</td><td class="num">471,30 €</td><td class="num"><strong>23.485,06 €</strong></td><td class="num">1.806,54 €</td></tr>
+            <tr><td>18</td><td>Lazio <span class="asterisco" title="regola derogatoria, spiegata sotto">*</span></td><td class="num">471,30 €</td><td class="num"><strong>23.485,06 €</strong></td><td class="num">1.806,54 €</td></tr>
+            <tr><td>19</td><td>Piemonte</td><td class="num">571,11 €</td><td class="num"><strong>23.385,26 €</strong></td><td class="num">1.798,87 €</td></tr>
+            <tr><td>20</td><td>Molise</td><td class="num">577,52 €</td><td class="num"><strong>23.378,85 €</strong></td><td class="num">1.798,37 €</td></tr>
+            <tr class="riga-ultima"><td>21</td><td>Campania</td><td class="num">621,89 €</td><td class="num"><strong>23.334,48 €</strong></td><td class="num">1.794,96 €</td></tr>
         </tbody>
       </table>
     </div>
@@ -327,12 +337,13 @@
         <tr><td>Contributi INPS a carico del lavoratore (9,19%)</td><td class="num">− 2757,00 €</td><td>aliquota IVS dipendenti</td></tr>
         <tr><td>Imponibile fiscale</td><td class="num">27.243,00 €</td><td>base per IRPEF e addizionali</td></tr>
         <tr><td>IRPEF lorda (23% fino a 28.000 €)</td><td class="num">6.265,89 €</td><td>art. 11 TUIR</td></tr>
-        <tr><td>Detrazione da lavoro dipendente</td><td class="num">− 1736,36 €</td><td>art. 13 TUIR</td></tr>
+        <tr><td>Detrazione da lavoro dipendente</td><td class="num">− 1.979,26 €</td><td>art. 13 TUIR, commi 1 e 6</td></tr>
         <tr><td>Ulteriore detrazione (taglio del cuneo)</td><td class="num">− 1.000,00 €</td><td>L. 207/2024, art. 1 commi 4-9</td></tr>
         <tr><td>Addizionale regionale</td><td class="num">da 0 a 621,89 €</td><td>varia per regione</td></tr>
         <tr><td>Addizionale comunale</td><td class="num">non conteggiata</td><td>varia per comune</td></tr>
       </table>
     </div>
+    <p><strong>Un punto su cui i confronti online sbagliano spesso.</strong> La detrazione da lavoro dipendente dell'art. 13 TUIR è parametrata sul <em>reddito complessivo</em>, che per un dipendente senza altri redditi è l'imponibile fiscale — 27.243 € — e non la retribuzione lorda, perché l'art. 51 comma 2 lettera a) tiene i contributi previdenziali obbligatori fuori dal reddito. Su 30.000 € di lordo la differenza non è solo di importo: cambia la lettera applicabile, dalla c) alla b), e vale 242,89 € di netto all'anno. Il comma 6 dello stesso articolo aggiunge che il rapporto va assunto <em>nelle prime quattro cifre decimali</em>, cioè troncato e non arrotondato: da qui i 1.979,26 € della tabella.</p>
     <p>Il calcolo usa la stessa funzione del <a href="lordonetto.html">calcolatore stipendio lordo-netto</a> di questo sito, così i due strumenti non possono dare risultati diversi. Restano fuori, oltre all'addizionale comunale, le detrazioni per familiari a carico e gli oneri deducibili, che dipendono dalla situazione personale e sposterebbero il confronto su un terreno non più omogeneo.</p>
 
     <div class="alert-warn alert-box">
@@ -377,6 +388,28 @@
           </div>
     </div>
 
+    <h2>Scarica i dati</h2>
+    <p>La tabella è disponibile in formato aperto. Il file JSON contiene anche le ipotesi di
+    calcolo e l'elenco delle norme applicate, così chi lo riusa può verificare il metodo
+    senza tornare su questa pagina.</p>
+    <ul class="download-dati">
+      <li><a href="dati/stipendio-netto-per-regione-2026.csv" download>stipendio-netto-per-regione-2026.csv</a>
+          — 21 righe, separatore virgola, codifica UTF-8</li>
+      <li><a href="dati/stipendio-netto-per-regione-2026.json" download>stipendio-netto-per-regione-2026.json</a>
+          — stessi dati più metodo, ipotesi e riferimenti normativi</li>
+    </ul>
+
+    <div class="alert-info alert-box">
+      <strong>Licenza e citazione.</strong> Questi dati sono pubblicati con licenza
+      <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener license">Creative Commons Attribuzione 4.0 (CC BY 4.0)</a>:
+      si possono riusare, anche a fini commerciali e in forma modificata, a condizione di citare la fonte.
+      Formula pronta:
+      <blockquote style="margin:10px 0 0;padding:10px 14px;border-left:3px solid var(--navy);font-size:14px;">
+        CalcolaPro, «Stipendio netto per regione 2026», dati aggiornati al 29 agosto 2026,
+        <a href="https://calcolapro.it/stipendio-netto-per-regione.html">calcolapro.it/stipendio-netto-per-regione.html</a> (CC BY 4.0)
+      </blockquote>
+    </div>
+
     <div class="related-tools">
       <h3>Strumenti correlati</h3>
       <ul>
@@ -394,7 +427,7 @@
         <li><a href="https://www.agenziaentrate.gov.it/portale/imposta-sul-reddito-delle-persone-fisiche-irpef-/aliquote-e-calcolo-dell-irpef" target="_blank" rel="noopener">Agenzia delle Entrate — Aliquote e calcolo dell'IRPEF</a></li>
         <li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2024-12-30;207" target="_blank" rel="noopener">Normattiva — L. 207/2024, art. 1 commi 4-9: riduzione del cuneo fiscale</a></li>
       </ul>
-      <span class="src-note">Aliquote regionali raccolte dal sito del Dipartimento delle Finanze il 27 agosto 2026, con data di pubblicazione delle singole delibere fra il 22 e il 29 gennaio 2026. Le modalità di calcolo e le regole derogatorie sono quelle codificate dall'Agenzia delle Entrate nelle istruzioni di liquidazione del modello 730. I dati di questa pagina sono liberamente riutilizzabili citando la fonte.</span>
+      <span class="src-note">Aliquote regionali raccolte dal sito del Dipartimento delle Finanze il 27 agosto 2026, con data di pubblicazione delle singole delibere fra il 22 e il 29 gennaio 2026. Le modalità di calcolo e le regole derogatorie sono quelle codificate dall'Agenzia delle Entrate nelle istruzioni di liquidazione del modello 730. I dati di questa pagina sono pubblicati con licenza Creative Commons Attribuzione 4.0 (CC BY 4.0) e sono scaricabili in CSV e JSON dalla sezione "Scarica i dati".</span>
     </div>
   </section>
 </main>

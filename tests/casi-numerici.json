@@ -188,7 +188,7 @@
       "caso": "Nessun esonero: costo pieno e netto allineato a lordonetto",
       "norma": "RAL 26.000, contributi 32,7%, INAIL 1%, TFR 6,91%. Netto con taglio del cuneo L. 207/2024 e addizionali",
       "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1.0", "sgravioSud": false },
-      "attesi": { "costoAnnuoOut": 36558.60, "nettoStimOut": 1728.89 }
+      "attesi": { "costoAnnuoOut": 36558.60, "nettoStimOut": 1747.12 }
     },
     {
       "file": "/calcolo-costo-lavoro.html",
@@ -216,7 +216,7 @@
       "caso": "Apprendistato sopra i 9 dipendenti: aliquota 11,61% e niente esonero",
       "norma": "Le circolari INPS 55-57/2026 escludono l'apprendistato. Aliquota 10% + 1,61%. Apprendista al 5,84%",
       "campi": { "stipendio": 2000, "mensilita": 13, "settore": "32.7", "contratto": "apprendistato", "inail": "1.0", "sgravioSud": true, "sgravioTipo": "giovani", "zesUnica": "no", "apprendistatoRegime": "11.61" },
-      "attesi": { "costoAnnuoOut": 31075.20, "nettoStimOut": 1783.16 }
+      "attesi": { "costoAnnuoOut": 31075.20, "nettoStimOut": 1794.74 }
     },
     {
       "file": "/calcolo-costo-lavoro.html",
@@ -261,30 +261,30 @@
     {
       "file": "/lordonetto.html",
       "caso": "RAL 30.000: taglio del cuneo con l'ulteriore detrazione da 1.000 euro",
-      "norma": "L. 207/2024 art. 1 c.4-9. Imponibile 27.243, dentro la fascia 20.000-32.000: detrazione piena di 1.000",
+      "norma": "L. 207/2024 art. 1 c.4-9 per l'ulteriore detrazione di 1.000. Detrazione art. 13 TUIR sull'imponibile 27.243, lettera b): 1.910 + 1.190 x 0,0582 = 1.979,26",
       "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
-      "attesi": { "priceOut": 23106, "irpefOut": 4137, "inpsOut": 2757 }
+      "attesi": { "priceOut": 23349, "irpefOut": 3894, "inpsOut": 2757 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "RAL 45.000: sopra i 40.000 di imponibile il cuneo non spetta più'",
-      "norma": "Controprova del gate: imponibile 40.864 supera i 40.000, ulteriore detrazione azzerata",
+      "norma": "Imponibile 40.864,50: niente ulteriore detrazione. Detrazione art. 13 lettera c) sull'imponibile: 1.910 x 0,4152 = 793,03",
       "campi": { "importo": 45000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
-      "attesi": { "priceOut": 29702, "irpefOut": 11162 }
+      "attesi": { "priceOut": 30061, "irpefOut": 10804 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Modalita' inversa: da 20.000 netti risale al lordo",
-      "norma": "Bisezione su bustaPaga(). Prima la modalita' netto->lordo non scriveva il lordo a schermo",
+      "norma": "Inversa della busta paga: il lordo che produce 20.000 netti con addizionali 1,73% e 0,5%",
       "campi": { "importo": 20000, "tipo": "netto", "mensilita": 13, "figli": 0, "addRegionale": 1.73, "addComunale": 0.50 },
-      "attesi": { "priceOut": 24729 }
+      "attesi": { "priceOut": 24380 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Aliquota regionale minima di legge (1,23%)",
       "norma": "Controprova: 1,23% e la aliquota BASE del D.Lgs. 68/2011, non quella del Sud. Su 27.243 di imponibile",
       "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "addRegionale": 1.23, "addComunale": 0.50 },
-      "attesi": { "priceOut": 23242 }
+      "attesi": { "priceOut": 23485 }
     },
     {
       "file": "/lordonetto.html",
@@ -1183,28 +1183,56 @@
       "caso": "Campania dal menu regioni: scaglioni progressivi, non aliquota unica",
       "norma": "Aliquote Campania 2026 (MEF) 1,73/2,96/3,20/3,33 applicate per scaglioni come prevede l Allegato C del 730/2026: su imponibile 27.243 l addizionale e 621,89 e il netto 23.092. Con l aliquota massima 3,33% applicata a tutto darebbe 22.806, cioe 286 euro in meno",
       "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "campania", "addComunale": 0 },
-      "attesi": { "priceOut": 23092 }
+      "attesi": { "priceOut": 23334 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Trento: la deduzione di 30.000 azzera l addizionale regionale",
       "norma": "Allegato C 730/2026 par. 19.24.3.1.10: con imponibile non superiore a 30.000 spetta una deduzione di 30.000, quindi base imponibile zero e addizionale zero. Netto 23.713",
       "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "trento", "addComunale": 0 },
-      "attesi": { "priceOut": 23713 }
+      "attesi": { "priceOut": 23956 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Friuli: aliquota unica sull intero imponibile, non per scaglioni",
       "norma": "Allegato C 730/2026 par. 19.24.3.1.6: non vigendo il principio di progressivita per scaglioni, sopra 15.000 l aliquota 1,23% si applica sull intero importo. Su 27.243 fa 335,09 e il netto e 23.378",
       "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "friuliveneziagiulia", "addComunale": 0 },
-      "attesi": { "priceOut": 23378 }
+      "attesi": { "priceOut": 23621 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Controprova: senza regione scelta vale ancora l aliquota digitata a mano",
       "norma": "Il menu regioni non deve cambiare il comportamento storico: con regione vuota e aliquota 1,73% su imponibile 27.243 l addizionale e 471,30 e il netto resta 23.242",
       "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0 },
-      "attesi": { "priceOut": 23242 }
+      "attesi": { "priceOut": 23485 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Soglia dei 15.000: sotto, la detrazione e' quella fissa della lettera a)",
+      "norma": "Art. 13 c.1 lett. a) TUIR: imponibile 15.000,00 (RAL 16.518) -> detrazione 1.955 fissa. Il calcolo va fatto sull'imponibile, non sulla RAL: art. 51 c.2 lett. a) tiene fuori i contributi obbligatori",
+      "campi": { "importo": 16518, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 13965 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Soglia dei 15.000: un euro sopra scatta la lettera b) e la detrazione balza a 3.099,88",
+      "norma": "Art. 13 c.1 lett. b) TUIR: imponibile 15.000,90 (RAL 16.519) -> 1.910 + 1.190 x 0,9999 = 3.099,88. Il salto fra lettera a) e b) e' nella norma. Con la base sbagliata sulla RAL questa discontinuita' spariva del tutto",
+      "campi": { "importo": 16519, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 15036 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Soglia dei 28.000: la lettera b) e la c) si saldano senza gradino",
+      "norma": "Art. 13 c.1 TUIR: imponibile 27.999,45 (RAL 30.833) sta nella lettera b) e da' 1.910,00; a 28.000,36 (RAL 30.834) passa alla c) e da' 1.909,81. Controprova che le due formule sono continue in 28.000",
+      "campi": { "importo": 30834, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 23846 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Controprova: sopra i 50.000 di imponibile la detrazione e' zero e la correzione non muove nulla",
+      "norma": "Art. 13 c.1 TUIR: nessuna detrazione oltre 50.000 di reddito complessivo. RAL 78.000 -> imponibile 70.614,04. Il netto resta 46.475, identico a prima della correzione della base",
+      "campi": { "importo": 78000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 46475 }
     },
     {
       "file": "/chilometrico.html",

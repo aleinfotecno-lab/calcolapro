@@ -5,7 +5,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 ## Calcolatori
 
 - https://calcolapro.it/lordonetto.html — Converti stipendio lordo in netto (o viceversa) con IRPEF 2026, detrazioni e contributi INPS
-- https://calcolapro.it/stipendio-netto-per-regione.html — Dataset: stipendio netto di 30.000 euro lordi in tutte e 21 le regioni italiane, con addizionale regionale IRPEF 2026 e regole derogatorie di Trento, Bolzano, Friuli, Valle d Aosta, Umbria e Lazio
+- https://calcolapro.it/stipendio-netto-per-regione.html — Dataset: stipendio netto di 30.000 euro lordi in tutte e 21 le regioni italiane, con addizionale regionale IRPEF 2026 e regole derogatorie di Trento, Bolzano, Friuli, Valle d Aosta, Umbria e Lazio. Dati scaricabili in CSV e JSON con licenza CC BY 4.0
 - https://calcolapro.it/mutuo.html — Calcola la rata mensile del mutuo con piano di ammortamento alla francese
 - https://calcolapro.it/pensione.html — Stima eta' pensionabile e importo assegno INPS in base ai contributi versati
 - https://calcolapro.it/freelance.html — Calcola la tariffa oraria ideale per freelance in regime forfettario o ordinario
@@ -15,7 +15,7 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/affitto.html — Calcola l'affitto massimo sostenibile in base al reddito (regola del 30%)
 - https://calcolapro.it/iva.html — Aggiungi o scorpora IVA al 4%, 5%, 10% o 22%
 - https://calcolapro.it/chilometrico.html — Calcola il rimborso chilometrico con le tabelle ACI 2026 per auto, moto e ciclomotori
-- https://calcolapro.it/tdee.html — Calcola il fabbisogno calorico giornaliero (TDEE) con formula Harris-Benedict
+- https://calcolapro.it/tdee.html — Calcola il fabbisogno calorico giornaliero (TDEE) con la formula di Mifflin-St Jeor
 - https://calcolapro.it/bmi.html — Calcola l'Indice di Massa Corporea (BMI) e la classificazione OMS
 - https://calcolapro.it/calcolatore-interessi-conto-deposito.html — Calcola il rendimento netto di un conto deposito con tassazione al 26%
 - https://calcolapro.it/calcolo-buoni-fruttiferi-postali.html — Calcola il rendimento netto dei Buoni Fruttiferi Postali con tassazione agevolata 12,5% e confronto con conto deposito

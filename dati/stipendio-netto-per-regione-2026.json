@@ -1,0 +1,227 @@
+{
+  "titolo": "Stipendio netto per regione 2026 — RAL 30.000 €",
+  "descrizione": "Retribuzione netta annua di un lavoratore dipendente con 30.000 euro lordi, calcolata per ciascuna delle 21 regioni e province autonome italiane applicando l'addizionale regionale all'IRPEF vigente nel 2026 e le relative regole derogatorie.",
+  "fonte": "CalcolaPro — https://calcolapro.it/stipendio-netto-per-regione.html",
+  "autore": "Alessandro Signorile",
+  "licenza": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/deed.it",
+  "data_rilevazione": "2026-08-29",
+  "anno_imposta": 2026,
+  "come_citare": "CalcolaPro, «Stipendio netto per regione 2026», dati aggiornati al 2026-08-29, https://calcolapro.it/stipendio-netto-per-regione.html (CC BY 4.0)",
+  "ipotesi": {
+    "retribuzione_lorda_annua_eur": 30000,
+    "mensilita": 13,
+    "contributi_inps_lavoratore": "9,19% (aliquota IVS dipendenti)",
+    "contributi_eur": 2757,
+    "imponibile_fiscale_eur": 27243,
+    "irpef_lorda_eur": 6265.89,
+    "detrazione_lavoro_dipendente_eur": 1979.26,
+    "ulteriore_detrazione_cuneo_eur": 1000,
+    "addizionale_comunale": "non conteggiata: e' deliberata da ciascun comune e renderebbe il confronto arbitrario",
+    "familiari_a_carico": "non conteggiati: dipendono dalla situazione personale"
+  },
+  "norme": [
+    "art. 11 TUIR — scaglioni IRPEF 23% / 33% / 43%",
+    "art. 13 commi 1 e 6 TUIR — detrazione per lavoro dipendente, parametrata sul reddito complessivo, rapporto troncato alla quarta cifra decimale",
+    "art. 51 comma 2 lettera a) TUIR — i contributi previdenziali obbligatori non concorrono a formare il reddito",
+    "L. 207/2024 art. 1 commi 4-9 — taglio del cuneo fiscale (somma esente e ulteriore detrazione)",
+    "D.Lgs. 68/2011 e leggi regionali — addizionale regionale all'IRPEF",
+    "Allegato C alle istruzioni di liquidazione del mod. 730/2026 — regole derogatorie regionali"
+  ],
+  "divario": {
+    "annuo_eur": 621.89,
+    "mensile_eur": 47.84,
+    "regione_piu_favorevole": "Provincia autonoma di Bolzano",
+    "regione_meno_favorevole": "Campania"
+  },
+  "dati": [
+    {
+      "posizione": 1,
+      "codice": "bolzano",
+      "regione": "Provincia autonoma di Bolzano",
+      "addizionale_regionale_eur": 0,
+      "netto_annuo_eur": 23956.37,
+      "netto_mensile_eur": 1842.8,
+      "regola_derogatoria": "detrazione di 430,50 euro per imponibili fino a 90.000 euro (Allegato C, par. 19.24.3.1.4)"
+    },
+    {
+      "posizione": 2,
+      "codice": "trento",
+      "regione": "Provincia autonoma di Trento",
+      "addizionale_regionale_eur": 0,
+      "netto_annuo_eur": 23956.37,
+      "netto_mensile_eur": 1842.8,
+      "regola_derogatoria": "deduzione di 30.000 euro: sotto quella soglia la base imponibile e' zero (Allegato C, par. 19.24.3.1.10)"
+    },
+    {
+      "posizione": 3,
+      "codice": "basilicata",
+      "regione": "Basilicata",
+      "addizionale_regionale_eur": 335.09,
+      "netto_annuo_eur": 23621.28,
+      "netto_mensile_eur": 1817.02,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 4,
+      "codice": "friuliveneziagiulia",
+      "regione": "Friuli-Venezia Giulia",
+      "addizionale_regionale_eur": 335.09,
+      "netto_annuo_eur": 23621.28,
+      "netto_mensile_eur": 1817.02,
+      "regola_derogatoria": "nessuna progressivita' per scaglioni: l'aliquota si applica all'intero imponibile (Allegato C, par. 19.24.3.1.6)"
+    },
+    {
+      "posizione": 5,
+      "codice": "liguria",
+      "regione": "Liguria",
+      "addizionale_regionale_eur": 335.09,
+      "netto_annuo_eur": 23621.28,
+      "netto_mensile_eur": 1817.02,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 6,
+      "codice": "sardegna",
+      "regione": "Sardegna",
+      "addizionale_regionale_eur": 335.09,
+      "netto_annuo_eur": 23621.28,
+      "netto_mensile_eur": 1817.02,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 7,
+      "codice": "sicilia",
+      "regione": "Sicilia",
+      "addizionale_regionale_eur": 335.09,
+      "netto_annuo_eur": 23621.28,
+      "netto_mensile_eur": 1817.02,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 8,
+      "codice": "umbria",
+      "regione": "Umbria",
+      "addizionale_regionale_eur": 335.09,
+      "netto_annuo_eur": 23621.28,
+      "netto_mensile_eur": 1817.02,
+      "regola_derogatoria": "sotto 28.000 le maggiorazioni sono disapplicate: 1,23% sull'intero importo (Allegato C, par. 19.24.3.1.1)"
+    },
+    {
+      "posizione": 9,
+      "codice": "valledaosta",
+      "regione": "Valle d'Aosta",
+      "addizionale_regionale_eur": 335.09,
+      "netto_annuo_eur": 23621.28,
+      "netto_mensile_eur": 1817.02,
+      "regola_derogatoria": "esente sotto 15.000; sopra, aliquota ordinaria sull'intero imponibile (Allegato C, par. 19.24.3.1.3)"
+    },
+    {
+      "posizione": 10,
+      "codice": "veneto",
+      "regione": "Veneto",
+      "addizionale_regionale_eur": 335.09,
+      "netto_annuo_eur": 23621.28,
+      "netto_mensile_eur": 1817.02,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 11,
+      "codice": "marche",
+      "regione": "Marche",
+      "addizionale_regionale_eur": 371.82,
+      "netto_annuo_eur": 23584.55,
+      "netto_mensile_eur": 1814.2,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 12,
+      "codice": "lombardia",
+      "regione": "Lombardia",
+      "addizionale_regionale_eur": 377.94,
+      "netto_annuo_eur": 23578.43,
+      "netto_mensile_eur": 1813.73,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 13,
+      "codice": "toscana",
+      "regione": "Toscana",
+      "addizionale_regionale_eur": 388.07,
+      "netto_annuo_eur": 23568.29,
+      "netto_mensile_eur": 1812.95,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 14,
+      "codice": "emiliaromagna",
+      "regione": "Emilia-Romagna",
+      "addizionale_regionale_eur": 435.79,
+      "netto_annuo_eur": 23520.58,
+      "netto_mensile_eur": 1809.28,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 15,
+      "codice": "abruzzo",
+      "regione": "Abruzzo",
+      "addizionale_regionale_eur": 454.96,
+      "netto_annuo_eur": 23501.41,
+      "netto_mensile_eur": 1807.8,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 16,
+      "codice": "puglia",
+      "regione": "Puglia",
+      "addizionale_regionale_eur": 460.28,
+      "netto_annuo_eur": 23496.09,
+      "netto_mensile_eur": 1807.39,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 17,
+      "codice": "calabria",
+      "regione": "Calabria",
+      "addizionale_regionale_eur": 471.3,
+      "netto_annuo_eur": 23485.06,
+      "netto_mensile_eur": 1806.54,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 18,
+      "codice": "lazio",
+      "regione": "Lazio",
+      "addizionale_regionale_eur": 471.3,
+      "netto_annuo_eur": 23485.06,
+      "netto_mensile_eur": 1806.54,
+      "regola_derogatoria": "sotto 28.000 la maggiorazione dell'1,60% e' disapplicata: 1,73% sull'intero importo (Allegato C, par. 19.24.3.1.2)"
+    },
+    {
+      "posizione": 19,
+      "codice": "piemonte",
+      "regione": "Piemonte",
+      "addizionale_regionale_eur": 571.11,
+      "netto_annuo_eur": 23385.26,
+      "netto_mensile_eur": 1798.87,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 20,
+      "codice": "molise",
+      "regione": "Molise",
+      "addizionale_regionale_eur": 577.52,
+      "netto_annuo_eur": 23378.85,
+      "netto_mensile_eur": 1798.37,
+      "regola_derogatoria": ""
+    },
+    {
+      "posizione": 21,
+      "codice": "campania",
+      "regione": "Campania",
+      "addizionale_regionale_eur": 621.89,
+      "netto_annuo_eur": 23334.48,
+      "netto_mensile_eur": 1794.96,
+      "regola_derogatoria": ""
+    }
+  ]
+}

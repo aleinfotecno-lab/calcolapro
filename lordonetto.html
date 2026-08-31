@@ -47,7 +47,7 @@
         "url": "https://calcolapro.it/favicon.svg"
       }
     },
-    "dateModified": "2026-08-22"
+    "dateModified": "2026-08-29"
   }
   </script>
   <script type="application/ld+json">
@@ -297,7 +297,7 @@
       <p class="page-subtitle">Converti lo stipendio lordo in netto e viceversa. Calcola IRPEF, contributi INPS e detrazioni per lavoratori dipendenti italiani.</p>
       <div class="article-meta">
         <span>✍️ Autore: <a href="about.html">Alessandro Signorile</a></span>
-        <span>📅 Aggiornato il 22/08/2026</span>
+        <span>📅 Aggiornato il 29/08/2026</span>
       </div>
     </div>
   </div>
@@ -490,9 +490,9 @@
         <li><strong>Contributi INPS a carico dipendente (9,19%):</strong> 30.000 × 9,19% = <strong>2.757 €/anno</strong></li>
         <li><strong>Imponibile IRPEF:</strong> 30.000 − 2.757 = <strong>27.243 €</strong></li>
         <li><strong>IRPEF lorda:</strong> 23% × 27.243 = <strong>6.266 €</strong> (tutto il reddito cade nel primo scaglione)</li>
-        <li><strong>Detrazione da lavoro dipendente:</strong> circa <strong>1.736 €</strong> (decresce linearmente tra 15.000 € e 50.000 € di RAL)</li>
+        <li><strong>Detrazione da lavoro dipendente:</strong> <strong>1.979,26 €</strong> (art. 13 TUIR: decresce al crescere del reddito complessivo, cioè dell'imponibile, fino ad azzerarsi a 50.000 €)</li>
         <li><strong>Ulteriore detrazione (taglio del cuneo fiscale):</strong> <strong>1.000 €</strong> — spetta per intero tra 20.001 € e 32.000 € di reddito complessivo, poi decresce fino ad azzerarsi a 40.000 €</li>
-      <li><strong>IRPEF netta (prima delle addizionali):</strong> 6.266 − 1.736 − 1.000 = <strong>3.530 €/anno</strong></li>
+      <li><strong>IRPEF netta (prima delle addizionali):</strong> 6.266 − 1.979 − 1.000 = <strong>3.287 €/anno</strong></li>
         <li><strong>Addizionali regionale (~1,73%) e comunale (~0,5%)</strong> su imponibile 27.243 €: +471 € + 136 € = <strong>607 €/anno</strong> (stima, varia per comune)</li>
         <li><strong>IRPEF netta totale:</strong> 3.530 + 607 = <strong>4.137 €/anno</strong></li>
         <li><strong>Netto annuo:</strong> 30.000 − 2.757 − 4.137 = <strong>23.106 €</strong></li>
@@ -728,10 +728,18 @@
       if(imponibile<=28000) irpefLorda=imponibile*0.23;
       else if(imponibile<=50000) irpefLorda=28000*0.23+(imponibile-28000)*0.33;
       else irpefLorda=28000*0.23+22000*0.33+(imponibile-50000)*0.43;
+      // Art. 13 c.1 TUIR: la detrazione e' parametrata sul REDDITO COMPLESSIVO, non sulla
+      // retribuzione lorda. Per un dipendente senza altri redditi il reddito complessivo
+      // coincide con l'imponibile fiscale, perche' l'art. 51 c.2 lett. a) tiene fuori dal
+      // reddito i contributi previdenziali obbligatori. Usare il lordo sbagliava anche lo
+      // scaglione: con RAL 30.000 applicava la lettera c) al posto della b), e appena sopra
+      // i 15.000 di RAL produceva detrazioni oltre il massimo di legge.
+      // Art. 13 c.6: il risultato del rapporto si assume nelle prime quattro cifre decimali.
+      const tronca4=x=>Math.trunc(x*10000)/10000;
       let detrLavoro=0;
-      if(lordo<=15000) detrLavoro=1955;
-      else if(lordo<=28000) detrLavoro=1910+1190*((28000-lordo)/13000);
-      else if(lordo<=50000) detrLavoro=1910*((50000-lordo)/22000);
+      if(imponibile<=15000) detrLavoro=1955;
+      else if(imponibile<=28000) detrLavoro=1910+1190*tronca4((28000-imponibile)/13000);
+      else if(imponibile<=50000) detrLavoro=1910*tronca4((50000-imponibile)/22000);
       let detrFamiglia=0;
       if(coniuge) detrFamiglia+=800;
       detrFamiglia+=figli*(950+(figli>=3?200:0));
