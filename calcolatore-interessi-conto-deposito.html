@@ -346,7 +346,10 @@
     </div>
 
     <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo interessi conto deposito">
-      <div class="result-card">
+      <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Ritenuta del 26% sugli interessi (art. 2 D.L. 138/2011) e imposta di bollo dello 0,20% annuo sui prodotti finanziari (art. 13 della Tariffa allegata al DPR 642/1972), applicata alla giacenza rendicontata e non al capitale iniziale. Gli interessi lasciati sul conto si capitalizzano solo se il conto li liquida periodicamente."
+             data-split="ritenutaOut:ritenuta 26%, bolloOut:imposta di bollo, interessiNettiOut:interessi netti">
         <div class="result-card-inner">
           <div class="result-label">Interessi netti</div>
           <div class="result-big" id="interessiNettiOut">—</div>
@@ -705,5 +708,6 @@
 })();
 </script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

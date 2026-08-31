@@ -353,7 +353,10 @@
       </div>
 
       <div id="result" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Capitale assicurato necessario">
-        <div class="result-card">
+        <div class="result-card tape"
+             data-norma-titolo="Come si ottiene"
+             data-norma="Metodo del fabbisogno: si sommano il reddito che la famiglia dovrebbe sostituire per gli anni indicati, i debiti da estinguere e il costo dei figli fino all’indipendenza, e si sottrae il patrimonio già disponibile. Non è una regola di legge ma il criterio con cui si dimensiona una polizza temporanea caso morte."
+             data-split="redditoOut:reddito da sostituire, debitiOut:debiti da estinguere, istruzioneOut:spese per i figli">
           <div class="result-card-inner">
             <div class="result-label">Capitale che servirebbe alla famiglia</div>
             <div class="result-big" id="capitaleOut">—</div>
@@ -595,5 +598,6 @@ function calcola() {
   <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

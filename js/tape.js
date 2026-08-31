@@ -48,32 +48,54 @@
     var pezzi = spec.split(',');
     for (var i = 0; i < pezzi.length; i++) {
       var q = pezzi[i].split(':');
+      // Le coppie sono separate da virgola, ma un'etichetta puo' contenerne una
+      // ("ritenuta 12,5%"): il frammento senza i due punti appartiene a quella
+      // prima. Senza questo, data-split si rompeva in silenzio e la barra
+      // spariva senza dire perche'.
+      if (q.length < 2) {
+        if (!parti.length) return null;
+        parti[parti.length - 1].k += ',' + pezzi[i];
+        continue;
+      }
       var el = document.getElementById(q[0].trim());
       if (!el) return null;
       var v = numero(el.textContent);
       if (!isFinite(v) || v < 0) return null;
-      parti.push({ v: v, k: (q[1] || '').trim() });
+      parti.push({ v: v, k: q.slice(1).join(':').trim() });
     }
     var somma = parti.reduce(function (a, b) { return a + b.v; }, 0);
     return somma > 0 ? parti : null;
+  }
+
+  // Cinque calcolatori usano un secondo vocabolario, nato prima di questo:
+  // .result-big al posto di .result-value, .result-box al posto di
+  // .breakdown-item. Qui si guardano entrambi.
+  function cifraPrincipale(card) {
+    return card.querySelector('.result-value') || card.querySelector('.result-big') || card.querySelector('.result-years');
+  }
+  function vociDettaglio(card) {
+    var voci = [];
+    var righe = card.querySelectorAll('.breakdown-item, .result-box');
+    for (var i = 0; i < righe.length; i++) {
+      var val = righe[i].querySelector('.breakdown-value, .result-box-val');
+      var lab = righe[i].querySelector('.breakdown-label, .result-box-lab');
+      var v = numero(val && val.textContent);
+      var k = ((lab && lab.textContent) || '').trim();
+      if (isFinite(v) && v > 0 && k) voci.push({ v: v, k: k });
+    }
+    return voci;
   }
 
   function componi(card) {
     var dichiarata = componiDichiarata(card);
     if (dichiarata) return dichiarata;
 
-    var val = card.querySelector('.result-value');
+    var val = cifraPrincipale(card);
     if (!val) return null;
     var totale = numero(val.textContent);
     if (!isFinite(totale) || totale <= 0) return null;
 
-    var voci = [];
-    var items = card.querySelectorAll('.breakdown-item');
-    for (var i = 0; i < items.length; i++) {
-      var v = numero((items[i].querySelector('.breakdown-value') || {}).textContent);
-      var k = ((items[i].querySelector('.breakdown-label') || {}).textContent || '').trim();
-      if (isFinite(v) && v > 0 && k) voci.push({ v: v, k: k });
-    }
+    var voci = vociDettaglio(card);
     if (voci.length < 2) return null;
 
     var max = Math.min(4, voci.length);
@@ -103,7 +125,7 @@
         key += '<span><i style="background:' + col + '"></i>' + parti[i].k + ' · ' + eur(parti[i].v) + '</span>';
       }
       box.innerHTML = '<div class="bar" role="img" aria-label="Composizione del totale">' + bar + '</div><div class="key">' + key + '</div>';
-      var bd = card.querySelector('.result-breakdown');
+      var bd = card.querySelector('.result-breakdown, .result-boxes');
       if (bd) bd.parentNode.insertBefore(box, bd);
       else card.appendChild(box);
     }
@@ -124,15 +146,35 @@
     }
   }
 
+  // Dove il risultato e' un confronto fra due colonne non c'e' un totale da
+  // stampare, ma la norma si': esce su un pezzo di carta sotto il confronto.
+  function normaSola(box) {
+    if (box.querySelector('.norma-stampata')) return;
+    var testo = box.getAttribute('data-norma');
+    if (!testo) return;
+    var foglio = document.createElement('div');
+    foglio.className = 'norma-stampata';
+    var d = document.createElement('div');
+    d.className = 'tape-norma';
+    var b = document.createElement('b');
+    b.textContent = box.getAttribute('data-norma-titolo') || 'Base di calcolo';
+    d.appendChild(b);
+    d.appendChild(document.createTextNode(testo));
+    foglio.appendChild(d);
+    box.appendChild(foglio);
+  }
+
   function avvia() {
+    var soli = document.querySelectorAll('[data-norma]:not(.result-card)');
+    for (var s = 0; s < soli.length; s++) normaSola(soli[s]);
     var carte = document.querySelectorAll('.result-card.tape');
     for (var i = 0; i < carte.length; i++) {
       (function (card) {
         disegna(card);
         // si ridisegna quando il calcolatore riscrive i numeri. Osservo solo le
         // celle dei valori: cosi' inserire la barra non richiama l'osservatore.
-        var bersagli = [card.querySelector('.result-value')];
-        var bv = card.querySelectorAll('.breakdown-value');
+        var bersagli = [cifraPrincipale(card)];
+        var bv = card.querySelectorAll('.breakdown-value, .result-box-val');
         for (var j = 0; j < bv.length; j++) bersagli.push(bv[j]);
         var attesa = null;
         var obs = new MutationObserver(function () {

@@ -349,7 +349,9 @@
 
       <!-- RISULTATI -->
       <div class="calc-result-col" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo ISEE">
-        <div class="result-card" id="resultCard" style="display:none;">
+        <div class="result-card tape" id="resultCard" style="display:none;"
+             data-norma-titolo="Base di calcolo"
+             data-norma="DPCM 159/2013: ISE = redditi del nucleo piu’ il 20% del patrimonio; ISEE = ISE diviso la scala di equivalenza dell’Allegato 1. Dai redditi da lavoro dipendente si detrae il 20%, fino a 3.000 euro (art. 4 c.4 lett. f); la casa di abitazione rileva per due terzi dell’eccedenza sulla franchigia di 52.500, che cresce di 2.500 per ogni figlio convivente successivo al secondo (art. 5 c.2); dal patrimonio mobiliare si detraggono 6.000 euro piu’ 2.000 per componente oltre il primo, fino a 10.000 (art. 5 c.4).">
           <h3 class="result-title">Il tuo ISEE stimato 2026</h3>
           <div class="result-main" id="resultMain"></div>
           <div class="result-details" id="resultDetails"></div>
@@ -689,5 +691,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

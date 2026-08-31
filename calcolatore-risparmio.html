@@ -336,7 +336,10 @@
     </div>
 
     <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo risparmio">
-      <div class="result-card">
+      <div class="result-card tape"
+             data-norma-titolo="Come si ottiene"
+             data-norma="Montante di un piano di accumulo con versamenti posticipati: M = P(1+r)^n + R((1+r)^n − 1)/r, con r tasso mensile e n numero dei versamenti. Il rendimento indicato è un’ipotesi, non una promessa: nessun prodotto lo garantisce, e la stima non tiene conto di imposte né inflazione."
+             data-split="totaleVersatoOut:versato di tasca tua, interessiOut:interessi maturati">
         <div class="result-card-inner">
           <div class="result-label" id="resultLabel">Risultato</div>
           <div class="result-big" id="resultBig">—</div>
@@ -761,5 +764,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

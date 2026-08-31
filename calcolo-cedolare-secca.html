@@ -328,7 +328,9 @@
       <button class="btn btn-primary btn-lg" onclick="calcola()">🔍 Confronta cedolare vs IRPEF →</button>
     </div>
 
-    <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo cedolare secca">
+    <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo cedolare secca"
+         data-norma-titolo="Base del confronto"
+             data-norma="Art. 3 D.Lgs. 23/2011: cedolare secca al 21% sul canone intero, ridotta al 10% per i contratti a canone concordato, per studenti e per i transitori a canone concordato nei comuni ad alta tensione abitativa. In regime ordinario il canone concorre al reddito per il 95% (art. 37 c.4-bis TUIR), ridotto di un ulteriore 30% per il concordato in alta tensione (art. 8 c.1 L. 431/1998), e l’IRPEF si calcola per differenza sugli scaglioni 2026 del 23, 33 e 43% (L. 199/2025 art. 1 c.3). Le addizionali regionali e comunali, che la cedolare non paga, non sono comprese nel confronto.">
 
       <div id="verdictBox" class="verdict-box verdict-green">
         <strong id="verdictTitle">—</strong>
@@ -721,5 +723,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

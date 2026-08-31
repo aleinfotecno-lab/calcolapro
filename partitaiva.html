@@ -295,7 +295,9 @@
         <button class="btn btn-primary btn-lg" onclick="calcola()" type="button" aria-label="Confronta Partita IVA con lavoro dipendente">🔍 Confronta le due opzioni →</button>
       </div>
 
-      <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del confronto Partita IVA">
+      <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del confronto Partita IVA"
+         data-norma-titolo="Base del confronto"
+             data-norma="Partita IVA: L. 190/2014 c. 64-67, imponibile pari ai ricavi per il coefficiente di redditivita’ dell’Allegato 4, contributi della Gestione separata al 26,07% deducibili prima dell’imposta sostitutiva (circolare INPS 8/2026), imposta al 5% nei primi cinque anni e poi al 15%. Dipendente: stesso motore del calcolatore Stipendio Lordo/Netto — scaglioni IRPEF 2026, detrazione art. 13 TUIR, contributi 9,19%. Da entrambe le colonne restano fuori le addizionali locali.">
         <div class="confronto">
           <div class="confronto-card piva">
             <div class="confronto-label">Partita IVA Forfettaria</div>
@@ -586,5 +588,6 @@
     <script src="js/ui-common.js" defer></script><script src="js/cookie-consent.js" defer></script>
   <script src="js/analytics-events.js" defer></script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>

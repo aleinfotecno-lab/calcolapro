@@ -323,7 +323,10 @@
     </div>
 
     <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultato calcolo BFP">
-      <div class="result-card">
+      <div class="result-card tape"
+             data-norma-titolo="Base di calcolo"
+             data-norma="Ritenuta agevolata del 12,5%, la stessa dei titoli di Stato. L’imposta di bollo dello 0,20% si liquida ogni 31 dicembre sul valore di rimborso di quel momento, e i buoni ne sono esenti finché quel valore non supera i 5.000 euro (nota 3-ter dell’art. 13 della Tariffa allegata al DPR 642/1972 e DM 24 maggio 2012)."
+             data-split="ritenutaOut:ritenuta 12,5%, bolloOut:imposta di bollo, interessiNettiOut:interessi netti">
         <div class="result-card-inner">
           <div class="result-label">Interessi netti a scadenza</div>
           <div class="result-big" id="interessiNettiOut">—</div>
@@ -696,5 +699,6 @@ function calcola() {
 })();
 </script>
   <script src="js/navbar.js" defer></script>
+  <script src="js/tape.js" defer></script>
 </body>
 </html>
