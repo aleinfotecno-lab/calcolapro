@@ -92,7 +92,7 @@
 .alert-info strong,
 .alert-info b { color: var(--blue-dark); }
 .alert-info,
-.alert-info span:not(.alert-title) { color: #1e3a8a; }
+.alert-info span:not(.alert-title) { color: var(--blue-dark); }
 
 .alert-success {
   background: #d1fae5;

@@ -21,7 +21,7 @@
   --navy-mid:    #2A2721;
   --text:        #1A1815;
   --text-muted:  #5B574F;
-  --text-light:  #857F73;
+  --text-light:  #6B655C;  /* era #857F73: 3,34:1 sul crema */
   --bg:          #EDEBE6;
   --white:       #ffffff;
   --tape:        #FAF8F3;   /* la carta della banda */
@@ -29,7 +29,7 @@
   --border-dark: #8C8474;   /* controlli: 3,71:1 su bianco */
   --green:       #0E5A54;   /* era #059669, 3,77:1 */
   --green-light: #DCE9E7;
-  --amber:       #96650A;   /* era #d97706, 3,19:1 */
+  --amber:       #8C5D08;   /* era #d97706 (3,19:1), poi #96650A: 4,23:1 sul crema */
   --amber-light: #F6EBD3;
   --red:         #A82A16;
   --red-light:   #F7DFDB;
@@ -353,7 +353,7 @@ ins.adsbygoogle { display: block !important; }
 }
 .page-content {
   max-width: 1000px; margin: 0 auto;
-  padding: 40px 20px 80px;
+  padding: 40px 20px 40px;
 }
 
 /* ── GRID ── */
@@ -932,10 +932,16 @@ body:has(#cp-cookie-banner) .amz-sticky { display: none !important; }
 /* ── AMAZON INLINE BOOK BOX ── */
 .amz-inline { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 24px; margin: 28px 0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .amz-inline-text { flex: 1; min-width: 200px; }
-.amz-inline-text .label { font-size: 11px; color: #ff9900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+.amz-inline-text .label { font-size: 11px; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
 .amz-inline-text .title { font-weight: 600; font-size: 15px; }
 .amz-inline-btn { background: #ff9900; color: #000; font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: var(--radius-sm); text-decoration: none; white-space: nowrap; flex-shrink: 0; }
 .amz-inline-btn:hover { background: #e68a00; text-decoration: none; color: #000; }
+/* .article-body a (0,1,1) vinceva su .amz-inline-btn (0,1,0) e riportava il
+   testo del bottone a --blue: terracotta su arancio, 2,53:1. Serve un
+   selettore che pesi di piu', non un !important. */
+.article-body .amz-inline a.amz-inline-btn,
+.article-body .amz-inline a.amz-inline-btn:hover,
+.article-body .amz-card a.amz-card-btn { color: #000; }
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER — chiaro, coerente con la navbar minimal
@@ -1269,5 +1275,5 @@ input[type="number"], input[type="text"], select {
 .hero-live input[type="range"]:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
 .hero-live-note {
   font-family: 'Courier Prime', ui-monospace, monospace; font-size: 10.5px;
-  line-height: 1.6; color: var(--text-light); margin: 11px 0 0;
+  line-height: 1.6; color: var(--text-muted); margin: 11px 0 0;
 }
