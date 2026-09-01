@@ -302,9 +302,9 @@
         <div class="field">
           <label>Natura del credito</label>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;" role="radiogroup" aria-label="Tipo di credito">
-            <label id="lbl-commerciale" style="border:2px solid var(--blue);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;background:#eff6ff;">
+            <label id="lbl-commerciale" style="border:2px solid var(--blue);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;background:#FCF1EE;">
               <input type="radio" name="tipoCredito" value="commerciale" checked style="display:none;" onchange="aggiornaUI()">
-              <div style="font-weight:800;font-size:13.5px;color:#1d4ed8;margin-bottom:4px;">🏢 Commerciale</div>
+              <div style="font-weight:800;font-size:13.5px;color:#9E2716;margin-bottom:4px;">🏢 Commerciale</div>
               <div style="font-size:12px;color:var(--blue-dark);line-height:1.5;">Tra imprese e/o PA<br>D.Lgs. 231/2002<br>Tasso BCE + 8%</div>
             </label>
             <label id="lbl-civile" style="border:2px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;">
@@ -331,7 +331,7 @@
           <label for="dataPagamento">Data di calcolo (o pagamento effettivo)</label>
           <input type="date" id="dataPagamento"/>
         </div>
-        <div id="giorni-preview" style="background:#f1f5f9;border-radius:8px;padding:10px 14px;font-size:13.5px;color:var(--text-muted);margin-top:4px;display:none;">
+        <div id="giorni-preview" style="background:#FAF8F3;border-radius:8px;padding:10px 14px;font-size:13.5px;color:var(--text-muted);margin-top:4px;display:none;">
           Ritardo: <strong id="giorni-num" style="color:var(--blue);">—</strong> giorni
         </div>
       </div>
@@ -344,14 +344,14 @@
             <div class="input-wrap"><input type="number" id="tassoBCE" value="2.40" min="0" max="20" step="0.05" style="text-align:right;" aria-describedby="tassoBCE-help"/><span class="input-suffix">%</span></div>
             <p class="hint" id="tassoBCE-help">Il tasso di riferimento cambia ogni semestre e resta fisso per tutto il semestre. <strong>Secondo semestre 2026 (1° luglio – 31 dicembre): 2,40%</strong>, fissato dal comunicato MEF pubblicato in Gazzetta Ufficiale n. 163 del 16 luglio 2026, che porta la mora commerciale al 10,40%. Nel primo semestre 2026 era 2,15% (G.U. n.15/2026). Se il ritardo matura in un semestre diverso, aggiorna il campo con il tasso di quel semestre: li trovi tutti nella tabella storica più sotto.</p>
           </div>
-          <div style="background:#eff6ff;border-radius:10px;padding:14px;font-size:13.5px;margin-bottom:4px;">
+          <div style="background:#FCF1EE;border-radius:10px;padding:14px;font-size:13.5px;margin-bottom:4px;">
             <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
               <span style="color:var(--blue-dark);">Spread D.Lgs. 231/2002</span>
-              <strong style="color:#1d4ed8;">+ 8,00%</strong>
+              <strong style="color:#9E2716;">+ 8,00%</strong>
             </div>
-            <div style="display:flex;justify-content:space-between;border-top:1px solid #bfdbfe;padding-top:8px;">
-              <span style="font-weight:700;color:#1d4ed8;">Tasso mora commerciale</span>
-              <strong style="color:#1d4ed8;font-size:1.1rem;" id="tassoMoraOut">—</strong>
+            <div style="display:flex;justify-content:space-between;border-top:1px solid #F7E2DD;padding-top:8px;">
+              <span style="font-weight:700;color:#9E2716;">Tasso mora commerciale</span>
+              <strong style="color:#9E2716;font-size:1.1rem;" id="tassoMoraOut">—</strong>
             </div>
           </div>
         </div>
@@ -400,17 +400,17 @@
         </div>
 
         <!-- Testo da usare nella richiesta -->
-        <div id="testoRichiesta" style="margin-top:20px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:14px;padding:20px 22px;">
-          <div style="font-weight:700;color:#15803d;margin-bottom:10px;font-size:14px;">📄 Testo da usare nella richiesta di pagamento / sollecito</div>
-          <div id="testoRichiestaContent" style="font-size:13px;color:#166534;line-height:1.9;font-family:monospace;background:#f0fdf4;white-space:pre-wrap;"></div>
-          <button onclick="copiaTesto()" style="margin-top:12px;background:#15803d;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;">📋 Copia testo</button>
+        <div id="testoRichiesta" style="margin-top:20px;background:#E7EFEC;border:1.5px solid #9CC9C2;border-radius:14px;padding:20px 22px;">
+          <div style="font-weight:700;color:#0E5A54;margin-bottom:10px;font-size:14px;">📄 Testo da usare nella richiesta di pagamento / sollecito</div>
+          <div id="testoRichiestaContent" style="font-size:13px;color:#0E5A54;line-height:1.9;font-family:monospace;background:#E7EFEC;white-space:pre-wrap;"></div>
+          <button onclick="copiaTesto()" style="margin-top:12px;background:#0E5A54;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;">📋 Copia testo</button>
         </div>
 
         <!-- Tabella storico BCE per riferimento -->
         <div style="margin-top:20px;background:var(--white);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;">
           <div style="padding:14px 18px;border-bottom:1px solid var(--border);font-weight:700;font-size:0.9rem;color:var(--text-muted);">📊 Tassi BCE di riferimento (storico recente)</div>
           <table style="width:100%;border-collapse:collapse;font-size:13px;">
-            <thead><tr style="background:#f8fafc;">
+            <thead><tr style="background:#FAF8F3;">
               <th style="text-align:left;padding:10px 16px;color:var(--text-muted);font-weight:700;">Periodo</th>
               <th style="text-align:right;padding:10px 16px;color:var(--text-muted);font-weight:700;">Tasso BCE</th>
               <th style="text-align:right;padding:10px 16px;color:var(--blue);font-weight:700;">Mora commerciale</th>
@@ -428,8 +428,8 @@
         </div>
 
         <div class="alert alert-info">
-          <div style="font-weight:700;font-size:13.5px;color:#1e40af;margin-bottom:8px;">⚠️ Avvertenza legale</div>
-          <div style="font-size:13px;color:#1e3a8a;line-height:1.8;">
+          <div style="font-weight:700;font-size:13.5px;color:#9E2716;margin-bottom:8px;">⚠️ Avvertenza legale</div>
+          <div style="font-size:13px;color:#9E2716;line-height:1.8;">
             Questo calcolatore è a titolo <strong>indicativo</strong>. Per crediti contestati o importi significativi, verifica sempre con un <strong>avvocato o commercialista</strong>. Il D.Lgs. 231/2002 si applica a transazioni commerciali tra imprese o tra imprese e PA; per i rapporti tra privati vale il tasso legale ex art. 1284 c.c.
           </div>
         </div>
@@ -443,22 +443,22 @@
         <p class="tool-cluster-sub">Calcola tariffe, tasse e costi del personale.</p>
         <div class="tool-cluster-grid">
           <a href="freelance.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">💰 Tariffa</div>
+            <div style="font-size:11px;font-weight:700;color:#E8D08A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">💰 Tariffa</div>
             <div class="tool-cluster-card-title">Prezzo orario Freelance</div>
             <div class="tool-cluster-card-desc">Calcola la tariffa minima per essere sostenibile</div>
-            <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+            <div style="margin-top:10px;background:#E8D08A;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
           <a href="calcolo-costo-lavoro.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🏢 Assunzioni</div>
+            <div style="font-size:11px;font-weight:700;color:#9CC9C2;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🏢 Assunzioni</div>
             <div class="tool-cluster-card-title">Costo del Lavoro</div>
             <div class="tool-cluster-card-desc">Quanto costa un dipendente all'azienda</div>
-            <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+            <div style="margin-top:10px;background:#9CC9C2;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
           <a href="iva.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🧾 Fatture</div>
+            <div style="font-size:11px;font-weight:700;color:#E9B4A6;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🧾 Fatture</div>
             <div class="tool-cluster-card-title">Calcolo IVA</div>
             <div class="tool-cluster-card-desc">Scorporo e aggiunta IVA 4/10/22%</div>
-            <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+            <div style="margin-top:10px;background:#E9B4A6;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
         </div>
       </div>
@@ -687,10 +687,10 @@
       document.getElementById('sezione-commerciale').style.display = tipo === 'commerciale' ? 'block' : 'none';
       document.getElementById('sezione-civile').style.display = tipo === 'civile' ? 'block' : 'none';
       document.getElementById('lbl-commerciale').style.cssText = tipo === 'commerciale'
-        ? 'border:2px solid var(--blue);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;background:#eff6ff;'
+        ? 'border:2px solid var(--blue);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;background:#FCF1EE;'
         : 'border:2px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;';
       document.getElementById('lbl-civile').style.cssText = tipo === 'civile'
-        ? 'border:2px solid var(--blue);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;background:#eff6ff;'
+        ? 'border:2px solid var(--blue);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;background:#FCF1EE;'
         : 'border:2px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;';
     }
 
@@ -778,7 +778,7 @@
         { v: `Indennità forfettaria (D.Lgs. 231/2002)`, val: fmt(indennita) },
         { v: `TOTALE DA RICHIEDERE`, val: fmt(totale), bold: true },
       ];
-      document.getElementById('dettaglioBody').innerHTML = rows.map(r => `<tr style="border-bottom:1px solid var(--border)${r.bold ? ';background:#f8fafc;' : ''}">
+      document.getElementById('dettaglioBody').innerHTML = rows.map(r => `<tr style="border-bottom:1px solid var(--border)${r.bold ? ';background:#FAF8F3;' : ''}">
         <td style="padding:11px 16px;${r.bold ? 'font-weight:800;' : ''}color:var(--text);font-size:13.5px;">${r.v}</td>
         <td style="padding:11px 16px;text-align:right;font-weight:${r.bold ? '800' : '600'};color:${r.bold ? 'var(--blue)' : 'var(--text-muted)'};font-size:13.5px;">${r.val}</td>
       </tr>`).join('');

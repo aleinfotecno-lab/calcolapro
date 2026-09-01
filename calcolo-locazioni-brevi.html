@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calcolo Tasse Locazioni Brevi 2026 | Airbnb Booking Host</title>
-  <meta name="description" content="Calcola le tasse sulle locazioni brevi 2026: cedolare secca 21% (primo immobile) e 26% (altri immobili), ritenuta già trattenuta da Airbnb/Booking e netto effettivo."/>
+  <meta name="description" content="Tasse sulle locazioni brevi 2026: cedolare secca al 21% sul primo immobile e 26% sugli altri, ritenuta di Airbnb e Booking, netto effettivo."/>
   <meta name="keywords" content="tasse locazioni brevi 2026, cedolare secca airbnb calcolo, 21% 26% affitti brevi, ritenuta airbnb booking 2026, calcolo netto affitto breve, dichiarazione redditi locazioni brevi host"/>
   <link rel="canonical" href="https://calcolapro.it/calcolo-locazioni-brevi.html"/>
   <meta property="og:title" content="Calcolo Tasse Locazioni Brevi 2026 | Airbnb Booking Host | CalcolaPro"/>
@@ -289,19 +289,13 @@
   <main id="main-content" class="page-content">
     <div class="grid">
 
-      <!-- Alert riforma 2026 -->
-      <div class="col-full alert alert-warning">
-        <span style="font-weight:700;color:#92400e;font-size:13.5px;">⚠️ Novità Legge di Bilancio 2026:</span>
-        <span style="font-size:13px;color:#78350f;"> dal 2026 la cedolare secca sulle locazioni brevi si può applicare a <strong>massimo 2 immobili</strong> (prima erano 4): 21% sul primo, 26% sul secondo. Dal <strong>terzo immobile</strong> l'attività si presume svolta in forma imprenditoriale, con obbligo di apertura Partita IVA — la cedolare secca non si applica più. Le piattaforme trattengono sempre il 21% come acconto.</span>
-      </div>
-
       <div class="card">
         <div class="card-title"><span class="card-icon">🏠</span> I tuoi immobili</div>
 
         <div style="margin-bottom:18px;">
           <div class="calc-section-title">Quanti immobili affitti tramite locazioni brevi in totale nel 2026?</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;" role="radiogroup" aria-describedby="nImm-help">
-            <label id="lbl-n1" style="border:2px solid var(--blue);background:#eff6ff;border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;color:#1d4ed8;" onclick="setNImm(1,this)">1</label>
+            <label id="lbl-n1" style="border:2px solid var(--blue);background:#FCF1EE;border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;color:#9E2716;" onclick="setNImm(1,this)">1</label>
             <label id="lbl-n2" style="border:2px solid var(--border);border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;" onclick="setNImm(2,this)">2</label>
             <label id="lbl-n3" style="border:2px solid var(--border);border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;" onclick="setNImm(3,this)">3+</label>
           </div>
@@ -368,8 +362,8 @@
 
         <!-- Info piattaforma -->
         <div class="alert alert-info">
-          <div style="font-weight:700;font-size:12.5px;color:#1e40af;margin-bottom:8px;">📌 Come funziona la ritenuta della piattaforma</div>
-          <div style="font-size:12.5px;color:#1e3a8a;line-height:1.8;">
+          <div style="font-weight:700;font-size:12.5px;color:#9E2716;margin-bottom:8px;">📌 Come funziona la ritenuta della piattaforma</div>
+          <div style="font-size:12.5px;color:#9E2716;line-height:1.8;">
             <strong>Airbnb</strong>: trattiene il 21% sul canone prima di versarti il netto dal gennaio 2025<br>
             <strong>Booking.com</strong>: trattiene il 21% per le prenotazioni di residenti italiani<br>
             <strong>Vrbo / HomeAway</strong>: applica la ritenuta sulle prenotazioni italiane<br>
@@ -382,6 +376,13 @@
         <div class="ad-slot ad-slot-rect" aria-hidden="true"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;" data-ad-client="ca-pub-9013466056664238" data-ad-slot="3566400981"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
       </div>
       <div class="btn-wrap"><button class="btn btn-primary btn-lg" onclick="calcola()" type="button">🏠 Calcola tasse locazioni →</button></div>
+
+      <!-- Alert riforma 2026: sta sotto il form, non sopra (vedi commit) -->
+      <div class="col-full alert alert-warning">
+        <span style="font-weight:700;color:#8C5D08;font-size:13.5px;">⚠️ Novità Legge di Bilancio 2026:</span>
+        <span style="font-size:13px;color:#6B4A05;"> dal 2026 la cedolare secca sulle locazioni brevi si può applicare a <strong>massimo 2 immobili</strong> (prima erano 4): 21% sul primo, 26% sul secondo. Dal <strong>terzo immobile</strong> l'attività si presume svolta in forma imprenditoriale, con obbligo di apertura Partita IVA — la cedolare secca non si applica più. Le piattaforme trattengono sempre il 21% come acconto.</span>
+      </div>
+
 
       <div id="result" class="col-full animate-fade-up" style="display:none;" aria-live="polite" aria-atomic="true" role="region" aria-label="Risultati del calcolo locazioni brevi">
 
@@ -404,7 +405,7 @@
         <div style="margin-top:20px;background:var(--white);border:1.5px solid var(--border);border-radius:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;">
           <div style="padding:18px 20px;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem;">Dettaglio per immobile</div>
           <table style="width:100%;min-width:480px;border-collapse:collapse;font-size:14px;">
-            <thead><tr style="background:#f8fafc;border-bottom:2px solid var(--border);">
+            <thead><tr style="background:#FAF8F3;border-bottom:2px solid var(--border);">
               <th style="text-align:left;padding:10px 16px;">Immobile</th>
               <th style="text-align:right;padding:10px 16px;">Lordo</th>
               <th style="text-align:right;padding:10px 16px;">Aliquota</th>
@@ -420,22 +421,22 @@
         <div style="margin-top:16px;background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:20px;">
           <div style="font-weight:700;font-size:1rem;margin-bottom:14px;">📅 Scadenze 730 / dichiarazione redditi</div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;">
-            <div style="background:#f8fafc;border-radius:10px;padding:12px;text-align:center;">
+            <div style="background:#FAF8F3;border-radius:10px;padding:12px;text-align:center;">
               <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">Certificazioni</div>
               <div style="font-weight:800;color:var(--text);font-size:14px;">30 Giugno</div>
               <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">La piattaforma invia i dati fiscali all'AdE</div>
             </div>
-            <div style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:10px;padding:12px;text-align:center;">
-              <div style="font-size:11px;font-weight:700;color:#1e40af;text-transform:uppercase;margin-bottom:4px;">730 ordinario</div>
-              <div style="font-weight:800;color:#1e40af;font-size:14px;">30 Settembre</div>
-              <div style="font-size:11px;color:#3b82f6;margin-top:3px;">Scadenza invio 730 (anno precedente)</div>
+            <div style="background:#FCF1EE;border:1.5px solid #F7E2DD;border-radius:10px;padding:12px;text-align:center;">
+              <div style="font-size:11px;font-weight:700;color:#9E2716;text-transform:uppercase;margin-bottom:4px;">730 ordinario</div>
+              <div style="font-weight:800;color:#9E2716;font-size:14px;">30 Settembre</div>
+              <div style="font-size:11px;color:#9E2716;margin-top:3px;">Scadenza invio 730 (anno precedente)</div>
             </div>
-            <div style="background:#f8fafc;border-radius:10px;padding:12px;text-align:center;">
+            <div style="background:#FAF8F3;border-radius:10px;padding:12px;text-align:center;">
               <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">Acconto</div>
               <div style="font-weight:800;color:var(--text);font-size:14px;">30 Novembre</div>
               <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Acconto cedolare secca anno corrente</div>
             </div>
-            <div style="background:#f8fafc;border-radius:10px;padding:12px;text-align:center;">
+            <div style="background:#FAF8F3;border-radius:10px;padding:12px;text-align:center;">
               <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;">Saldo</div>
               <div style="font-weight:800;color:var(--text);font-size:14px;">30 Giugno</div>
               <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Saldo cedolare con il 730 successivo</div>
@@ -444,9 +445,9 @@
         </div>
 
         <!-- Cosa fare -->
-        <div id="cosaDopo" style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:12px;padding:16px 20px;margin-top:16px;">
-          <div style="font-weight:700;font-size:13.5px;color:#1e40af;margin-bottom:8px;">📌 Come dichiarare nel 730</div>
-          <div id="cosaDopoBody" style="font-size:13px;color:#1e3a8a;line-height:1.9;"></div>
+        <div id="cosaDopo" style="background:#FCF1EE;border:1.5px solid #F7E2DD;border-radius:12px;padding:16px 20px;margin-top:16px;">
+          <div style="font-weight:700;font-size:13.5px;color:#9E2716;margin-bottom:8px;">📌 Come dichiarare nel 730</div>
+          <div id="cosaDopoBody" style="font-size:13px;color:#9E2716;line-height:1.9;"></div>
         </div>
       </div>
 
@@ -459,22 +460,22 @@
         <p class="tool-cluster-sub">IMU, cedolare secca, plusvalenza: calcola tutte le tasse immobiliari.</p>
         <div class="tool-cluster-grid">
           <a href="calcolo-cedolare-secca.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🏘️ Affitti lunghi</div>
+            <div style="font-size:11px;font-weight:700;color:#E8D08A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🏘️ Affitti lunghi</div>
             <div class="tool-cluster-card-title">Cedolare Secca vs IRPEF</div>
             <div class="tool-cluster-card-desc">Per contratti ≥30 giorni: confronta 21%/10% vs IRPEF</div>
-            <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Confronta →</div>
+            <div style="margin-top:10px;background:#E8D08A;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Confronta →</div>
           </a>
           <a href="calcolo-imu.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🏛️ Tributi</div>
+            <div style="font-size:11px;font-weight:700;color:#9CC9C2;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🏛️ Tributi</div>
             <div class="tool-cluster-card-title">Calcolo IMU 2026</div>
             <div class="tool-cluster-card-desc">IMU acconto/saldo su seconda casa e immobili</div>
-            <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+            <div style="margin-top:10px;background:#9CC9C2;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
           <a href="calcolo-plusvalenza-immobiliare.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📈 Vendita</div>
+            <div style="font-size:11px;font-weight:700;color:#E9B4A6;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">📈 Vendita</div>
             <div class="tool-cluster-card-title">Plusvalenza Immobiliare</div>
             <div class="tool-cluster-card-desc">Tassa sulla vendita casa: 26% o IRPEF?</div>
-            <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+            <div style="margin-top:10px;background:#E9B4A6;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
         </div>
       </div>
@@ -655,7 +656,7 @@
       [1,2,3].forEach(k => {
         const lbl = document.getElementById('lbl-n' + k);
         if (lbl) lbl.style.cssText = k === n
-          ? 'border:2px solid var(--blue);background:#eff6ff;border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;color:#1d4ed8;'
+          ? 'border:2px solid var(--blue);background:#FCF1EE;border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;color:#9E2716;'
           : 'border:2px solid var(--border);border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:800;font-size:14px;color:var(--text);';
       });
       document.getElementById('imm2').style.display = n >= 2 ? 'block' : 'none';
@@ -755,13 +756,13 @@
       if (nImm >= 2) rows.push({name: 'Immobile 2', lordo: lordo2, aliq: aliq26*100, imp: imp2, rit: rit2, saldo: saldo2});
       rows.push({name: 'TOTALE (1°+2° immobile)', lordo: lordo_tot, aliq: null, imp: tasse_tot, rit: rit_tot, saldo: saldo_tot, bold: true});
 
-      document.getElementById('dettaglioBody').innerHTML = rows.map(r => `<tr style="border-bottom:1px solid var(--border)${r.bold ? ';background:#f8fafc;font-weight:800;' : ''}">
+      document.getElementById('dettaglioBody').innerHTML = rows.map(r => `<tr style="border-bottom:1px solid var(--border)${r.bold ? ';background:#FAF8F3;font-weight:800;' : ''}">
         <td style="padding:10px 16px;font-size:13.5px;${r.bold ? 'font-weight:800;' : ''}">${r.name}</td>
         <td style="padding:10px 16px;text-align:right;font-size:13.5px;">${fmt(r.lordo)}</td>
         <td style="padding:10px 16px;text-align:right;font-size:13.5px;">${r.aliq !== null ? r.aliq.toFixed(0) + '%' : '—'}</td>
         <td style="padding:10px 16px;text-align:right;font-size:13.5px;font-weight:${r.bold ? '800' : '600'};color:var(--blue);">${fmt(r.imp)}</td>
-        <td style="padding:10px 16px;text-align:right;font-size:13.5px;color:#15803d;">${fmt(r.rit)}</td>
-        <td style="padding:10px 16px;text-align:right;font-size:13.5px;font-weight:${r.bold ? '800' : '600'};color:${r.saldo > 0 ? '#dc2626' : '#15803d'};">${r.saldo >= 0 ? fmt(r.saldo) : '− '+fmt(Math.abs(r.saldo))}</td>
+        <td style="padding:10px 16px;text-align:right;font-size:13.5px;color:#0E5A54;">${fmt(r.rit)}</td>
+        <td style="padding:10px 16px;text-align:right;font-size:13.5px;font-weight:${r.bold ? '800' : '600'};color:${r.saldo > 0 ? '#A82A16' : '#0E5A54'};">${r.saldo >= 0 ? fmt(r.saldo) : '− '+fmt(Math.abs(r.saldo))}</td>
       </tr>`).join('');
 
       // Cosa fare

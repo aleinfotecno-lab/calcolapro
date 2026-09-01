@@ -250,12 +250,12 @@
           <input type="number" id="giorni" value="10" min="1" max="180" aria-describedby="giorni-help"/>
           <p class="hint" id="giorni-help">Inserisci il numero di giorni di calendario dell'episodio di malattia (inclusi sabato e domenica).</p>
         </div>
-        <div class="field" style="background:#fef3c7;border-radius:10px;padding:14px;border:1.5px solid #fde68a;">
-          <label style="font-weight:700;color:#92400e;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
+        <div class="field" style="background:#F6EBD3;border-radius:10px;padding:14px;border:1.5px solid #E8D6AE;">
+          <label style="font-weight:700;color:#8C5D08;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;">
             <input type="checkbox" id="ricovero" style="width:16px;height:16px;cursor:pointer;" aria-describedby="ricovero-help">
             Ricovero ospedaliero per tutto il periodo indicato
           </label>
-          <p class="hint" id="ricovero-help" style="margin-top:6px;margin-bottom:0;color:#92400e;">Il ricovero <strong>non cancella</strong> i tre giorni di carenza: la circolare INPS 84/1980 fissa l'indennità dal 4° giorno di malattia e non prevede eccezioni per la degenza. Cambia invece un'altra cosa, in peggio, ed è il campo qui sotto.</p>
+          <p class="hint" id="ricovero-help" style="margin-top:6px;margin-bottom:0;color:#8C5D08;">Il ricovero <strong>non cancella</strong> i tre giorni di carenza: la circolare INPS 84/1980 fissa l'indennità dal 4° giorno di malattia e non prevede eccezioni per la degenza. Cambia invece un'altra cosa, in peggio, ed è il campo qui sotto.</p>
         </div>
         <div class="field">
           <label for="familiari">Familiari fiscalmente a carico</label>
@@ -298,7 +298,7 @@
           <div style="padding:18px 20px;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem;">Dettaglio giorno per giorno</div>
           <table style="width:100%;border-collapse:collapse;font-size:14px;">
             <thead>
-              <tr style="background:#f8fafc;">
+              <tr style="background:#FAF8F3;">
                 <th style="text-align:left;padding:12px 18px;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);">Periodo</th>
                 <th style="text-align:center;padding:12px 18px;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);">Giorni</th>
                 <th style="text-align:center;padding:12px 18px;font-weight:700;color:var(--text-muted);border-bottom:1px solid var(--border);">% applicata</th>
@@ -311,8 +311,8 @@
         </div>
 
         <div class="alert alert-info">
-          <div style="font-weight:700;font-size:13.5px;color:#1e40af;margin-bottom:8px;">📌 Come leggere il risultato</div>
-          <div style="font-size:13px;color:#1e3a8a;line-height:1.8;">
+          <div style="font-weight:700;font-size:13.5px;color:#9E2716;margin-bottom:8px;">📌 Come leggere il risultato</div>
+          <div style="font-size:13px;color:#9E2716;line-height:1.8;">
             • L'<strong>indennità INPS</strong> è pagata direttamente dall'INPS in busta paga (anticipo datoriale) — è soggetta a IRPEF.<br>
             • L'<strong>integrazione datoriale</strong> dipende dal CCNL: alcuni contratti portano la malattia al 100% dello stipendio.<br>
             • I <strong>giorni di carenza</strong> (1-3) non sono mai coperti dall'INPS, nemmeno in caso di ricovero: li copre il CCNL, se lo prevede.<br>
@@ -329,22 +329,22 @@
         <p class="tool-cluster-sub">Gestisci al meglio busta paga, contributi e tutele previdenziali.</p>
         <div class="tool-cluster-grid">
           <a href="calcolo-naspi.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🛡️ Disoccupazione</div>
+            <div style="font-size:11px;font-weight:700;color:#E8D08A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🛡️ Disoccupazione</div>
             <div class="tool-cluster-card-title">Calcolo NASpI 2026</div>
             <div class="tool-cluster-card-desc">Importo e durata dell'indennità dopo il licenziamento</div>
-            <div style="margin-top:10px;background:#fbbf24;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+            <div style="margin-top:10px;background:#E8D08A;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
           <a href="lordonetto.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">💵 Stipendio</div>
+            <div style="font-size:11px;font-weight:700;color:#9CC9C2;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">💵 Stipendio</div>
             <div class="tool-cluster-card-title">Calcola Lordo/Netto</div>
             <div class="tool-cluster-card-desc">Quanto prendi davvero in busta paga ogni mese</div>
-            <div style="margin-top:10px;background:#4ade80;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+            <div style="margin-top:10px;background:#9CC9C2;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
           <a href="calcolo-ferie-permessi.html" class="tool-cluster-card">
-            <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🌴 Ferie</div>
+            <div style="font-size:11px;font-weight:700;color:#E9B4A6;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">🌴 Ferie</div>
             <div class="tool-cluster-card-title">Ferie e Permessi Residui</div>
             <div class="tool-cluster-card-desc">Calcola quante ferie e permessi ROL hai ancora</div>
-            <div style="margin-top:10px;background:#60a5fa;color:#0f172a;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
+            <div style="margin-top:10px;background:#E9B4A6;color:#1A1815;font-weight:700;font-size:12px;padding:6px 12px;border-radius:6px;text-align:center;">Calcola →</div>
           </a>
         </div>
       </div>
@@ -640,17 +640,17 @@
       let alert = '';
       const giorniTotAnnuo = giorni * episodi;
       if (giorniTotAnnuo > 180) {
-        alert += `<div style="background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;padding:14px 18px;color:#991b1b;font-size:14px;margin-bottom:8px;">⚠️ Attenzione: con ${giorniTotAnnuo} giorni nell'anno superi il limite di 180 giorni INPS. Oltre il 180° giorno l'INPS non eroga più l'indennità.</div>`;
+        alert += `<div style="background:#FBEEEB;border:1.5px solid #E9BCB4;border-radius:10px;padding:14px 18px;color:#8A2213;font-size:14px;margin-bottom:8px;">⚠️ Attenzione: con ${giorniTotAnnuo} giorni nell'anno superi il limite di 180 giorni INPS. Oltre il 180° giorno l'INPS non eroga più l'indennità.</div>`;
       }
       if (ricovero && !familiariACarico) {
-        alert += '<div style="background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;padding:14px 18px;color:#991b1b;font-size:14px;margin-bottom:8px;">⚠️ Ricovero senza familiari fiscalmente a carico: per i giorni di degenza l\'indennità INPS scende ai due quinti (art. 1 D.L. 663/1979). Il ricovero non elimina invece i tre giorni di carenza.</div>';
+        alert += '<div style="background:#FBEEEB;border:1.5px solid #E9BCB4;border-radius:10px;padding:14px 18px;color:#8A2213;font-size:14px;margin-bottom:8px;">⚠️ Ricovero senza familiari fiscalmente a carico: per i giorni di degenza l\'indennità INPS scende ai due quinti (art. 1 D.L. 663/1979). Il ricovero non elimina invece i tre giorni di carenza.</div>';
       } else if (ricovero) {
-        alert += '<div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:10px;padding:14px 18px;color:#166534;font-size:14px;margin-bottom:8px;">✅ Ricovero con familiari fiscalmente a carico: l\'indennità resta piena. Attenzione però: anche in degenza i primi tre giorni restano di carenza.</div>';
+        alert += '<div style="background:#E7EFEC;border:1.5px solid #DCE9E7;border-radius:10px;padding:14px 18px;color:#0E5A54;font-size:14px;margin-bottom:8px;">✅ Ricovero con familiari fiscalmente a carico: l\'indennità resta piena. Attenzione però: anche in degenza i primi tre giorni restano di carenza.</div>';
       }
       if (ccnlPct > 0) {
-        alert += `<div style="background:#fef3c7;border:1.5px solid #fde68a;border-radius:10px;padding:14px 18px;color:#92400e;font-size:14px;">ℹ️ I primi ${carenza} giorni non sono mai a carico dell\'INPS. Qui li copre il CCNL, che garantisce il ${ccnlPct}% della retribuzione e integra anche i giorni successivi fino a quella soglia.</div>`;
+        alert += `<div style="background:#F6EBD3;border:1.5px solid #E8D6AE;border-radius:10px;padding:14px 18px;color:#8C5D08;font-size:14px;">ℹ️ I primi ${carenza} giorni non sono mai a carico dell\'INPS. Qui li copre il CCNL, che garantisce il ${ccnlPct}% della retribuzione e integra anche i giorni successivi fino a quella soglia.</div>`;
       } else {
-        alert += `<div style="background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;padding:14px 18px;color:#991b1b;font-size:14px;">⚠️ Hai indicato un CCNL senza integrazione: i primi ${carenza} giorni restano non retribuiti e per i giorni successivi percepisci la sola indennità INPS.</div>`;
+        alert += `<div style="background:#FBEEEB;border:1.5px solid #E9BCB4;border-radius:10px;padding:14px 18px;color:#8A2213;font-size:14px;">⚠️ Hai indicato un CCNL senza integrazione: i primi ${carenza} giorni restano non retribuiti e per i giorni successivi percepisci la sola indennità INPS.</div>`;
       }
       document.getElementById('alertBox').innerHTML = alert;
 
@@ -676,7 +676,7 @@
         rows.push({ periodo: `Integrazione del datore sui giorni indennizzati (fino al ${ccnlPct}%)`, giorni: giorniINPS, pct: `${ccnlPct}% CCNL`, g: integrazioneINPS / giorniINPS, tot: integrazioneINPS, note: true });
       }
       rows.forEach(r => {
-        const color = r.note ? 'color:#f59e0b' : 'color:var(--blue)';
+        const color = r.note ? 'color:#8C5D08' : 'color:var(--blue)';
         tbody.innerHTML += `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:12px 18px;color:var(--text);">${r.periodo}</td>
           <td style="padding:12px 18px;text-align:center;color:var(--text-muted);">${r.giorni}</td>
@@ -686,7 +686,7 @@
         </tr>`;
       });
       // Totale row
-      tbody.innerHTML += `<tr style="background:#f8fafc;">
+      tbody.innerHTML += `<tr style="background:#FAF8F3;">
         <td colspan="4" style="padding:12px 18px;font-weight:700;color:var(--text);">TOTALE LORDO</td>
         <td style="padding:12px 18px;text-align:right;font-weight:800;color:var(--blue);">${fmt(totaleLordo)}</td>
       </tr>`;

@@ -279,7 +279,7 @@ ins.adsbygoogle { display: block !important; }
    ═══════════════════════════════════════════════════════════ */
 .page-header {
   background: linear-gradient(180deg, #fbfcfe 0%, var(--bg) 100%);
-  padding: 52px 24px 48px;
+  padding: 52px 24px 28px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -353,7 +353,7 @@ ins.adsbygoogle { display: block !important; }
 }
 .page-content {
   max-width: 1000px; margin: 0 auto;
-  padding: 40px 20px 40px;
+  padding: 28px 20px 40px;
 }
 
 /* ── GRID ── */
@@ -1153,8 +1153,8 @@ a:focus-visible { border-radius: 4px; }
 /* Hero section: padding ridotto su mobile */
 @media (max-width: 480px) {
   .page-header {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 44px;
+    padding-bottom: 28px;
   }
 }
 

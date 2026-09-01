@@ -275,15 +275,15 @@
               Stipendio pieno
             </div>
             <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
-              <div style="width:12px;height:12px;border-radius:3px;background:#f59e0b;flex-shrink:0;"></div>
+              <div style="width:12px;height:12px;border-radius:3px;background:#8C5D08;flex-shrink:0;"></div>
               Reddito con cassa integrazione
             </div>
           </div>
         </div>
 
-        <div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:16px 20px;margin-top:16px;">
-          <div style="font-weight:700;font-size:13.5px;color:#166534;margin-bottom:6px;">ℹ️ Come leggere il risultato</div>
-          <div style="font-size:13px;color:#166534;line-height:1.7;">L'indennità è l'<strong>80%</strong> della retribuzione persa, ridotta del <strong>5,84%</strong> (art. 26 L. 41/1986), entro il massimale INPS 2026 di <strong>1.423,69 € lordi</strong> (1.340,56 € netti). L'importo mostrato è al netto di questa riduzione ma <strong>ancora lordo IRPEF</strong>: la ritenuta fiscale viene applicata a parte. Durante la CIG maturano comunque i contributi figurativi per la pensione.</div>
+        <div style="background:#E7EFEC;border:1.5px solid #DCE9E7;border-radius:12px;padding:16px 20px;margin-top:16px;">
+          <div style="font-weight:700;font-size:13.5px;color:#0E5A54;margin-bottom:6px;">ℹ️ Come leggere il risultato</div>
+          <div style="font-size:13px;color:#0E5A54;line-height:1.7;">L'indennità è l'<strong>80%</strong> della retribuzione persa, ridotta del <strong>5,84%</strong> (art. 26 L. 41/1986), entro il massimale INPS 2026 di <strong>1.423,69 € lordi</strong> (1.340,56 € netti). L'importo mostrato è al netto di questa riduzione ma <strong>ancora lordo IRPEF</strong>: la ritenuta fiscale viene applicata a parte. Durante la CIG maturano comunque i contributi figurativi per la pensione.</div>
         </div>
       </div>
 
@@ -295,22 +295,22 @@
         <p class="tool-cluster-sub">La cassa integrazione è una delle tutele INPS del reddito: confrontala con la NASpI e verifica come cambia il tuo stipendio netto.</p>
         <div class="tool-cluster-grid">
           <a href="calcolo-naspi.html" class="tool-cluster-card">
-            <div class="tool-cluster-card-tag" style="color:#fbbf24;">🛡️ NASpI</div>
+            <div class="tool-cluster-card-tag" style="color:#E8D08A;">🛡️ NASpI</div>
             <div class="tool-cluster-card-title">Calcolo NASpI 2026</div>
             <div class="tool-cluster-card-desc">Se il rapporto cessa: importo, durata e totale della disoccupazione</div>
-            <div class="tool-cluster-card-cta" style="background:#fbbf24;">Calcola →</div>
+            <div class="tool-cluster-card-cta" style="background:#E8D08A;">Calcola →</div>
           </a>
           <a href="lordonetto.html" class="tool-cluster-card">
-            <div class="tool-cluster-card-tag" style="color:#4ade80;">💵 Stipendio</div>
+            <div class="tool-cluster-card-tag" style="color:#9CC9C2;">💵 Stipendio</div>
             <div class="tool-cluster-card-title">Lordo → Netto</div>
             <div class="tool-cluster-card-desc">Quanto vale davvero la tua retribuzione a tempo pieno</div>
-            <div class="tool-cluster-card-cta" style="background:#4ade80;">Calcola →</div>
+            <div class="tool-cluster-card-cta" style="background:#9CC9C2;">Calcola →</div>
           </a>
           <a href="calcolo-tfr-liquidazione.html" class="tool-cluster-card">
-            <div class="tool-cluster-card-tag" style="color:#60a5fa;">📦 TFR</div>
+            <div class="tool-cluster-card-tag" style="color:#E9B4A6;">📦 TFR</div>
             <div class="tool-cluster-card-title">TFR e Liquidazione</div>
             <div class="tool-cluster-card-desc">Quanto matura di liquidazione e come viene tassata</div>
-            <div class="tool-cluster-card-cta" style="background:#60a5fa;">Calcola →</div>
+            <div class="tool-cluster-card-cta" style="background:#E9B4A6;">Calcola →</div>
           </a>
         </div>
       </div>
@@ -517,7 +517,7 @@
         document.getElementById('chartBox').style.display = 'none';
         ['nettoOut','lordoOut','redditoOut','perditaOut','totaleOut'].forEach(id => document.getElementById(id).textContent = '—');
         alertBox.className = '';
-        alertBox.innerHTML = '<div style="background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;padding:14px 18px;color:#991b1b;font-size:14px;">⚠️ Inserisci una retribuzione valida e una percentuale di orario sospeso maggiore di zero.</div>';
+        alertBox.innerHTML = '<div style="background:#FBEEEB;border:1.5px solid #E9BCB4;border-radius:10px;padding:14px 18px;color:#8A2213;font-size:14px;">⚠️ Inserisci una retribuzione valida e una percentuale di orario sospeso maggiore di zero.</div>';
         return;
       }
 
@@ -555,12 +555,12 @@
       // Alert
       let alert = '';
       if (capApplicato) {
-        alert += '<div style="background:#fef3c7;border:1.5px solid #fde68a;border-radius:10px;padding:14px 18px;color:#92400e;font-size:14px;margin-bottom:8px;">⚠️ È stato applicato il <strong>massimale INPS 2026</strong>: l\'80% della tua retribuzione supera il tetto, quindi l\'indennità è limitata a ' + fmtDec(indennitaNetta) + ' (copre circa il ' + Math.round(pctPersaCoperta) + '% della retribuzione persa).</div>';
+        alert += '<div style="background:#F6EBD3;border:1.5px solid #E8D6AE;border-radius:10px;padding:14px 18px;color:#8C5D08;font-size:14px;margin-bottom:8px;">⚠️ È stato applicato il <strong>massimale INPS 2026</strong>: l\'80% della tua retribuzione supera il tetto, quindi l\'indennità è limitata a ' + fmtDec(indennitaNetta) + ' (copre circa il ' + Math.round(pctPersaCoperta) + '% della retribuzione persa).</div>';
       } else {
-        alert += '<div style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:10px;padding:14px 18px;color:#1e40af;font-size:14px;margin-bottom:8px;">ℹ️ Ricevi l\'80% pieno della retribuzione persa (ridotto del 5,84%), pari a circa il ' + Math.round(pctPersaCoperta) + '% di quanto avresti guadagnato per le ore sospese, entro il massimale.</div>';
+        alert += '<div style="background:#FCF1EE;border:1.5px solid #F7E2DD;border-radius:10px;padding:14px 18px;color:#9E2716;font-size:14px;margin-bottom:8px;">ℹ️ Ricevi l\'80% pieno della retribuzione persa (ridotto del 5,84%), pari a circa il ' + Math.round(pctPersaCoperta) + '% di quanto avresti guadagnato per le ore sospese, entro il massimale.</div>';
       }
       const tipoLabel = tipo === 'cigs' ? 'CIGS: durata fino a 24 mesi nel quinquennio mobile' : 'CIGO: durata fino a 13 settimane, max 52 nel biennio mobile';
-      alert += '<div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:10px;padding:14px 18px;color:#166534;font-size:14px;">🗓️ ' + tipoLabel + '. L\'importo è ancora soggetto a IRPEF; durante la CIG maturano i contributi figurativi per la pensione.</div>';
+      alert += '<div style="background:#E7EFEC;border:1.5px solid #DCE9E7;border-radius:10px;padding:14px 18px;color:#0E5A54;font-size:14px;">🗓️ ' + tipoLabel + '. L\'importo è ancora soggetto a IRPEF; durante la CIG maturano i contributi figurativi per la pensione.</div>';
       alertBox.className = '';
       alertBox.innerHTML = alert;
 
@@ -579,7 +579,7 @@
       const maxVal = Math.max(stipendioPieno, redditoCIG, 1);
       const bars = [
         {label: 'Stipendio pieno', val: stipendioPieno, col: 'var(--blue)'},
-        {label: 'Con cassa integrazione', val: redditoCIG, col: '#f59e0b'}
+        {label: 'Con cassa integrazione', val: redditoCIG, col: '#8C5D08'}
       ];
       bars.forEach(b => {
         const pct = (b.val / maxVal) * 100;
