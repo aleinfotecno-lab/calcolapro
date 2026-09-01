@@ -232,21 +232,47 @@ a:hover { text-decoration: underline; }
    0 errori JS prima e 1 dopo). Cosi' l'elemento resta misurabile e in flusso,
    ma non occupa spazio.
 
-   PER RIATTIVARE: cancellare le due regole qui sotto. Il markup degli slot
-   nelle 61 pagine non e' stato toccato.
+   La regola valeva pero' SOLO per lo slot in cima. Misurando i pixel delle
+   pagine (non il DOM: le fasce di righe tutte uguali al colore di fondo) sono
+   emersi altri tre buchi dello stesso tipo:
+     - .ad-slot-inline sotto la ricerca in home: 280px desktop, 390px mobile.
+       E' lui che spingeva giu' tutto l'hero e faceva tagliare la calcolatrice
+       da qualunque schermo sotto i 780px di altezza;
+     - .ad-slot-rect in mezzo ai calcolatori: un riquadro bianco vuoto di
+       250px con tanto di bordo, su 36 pagine;
+     - un <ins class="adsbygoogle"> nudo dentro le guide, senza wrapper
+       .ad-slot, che le due regole precedenti non raggiungevano: altri 280px.
+
+   Adesso il collasso parte dall'<ins>, che e' l'elemento su cui lo script
+   scrive l'altezza, e vale ovunque si trovi. I contenitori perdono anche
+   bordo, sfondo, padding e margini, altrimenti resterebbe la cornice vuota.
+
+   PER RIATTIVARE: cancellare il blocco fino al commento di chiusura piu' sotto.
+   Il markup degli slot nelle pagine non e' stato toccato.
    ───────────────────────────────────────────────────────────────────── */
-.ad-slot-top { height: 0; min-height: 0; overflow: hidden; border: none; }
-.ad-slot-top .ad-slot, .ad-slot-top .ad-slot ins, .ad-slot-top .ad-slot iframe { height: 0 !important; min-height: 0 !important; }
-/* Nasconde il wrapper quando AdSense non ha ancora caricato */
-.ad-slot-top .ad-slot {
-  height: auto; min-height: 0;
-  padding: 0; border: none; background: none;
+.ad-slot-top,
+.ad-slot-inline,
+.ad-slot-rect,
+.ad-slot-banner,
+.ad-slot {
+  height: 0; min-height: 0; max-height: 0;
+  margin: 0; padding: 0; border: none; background: none;
+  overflow: hidden;
 }
-.ad-slot-top .ad-slot ins,
-.ad-slot-top .ad-slot iframe { display: block; }
-.ad-slot-banner { width: 728px; max-width: 100%; min-height: 0; height: auto; }
-.ad-slot-rect   { width: 300px; height: 250px; margin: 0 auto; }
-.ad-slot-inline { width: 100%; min-height: 90px; }
+/* L'altezza la scrive lo script direttamente sull'<ins>: serve !important, e
+   serve prenderlo anche dove non ha un wrapper attorno (le guide). */
+ins.adsbygoogle,
+ins.adsbygoogle iframe {
+  height: 0 !important; min-height: 0 !important; max-height: 0 !important;
+  overflow: hidden !important;
+}
+/* display:none romperebbe lo script AdSense: l'elemento resta in flusso. */
+ins.adsbygoogle { display: block !important; }
+/* ── fine del blocco da cancellare all'approvazione ── */
+/* Dimensioni degli slot, ripristinate insieme al blocco qui sopra:
+   .ad-slot-banner { width: 728px; max-width: 100%; }
+   .ad-slot-rect   { width: 300px; height: 250px; margin: 0 auto; }
+   .ad-slot-inline { width: 100%; min-height: 90px; } */
 
 /* ═══════════════════════════════════════════════════════════
    PAGE HEADER
