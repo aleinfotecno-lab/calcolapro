@@ -2182,6 +2182,55 @@
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1959, "sesso": "M", "annoInizio": 1985, "contributiAttuali": 30, "stipendioLordo": 35000, "sistema": "misto", "crescitaStipendio": "0" },
       "attesi": { "anniMancantiOut": "Ora!", "annoPensioneOut": 2026, "etaPensioneOut": "67 anni", "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
+    },
+
+    {
+      "file": "/embed.html",
+      "caso": "Il widget produce lo stesso netto del calcolatore da cui deriva",
+      "norma": "Stesso motore di lordonetto.html (js/busta-paga.js): IRPEF 23/33/43% su 28.000 e 50.000 (L. 199/2025 art. 1 c.3), detrazione art. 13 TUIR sull'imponibile, taglio del cuneo L. 207/2024. La Calabria ha aliquota regionale unica 1,73% su ogni scaglione, quindi equivale all'1,73% digitato a mano nel caso gemello di lordonetto",
+      "note": "Il valore atteso NON viene dal widget: e' quello gia' verificato del caso di lordonetto con gli stessi ingressi (priceOut 23349, irpefOut 3894, inpsOut 2757). Se i due divergono la divergenza e' fra pagina e widget, che e' precisamente cio' che questo caso esiste per impedire. Il netto mensile e' 23.348,85 / 13 = 1.795,99, arrotondato a 1.796 dalla formattazione senza decimali.",
+      "funzione": "",
+      "campi": { "ral": 30000, "mensilita": 13, "regione": "calabria", "figli": 0, "coniuge": 0, "addComunale": 0.5 },
+      "attesi": { "rNetto": 23349, "rIrpef": 3894, "rInps": 2757, "netMese": 1796 }
+    },
+    {
+      "file": "/embed.html",
+      "caso": "Controprova: sopra la soglia del cuneo la riga sparisce invece di restare col valore vecchio",
+      "norma": "L. 207/2024 art. 1 commi 4-9: la somma esente spetta fino a 20.000 euro di imponibile. Con RAL 30.000 l'imponibile e' 30.000 - 2.757 = 27.243, oltre la soglia, quindi la somma esente e' zero e la voce non si applica",
+      "note": "Il caso gemello sotto soglia (RAL 20.000) verifica che la riga compaia; questo verifica che sparisca, che e' la meta' che mancava. Si parte DA 20.000, dove il taglio spetta e la riga si riempie, e solo dopo si passa a 30.000: e' l'ordine che smaschera il difetto vero, perche' .t-row{display:grid} sovrascriveva il display:none dell'attributo hidden e la riga restava a schermo col valore di prima, 785 euro dichiarati a chi non ne ha diritto. Partendo direttamente da 30.000 la cella sarebbe stata vuota e il caso avrebbe potuto passare col difetto ancora in piedi.",
+      "funzione": "",
+      "campi": { "ral": 20000, "mensilita": 13, "regione": "calabria", "figli": 0, "coniuge": 0, "addComunale": 0.5 },
+      "pre": ["var _r=document.getElementById('ral');_r.value=30000;_r.dispatchEvent(new Event('input',{bubbles:true}))"],
+      "attesi": { "rNetto": 23349 },
+      "nascosti": ["rowBonus"]
+    },
+    {
+      "file": "/embed.html",
+      "caso": "Regione con scaglioni progressivi: la Campania non e' un'aliquota unica",
+      "norma": "Addizionale regionale Campania 2026 (Dipartimento delle Finanze): 1,73% fino a 15.000, 2,96% da 15.000 a 28.000. Su imponibile 27.243 fa 259,50 + 362,39 = 621,89, non 27.243 x 2,96%",
+      "note": "Controprova dell'elenco regioni: il widget legge REGIONI dal modulo condiviso, quindi questo caso fallisce anche se qualcuno ricopia l'elenco dentro il widget e la copia si scosta. Atteso preso dal caso gia' verificato di lordonetto (priceOut 23334).",
+      "funzione": "",
+      "campi": { "ral": 30000, "mensilita": 13, "regione": "campania", "figli": 0, "coniuge": 0, "addComunale": 0 },
+      "attesi": { "rNetto": 23334 }
+    },
+    {
+      "file": "/embed.html",
+      "caso": "Sopra la prima fascia pensionabile scatta l'1% aggiuntivo",
+      "norma": "Art. 3-ter D.L. 384/1992: 1% sulla quota oltre la prima fascia, per il 2026 fissata a 56.224 euro (circolare INPS 6 del 30/01/2026). Su 78.000: 78.000 x 9,19% + (78.000 - 56.224) x 1% = 7.168,20 + 217,76 = 7.385,96",
+      "note": "Atteso allineato al caso gemello di lordonetto (priceOut 46475, inpsOut 7386).",
+      "funzione": "",
+      "campi": { "ral": 78000, "mensilita": 13, "regione": "calabria", "figli": 0, "coniuge": 0, "addComunale": 0.5 },
+      "attesi": { "rNetto": 46475, "rInps": 7386 }
+    },
+    {
+      "file": "/embed.html",
+      "caso": "Taglio del cuneo: la riga compare sotto i 20.000 di imponibile e sparisce sopra",
+      "norma": "L. 207/2024 art. 1 commi 4-9: somma esente pari al 4,8% del reddito per la fascia 15.001-20.000 di imponibile. Con RAL 20.000 l'imponibile e' 20.000 - 1.838 = 18.162, quindi 18.162 x 4,8% = 871,78",
+      "note": "Caso limite su un lato della soglia: il primo caso di questo gruppo (RAL 30.000, imponibile 27.243) sta sull'altro lato e li' la riga resta nascosta. Verifica anche che la somma esente si SOMMI al netto invece di essere tassata.",
+      "funzione": "",
+      "campi": { "ral": 20000, "mensilita": 13, "regione": "calabria", "figli": 0, "coniuge": 0, "addComunale": 0.5 },
+      "attesi": { "rBonus": 872 },
+      "visibili": ["rowBonus"]
     }
   ]
 }

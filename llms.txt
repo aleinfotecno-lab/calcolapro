@@ -70,6 +70,10 @@ CalcolaPro e' un sito italiano di calcolatori gratuiti rivolto a lavoratori dipe
 - https://calcolapro.it/guida-cedolare-secca-affitti.html — Quando conviene la cedolare secca, come si dichiara e quali contratti la ammettono
 - https://calcolapro.it/guida-bonus-casa-2026.html — Ecobonus, Sismabonus, bonus ristrutturazione e detrazioni IRPEF per immobili nel 2026
 
+## Strumenti per altri siti
+
+- https://calcolapro.it/widget.html — Widget gratuito da incorporare: il calcolo dello stipendio netto 2026 dentro una pagina di terzi, con IRPEF, addizionali regionali e taglio del cuneo aggiornati automaticamente. Nessun cookie, nessuno script di tracciamento, unica condizione la riga di attribuzione.
+
 ## Chi siamo
 
 CalcolaPro e' un progetto italiano indipendente con l'obiettivo di rendere accessibili i calcoli fiscali e finanziari a chiunque, senza costi e senza barriere tecniche. Tutti gli strumenti sono sviluppati da zero, aggiornati alle normative vigenti e verificati annualmente.

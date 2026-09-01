@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Calcolo stipendio netto — widget CalcolaPro</title>
+<!-- Questa pagina e' il contenuto dell'iframe: e' una copia funzionale di
+     lordonetto.html e non deve competere con esso nell'indice. La pagina
+     pubblica, quella che si fa indicizzare, e' widget.html. -->
+<meta name="robots" content="noindex,follow"/>
+<link rel="canonical" href="https://calcolapro.it/lordonetto.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Il widget non carica style.css: quel foglio porta con se' navbar, footer e
+   mega-menu, cioe' 1.200 righe che dentro un iframe da 420px non servono a
+   niente. Qui c'e' solo la banda — l'identita' Divisumma ridotta all'osso,
+   con gli stessi token di colore del sito. Nessun cookie, nessun analytics,
+   nessuno slot pubblicitario: chi incorpora non eredita adempimenti. */
+:root{
+  --blue:#C4351F; --navy:#1A1815; --text:#1A1815; --text-muted:#5B574F;
+  --text-light:#6B655C; --bg:#EDEBE6; --tape:#FAF8F3; --border:#CFC8B8;
+  --border-dark:#8C8474; --green:#0E5A54; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Familjen Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--bg); color:var(--text);
+  padding:18px 16px 14px; line-height:1.45; font-size:15px;
+}
+.wrap{max-width:520px;margin:0 auto}
+
+/* ── intestazione ───────────────────────────────────────────── */
+.w-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:14px}
+.w-title{font-size:15px;font-weight:700;letter-spacing:-0.01em}
+.w-sub{font-family:'Courier Prime',ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light)}
+
+/* ── campi ──────────────────────────────────────────────────── */
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;margin-bottom:14px}
+.f-full{grid-column:1/-1}
+label{display:block;font-size:12px;font-weight:600;color:var(--text-muted);
+  margin-bottom:4px;letter-spacing:0.01em}
+input,select{
+  width:100%;padding:9px 11px;font-family:inherit;font-size:15px;color:var(--text);
+  background:var(--white);border:1px solid var(--border-dark);border-radius:3px;
+}
+input:focus-visible,select:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+details.more{grid-column:1/-1;margin-top:2px}
+details.more>summary{
+  font-size:12.5px;color:var(--blue);cursor:pointer;font-weight:600;
+  list-style:none;padding:2px 0;
+}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:'+ ';font-family:'Courier Prime',monospace}
+details.more[open]>summary::before{content:'− '}
+details.more .fields{margin:10px 0 0}
+.hint{grid-column:1/-1;font-size:11.5px;color:var(--text-light);line-height:1.4}
+
+/* ── la banda ───────────────────────────────────────────────── */
+.tape{
+  background:var(--tape);position:relative;padding:26px 22px 32px;margin-top:22px;
+  box-shadow:0 1px 0 rgba(26,24,21,.08),0 18px 36px -26px rgba(26,24,21,.5);
+}
+.tape::before{content:'';position:absolute;left:0;right:0;top:-8px;height:8px;
+  background:var(--navy);border-radius:2px 2px 0 0}
+.tape::after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:16px;
+  background:radial-gradient(circle at 8px 0,var(--bg) 7.5px,transparent 8px);
+  background-size:16px 16px;background-repeat:repeat-x;pointer-events:none}
+.t-label{font-family:'Courier Prime',ui-monospace,monospace;font-weight:700;font-size:10.5px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);text-align:center;
+  padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid var(--border)}
+.t-value{font-family:'Courier Prime',ui-monospace,monospace;font-weight:700;
+  font-size:clamp(2.2rem,10vw,3.2rem);letter-spacing:-.04em;line-height:1;text-align:center}
+.t-unit{font-family:'Courier Prime',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;
+  color:var(--text-light);text-align:center;text-transform:uppercase;margin:6px 0 18px}
+.t-rows{border-top:1px solid var(--border);padding-top:12px}
+.t-row{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:8px;padding:6px 0}
+/* display:grid batte il display:none che il browser da' ad [hidden], che ha
+   specificita' zero: senza questa riga rowBonus.hidden=true non nasconde
+   niente e resta a schermo il valore dell'ultimo calcolo. */
+.t-row[hidden]{display:none}
+.t-row::after{content:'';order:2;border-bottom:1px dotted var(--border-dark);transform:translateY(-4px)}
+.t-row .k{order:1;font-size:13px;color:var(--text-muted)}
+.t-row .v{order:3;font-family:'Courier Prime',ui-monospace,monospace;font-weight:700;font-size:13.5px}
+.t-row.tot{margin-top:6px;padding-top:10px;border-top:1px solid var(--border)}
+.t-row.tot .k{font-weight:700;color:var(--text)}
+.t-norma{margin-top:18px;padding-top:12px;border-top:1px dashed var(--border);
+  font-family:'Courier Prime',ui-monospace,monospace;font-size:10.5px;line-height:1.55;
+  color:var(--text-light)}
+.t-norma b{color:var(--text-muted);letter-spacing:.08em;display:block;margin-bottom:3px;
+  text-transform:uppercase;font-size:9.5px}
+
+/* ── firma ──────────────────────────────────────────────────── */
+.w-foot{margin-top:20px;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;flex-wrap:wrap;font-size:12px;color:var(--text-light)}
+.w-foot a{color:var(--blue);font-weight:600;text-decoration:none}
+.w-foot a:hover{text-decoration:underline}
+.w-cta{display:inline-block;padding:7px 14px;background:var(--blue);color:#fff !important;
+  border-radius:3px;font-weight:600;font-size:12.5px;text-decoration:none !important}
+@media(max-width:420px){.fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="w-head">
+    <span class="w-title">Stipendio netto 2026</span>
+    <span class="w-sub">CalcolaPro</span>
+  </div>
+
+  <div class="fields">
+    <div>
+      <label for="ral">Stipendio lordo annuo (€)</label>
+      <input type="number" id="ral" value="30000" min="0" max="1000000" step="500" inputmode="numeric"/>
+    </div>
+    <div>
+      <label for="mensilita">Mensilità</label>
+      <select id="mensilita">
+        <option value="12">12</option>
+        <option value="13" selected>13</option>
+        <option value="14">14</option>
+      </select>
+    </div>
+    <div class="f-full">
+      <label for="regione">Regione di residenza</label>
+      <select id="regione"></select>
+    </div>
+
+    <details class="more">
+      <summary class="more-toggle">Detrazioni e addizionale comunale</summary>
+      <div class="fields">
+        <div>
+          <label for="figli">Figli a carico (21+)</label>
+          <select id="figli">
+            <option value="0" selected>Nessuno</option>
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4 o più</option>
+          </select>
+        </div>
+        <div>
+          <label for="coniuge">Coniuge a carico</label>
+          <select id="coniuge"><option value="0" selected>No</option><option value="1">Sì</option></select>
+        </div>
+        <div class="f-full">
+          <label for="addComunale">Addizionale comunale (%)</label>
+          <input type="number" id="addComunale" value="0.50" min="0" max="1" step="0.01"/>
+          <p class="hint" style="margin-top:5px">Lo 0,50% è un'ipotesi di comodo, non la tua: la decide il Comune e va da 0% a 0,80% (0,90% a Roma).</p>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="tape">
+    <div class="t-label">Netto mensile</div>
+    <div class="t-value" id="netMese">—</div>
+    <div class="t-unit" id="netUnit">su 13 mensilità</div>
+    <div class="t-rows">
+      <div class="t-row"><span class="k">Lordo annuo</span><span class="v" id="rLordo">—</span></div>
+      <div class="t-row"><span class="k">Contributi INPS</span><span class="v" id="rInps">—</span></div>
+      <div class="t-row"><span class="k">IRPEF e addizionali</span><span class="v" id="rIrpef">—</span></div>
+      <div class="t-row" id="rowBonus" hidden><span class="k">Taglio del cuneo</span><span class="v" id="rBonus">—</span></div>
+      <div class="t-row tot"><span class="k">Netto annuo</span><span class="v" id="rNetto">—</span></div>
+    </div>
+    <div class="t-norma">
+      <b>Norma applicata</b>
+      IRPEF 23/33/43% su 28.000 e 50.000 € (L. 199/2025 art. 1 c. 3) · detrazione da lavoro
+      dipendente art. 13 TUIR sull'imponibile fiscale · taglio del cuneo L. 207/2024 art. 1
+      commi 4-9 · addizionale regionale secondo le aliquote 2026 del Dipartimento delle Finanze.
+    </div>
+  </div>
+
+  <div class="w-foot">
+    <span>Calcolo indicativo, non sostituisce la busta paga.</span>
+    <a class="w-cta" href="https://calcolapro.it/lordonetto.html" target="_blank" rel="noopener">Versione completa →</a>
+  </div>
+
+</div>
+
+<script src="js/busta-paga.js"></script>
+<script>
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  var fmt0 = new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+
+  // Regioni dal modulo condiviso: se domani cambia un'aliquota si aggiorna in un
+  // posto solo e il widget la eredita. Elencare le regioni qui dentro sarebbe la
+  // stessa copia-e-scosta che ha prodotto il bug della detrazione sulla RAL.
+  var REG = window.CalcolaPro && window.CalcolaPro.REGIONI;
+  var selReg = $('regione');
+  if (REG) {
+    Object.keys(REG).sort(function(a,b){ return REG[a].n.localeCompare(REG[b].n,'it'); })
+      .forEach(function(k){
+        var o = document.createElement('option');
+        o.value = k; o.textContent = REG[k].n;
+        selReg.appendChild(o);
+      });
+  }
+
+  // Regione iniziale da querystring (?r=lombardia), altrimenti la prima in elenco.
+  var params = new URLSearchParams(location.search);
+  var r0 = (params.get('r')||'').toLowerCase();
+  if (r0 && REG && REG[r0]) selReg.value = r0;
+  var m0 = params.get('m');
+  if (m0 === '12' || m0 === '13' || m0 === '14') $('mensilita').value = m0;
+
+  function calcola(){
+    var lordo = parseFloat($('ral').value);
+    if (!isFinite(lordo) || lordo < 0) lordo = 0;
+    var mens    = parseInt($('mensilita').value, 10);
+    var figli   = parseInt($('figli').value, 10) || 0;
+    var coniuge = $('coniuge').value === '1';
+    var aliqCom = parseFloat($('addComunale').value);
+    if (!isFinite(aliqCom)) aliqCom = 0;
+
+    var r = window.CalcolaPro.bustaPaga(lordo, figli, coniuge, 0, aliqCom, selReg.value);
+
+    $('netMese').textContent = fmt0.format(r.netto / mens);
+    $('netUnit').textContent = 'su ' + mens + ' mensilità';
+    $('rLordo').textContent  = fmt0.format(r.lordo);
+    $('rInps').textContent   = '− ' + fmt0.format(r.inps);
+    $('rIrpef').textContent  = '− ' + fmt0.format(r.irpefNetta);
+    $('rNetto').textContent  = fmt0.format(r.netto);
+
+    // La riga compare solo quando l'importo esiste davvero: una voce a zero
+    // fa credere che la misura non spetti, invece che non applicarsi.
+    var bonus = r.sommaEsente;
+    $('rowBonus').hidden = !(bonus > 0);
+    $('rBonus').textContent = bonus > 0 ? '+ ' + fmt0.format(bonus) : '';
+
+    misura();
+  }
+
+  // Altezza comunicata al sito ospite. Senza questo l'iframe resta all'altezza
+  // fissata nello snippet e taglia la banda quando l'utente apre le detrazioni.
+  // Chi ascolta riconosce il mittente da event.source, quindi qui non serve
+  // spedire nessun identificativo.
+  //
+  // Si misura .wrap piu' i margini interni del body, non documentElement: quello
+  // in un iframe piu' alto del contenuto restituisce l'altezza del viewport, e
+  // sommarci un margine fisso lo fa crescere a ogni giro senza mai fermarsi.
+  var wrap = document.querySelector('.wrap');
+  function altezzaContenuto(){
+    var s = getComputedStyle(document.body);
+    return Math.ceil(wrap.getBoundingClientRect().height +
+      parseFloat(s.paddingTop) + parseFloat(s.paddingBottom)) + 2;
+  }
+
+  var ultima = 0;
+  function misura(){
+    var h = altezzaContenuto();
+    if (h === ultima) return;
+    ultima = h;
+    parent.postMessage({ type:'calcolapro:altezza', altezza: h }, '*');
+  }
+
+  // Nessuna riconciliazione verso il contenitore, e la ragione e' misurata: se il
+  // genitore cambia l'altezza dell'iframe da JavaScript, dentro l'iframe NON arriva
+  // ne' un evento resize ne' una callback di ResizeObserver (innerHeight passa da
+  // 811 a 1400 senza notifiche, provato in Chromium). Non serve comunque: l'unico
+  // che scrive quell'altezza e' l'ascoltatore dello snippet, che ci riscrive il
+  // valore appena ricevuto da qui. Le variazioni vere sono di LARGHEZZA, e quelle
+  // rimpaginano il contenuto, quindi passano dal ramo qui sopra.
+
+  ['ral','mensilita','regione','figli','coniuge','addComunale'].forEach(function(id){
+    $(id).addEventListener('input', calcola);
+    $(id).addEventListener('change', calcola);
+  });
+  document.querySelector('details.more').addEventListener('toggle', misura);
+  window.addEventListener('resize', misura);
+  if (window.ResizeObserver) new ResizeObserver(misura).observe(wrap);
+  document.fonts && document.fonts.ready.then(misura);
+
+  calcola();
+})();
+</script>
+</body>
+</html>

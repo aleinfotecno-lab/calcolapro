@@ -130,6 +130,22 @@ for (const c of casi) {
       }
     }
 
+    // Alcune righe del risultato devono SPARIRE quando la voce non si applica:
+    // una voce a zero, o peggio col valore del calcolo precedente, fa credere che
+    // la misura non spetti invece che non applicarsi. textContent non basta a
+    // verificarlo — un elemento nascosto lo espone lo stesso — quindi si guarda
+    // se occupa spazio.
+    for (const [ids, atteso, come] of [[c.nascosti, false, 'nascosto'], [c.visibili, true, 'visibile']]) {
+      for (const id of ids || []) {
+        const visibile = await page.evaluate((i) => {
+          const el = document.getElementById(i);
+          return el ? el.getBoundingClientRect().height > 0 : null;
+        }, id);
+        expect(visibile, `#${id} non esiste nella pagina`).not.toBeNull();
+        expect(visibile, `#${id} doveva essere ${come} — ${c.norma}`).toBe(atteso);
+      }
+    }
+
     expect(errori, `errori JS: ${errori.join('; ')}`).toEqual([]);
   });
 }

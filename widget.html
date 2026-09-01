@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Widget calcolo stipendio netto da incorporare | CalcolaPro</title>
+  <meta name="description" content="Metti gratis sul tuo sito il calcolatore dello stipendio netto 2026: nessun cookie, nessun consenso da aggiungere, si aggiorna quando cambia la legge."/>
+  <link rel="canonical" href="https://calcolapro.it/widget.html"/>
+  <meta property="og:title" content="Widget calcolo stipendio netto da incorporare | CalcolaPro"/>
+  <meta property="og:description" content="Metti gratis sul tuo sito il calcolatore dello stipendio netto 2026: nessun cookie, nessun consenso da aggiungere, si aggiorna quando cambia la legge."/>
+  <meta property="og:url" content="https://calcolapro.it/widget.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="it_IT"/>
+  <meta property="og:image" content="https://calcolapro.it/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:site_name" content="CalcolaPro"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://calcolapro.it/og-image.jpg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013466056664238" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Familjen+Grotesk:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Tre soli blocchi non coperti dal design system: l'anteprima, il generatore
+       e la sua griglia di campi. Stanno qui invece che in style.css perche'
+       servono a questa pagina sola. */
+    .widget-demo{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+      padding:8px;margin:24px 0;overflow:hidden}
+    .widget-gen{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);
+      padding:22px;margin:20px 0 32px}
+    .widget-gen label{display:block;font-size:13.5px;font-weight:600;margin-bottom:5px}
+    .gen-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+    .widget-gen textarea{width:100%;font-family:'Courier Prime',ui-monospace,monospace;font-size:12.5px;
+      line-height:1.55;padding:12px;border:1px solid var(--border-dark);border-radius:var(--radius-sm);
+      background:var(--tape);color:var(--text);resize:vertical}
+    .widget-gen .btn-primary{margin-top:12px}
+    #genEsito{margin-left:12px;font-size:13.5px;color:var(--green);font-weight:600}
+    @media(max-width:640px){.gen-fields{grid-template-columns:1fr}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Widget calcolo stipendio netto da incorporare | CalcolaPro",
+    "description": "Metti gratis sul tuo sito il calcolatore dello stipendio netto 2026: nessun cookie, nessun consenso da aggiungere, si aggiorna quando cambia la legge.",
+    "url": "https://calcolapro.it/widget.html",
+    "inLanguage": "it-IT",
+    "datePublished": "2026-08-31",
+    "dateModified": "2026-08-31",
+    "isPartOf": { "@type": "WebSite", "name": "CalcolaPro", "url": "https://calcolapro.it" },
+    "author": { "@type": "Person", "name": "Alessandro Signorile" },
+    "publisher": { "@type": "Organization", "name": "CalcolaPro", "url": "https://calcolapro.it" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "CalcolaPro", "item": "https://calcolapro.it" },
+      { "@type": "ListItem", "position": 2, "name": "Widget", "item": "https://calcolapro.it/widget.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Il widget rallenta la mia pagina?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Poco: l'iframe è dichiarato con loading=\"lazy\", quindi il browser lo scarica solo quando il lettore arriva a quel punto della pagina. Il contenuto pesa meno di 20 KB oltre ai due font, e non carica né pubblicità né script di tracciamento, che sono la voce pesante nella maggior parte degli embed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso togliere la riga di attribuzione?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No: è la sola condizione d'uso. Il widget è gratuito e senza limiti di traffico proprio perché quella riga resta. Puoi però adattarne lo stile a quello della tua pagina, purché il link resti visibile e cliccabile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Il widget installa cookie o raccoglie dati dei miei lettori?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Non scrive cookie, non usa il localStorage, non carica Google Analytics né pubblicità. I valori che il lettore digita restano nel suo browser e non vengono inviati a nessun server, nemmeno al nostro. Per questo non devi aggiungere niente alla tua informativa privacy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Perché l'altezza dell'iframe cambia da sola?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Perché il contenuto si allunga quando il lettore apre il pannello delle detrazioni. Il widget comunica la propria altezza alla pagina ospite con postMessage e lo script incluso nel blocco ridimensiona l'iframe. Se preferisci non includere quello script il widget funziona comunque, ma con l'altezza fissa dichiarata nell'attributo style: in quel caso lascia almeno 930 pixel, che e' l'altezza misurata su schermo stretto, dove i campi si impilano."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Chi aggiorna le aliquote quando cambia la legge di bilancio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Noi, e l'aggiornamento arriva sul tuo sito senza che tu faccia niente, perché il contenuto dell'iframe è servito da calcolapro.it. Ogni valore del calcolo è ancorato a una fonte ufficiale citata in pagina, e ogni modifica alla formula è coperta da casi di prova che fissano il numero che il calcolatore deve produrre."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Esiste un widget per gli altri calcolatori?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per ora no: lo stipendio netto è il calcolo richiesto più spesso e abbiamo preferito farne uno solo, fatto bene. Se ti servirebbe il mutuo, il TFR o le tasse del regime forfettario, scrivicelo: la scelta del prossimo dipende da cosa viene chiesto."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Vai al contenuto</a>
+    <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="index.html" class="nav-logo" aria-label="CalcolaPro - Home">Calcola<span>Pro</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-quicklink">Home</a>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-expanded="false" aria-controls="navMenuPanel" aria-haspopup="true">
+        Calcolatori
+        <svg class="nav-menu-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-menu-panel" id="navMenuPanel">
+    <div class="nav-menu-inner">
+      <div class="nav-menu-search">
+        <input type="text" id="navSearchInput" placeholder="Cerca tra i 40 calcolatori..." aria-label="Cerca un calcolatore">
+      </div>
+      <div class="nav-menu-grid">
+        <div class="nav-menu-col nav-menu-col-wide">
+          <h4><a href="categoria-lavoro-dipendente.html">💼 Lavoro &amp; Freelance</a></h4>
+          <div class="nav-menu-sublist">
+            <div>
+              <a href="lordonetto.html">Stipendio Netto</a>
+              <a href="freelance.html">Tariffa Oraria Freelance</a>
+              <a href="partitaiva.html">Partita IVA vs Dipendente</a>
+              <a href="calcolo-tfr-liquidazione.html">TFR Liquidazione</a>
+              <a href="chilometrico.html">Rimborso Chilometrico</a>
+              <a href="pensione.html">Pensione</a>
+              <a href="calcolo-ferie-permessi.html">Ferie e Permessi</a>
+              <a href="calcolo-straordinari.html">Straordinari</a>
+            </div>
+            <div>
+              <a href="calcolo-naspi.html">NASpI</a>
+              <a href="calcolo-cassa-integrazione.html">Cassa Integrazione</a>
+              <a href="calcolo-malattia-inps.html">Malattia INPS</a>
+              <a href="calcolo-maternita-inps.html">Maternità INPS</a>
+              <a href="calcolo-costo-lavoro.html">Costo del Lavoro</a>
+              <a href="calcolo-interessi-mora.html">Interessi di Mora</a>
+              <a href="calcolo-prestazione-occasionale.html">Prestazione Occasionale</a>
+              <a href="calcolo-preavviso.html">Preavviso</a>
+              <a href="calcolo-quattordicesima-netta.html">Quattordicesima Netta</a>
+              <a href="calcolo-assegno-unico.html">Assegno Unico</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-menu-col">
+          <h4><a href="categoria-risparmio-investimenti.html">💰 Risparmio &amp; Investimenti</a></h4>
+          <a href="calcolatore-interessi-conto-deposito.html">Conto Deposito</a>
+          <a href="calcolo-buoni-fruttiferi-postali.html">Buoni Fruttiferi Postali</a>
+          <a href="calcolatore-risparmio.html">Obiettivo di Risparmio</a>
+          <a href="calcolatore-prestito-personale.html">Prestito Personale</a>
+          <a href="calcolo-fondo-pensione.html">Fondo Pensione</a>
+          <a href="calcolo-capitale-assicurato.html">Capitale Assicurato</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4><a href="categoria-casa-mutuo.html">🏠 Casa &amp; Mutuo</a></h4>
+          <a href="mutuo.html">Rata Mutuo</a>
+          <a href="affitto.html">Affitto Sostenibile</a>
+          <a href="calcolo-cedolare-secca.html">Cedolare Secca</a>
+          <a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a>
+          <a href="calcolo-imu.html">IMU</a>
+          <a href="calcolo-plusvalenza-immobiliare.html">Plusvalenza Immobiliare</a>
+          <a href="calcolo-locazioni-brevi.html">Locazioni Brevi</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4><a href="categoria-tasse-fisco.html">🧾 Tasse &amp; IVA</a></h4>
+          <a href="iva.html">Calcolatore IVA</a>
+          <a href="calcolo-isee.html">ISEE</a>
+          <a href="calcolo-detrazioni-730.html">Detrazioni 730</a>
+          <a href="calcolo-bollo-auto.html">Bollo Auto</a>
+        </div>
+        <div class="nav-menu-col">
+          <h4><a href="categoria-utilita-quotidiane.html">🏃 Salute &amp; Utilità</a></h4>
+          <a href="tdee.html">TDEE</a>
+          <a href="bmi.html">BMI</a>
+          <a href="calcolatore-percentuale.html">Percentuale</a>
+          <a href="calcolo-eta.html">Età</a>
+          <a href="divisione-conto.html">Divisione Conto</a>
+        </div>
+        <div class="nav-menu-col nav-menu-col-wide">
+          <h4>📚 Guide</h4>
+          <div class="nav-menu-sublist">
+            <div>
+              <a href="categoria-freelance.html">Calcolatori per Freelance</a>
+              <a href="guida-regime-forfettario.html">Regime Forfettario</a>
+              <a href="guida-stipendio-netto-lordo.html">Stipendio Netto dal Lordo</a>
+              <a href="stipendio-netto-per-regione.html">Stipendio Netto per Regione</a>
+              <a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso o Variabile</a>
+              <a href="guida-comprare-affittare-casa.html">Comprare o Affittare</a>
+              <a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a>
+              <a href="guida-pensione-anticipata-2026.html">Pensione Anticipata</a>
+            </div>
+            <div>
+              <a href="guida-conto-deposito-2026.html">Conti Deposito</a>
+              <a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a>
+              <a href="guida-investire-10000-euro.html">Investire 10.000€</a>
+              <a href="guida-730-precompilato-2026.html">730 Precompilato</a>
+              <a href="guida-deficit-calorico-dimagrire.html">Deficit Calorico</a>
+              <a href="glossario-finanziario.html">Glossario Finanziario</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="nav-menu-empty" id="navMenuEmpty">Nessun risultato. Prova un altro termine di ricerca.</p>
+    </div>
+  </div>
+
+  <nav aria-label="Breadcrumb">
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://calcolapro.it" itemprop="item"><span itemprop="name">CalcolaPro</span></a>
+      <meta itemprop="position" content="1">
+    </li>
+    <span class="breadcrumb-separator" aria-hidden="true">›</span>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span class="breadcrumb-current" itemprop="name" aria-current="page">Widget</span>
+      <meta itemprop="position" content="2">
+    </li>
+  </ol>
+  </nav>
+
+  <main id="main-content">
+    <div class="container">
+
+      <h1>Widget CalcolaPro: il calcolo dello stipendio netto sul tuo sito</h1>
+
+      <p><strong>Una riga di codice</strong> mette sul tuo sito il calcolatore lordo/netto aggiornato all'IRPEF 2026 e al taglio del cuneo fiscale. Non installa cookie, non traccia i tuoi lettori, non richiede consensi aggiuntivi nella tua informativa. È gratuito, anche per siti commerciali, e l'unica condizione è lasciare visibile la riga che dice da dove viene il calcolo.</p>
+
+      <p>Chi scrive di lavoro, buste paga o contratti si trova sempre davanti allo stesso problema: il lettore ha appena letto che l'aliquota è cambiata e vuole sapere <em>cosa cambia per lui</em>. Rispondere richiede un calcolatore, e mantenerne uno significa inseguire ogni anno le aliquote regionali di ventuno amministrazioni, le soglie del cuneo e i decreti di dicembre. Questo widget fa quel lavoro al posto tuo: quando la norma cambia, si aggiorna qui e la tua pagina mostra il numero nuovo senza che tu debba toccare niente.</p>
+
+      <h2>Provalo qui</h2>
+      <p>Questo è esattamente ciò che vedranno i tuoi lettori. Cambia i valori: il calcolo è lo stesso motore che gira su <a href="lordonetto.html">CalcolaPro</a>, non una versione semplificata.</p>
+
+      <div class="widget-demo">
+        <iframe id="demoFrame" src="embed.html?r=lombardia" title="Anteprima del widget CalcolaPro per il calcolo dello stipendio netto" loading="lazy" style="width:100%;border:0;height:930px;"></iframe>
+      </div>
+
+      <h2>Prendi il codice</h2>
+      <p>Scegli come deve presentarsi al primo caricamento, poi copia il blocco e incollalo nel punto della pagina in cui vuoi che compaia.</p>
+
+      <div class="widget-gen">
+        <div class="gen-fields">
+          <div>
+            <label for="genRegione">Regione preimpostata</label>
+            <select id="genRegione"></select>
+          </div>
+          <div>
+            <label for="genMens">Mensilità preimpostate</label>
+            <select id="genMens">
+              <option value="12">12</option>
+              <option value="13" selected>13</option>
+              <option value="14">14</option>
+            </select>
+          </div>
+        </div>
+        <label for="genCodice">Codice da incollare</label>
+        <textarea id="genCodice" rows="9" readonly aria-describedby="gen-help"></textarea>
+        <p class="hint" id="gen-help">Il blocco contiene l'iframe, lo script che ne adatta l'altezza e la riga di attribuzione. Vanno incollati tutti e tre.</p>
+        <button type="button" class="btn-primary" id="genCopia">Copia il codice</button>
+        <span id="genEsito" role="status" aria-live="polite"></span>
+      </div>
+
+      <h2>Cosa ottieni, in concreto</h2>
+
+      <div class="content-section">
+        <h3>Il calcolo è quello vero, non una stima</h3>
+        <p>Il widget carica lo stesso file JavaScript del calcolatore principale. Applica gli scaglioni IRPEF 2026 al 23, 33 e 43% sulle soglie di 28.000 e 50.000 euro fissate dalla <strong>legge 199/2025</strong>, la detrazione da lavoro dipendente dell'<strong>articolo 13 TUIR</strong> parametrata sull'imponibile fiscale, il <strong>taglio del cuneo</strong> della legge 207/2024 nelle sue due componenti (somma esente fino a 20.000 euro di imponibile, ulteriore detrazione che si azzera a 40.000) e l'aliquota aggiuntiva dell'1% sulla quota oltre la prima fascia pensionabile, che per il 2026 è 56.224 euro.</p>
+        <p>Le addizionali regionali sono quelle pubblicate dal Dipartimento delle Finanze, comprese le sei fra regioni e province autonome che non seguono la progressione ordinaria: Friuli-Venezia Giulia e Valle d'Aosta applicano un'aliquota piatta, Bolzano una detrazione fissa, Trento una deduzione sotto i 30.000 euro, Umbria e Lazio un'aliquota unica sotto la soglia.</p>
+
+        <h3>Non aggiunge adempimenti alla tua pagina</h3>
+        <p>L'iframe non scrive cookie, non usa <code>localStorage</code>, non carica Analytics, non carica pubblicità e non invia da nessuna parte i numeri che il lettore digita: il calcolo avviene interamente nel suo browser. Non devi modificare la tua cookie policy né chiedere un consenso in più.</p>
+
+        <h3>Si adatta da solo in altezza</h3>
+        <p>Quando il lettore apre il pannello delle detrazioni il contenuto si allunga. Il widget comunica la propria altezza alla pagina che lo ospita con <code>postMessage</code>, e lo script incluso nel blocco ridimensiona l'iframe. Senza quello script il widget funziona lo stesso, ma resta all'altezza fissa dichiarata nel codice.</p>
+
+        <h3>Resta aggiornato senza che tu faccia niente</h3>
+        <p>Le aliquote cambiano con la legge di bilancio, di solito a fine dicembre, e le addizionali regionali seguono un calendario proprio. Ogni aggiornamento pubblicato su CalcolaPro compare immediatamente nel widget incorporato, perché il contenuto viene servito da qui.</p>
+      </div>
+
+      <h2>Condizioni d'uso</h2>
+      <div class="content-section">
+        <p>Il widget è gratuito e utilizzabile anche su siti commerciali, a queste condizioni:</p>
+        <ul>
+          <li><strong>Lascia la riga di attribuzione</strong> che trovi nel blocco di codice. È un link normale al calcolatore: serve al lettore che vuole la versione completa e a noi per sapere dove il widget è in uso. È l'unico compenso richiesto.</li>
+          <li><strong>Non modificare il calcolo.</strong> Puoi cambiare larghezza, margini e posizione nella pagina; non puoi alterare i numeri prodotti né presentare il risultato come proveniente da una fonte diversa.</li>
+          <li><strong>Non presentarlo come consulenza.</strong> Il risultato è una stima accurata ma indicativa: non tiene conto di premi, benefit, conguagli, trattenute sindacali o assistenza fiscale, e non sostituisce la busta paga.</li>
+          <li><strong>Se non ti serve più, rimuovilo.</strong> Non c'è registrazione, non c'è contratto, non c'è niente da disdire.</li>
+        </ul>
+        <p>Ci riserviamo di aggiornare il calcolo quando cambia la normativa, che è precisamente il motivo per cui questo widget ha senso.</p>
+      </div>
+
+      <div class="sources-box">
+        <h3>Fonti ufficiali</h3>
+        <ul>
+          <li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-12-30;199" target="_blank" rel="noopener">Normattiva &mdash; L. 30 dicembre 2025 n. 199 (bilancio 2026), art. 1: aliquote IRPEF 23/33/43% sulle soglie di 28.000 e 50.000 euro</a></li>
+          <li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1986-12-22;917" target="_blank" rel="noopener">Normattiva &mdash; D.P.R. 917/1986 (TUIR), art. 13: detrazione per redditi da lavoro dipendente</a></li>
+          <li><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2024-12-30;207" target="_blank" rel="noopener">Normattiva &mdash; L. 207/2024, art. 1 commi 4-9: taglio del cuneo fiscale, somma esente e ulteriore detrazione</a></li>
+          <li><a href="https://www.finanze.gov.it/it/fiscalita/fiscalita-regionale-e-locale/Addizionale-regionale-allIRPEF/aliquote-applicabili/" target="_blank" rel="noopener">MEF Dipartimento delle Finanze &mdash; addizionale regionale all’IRPEF: aliquote applicabili per regione e provincia autonoma</a></li>
+          <li><a href="https://www.agenziaentrate.gov.it/portale/imposta-sul-reddito-delle-persone-fisiche-irpef-/aliquote-e-calcolo-dell-irpef" target="_blank" rel="noopener">Agenzia delle Entrate &mdash; aliquote e calcolo dell’IRPEF</a></li>
+        </ul>
+        <span class="src-note">Fonti verificate il 1 settembre 2026. Il widget legge questi valori dallo stesso modulo di calcolo del calcolatore principale: quando cambiano, cambiano in un posto solo e la modifica arriva su ogni sito che lo incorpora.</span>
+      </div>
+
+      <h2>Domande frequenti</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Il widget rallenta la mia pagina?<span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Poco: l'iframe è dichiarato con <code>loading="lazy"</code>, quindi il browser lo scarica solo quando il lettore arriva a quel punto della pagina. Il contenuto pesa meno di 20 KB oltre ai due font, e non carica né pubblicità né script di tracciamento, che sono la voce pesante nella maggior parte degli embed.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Posso togliere la riga di attribuzione?<span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">No: è la sola condizione d'uso. Il widget è gratuito e senza limiti di traffico proprio perché quella riga resta. Puoi però adattarne lo stile a quello della tua pagina, purché il link resti visibile e cliccabile.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Il widget installa cookie o raccoglie dati dei miei lettori?<span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">No. Non scrive cookie, non usa il <code>localStorage</code>, non carica Google Analytics né pubblicità. I valori che il lettore digita restano nel suo browser e non vengono inviati a nessun server, nemmeno al nostro. Per questo non devi aggiungere niente alla tua informativa privacy.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Perché l'altezza dell'iframe cambia da sola?<span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Perché il contenuto si allunga quando il lettore apre il pannello delle detrazioni. Il widget comunica la propria altezza alla pagina ospite con <code>postMessage</code> e lo script incluso nel blocco ridimensiona l'iframe. Se preferisci non includere quello script il widget funziona comunque, ma con l'altezza fissa dichiarata nell'attributo <code>style</code>: in quel caso lascia almeno 930 pixel, che e' l'altezza misurata su schermo stretto, dove i campi si impilano.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Chi aggiorna le aliquote quando cambia la legge di bilancio?<span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Noi, e l'aggiornamento arriva sul tuo sito senza che tu faccia niente, perché il contenuto dell'iframe è servito da calcolapro.it. Ogni valore del calcolo è ancorato a una fonte ufficiale citata in pagina, e ogni modifica alla formula è coperta da casi di prova che fissano il numero che il calcolatore deve produrre.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Esiste un widget per gli altri calcolatori?<span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Per ora no: lo stipendio netto è il calcolo richiesto più spesso e abbiamo preferito farne uno solo, fatto bene. Se ti servirebbe il mutuo, il TFR o le tasse del regime forfettario, <a href="contatti.html">scrivicelo</a>: la scelta del prossimo dipende da cosa viene chiesto.</div>
+      </div>
+
+      <div class="related-tools">
+        <h2>Vedi anche</h2>
+        <ul>
+          <li><a href="lordonetto.html">Calcolo stipendio netto dal lordo</a> — la versione completa, con il dettaglio mese per mese</li>
+          <li><a href="stipendio-netto-per-regione.html">Stipendio netto regione per regione</a> — il dataset aperto, riutilizzabile con licenza CC BY 4.0</li>
+          <li><a href="categoria-lavoro-dipendente.html">Tutti i calcolatori per il lavoro dipendente</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Calcola<span>Pro</span></div>
+        <p>Strumenti gratuiti e precisi per lavoratori e professionisti italiani. Nessuna registrazione richiesta.</p>
+        <p class="footer-disclaimer">⚠️ I risultati sono indicativi e non sostituiscono la consulenza di un professionista qualificato.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Calcolatori</h3>
+        <ul>
+          <li><a href="lordonetto.html">Lordo &rarr; Netto Stipendio</a></li>
+          <li><a href="mutuo.html">Rata Mutuo</a></li>
+          <li><a href="calcolatore-prestito-personale.html">Prestito Personale</a></li>
+          <li><a href="calcolo-spese-acquisto-casa.html">Spese Acquisto Casa</a></li>
+          <li><a href="calcolo-imu.html">Calcolo IMU</a></li>
+          <li><a href="calcolo-isee.html">Simulatore ISEE</a></li>
+          <li><a href="pensione.html">Pensione 2026</a></li>
+          <li><a href="calcolo-tfr-liquidazione.html">Simulatore TFR</a></li>
+          <li><a href="calcolo-ferie-permessi.html">Ferie e Permessi</a></li>
+          <li><a href="calcolo-straordinari.html">Straordinari</a></li>
+          <li><a href="partitaiva.html">Partita IVA</a></li>
+          <li><a href="chilometrico.html">Rimborso Km ACI</a></li>
+          <li><a href="divisione-conto.html">Divisione Conto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Guide</h3>
+        <ul>
+          <li><a href="guida-730-precompilato-2026.html">730 Precompilato 2026</a></li>
+          <li><a href="guida-bonus-casa-2026.html">Bonus Casa 2026</a></li>
+          <li><a href="guida-regime-forfettario.html">Regime Forfettario</a></li>
+          <li><a href="guida-mutuo-fisso-variabile.html">Mutuo Fisso vs Variabile</a></li>
+          <li><a href="guida-stipendio-netto-lordo.html">Stipendio Netto e Lordo</a></li>
+          <li><a href="guida-comprare-affittare-casa.html">Comprare o Affittare?</a></li>
+          <li><a href="guida-pensione-anticipata-2026.html">Pensione Anticipata 2026</a></li>
+          <li><a href="guida-cedolare-secca-affitti.html">Cedolare Secca Affitti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Informazioni</h3>
+        <ul>
+          <li><a href="come-funziona.html">Come Funziona</a></li>
+          <li><a href="about.html">Chi Siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini di Utilizzo</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="footer-year">2026</span> CalcolaPro — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="cookie.html">Cookie</a> · <a href="termini.html">Termini</a> · <a href="sitemap.xml">Sitemap</a> &middot; <a href="javascript:void(0)" onclick="window.cpOpenCookieSettings &amp;&amp; window.cpOpenCookieSettings()" style="cursor:pointer;">Gestisci cookie</a></span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      answer.style.display = expanded ? 'none' : 'block';
+      btn.querySelector('.faq-arrow').textContent = expanded ? '▾' : '▴';
+    }
+  </script>
+  <script src="js/busta-paga.js" defer></script>
+  <script src="js/widget-gen.js" defer></script>
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle) navToggle.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', o); });
+    document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+  </script>
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
+  <script src="js/navbar.js" defer></script>
+</body>
+</html>
