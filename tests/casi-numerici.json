@@ -1287,6 +1287,34 @@
       "attesi": { "priceOut": 23334 }
     },
     {
+      "file": "/lordonetto.html",
+      "caso": "Bolzano: sotto il tetto di 90.000 la detrazione di 430,50 euro spetta",
+      "norma": "MEF, addizionale regionale Provincia autonoma di Bolzano (art. 21/sexiesdecies L.P. 11 agosto 1998 n. 9): detrazione d'imposta di 430,50 euro ai contribuenti con reddito imponibile non superiore a 90.000 euro. Con RAL 95.000 l'imponibile e' 85.881,74 e la detrazione spetta",
+      "campi": { "importo": 95000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
+      "attesi": { "priceOut": 55947, "irpefOut": 29934 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Bolzano, confine da sotto: imponibile 89.923, la detrazione spetta ancora",
+      "norma": "Ultimo scalino sotto il tetto: RAL 99.500 da un imponibile di 89.923,19 euro, sotto i 90.000, quindi i 430,50 euro si sottraggono",
+      "campi": { "importo": 99500, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
+      "attesi": { "priceOut": 58181, "irpefOut": 31742 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Bolzano, confine da sopra: imponibile 90.013, la detrazione non spetta piu'",
+      "norma": "Cento euro di RAL in piu' portano l'imponibile a 90.013,00 euro, sopra il tetto: la detrazione non spetta. Il sito la sottraeva a chiunque e regalava 430,50 euro di netto",
+      "campi": { "importo": 99600, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
+      "attesi": { "priceOut": 57800, "irpefOut": 32213 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Bolzano, ben oltre il tetto: nessuna detrazione su un imponibile di 99.353",
+      "norma": "Con RAL 110.000 l'imponibile e' 99.353,24 euro: l'addizionale e' 1,23% fino a 28.000, 1,23% da 28.000 a 50.000 e 1,73% sull'eccedenza, senza alcuna detrazione",
+      "campi": { "importo": 110000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
+      "attesi": { "priceOut": 62963, "irpefOut": 36391 }
+    },
+    {
       "file": "/chilometrico.html",
       "caso": "Cinquecento chilometri al mese con auto di media cilindrata",
       "norma": "Art. 51 c.5 TUIR: il rimborso chilometrico non concorre al reddito se calcolato sulle tabelle ACI (GU 297 del 23/12/2025). 500 km x 0,4344 = 217,20; su base mensile la proiezione annua e' x12",
