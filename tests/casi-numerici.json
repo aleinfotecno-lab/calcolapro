@@ -1291,28 +1291,28 @@
       "caso": "Bolzano: sotto il tetto di 90.000 la detrazione di 430,50 euro spetta",
       "norma": "MEF, addizionale regionale Provincia autonoma di Bolzano (art. 21/sexiesdecies L.P. 11 agosto 1998 n. 9): detrazione d'imposta di 430,50 euro ai contribuenti con reddito imponibile non superiore a 90.000 euro. Con RAL 95.000 l'imponibile e' 85.881,74 e la detrazione spetta",
       "campi": { "importo": 95000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
-      "attesi": { "priceOut": 55947, "irpefOut": 29934 }
+      "attesi": { "priceOut": 56072, "irpefOut": 29809 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Bolzano, confine da sotto: imponibile 89.923, la detrazione spetta ancora",
       "norma": "Ultimo scalino sotto il tetto: RAL 99.500 da un imponibile di 89.923,19 euro, sotto i 90.000, quindi i 430,50 euro si sottraggono",
       "campi": { "importo": 99500, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
-      "attesi": { "priceOut": 58181, "irpefOut": 31742 }
+      "attesi": { "priceOut": 58306, "irpefOut": 31617 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Bolzano, confine da sopra: imponibile 90.013, la detrazione non spetta piu'",
       "norma": "Cento euro di RAL in piu' portano l'imponibile a 90.013,00 euro, sopra il tetto: la detrazione non spetta. Il sito la sottraeva a chiunque e regalava 430,50 euro di netto",
       "campi": { "importo": 99600, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
-      "attesi": { "priceOut": 57800, "irpefOut": 32213 }
+      "attesi": { "priceOut": 57925, "irpefOut": 32088 }
     },
     {
       "file": "/lordonetto.html",
       "caso": "Bolzano, ben oltre il tetto: nessuna detrazione su un imponibile di 99.353",
       "norma": "Con RAL 110.000 l'imponibile e' 99.353,24 euro: l'addizionale e' 1,23% fino a 28.000, 1,23% da 28.000 a 50.000 e 1,73% sull'eccedenza, senza alcuna detrazione",
       "campi": { "importo": 110000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
-      "attesi": { "priceOut": 62963, "irpefOut": 36391 }
+      "attesi": { "priceOut": 63088, "irpefOut": 36266 }
     },
     {
       "file": "/lordonetto.html",
@@ -1355,6 +1355,146 @@
       "norma": "Cento euro di RAL in piu' portano l'imponibile a 50.036,31, oltre il limite: si perdono i 150 euro e si entra nello scaglione al 3,33%",
       "campi": { "importo": 55100, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "umbria", "addComunale": 0 },
       "attesi": { "priceOut": 34981, "irpefOut": 15055 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "La detrazione per un figlio a carico non e' fissa: decresce col reddito complessivo",
+      "norma": "Art. 12 c.1 lett. c) TUIR: i 950 euro per figlio spettano per la parte pari al rapporto fra 95.000 diminuito del reddito complessivo e 95.000, assunto nelle prime quattro cifre decimali (c. 4). Con imponibile 36.324 il rapporto e' 0,6176 e la detrazione scende a 586,72",
+      "campi": { "importo": 40000, "tipo": "lordo", "mensilita": 13, "figli": 1, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 28561, "irpefOut": 7763 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Tre figli: i 200 euro in piu' non esistono piu', e il tetto del rapporto sale a 125.000",
+      "norma": "Art. 12 c.1 lett. c) TUIR: il periodo che aumentava la detrazione di 200 euro per ciascun figlio ai contribuenti con piu' di tre figli e' SOPPRESSO dal D.Lgs. 230/2021, il decreto dell'assegno unico. Restano 950 euro per figlio, col tetto di 95.000 aumentato di 15.000 per ogni figlio successivo al primo: 125.000",
+      "campi": { "importo": 40000, "tipo": "lordo", "mensilita": 13, "figli": 3, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 29996, "irpefOut": 6328 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Redditi alti: la detrazione per figli si azzera quasi del tutto",
+      "norma": "Art. 12 c.1 lett. c) TUIR: con imponibile 108.334 e tetto 110.000 il rapporto vale 0,0151 e i 1.900 euro teorici per due figli si riducono a 28,69",
+      "campi": { "importo": 120000, "tipo": "lordo", "mensilita": 13, "figli": 2, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 67163, "irpefOut": 41171 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Controprova: senza figli a carico nessuna detrazione di famiglia entra nel conto",
+      "norma": "Stessa RAL del caso con un figlio, ma senza carichi: l'imposta netta si regge sulla sola detrazione da lavoro dipendente dell'art. 13 TUIR, e il fix sull'art. 12 non deve spostare questo numero",
+      "campi": { "importo": 40000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 27974, "irpefOut": 8350 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Coniuge a carico: sopra i 15.000 di reddito la detrazione e' 690 euro, non 800",
+      "norma": "Art. 12 c.1 lett. a) n. 2 TUIR: per reddito complessivo superiore a 15.000 e non superiore a 40.000 euro la detrazione per coniuge a carico e' di 690 euro. Gli 800 euro sono il massimo teorico della n. 1, che spetta solo a redditi prossimi a zero",
+      "campi": { "importo": 25000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 1, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 21059, "irpefOut": 1643 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Coniuge: la maggiorazione di 30 euro della lettera b), fascia 34.700-35.000",
+      "norma": "Art. 12 c.1 lett. b) n. 3 TUIR: la detrazione per coniuge e' aumentata di 30 euro se il reddito complessivo supera 34.700 euro ma non 35.000. Con RAL 38.542 l'imponibile e' 34.999,99, appena dentro la fascia",
+      "campi": { "importo": 38542, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 1, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 28117, "irpefOut": 6883 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Coniuge, confine da sopra: un euro di RAL in piu' e la maggiorazione scende a 20",
+      "norma": "Art. 12 c.1 lett. b) n. 4 TUIR: sopra 35.000 e fino a 35.100 euro la maggiorazione e' di 20 euro. Con RAL 38.543 l'imponibile e' 35.000,89: un euro lordo in piu' fa perdere dieci euro di detrazione",
+      "campi": { "importo": 38543, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 1, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 28107, "irpefOut": 6894 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Coniuge: oltre i 40.000 di reddito la detrazione entra in dissolvenza",
+      "norma": "Art. 12 c.1 lett. a) n. 3 TUIR: fra 40.000 e 80.000 euro i 690 spettano per la parte pari al rapporto fra 80.000 diminuito del reddito complessivo e 40.000. Con imponibile 40.864,50 il rapporto e' 0,9783 e la detrazione vale 675,02",
+      "campi": { "importo": 45000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 1, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 30736, "irpefOut": 10129 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Coniuge: sopra gli 80.000 di reddito la detrazione non compete affatto",
+      "norma": "Art. 12 c.1 lett. a) TUIR: la norma non prevede alcuna detrazione per coniuge oltre gli 80.000 euro di reddito complessivo, e il c. 4 conferma che a rapporto zero la detrazione non compete. Con imponibile 90.372,24 il coniuge a carico non vale nulla",
+      "campi": { "importo": 100000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 1, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 57297, "irpefOut": 33075 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Controprova: alla stessa RAL, senza coniuge a carico, il netto e' identico",
+      "norma": "Sopra gli 80.000 euro di reddito complessivo il coniuge a carico non da' piu' alcuna detrazione: il netto deve coincidere al centesimo con quello di chi non ha carichi di famiglia",
+      "campi": { "importo": 100000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 57297, "irpefOut": 33075 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Bolzano: sopra i 50.000 la detrazione della lettera b) cresce insieme al reddito",
+      "norma": "MEF, disposizioni particolari per la Provincia autonoma di Bolzano, lett. b): per imponibili superiori a 50.000 euro spetta una detrazione di 125 euro moltiplicati per il rapporto fra l'imponibile diminuito di 50.000 e l'importo di 25.000. Con imponibile 63.429 sono 67,15 euro",
+      "campi": { "importo": 70000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
+      "attesi": { "priceOut": 43605, "irpefOut": 19824 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Bolzano, confine da sotto: a 49.945 di imponibile la lettera b) non spetta",
+      "norma": "MEF, disposizioni particolari Bolzano, lett. b): la detrazione spetta solo per imponibili superiori a 50.000 euro. Con RAL 55.000 l'imponibile e' 49.945,50 e la soglia non e' raggiunta: resta la sola detrazione di 430,50 della lett. a)",
+      "campi": { "importo": 55000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
+      "attesi": { "priceOut": 36084, "irpefOut": 13861 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Bolzano: 340 euro per ogni figlio a carico, cumulabili con le altre due detrazioni",
+      "norma": "MEF, disposizioni particolari Bolzano, lett. c): ai contribuenti con imponibile non superiore a 90.000 euro e con figli a carico spetta una detrazione di 340 euro per ogni figlio. Con imponibile 89.923,19 e due figli sono 680 euro, che si sommano ai 430,50 della lett. a) e ai 125 della lett. b): il MEF scrive che le detrazioni sono cumulabili",
+      "campi": { "importo": 99500, "tipo": "lordo", "mensilita": 13, "figli": 2, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
+      "attesi": { "priceOut": 59333, "irpefOut": 30590 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Bolzano, confine da sopra: a 90.013 di imponibile cadono insieme la lett. a) e la lett. c)",
+      "norma": "MEF, disposizioni particolari Bolzano: il tetto di 90.000 euro governa sia i 430,50 della lett. a) sia i 340 per figlio della lett. c). Cento euro di RAL in piu' portano l'imponibile da 89.923,19 a 90.013,00 e fanno decadere entrambe; sopravvive solo la lett. b), che non ha tetto",
+      "campi": { "importo": 99600, "tipo": "lordo", "mensilita": 13, "figli": 2, "coniuge": 0, "regione": "bolzano", "addComunale": 0 },
+      "attesi": { "priceOut": 58270, "irpefOut": 31743 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Trento: 246 euro di detrazione per il figlio a carico",
+      "norma": "MEF, disposizioni particolari per la Provincia autonoma di Trento: ai contribuenti con imponibile non superiore a 50.000 euro spetta una detrazione di 246 euro per ogni figlio che si trova nelle condizioni dell'art. 12 c. 2 del TUIR. Con imponibile 40.864,50 spetta per intero",
+      "campi": { "importo": 45000, "tipo": "lordo", "mensilita": 13, "figli": 1, "coniuge": 0, "regione": "trento", "addComunale": 0 },
+      "attesi": { "priceOut": 31257, "irpefOut": 9608 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Trento, oltre il tetto: sopra i 50.000 di imponibile i 246 euro non spettano",
+      "norma": "MEF, disposizioni particolari Trento: la detrazione e' condizionata a un imponibile non superiore a 50.000 euro. Con RAL 60.000 l'imponibile e' 54.448,24 e la detrazione decade",
+      "campi": { "importo": 60000, "tipo": "lordo", "mensilita": 13, "figli": 1, "coniuge": 0, "regione": "trento", "addComunale": 0 },
+      "attesi": { "priceOut": 38549, "irpefOut": 15899 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Campania: con almeno due figli a carico spettano 30 euro per ciascuno",
+      "norma": "MEF, disposizioni particolari Campania, art. 1 c. 2 L.R. 7 del 30/03/2022: ai soggetti con imponibile non superiore a 28.000 euro e con almeno due figli fiscalmente a carico spetta una detrazione di 30 euro per ciascun figlio. Con imponibile 25.426,80 e due figli sono 60 euro",
+      "campi": { "importo": 28000, "tipo": "lordo", "mensilita": 13, "figli": 2, "coniuge": 0, "regione": "campania", "addComunale": 0 },
+      "attesi": { "priceOut": 23677, "irpefOut": 1750 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Campania, controprova: con un figlio solo la detrazione non spetta",
+      "norma": "MEF, disposizioni particolari Campania: la norma richiede almeno due figli fiscalmente a carico. Con un figlio solo l'addizionale regionale resta piena, e a cambiare rispetto al caso con due figli e' la sola detrazione IRPEF dell'art. 12",
+      "campi": { "importo": 28000, "tipo": "lordo", "mensilita": 13, "figli": 1, "coniuge": 0, "regione": "campania", "addComunale": 0 },
+      "attesi": { "priceOut": 22852, "irpefOut": 2575 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Piemonte: con piu' di due figli spettano 100 euro per ciascuno, senza tetto di reddito",
+      "norma": "MEF, disposizioni particolari Piemonte, L.R. 4 del 28/03/2022 e L.R. 16 del 06/08/2025: 100 euro ai contribuenti con piu' di due figli a carico, per ciascun figlio a partire dal primo. E' l'unica delle quattro regioni a non porre alcun limite di reddito: con imponibile 54.448,24 e tre figli spettano 300 euro",
+      "campi": { "importo": 60000, "tipo": "lordo", "mensilita": 13, "figli": 3, "coniuge": 0, "regione": "piemonte", "addComunale": 0 },
+      "attesi": { "priceOut": 39276, "irpefOut": 15172 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Piemonte, controprova: con due figli la detrazione non scatta",
+      "norma": "MEF, disposizioni particolari Piemonte: la detrazione spetta a chi ha piu' di due figli a carico, quindi da tre in su. Con due figli l'addizionale regionale resta piena",
+      "campi": { "importo": 60000, "tipo": "lordo", "mensilita": 13, "figli": 2, "coniuge": 0, "regione": "piemonte", "addComunale": 0 },
+      "attesi": { "priceOut": 38327, "irpefOut": 16121 }
     },
     {
       "file": "/chilometrico.html",
