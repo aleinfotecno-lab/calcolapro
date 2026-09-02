@@ -1497,6 +1497,76 @@
       "attesi": { "priceOut": 38327, "irpefOut": 16121 }
     },
     {
+      "file": "/lordonetto.html",
+      "caso": "Puglia: con piu' di tre figli spettano 20 euro per ciascuno, dal primo",
+      "norma": "MEF, disposizioni particolari Puglia, art. 3 L.R. 40 del 29/12/2015: ai contribuenti con piu' di tre figli a carico spetta una detrazione di 20 euro per ciascun figlio, in proporzione alla percentuale e ai mesi di carico, a partire dal primo. Con quattro figli sono 80 euro",
+      "campi": { "importo": 60000, "tipo": "lordo", "mensilita": 13, "figli": 4, "figliMinori": 0, "coniuge": 0, "regione": "puglia", "addComunale": 0 },
+      "attesi": { "priceOut": 39902, "irpefOut": 14546 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Puglia, confine da sotto: con tre figli la detrazione non spetta ancora",
+      "norma": "MEF, disposizioni particolari Puglia: la norma dice 'piu' di tre figli', quindi da quattro in su. Con tre figli l'addizionale regionale resta piena: e' il confine esatto della condizione",
+      "campi": { "importo": 60000, "tipo": "lordo", "mensilita": 13, "figli": 3, "figliMinori": 0, "coniuge": 0, "regione": "puglia", "addComunale": 0 },
+      "attesi": { "priceOut": 39109, "irpefOut": 15339 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Puglia: la detrazione scala col numero dei figli, cinque figli valgono 100 euro",
+      "norma": "MEF, disposizioni particolari Puglia: 20 euro per ciascun figlio a partire dal primo, non solo per quelli oltre il terzo. Con cinque figli sono 100 euro",
+      "campi": { "importo": 60000, "tipo": "lordo", "mensilita": 13, "figli": 5, "figliMinori": 0, "coniuge": 0, "regione": "puglia", "addComunale": 0 },
+      "attesi": { "priceOut": 40682, "irpefOut": 13767 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Sardegna: 200 euro per ogni figlio minorenne a carico",
+      "norma": "MEF, disposizioni particolari Sardegna, art. 2 L.R. 48/2018: ai soggetti con imponibile non superiore a 50.000 euro e con figli minorenni fiscalmente a carico spetta una detrazione di 200 euro per ogni figlio minorenne. Con imponibile 49.945,50 e due figli minorenni sono 400 euro",
+      "campi": { "importo": 55000, "tipo": "lordo", "mensilita": 13, "figli": 0, "figliMinori": 2, "coniuge": 0, "regione": "sardegna", "addComunale": 0 },
+      "attesi": { "priceOut": 36054, "irpefOut": 13892 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Sardegna, confine da sopra: a 50.036 di imponibile la detrazione non spetta piu'",
+      "norma": "MEF, disposizioni particolari Sardegna: la detrazione e' condizionata a un imponibile non superiore a 50.000 euro. Cento euro di RAL in piu' portano l'imponibile da 49.945,50 a 50.036,31 e la fanno decadere per intero",
+      "campi": { "importo": 55100, "tipo": "lordo", "mensilita": 13, "figli": 0, "figliMinori": 2, "coniuge": 0, "regione": "sardegna", "addComunale": 0 },
+      "attesi": { "priceOut": 35705, "irpefOut": 14331 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Sardegna, controprova: i figli over 21 non danno la detrazione regionale, solo i minorenni",
+      "norma": "MEF, disposizioni particolari Sardegna: la norma parla di figli MINORENNI fiscalmente a carico, che la nota del MEF definisce come i soggetti minori di 18 anni. Due figli over 21 lasciano l'addizionale regionale piena, e cambia solo la detrazione IRPEF dell'art. 12",
+      "campi": { "importo": 55000, "tipo": "lordo", "mensilita": 13, "figli": 2, "figliMinori": 0, "coniuge": 0, "regione": "sardegna", "addComunale": 0 },
+      "attesi": { "priceOut": 36691, "irpefOut": 13255 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Sardegna: se la detrazione supera l'imposta l'addizionale si azzera, ma non nasce un credito",
+      "norma": "MEF, disposizioni particolari Sardegna: 'Se l'imposta dovuta e' minore della detrazione non sorge alcun credito d'imposta'. Con imponibile 27.243 l'addizionale all'1,23% e' 335,09 euro, meno dei 600 spettanti per tre figli minorenni: si ferma a zero e non diventa un rimborso",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "figliMinori": 3, "coniuge": 0, "regione": "sardegna", "addComunale": 0 },
+      "attesi": { "priceOut": 23956, "irpefOut": 3287 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Controprova: i figli minorenni non toccano le regioni che non li contano",
+      "norma": "Il campo dei figli minorenni serve alla sola Sardegna. In Piemonte la detrazione di 100 euro guarda i figli a carico ai sensi dell'art. 12 c. 1 lett. c) TUIR, quindi i tre over 21: il risultato deve coincidere al centesimo con quello dello stesso caso senza minorenni",
+      "campi": { "importo": 60000, "tipo": "lordo", "mensilita": 13, "figli": 3, "figliMinori": 2, "coniuge": 0, "regione": "piemonte", "addComunale": 0 },
+      "attesi": { "priceOut": 39276, "irpefOut": 15172 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Quattro figli a carico: il tetto del rapporto dell'art. 12 sale a 140.000",
+      "norma": "Art. 12 c.1 lett. c) TUIR: l'importo di 95.000 euro e' aumentato di 15.000 per ogni figlio successivo al primo, quindi 140.000 con quattro figli. Con imponibile 36.324 il rapporto e' 0,7405 e la detrazione vale 2.813,90",
+      "campi": { "importo": 40000, "tipo": "lordo", "mensilita": 13, "figli": 4, "figliMinori": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 30788, "irpefOut": 5536 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Cinque figli: il tetto sale a 155.000, e i 200 euro soppressi non riappaiono",
+      "norma": "Art. 12 c.1 lett. c) TUIR: con cinque figli il tetto e' 155.000 e il rapporto vale 0,7656. La maggiorazione di 200 euro per chi ha piu' di tre figli resta soppressa dal D.Lgs. 230/2021 anche a questo numero di figli",
+      "campi": { "importo": 40000, "tipo": "lordo", "mensilita": 13, "figli": 5, "figliMinori": 0, "coniuge": 0, "regione": "", "addRegionale": 1.73, "addComunale": 0.5 },
+      "attesi": { "priceOut": 31610, "irpefOut": 4714 }
+    },
+    {
       "file": "/chilometrico.html",
       "caso": "Cinquecento chilometri al mese con auto di media cilindrata",
       "norma": "Art. 51 c.5 TUIR: il rimborso chilometrico non concorre al reddito se calcolato sulle tabelle ACI (GU 297 del 23/12/2025). 500 km x 0,4344 = 217,20; su base mensile la proiezione annua e' x12",

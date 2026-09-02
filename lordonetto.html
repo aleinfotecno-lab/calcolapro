@@ -355,9 +355,22 @@
             <option value="0">Nessun figlio</option>
             <option value="1">1 figlio</option>
             <option value="2">2 figli</option>
-            <option value="3">3 o più figli</option>
+            <option value="3">3 figli</option>
+            <option value="4">4 figli</option>
+            <option value="5">5 o più figli</option>
           </select>
-          <p class="hint" id="figli-help">Detrazione IRPEF fino a €950/figlio: decresce al crescere del reddito e si azzera a 95.000 € (110.000 con due figli, 125.000 con tre). Figli under 21: ricevono l'Assegno Unico INPS, non la detrazione fiscale</p>
+          <p class="hint" id="figli-help">Detrazione IRPEF fino a €950/figlio: decresce al crescere del reddito e si azzera a 95.000 €, aumentati di 15.000 € per ogni figlio dopo il primo. Figli under 21: ricevono l'Assegno Unico INPS, non la detrazione fiscale</p>
+        </div>
+        <div class="field">
+          <label for="figliMinori">Figli minorenni a carico</label>
+          <select id="figliMinori" aria-describedby="figli-minori-help">
+            <option value="0">Nessun figlio</option>
+            <option value="1">1 figlio</option>
+            <option value="2">2 figli</option>
+            <option value="3">3 figli</option>
+            <option value="4">4 o più figli</option>
+          </select>
+          <p class="hint" id="figli-minori-help">Non danno detrazione IRPEF: per loro c'è l'Assegno Unico INPS. Contano per l'addizionale regionale, dove la <strong>Sardegna</strong> concede 200 € per ogni figlio minorenne a carico se l'imponibile non supera 50.000 €</p>
         </div>
         <div class="field">
           <label for="coniuge">Coniuge a carico</label>
@@ -719,12 +732,12 @@
     // cosi' le due strade non possono piu' divergere.
     // REGIONI, addizionaleRegionale e bustaPaga vivono in js/busta-paga.js: le usa
     // anche l'hero della home, che deve mostrare lo stesso numero di questa pagina.
-    function nettoFromLordo(lordo, mensilita, figli, coniuge, aliqReg, aliqCom, codReg) {
-      return bustaPaga(lordo, figli, coniuge, aliqReg, aliqCom, codReg).netto;
+    function nettoFromLordo(lordo, mensilita, figli, coniuge, aliqReg, aliqCom, codReg, figliMinori) {
+      return bustaPaga(lordo, figli, coniuge, aliqReg, aliqCom, codReg, figliMinori).netto;
     }
-    function lordiFromNetto(nettoTarget, mensilita, figli, coniuge, aliqReg, aliqCom, codReg) {
+    function lordiFromNetto(nettoTarget, mensilita, figli, coniuge, aliqReg, aliqCom, codReg, figliMinori) {
       let lo=nettoTarget*0.9, hi=nettoTarget*3;
-      for(let i=0;i<60;i++){const mid=(lo+hi)/2;nettoFromLordo(mid,mensilita,figli,coniuge,aliqReg,aliqCom,codReg)<nettoTarget?lo=mid:hi=mid;}
+      for(let i=0;i<60;i++){const mid=(lo+hi)/2;nettoFromLordo(mid,mensilita,figli,coniuge,aliqReg,aliqCom,codReg,figliMinori)<nettoTarget?lo=mid:hi=mid;}
       return (lo+hi)/2;
     }
     function mostraErroreCampo(id, messaggio) {
@@ -777,6 +790,9 @@
       const mensilita=parseFloat(document.getElementById('mensilita').value)||13;
       const figli=parseInt(document.getElementById('figli').value)||0;
       const coniuge=parseInt(document.getElementById('coniuge').value)||0;
+      // I minorenni non entrano nell'art. 12 - per loro c'e' l'assegno unico - e servono
+      // solo alle regioni che li contano per l'addizionale, oggi la sola Sardegna.
+      const figliMinori=parseInt(document.getElementById('figliMinori').value)||0;
       const campoReg=document.getElementById('addRegionale');
       const aliqReg=parseFloat(campoReg.value);
       // Scegliendo una regione il campo viene svuotato e disabilitato apposta: l'aliquota
@@ -796,9 +812,9 @@
       if(tipo==='lordo-mese') lordo=importo*mensilita;
       else if(tipo==='netto'||tipo==='netto-mese'){
         if(tipo==='netto-mese') importo=importo*mensilita;
-        lordo=lordiFromNetto(importo, mensilita, figli, coniuge, aliqReg, aliqCom, codReg);
+        lordo=lordiFromNetto(importo, mensilita, figli, coniuge, aliqReg, aliqCom, codReg, figliMinori);
       }
-      const r=bustaPaga(lordo, figli, coniuge, aliqReg, aliqCom, codReg);
+      const r=bustaPaga(lordo, figli, coniuge, aliqReg, aliqCom, codReg, figliMinori);
       const perc=lordo>0 ? Math.round((r.netto/lordo)*100) : 0;
       // Nelle modalita' "netto desiderato" il risultato cercato e' il LORDO, non il netto gia' digitato.
       const cercaLordo = (tipo==='netto'||tipo==='netto-mese');

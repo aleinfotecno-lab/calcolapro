@@ -15,8 +15,8 @@
   // delle Entrate, istruzioni di liquidazione del mod. 730/2026, Allegato C par. 19.24.3.1.
   // Di regola gli scaglioni sono progressivi come l'IRPEF; sei fra regioni e province
   // autonome fanno eccezione e sono marcate con 'd'.
-  const REGIONI={abruzzo:{n:"Abruzzo",s:[[1.67,0,28000],[2.87,28000,50000],[3.33,50000,null]]},basilicata:{n:"Basilicata",s:[[1.23,0,null]]},bolzano:{n:"Bolzano (prov. aut.)",s:[[1.23,0,28000],[1.23,28000,50000],[1.73,50000,null]],d:"detraz:430.50:90000",dcresc:[125,50000,25000],dfam:[340,1,90000]},calabria:{n:"Calabria",s:[[1.73,0,null]]},campania:{n:"Campania",s:[[1.73,0,15000],[2.96,15000,28000],[3.2,28000,50000],[3.33,50000,null]],dfam:[30,2,28000]},emiliaromagna:{n:"Emilia-Romagna",s:[[1.33,0,15000],[1.93,15000,28000],[2.78,28000,50000],[3.33,50000,null]]},friuliveneziagiulia:{n:"Friuli-Venezia Giulia",s:[[0.7,0,15000],[1.23,15000,28000],[1.23,28000,50000],[1.23,50000,null]],d:"piatta"},lazio:{n:"Lazio",s:[[1.73,0,15000],[3.33,15000,28000],[3.33,28000,50000],[3.33,50000,null]],d:"soglia:28000:1.73",df:[60,28000,30000]},liguria:{n:"Liguria",s:[[1.23,0,28000],[3.18,28000,50000],[3.23,50000,null]]},lombardia:{n:"Lombardia",s:[[1.23,0,15000],[1.58,15000,28000],[1.72,28000,50000],[1.73,50000,null]]},marche:{n:"Marche",s:[[1.23,0,15000],[1.53,15000,28000],[1.7,28000,50000],[1.73,50000,null]]},molise:{n:"Molise",s:[[2.03,0,15000],[2.23,15000,28000],[3.63,28000,50000],[3.63,50000,null]]},piemonte:{n:"Piemonte",s:[[1.62,0,15000],[2.68,15000,28000],[3.31,28000,50000],[3.33,50000,null]],dfam:[100,3,null]},puglia:{n:"Puglia",s:[[1.33,0,15000],[2.13,15000,28000],[3.23,28000,50000],[3.33,50000,null]]},sardegna:{n:"Sardegna",s:[[1.23,0,null]]},sicilia:{n:"Sicilia",s:[[1.23,0,null]]},toscana:{n:"Toscana",s:[[1.42,0,15000],[1.43,15000,28000],[3.32,28000,50000],[3.33,50000,null]]},trento:{n:"Trento (prov. aut.)",s:[[1.23,0,15000],[1.23,15000,28000],[1.23,28000,50000],[1.73,50000,null]],d:"deduz:30000",dfam:[246,1,50000]},umbria:{n:"Umbria",s:[[1.73,0,15000],[3.02,15000,28000],[3.12,28000,50000],[3.33,50000,null]],d:"soglia:28000:1.23",df:[150,28000,50000]},valledaosta:{n:"Valle d'Aosta",s:[[0,0,15000],[1.23,15000,null]],d:"piatta"},veneto:{n:"Veneto",s:[[1.23,0,null]]}};
-  function addizionaleRegionale(imponibile, codReg, aliqManuale, figli) {
+  const REGIONI={abruzzo:{n:"Abruzzo",s:[[1.67,0,28000],[2.87,28000,50000],[3.33,50000,null]]},basilicata:{n:"Basilicata",s:[[1.23,0,null]]},bolzano:{n:"Bolzano (prov. aut.)",s:[[1.23,0,28000],[1.23,28000,50000],[1.73,50000,null]],d:"detraz:430.50:90000",dcresc:[125,50000,25000],dfam:[340,1,90000]},calabria:{n:"Calabria",s:[[1.73,0,null]]},campania:{n:"Campania",s:[[1.73,0,15000],[2.96,15000,28000],[3.2,28000,50000],[3.33,50000,null]],dfam:[30,2,28000]},emiliaromagna:{n:"Emilia-Romagna",s:[[1.33,0,15000],[1.93,15000,28000],[2.78,28000,50000],[3.33,50000,null]]},friuliveneziagiulia:{n:"Friuli-Venezia Giulia",s:[[0.7,0,15000],[1.23,15000,28000],[1.23,28000,50000],[1.23,50000,null]],d:"piatta"},lazio:{n:"Lazio",s:[[1.73,0,15000],[3.33,15000,28000],[3.33,28000,50000],[3.33,50000,null]],d:"soglia:28000:1.73",df:[60,28000,30000]},liguria:{n:"Liguria",s:[[1.23,0,28000],[3.18,28000,50000],[3.23,50000,null]]},lombardia:{n:"Lombardia",s:[[1.23,0,15000],[1.58,15000,28000],[1.72,28000,50000],[1.73,50000,null]]},marche:{n:"Marche",s:[[1.23,0,15000],[1.53,15000,28000],[1.7,28000,50000],[1.73,50000,null]]},molise:{n:"Molise",s:[[2.03,0,15000],[2.23,15000,28000],[3.63,28000,50000],[3.63,50000,null]]},piemonte:{n:"Piemonte",s:[[1.62,0,15000],[2.68,15000,28000],[3.31,28000,50000],[3.33,50000,null]],dfam:[100,3,null]},puglia:{n:"Puglia",s:[[1.33,0,15000],[2.13,15000,28000],[3.23,28000,50000],[3.33,50000,null]],dfam:[20,4,null]},sardegna:{n:"Sardegna",s:[[1.23,0,null]],dfam:[200,1,50000,"minori"]},sicilia:{n:"Sicilia",s:[[1.23,0,null]]},toscana:{n:"Toscana",s:[[1.42,0,15000],[1.43,15000,28000],[3.32,28000,50000],[3.33,50000,null]]},trento:{n:"Trento (prov. aut.)",s:[[1.23,0,15000],[1.23,15000,28000],[1.23,28000,50000],[1.73,50000,null]],d:"deduz:30000",dfam:[246,1,50000]},umbria:{n:"Umbria",s:[[1.73,0,15000],[3.02,15000,28000],[3.12,28000,50000],[3.33,50000,null]],d:"soglia:28000:1.23",df:[150,28000,50000]},valledaosta:{n:"Valle d'Aosta",s:[[0,0,15000],[1.23,15000,null]],d:"piatta"},veneto:{n:"Veneto",s:[[1.23,0,null]]}};
+  function addizionaleRegionale(imponibile, codReg, aliqManuale, figli, figliMinori) {
     const r = REGIONI[codReg];
     if (!r) return imponibile * (aliqManuale || 0) / 100;   // nessuna regione scelta: aliquota digitata
     const d = r.d || '';
@@ -63,25 +63,34 @@
       if (imponibile > oltre && imponibile <= finoA) imposta -= importo;
     }
     // Detrazione per carichi di famiglia, dove la regione la prevede. dfam porta
-    // importo per figlio, numero minimo di figli perche spetti e tetto di imponibile
-    // (null = nessun tetto). Bolzano da 340 euro per figlio fino a 90.000 di
-    // imponibile e Trento 246 fino a 50.000, entrambe dal primo figlio; Campania da
-    // 30 euro per figlio ma solo a chi ha almeno due figli e fino a 28.000, Piemonte
-    // 100 euro per figlio solo a chi ha piu di due figli e senza alcun tetto di
-    // reddito. Quando la condizione scatta la detrazione vale per ciascun figlio a
-    // partire dal primo, non solo per quelli oltre il minimo.
+    // importo per figlio, numero minimo di figli perche spetti, tetto di imponibile
+    // (null = nessun tetto) e quale popolazione di figli va contata.
+    // Bolzano da 340 euro per figlio fino a 90.000 di imponibile e Trento 246 fino a
+    // 50.000, entrambe dal primo figlio; Campania da 30 euro per figlio ma solo a chi
+    // ha almeno due figli e fino a 28.000, Piemonte 100 euro per figlio solo a chi ha
+    // piu di due figli e senza alcun tetto di reddito, Puglia 20 euro solo a chi ha
+    // piu di TRE figli. Quando la condizione scatta la detrazione vale per ciascun
+    // figlio a partire dal primo, non solo per quelli oltre il minimo.
+    // La Sardegna e l unica a contare una popolazione diversa: paga 200 euro per ogni
+    // figlio MINORENNE fiscalmente a carico, non per i figli che danno la detrazione
+    // IRPEF. Le due cose non si sovrappongono - dal 2022 i figli sotto i 21 anni
+    // ricevono l assegno unico al posto della detrazione dell art. 12 - quindi il
+    // modulo le chiede in due campi distinti e qui si sceglie quale leggere.
     // Fonte: MEF, disposizioni particolari per regione, pubblicate il 22 e il 29
-    // gennaio 2026. Le norme dicono tutte in proporzione alla percentuale e ai mesi
+    // gennaio 2026, tranne la Puglia, rideterminata dal Commissario ad acta con
+    // decreto 3 del 28/05/2026 e pubblicata il 29 maggio. Le norme dicono tutte in
+    // proporzione alla percentuale e ai mesi
     // di carico: qui si assume carico intero per dodici mesi, come fa il resto del
     // calcolatore. Trento sotto i 30.000 non arriva fin qui perche il ramo deduz:
     // esce prima con zero, ed e corretto: la detrazione non genera credito d imposta.
-    if (r.dfam && figli > 0) {
-      const [importo, minFigli, tetto] = r.dfam;
-      if (figli >= minFigli && (tetto === null || imponibile <= tetto)) imposta -= importo * figli;
+    if (r.dfam) {
+      const [importo, minFigli, tetto, quali] = r.dfam;
+      const n = quali === 'minori' ? (figliMinori || 0) : (figli || 0);
+      if (n >= minFigli && (tetto === null || imponibile <= tetto)) imposta -= importo * n;
     }
     return Math.max(0, imposta);
   }
-  function bustaPaga(lordo, figli, coniuge, aliqReg, aliqCom, codReg) {
+  function bustaPaga(lordo, figli, coniuge, aliqReg, aliqCom, codReg, figliMinori) {
     // Art. 3-ter D.L. 384/1992: sulla quota di retribuzione oltre la prima fascia
     // di retribuzione pensionabile grava un ulteriore 1% a carico del lavoratore.
     // Per il 2026 la soglia e' 56.224 euro (circolare INPS 6 del 30/01/2026).
@@ -154,7 +163,7 @@
     let ulterioreDetr=0;
     if(imponibile>20000 && imponibile<=32000) ulterioreDetr=1000;
     else if(imponibile>32000 && imponibile<=40000) ulterioreDetr=1000*(40000-imponibile)/8000;
-    const addReg=addizionaleRegionale(imponibile, codReg, aliqReg, figli);
+    const addReg=addizionaleRegionale(imponibile, codReg, aliqReg, figli, figliMinori);
     const addCom=imponibile*aliqCom/100;
     const irpefNetta=Math.max(0,irpefLorda-detrLavoro-detrFamiglia-ulterioreDetr)+addReg+addCom;
     const netto=lordo-inps-irpefNetta+sommaEsente;
