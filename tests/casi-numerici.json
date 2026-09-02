@@ -95,6 +95,13 @@
       "campi": { "stipendio": 1800, "mensilita": 13, "ccnl": "50", "giorni": 25, "ricovero": false, "familiari": "si", "episodiAnno": 1 },
       "attesi": { "totaleOut": 866.67 }
     },
+    {
+      "file": "/calcolo-malattia-inps.html",
+      "caso": "Giorni di malattia non indicati: nessuna indennita' per un'assenza mai avvenuta",
+      "norma": "L'indennita' di malattia si liquida per giorno di assenza: a zero giorni non corrisponde un importo, corrisponde un campo da compilare",
+      "campi": { "stipendio": 1800, "giorni": "" },
+      "erroreSu": "giorni"
+    },
 
     {
       "file": "/calcolo-naspi.html",
@@ -232,6 +239,13 @@
       "campi": { "stipendio": 6000, "mensilita": 13, "settore": "32.7", "contratto": "indeterminato", "inail": "1.0", "sgravioSud": false },
       "attesi": { "nettoStimOut": 3872.94 }
     },
+    {
+      "file": "/calcolo-costo-lavoro.html",
+      "caso": "Retribuzione non indicata: nessun costo aziendale costruito sul nulla",
+      "norma": "Contributi INPS, premio INAIL e TFR sono tutti percentuali della retribuzione: senza di essa il costo del dipendente non e' calcolabile",
+      "campi": { "stipendio": "" },
+      "erroreSu": "stipendio"
+    },
 
     {
       "file": "/calcolo-plusvalenza-immobiliare.html",
@@ -336,6 +350,13 @@
       "norma": "Su 500 euro in 12 mesi, 50 euro di istruttoria valgono il 10% del capitale: il netto erogato scende a 450 e il TAEG sale al 28,27% pur restando il TAN al 5%. E' l'effetto che il TAEG serve a rendere visibile",
       "campi": { "importo": 500, "tan": 5, "durata": "12", "spese": 50, "speseGestione": 0 },
       "attesi": { "priceOut": 42.8, "totaleOut": 564, "interessiOut": 64, "taegOut": 28.27 }
+    },
+    {
+      "file": "/calcolatore-prestito-personale.html",
+      "caso": "Importo non indicato: nessuna rata su un prestito mai chiesto",
+      "norma": "La rata discende dall'importo finanziato: senza quello il piano di ammortamento non esiste e non va mostrato",
+      "campi": { "importo": "", "tan": 8, "durata": 60 },
+      "erroreSu": "importo"
     },
 
     {
@@ -1238,6 +1259,34 @@
       "attesi": { "priceOut": 46475 }
     },
     {
+      "file": "/lordonetto.html",
+      "caso": "Stipendio non indicato: nessun netto costruito su una RAL mai digitata",
+      "norma": "Il campo vuoto veniva sostituito con 30.000 euro e la pagina rispondeva 23.349 euro netti, indistinguibili da un calcolo vero",
+      "campi": { "importo": "", "tipo": "lordo", "mensilita": 13 },
+      "erroreSu": "importo"
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Soglia: uno stipendio di zero non e' uno stipendio",
+      "norma": "Zero non e' una retribuzione: e' il valore che il campo assume quando non si e' capito cosa scriverci, e non deve produrre una busta paga",
+      "campi": { "importo": 0, "tipo": "lordo", "mensilita": 13 },
+      "erroreSu": "importo"
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Addizionale comunale svuotata: errore, non un NaN a schermo",
+      "norma": "Con il campo vuoto parseFloat restituiva NaN e la pagina mostrava \"NaN euro netto / mese\" accanto a contributi INPS dall'aria credibile. Se il Comune non applica l'addizionale il valore da scrivere e' zero, non il vuoto",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "addComunale": "" },
+      "erroreSu": "addComunale"
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Controprova: scegliendo la regione l'addizionale regionale resta vuota apposta e il calcolo procede",
+      "norma": "Il campo viene svuotato e disabilitato dal selettore della regione, perche' l'aliquota la calcolano i suoi scaglioni: li' il vuoto e' lo stato giusto. Stessi valori del caso Campania gia' in suite: 30.000 di RAL, addizionale comunale a zero",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "campania", "addRegionale": "", "addComunale": 0 },
+      "attesi": { "priceOut": 23334 }
+    },
+    {
       "file": "/chilometrico.html",
       "caso": "Cinquecento chilometri al mese con auto di media cilindrata",
       "norma": "Art. 51 c.5 TUIR: il rimborso chilometrico non concorre al reddito se calcolato sulle tabelle ACI (GU 297 del 23/12/2025). 500 km x 0,4344 = 217,20; su base mensile la proiezione annua e' x12",
@@ -1843,6 +1892,13 @@
       "attesi": { "pagorariaOut": 11.56, "oreTotOut": 10, "priceOut": 115.61, "nettoOut": 80.84 }
     },
     {
+      "file": "/calcolo-straordinari.html",
+      "caso": "Stipendio non indicato: nessuna paga oraria da maggiorare",
+      "norma": "La maggiorazione per lavoro straordinario si applica alla retribuzione oraria, che si ricava dallo stipendio diviso il divisore contrattuale: senza stipendio non esiste paga oraria",
+      "campi": { "stipendioLordo": "", "oreStr1": 10 },
+      "erroreSu": "stipendioLordo"
+    },
+    {
       "file": "/calcolo-spese-acquisto-casa.html",
       "caso": "Acquisto da impresa costruttrice, prima casa: IVA al 4% e imposte fisse",
       "norma": "DPR 633/1972 Tabella A parte II n. 21: IVA al 4% sulla prima casa acquistata da impresa costruttrice, al posto dell'imposta di registro proporzionale; registro, ipotecaria e catastale in misura fissa. 300.000 x 4% = 12.000 di IVA",
@@ -1872,6 +1928,13 @@
       "attesi": { "priceOut": 7055, "totaleOut": 187055, "liquiditaOut": 187055 }
     },
     {
+      "file": "/calcolo-spese-acquisto-casa.html",
+      "caso": "Prezzo di acquisto non indicato: nessuna imposta su una casa mai comprata",
+      "norma": "Imposta di registro, IVA e onorario notarile si commisurano al prezzo o al valore catastale: senza prezzo nessuna delle tre e' determinabile",
+      "campi": { "prezzo": "", "rendita": 500 },
+      "erroreSu": "prezzo"
+    },
+    {
       "file": "/calcolo-prestazione-occasionale.html",
       "caso": "Oltre i 5.000 euro annui: i contributi si pagano solo sull'eccedenza",
       "norma": "Art. 44 c.2 D.L. 269/2003: iscrizione alla Gestione separata solo oltre 5.000 euro di compensi occasionali annui, e solo sulla quota eccedente. Con 3.000 gia' percepiti e 3.000 nuovi, la base contributiva e' 1.000; aliquota 33,72% (circ. INPS 8/2026, non titolari di partita IVA senza DIS-COLL), un terzo a carico del lavoratore = 112,40",
@@ -1899,6 +1962,13 @@
       "note": "Se lo zero venisse scambiato per campo vuoto e sostituito col 23%, il netto scenderebbe a 1.538: 460 euro di imposta che non e' dovuta.",
       "campi": { "compenso": 2000, "altriRedditi": 0, "marcaBollo": "2", "aliquotaIRPEF": "0", "regimeINPS": "non-iscritto" },
       "attesi": { "ritenutaOut": 400, "nettoImmOut": 1598, "nettoFinalOut": 1998 }
+    },
+    {
+      "file": "/calcolo-prestazione-occasionale.html",
+      "caso": "Compenso non indicato: nessuna ritenuta su un lavoro mai pagato",
+      "norma": "La ritenuta d'acconto del 20% dell'art. 25 D.P.R. 600/1973 si applica al compenso lordo: senza compenso non c'e' nulla da trattenere",
+      "campi": { "compenso": "" },
+      "erroreSu": "compenso"
     },
     {
       "file": "/calcolo-plusvalenza-immobiliare.html",
@@ -1942,6 +2012,27 @@
       "attesi": { "#resultBanner > div > div:first-child": "Nessuna plusvalenza — Non c'è tassa da pagare" }
     },
     {
+      "file": "/calcolo-plusvalenza-immobiliare.html",
+      "caso": "Superbonus dichiarato senza data di fine lavori: il regime non e' determinabile",
+      "norma": "Dalla data di fine lavori dipendono sia i dieci anni di tassabilita' introdotti dalla L. 213/2023 sia il trattamento delle spese agevolate: senza quella data non si sa quale regime applicare",
+      "campi": { "prezzoVendita": 300000, "prezzoAcquisto": 200000, "superbonus": true, "dataFineLavori": "" },
+      "erroreSu": "dataFineLavori"
+    },
+    {
+      "file": "/calcolo-plusvalenza-immobiliare.html",
+      "caso": "Prezzo di vendita non indicato: nessun \"nessuna plusvalenza\" da dichiarare",
+      "norma": "La plusvalenza e' la differenza fra prezzo di vendita e costo fiscalmente riconosciuto (art. 68 c.1 TUIR): senza il primo la pagina concludeva \"Nessuna plusvalenza - non c'e' tassa da pagare\", che e' un parere fiscale dato su un modulo vuoto",
+      "campi": { "dataAcquisto": "2023-06-01", "prezzoVendita": "", "prezzoAcquisto": 200000 },
+      "erroreSu": "prezzoVendita"
+    },
+    {
+      "file": "/calcolo-plusvalenza-immobiliare.html",
+      "caso": "Prezzo di acquisto non indicato: il costo fiscale non parte da zero",
+      "norma": "Senza prezzo di acquisto il costo fiscalmente riconosciuto si riduceva alle sole spese, e ogni vendita risultava interamente plusvalenza o interamente esente a seconda dei residui",
+      "campi": { "dataAcquisto": "2023-06-01", "prezzoVendita": 280000, "prezzoAcquisto": "" },
+      "erroreSu": "prezzoAcquisto"
+    },
+    {
       "file": "/calcolo-locazioni-brevi.html",
       "caso": "Due immobili: 21% sul primo e 26% sul secondo",
       "norma": "Art. 1 c.63 L. 213/2023: la cedolare secca sulle locazioni brevi e' del 26% dal secondo immobile, restando al 21% su uno a scelta del contribuente. 8.000 x 21% + 5.000 x 26% = 1.680 + 1.300 = 2.980. Ritenuta del 21% operata dagli intermediari su entrambi (art. 4 c.5 D.L. 50/2017): 2.730, saldo 250",
@@ -1981,6 +2072,20 @@
       "attesi": { "redditoOut": 250000, "istruzioneOut": 0, "debitiOut": 0, "patrimonioOut": 0, "capitaleOut": 250000 }
     },
     {
+      "file": "/calcolo-capitale-assicurato.html",
+      "caso": "Modulo vuoto: nessun \"il patrimonio copre gia' il fabbisogno\" detto sul nulla",
+      "norma": "A campi vuoti la pagina mostrava 0 euro con la nota \"Il patrimonio disponibile copre gia' il fabbisogno stimato\": una rassicurazione sulla copertura assicurativa costruita su nessun dato",
+      "campi": { "reddito": "", "quota": "", "anni": "", "debiti": "", "figli": "", "anniFigli": "", "costoFiglio": "", "patrimonio": "" },
+      "erroreSu": "reddito"
+    },
+    {
+      "file": "/calcolo-capitale-assicurato.html",
+      "caso": "Controprova: nessun reddito da sostituire ma un mutuo da estinguere, il calcolo serve lo stesso",
+      "norma": "Metodo del fabbisogno: capitale = reddito x quota x anni + debiti + spese per i figli - patrimonio. Con i soli 90.000 euro di debito il fabbisogno e' 90.000, e la guardia non deve impedirlo",
+      "campi": { "reddito": "", "quota": "", "anni": "", "debiti": 90000, "figli": "", "anniFigli": "", "costoFiglio": "", "patrimonio": "" },
+      "attesi": { "capitaleOut": 90000, "redditoOut": 0, "debitiOut": 90000, "istruzioneOut": 0, "patrimonioOut": 0 }
+    },
+    {
       "file": "/calcolo-ferie-permessi.html",
       "caso": "Part-time con divisore 156: ferie sui 26 giorni convenzionali, permessi sul divisore",
       "norma": "Le ferie si monetizzano sui 26 giorni convenzionali del mese (1.200/26 x 20 = 923), i permessi sul divisore orario del CCNL (1.200/156 x 30 = 231). Sono due divisori diversi perche' misurano cose diverse: giornate e ore",
@@ -2003,6 +2108,13 @@
       "attesi": { "interessiLordiOut": 300.83, "ritenutaOut": 78.22, "bolloOut": 20.22, "interessiNettiOut": 202.39, "capitaleFinaleOut": 20202.39 }
     },
     {
+      "file": "/calcolatore-interessi-conto-deposito.html",
+      "caso": "Capitale non indicato: nessun rendimento su un deposito mai aperto",
+      "norma": "Gli interessi sono una percentuale del capitale: senza capitale non c'e' base di calcolo, e un rendimento a zero si legge come 'questo conto non rende' invece che come 'manca un dato'",
+      "campi": { "capitale": "", "tasso": 3, "durata": 12 },
+      "erroreSu": "capitale"
+    },
+    {
       "file": "/divisione-conto.html",
       "caso": "Mancia del 15% divisa fra cinque: 120 euro diventano 138",
       "norma": "La mancia si calcola sul totale e si divide con esso: 120 x 1,15 = 138, diviso 5 = 27,60 a testa senza resto",
@@ -2019,6 +2131,13 @@
       "attesi": { "anniOut": 36, "mesiOut": 0, "giorniOut": 0, "giorniTotaliOut": 13149, "oreOut": 315576 }
     },
     {
+      "file": "/calcolo-eta.html",
+      "caso": "Data di nascita mancante: nessuna eta' dedotta dalla sola data di oggi",
+      "norma": "L'eta' e' la differenza fra due date: senza la prima il risultato non riguarda l'utente, e un campo vuoto non va sostituito da un default",
+      "campi": { "dataNascita": "" },
+      "erroreSu": "dataNascita"
+    },
+    {
       "file": "/calcolo-buoni-fruttiferi-postali.html",
       "caso": "Durata con la frazione di anno: il bollo dell ultimo periodo si ragguaglia",
       "norma": "Nota 3-ter art. 13 Tariffa DPR 642/1972: il bollo dello 0,20% si liquida sul valore di rimborso a ogni 31 dicembre, e sull'ultimo periodo incompleto in proporzione. Su 6.000 al 2% per 2,5 anni: 12,24 + 12,48 + meta' aliquota su 6.304,52. Ritenuta agevolata del 12,5% sui titoli postali",
@@ -2031,6 +2150,13 @@
       "norma": "Quattordicesima maturata per 4/12 = 666,67 lordi. Contributi 9,19% (61,27), nessuna aliquota aggiuntiva perche' 26.667 resta sotto la prima fascia di 56.224 (circ. INPS 6/2026). IRPEF marginale al 23% su 605,40 e addizionali 2,23%",
       "campi": { "stipendioLordo": 2000, "lordo14": 2000, "mesiMaturati": "4", "addRegionale": 1.73, "addComunale": 0.5 },
       "attesi": { "lordoOut": 666.67, "inpsOut": 61.27, "irpefOut": 139.24, "addOut": 13.50, "priceOut": 452.66 }
+    },
+    {
+      "file": "/calcolo-quattordicesima-netta.html",
+      "caso": "Retribuzione annua non indicata: nessuna quattordicesima da tassare",
+      "norma": "L'aliquota marginale applicata alla mensilita' aggiuntiva dipende dal reddito complessivo: senza la retribuzione annua non si sa in quale scaglione cade",
+      "campi": { "stipendioLordo": "" },
+      "erroreSu": "stipendioLordo"
     },
     {
       "file": "/calcolo-cassa-integrazione.html",
@@ -2166,6 +2292,22 @@
       "funzione": "calcolaISEE"
     },
     {
+      "file": "/calcolo-isee.html",
+      "caso": "Modulo vuoto: nessun ISEE pari a zero, e nessun consiglio che ne discende",
+      "norma": "Con tutti i campi in bianco la pagina dichiarava \"ISEE 0 euro - Molto basso, accedi alle agevolazioni massime\": un'indicazione di merito data senza un dato",
+      "campi": { "componenti": 2, "redditoLavDip": "", "redditoAltri": "", "valoreImuPrimaCasa": "", "valoreImuAltri": "", "saldoConti": "", "titoliFinanziari": "" },
+      "funzione": "calcolaISEE",
+      "erroreSu": "redditoLavDip"
+    },
+    {
+      "file": "/calcolo-isee.html",
+      "caso": "Controprova: uno zero digitato e' una dichiarazione, e l'ISEE zero va calcolato",
+      "norma": "Chi non ha redditi ne' patrimonio ha davvero ISEE zero: la guardia deve distinguere il campo lasciato in bianco dallo zero scritto apposta. Art. 2 DPCM 159/2013",
+      "campi": { "componenti": 1, "redditoLavDip": "0", "redditoAltri": "", "valoreImuPrimaCasa": "", "valoreImuAltri": "", "saldoConti": "", "titoliFinanziari": "" },
+      "funzione": "calcolaISEE",
+      "attesi": { "#resultMain > div > div:nth-child(1)": 0 }
+    },
+    {
       "file": "/pensione.html",
       "caso": "Adeguamento alla speranza di vita: chi compie 67 anni dopo il 2026 ne trova 67 e 3 mesi",
       "norma": "Circolare INPS 28 del 16/3/2026 e decreto direttoriale MEF-Lavoro: il requisito di vecchiaia e' 67 anni nel 2026, 67 e 1 mese nel 2027, 67 e 3 mesi dal 2028. Nato nel 1960, nel 2026 ha 66 anni: quando raggiunge il requisito siamo gia' nel 2028, quindi gli servono 67 anni e 3 mesi e l'uscita cade due anni dopo, non uno",
@@ -2182,6 +2324,42 @@
       "oggi": "2026-06-15",
       "campi": { "annoNascita": 1959, "sesso": "M", "annoInizio": 1985, "contributiAttuali": 30, "stipendioLordo": 35000, "sistema": "misto", "crescitaStipendio": "0" },
       "attesi": { "anniMancantiOut": "Ora!", "annoPensioneOut": 2026, "etaPensioneOut": "67 anni", "tipoAccesso": "📋 Tipo di accesso: Pensione di vecchiaia" }
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Anno di nascita non indicato: nessuna data di pensionamento su un'eta' mai dichiarata",
+      "norma": "Il default 1980 bastava a produrre eta' di uscita, anni mancanti e importo mensile: un profilo anagrafico che l'utente non aveva inserito",
+      "campi": { "annoNascita": "", "annoInizio": 2005, "contributiAttuali": 15, "stipendioLordo": 30000 },
+      "erroreSu": "annoNascita"
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Anno di inizio del lavoro non indicato: la carriera non si deduce da un default",
+      "norma": "Con il default 2005 la pagina calcolava una anzianita' contributiva mai dichiarata, e da quella l'anno di uscita",
+      "campi": { "annoNascita": 1985, "annoInizio": "", "contributiAttuali": 15, "stipendioLordo": 30000 },
+      "erroreSu": "annoInizio"
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Stipendio non indicato: nessun assegno mensile stimato dal nulla",
+      "norma": "Il default 35.000 produceva un montante contributivo e una pensione mensile di 1.736 euro su una retribuzione che nessuno aveva digitato",
+      "campi": { "annoNascita": 1985, "annoInizio": 2010, "contributiAttuali": 15, "stipendioLordo": "" },
+      "erroreSu": "stipendioLordo"
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Anni di contributi non indicati: nessuna proiezione su una carriera mai dichiarata",
+      "norma": "Il campo vuoto diventava zero e la pagina proiettava lo stesso una pensione: zero anni di contributi e' un dato, non l'assenza di un dato",
+      "campi": { "annoNascita": 1985, "sesso": "M", "annoInizio": 2010, "contributiAttuali": "", "stipendioLordo": 30000, "sistema": "contributivo", "crescitaStipendio": "0" },
+      "erroreSu": "contributiAttuali"
+    },
+    {
+      "file": "/pensione.html",
+      "caso": "Controprova: zero anni di contributi digitati sono una dichiarazione, e il calcolo procede",
+      "norma": "Chi ha appena iniziato a versare ha davvero zero anni maturati. L'eta' di uscita per vecchiaia dipende dall'anno di nascita e dall'adeguamento alla speranza di vita, non dai contributi gia' versati, purche' si superi il minimo di venti anni: dal 2026 al 2053 se ne maturano ventisette",
+      "oggi": "2026-06-15",
+      "campi": { "annoNascita": 1985, "sesso": "M", "annoInizio": 2010, "contributiAttuali": 0, "stipendioLordo": 30000, "sistema": "contributivo", "crescitaStipendio": "0" },
+      "attesi": { "etaPensioneOut": "67 anni e 3 mesi", "annoPensioneOut": 2053 }
     },
 
     {

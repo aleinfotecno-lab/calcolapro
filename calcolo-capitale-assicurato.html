@@ -549,6 +549,42 @@
 </footer>
 
 <script>
+function mostraErroreCampo(id, messaggio) {
+  const input = document.getElementById(id);
+  const field = input.closest('.field, .field-group, .input-group');
+  if (!field) return;
+  let msg = document.getElementById(id + '-error');
+  if (!msg) {
+    msg = document.createElement('span');
+    msg.className = 'error-msg';
+    msg.id = id + '-error';
+    field.appendChild(msg);
+  }
+  msg.textContent = messaggio;
+  field.classList.add('error');
+  input.setAttribute('aria-invalid', 'true');
+  const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+  described.push(msg.id);
+  input.setAttribute('aria-describedby', described.join(' '));
+  if (!input.disabled) input.focus();
+}
+function pulisciErroreCampo(id) {
+  const input = document.getElementById(id);
+  if (!input) return;
+  const field = input.closest('.field, .field-group, .input-group');
+  if (field) field.classList.remove('error');
+  input.removeAttribute('aria-invalid');
+}
+// Un risultato lasciato a schermo dopo un errore e' il numero di prima, che non
+// c'entra piu' niente con quello che nel modulo c'e' scritto adesso.
+function nascondiRisultato() {
+  const res = document.getElementById('result');
+  if (res) res.style.display = 'none';
+  for (const id of ['affiliazioni', 'crossLinks']) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  }
+}
 function calcola() {
   var reddito     = Math.max(0, parseFloat(document.getElementById('reddito').value) || 0);
   var quota       = parseFloat(document.getElementById('quota').value);
@@ -558,6 +594,15 @@ function calcola() {
   var anniFigli   = Math.max(0, parseFloat(document.getElementById('anniFigli').value) || 0);
   var costoFiglio = Math.max(0, parseFloat(document.getElementById('costoFiglio').value) || 0);
   var patrimonio  = Math.max(0, parseFloat(document.getElementById('patrimonio').value) || 0);
+
+  // A modulo vuoto la pagina rispondeva "0 euro" con la nota "il patrimonio disponibile
+  // copre gia' il fabbisogno stimato": un verdetto tranquillizzante su nessun dato.
+  const inBianco = (id) => document.getElementById(id).value.trim() === '';
+  pulisciErroreCampo('reddito');
+  if (inBianco('reddito') && inBianco('debiti') && inBianco('figli')) {
+    mostraErroreCampo('reddito', 'Inserisci almeno il reddito da sostituire, i debiti da estinguere o il numero di figli.');
+    return nascondiRisultato();
+  }
 
   if (isNaN(quota) || quota <= 0) { quota = 70; document.getElementById('quota').value = 70; }
   if (quota > 100) { quota = 100; document.getElementById('quota').value = 100; }

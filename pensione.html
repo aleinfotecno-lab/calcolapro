@@ -840,6 +840,42 @@
     return a + ' anni' + (m > 0 ? ' e ' + m + (m === 1 ? ' mese' : ' mesi') : '');
   }
 
+  function mostraErroreCampo(id, messaggio) {
+    const input = document.getElementById(id);
+    const field = input.closest('.field, .field-group, .input-group');
+    if (!field) return;
+    let msg = document.getElementById(id + '-error');
+    if (!msg) {
+      msg = document.createElement('span');
+      msg.className = 'error-msg';
+      msg.id = id + '-error';
+      field.appendChild(msg);
+    }
+    msg.textContent = messaggio;
+    field.classList.add('error');
+    input.setAttribute('aria-invalid', 'true');
+    const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+    described.push(msg.id);
+    input.setAttribute('aria-describedby', described.join(' '));
+    if (!input.disabled) input.focus();
+  }
+  function pulisciErroreCampo(id) {
+    const input = document.getElementById(id);
+    if (!input) return;
+    const field = input.closest('.field, .field-group, .input-group');
+    if (field) field.classList.remove('error');
+    input.removeAttribute('aria-invalid');
+  }
+  // Un risultato lasciato a schermo dopo un errore e' il numero di prima, che non
+  // c'entra piu' niente con quello che nel modulo c'e' scritto adesso.
+  function nascondiRisultato() {
+    const res = document.getElementById('result');
+    if (res) res.style.display = 'none';
+    for (const id of ['affiliazioni', 'crossLinks']) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    }
+  }
   function calcola() {
     const ETA_QUOTA103 = 62;
     const CONTRIBUTI_QUOTA103 = 41;
@@ -851,11 +887,32 @@
     // applicava 4,795% invece di 4,419%, quasi l'8% in piu').
     const COEFFICIENTI = {57:0.04204,58:0.04308,59:0.04419,60:0.04536,61:0.04661,62:0.04795,63:0.04936,64:0.05088,65:0.05250,66:0.05423,67:0.05608,68:0.05808,69:0.06024,70:0.06258};
 
-    const annoNascita = parseInt(document.getElementById('annoNascita').value) || 1980;
+    // I default 1980 / 2005 / 35.000 producevano da un modulo vuoto una pensione mensile
+    // completa e credibile: il profilo di qualcuno che non era chi stava guardando.
+    ['annoNascita', 'annoInizio', 'contributiAttuali', 'stipendioLordo'].forEach(pulisciErroreCampo);
+    const annoNascita = parseInt(document.getElementById('annoNascita').value, 10);
+    if (!Number.isFinite(annoNascita)) {
+      mostraErroreCampo('annoNascita', 'Inserisci il tuo anno di nascita.');
+      return nascondiRisultato();
+    }
     const sesso = document.getElementById('sesso').value;
-    const annoInizio = parseInt(document.getElementById('annoInizio').value) || 2005;
-    const contributiAttuali = parseFloat(document.getElementById('contributiAttuali').value) || 0;
-    const stipendio = parseFloat(document.getElementById('stipendioLordo').value) || 35000;
+    const annoInizio = parseInt(document.getElementById('annoInizio').value, 10);
+    if (!Number.isFinite(annoInizio)) {
+      mostraErroreCampo('annoInizio', 'Inserisci l\'anno in cui hai iniziato a lavorare.');
+      return nascondiRisultato();
+    }
+    // Anche qui il vuoto diventava un numero: zero anni di contributi. Zero e' un valore
+    // legittimo per chi inizia adesso, ma va digitato, non dedotto da un campo in bianco.
+    const contributiAttuali = parseFloat(document.getElementById('contributiAttuali').value);
+    if (!Number.isFinite(contributiAttuali) || contributiAttuali < 0) {
+      mostraErroreCampo('contributiAttuali', 'Inserisci gli anni di contributi gia versati: se non ne hai ancora, scrivi 0.');
+      return nascondiRisultato();
+    }
+    const stipendio = parseFloat(document.getElementById('stipendioLordo').value);
+    if (!Number.isFinite(stipendio) || stipendio <= 0) {
+      mostraErroreCampo('stipendioLordo', 'Inserisci lo stipendio lordo annuo, maggiore di zero.');
+      return nascondiRisultato();
+    }
     const sistema = document.getElementById('sistema').value;
     const crescitaRaw = parseFloat(document.getElementById('crescitaStipendio').value);
     const crescita = Number.isNaN(crescitaRaw) ? 0.02 : crescitaRaw;

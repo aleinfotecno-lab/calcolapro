@@ -393,10 +393,14 @@
             <option value="veneto">Veneto</option>
           </select>
           <p class="hint" id="reg-help">Scegliendo la regione, l'addizionale viene calcolata con gli scaglioni e le agevolazioni in vigore nel 2026: <a href="stipendio-netto-per-regione.html">qui il confronto fra tutte e 21</a>.</p>
-          <label for="addRegionale" id="labAddReg" style="display:block;margin-top:12px;">Addizionale regionale (%)</label>
-          <input type="number" id="addRegionale" value="1.73" min="0" max="4" step="0.01" aria-describedby="nord-help"/>
-          <label for="addComunale" style="display:block;margin-top:12px;">Addizionale comunale (%)</label>
-          <input type="number" id="addComunale" value="0.50" min="0" max="1" step="0.01" aria-describedby="nord-help"/>
+          <div class="field" style="margin-bottom:0;">
+            <label for="addRegionale" id="labAddReg" style="display:block;margin-top:12px;">Addizionale regionale (%)</label>
+            <input type="number" id="addRegionale" value="1.73" min="0" max="4" step="0.01" aria-describedby="nord-help"/>
+          </div>
+          <div class="field" style="margin-bottom:0;">
+            <label for="addComunale" style="display:block;margin-top:12px;">Addizionale comunale (%)</label>
+            <input type="number" id="addComunale" value="0.50" min="0" max="1" step="0.01" aria-describedby="nord-help"/>
+          </div>
           <p class="hint" id="nord-help">Sono <strong>due tributi distinti</strong> e si sommano. I valori proposti sono ipotesi di comodo, non i tuoi: cambiali con quelli che ti riguardano. L'<strong>addizionale regionale</strong> parte dall'aliquota base dell'<strong>1,23%</strong> e arriva al <strong>3,33%</strong> nelle regioni in piano di rientro sanitario — <strong>Campania, Calabria, Molise, Abruzzo e Lazio</strong>: al contrario di quanto si sente ripetere, al Sud non sono più basse. L'<strong>addizionale comunale</strong> va da <strong>0%</strong> a <strong>0,80%</strong> (0,90% solo a Roma) e la decide il tuo Comune. Le aliquote ufficiali sono sul sito del <a href="https://www1.finanze.gov.it/finanze2/dipartimentopolitichefiscali/fiscalitalocale/addregirpef/sceltaregione.htm" target="_blank" rel="noopener">Dipartimento delle Finanze</a>.</p>
         </div>
       </div>
@@ -723,16 +727,70 @@
       for(let i=0;i<60;i++){const mid=(lo+hi)/2;nettoFromLordo(mid,mensilita,figli,coniuge,aliqReg,aliqCom,codReg)<nettoTarget?lo=mid:hi=mid;}
       return (lo+hi)/2;
     }
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field, .field-group, .input-group');
+      if (!field) return;
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+      if (!input.disabled) input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field, .field-group, .input-group');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+    // Un risultato lasciato a schermo dopo un errore e' il numero di prima, che non
+    // c'entra piu' niente con quello che nel modulo c'e' scritto adesso.
+    function nascondiRisultato() {
+      const res = document.getElementById('result');
+      if (res) res.style.display = 'none';
+      for (const id of ['affiliazioni', 'crossLinks']) {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      }
+    }
     function calcola(){
+      ['importo','addRegionale','addComunale'].forEach(pulisciErroreCampo);
+      // Il campo vuoto valeva 30.000: la pagina rispondeva col netto di una RAL che
+      // nessuno aveva digitato, e niente lo distingueva da un calcolo vero.
       const importoRaw=parseFloat(document.getElementById('importo').value);
-      let importo=Number.isNaN(importoRaw)?30000:importoRaw;
+      if(!Number.isFinite(importoRaw)||importoRaw<=0){
+        mostraErroreCampo('importo','Inserisci un importo maggiore di zero.');
+        return nascondiRisultato();
+      }
+      let importo=importoRaw;
       const tipo=document.getElementById('tipo').value;
       const mensilita=parseFloat(document.getElementById('mensilita').value)||13;
       const figli=parseInt(document.getElementById('figli').value)||0;
       const coniuge=parseInt(document.getElementById('coniuge').value)||0;
-      const aliqReg=parseFloat(document.getElementById('addRegionale').value);
+      const campoReg=document.getElementById('addRegionale');
+      const aliqReg=parseFloat(campoReg.value);
+      // Scegliendo una regione il campo viene svuotato e disabilitato apposta: l'aliquota
+      // la calcolano i suoi scaglioni. Li' il vuoto e' lo stato giusto, non un errore.
+      if(!campoReg.disabled&&!Number.isFinite(aliqReg)){
+        mostraErroreCampo('addRegionale','Inserisci l\'addizionale regionale, oppure scegli la regione.');
+        return nascondiRisultato();
+      }
       const codReg=(document.getElementById('regione')||{}).value||'';
       const aliqCom=parseFloat(document.getElementById('addComunale').value);
+      if(!Number.isFinite(aliqCom)){
+        mostraErroreCampo('addComunale','Inserisci l\'addizionale comunale: se il tuo Comune non la applica, scrivi 0.');
+        return nascondiRisultato();
+      }
       // Normalizza a lordo annuo
       let lordo=importo;
       if(tipo==='lordo-mese') lordo=importo*mensilita;

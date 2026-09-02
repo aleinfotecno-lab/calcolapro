@@ -100,7 +100,9 @@ for (const c of casi) {
         const res = document.getElementById('result');
         return {
           segnalato: !!input && input.getAttribute('aria-invalid') === 'true',
-          messaggio: (document.querySelector('.field.error .error-msg') || {}).textContent || '',
+          // Il contenitore del campo non e' lo stesso su tutte le pagine: .field quasi
+          // ovunque, .field-group sull'ISEE, .input-group sul capitale assicurato.
+          messaggio: (document.querySelector('.field.error .error-msg, .field-group.error .error-msg, .input-group.error .error-msg') || {}).textContent || '',
           risultatoVisibile: res ? res.style.display !== 'none' : false,
           nan: /NaN/.test(document.body.innerText),
         };

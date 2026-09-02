@@ -583,7 +583,52 @@
     function fmt(n) { return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n); }
     function fmtN(n) { return new Intl.NumberFormat('it-IT', { maximumFractionDigits: 0 }).format(n); }
 
+    function mostraErroreCampo(id, messaggio) {
+      const input = document.getElementById(id);
+      const field = input.closest('.field, .field-group, .input-group');
+      if (!field) return;
+      let msg = document.getElementById(id + '-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'error-msg';
+        msg.id = id + '-error';
+        field.appendChild(msg);
+      }
+      msg.textContent = messaggio;
+      field.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const described = (input.getAttribute('aria-describedby') || '').split(' ').filter(s => s && s !== msg.id);
+      described.push(msg.id);
+      input.setAttribute('aria-describedby', described.join(' '));
+      if (!input.disabled) input.focus();
+    }
+    function pulisciErroreCampo(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const field = input.closest('.field, .field-group, .input-group');
+      if (field) field.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+    }
+    // Un risultato lasciato a schermo dopo un errore e' il numero di prima, che non
+    // c'entra piu' niente con quello che nel modulo c'e' scritto adesso.
+    function nascondiRisultato() {
+      const res = document.getElementById('resultCard');
+      if (res) res.style.display = 'none';
+      for (const id of ['affiliazioni', 'crossLinks']) {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      }
+    }
     function calcolaISEE() {
+      // A modulo vuoto la pagina dichiarava "ISEE 0 euro - Molto basso, accedi alle
+      // agevolazioni massime": un consiglio dato senza un dato. Uno zero digitato resta
+      // valido, il campo lasciato in bianco no.
+      const datiNucleo = ['redditoLavDip', 'redditoAltri', 'valoreImuPrimaCasa', 'valoreImuAltri', 'saldoConti', 'titoliFinanziari'];
+      pulisciErroreCampo('redditoLavDip');
+      if (datiNucleo.every(id => document.getElementById(id).value.trim() === '')) {
+        mostraErroreCampo('redditoLavDip', 'Inserisci almeno un dato del nucleo: se non avete redditi, scrivi 0.');
+        return nascondiRisultato();
+      }
       const n = parseInt(document.getElementById('componenti').value);
       let scala = scaleTable[n] || 3.53;
       const disabile = parseFloat(document.getElementById('figlioDisabile').value);

@@ -546,6 +546,16 @@ input[type="range"] {
 }
 .field.error .error-msg { display: block; }
 
+/* Non tutte le pagine avvolgono il campo in .field: calcolo-isee usa .field-group e
+   calcolo-capitale-assicurato .input-group. Senza queste righe il messaggio d'errore
+   esiste nel DOM e resta invisibile, che e' peggio del non averlo affatto. */
+.field-group.error input,
+.input-group.error input { border-color: var(--red); }
+.field-group.error input:focus,
+.input-group.error input:focus { box-shadow: 0 0 0 3px rgba(220,38,38,0.12); }
+.field-group.error .error-msg,
+.input-group.error .error-msg { display: block; }
+
 /* ═══════════════════════════════════════════════════════════
    BUTTONS
    ═══════════════════════════════════════════════════════════ */
