@@ -101,3 +101,40 @@
     init();
   }
 })();
+
+// Tabelle larghe raggiungibili da tastiera (WCAG 2.1.1).
+//
+// Il contenitore che scorre in orizzontale non prende il focus da solo: senza
+// tabindex chi naviga da tastiera non puo' scorrerlo, e meta' tabella resta
+// irraggiungibile. Sta qui e non in ui-common.js perche' questo file lo caricano
+// tutte e settanta le pagine, quello solo trentuno: diciassette pagine con tabelle
+// scorrevoli restavano scoperte.
+//
+// Il tabindex si mette solo dove il contenuto eccede davvero, e si rivaluta quando
+// cambia la larghezza: metterlo ovunque creerebbe fermate di tabulazione vuote.
+(function() {
+  var contenitori = document.querySelectorAll('.table-wrap, .table-scroll');
+  if (!contenitori.length) return;
+  function sincronizza() {
+    contenitori.forEach(function(el) {
+      if (el.scrollWidth > el.clientWidth + 1) {
+        if (el.getAttribute('tabindex') === null) {
+          el.setAttribute('tabindex', '0');
+          el.setAttribute('role', 'region');
+          if (!el.hasAttribute('aria-label')) {
+            var t = el.querySelector('caption, th');
+            el.setAttribute('aria-label', t ? 'Tabella: ' + t.textContent.trim().slice(0, 60) : 'Tabella scorrevole in orizzontale');
+          }
+        }
+      } else if (el.getAttribute('role') === 'region') {
+        el.removeAttribute('tabindex');
+        el.removeAttribute('role');
+      }
+    });
+  }
+  sincronizza();
+  // I caratteri web arrivano dopo: una tabella che stava dentro puo' uscirne.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(sincronizza);
+  window.addEventListener('load', sincronizza);
+  window.addEventListener('resize', sincronizza);
+})();
