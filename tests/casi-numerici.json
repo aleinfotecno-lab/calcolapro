@@ -1315,6 +1315,48 @@
       "attesi": { "priceOut": 62963, "irpefOut": 36391 }
     },
     {
+      "file": "/lordonetto.html",
+      "caso": "Lazio, sotto la soglia: aliquota unica 1,73% e nessuna detrazione da applicare",
+      "norma": "Art. 2 c. 2 L.R. Lazio 20 del 31/12/2025: per imponibile non superiore a 28.000 euro l'aliquota e' 1,73%. Con RAL 30.000 l'imponibile e' 27.243 e la detrazione del comma 3 non entra in gioco",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "lazio", "addComunale": 0 },
+      "attesi": { "priceOut": 23485, "irpefOut": 3758 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Lazio: nella fascia 28.001-30.000 spettano 60 euro di detrazione",
+      "norma": "Art. 2 c. 3 L.R. Lazio 20 del 31/12/2025: detrazione di 60,00 euro per imponibile compreso fra 28.001 e 30.000 euro. Con RAL 33.000 l'imponibile e' 29.967,30, dentro la fascia",
+      "campi": { "importo": 33000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "lazio", "addComunale": 0 },
+      "attesi": { "priceOut": 24919, "irpefOut": 5048 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Lazio, confine da sopra: a 30.058 di imponibile la detrazione non spetta piu'",
+      "norma": "Cento euro di RAL in piu' portano l'imponibile a 30.058,11, oltre il limite della fascia. Lo scalino e' della norma: il netto scende di dieci euro a fronte di cento euro lordi in piu'",
+      "campi": { "importo": 33100, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "lazio", "addComunale": 0 },
+      "attesi": { "priceOut": 24909, "irpefOut": 5149 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Umbria, sotto la soglia: le maggiorazioni non si applicano e resta l'1,23%",
+      "norma": "Art. 1 L.R. Umbria 2 dell'11/04/2025: le maggiorazioni dello 0,50% e dell'1,79% non si applicano a chi ha imponibile fino a 28.000 euro, che paga quindi 1,23%. Con RAL 30.000 l'imponibile e' 27.243",
+      "campi": { "importo": 30000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "umbria", "addComunale": 0 },
+      "attesi": { "priceOut": 23621, "irpefOut": 3622 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Umbria: nella fascia 28.001-50.000 spettano 150 euro di detrazione",
+      "norma": "Art. 1 L.R. Umbria 2 dell'11/04/2025: detrazione di 150,00 euro per imponibile compreso fra 28.001 e 50.000 euro. Con RAL 55.000 l'imponibile e' 49.945,50, appena dentro la fascia",
+      "campi": { "importo": 55000, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "umbria", "addComunale": 0 },
+      "attesi": { "priceOut": 35081, "irpefOut": 14864 }
+    },
+    {
+      "file": "/lordonetto.html",
+      "caso": "Umbria, confine da sopra: a 50.036 di imponibile la detrazione non spetta piu'",
+      "norma": "Cento euro di RAL in piu' portano l'imponibile a 50.036,31, oltre il limite: si perdono i 150 euro e si entra nello scaglione al 3,33%",
+      "campi": { "importo": 55100, "tipo": "lordo", "mensilita": 13, "figli": 0, "coniuge": 0, "regione": "umbria", "addComunale": 0 },
+      "attesi": { "priceOut": 34981, "irpefOut": 15055 }
+    },
+    {
       "file": "/chilometrico.html",
       "caso": "Cinquecento chilometri al mese con auto di media cilindrata",
       "norma": "Art. 51 c.5 TUIR: il rimborso chilometrico non concorre al reddito se calcolato sulle tabelle ACI (GU 297 del 23/12/2025). 500 km x 0,4344 = 217,20; su base mensile la proiezione annua e' x12",

@@ -15,7 +15,7 @@
   // delle Entrate, istruzioni di liquidazione del mod. 730/2026, Allegato C par. 19.24.3.1.
   // Di regola gli scaglioni sono progressivi come l'IRPEF; sei fra regioni e province
   // autonome fanno eccezione e sono marcate con 'd'.
-  const REGIONI={abruzzo:{n:"Abruzzo",s:[[1.67,0,28000],[2.87,28000,50000],[3.33,50000,null]]},basilicata:{n:"Basilicata",s:[[1.23,0,null]]},bolzano:{n:"Bolzano (prov. aut.)",s:[[1.23,0,28000],[1.23,28000,50000],[1.73,50000,null]],d:"detraz:430.50:90000"},calabria:{n:"Calabria",s:[[1.73,0,null]]},campania:{n:"Campania",s:[[1.73,0,15000],[2.96,15000,28000],[3.2,28000,50000],[3.33,50000,null]]},emiliaromagna:{n:"Emilia-Romagna",s:[[1.33,0,15000],[1.93,15000,28000],[2.78,28000,50000],[3.33,50000,null]]},friuliveneziagiulia:{n:"Friuli-Venezia Giulia",s:[[0.7,0,15000],[1.23,15000,28000],[1.23,28000,50000],[1.23,50000,null]],d:"piatta"},lazio:{n:"Lazio",s:[[1.73,0,15000],[3.33,15000,28000],[3.33,28000,50000],[3.33,50000,null]],d:"soglia:28000:1.73"},liguria:{n:"Liguria",s:[[1.23,0,28000],[3.18,28000,50000],[3.23,50000,null]]},lombardia:{n:"Lombardia",s:[[1.23,0,15000],[1.58,15000,28000],[1.72,28000,50000],[1.73,50000,null]]},marche:{n:"Marche",s:[[1.23,0,15000],[1.53,15000,28000],[1.7,28000,50000],[1.73,50000,null]]},molise:{n:"Molise",s:[[2.03,0,15000],[2.23,15000,28000],[3.63,28000,50000],[3.63,50000,null]]},piemonte:{n:"Piemonte",s:[[1.62,0,15000],[2.68,15000,28000],[3.31,28000,50000],[3.33,50000,null]]},puglia:{n:"Puglia",s:[[1.33,0,15000],[2.13,15000,28000],[3.23,28000,50000],[3.33,50000,null]]},sardegna:{n:"Sardegna",s:[[1.23,0,null]]},sicilia:{n:"Sicilia",s:[[1.23,0,null]]},toscana:{n:"Toscana",s:[[1.42,0,15000],[1.43,15000,28000],[3.32,28000,50000],[3.33,50000,null]]},trento:{n:"Trento (prov. aut.)",s:[[1.23,0,15000],[1.23,15000,28000],[1.23,28000,50000],[1.73,50000,null]],d:"deduz:30000"},umbria:{n:"Umbria",s:[[1.73,0,15000],[3.02,15000,28000],[3.12,28000,50000],[3.33,50000,null]],d:"soglia:28000:1.23"},valledaosta:{n:"Valle d'Aosta",s:[[0,0,15000],[1.23,15000,null]],d:"piatta"},veneto:{n:"Veneto",s:[[1.23,0,null]]}};
+  const REGIONI={abruzzo:{n:"Abruzzo",s:[[1.67,0,28000],[2.87,28000,50000],[3.33,50000,null]]},basilicata:{n:"Basilicata",s:[[1.23,0,null]]},bolzano:{n:"Bolzano (prov. aut.)",s:[[1.23,0,28000],[1.23,28000,50000],[1.73,50000,null]],d:"detraz:430.50:90000"},calabria:{n:"Calabria",s:[[1.73,0,null]]},campania:{n:"Campania",s:[[1.73,0,15000],[2.96,15000,28000],[3.2,28000,50000],[3.33,50000,null]]},emiliaromagna:{n:"Emilia-Romagna",s:[[1.33,0,15000],[1.93,15000,28000],[2.78,28000,50000],[3.33,50000,null]]},friuliveneziagiulia:{n:"Friuli-Venezia Giulia",s:[[0.7,0,15000],[1.23,15000,28000],[1.23,28000,50000],[1.23,50000,null]],d:"piatta"},lazio:{n:"Lazio",s:[[1.73,0,15000],[3.33,15000,28000],[3.33,28000,50000],[3.33,50000,null]],d:"soglia:28000:1.73",df:[60,28000,30000]},liguria:{n:"Liguria",s:[[1.23,0,28000],[3.18,28000,50000],[3.23,50000,null]]},lombardia:{n:"Lombardia",s:[[1.23,0,15000],[1.58,15000,28000],[1.72,28000,50000],[1.73,50000,null]]},marche:{n:"Marche",s:[[1.23,0,15000],[1.53,15000,28000],[1.7,28000,50000],[1.73,50000,null]]},molise:{n:"Molise",s:[[2.03,0,15000],[2.23,15000,28000],[3.63,28000,50000],[3.63,50000,null]]},piemonte:{n:"Piemonte",s:[[1.62,0,15000],[2.68,15000,28000],[3.31,28000,50000],[3.33,50000,null]]},puglia:{n:"Puglia",s:[[1.33,0,15000],[2.13,15000,28000],[3.23,28000,50000],[3.33,50000,null]]},sardegna:{n:"Sardegna",s:[[1.23,0,null]]},sicilia:{n:"Sicilia",s:[[1.23,0,null]]},toscana:{n:"Toscana",s:[[1.42,0,15000],[1.43,15000,28000],[3.32,28000,50000],[3.33,50000,null]]},trento:{n:"Trento (prov. aut.)",s:[[1.23,0,15000],[1.23,15000,28000],[1.23,28000,50000],[1.73,50000,null]],d:"deduz:30000"},umbria:{n:"Umbria",s:[[1.73,0,15000],[3.02,15000,28000],[3.12,28000,50000],[3.33,50000,null]],d:"soglia:28000:1.23",df:[150,28000,50000]},valledaosta:{n:"Valle d'Aosta",s:[[0,0,15000],[1.23,15000,null]],d:"piatta"},veneto:{n:"Veneto",s:[[1.23,0,null]]}};
   function addizionaleRegionale(imponibile, codReg, aliqManuale) {
     const r = REGIONI[codReg];
     if (!r) return imponibile * (aliqManuale || 0) / 100;   // nessuna regione scelta: aliquota digitata
@@ -40,6 +40,16 @@
     if (d.startsWith('detraz:')) {
       const [, importo, tetto] = d.split(':');
       if (!tetto || imponibile <= parseFloat(tetto)) imposta -= parseFloat(importo);
+    }
+    // Detrazione a fascia di reddito: Lazio 60 euro fra 28.001 e 30.000 (art. 2 c. 3
+    // L.R. 20 del 31/12/2025), Umbria 150 fra 28.001 e 50.000 (art. 1 L.R. 2/2025).
+    // La norma scrive 28.001 perche' la liquidazione lavora su euro interi: 'oltre
+    // 28.000' e 'da 28.001' sono la stessa cosa, e prendere il limite alla lettera
+    // lascerebbe scoperto chi ha un imponibile con i centesimi. Sotto la soglia non
+    // si arriva qui: quel ramo esce prima con l'aliquota unica.
+    if (r.df) {
+      const [importo, oltre, finoA] = r.df;
+      if (imponibile > oltre && imponibile <= finoA) imposta -= importo;
     }
     return Math.max(0, imposta);
   }
